@@ -1,0 +1,36 @@
+---
+title: "Quantitative Methods for LEL"
+---
+
+Welcome to the main site of the course *Quantitative Methods for Linguistics and English Language* (Semester 1).
+
+This website is your go-to place throughout the semester for any info related to the course.
+
+## Course description
+
+This course is an introduction to **quantitative data analysis** (including data wrangling, visualisation and modelling) as commonly employed in linguistics, using the R software.
+
+We will cover the following **topics**:
+
+-   The basics of quantitative data analysis.
+-   Data preparation.
+-   Data summaries.
+-   Principles of **data visualisation**.
+-   Statistical modelling with **linear models**.
+-   Statistical inference using **Bayesian inference** (posterior probability distributions and credible intervals) and frequentist inference (*p*-values and confidence intervals).
+
+At completion of the course you will have gained the following **skills**:
+
+-   Import common data formats, tidy and transform data.
+-   Choosing and reporting appropriate summary measures.
+-   Using compelling visualisations to communicate a specific message about patterns in the data.
+-   Master linear models for different types of data (continuous measures and binary outcomes).
+-   Using Bayesian inference to answer research questions and avoid common interpretation pitfalls of frequentist techniques.
+
+Examples from different branches of linguistics will be used to provide you with hands-on experience in quantitative data analysis and Open Research practices.
+
+## Contacts
+
+You can reach me (Stefano) at <s.coretta@ed.ac.uk> or on Teams.
+
+If you want to book **office hours** with me (in person or online), you can do so here: <https://bit.ly/33BH84L>. My office is DSB 1.03 but I hold office hours in DSB 3.01.

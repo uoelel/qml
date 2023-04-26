@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>QML – content</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">QML</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./content.html" aria-current="page">
+ <span class="menu-text">Course content</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessments.html">
+ <span class="menu-text">Assessment</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#schedule-overview" id="toc-schedule-overview" class="nav-link active" data-scroll-target="#schedule-overview">Schedule overview</a></li>
+  <li><a href="#weekly-schedule" id="toc-weekly-schedule" class="nav-link" data-scroll-target="#weekly-schedule">Weekly schedule</a>
+  <ul class="collapse">
+  <li><a href="#week-1-quantitative-methods-and-uncertainty" id="toc-week-1-quantitative-methods-and-uncertainty" class="nav-link" data-scroll-target="#week-1-quantitative-methods-and-uncertainty">Week 1: Quantitative methods and uncertainty</a></li>
+  <li><a href="#week-2-data-wrangling" id="toc-week-2-data-wrangling" class="nav-link" data-scroll-target="#week-2-data-wrangling">Week 2: Data wrangling</a></li>
+  <li><a href="#week-3-data-visualisation" id="toc-week-3-data-visualisation" class="nav-link" data-scroll-target="#week-3-data-visualisation">Week 3: Data visualisation</a></li>
+  <li><a href="#week-4-statistical-modeling-basics" id="toc-week-4-statistical-modeling-basics" class="nav-link" data-scroll-target="#week-4-statistical-modeling-basics">Week 4: Statistical modeling basics</a></li>
+  <li><a href="#week-5-categorical-predictors" id="toc-week-5-categorical-predictors" class="nav-link" data-scroll-target="#week-5-categorical-predictors">Week 5: Categorical predictors</a></li>
+  <li><a href="#week-6-catch-up-week" id="toc-week-6-catch-up-week" class="nav-link" data-scroll-target="#week-6-catch-up-week">Week 6: Catch-up Week</a></li>
+  <li><a href="#week-7-binary-outcomes" id="toc-week-7-binary-outcomes" class="nav-link" data-scroll-target="#week-7-binary-outcomes">Week 7: Binary outcomes</a></li>
+  <li><a href="#week-8-multiple-predictors-and-interactions" id="toc-week-8-multiple-predictors-and-interactions" class="nav-link" data-scroll-target="#week-8-multiple-predictors-and-interactions">Week 8: Multiple predictors and interactions</a></li>
+  <li><a href="#week-9-continuous-predictors-and-interactions" id="toc-week-9-continuous-predictors-and-interactions" class="nav-link" data-scroll-target="#week-9-continuous-predictors-and-interactions">Week 9: Continuous predictors and interactions</a></li>
+  <li><a href="#week-10-bayesian-inference" id="toc-week-10-bayesian-inference" class="nav-link" data-scroll-target="#week-10-bayesian-inference">Week 10: Bayesian inference</a></li>
+  <li><a href="#week-11-obtaining-p-values-optional" id="toc-week-11-obtaining-p-values-optional" class="nav-link" data-scroll-target="#week-11-obtaining-p-values-optional">Week 11: Obtaining <em>p</em>-values (Optional)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="schedule-overview" class="level2">
+<h2 class="anchored" data-anchor-id="schedule-overview">Schedule overview</h2>
+<p>…</p>
+</section>
+<section id="weekly-schedule" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-schedule">Weekly schedule</h2>
+<section id="week-1-quantitative-methods-and-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="week-1-quantitative-methods-and-uncertainty">Week 1: Quantitative methods and uncertainty</h3>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What is quantitative data analysis?</li>
+<li>What is the inference process?</li>
+<li>How can we talk about uncertainty and variability?</li>
+<li>Which are the limits of quantitative methods?</li>
+</ul>
+<p><strong>Skills</strong></p>
+<ul>
+<li>Think critically about statistics, uncertainty and variability.</li>
+<li>Use R to perform simple calculations.</li>
+<li>Master the basics of the programming language R.</li>
+<li>Use RStudio.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Homework
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Intake form</strong></p>
+<ul>
+<li><strong>You must complete the intake form before coming to the Tuesday lecture.</strong></li>
+<li>The link to the form will be circulated via Learn.</li>
+</ul>
+<p><strong>Install R and RStudio</strong></p>
+<ul>
+<li>If you with to use your own laptop for the workshops, instead of the Lab PCs, you need to install both R and RStudio.</li>
+<li><strong>NOTE</strong>: If you have installed either R or RStudio prior to January 2023, please make sure you delete both R and RStudio from your laptop.</li>
+<li>Please, follow the instructions for <strong>Step 1 and 2</strong> here: <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Materials
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="slides/w01/">Lecture slides</a>.</li>
+<li><a href="./tutorials/tutorial-w01.html">Workshop tutorial</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Suggested readings
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Main textbooks</strong></p>
+<ul>
+<li>Statistics for Linguists with R, by Bodo Winter (<strong>S4LR</strong>) Ch. 1. [via library]</li>
+<li>R for Data Science (<strong>R4DS</strong>) <a href="https://r4ds.had.co.nz/introduction.html">Ch. 1</a>, <a href="https://r4ds.had.co.nz/explore-intro.html">Ch. 2</a>. [online book]</li>
+<li>Statistical (Re)thinking, by Richard McElreath (<strong>SReT</strong>), Ch. 1. [via library]</li>
+</ul>
+<p><strong>Papers</strong></p>
+<ul>
+<li><a href="https://doi.org/10.34293/education.v8i4.3232">Darwin Holmes 2020</a>. Researcher Positionality - A Consideration of Its Influence and Place in Qualitative Research - A New Researcher Guide</li>
+<li><a href="https://doi.org/10.1136/emermed-2017-207158">Jafar 2018</a>. What is positionality and should it be expressed in quantitative studies?</li>
+</ul>
+<p><strong>From the lecture</strong></p>
+<ul>
+<li><a href="https://doi.org/10.1177/2515245917747646">Silberzahn et al.&nbsp;2018</a>. Many Analysts, One Data Set: Making Transparent How Variations in Analytic Choices Affect Results</li>
+<li><a href="https://doi.org/10.31234/osf.io/q8t2k">Coretta et al.&nbsp;(in principle)</a>. Multidimensional signals and analytic flexibility: Estimating degrees of freedom in human speech analyses</li>
+<li><a href="https://doi.org/10.1177%2F0956797613504966">Cumming 2014</a>. The New Statistics: Why and How</li>
+<li><a href="https://doi.org/10.3758/s13423-016-1221-4">Kurschke and Liddell 2018</a>. The Bayesian New Statistics: Hypothesis testing, estimation, meta-analysis, and power analysis from a Bayesian perspective</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="week-2-data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="week-2-data-wrangling">Week 2: Data wrangling</h3>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What are the types of statistical variables?</li>
+<li>Which summary measures are appropriate for which types of variables?</li>
+<li>What are common measures central tendency?</li>
+<li>What are common measures of dispersion?</li>
+</ul>
+<p><strong>Skills</strong></p>
+<ul>
+<li>Organise files efficiently.</li>
+<li>Import tabular data in R.</li>
+<li>Obtain mean, median, mode, range and standard deviation.</li>
+<li>Use R scripts to save and reuse code.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Materials
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="slides/w02/">Lecture slides</a>.</li>
+<li><a href="./tutorials/tutorial-w02.html">Workshop tutorial</a>.</li>
+<li>Workshop files (right-click and download):
+<ul>
+<li><a href="data/shallow.csv">shallow.csv</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Suggested readings
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Main textbooks</strong></p>
+<ul>
+<li><strong>S4LR</strong> Ch. 3. [via library]</li>
+<li><strong>R4DS</strong> <a href="https://r4ds.had.co.nz/workflow-basics.html">Ch. 4</a> and <a href="https://r4ds.had.co.nz/transform.html">Ch. 5</a>. [online book]</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="week-3-data-visualisation" class="level3">
+<h3 class="anchored" data-anchor-id="week-3-data-visualisation">Week 3: Data visualisation</h3>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What are the principles of good data visualisation?</li>
+<li>Which are the main components of a plot?</li>
+<li>Which are the appropriate plots for different types of data?</li>
+<li>How can we visualise uncertainty?</li>
+</ul>
+<p><strong>Skills</strong></p>
+<ul>
+<li>Create common types of plots with ggplot2.</li>
+<li>Use colour and shape to effectively convey meaning.</li>
+<li>Describe a plot in writing and comment on observable patterns.</li>
+<li>Filter and mutate data.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Homework
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Set-up your laptop</strong></p>
+<p>From Week 4 on, we will need to use software that unfortunately is not currently working on the Lab PCs. This means you will need to bring your own laptop to the workshop. Moreover, <strong>you will have to install software prior to the workshop</strong>.</p>
+<p><strong>Note that it will take up to an hour to install everything and you might encounter errors, so please do this asap. DO NOT WAIT NEXT WEEK.</strong></p>
+<p>You can find the full instructions here: <a href="./setup.html">set-up instructions</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Materials
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="slides/w03/">Lecture slides</a>.</li>
+<li><a href="./tutorials/tutorial-w03.html">Workshop tutorial</a>.</li>
+<li>Workshop files (right-click and download):
+<ul>
+<li><a href="data/polite.csv">polite.csv</a></li>
+<li><a href="data/glot_status.rds">glot_status.rds</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Suggested readings
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Main textbooks</strong></p>
+<ul>
+<li><strong>R4DS</strong> <a href="https://r4ds.had.co.nz/data-visualisation.html">Ch. 3</a>. [online book]</li>
+<li><a href="https://ggplot2.tidyverse.org">ggplot2</a> documentation.</li>
+</ul>
+<p><strong>From the lecture</strong></p>
+<ul>
+<li><a href="https://www.penguin.co.uk/books/294857/the-art-of-statistics-by-spiegelhalter-david/9780241258767">Spiegelhalter 2020</a>. <em>The Art of Statistics: Learning from Data.</em></li>
+</ul>
+<p><strong>Extra</strong></p>
+<ul>
+<li><a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualisation</a>.</li>
+<li><strong>Data viz catalogues</strong>
+<ul>
+<li><a href="https://clauswilke.com/dataviz/directory-of-visualizations.html">Directory of visualisations</a></li>
+<li><a href="https://datavizcatalogue.com/index.html">Data viz catalogue</a></li>
+<li><a href="https://datavizproject.com">Data Viz project</a></li>
+<li><a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html">Top 50</a></li>
+<li><a href="https://datavizm20.classes.andrewheiss.com/">Data Viz</a></li>
+</ul></li>
+<li><strong>Tutorials</strong>
+<ul>
+<li><a href="https://wellcomeopenresearch.org/articles/4-63">Raincloud plots</a></li>
+<li><a href="https://www.cararthompson.com/talks/user2022/">Labels</a></li>
+<li><a href="https://rstudio-conf-2022.github.io/ggplot2-graphic-design/">Graphic design</a></li>
+</ul></li>
+<li><strong>Colour</strong>
+<ul>
+<li><a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">ColorBrewer2</a>.</li>
+<li><a href="https://github.com/BlakeRMills/MetBrewer">MetBrewer</a></li>
+<li><a href="https://albert-rapp.de/post/2022-02-19-ggplot2-color-tips-from-datawrapper/">Use colour wisely</a>.</li>
+</ul></li>
+<li><strong>Caveats</strong>
+<ul>
+<li><a href="https://www.autodesk.com/research/publications/same-stats-different-graphs">Same stats different data</a>.</li>
+<li><a href="https://stats.stackexchange.com/questions/349422/does-it-make-sense-to-add-error-bars-in-a-bar-chart-of-frequencies/367889#367889">Behind bars</a>.</li>
+<li><a href="https://www.data-to-viz.com/caveat/error_bar.html">Issues with error bars</a>.</li>
+<li><a href="https://nightingaledvs.com/ive-stopped-using-box-plots-should-you/">I’ve stopped using boxplots</a>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="week-4-statistical-modeling-basics" class="level3">
+<h3 class="anchored" data-anchor-id="week-4-statistical-modeling-basics">Week 4: Statistical modeling basics</h3>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What are probability distributions?</li>
+<li>How can we describe probability distributions with statistical parameters?</li>
+<li>What are the frequentist and Bayesian view of statistical parameters?</li>
+<li>How can we estimate parameters using statistical models?</li>
+</ul>
+<p><strong>Skills</strong></p>
+<ul>
+<li>Transform data by creating new columns and filtering based on specific values.</li>
+<li>Use logical operators to transform data.</li>
+<li>Fit a statistical model to estimate the mean and standard deviation of a Gaussian variable with <code>brm()</code>.</li>
+<li>Interpret the summary of the model and understand the meaning of the reported estimates.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Homework
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Set-up your laptop</strong></p>
+<p>From Week 4 on, we will need to use software that unfortunately is not currently working on the Lab PCs. This means you will need to bring your own laptop to the workshop. Moreover, <strong>you were asked to install software prior to the workshop</strong>.</p>
+<p><strong>In the tragic event you did not go through the installation instructions last week, DO IT NOW AT YOUR OWN PERIL.</strong> I won’t be able to help you with the installation during the workshop.</p>
+<p>You can find the full instructions here: <a href="./setup.html">set-up instructions</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Materials
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="slides/w04/">Lecture slides</a>.</li>
+<li><a href="./tutorials/tutorial-w04.html">Workshop tutorial</a>.</li>
+<li>Workshop files (right-click and download):
+<ul>
+<li><a href="data/alb_vot.csv">alb_vot.csv</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Suggested readings
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Main textbooks</strong></p>
+<ul>
+<li><strong>R4DS</strong> <a href="https://r4ds.had.co.nz/data-visualisation.html">Ch. 3</a>. [online book]</li>
+<li><a href="https://ggplot2.tidyverse.org">ggplot2</a> documentation.</li>
+<li><strong>S4LR</strong> Ch 3. [via library]</li>
+<li><strong>SReT</strong> Ch 2, sparingly (we have not covered everything in the chapter yet). [via library]</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="week-5-categorical-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="week-5-categorical-predictors">Week 5: Categorical predictors</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Formative assessment 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>DUE on Thursday 16 February at NOON</strong>.</p></li>
+<li><p>Formative assessment 1 requires you to read, mutate and plot a given data set. You can preview the formative instructions here: <a href="https://github.com/uoelel/sqmb-f1" class="uri">https://github.com/uoelel/sqmb-f1</a>.</p></li>
+<li><p>We will use GitHub Classroom for all assessments. For an overview of how GitHub Classroom works, watch <a href="https://youtube.com/playlist?list=PLiqxyEAY_i3kItjlvEYN1VCwHvAdP6hZW">these videos</a>.</p></li>
+<li><p>The GitHub Classroom invitation link can be found on Learn.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Questions</strong></p>
+<ul>
+<li>How do we model variables using categorical predictors?</li>
+<li>Which are the most common coding systems for categorical predictors?</li>
+<li>How do we interpret the model output when there are categorical predictors?</li>
+<li>How can we quickly check model goodness?</li>
+</ul>
+<p><strong>Skills</strong></p>
+<ul>
+<li>Master contrast coding in R for categorical predictors.</li>
+<li>Understand treatment coding.</li>
+<li>Fit, interpret and plot models with a categorical predictor.</li>
+<li>Reporting of model specification and results.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Materials
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="slides/w05/">Lecture slides</a>.</li>
+<li><a href="./tutorials/tutorial-w05.html">Workshop tutorial</a>.</li>
+<li>Workshop files (right-click and download):
+<ul>
+<li><a href="data/senses_valence.csv">senses_valence.csv</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Suggested readings
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Main textbooks</strong></p>
+<ul>
+<li><strong>R4DS</strong> <a href="https://r4ds.had.co.nz/factors.html">Ch. 15</a>. [online book]</li>
+<li><strong>S4LR</strong> Ch 7. [via library]</li>
+<li><strong>SReT</strong> Sec 5.3. [via library]</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="week-6-catch-up-week" class="level3">
+<h3 class="anchored" data-anchor-id="week-6-catch-up-week">Week 6: Catch-up Week</h3>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Homework
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There is no homework as such, so take the time to revise the materials and/or catch up with the previous weeks’ materials.</p>
+<p>There will be no classes.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="week-7-binary-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="week-7-binary-outcomes">Week 7: Binary outcomes</h3>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Questions</strong></p>
+<ul>
+<li>How can we visualise proportions of binary outcomes (yes/no, correct/incorrect, …)?</li>
+<li>Which distribution do binary outcomes follow?</li>
+<li>What is the relationship between probabilities and log-odds?</li>
+<li>How do we interpret log-odds and odds?</li>
+</ul>
+<p><strong>Skills</strong></p>
+<ul>
+<li>Plot binary data as proportions in ggplot2.</li>
+<li>Pivot data from wide to long with tidyr.</li>
+<li>Fit, interpret and plot linear models with binary outcome variables, using the Bernoulli distribution family.</li>
+<li>Convert between log-odds, odds and probabilities.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Formative assessment 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>DUE on Thursday 2 March at NOON</strong>.</p></li>
+<li><p>F2 requires you to find a data table and fit a model with one continuous outcome and one categorical predictor. You can preview the instructions here: <a href="https://github.com/uoelel/sqmb-f2" class="uri">https://github.com/uoelel/sqmb-f2</a>.</p></li>
+<li><p>From the .Rmd file, you will render a PDF and submit it over Turnitin. You can find the link to Turnitin on Learn under Assessment &gt; Formative Assessment F2.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Materials
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="slides/w07/">Lecture slides</a>.</li>
+<li><a href="./tutorials/tutorial-w07.html">Workshop tutorial</a>.</li>
+<li>Workshop files (right-click and download):
+<ul>
+<li><a href="data/takete_maluma.txt">takete_maluma.txt</a>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="week-8-multiple-predictors-and-interactions" class="level3">
+<h3 class="anchored" data-anchor-id="week-8-multiple-predictors-and-interactions">Week 8: Multiple predictors and interactions</h3>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What is a factorial design?</li>
+<li>How do we estimate and interpret the effects of multiple predictors?</li>
+<li>How do we deal with situations when one predictor’s effect is different, depending on the value of the other predictor?</li>
+<li>How can such interactions between predictors be built into our models?</li>
+<li>How do we interpret model estimates of interactions?</li>
+</ul>
+<p><strong>Skills</strong></p>
+<ul>
+<li>Run and interpret models with multiple predictors.</li>
+<li>Interpret interactions between two predictors.</li>
+<li>Plot posterior and conditional probabilities from models with interactions.</li>
+<li>Practice transforming and back-transforming variables.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Materials
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="slides/w08/">Lecture slides</a>.</li>
+<li><a href="./tutorials/tutorial-w08.html">Workshop tutorial</a>.</li>
+<li>Workshop files (right-click and download):
+<ul>
+<li><a href="data/shallow.csv">shallow.csv</a>.</li>
+<li><a href="data/dur-ita-pol.csv">dur-ita-pol.csv</a>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Formative assessment 3 (due Thursday April 6 at noon)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Data analysis report</strong></p>
+<ul>
+<li><p>Given a data table and a research question, submit a short and concise data analysis report, including summary measures, plots, and a linear model. You can download everything you need from here: <a href="https://github.com/uoelel/sqmb-f3" class="uri">https://github.com/uoelel/sqmb-f3</a>.</p></li>
+<li><p>From the .Rmd file, you will render a PDF and submit it over Turnitin. You can find the link to Turnitin on Learn under Assessment &gt; Formative Assessment F3.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="week-9-continuous-predictors-and-interactions" class="level3">
+<h3 class="anchored" data-anchor-id="week-9-continuous-predictors-and-interactions">Week 9: Continuous predictors and interactions</h3>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Questions</strong></p>
+<ul>
+<li>How do we model predictors that aren’t categorical, but continuous?</li>
+<li>How do we interpret model estimates for continuous predictors?</li>
+<li>How do we fit and interpret interactions involving continuous predictors?</li>
+</ul>
+<p><strong>Skills</strong></p>
+<ul>
+<li>Centre continuous predictors.</li>
+<li>Run and interpret models with continuous predictors.</li>
+<li>Interpret interactions that are categorical * continuous (in the lecture) and continuous * continuous (in the tutorial).</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Materials
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="slides/w09/">Lecture slides</a>.</li>
+<li><a href="./tutorials/tutorial-w09.html">Workshop tutorial</a>.</li>
+<li>Workshop files (right-click and download):
+<ul>
+<li><a href="data/si.csv">si.csv</a>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="week-10-bayesian-inference" class="level3">
+<h3 class="anchored" data-anchor-id="week-10-bayesian-inference">Week 10: Bayesian inference</h3>
+</section>
+<section id="week-11-obtaining-p-values-optional" class="level3">
+<h3 class="anchored" data-anchor-id="week-11-obtaining-p-values-optional">Week 11: Obtaining <em>p</em>-values (Optional)</h3>
+<!--
+### Thursday 30 March
+
+::: {.callout-warning collapse="true"}
+#### Summative assessment 1
+
+**Due on Thursday 30 March at noon**
+
+The first summative contains a series of guided exercises. You can find the summative materials and exercises here: <https://github.com/uoelel/sqmb-s1>.
+
+You may find helpful information in the FAQ post on Piazza [here](https://piazza.com/class/lcns7m75s8pdw/post/63).
+:::
+
+### Thursday 27 April
+
+::: {.callout-warning collapse="true"}
+#### Summative assessment 2
+
+**Due on Thursday 27 April at noon**
+
+In the second summative assessment, you will:
+
+-   select a dataset and its associated research questions,
+-   analyse the data using one linear model, and
+-   write a report about the data, the model, and your findings.
+
+You can find more information about the assessment on GitHub here: <https://github.com/uoelel/sqmb-s2>
+:::
+-->
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

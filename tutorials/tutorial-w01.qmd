@@ -1,0 +1,349 @@
+---
+title: "SQM tutorial - Week 1"
+editor: visual
+---
+
+## Why R?
+
+R can be used to **analyse all sorts of data**, from tabular data (also known as "spreadsheets"), textual data, geographic data and even images.
+
+![](../img/what-r-for.png)
+
+This course will focus on the analysis of tabular data, since all of the techniques relevant to this type of data also apply to the other types.
+
+![](../img/inclusive-community.png)
+
+The R community is a **very inclusive community** and it's easy to find help. There are several groups that promote R in minority/minoritised groups, like [R-Ladies](https://www.r-consortium.org/all-projects/r-ladies), [Africa R](https://r4africa.org), and [Rainbow R](https://rainbowr.netlify.app) just to mention a few.
+
+Moreover, R is **open source and free**!
+
+## R vs RStudio
+
+Beginners usually have trouble understanding the difference between R and RStudio.
+
+Let's use a car analogy.
+
+What makes the car go is the **engine** and you can control the engine through the **dashboard**.
+
+You can think of R as an engine and RStudio as the dashboard.
+
+![](../img/R_vs_RStudio_1.png)
+
+::: {.callout-tip icon="false"}
+### R
+
+-   R is a **programming language**.
+
+-   We use programming languages to **interact** with computers.
+
+-   You run **commands** written in a **console** and the related task is **executed**.
+:::
+
+::: {.callout-tip icon="false"}
+### RStudio
+
+-   RStudio is an Integrated Development Environment or **IDE**.
+
+-   It helps you using R more **efficiently**.
+
+-   It has a **graphical user interface** or GUI.
+:::
+
+The next section will give you a tour of RStudio.
+
+## RStudio
+
+When you open RStudio, you can see the window is divided into 3 panels:
+
+-   Blue (left): the **Console**.
+
+-   Green (top-right): the **Environment tab**.
+
+-   Purple (bottom-right): the **Files tab**.
+
+![](/img/rstudio-1-2.png)
+
+The **Console** is where R commands can be executed. Think of this as the interface to R.
+
+The **Environment tab** lists the objects created with R, while in the **Files tab** you can navigate folders on your computer to get to files and open them in the file Editor.
+
+### RStudio projects
+
+RStudio is an IDE (see above) which allows you to work efficiently with R, all in one place.
+
+**Note** that files and data live in folders on your computer, outside of RStudio: do not think of RStudio as an app where you can save files in.
+
+All the files that you see in the Files tab are files on your computer and you can access them from the Finder or File Explorer as you would with any other file.
+
+In principle, you can open RStudio and then navigate to any folder or file on your computer.
+
+However, there is a more efficient way of working with RStudio: **RStudio Projects**.
+
+::: callout-tip
+#### RStudio Projects
+
+An **RStudio Project** is a folder on your computer that has an `.Rproj` file.
+:::
+
+You can create as many RStudio Projects as you wish, and I recommend to create one per project (your dissertation, a research project, etc...).
+
+We will create an RStudio Project for this course. You will be using this Project throughout the semester.
+
+To create an RStudio Project, click on the button that looks like a transparent light blue box with a plus, in the top-left corner of RStudio. A window like the one below will pop up.
+
+![](../img/rstudio-3.png)
+
+Click on `New Directory` then `New Project`.
+
+![](../img/rstudio-4.png)
+
+Now, this will create a new folder (aka directory) on your computer and will make that an RStudio Project.
+
+Give a name to your new project, something like the name of the course and year.
+
+Then you need to specify where to create this new folder/Project. Click on `Browse…` and navigate to the folder you want to create the new folder/Project in.
+
+When done, click on `Create Project`. RStudio will automatically open your new project.
+
+![](../img/rstudio-5.png)
+
+You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio.
+
+::: callout-note
+When working through these tutorials, always make sure you are in the course RStudio Project you just created.
+:::
+
+If your see `Project (none)` in the top-right corner, that means your **are not** in an RStudio Project.
+
+There are several ways of opening an RStudio Project:
+
+-   You can go to the RStudio Project folder in Finder or File Explorer and double click on the `Rproj` file.
+
+-   You can click on `File > Open Project` in the RStudio menu.
+
+-   You can click on the project name in the top-right corner of RStudio, which will bring up a list of projects. Click on the desired project to open it.
+
+### A few important settings
+
+Before moving on, there are a few important settings that you need to change.
+
+![](../img/rstudio-6.png)
+
+1.  Open the RStudio preferences (`Tools > Global options...`).
+
+2.  Un-tick `Restore .RData into workspace at startup`.
+
+3.  Select `Never` in `Save workspace to .RData on exit`.
+
+4.  Click `OK` to confirm the changes.
+
+## R basics
+
+### R as a calculator
+
+Write the following in the `Console`, then press `ENTER`: `1 + 2`.
+
+Fantastic! You should see that the answer to the addition has been printed in the `Console`, like this:
+
+    [1] 3
+
+Now, try some more operations (write each of the following in the Console and press `ENTER`). Feel free to add your own to the mix!
+
+```{r eval=FALSE}
+67 - 13
+2 * 4
+268 / 43
+```
+
+You can also chain multiple operations.
+
+```{r eval=FALSE}
+6 + 4 - 1 + 2
+4 * 2 + 3 * 2
+```
+
+### Variables
+
+> Forget-me-not.
+
+Most times, we want to store a certain value so that we can use it again later.
+
+We can achieve this by creating **variables**.
+
+::: callout-tip
+#### Variable
+
+A **variable** holds one or more values and it's stored in the computer memory for later use.
+:::
+
+You can create a variable by using the **assignment operator** `<-`.
+
+Let's assign the value `156` to the variable `my_num`.
+
+```{r}
+my_num <- 156
+```
+
+Now, check the list of variables in the `Environment` tab of the top-right panel of RStudio. You should see the `my_num` variable and its value there.
+
+Now, you can just call the variable back when you need it! Write the following in the Console and press `ENTER`.
+
+```{r}
+my_num
+```
+
+A variable like `my_num` is also called a **numeric vector**: i.e. a vector that contains a number (hence numeric).
+
+::: callout-tip
+#### Vector
+
+A **vector** is an R object that contains one or more values of the same type.
+:::
+
+Let's now try some operations using variables.
+
+```{r}
+income <- 1200
+expenses <- 500
+income - expenses
+```
+
+See? You can use operations with variables too!
+
+And you can also go all the way with variables.
+
+```{r}
+savings <- income - expenses
+```
+
+And check the value...
+
+```{r}
+savings
+```
+
+Vectors can hold more than one item or value.
+
+Just use the combine `c()` function to create a vector containing multiple values.
+
+The following are all numeric vectors.
+
+```{r}
+one_i <- 6
+# Vector with 2 values
+two_i <- c(6, 8)
+# Vector with 3 values
+three_i <- c(6, 8, 42)
+```
+
+Check the list of variables in the `Environment` tab. You will see now that before the values of `two_i` and `three_i` you get the vector type `num` for numeric. (If the vector has only one value, you don't see the type in the `Enviroment` list but it is still of a particular type).
+
+::: callout-tip
+#### Numeric vector
+
+A **numeric vector** is a vector that holds one or more numeric values.
+:::
+
+Note that the following are the same:
+
+```{r}
+one_i <- 6
+one_i
+one_ii <- c(6)
+one_ii
+```
+
+### Functions
+
+> R cannot function without... functions.
+
+::: callout-tip
+#### Function
+
+A **function** is an operation performed on one or more **arguments**.
+:::
+
+A function in R has the form `function()` where:
+
+-   `function` is the name of the function, like `sum`.
+-   `()` are round parentheses, inside of which you write arguments, separated by commas.
+
+Let's see an example:
+
+```{r}
+sum(3, 5)
+```
+
+The `sum()` function sums the number listed as arguments. Above, the arguments are `3` and `5`.
+
+And of course arguments can be vectors!
+
+```{r}
+my_nums <- c(3, 5, 7)
+
+sum(my_nums)
+mean(my_nums)
+```
+
+### String and logical vectors
+
+> Not just numbers.
+
+We have seen that variables can hold numeric vectors. But vectors are not restricted to being numeric. They can also store **strings**.
+
+A string is basically a set of characters (a word, a sentence, a full text).
+
+In R, strings have to be **quoted** using double quotes `" "`.
+
+Change the following strings to your name and surname. Remember to keep the double quotes
+
+```{r}
+name <- "Stefano"
+surname <- "Coretta"
+
+name
+```
+
+Strings can be used as arguments in functions, like numbers can.
+
+```{r}
+cat("My name is", name, surname)
+```
+
+Remember that you can reuse the same variable name to override the variable value.
+
+```{r}
+name <- "Raj"
+
+cat("My name is", name, surname)
+```
+
+You can combine multiple strings into a **character vector**, using `c()`.
+
+::: callout-tip
+#### Character vector
+
+A **character vector** is a vector that holds one or more strings.
+:::
+
+```{r}
+fruit <- c("apple", "oranges", "bananas")
+fruit
+```
+
+Check the Environment tab. Character vectors have `chr` before the values.
+
+Another type of vector is one that contains either `TRUE` or `FALSE`. Vectors of this type are called **logical vectors** and they are listed as `logi` in the `Environment` tab.
+
+::: callout-tip
+#### Logical vector
+
+A **logical vector** is a vector that holds one or more `TRUE` or `FALSE` values.
+:::
+
+```{r}
+groceries <- c("apple", "flour", "margarine", "sugar")
+in_pantry <- c(TRUE, TRUE, FALSE, TRUE)
+```
+
+`TRUE` and `FALSE` values must be written in all capitals and *without* double quotes (they are not strings!).

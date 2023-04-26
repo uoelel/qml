@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Statistics and Quantitative Methods (S2)</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr Stefano Coretta" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/freezeframe/freezeframe.min.js"></script>
+    <script src="libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
+    <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="../custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Statistics and Quantitative Methods (S2)
+]
+.subtitle[
+## Week 5
+]
+.author[
+### Dr Stefano Coretta
+]
+.institute[
+### University of Edinburgh
+]
+.date[
+### 2023/02/14
+]
+
+---
+
+
+
+
+
+
+## Summary from last week
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- **Probability distributions**
+
+  - Continuous vs discrete distributions.
+  - Describe distributions: density functions and parameters.
+  
+- **Modelling continuous variables**
+
+  - The Gaussian distribution has two parameters: mean `\(\mu\)` and SD `\(\sigma\)`.
+
+  - We can describe `\(\mu\)` and `\(\sigma\)` as probability distributions and estimate the (hyper-)parameters of those probability distributions.
+  
+- `brm()` from brms.
+]
+
+---
+
+layout: true
+
+## Comparing groups
+
+---
+
+&lt;img src="index_files/figure-html/hnr-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- We want to estimate the probability distribution of harmonics-to-noise ratio (HNR) in Korean speakers.
+
+  - Let's assume it is a Gaussian probability distribution.
+  
+  - So, `\(\text{HNR} \sim Gaussian(\mu, \sigma)\)`.
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- But we also want to estimate the difference in the mean (`\(\mu\)`) in the informal vs polite attitude conditions!
+  
+  - In other words, we need to allow the model to estimate `\(\mu\)` based on attitude (informal vs polite).
+]
+
+---
+
+.f3[
+`$$\text{HNR} \sim Gaussian(\mu, \sigma)$$`
+]
+
+--
+
+.f3[
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$`
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- `\(\beta_0\)`: mean HNR when [attitude = informal].
+
+- `\(\beta_1\)`: difference of mean HNR between [attitude = polite] and [attitude = informal].
+
+  - `\(\beta_1 = \mu_{pol} - \mu_{inf}\)`
+  
+  - **`\(\beta_1\)` is the effect of [attitude = polite] on mean HNR relative to the baseline mean HNR when [attitude = informal]**.
+
+- `\(attitude_{pol}\)`: is 0 for [attitude = informal] and 1 for [attitude = polite].
+]
+
+---
+
+.f3[
+`$$\text{HNR} \sim Gaussian(\mu, \sigma)$$`
+]
+
+.f3[
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$`
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**For [attitude = informal]**, `\(\mu\)` is:
+
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol} = \beta_0 + \beta_1 \cdot 0 = \beta_0$$`
+
+**For [attitude = polite]**, `\(\mu\)` is:
+
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol} = \beta_0 + \beta_1 \cdot 1 = \beta_0 + \beta_1$$`
+]
+
+---
+
+.f3[
+`$$\text{HNR} \sim Gaussian(\mu, \sigma)$$`
+]
+
+.f3[
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$`
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**For [attitude = informal]**, `\(\mu\)` is:
+
+`$$\mu_{\text{(attitude = informal)}} = \beta_0$$`
+
+**For [attitude = polite]**, `\(\mu\)` is:
+
+`$$\mu_{\text{(attitude = polite)}} = \beta_0 + \beta_1$$`
+]
+
+---
+
+.f3[
+`$$\text{HNR} \sim Gaussian(\mu, \sigma)$$`
+]
+
+.f3[
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$`
+]
+
+--
+
+&lt;br&gt;
+
+.f3[
+`$$\beta_0 \sim Gaussian(\mu_0, \sigma_0)$$`
+]
+
+.f3[
+`$$\beta_1 \sim Gaussian(\mu_1, \sigma_1)$$`
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- We estimate the probability distribution of mean HNR when [attitude = informal].
+
+- We estimate the probability distribution of the difference in mean HNR between [attitude = polite] and [attitude = informal]. 
+]
+
+---
+
+
+
+
+```r
+# Attach the brms package
+library(brms)
+
+# Run a Bayesian model
+vot_bm &lt;- brm(
+  # This is the formula of the model.
+  HNRmn ~ 1 + attitude,
+  # This is the probability distribution family.
+  family = gaussian(),
+  # And the data.
+  data = polite
+)
+```
+
+---
+
+.f2.center[
+`HNRmn ~ 1 + attitude`
+]
+
+**Read as**: Model HNR values (`HNRmn`) as a function of (`~`) the mean (`1`) and attitude (`attitude`).
+
+--
+
+.f2.center[
+`HNRmn ~ attitude`
+]
+
+We can omit the `1` (it is implied by default when there are other terms in the formula)! **You can read as**: Model HNR values (`HNRmn`) as a function of (`~`) attitude (`attitude`).
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- The variable to the left of `~` is called the **outcome variable** (aka response variable, dependent variable).
+
+- The variable(s) to the right of `~` are called **predictor variables** (aka independent variables).
+]
+
+---
+
+.f2.center[
+`HNRmn ~ attitude`
+]
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+😱 But... `attitude` is not a numeric predictor! 
+]
+
+
+```
+## # A tibble: 224 × 27
+##    subject gender birthplace musicst…¹ month…² scena…³ task  attit…⁴ total…⁵ artic…⁶  f0mn  f0sd f0range  inmn
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1 F1      F      seoul_area yes            18       6 not   inform…   55.2     3.38  229.  4.18    10.6  64.6
+##  2 F1      F      seoul_area yes            18       6 not   polite    28.5    12.2   181.  3.78     9    63.2
+##  3 F1      F      seoul_area yes            18       7 not   inform…   60.3     6.19  220.  4.18    10.4  61.8
+##  4 F1      F      seoul_area yes            18       7 not   polite    40.8     6.03  176.  4.59    13.1  61.7
+##  5 F1      F      seoul_area yes            18       1 dct   polite    18.4     5.61  215.  4.28    10.3  62  
+##  6 F1      F      seoul_area yes            18       1 dct   inform…   13.6     5.82  211.  3.43    10.5  61.5
+##  7 F1      F      seoul_area yes            18       2 dct   polite     5.22    6.49  285.  2.09     7.1  65.7
+##  8 F1      F      seoul_area yes            18       2 dct   inform…    4.25    6.22  266.  4.93    18.3  64.9
+##  9 F1      F      seoul_area yes            18       3 dct   polite     6.79    4.89  211.  3.22     6.7  61.3
+## 10 F1      F      seoul_area yes            18       3 dct   inform…    4.13    7.79  286.  3.92    11.2  64.9
+## # … with 214 more rows, 13 more variables: insd &lt;dbl&gt;, inrange &lt;dbl&gt;, shimmer &lt;dbl&gt;, jitter &lt;dbl&gt;,
+## #   HNRmn &lt;dbl&gt;, H1H2 &lt;dbl&gt;, breath_count &lt;dbl&gt;, filler_count &lt;dbl&gt;, hiss_count &lt;dbl&gt;, nasal_count &lt;dbl&gt;,
+## #   sil_count &lt;dbl&gt;, ya_count &lt;dbl&gt;, yey_count &lt;dbl&gt;, and abbreviated variable names ¹​musicstudent,
+## #   ²​months_ger, ³​scenario, ⁴​attitude, ⁵​total_duration, ⁶​articulation_rate
+```
+
+
+---
+
+.f3[
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$`
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+The formula works with numeric variables.
+
+- But `attitude` is a categorical variable.
+
+- 🤔 Think about it: what does it mean to multiply `\(\beta_1\)` by "informal" or "polite"?
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+Let's talk about coding of categorical variables!
+]
+
+&lt;br&gt;
+
+**NOTE**: What follows is for you how to understand how coding works, but remember that this is done automatically by R for you so you never have to do it by hand!!!
+
+---
+
+layout: false
+layout: true
+
+## Coding categorical predictors
+
+---
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**Categorical predictors can be coded using numbers.**
+
+There are two common types of coding systems:
+
+- **Treatment** coding (this week's focus).
+
+- **Sum** coding.
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+As with anything else in stats, **naming of coding systems is not an established matter** and the same coding can have different names, and vice versa the same name could refer to different systems.
+
+For an excellent overview, see &lt;https://debruine.github.io/faux/articles/contrasts.html&gt;.
+]
+
+---
+
+**Treatment** coding uses `0` and `1` to code categorical predictors.
+
+&lt;br&gt;
+
+.f3[
+|               | attitude_pol |
+| ------------- | -------:     |
+| informal      | 0            |
+| polite        | 1            |
+]
+
+---
+
+
+```
+## # A tibble: 224 × 3
+##    HNRmn attitude attitude_pol
+##    &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt;
+##  1  18.1 informal            0
+##  2  17.8 polite              1
+##  3  17   informal            0
+##  4  17.1 polite              1
+##  5  18.5 polite              1
+##  6  18.8 informal            0
+##  7  20.9 polite              1
+##  8  14.6 informal            0
+##  9  20.6 polite              1
+## 10  16.1 informal            0
+## # … with 214 more rows
+```
+
+**NOTE**: Remember that this is done automatically by R under the hood for you so you never have to do it by hand!!!
+
+---
+
+.f3[
+|               | attitude_pol |
+| ------------- | -------:     |
+| informal      | 0            |
+| polite        | 1            |
+]
+
+&lt;br&gt;
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+`$$\mu_{\text{(attitude = informal)}} = \beta_0 + \beta_1 \cdot attitude\_pol = \beta_0 + \beta_1 \cdot 0 = \beta_0$$`
+
+`$$\mu_{\text{(attitude = polite)}} = \beta_0 + \beta_1 \cdot attitude\_pol = \beta_0 + \beta_1 \cdot 1 = \beta_0 + \beta_1$$`
+]
+
+---
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+With **treatment coding**, the first level in the predictor is the **reference level** (in `attitude`, it is `informal`).
+
+The other level is compared against the reference level (`polite` vs `informal`).
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**Level order**
+
+- By default, the ordering of levels in a categorical predictor is based on alphabetical order.
+
+- But you can specify the order manually using the `factor()` function. (You will see how in the tutorial).
+]
+
+---
+
+.f3[
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$`
+]
+
+&lt;br&gt;
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+To reiterate from above:
+
+- `\(\beta_0\)` corresponds to the mean NHR when [attitude = informal], because `informal` is the reference level of `attitude`.
+
+- `\(\beta_1\)` corresponds to the **DIFFERENCE** between `\(\beta_0\)` and mean HNR when [attitude = polite], because `polite` is the other level in `attitude`.
+
+  - In other words, we are comparing mean HNR when [attitude = polite] vs [attitude = informal].
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+For now, things are easy because we only have two levels (informal vs polite), but we will see an example with three levels later.
+]
+
+---
+
+layout: false
+layout: true
+
+## Modelling HNR by attitude
+
+---
+
+
+```r
+vot_bm &lt;- brm(
+  # This is the formula of the model. We can omit `1`.
+  HNRmn ~ attitude,
+  # This is the probability distribution family.
+  family = gaussian(),
+  # And the data.
+  data = polite
+)
+```
+
+--
+
+`$$\text{HNR} \sim Gaussian(\mu, \sigma)$$`
+
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$`
+
+`$$\beta_0 \sim Gaussian(\mu_0, \sigma_0)$$`
+
+`$$\beta_1 \sim Gaussian(\mu_1, \sigma_1)$$`
+
+`$$\sigma \sim TruncGaussian(\mu_2, \sigma_2)$$`
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+We need to estimate `\(\mu_0\)`, `\(\sigma_0\)`, `\(\mu_1\)`, `\(\sigma_1\)`, `\(\mu_2\)`, `\(\sigma_2\)`.
+]
+
+---
+
+
+```
+##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: HNRmn ~ attitude 
+##    Data: polite (Number of observations: 224) 
+##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+##          total post-warmup draws = 4000
+## 
+## Population-Level Effects: 
+##                Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept         16.27      0.16    15.97    16.59 1.00     4136     3237
+## attitudepolite     1.25      0.23     0.80     1.70 1.00     4396     2937
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma     1.69      0.08     1.54     1.86 1.00     4065     2979
+## 
+## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).
+```
+
+---
+
+
+```
+## Population-Level Effects: 
+##                Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept         16.27      0.16    15.97    16.59 1.00     4136     3237
+## attitudepolite     1.25      0.23     0.80     1.70 1.00     4396     2937
+```
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+
+.pull-left[
+- **Intercept**: `\(\mu_{\text{attitude = informal}} = \beta_0\)`.
+
+- **Estimate**: `\(\mu_0 = 16.27\)` dB.
+
+- **Est.Error**: `\(\sigma_0 = 0.16\)` dB.
+]
+
+.pull-right[
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$`
+
+.purple[
+`$$\beta_0 \sim Gaussian(16.27, 0.16)$$`
+]
+
+`$$\beta_1 \sim Gaussian(\mu_1, \sigma_1)$$`
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+When [attitude = informal], the probability distribution of `\(\mu\)` is the probability distribution of `\(\beta_0\)`, which is `\(Gaussian(16.27, 0.16)\)`.
+]
+
+---
+
+&lt;img src="index_files/figure-html/hnr-int-p-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="index_files/figure-html/hnr-int-p-2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+--
+
+There is a 95% probability that mean HNR when [attitude = informal] is between 15.97 and 16.59 dB.
+
+
+---
+
+
+```
+## Population-Level Effects: 
+##                Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept         16.27      0.16    15.97    16.59 1.00     4136     3237
+## attitudepolite     1.25      0.23     0.80     1.70 1.00     4396     2937
+```
+
+&lt;br&gt;
+&lt;br&gt;
+
+.pull-left[
+- **attitudepolite**: `\(\beta_1\)`.
+
+- **Estimate**: `\(\mu_0 = 1.25\)` dB.
+
+- **Est.Error**: `\(\sigma_0 = 0.23\)` dB.
+]
+
+.pull-right[
+`$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$`
+
+`$$\beta_0 \sim Gaussian(16.27, 0.16)$$`
+
+.purple[
+`$$\beta_1 \sim Gaussian(1.25, 0.23)$$`
+]
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+When [attitude = polite], the probability distribution of the difference between `\(\mu_{\text{attitude = polite}}\)` and `\(\mu_{\text{attitude = informal}}\)` is the probability distribution of `\(\beta_1\)`, which is `\(Gaussian(1.25, 0.23)\)`.
+]
+
+---
+
+&lt;img src="index_files/figure-html/hnr-att-p-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="index_files/figure-html/hnr-att-p-2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+--
+
+There is 95% probability that the difference in mean HNR between `\(\mu_{\text{attitude = polite}}\)` and `\(\mu_{\text{attitude = informal}}\)` is between 0.8 and 1.7 dB.
+
+---
+
+&lt;img src="index_files/figure-html/hnr-sig-p-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="index_files/figure-html/hnr-sig-p-2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+--
+
+There is a 95% probability that the standard deviation of the probability distribution of HNR values is between 1.54 and 1.86 dB.
+
+---
+
+&lt;img src="index_files/figure-html/hnr-pp-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+.f6[**Posterior predictive checks**: the model can be assessed by visually inspecting the plot above. The closer the match between the light blue distributions and the dark blue distribution, the better the model captures the data.]
+
+---
+
+layout: false
+class: center middle reverse
+
+## MID-TERM COURSE EVALUATION
+
+---
+
+layout: true
+
+## Modelling VOT by stop
+
+---
+
+&lt;img src="index_files/figure-html/vot-1-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="index_files/figure-html/vot-2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="index_files/figure-html/vot-3-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- We want to estimate the probability distribution of Voice Onset Time (VOT) in Albanian voiceless stops /k, p, t/.
+
+  - Let's assume it is a Gaussian probability distribution.
+  
+  - So, `\(\text{VOT} \sim Gaussian(\mu, \sigma)\)`.
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- But we also want to estimate the difference in the mean (`\(\mu\)`) in each stop /k, p, t/!
+  
+  - In other words, we need to allow the model to estimate `\(\mu\)` based on the stop.
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+😱 But... `stop` is not a numeric predictor! 
+]
+
+---
+
+**Treatment** coding uses `0` and `1` to code categorical predictors. **But** now we have three levels (`k, p, t`) so `0` and `1` are not enough.
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+In treatment coding, **N-1 dummy variables** are created where N is the number of levels.
+
+- `attitude` has two levels (informal vs polite) so we need `\(N-1 = 2-1 = 1\)` dummy variable: `attitude_pol`.
+
+- `stop` has three levels (/k, p, t/) so we need `\(N-1 = 3-1 = 2\)` dummy variables: `stop_p` and `stop_t`.
+]
+
+--
+
+&lt;br&gt;
+
+|   | stop_p | stop_t |
+|---|--------|--------|
+| k | 0      | 0      |
+| p | 1      | 0      |
+| t | 0      | 1      |
+
+
+---
+
+.f3[
+`$$\text{VOT} \sim Gaussian(\mu, \sigma)$$`
+]
+
+--
+
+.f3[
+`$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$`
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- `\(\beta_0\)`: mean VOT when [stop = /k/].
+
+  - `k` is the reference level because of the alphabetical order in `k, p, t`.
+
+- `\(\beta_1\)`: difference of mean VOT between [stop = /p/] and [stop = /k/].
+
+  - `\(\beta_1 = \mu_{p} - \mu_{k}\)`
+  
+  - **`\(\beta_1\)` is the effect of [stop = /p/] on mean VOT relative to the baseline mean VOT when [stop = k]**.
+
+- `\(stop_p\)`: is 0 for [stop = /k/] and [stop = /t/] and 1 for [stop = /p/].
+]
+
+---
+
+.f3[
+`$$\text{VOT} \sim Gaussian(\mu, \sigma)$$`
+]
+
+.f3[
+`$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$`
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- `\(\beta_2\)`: difference of mean VOT between [stop = /t/] and [stop = /k/].
+
+  - `\(\beta_2 = \mu_{t} - \mu_{k}\)`
+  
+  - **`\(\beta_2\)` is the effect of [stop = /t/] on mean VOT relative to the baseline mean VOT when [stop = k]**.
+
+- `\(stop_t\)`: is 0 for [stop = /k/] and [stop = /p/] and 1 for [stop = /t/].
+]
+
+---
+
+
+.f3[
+`$$\text{VOT} \sim Gaussian(\mu, \sigma)$$`
+]
+
+.f3[
+`$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$`
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+`$$\mu_{\text{(stop = k)}} = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t = \beta_0 + \beta_1 \cdot 0 + \beta_2 \cdot 0 = \beta_0$$`
+
+`$$\mu_{\text{(stop = p)}} = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t = \beta_0 + \beta_1 \cdot 1 + \beta_2 \cdot 0 = \beta_0 + \beta_1$$`
+
+`$$\mu_{\text{(stop = t)}} = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t = \beta_0 + \beta_1 \cdot 0 + \beta_2 \cdot 1 = \beta_0 + \beta_2$$`
+]
+
+---
+
+`$$\text{VOT} \sim Gaussian(\mu, \sigma)$$`
+
+`$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$`
+
+`$$\beta_0 \sim Gaussian(\mu_0, \sigma_0)$$`
+
+`$$\beta_1 \sim Gaussian(\mu_1, \sigma_1)$$`
+
+`$$\beta_2 \sim Gaussian(\mu_2, \sigma_2)$$`
+
+`$$\sigma \sim TruncGaussian(\mu_3, \sigma_3)$$`
+
+--
+
+&lt;br&gt;
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+We need to estimate `\(\mu_0\)`, `\(\sigma_0\)`, `\(\mu_1\)`, `\(\sigma_1\)`, `\(\mu_2\)`, `\(\sigma_2\)`, `\(\mu_3\)`, `\(\sigma_3\)`.
+]
+
+---
+
+
+
+
+```r
+# Run a Bayesian model
+vot_bm &lt;- brm(
+  # This is the formula of the model.
+  vot ~ stop,
+  # This is the probability distribution family.
+  family = gaussian(),
+  # And the data.
+  data = alb_vot_vl
+)
+```
+
+---
+
+
+```
+##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: vot ~ stop 
+##    Data: alb_vot_vl (Number of observations: 45) 
+##   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+##          total post-warmup draws = 4000
+## 
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept    54.12      4.44    45.35    63.01 1.00     3233     2426
+## stopp       -40.55      6.27   -53.23   -28.35 1.00     3669     2833
+## stopt       -39.42      6.32   -51.81   -27.36 1.00     3259     2577
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma    16.77      1.82    13.71    20.89 1.00     3141     2785
+## 
+## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).
+```
+
+---
+
+
+```
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept    54.12      4.44    45.35    63.01 1.00     3233     2426
+## stopp       -40.55      6.27   -53.23   -28.35 1.00     3669     2833
+## stopt       -39.42      6.32   -51.81   -27.36 1.00     3259     2577
+```
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+
+.pull-left[
+- **Intercept**: `\(\mu_{\text{stop = k}} = \beta_0\)`.
+
+- **Estimate**: `\(\mu_0 = 54.12\)` ms.
+
+- **Est.Error**: `\(\sigma_0 = 4.44\)` ms.
+]
+
+.pull-right[
+`$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$`
+
+.purple[
+`$$\beta_0 \sim Gaussian(54.12, 4.14)$$`
+]
+
+`$$\beta_1 \sim Gaussian(\mu_1, \sigma_1)$$`
+
+`$$\beta_2 \sim Gaussian(\mu_2, \sigma_2)$$`
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+When [stop = k], the probability distribution of `\(\mu\)` is the probability distribution of `\(\beta_0\)`, which is `\(Gaussian(54.12, 4.12)\)`.
+]
+
+---
+
+
+
+```
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept    54.12      4.44    45.35    63.01 1.00     3233     2426
+## stopp       -40.55      6.27   -53.23   -28.35 1.00     3669     2833
+## stopt       -39.42      6.32   -51.81   -27.36 1.00     3259     2577
+```
+
+&lt;br&gt;
+&lt;br&gt;
+
+.pull-left[
+- **stopp**: `\(\beta_1\)`.
+
+- **Estimate**: `\(\mu_1 = -40.55\)` ms.
+
+- **Est.Error**: `\(\sigma_1 = 6.27\)` ms.
+]
+
+.pull-right[
+`$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$`
+
+`$$\beta_0 \sim Gaussian(54.12, 4.14)$$`
+
+.purple[
+`$$\beta_1 \sim Gaussian(-40.55, 6.27)$$`
+]
+
+`$$\beta_2 \sim Gaussian(\mu_2, \sigma_2)$$`
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+When [stop = p], the probability distribution of the difference between `\(\mu_{\text{stop = p}}\)` and `\(\mu_{\text{stop = k}}\)` is the probability distribution of `\(\beta_1\)`, which is `\(Gaussian(-40.55, 6.27)\)`.
+]
+
+---
+
+
+```
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept    54.12      4.44    45.35    63.01 1.00     3233     2426
+## stopp       -40.55      6.27   -53.23   -28.35 1.00     3669     2833
+## stopt       -39.42      6.32   -51.81   -27.36 1.00     3259     2577
+```
+
+&lt;br&gt;
+&lt;br&gt;
+
+.pull-left[
+- **stopp**: `\(\beta_2\)`.
+
+- **Estimate**: `\(\mu_2 = -39.42\)` ms.
+
+- **Est.Error**: `\(\sigma_2 = 6.32\)` ms.
+]
+
+.pull-right[
+`$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$`
+
+`$$\beta_0 \sim Gaussian(54.12, 4.14)$$`
+
+`$$\beta_1 \sim Gaussian(-40.55, 6.27)$$`
+
+.purple[
+`$$\beta_2 \sim Gaussian(-39.42, 6.32)$$`
+]
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+When [stop = t], the probability distribution of the difference between `\(\mu_{\text{stop = t}}\)` and `\(\mu_{\text{stop = k}}\)` is the probability distribution of `\(\beta_2\)`, which is `\(Gaussian(-39.42, 6.32)\)`.
+]
+
+---
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**IMPORTANT**
+
+- While `\(\beta_0\)` is the probability distribution of mean VOT when [stop = k]
+
+- `\(\beta_1\)` and `\(\beta_2\)` are the probability distributions of the **DIFFERENCE** between mean VOT when [stop = p] and when [stop = k], and when [stop = t] and when [stop = k], respectively.
+
+- `\(\beta_1\)` and `\(\beta_2\)` are **NOT** the probability distributions of the mean VOT when [stop = p] and when [stop = t]!
+]
+
+---
+
+layout: false
+
+## Summary
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- **Comparing groups** with `brm()`
+
+  - `outcome ~ predictor`.
+  - Categorical predictor with 2 and 3 levels.
+
+- **Treatment coding** of categorical predictors.
+
+  - N-1 **dummy variables**, where N is number of levels in the predictor.
+  - Level ordering is *alphabetical* but you can specify your own.
+  - **NOTE**: you don't have to apply treatment coding yourself! It's done under the hood by R.
+
+- **Remember**
+
+  - The **Intercept** `\(\beta_0\)` is the mean of the reference level.
+  - The other `\(\beta\)`'s are the **difference** of the other levels relative to the reference level.
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="../macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

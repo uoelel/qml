@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>QML - SQM tutorial - Week 4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">QML</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../content.html">
+ <span class="menu-text">Course content</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assessments.html">
+ <span class="menu-text">Assessment</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#mutating-data" id="toc-mutating-data" class="nav-link active" data-scroll-target="#mutating-data">Mutating data</a>
+  <ul class="collapse">
+  <li><a href="#the-alb_vot-data" id="toc-the-alb_vot-data" class="nav-link" data-scroll-target="#the-alb_vot-data">The <code>alb_vot</code> data</a></li>
+  <li><a href="#create-a-new-column" id="toc-create-a-new-column" class="nav-link" data-scroll-target="#create-a-new-column">Create a new column</a></li>
+  </ul></li>
+  <li><a href="#density-plots" id="toc-density-plots" class="nav-link" data-scroll-target="#density-plots">Density plots</a>
+  <ul class="collapse">
+  <li><a href="#make-things-cozy-with-a-rug" id="toc-make-things-cozy-with-a-rug" class="nav-link" data-scroll-target="#make-things-cozy-with-a-rug">Make things cozy with a rug</a></li>
+  </ul></li>
+  <li><a href="#if-else" id="toc-if-else" class="nav-link" data-scroll-target="#if-else">If-else</a>
+  <ul class="collapse">
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators">Logical operators</a></li>
+  <li><a href="#finding-unique-values" id="toc-finding-unique-values" class="nav-link" data-scroll-target="#finding-unique-values">Finding unique values</a></li>
+  <li><a href="#the-in-operator" id="toc-the-in-operator" class="nav-link" data-scroll-target="#the-in-operator">The <code>%in%</code> operator</a></li>
+  <li><a href="#voiceless-or-voiced" id="toc-voiceless-or-voiced" class="nav-link" data-scroll-target="#voiceless-or-voiced">Voiceless or voiced?</a></li>
+  </ul></li>
+  <li><a href="#violin-plots" id="toc-violin-plots" class="nav-link" data-scroll-target="#violin-plots">Violin plots</a>
+  <ul class="collapse">
+  <li><a href="#lay-over-the-raw-data" id="toc-lay-over-the-raw-data" class="nav-link" data-scroll-target="#lay-over-the-raw-data">Lay over the raw data</a></li>
+  <li><a href="#lets-add-some-colour" id="toc-lets-add-some-colour" class="nav-link" data-scroll-target="#lets-add-some-colour">Let’s add some colour</a></li>
+  </ul></li>
+  <li><a href="#filtering-data" id="toc-filtering-data" class="nav-link" data-scroll-target="#filtering-data">Filtering data</a>
+  <ul class="collapse">
+  <li><a href="#the-filter-function" id="toc-the-filter-function" class="nav-link" data-scroll-target="#the-filter-function">The <code>filter()</code> function</a></li>
+  </ul></li>
+  <li><a href="#modelling-with-brm" id="toc-modelling-with-brm" class="nav-link" data-scroll-target="#modelling-with-brm">Modelling with <code>brm()</code></a>
+  <ul class="collapse">
+  <li><a href="#markov-chain-monte-carlo-mcmc" id="toc-markov-chain-monte-carlo-mcmc" class="nav-link" data-scroll-target="#markov-chain-monte-carlo-mcmc">Markov-Chain Monte Carlo (MCMC)</a></li>
+  <li><a href="#model-summary" id="toc-model-summary" class="nav-link" data-scroll-target="#model-summary">Model summary</a></li>
+  </ul></li>
+  <li><a href="#legends-and-labels-in-plots" id="toc-legends-and-labels-in-plots" class="nav-link" data-scroll-target="#legends-and-labels-in-plots">Legends and labels in plots</a>
+  <ul class="collapse">
+  <li><a href="#plot-titles-and-labels" id="toc-plot-titles-and-labels" class="nav-link" data-scroll-target="#plot-titles-and-labels">Plot titles and labels</a></li>
+  <li><a href="#axis-labels" id="toc-axis-labels" class="nav-link" data-scroll-target="#axis-labels">Axis labels</a></li>
+  <li><a href="#positioning-the-legend" id="toc-positioning-the-legend" class="nav-link" data-scroll-target="#positioning-the-legend">Positioning the legend</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">SQM tutorial - Week 4</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-hash="tutorial-w04_cache/html/pkgs_e30a8418cbf1d1de84f0e06d1b3592ed">
+
+</div>
+<p>Let’s pick up from where we left off last week.</p>
+<p>In week 3, you learnt how to use ggplot2 to create bar charts and how to create different panels. Bar charts are great for categorical data.</p>
+<p>This week you will learn how to make density and violin plots, which work very well with numeric data in combination of categorical data (for example, when you want to show values of a numeric variable across different groups).</p>
+<p>Then, you will use the <code>brm()</code> function from the <a href="https://paul-buerkner.github.io/brms/">brms</a> package to model continuous variables.</p>
+<p>But first, let’s read some data and transform it so that we can use it in the tutorial.</p>
+<section id="mutating-data" class="level2">
+<h2 class="anchored" data-anchor-id="mutating-data">Mutating data</h2>
+<section id="the-alb_vot-data" class="level3">
+<h3 class="anchored" data-anchor-id="the-alb_vot-data">The <code>alb_vot</code> data</h3>
+<p>Let’s play around with the Albanian VOT data we used in class.</p>
+<p>The data comes from the paper by Coretta and colleagues, 2022. <em>Northern Tosk Albanian</em>. DOI: <a href="https://doi.org/10.1017/S0025100322000044">10.1017/S0025100322000044</a>. This is an IPA Illustration of Northern Tosk Albanian. It contains data from voiceless and voiced consonants of Nothern Tosk Albanian, as uttered in a set of words by 5 speakers.</p>
+<p>To download the file with the data right-click on the following link and download the file: <a href="../data/alb_vot.csv">alb_vot.csv</a>. (Note that tutorial files are also linked in the <a href="../content.html">Syllabus</a>). Remember to save the file in <code>data/</code> in the course project folder.</p>
+<p>Create a new <code>.Rmd</code> file first, save it in <code>code/</code> and name it <code>tutorial-w04</code> (the extension <code>.Rmd</code> is added automatically!).</p>
+<p>I leave to you creating title headings in your file as you please. Remember to to add <code>knitr::opts_knit$set(root.dir = here::here())</code> in the <code>setup</code> chunk and to attach the tidyverse.</p>
+<p>Now you can create a new code chunk and read the <code>alb_vot.csv</code> file in R. Remember how to do this?</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/alb-vot-ex_b1323a114b3ec154e18ce26a1041be20">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="ot">&lt;-</span> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="tutorial-w04_cache/html/alb-vot_92f85dca23e7cb6fd6513392de33d64f">
+
+</div>
+<p>Great!</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/alb-vot-view_c79c96a60e3555b2093670a4b1116e0c">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>alb_vot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["speaker"],"name":[1],"type":["chr"],"align":["left"]},{"label":["file"],"name":[2],"type":["chr"],"align":["left"]},{"label":["label"],"name":[3],"type":["chr"],"align":["left"]},{"label":["release"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["voi_onset"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["consonant"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"s01","2":"001-cica","3":"ts","4":"1.6449206","5":"1.74306122","6":"ts"},{"1":"s01","2":"002-bari","3":"b","4":"0.4556689","5":"0.35190476","6":"b"},{"1":"s01","2":"004-gati","3":"g","4":"0.8180726","5":"0.68893424","6":"ɡ"},{"1":"s01","2":"011-kati","3":"k","4":"0.7539456","5":"0.78539683","6":"k"},{"1":"s01","2":"014-pata","3":"p","4":"0.7045125","5":"0.71197279","6":"p"},{"1":"s01","2":"020-tapa","3":"t","4":"0.8247166","5":"0.83272109","6":"t"},{"1":"s01","2":"022-data","3":"d","4":"0.8550794","5":"0.76741497","6":"d"},{"1":"s01","2":"026-xixa","3":"dz","4":"0.7801134","5":"0.67580499","6":"dz"},{"1":"s01","2":"027-5aji","3":"tS","4":"0.8429252","5":"0.91736961","6":"tʃ"},{"1":"s01","2":"029-gjaku","3":"J","4":"0.9600907","5":"0.86213152","6":"d̻ʒ̻"},{"1":"s01","2":"030-qava","3":"c","4":"0.9275510","5":"1.01764172","6":"t̻ʃ̻"},{"1":"s01","2":"037-xhaja","3":"dZ","4":"0.7642630","5":"0.66038549","6":"dʒ"},{"1":"s01","2":"042-cica","3":"ts","4":"3.9090476","5":"3.99605442","6":"ts"},{"1":"s01","2":"043-bari","3":"b","4":"0.8066213","5":"0.72201814","6":"b"},{"1":"s01","2":"045-gati","3":"g","4":"1.0112472","5":"0.89997732","6":"ɡ"},{"1":"s01","2":"052-kati","3":"k","4":"0.7723129","5":"0.80734694","6":"k"},{"1":"s01","2":"055-pata","3":"p","4":"0.8228798","5":"0.83786848","6":"p"},{"1":"s01","2":"061-tapa","3":"t","4":"0.9443311","5":"0.95294785","6":"t"},{"1":"s01","2":"063-data","3":"d","4":"0.9553061","5":"0.83083900","6":"d"},{"1":"s01","2":"068-xixa","3":"dz","4":"0.7226304","5":"0.62195011","6":"dz"},{"1":"s01","2":"069-5aji","3":"tS","4":"0.6364399","5":"0.69759637","6":"tʃ"},{"1":"s01","2":"071-gjaku","3":"J","4":"0.8603401","5":"0.77562358","6":"d̻ʒ̻"},{"1":"s01","2":"072-qava","3":"c","4":"0.7148526","5":"0.78031746","6":"t̻ʃ̻"},{"1":"s01","2":"079-xhaja","3":"dZ","4":"0.9422676","5":"0.83759637","6":"dʒ"},{"1":"s01","2":"083-cica","3":"ts","4":"2.3342404","5":"2.42308390","6":"ts"},{"1":"s01","2":"084-bari","3":"b","4":"0.7083900","5":"0.60142857","6":"b"},{"1":"s01","2":"086-gati","3":"g","4":"0.9669841","5":"0.88643991","6":"ɡ"},{"1":"s01","2":"093-kati","3":"k","4":"0.9079819","5":"0.94607710","6":"k"},{"1":"s01","2":"096-pata","3":"p","4":"1.0979365","5":"1.10417234","6":"p"},{"1":"s01","2":"102-tapa","3":"t","4":"0.9509524","5":"0.96401361","6":"t"},{"1":"s01","2":"104-data","3":"d","4":"1.1672562","5":"1.04916100","6":"d"},{"1":"s01","2":"109-xixa","3":"dz","4":"0.8648073","5":"0.92918367","6":"dz"},{"1":"s01","2":"110-5aji","3":"tS","4":"0.8689116","5":"0.94675737","6":"tʃ"},{"1":"s01","2":"112-gjaku","3":"J","4":"0.8815646","5":"0.75804989","6":"d̻ʒ̻"},{"1":"s01","2":"113-qava","3":"c","4":"0.9263039","5":"1.01693878","6":"t̻ʃ̻"},{"1":"s01","2":"120-xhaja","3":"dZ","4":"0.7680726","5":"0.65242630","6":"dʒ"},{"1":"s02","2":"001-5aji","3":"tS","4":"2.1101361","5":"2.21827664","6":"tʃ"},{"1":"s02","2":"003-xhaja","3":"dZ","4":"0.7507483","5":"0.66766440","6":"dʒ"},{"1":"s02","2":"008-data","3":"d","4":"0.6731746","5":"0.55299320","6":"d"},{"1":"s02","2":"011-tapa","3":"t","4":"0.7521315","5":"0.76603175","6":"t"},{"1":"s02","2":"017-cica","3":"ts","4":"0.5758957","5":"0.65820862","6":"ts"},{"1":"s02","2":"020-kati","3":"k","4":"0.6957823","5":"0.75065760","6":"k"},{"1":"s02","2":"023-gjaku","3":"J","4":"0.7116780","5":"0.60959184","6":"d̻ʒ̻"},{"1":"s02","2":"024-qava","3":"c","4":"0.5778458","5":"0.70424036","6":"t̻ʃ̻"},{"1":"s02","2":"031-gati","3":"g","4":"0.6533560","5":"0.54811791","6":"ɡ"},{"1":"s02","2":"034-pata","3":"p","4":"0.7236508","5":"0.73471655","6":"p"},{"1":"s02","2":"035-xixa","3":"dz","4":"0.6855556","5":"0.58471655","6":"dz"},{"1":"s02","2":"039-bari","3":"b","4":"0.7480272","5":"0.63344671","6":"b"},{"1":"s02","2":"042-5aji","3":"tS","4":"2.2436961","5":"2.33671202","6":"tʃ"},{"1":"s02","2":"044-xhaja","3":"dZ","4":"0.6359637","5":"0.53995465","6":"dʒ"},{"1":"s02","2":"049-data","3":"d","4":"0.6419501","5":"0.54233560","6":"d"},{"1":"s02","2":"052-tapa","3":"t","4":"0.7002268","5":"0.71117914","6":"t"},{"1":"s02","2":"058-cica","3":"ts","4":"0.6390249","5":"0.70532880","6":"ts"},{"1":"s02","2":"061-kati","3":"k","4":"0.6082540","5":"0.65233560","6":"k"},{"1":"s02","2":"064-gjaku","3":"J","4":"0.7730612","5":"0.62294785","6":"d̻ʒ̻"},{"1":"s02","2":"065-qava","3":"c","4":"0.6428798","5":"0.72315193","6":"t̻ʃ̻"},{"1":"s02","2":"072-gati","3":"g","4":"0.6448980","5":"0.51913832","6":"ɡ"},{"1":"s02","2":"075-pata","3":"p","4":"0.7039683","5":"0.71566893","6":"p"},{"1":"s02","2":"076-xixa","3":"dz","4":"0.6471882","5":"0.52097506","6":"dz"},{"1":"s02","2":"080-bari","3":"b","4":"0.7995011","5":"0.65680272","6":"b"},{"1":"s02","2":"083-5aji","3":"tS","4":"1.5513605","5":"1.62927438","6":"tʃ"},{"1":"s02","2":"085-xhaja","3":"dZ","4":"0.6534694","5":"0.56954649","6":"dʒ"},{"1":"s02","2":"090-data","3":"d","4":"0.6147619","5":"0.50439909","6":"d"},{"1":"s02","2":"093-tapa","3":"t","4":"0.8278685","5":"0.83839002","6":"t"},{"1":"s02","2":"099-cica","3":"ts","4":"0.6250794","5":"0.70866213","6":"ts"},{"1":"s02","2":"102-kati","3":"k","4":"0.7340816","5":"0.78251701","6":"k"},{"1":"s02","2":"105-gjaku","3":"J","4":"0.7736961","5":"0.67775510","6":"d̻ʒ̻"},{"1":"s02","2":"106-qava","3":"c","4":"0.6063039","5":"0.73934240","6":"t̻ʃ̻"},{"1":"s02","2":"113-gati","3":"g","4":"0.6989116","5":"0.59117914","6":"ɡ"},{"1":"s02","2":"116-pata","3":"p","4":"0.8964626","5":"0.90854875","6":"p"},{"1":"s02","2":"117-xixa","3":"dz","4":"0.6820862","5":"0.57575964","6":"dz"},{"1":"s02","2":"121-bari","3":"b","4":"0.7731066","5":"0.60095238","6":"b"},{"1":"s04","2":"001-data","3":"d","4":"0.8127891","5":"0.68959184","6":"d"},{"1":"s04","2":"002-gjaku","3":"J","4":"0.7213152","5":"0.66208617","6":"d̻ʒ̻"},{"1":"s04","2":"005-xhaja","3":"dZ","4":"0.6819955","5":"0.59324263","6":"dʒ"},{"1":"s04","2":"010-tapa","3":"t","4":"0.5601361","5":"0.57002268","6":"t"},{"1":"s04","2":"011-xixa","3":"dz","4":"0.6019501","5":"0.55632653","6":"dz"},{"1":"s04","2":"014-cica","3":"ts","4":"0.6415420","5":"0.73834467","6":"ts"},{"1":"s04","2":"018-pata","3":"p","4":"0.5024717","5":"0.50954649","6":"p"},{"1":"s04","2":"020-5aji","3":"tS","4":"0.6264853","5":"0.72392290","6":"tʃ"},{"1":"s04","2":"026-bari","3":"b","4":"0.6126077","5":"0.51478458","6":"b"},{"1":"s04","2":"030-gati","3":"g","4":"0.6453968","5":"0.57088435","6":"ɡ"},{"1":"s04","2":"036-kati","3":"k","4":"0.6048299","5":"0.64065760","6":"k"},{"1":"s04","2":"038-qava","3":"c","4":"0.5175057","5":"0.63625850","6":"t̻ʃ̻"},{"1":"s04","2":"043-data","3":"d","4":"7.9499773","5":"7.80877551","6":"d"},{"1":"s04","2":"044-gjaku","3":"J","4":"0.4180045","5":"0.34226757","6":"d̻ʒ̻"},{"1":"s04","2":"047-xhaja","3":"dZ","4":"0.4984127","5":"0.42634921","6":"dʒ"},{"1":"s04","2":"053-tapa","3":"t","4":"0.5162585","5":"0.52507937","6":"t"},{"1":"s04","2":"054-xixa","3":"dz","4":"0.5465306","5":"0.43589569","6":"dz"},{"1":"s04","2":"057-cica","3":"ts","4":"0.4720181","5":"0.57514739","6":"ts"},{"1":"s04","2":"061-pata","3":"p","4":"0.5928345","5":"0.60961451","6":"p"},{"1":"s04","2":"063-5aji","3":"tS","4":"0.5360998","5":"0.62385488","6":"tʃ"},{"1":"s04","2":"069-bari","3":"b","4":"0.5658503","5":"0.46138322","6":"b"},{"1":"s04","2":"073-gati","3":"g","4":"0.5610204","5":"0.46482993","6":"ɡ"},{"1":"s04","2":"080-kati","3":"k","4":"0.5037188","5":"0.56458050","6":"k"},{"1":"s04","2":"082-qava","3":"c","4":"0.5163265","5":"0.66410431","6":"t̻ʃ̻"},{"1":"s04","2":"085-data","3":"d","4":"3.6822676","5":"3.54609977","6":"d"},{"1":"s04","2":"086-gjaku","3":"J","4":"0.5182540","5":"0.42195011","6":"d̻ʒ̻"},{"1":"s04","2":"089-xhaja","3":"dZ","4":"0.6464853","5":"0.57827664","6":"dʒ"},{"1":"s04","2":"095-tapa","3":"t","4":"0.8013605","5":"0.81512472","6":"t"},{"1":"s04","2":"096-xixa","3":"dz","4":"0.6068481","5":"0.50766440","6":"dz"},{"1":"s04","2":"099-cica","3":"ts","4":"0.4767800","5":"0.57192744","6":"ts"},{"1":"s04","2":"103-pata","3":"p","4":"0.7218594","5":"0.75058957","6":"p"},{"1":"s04","2":"105-5aji","3":"tS","4":"0.7132880","5":"0.80709751","6":"tʃ"},{"1":"s04","2":"110-bari","3":"b","4":"0.5357823","5":"0.42814059","6":"b"},{"1":"s04","2":"114-gati","3":"g","4":"0.5497506","5":"0.48755102","6":"ɡ"},{"1":"s04","2":"122-kati","3":"k","4":"0.6009070","5":"0.65240363","6":"k"},{"1":"s04","2":"124-qava","3":"c","4":"0.5635147","5":"0.67070295","6":"t̻ʃ̻"},{"1":"s05","2":"003-qava","3":"c","4":"0.2115873","5":"0.35746032","6":"t̻ʃ̻"},{"1":"s05","2":"013-data","3":"d","4":"0.2444671","5":"0.08582766","6":"d"},{"1":"s05","2":"014-xixa","3":"dz","4":"0.2067120","5":"0.07866213","6":"dz"},{"1":"s05","2":"016-kati","3":"k","4":"0.1117007","5":"0.22272109","6":"k"},{"1":"s05","2":"018-pata","3":"p","4":"0.2732653","5":"0.28743764","6":"p"},{"1":"s05","2":"020-xhaja","3":"dZ","4":"0.3634014","5":"0.27643991","6":"dʒ"},{"1":"s05","2":"022-5aji","3":"tS","4":"0.3500680","5":"0.46403628","6":"tʃ"},{"1":"s05","2":"024-gjaku","3":"J","4":"0.3020181","5":"0.22541950","6":"d̻ʒ̻"},{"1":"s05","2":"030-tapa","3":"t","4":"0.2062132","5":"0.23197279","6":"t"},{"1":"s05","2":"032-gati","3":"g","4":"0.2538549","5":"0.12952381","6":"ɡ"},{"1":"s05","2":"036-bari","3":"b","4":"0.3567120","5":"0.25081633","6":"b"},{"1":"s05","2":"039-cica","3":"ts","4":"0.2292063","5":"0.32800454","6":"ts"},{"1":"s05","2":"044-qava","3":"c","4":"0.3180952","5":"0.45181406","6":"t̻ʃ̻"},{"1":"s05","2":"054-data","3":"d","4":"0.4672336","5":"0.33997732","6":"d"},{"1":"s05","2":"055-xixa","3":"dz","4":"0.4258277","5":"0.33467120","6":"dz"},{"1":"s05","2":"057-kati","3":"k","4":"0.4306122","5":"0.52038549","6":"k"},{"1":"s05","2":"059-pata","3":"p","4":"0.3743311","5":"0.39632653","6":"p"},{"1":"s05","2":"061-xhaja","3":"dZ","4":"0.4382766","5":"0.25820862","6":"dʒ"},{"1":"s05","2":"063-5aji","3":"tS","4":"0.4538549","5":"0.59439909","6":"tʃ"},{"1":"s05","2":"065-gjaku","3":"J","4":"0.3634014","5":"0.26539683","6":"d̻ʒ̻"},{"1":"s05","2":"071-tapa","3":"t","4":"0.3966667","5":"0.41868481","6":"t"},{"1":"s05","2":"073-gati","3":"g","4":"0.5317914","5":"0.40521542","6":"ɡ"},{"1":"s05","2":"078-bari","3":"b","4":"0.3877098","5":"0.26170068","6":"b"},{"1":"s05","2":"081-cica","3":"ts","4":"0.3556916","5":"0.44730159","6":"ts"},{"1":"s05","2":"086-qava","3":"c","4":"0.2789116","5":"0.40918367","6":"t̻ʃ̻"},{"1":"s05","2":"096-data","3":"d","4":"0.4184807","5":"0.30385488","6":"d"},{"1":"s05","2":"097-xixa","3":"dz","4":"0.3665079","5":"0.26616780","6":"dz"},{"1":"s05","2":"099-kati","3":"k","4":"0.3512925","5":"0.45718821","6":"k"},{"1":"s05","2":"101-pata","3":"p","4":"0.3839456","5":"0.40396825","6":"p"},{"1":"s05","2":"103-xhaja","3":"dZ","4":"0.4359637","5":"0.30412698","6":"dʒ"},{"1":"s05","2":"105-5aji","3":"tS","4":"0.3382766","5":"0.49267574","6":"tʃ"},{"1":"s05","2":"107-gjaku","3":"J","4":"0.3573243","5":"0.25947846","6":"d̻ʒ̻"},{"1":"s05","2":"113-tapa","3":"t","4":"0.2995011","5":"0.34687075","6":"t"},{"1":"s05","2":"115-gati","3":"g","4":"0.3017234","5":"0.15287982","6":"ɡ"},{"1":"s05","2":"120-bari","3":"b","4":"0.2897279","5":"0.16292517","6":"b"},{"1":"s05","2":"123-cica","3":"ts","4":"0.2833333","5":"0.35691610","6":"ts"},{"1":"s06","2":"003-xhaja","3":"dZ","4":"0.5511791","5":"0.45562358","6":"dʒ"},{"1":"s06","2":"004-xixa","3":"dz","4":"0.5296825","5":"0.44408163","6":"dz"},{"1":"s06","2":"005-gjaku","3":"J","4":"0.4929478","5":"0.38897959","6":"d̻ʒ̻"},{"1":"s06","2":"010-data","3":"d","4":"0.4885488","5":"0.38759637","6":"d"},{"1":"s06","2":"020-bari","3":"b","4":"0.5565533","5":"0.47530612","6":"b"},{"1":"s06","2":"021-5aji","3":"tS","4":"0.5247846","5":"0.60034014","6":"tʃ"},{"1":"s06","2":"022-gati","3":"g","4":"0.7220862","5":"0.61886621","6":"ɡ"},{"1":"s06","2":"024-kati","3":"k","4":"0.5097279","5":"0.54099773","6":"k"},{"1":"s06","2":"025-cica","3":"ts","4":"0.4403628","5":"0.51873016","6":"ts"},{"1":"s06","2":"030-pata","3":"p","4":"0.4586848","5":"0.47328798","6":"p"},{"1":"s06","2":"032-tapa","3":"t","4":"0.5454875","5":"0.55780045","6":"t"},{"1":"s06","2":"033-qava","3":"c","4":"0.5471655","5":"0.60961451","6":"t̻ʃ̻"},{"1":"s06","2":"045-xhaja","3":"dZ","4":"0.4974150","5":"0.40448980","6":"dʒ"},{"1":"s06","2":"046-xixa","3":"dz","4":"0.4966893","5":"0.39643991","6":"dz"},{"1":"s06","2":"047-gjaku","3":"J","4":"0.7109977","5":"0.62521542","6":"d̻ʒ̻"},{"1":"s06","2":"052-data","3":"d","4":"0.5193878","5":"0.41403628","6":"d"},{"1":"s06","2":"062-bari","3":"b","4":"0.6053288","5":"0.52253968","6":"b"},{"1":"s06","2":"063-5aji","3":"tS","4":"0.5797732","5":"0.65433107","6":"tʃ"},{"1":"s06","2":"064-gati","3":"g","4":"0.4695918","5":"0.38231293","6":"ɡ"},{"1":"s06","2":"066-kati","3":"k","4":"0.4571429","5":"0.49879819","6":"k"},{"1":"s06","2":"067-cica","3":"ts","4":"0.5683900","5":"0.62965986","6":"ts"},{"1":"s06","2":"072-pata","3":"p","4":"0.4290476","5":"0.44095238","6":"p"},{"1":"s06","2":"074-tapa","3":"t","4":"0.5694785","5":"0.58321995","6":"t"},{"1":"s06","2":"075-qava","3":"c","4":"0.6925624","5":"0.75913832","6":"t̻ʃ̻"},{"1":"s06","2":"087-xhaja","3":"dZ","4":"0.4139683","5":"0.32009070","6":"dʒ"},{"1":"s06","2":"088-xixa","3":"dz","4":"0.5272789","5":"0.42698413","6":"dz"},{"1":"s06","2":"089-gjaku","3":"J","4":"0.5707029","5":"0.49818594","6":"d̻ʒ̻"},{"1":"s06","2":"094-data","3":"d","4":"0.5653515","5":"0.47476190","6":"d"},{"1":"s06","2":"104-bari","3":"b","4":"0.4743311","5":"0.41038549","6":"b"},{"1":"s06","2":"105-5aji","3":"tS","4":"1.6635601","5":"1.72605442","6":"tʃ"},{"1":"s06","2":"106-gati","3":"g","4":"0.4508390","5":"0.34678005","6":"ɡ"},{"1":"s06","2":"108-kati","3":"k","4":"0.4065306","5":"0.44709751","6":"k"},{"1":"s06","2":"109-cica","3":"ts","4":"0.5708844","5":"0.65673469","6":"ts"},{"1":"s06","2":"114-pata","3":"p","4":"0.3619048","5":"0.37580499","6":"p"},{"1":"s06","2":"116-tapa","3":"t","4":"0.4992517","5":"0.51204082","6":"t"},{"1":"s06","2":"117-qava","3":"c","4":"0.8373016","5":"0.89791383","6":"t̻ʃ̻"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The data frame has the following columns:</p>
+<ul>
+<li><code>speaker</code>: the speaker ID.</li>
+<li><code>file</code>: the file the measurements are take from.</li>
+<li><code>label</code>: the label in the interval.</li>
+<li><code>release</code>: the time of the consonant’s closure release in seconds.</li>
+<li><code>voi_onset</code>: the onset of voicing of the vowel following the target consonant in seconds.</li>
+<li><code>consonant</code>: the IPA transcription of the target consonant.</li>
+</ul>
+<p>Now we need to create a new column with the Voice Onset Time (<code>vot</code>) values. Note that VOT is simply the difference between the onset of voicing (<code>voi_onset</code>) and the time of release (<code>release</code>).</p>
+</section>
+<section id="create-a-new-column" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-new-column">Create a new column</h3>
+<p>To change or create columns, we can use the <code>mutate()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> package. This is another tidyverse package, and it’s attached when you attach the tidyverse. The <code>summarise()</code> and <code>count()</code> functions you used in Week 2 are from this same package.</p>
+<p>Let’s calculate VOT now.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot_50c304086655f717c47a6c9a98cff16c">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="ot">&lt;-</span> alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">vot =</span> voi_onset <span class="sc">-</span> release</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Since we are mutating <code>alb_vot</code>, we need to assign (<code>&lt;-</code>) the output of <code>mutate()</code> back into <code>alb_vot</code>. Check the <code>alb_vot</code> data frame now to view the newly created column <code>vot</code> (to view the data frame, click on <code>alb_vot</code> in the Environment tab, in the top-right panel of Rstudio).</p>
+<p>Well done!</p>
+<p>Normally, VOT is measured in milliseconds (ms), but the <code>vot</code> column is now in seconds (because <code>release</code> and <code>voi_onset</code> are in seconds).</p>
+<p>Let’s change this. We can overwrite the <code>vot</code> column:</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-2_fa6c98112fd2d4a8127256cf0038f8d1">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="ot">&lt;-</span> alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Multiply by 1000 to get ms from s</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">vot =</span> (voi_onset <span class="sc">-</span> release) <span class="sc">*</span> <span class="dv">1000</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check <code>alb_vot</code> now to see that it worked.</p>
+</section>
+</section>
+<section id="density-plots" class="level2">
+<h2 class="anchored" data-anchor-id="density-plots">Density plots</h2>
+<p><strong>Density plots show the distribution (i.e.&nbsp;the probability density) of the values of a continuous variable.</strong></p>
+<p>VOT is a numeric continuous variable so density plots are appropriate.</p>
+<p>To plot the probability density of a continuous variable, you can use the <code>density</code> geometry. Remember, all geometry functions start with <code>geom_</code>.</p>
+<p>Fill in the … in the following code to create a density plot of VOT values in <code>alb_vot</code>.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-dens-ex_27ad507b092a5313deb435b0064c2097">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> vot)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that to create a density plot, you only need to specify the <code>x</code>-axis. The <code>y</code>-axis is the probability density, which is automatically calculated.</p>
+<p>What can you notice about the distribution of VOT values?</p>
+<section id="make-things-cozy-with-a-rug" class="level3">
+<h3 class="anchored" data-anchor-id="make-things-cozy-with-a-rug">Make things cozy with a rug</h3>
+<p>The density line shows you a smoothed representation of the data distribution over the VOT values, but you might also want to see the raw data.</p>
+<p>You can do so by adding the <code>rug</code> geometry.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-dens-rug-ex_258d188cbe2a5ac99f80ad372b1bc02c">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vot)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice huh?</p>
+</section>
+</section>
+<section id="if-else" class="level2">
+<h2 class="anchored" data-anchor-id="if-else">If-else</h2>
+<p>What if we want to plot the density of voiceless and voiced consonants separately?</p>
+<p>We could use faceting, as you learnt in Week 3, or we can use the aesthetics <code>fill</code> and/or <code>colour</code>.</p>
+<p>However, first we need to create a new column that indicated if a consonant is voiceless or voiced!</p>
+<p>We will use the <code>mutate()</code> function again to create a new <code>voicing</code> column. But how do we get the values for this new column (without having to manually code each consonant as voiceless or voiced)?</p>
+<p>We can use the <code>ifelse()</code> function!</p>
+<p>The <code>ifelse()</code> function works a bit like the English sentence “If X is true, do Y, otherwise do Z”. The “X” has to be a “logical statement”, i.e.&nbsp;an expression using <strong>logical operators</strong>. So let’s talk about logical operators (we will get back to them below, when we will filter the VOT data).</p>
+<section id="logical-operators" class="level3">
+<h3 class="anchored" data-anchor-id="logical-operators">Logical operators</h3>
+<p>There are four main logical operators:</p>
+<ul>
+<li><p><code>x == y</code>: <code>x</code> equals <code>y</code>.</p></li>
+<li><p><code>x != y</code>: <code>x</code> is not equal to <code>y</code>.</p></li>
+<li><p><code>x &gt; y</code>: <code>x</code> is greater than <code>y</code>.</p></li>
+<li><p><code>x &lt; y</code>: <code>x</code> is smaller than <code>y</code>.</p></li>
+</ul>
+<p>Logical operators return <code>TRUE</code> or <code>FALSE</code> depending on whether the statement they convey is true or false. Remember, <code>TRUE</code> and <code>FALSE</code> are logical values.</p>
+<p>Try these out in the Console:</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/logic_12f110fa1ce37c984a7ec1520e500613">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This will return FALSE</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># FALSE</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apples"</span> <span class="sc">==</span> <span class="st">"oranges"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># FALSE</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="finding-unique-values" class="level3">
+<h3 class="anchored" data-anchor-id="finding-unique-values">Finding unique values</h3>
+<p>Let’s create a new column that states whether a consonant is voiced or voiceless. Because we’re modifying the data frame, let’s move back into the editor so that all of our manipulations are recorded.</p>
+<p>So, the data contains the following consonants:</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/cons_31662f193fb51e5de11ea9de4b3e62e6">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cons_ipa <span class="ot">&lt;-</span> alb_vot<span class="sc">$</span>consonant</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(cons_ipa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "ts" "b"  "ɡ"  "k"  "p"  "t"  "d"  "dz" "tʃ" "d̻ʒ̻" "t̻ʃ̻" "dʒ"</code></pre>
+</div>
+</div>
+<p>Wait, what’s that <code>$</code> in <code>alb_vot$consonant</code> there? That is a base R way of extracting a single column (in this case <code>consonant</code>) from a data frame (<code>alb_vot</code>).</p>
+<p>If you check <code>cons_ipa</code> in the Environment tab, it will say that this is <code>chr</code> vector, i.e.&nbsp;a character vector. This makes sense, because <code>consonant</code> is a character column in <code>alb_vot</code>.</p>
+<p>The <code>unique()</code> function shows the unique values of a vector (it works with any type of vector, numeric, character, logical, …).</p>
+<p>This is great, we now know all the consonants in the <code>consonant</code> column, but maybe it will be easier to type them later if we use the custom transcription in <code>label</code> rather than IPA.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/cons-2_1d4405dbc0ea31e21a3bee3d2562b3b9">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>cons_lab <span class="ot">&lt;-</span> alb_vot<span class="sc">$</span>label</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(cons_lab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "ts" "b"  "g"  "k"  "p"  "t"  "d"  "dz" "tS" "J"  "c"  "dZ"</code></pre>
+</div>
+</div>
+<p>Great! Now, to make things easier, let me tell you which consonants are voiceless and which are voiced:</p>
+<ul>
+<li><p>voiceless: <code>c("ts", "k", "p", "t", "tS", "c")</code>.</p></li>
+<li><p>voiced: <code>c("b", "g", "d", "dz", "J", "dZ")</code>.</p></li>
+</ul>
+<p>Don’t worry about assigning these vectors to variables right now.</p>
+</section>
+<section id="the-in-operator" class="level3">
+<h3 class="anchored" data-anchor-id="the-in-operator">The <code>%in%</code> operator</h3>
+<p>Now with this knowledge we can create a new column with <code>voiceless</code> and <code>voiced</code> values for each row in the data frame. Like so:</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/voi_8c1a7fb5ab54f1bda7ff2ef266e1ce4e">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="ot">&lt;-</span> alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">voicing =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>      <span class="co"># IF this is TRUE</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>      label <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ts"</span>, <span class="st">"k"</span>, <span class="st">"p"</span>, <span class="st">"t"</span>, <span class="st">"tS"</span>, <span class="st">"c"</span>),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Write</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"voiceless"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>      <span class="co"># OR ELSE write</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"voiced"</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s unpack this. First of all, what is <code>label %in% c("ts", "k", "p", "t", "tS", "c")</code> doing?</p>
+<p>The <code>%in%</code> operator is a special logical operator that returns <code>TRUE</code> if the value to the left is one of the values in the list to its right, and <code>FALSE</code> if not.</p>
+<p>Try these in the Console:</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/in_66fcc1831cb7e58d9449ace2bc08f5e4">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># FALSE</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apples"</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"oranges"</span>, <span class="st">"bananas"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>But <code>%in%</code> is even more powerful because the value on the left does not have to be a single value, but it can also be a vector! We say <code>%in%</code> is <em>vectorised</em> because it can work with vectors (most functions and operators in R are vectorised).</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/in-vct_11ae222ef961657f4ebaf99cc37ebd73">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE, TRUE</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>stocked <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"durian"</span>, <span class="st">"bananas"</span>, <span class="st">"grapes"</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>needed <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"durian"</span>, <span class="st">"apples"</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE, FALSE</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>needed <span class="sc">%in%</span> stocked</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE FALSE</code></pre>
+</div>
+</div>
+<p>Try to understand what is going on in the code above before moving on.</p>
+</section>
+<section id="voiceless-or-voiced" class="level3">
+<h3 class="anchored" data-anchor-id="voiceless-or-voiced">Voiceless or voiced?</h3>
+<p>So now run the code to create a new column <code>voicing</code> (this is the same code as above).</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/voi-2_2b5749748504a4fbb960edca3dc5f1c9">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="ot">&lt;-</span> alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">voicing =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>      <span class="co"># IF this is TRUE</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>      label <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ts"</span>, <span class="st">"k"</span>, <span class="st">"p"</span>, <span class="st">"t"</span>, <span class="st">"tS"</span>, <span class="st">"c"</span>),</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Write</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"voiceless"</span>,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>      <span class="co"># OR ELSE write</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"voiced"</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>ifelse()</code> function is doing the following:</p>
+<ul>
+<li><p>If the value in the column <code>label</code> is among (<code>%in%</code>) the values in the vector <code>c("ts", "k", "p", "t", "tS", "c")</code>.</p></li>
+<li><p>Write <code>voiceless</code> in the <code>voicing</code> column.</p></li>
+<li><p>Otherwise write <code>voiced</code>.</p></li>
+</ul>
+<p>Check out the <code>voicing</code> column in <code>alb_vot</code>.</p>
+<p>Now that we have the info we need to plot voiceless and voiced consonants separately, let’s do that! But to spice things up a bit, let’s do it with violin plots.</p>
+</section>
+</section>
+<section id="violin-plots" class="level2">
+<h2 class="anchored" data-anchor-id="violin-plots">Violin plots</h2>
+<p>An efficient way of showing the distribution of continuous variables depending on discrete groups (like <code>voicing</code>) are the so-called <strong>violin plots</strong>.</p>
+<p>Go ahead and run the following code.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-vio_fc35d47bb7d31ce8f6ef6be4b1871979">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(voicing, vot)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tutorial-w04_files/figure-html/vot-vio-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>They are called violin plots because they look like violins! The geometry for violin plots is… <code>geom_violin()</code>.</p>
+<p>Usually, you need the following <code>aes</code>thetics:</p>
+<ul>
+<li><p><code>x</code>-axis: a categorical variable, like <code>voicing</code>.</p></li>
+<li><p><code>y</code>-axis: a continuous numeric variable, like <code>vot</code>.</p></li>
+</ul>
+<section id="lay-over-the-raw-data" class="level3">
+<h3 class="anchored" data-anchor-id="lay-over-the-raw-data">Lay over the raw data</h3>
+<p>You can lay over raw data on top of the violins. To do so, you can use the <code>jitter</code> geometry.</p>
+<p><code>geom_jitter()</code> creates so-called strip charts. Let’s first see how these look like without violins.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-jitter_daba7c2b5f9f06103dc0169b1c8a5b19">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(voicing, vot)) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tutorial-w04_files/figure-html/vot-jitter-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>That doesn’t look great right? The points are spread too widely.</p>
+<p>We can fix that by specifying the argument <code>width</code> in the jitter geometry to be something smaller than <code>0.5</code>. Try a few values until you think it looks better.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-jitter-1-ex_c650187cb03c5e05a7c6ac3ad35690b5">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(voicing, vot)) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When you are satisfied, create a violin plot with overlaid strip charts.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-vio-jit-ex_eac7858ed084de472ad13c82524af11c">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(voicing, vot)) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that the order between the violin and jitter geoms is important. If you add the jitter geometry before the violin geometry, the violins will just cover the jittered points (see why it is called “layered” grammar of graphics?).</p>
+</section>
+<section id="lets-add-some-colour" class="level3">
+<h3 class="anchored" data-anchor-id="lets-add-some-colour">Let’s add some colour</h3>
+<p>Let’s <strong>fill</strong> the violins with colour. For now, just colour the violins depending on <code>voicing</code>.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-vio-jit-2_57d20354b9769547088a816e0261a33f">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(voicing, vot, <span class="at">fill =</span> voicing)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tutorial-w04_files/figure-html/vot-vio-jit-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Not bad! But maybe we can improve by making the fill a bit transparent?</p>
+<p>You can achieve that with the <code>alpha</code> argument in <code>geom_violin()</code>, which takes a number between 0 (completely transparent) and 1 (completely opaque).</p>
+<p>Add it to the code above to make the fill transparent. Try different values until you are satisfied with the output. You could also add <code>alpha</code> to <code>geom_jitter()</code> to make the points a bit transparent.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-vio-jit-3-ex_e335aaa14169d58c6cc0c422482d6ce5">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(voicing, vot, <span class="at">fill =</span> voicing)) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(...) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wonderful! Now, what can you tell about VOT in voiceless and voiced consonants in Albanian based on this plot?</p>
+</section>
+</section>
+<section id="filtering-data" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-data">Filtering data</h2>
+<p>We are getting closer and closer to start modelling our VOT data to learn more about them.</p>
+<p>Normally, you would approach data modelling by using the entire data set and including as many variables as it makes sense.</p>
+<p>Since you are just starting to learn how to model data with <a href="https://paul-buerkner.github.io/brms/">brms</a>, we will first take a pedagogical approach and start small.</p>
+<p>To do, we will filter the data so that we include only voiceless plosives that don’t have a VOT longer than 20 ms. (Again, we are doing this now for pedagogical reasons, not because this is what you would do with this data in real-life research).</p>
+<section id="the-filter-function" class="level3">
+<h3 class="anchored" data-anchor-id="the-filter-function">The <code>filter()</code> function</h3>
+<p>Filtering in R with the tidyverse is straightforward. You can use the <code>filter()</code> function.</p>
+<p>In the code below, we are filtering the <code>alb_vot</code> data so that we only include the voiceless stops <code>c("p", "t", "k")</code>. Moreover, we want only rows for with the VOT is less than 20 ms.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-filt_4c6f9be373a77bcda1d598fce4c0c190">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>alb_vot_vl <span class="ot">&lt;-</span> alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    label <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"p"</span>, <span class="st">"t"</span>, <span class="st">"k"</span>),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    vot <span class="sc">&lt;</span> <span class="dv">20</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This should not look too alien! The first statement, <code>label %in% c("p", "t", "k")</code> works like the <code>%in%</code> statement we used above with <code>mutate()</code>.</p>
+<p>In <code>filter()</code>, you can add multiple statements to filter the data with, separated by commas. Here we have a second statement, <code>vot &lt; 20</code>, i.e.&nbsp;“give me VOT values that are less than 20 ms”. Combining statements like this will give you only those rows where both conditions apply.</p>
+<p>You might have noticed that we need to assign the output of <code>filter()</code>, which is a data frame, to a new variable <code>alb_vot_vl</code> (“vl” for “voiceless”). This will be the data frame you will use in the next section.</p>
+</section>
+</section>
+<section id="modelling-with-brm" class="level2">
+<h2 class="anchored" data-anchor-id="modelling-with-brm">Modelling with <code>brm()</code></h2>
+<p>In the lecture, we have seen that we can assume voiceless VOT values to be distributed according to a Gaussian distribution (you may also have encountered Gaussian distributions under the name “normal distribution”).</p>
+<p><span class="math display">\[vot \sim Gaussian(\mu, \sigma)\]</span></p>
+<p>We can calculate the sample mean and standard deviation easily, using the <code>summarise()</code> function, as you learnt in Week 2.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-msd_98fe57906c48733b935c57db8a006fac">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>alb_vot_vl <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">vot_mean =</span> <span class="fu">mean</span>(vot),</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">vot_sd =</span> <span class="fu">sd</span>(vot)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["vot_mean"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["vot_sd"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"11.59769","2":"2.789288"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>But now we want to make inference from our sample (N = 24) to the entire population of VOT values of the Albanian voiceless plosives /p/, /t/, /k/.</p>
+<p>We want to estimate the following probability distributions:</p>
+<p><span class="math display">\[\mu = Gaussian(\mu_1, \sigma_1)\]</span> <span class="math display">\[\sigma = TruncGaussian(\mu_2, \sigma_2)\]</span></p>
+<p>In other words, we are trying to estimate the following parameters (called “hyperparameters”): <span class="math inline">\(\mu_1\)</span>, <span class="math inline">\(\sigma_1\)</span>, <span class="math inline">\(\mu_2\)</span>, <span class="math inline">\(\sigma_2\)</span>.</p>
+<p>We can achieve this by modelling the data using the <code>brm()</code> function from the brms package (BRM stands for Bayesian Regression Model). We will go into more details about what this means in the weeks to follow. For now, note that regression is a synonym of linear model, a type of modelling approach that you are learning in this course).</p>
+<p>Add <code>library(brms)</code> in the <code>setup</code> chunk and run that chunk again. Then, run the following code.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-bm_a6d4fa1bcf59c669fbebde317e6013f5">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>alb_vot_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  vot <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> alb_vot_vl,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">backend =</span> <span class="st">"cmdstanr"</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-bm-2_8e8d801937c568fbc71c9542b36d68cb">
+
+</div>
+<p>You will see the message <code>Compiling Stan program...</code> followed by <code>Start sampling</code> and <code>Running MCMC with 4 sequential chains...</code>. Something like in the figure below.</p>
+<p><img src="../img/mcmc-messages.png" class="img-fluid"></p>
+<p>We will get back to what all this means in the coming weeks. For now know that <a href="https://mc-stan.org">Stan</a> is a programming language that can run Bayesian models. <code>brm()</code> is an R interface to Stan, so that you can use R and R syntax to run Bayesian models without having to learn Stan! (If you feel adventurous, nobody stops you from learning Stan too, although it is not required for this course).</p>
+<p>After those initial messages, you will see a list of messages about <strong>chains</strong> and <strong>interactions</strong>, as in the figure below.</p>
+<p><img src="../img/mcmc-chains-info.png" class="img-fluid"></p>
+<p>These are about the MCMC stuff mentioned in one of the messages above: MCMC stands for Markov-Chain Monte Carlo. Keep reading for a quick intro.</p>
+<section id="markov-chain-monte-carlo-mcmc" class="level3">
+<h3 class="anchored" data-anchor-id="markov-chain-monte-carlo-mcmc">Markov-Chain Monte Carlo (MCMC)</h3>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+MCMC
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Markov-Chain Monte Carlo refers to a set of algorithms used to estimate parameters of unknown distributions, based on repeated draws from parameter values and observed data.</p>
+</div>
+</div>
+<p>You don’t need to understand the details of this. For now, just remember that several draws are made (i.e.&nbsp;the algorithm is run for several <strong>iterations</strong>), and that the model runs 4 <strong>chains</strong> of these iterations.</p>
+<p>We will learn more about chains and iterations in the coming weeks and you will know how to use information about these to diagnose the robustness of the estimated parameters.</p>
+</section>
+<section id="model-summary" class="level3">
+<h3 class="anchored" data-anchor-id="model-summary">Model summary</h3>
+<p>Now we can inspect the model output using the <code>summary()</code> function (don’t confuse this with the <code>summarise()</code> function, used to get statistical summaries of data).</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-bm-summ_c929307a220bf7e45c2a570c1d98002f">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(alb_vot_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: vot ~ 1 
+   Data: alb_vot_vl (Number of observations: 24) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Population-Level Effects: 
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    11.62      0.59    10.48    12.78 1.00     2559     2158
+
+Family Specific Parameters: 
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     2.88      0.44     2.18     3.88 1.00     2327     2013
+
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+<p>We have seen the summary of this model during the lecture. Do you remember how to interpret it?</p>
+<p>You can use the <code>tidy()</code> function from the <a href="https://github.com/bbolker/broom.mixed">broom.mixed</a> package to extract the information on the estimated parameters as a table (remember to attach the package in the <code>setup</code> chunk; you might also need to install the package).</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-bm-tidy_ca18bd58a68c84a4af890b7bdf95f1bc">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(alb_vot_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["effect"],"name":[1],"type":["chr"],"align":["left"]},{"label":["component"],"name":[2],"type":["chr"],"align":["left"]},{"label":["group"],"name":[3],"type":["chr"],"align":["left"]},{"label":["term"],"name":[4],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"fixed","2":"cond","3":"NA","4":"(Intercept)","5":"11.615214","6":"0.5918518","7":"10.475890","8":"12.784235"},{"1":"ran_pars","2":"cond","3":"Residual","4":"sd__Observation","5":"2.875128","6":"0.4369244","7":"2.175595","8":"3.876583"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The <code>term</code> column gives us the two parameters we wanted to estimate:</p>
+<ul>
+<li><p><code>(Intercept)</code> is actually <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p><code>sd__Observation</code> is <span class="math inline">\(\sigma\)</span>.</p></li>
+</ul>
+<p>Note that <code>sd__Observation</code> in the tidy table corresponds to <code>sigma</code> in the model summary above.</p>
+<p>Now, for each of the two parameters, you get <code>estimate</code> and <code>std.error</code>. There are the hyper-parameters of the probability distributions for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
+<p>For <code>(Intercept)</code> (<span class="math inline">\(\mu\)</span>):</p>
+<ul>
+<li><p><code>estimate</code> is <span class="math inline">\(\mu_1\)</span>: 11.62 ms.</p></li>
+<li><p><code>std.error</code> is <span class="math inline">\(\sigma_1\)</span>: 0.57 ms.</p></li>
+</ul>
+<p>For <code>sd__Observation</code> (<span class="math inline">\(\sigma\)</span>):</p>
+<ul>
+<li><p><code>estimate</code> is <span class="math inline">\(\mu_2\)</span>: 2.86 ms.</p></li>
+<li><p><code>std.error</code> is <span class="math inline">\(\sigma_2\)</span>: 0.44 ms.</p></li>
+</ul>
+<p>In other words:</p>
+<p><span class="math display">\[vot \sim Gaussian(\mu, \sigma)\]</span> <span class="math display">\[\mu = Gaussian(11.62, 0.57)\]</span> <span class="math display">\[\sigma = TruncGaussian(2.86, 0.44)\]</span></p>
+<p>Based on the model summary and on the tidy summary, we also know the <strong>95% Credible Intervals</strong> (CIs or CrIs) of the probability distributions of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(sigma\)</span>. They are in the columns called <code>conf.low</code> and <code>conf.high</code>.</p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Credible Interval
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A 95% (Bayesian) Credible Interval indicates the range of values we can be 95% confident contains the true parameter value.</p>
+</div>
+</div>
+<ul>
+<li><p>At 95% confidence, the mean (<span class="math inline">\(\mu\)</span>) VOT value for Albanian voiceless stops is between 10.5 and 12.8 ms.</p></li>
+<li><p>As for the standard deviation (<span class="math inline">\(\sigma\)</span>), we can be 95% confident that it is between 2.18 and 3.88 ms.</p></li>
+</ul>
+<p>One way to describe probability distributions is to state the values of their parameters and their 95% CrIs, as we just did.</p>
+<p>Another way is to visualise probability distributions by plotting probability densities. You will learn how to do this next week. <!-- ^ EP: We've done the basics of probability densities above—are we doing it differently next week, e.g., with bayesplot, or by extracting the samples from the model ourselves? That should be specified.--></p>
+<p>In the meantime, read on to find out how to add titles and change axis labels to plots and how to position the legend!</p>
+</section>
+</section>
+<section id="legends-and-labels-in-plots" class="level2">
+<h2 class="anchored" data-anchor-id="legends-and-labels-in-plots">Legends and labels in plots</h2>
+<section id="plot-titles-and-labels" class="level3">
+<h3 class="anchored" data-anchor-id="plot-titles-and-labels">Plot titles and labels</h3>
+<p>The <code>labs()</code> function allows you to set the plot title, subtitle, axis labels and more.</p>
+<p>Since these are strings (i.e.&nbsp;text), they must be quoted with <code>""</code>. Replace the <code>...</code> below with an appropriate title, like <code>"VOT of Albanian stops"</code>.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-title_dacf9ee0409e987aed1e731ae3e03217">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(voicing, vot, <span class="at">fill =</span> voicing)) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> ...</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="axis-labels" class="level3">
+<h3 class="anchored" data-anchor-id="axis-labels">Axis labels</h3>
+<p>To change the the axis labels, you can specify a string for <code>x</code> and <code>y</code> in the <code>labs()</code> function.</p>
+<p>I have changed the <code>x</code> label here below. Go ahead and change <code>y</code> to <code>"VOT (ms)"</code>. (Remember to also add the title).</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-labs_8cee63f001b57f674663dae3dd7d2f8a">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(voicing, vot, <span class="at">fill =</span> voicing)) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> ...,</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Consonant voicing"</span>,</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="positioning-the-legend" class="level3">
+<h3 class="anchored" data-anchor-id="positioning-the-legend">Positioning the legend</h3>
+<p>The position of the legend can be set with the <code>legend.position</code> argument in the <code>theme()</code> function.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-legend_9c511c32b9fa1eba0e06838161a823da">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(voicing, vot, <span class="at">fill =</span> voicing)) <span class="sc">+</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tutorial-w04_files/figure-html/vot-legend-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Sometimes you don’t want the legend at all. You can achieve that with <code>"none"</code> as the value to the <code>legend.position</code> argument.</p>
+<div class="cell" data-hash="tutorial-w04_cache/html/vot-legend-none_d2618f4580840fc1500d1a706302ba22">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(voicing, vot, <span class="at">fill =</span> voicing)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Transforming data</strong></p>
+<ul>
+<li><p><code>mutate()</code> creates new columns or mutates existing ones.</p></li>
+<li><p><code>filter()</code> can filter data based on given values.</p></li>
+<li><p>With <code>ifelse()</code>, you can output values depending on a logical statement.</p></li>
+<li><p>Use logical operators to create logical statements: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>.</p></li>
+<li><p><code>unique()</code> returns the unique values of a vector.</p></li>
+<li><p>The <code>%in%</code> operator returns <code>TRUE</code> if the value on the operator’s left-hand side is one of the values in the vector on the right-hand side, and <code>FALSE</code> if not.</p></li>
+</ul>
+<p><strong>Plotting</strong></p>
+<ul>
+<li><p>Use <code>geom_density()</code> to create density plots.</p></li>
+<li><p>Use <code>geom_violin()</code> to create violin plots.</p></li>
+<li><p>Use <code>geom_jitter()</code> to create strip charts.</p></li>
+<li><p><code>labs()</code> allows you to specify title and axis labels.</p></li>
+<li><p><code>theme(legend.position = …)</code> lets you specify the position of the legend.</p></li>
+</ul>
+<p><strong>Modelling</strong></p>
+<ul>
+<li><p>Use <code>brm()</code> with <code>family = gaussian()</code> to model the mean and standard deviation of Gaussian data.</p></li>
+<li><p><code>summary()</code> returns the summary of a <code>brm</code> model.</p></li>
+<li><p>With <code>tidy()</code> from broom.mixed you can obtain a tidy table with the model summary.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

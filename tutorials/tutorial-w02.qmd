@@ -1,0 +1,574 @@
+---
+title: "SQM tutorial - Week 2"
+editor: visual
+---
+
+```{r}
+#| include: false
+set.seed(32986)
+```
+
+## Some basics
+
+In the tutorial last week you've been playing around with R and variables.
+
+**But what if you want to import data in R?**
+
+Easy! You can use the `read_csv()` function to read a `.csv` (comma separated value) file. But before we dive in, let's first talk about some computer basics. (You can skip this section if it's too basic for you)
+
+### Files, folder and file extensions
+
+Files saved on your computer live in a specific place. For example, if you download a file from a browser (like Google Chrome, Safari or Firefox), the file is normally saved in the `Download` folder.
+
+But where does the `Download` folder live? Usually, in your user folder! The user folder normally is the name of your account or a name you picked when you created your computer account. In my case, my user folder is simply called `ste`.
+
+::: callout-tip
+#### User folder
+
+The **user folder** is the folder with the name of your account.
+:::
+
+So, let's assume I download a file, let's say `big_data.csv`, in the `Download` folder of my user folder.
+
+Now we can represent the location of the `big_data.csv` file like so:
+
+    ste/
+    └── Downloads/
+        └── big_data.csv
+
+To mark that `ste` and `Downloads` are folders, we add a final forward slash `/`. That simply means "hey! I am a folder!". `big_data.csv` is a file, so it doesn't have a final `/`.
+
+Instead, the file name `big_data.csv` has a **file extension**. The file extension is `.csv`. A file extension marks the type of file: in this the `big_data` file is a `.csv` file, a comma separated value file (we will see an example of what that looks like later).
+
+Different file type have different file extensions:
+
+-   Excel files: `.xlsx`.
+-   Plain text files: `.txt`.
+-   Images: `.png`, `.jpg`, `.gif`.
+-   Audio: `.mp3`, `.wav`.
+-   Video: `.mp4`, `.mov`, `.avi`.
+-   Etc...
+
+::: callout-tip
+#### File extension
+
+A file extension is a sequence of letters that indicates the type of a file and it's separated with a `.` from the file name.
+:::
+
+### File paths
+
+Now, we can use an alternative, more succinct way, to represent the location of the `big_data.csv`:
+
+`ste/Downloads/big_data.csv`
+
+This is called a **file path**! It's the path through folders that lead you to the file. Folders are separated by `/` and the file is marked with the extension `.csv`.
+
+::: callout-tip
+#### File path
+
+A **file path** indicates the location of a file on a computer as a path through folders that lead you to the file.
+:::
+
+Now the million pound question: where does `ste/` live on my computer???
+
+User folders are located in different places depending on the operating system you are using:
+
+-   On **macOS**: the user folder is in `/Users/`.
+
+    -   You will notice that there is a forward slash also before the name of the folder. That is because the `/Users/` folder is a top folder, i.e. there are no folders further up in the hierarchy of folders.
+    -   This means that the full path for the `big_data.csv` file on a computer running macOS would be: `/Users/ste/Downloads/big_data.csv`.
+
+-   On **Windows**: the user folder is in `C:/Users/`
+
+    -   You will notice that `C` is followed by a colon `:`. That is because `C` is a drive, which contains files and folders. `C:` is not contained by any other folder, i.e. there are no other folders above `C:` in the hierarchy of folders.
+    -   This means that the full path for the `big_data.csv` file on a Windows computer would be: `C:/Users/ste/Downloads/big_data.csv`.
+
+When a file path starts from a top-most folder, we call that path the **absolute** file path.
+
+::: callout-tip
+#### Absolute path
+
+An **absolute path** is a file path that starts with a top-most folder.
+:::
+
+There is another type of file paths, called **relative** paths. A relative path is a partial file path, relative to a specific folder. You will learn how to use relative paths below, when we will go through importing files in R using R scripts below.
+
+Importing files in R is very easy with the tidyverse packages. You just need to know the file type (very often the file extension helps) and the location of the file (i.e. the file path).
+
+The next sections will teach you how to import data in R!
+
+## The data
+
+For this tutorial, we will use the data from this paper: Song et al. 2020. *Second language users exhibit shallow morphological processing*. DOI: [10.1017/S0272263120000170](https://doi.org/10.1017/S0272263120000170).
+
+### Download the data file
+
+To download the file with the data right-click on the following link and download the file: [shallow.csv](../data/shallow.csv). (Note that tutorial files are also linked in the [Syllabus](../content.qmd))
+
+Create a folder in the RStudio project of the course called `data` and move the downloaded file into that folder.
+
+I strongly recommend that you keep the course RStudio project folder as organised as possible. The Open Science Framework has the following recommendations that apply very well to any type of research project.
+
+::: callout-note
+#### Organising files
+
+-   Use **one folder** per project. This will also be your RStudio project folder.
+
+-   Separate **raw data** from **derived data**.
+
+-   Separate **code** from **data**.
+
+-   Make **raw data read-only**.
+:::
+
+To learn more about this, check the OSF page [Organising files](https://help.osf.io/article/147-organizing-files).
+
+In brief, what these recommendations mean is that you want a folder for your research project, and inside the folder two folders: one for data and one for code.
+
+The `data/` folder could further contain `raw/` for raw data (data that should not be lost or changed, for example collected data or annotations) and `derived/` for data that derives from the raw data, for example through automated data processing.
+
+I usually also have a separate folder called `figs/` or `img/` where I save plots. Of course which folders you will have it's ultimately up to you and needs will vary depending on the project and field!
+
+The rest of the tutorial will assume that you have created a folder called `data/` and that `shallow.csv` is in that folder.
+
+I recommend you to start being very organised with your files from now, whether it's for this course or your dissertation or else. I also suggest to avoid overly nested structures (for example, avoid having one folder for each week for this course).
+
+### About `shallow.csv`
+
+`shallow.csv` is a `.csv` file. It looks like this (the following is just an excerpt from the file, specifically the first 5 lines):
+
+``` txt
+Group,ID,List,Target,ACC,RT,logRT,Critical_Filler,Word_Nonword,Relation_type,Branching
+L1,L1_01,A,banoshment,1,423,6.0474,Filler,Nonword,Phonological,NA
+L1,L1_01,A,unawareness,1,603,6.4019,Critical,Word,Unrelated,Left
+L1,L1_01,A,unholiness,1,739,6.6053,Critical,Word,Constituent,Left
+L1,L1_01,A,bictimize,1,510,6.2344,Filler,Nonword,Phonological,NA
+```
+
+A `.csv` file is basically a format to save tabular data (i.e. data that looks like a table). To separate each column, a `.csv` file uses a comma `,` (hence the name "comma separated values").
+
+The first line of the file indicates the names of the columns of the table:
+
+``` txt
+Group,ID,List,Target,ACC,RT,logRT,Critical_Filler,Word_Nonword,Relation_type,Branching
+```
+
+There are 11 columns.
+
+Then, the rest of the file contains the other rows of the table, with values for each of the 11 columns. Of course, separated by commas.
+
+``` txt
+L1,L1_01,A,banoshment,1,423,6.0474,Filler,Nonword,Phonological,NA
+L1,L1_01,A,unawareness,1,603,6.4019,Critical,Word,Unrelated,Left
+L1,L1_01,A,unholiness,1,739,6.6053,Critical,Word,Constituent,Left
+L1,L1_01,A,bictimize,1,510,6.2344,Filler,Nonword,Phonological,NA
+```
+
+The `shallow.csv` file should be placed in the `data/` folder of the course RStudio project.
+
+Now, let's import the data!
+
+Importing `.csv` files is very easy. You can use the `read_csv()` function from a collection of R packages known as the [tidyverse](https://www.tidyverse.org).
+
+But what are R packages? Find out in the following section.
+
+## R packages
+
+When you install R, a **library** of packages is also installed. **Packages** are like plug-ins, they provide R with extra functionalities. The default **R library** contains all of the base R packages.
+
+You can check all of the currently installed packages in the bottom-right panel of RStudio, in the **Packages** tab.
+
+If you want to find the path of the R library on your computer, type `.libPaths()` in the Console. The function returns (i.e. outputs) the path or paths where your R library is.
+
+::: callout-tip
+#### R library and packages
+
+-   The **R library** contains the base R packages and all user-installed packages.
+
+-   **R packages** provide R with extra functionalities and are installed into the R library.
+:::
+
+#### Install packages
+
+You can install extra packages in the R library in two ways:
+
+1.  You can use the `install.packages()` function. This function takes the name of package you want to install as a string, for example `install.packages("cowsay")`
+2.  Or you can go the `Packages` tab in the bottom-right panel of RStudio and click on `Install`.
+
+Go ahead and try to install a package using the second method. Install the fortunes package (remember to quote the name of the package). After installing you will see that the package fortunes is listed in the Packages tab.
+
+**You need to install a package ONLY ONCE!** Once installed, it's there for ever, saved in the R library. You will be able to use all of your installed packages in any RStudio project you create.
+
+#### Attach packages
+
+Now, to use a package you need to **attach** the package with the `library()` function. **You need to attach the package you want to use once per R session.**
+
+Let's attach the fortunes package. Run the following code in the Console. Note that while `install.packages("fortunes")` takes the name of the package as a string, `library(fortunes)` takes the name of the package without quotes.
+
+```{r fortunes}
+library(fortunes)
+```
+
+Now you can use the functions provided by the attached package. Try it out!
+
+```{r fortune}
+fortune()
+```
+
+To learn what a function does, you can check its documentation by typing the function name preceded by a `?` question mark. Type `?function` in the Console and hit ENTER to see the function documentation.
+
+## Import and view data
+
+### Import the data
+
+To import data in R we will use the `read_csv()` function from the [readr](https://readr.tidyverse.org) package, one of the tidyverse packages.
+
+The `read_csv()` function only requires you to specify the file path as a string (remember, strings are quoted between `" "`.
+
+On my computer, the file path of `shallow.csv` is `/Users/ste/sqmb/data/shallow.csv`, but on your computer the file path will be different, of course.
+
+Also, note that it is not enough to use the `read_csv()` function. You also must assign the output of the `read_csv()` function (i.e. the data we are reading) to a variable, using the assignment arrow `<-`.
+
+And since the `read_csv()` is a function from the tidyverse, you first need to attach the tidyverse packages with `library(tidyverse)` (remember, you need to attach packages **only once** per session).
+
+This will attach a set of the tidyverse packages that are commonly used in most data analysis applications, including readr. Of course, you can also attach the individual packages directly: `library(readr)`. If you use `library(tidyverse)` there is no need to attach tidyverse individual packages.
+
+So, putting all together, here's the code. **Remember to change the file path to match the path of the file on your computer**. Run the code in the Console to read the data.
+
+```{r}
+#| label: read-example
+#| eval: false
+library(tidyverse)
+
+# CHANGE THE FILE PATH TO MATCH THE PATH ON YOUR COMPUTER
+shallow <- read_csv("/Users/ste/sqmb/data/shallow.csv")
+```
+
+Fantastic!
+
+### View the data
+
+Now we can view the data.
+
+The easiest way is to click on the name of the data listed in the **Environment** tab, in the top-right panel of RStudio.
+
+You will see a nicely formatted table, as you would in something like Excel.
+
+Data tables in R (i.e. spreadsheet-like data) are called **data frames** or **tibbles**.
+
+The `shallow` data frame contains 6500 observations and 11 columns (called variables in the `Environment` tab). The 11 columns are the following:
+
+-   `Group`: `L1` vs `L2` speakers of English.
+-   `ID`: Subject unique ID.
+-   `List`: Word list (A to F).
+-   `Target`: Target word in the lexical decision trial.
+-   `ACC`: Lexical decision response accuracy (`0` incorrect response, `1` correct response).
+-   `RT`: Reaction times of response in milliseconds.
+-   `logRT`: Logged reaction times.
+-   `Critical_Filler`: Whether the trial was a `filler` or `critical`.
+-   `Word_Nonword`: Whether the Target was a real `Word` or a `Nonword`.
+-   `Relation_type`: The type of relation between prime and target word (`Unrelated`, `NonCostituent`, `Constituent`, `Phonological`).
+-   `Branching`: Constituent syntactic branching, `Left` and `Right` (shout out to Charlie Puth).
+
+Great stuff! See how easy it was to import data?
+
+You can easily import other file types as long as they are tabular (i.e. spreadsheet-like), like Excel files.
+
+For Excel files (i.e. files with a `.xls` or `.xlsx` extension), you need to attach the [readxl](https://readxl.tidyverse.org) package with `library(readxl)` and use the `read_excel()` function.
+
+We will use `.csv` files throughout the course and I recommend that you use this format for your work too!
+
+## R scripts
+
+So far, you've been asked to write code in the **Console** and run it there.
+
+But this is not very efficient. Every time you need to write the code and execute it in the right order and it quickly becomes very difficult to keep track of everything when things start getting more involved.
+
+A solution is to use **R scripts**.
+
+::: callout-tip
+#### R script
+
+An **R script** is a file with the `.R` extension that contains R code.
+:::
+
+For the rest of this tutorial, you will write all code in an R script.
+
+### Create an R script
+
+First, create a folder called `code` in your RStudio project folder. This will be the folder where you will save all of your R scripts.
+
+Now, to create a new R script, look at the top-left corner of RStudio: the first button to the left looks like a white sheet with a green plus sign. This is the `New file` button. Click on that and you will see a few options to create a new file.
+
+Click on `R Script`. A new empty R script will be created and will open in the File Editor window of RStudio.
+
+![](/img/new-script-button.png)
+
+**Note** that creating an R script does not automatically saves it on your computer. To do so, either use the keyboard short-cut `CMD+S`/`CTRL+S` or click on the floppy disk icon in the menu below the file tab.
+
+![](/img/%20save-button.png)
+
+Save the file inside the `code/` folder with the following name: `tutorial-w02.R`.
+
+Remember that all the files of your RStudio project don't live inside RStudio but on your computer. So you can always access them from the Finder or File Explorer!
+
+### Write code
+
+Now, let's start filling up that script!
+
+Generally, you start the script with calls to `library()` to load all the packages you need for the script.
+
+Now we only need one package, tidyverse, but in most cases you will need more than one! The best practice is to attach all of packages first, in the top of your script. Please, get in the habit of doing this from now, so that you can keep your scripts tidy and pretty!
+
+Go ahead, write the following code in the top of the `tutorial-w02.R` script.
+
+```{r}
+#| label: read-shallow
+#| message: false
+library(tidyverse)
+
+shallow <- read_csv("./data/shallow.csv")
+```
+
+Wait, what is that `"./data/shallow.csv"`? That's a **relative path**. We briefly mentioned relative paths above, but let's understand the details now.
+
+### Relative paths
+
+::: callout-tip
+A **relative path** is a file path that is relative to a folder, which is represented by `./`
+:::
+
+When you are using R scripts in RStudio projects, the `./` folder paths are relative to is the project folder! This is true whichever the name of the folder/project and whichever it's location on your computer.
+
+For example, if your project it's called `awesome_proj` and it's in `Downloads/stuff/`, then if you write `./data/results.csv` you really mean `Downloads/stuff/awesome_proj/data/results.csv`!
+
+The code `read_csv("./data/shallow.csv")` above will work because you are using an RStudio project and inside the project folder there is a folder called `data/` and in it there's the `shallow.csv` file.
+
+So from now on I encourage you to use RStudio projects, R scripts and relative paths always!
+
+The benefit of doing so is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!
+
+### Run the script!
+
+Finally, the time has come to **run the script**.
+
+There are several ways of doing this. The most straightforward is to click on the `Run` button. You can find this in the top-right corner of the script window.
+
+![](/img/run-button.png)
+
+An alternative way is to place the text cursor on the line of code you want to run and then press `CMD+ENTER`/`CTRL+ENTER`. This will run the line of code and move the text cursor to the next line of code.
+
+You can even select multiple lines of code (as you would select text) and press `CMD+ENTER`/`CTRL+ENTER` to run multiple lines of code!
+
+Now that you know how to use R scripts and run code in them, I will assume that you will keep writing new code from this tutorial in your script and run it from there!
+
+Just another tip: sometimes we might want to add a few lines of text in our script, for example to take notes.
+
+You can add so-called **comments** in R scripts, simply by starting a line with `#`.
+
+For example:
+
+```{r}
+#| label: comments
+
+# This is a comment. Let's add 6 + 3.
+6 + 3
+```
+
+## Data transformation
+
+**Data transformation** is a fundamental aspect of data analysis.
+
+After the data you need to use is imported into R, you will have to filter rows, create new columns, or join data frames, among many other transformation operations.
+
+In this tutorial we will learn how to obtain summary measures and how to count occurrences using the `summarise()` and `count()` functions.
+
+### Summary measures
+
+During the lecture, we have learnt two types of measures.
+
+::: callout-tip
+#### Summary measures
+
+**Measures of central tendency** (mean, median, mode) indicate the typical or central value of a sample.
+
+**Measures of dispersion** (standard deviation, range) indicate the dispersion of the sample values around the central tendency value.
+:::
+
+When you work with data, you always want to get summary measures for most of the variables in the data.
+
+Data reports usually include summary measures. It is also important to understand which summary measure is appropriate for which type of variable.
+
+We have covered this in the lecture, so we won't go over it again here. Instead, you will learn how to obtain summary measures using the `summarise()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package.
+
+`summarise()` takes at least two arguments:
+
+-   The data frame to summarise.
+
+-   One or more summary function.
+
+For example, let's get the mean the reaction time column `RT`. Easy!
+
+```{r}
+#| label: mean
+
+summarise(shallow, RT_mean = mean(RT))
+
+```
+
+Great! The mean reaction times of the entire sample is 867 ms.
+
+What if we want also the standard deviation? Easy!
+
+```{r}
+#| label: sd
+
+summarise(shallow, RT_mean = mean(RT), RT_sd = sd(RT))
+
+```
+
+Now we know that reaction times are on average 867 ms long and have a standard deviation of about 293 ms (rounded to the nearest integer).
+
+Let's go all the way and also get the minimum and maximum RT values.
+
+```{r}
+#| label: minmax
+
+summarise(
+  shallow,
+  RT_mean = mean(RT), RT_sd = sd(RT),
+  RT_min = min(RT), RT_max = max(RT)
+)
+
+```
+
+Fab! When writing a data report, you could write something like this.
+
+> Reaction times are on average 867 ms long (SD = 293 ms), with values ranging from 0 to 1994 ms.
+
+In some cases, you will want to use the `median()` instead of the `mean()`. Note that R has a `mode()` function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!
+
+### Count occurrences
+
+We can use the `count()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package to count the number of occurrences for each value of a specific column. Let's count how many trials are correct, i.e. let's count occurrences in the `ACC` column.
+
+Accuracy has been coded with `0` for incorrect and `1` for correct. We will see how this is not an ideal, although very common way, of coding binary variables. For now let's keep it as is.
+
+The function `count()` takes the name of tibble and the name of column you want to count values in.
+
+```{r count-corr, eval=FALSE}
+#| label: count-corr
+
+count(shallow, ACC)
+
+```
+
+How many *correct* responses are there in the `shallow` tibble?
+
+Note that you can add **multiple column names, separated by commas**, to get counts for the combinations of values of each column.
+
+Try to get counts of the combination of `ACC` and `Group` (`L1` vs `L2` participants). Replace `...` with the right code.
+
+```{r count-corr-group, eval=FALSE}
+count(shallow, ...)
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+In `count()`, include the names of the two columns you want to get counts of, separated by commas.
+:::
+
+Are there differences in accuracy between the L1 and L2 group?
+
+### Grouping data
+
+Sometimes you might want to get summary measures for one variable depending on different values of another variable.
+
+You can use the `group_by()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package, together with `summarise()` to achieve that. Let's see how it works.
+
+```{r}
+#| label: group
+
+group_by(shallow, Group) %>%
+  summarise(
+    RT_mean = mean(RT),
+    RT_sd = sd(RT)
+  )
+
+```
+
+The `group_by()` function takes at least two arguments:
+
+-   The name of the tibble to group.
+
+-   The name of the columns to group the tibble by, separated by commas.
+
+Here we are grouping `shallow` by `Group`.
+
+If you are baffled by that `%>%`, keep on reading.
+
+### What the pipe?!
+
+Wait, what is that thing, `%>%`?
+
+It's called a **pipe**. Think of a pipe as a teleporter.
+
+In the code above we are chaning two functions together using the pipe opeartor `%>%`. The output of the first function (`group_by()`) is "teleported" into the second function `summarise()`.
+
+The pipe `%>%` teleports the output of the preceding function as the first argument of the following function. The output of `group_by` is a (groupped) tibble, and `summarise()` needs a tibble as its first argument.
+
+That's why the code above works!
+
+In fact, you can even use a pipe for the tibble of `group_by()`, like so:
+
+```{r}
+#| label: pipe
+
+shallow %>%
+  group_by(Group) %>%
+    summarise(
+      RT_mean = mean(RT),
+      RT_sd = sd(RT)
+    )
+
+```
+
+You see that the output of the code is the same here as it is above.
+
+For comparison, this is what the code would look like without the pipe.
+
+```{r}
+#| label: no-pipe
+
+grouped_shallow <- group_by(shallow, Group)
+
+summarise(
+  grouped_shallow,
+  RT_mean = mean(RT),
+  RT_sd = sd(RT)
+)
+
+```
+
+Don't worry too much if the concept of the pipe is not clear yet. It should become clearer later.
+
+## Summary
+
+You made it! You completed this week's tutorial.
+
+Here's a summary of the R functions you learnt.
+
+::: {.callout-note appearance="minimal"}
+`library()` attaches R packages.
+
+`read_csv()` reads `.csv` files in R.
+
+`summarise()` allows you to calculate measures of central tendency and dispersion.
+
+`count()` lets you count the number of occurrences of levels in a categorical variable.
+
+`group_by()` allows you to group a tibble according to one or more variables.
+
+The pipe `%>%` can be used to chain multiple functions.
+:::
