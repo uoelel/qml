@@ -47,8 +47,15 @@ However, based on surveys from different disciplines, we are currently facing th
 
 The **Open Research** movement (also known as Open Science or Open Scholarship, [Crüwell et al. 2019](https://doi.org/10.1027/2151-2604/a000387)) was developed with the aim of improving our understanding of these crises and with the objective of providing researchers with guidelines and tools to produce reproducible, replicable and generalisable research.
 
-New Statistics.
+The statistical philosophy adopted in the course is that of the **New Statistics** ([Cumming 2014](https://doi.org/10.1177/0956797613504966), [Kruschke and Liddell 2018](https://doi.org/10.3758/s13423-016-1221-4). The main goal of the New Statistics is to shift the attention from statistical significance to estimation with quantification of uncertainty.
 
+## Ask for help
+
+If at any point during the course you don't feel comfortable with any aspect of the course, you are unsure about anything that has been covered in class or in your own time, you are struggling to keep up with the course workload, you are experiencing mental of physical distress due to a pre-existing or new illness, medical condition or disability, or you find yourself unable to access basic needs like food or housing, **please do get in touch with me and/or the PPLS support** (*go to the PPLS UG or MSc Hub on SharePoint > Support for students > Health & Wellbeing*).
+
+We are humans first and the rapidly-changing new world we are living in now can put us under pressure. What is most important to me is that you are first and foremost healthy and able to participate to the course, and that you succeed and get the most out of the course.
+
+**It is OK not to be OK, and remember that you are not alone.** Other people, teachers and students, might be struggling right now or have struggled before and might have gone through what you are going through now. Remember that support exists for you, so please do reach out. If you see somebody close to you struggling, please let them know about the available support network and encourage them to reach out.
 
 
 
