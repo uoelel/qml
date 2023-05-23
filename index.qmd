@@ -29,6 +29,29 @@ At completion of the course you will have gained the following **skills**:
 
 Examples from different branches of linguistics will be used to provide you with hands-on experience in quantitative data analysis and Open Research practices.
 
+## Course rationale
+
+This course is designed to help you develop the necessary skills for conducting and interpreting analyses of data as commonly employed in linguistics.
+
+The content and objectives of the course are in response to recent advances in our understanding of the theory behind research methods.
+
+Recent meta-scientific research has identified three important aspects of research: the **reproducibility, replicability and generalisability**.
+
+- A result is **reproducible** when the same analysis steps performed on the same dataset consistently produces the same answer.
+- A result is **replicable** when the same analysis performed on different datasets produces qualitatively similar answers.
+- A result is **generalisable** when a different analysis workflow performed on different data sets produces qualitatively similar answers.
+
+See [Definitions](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html) for a more detailed explanation.
+
+However, based on surveys from different disciplines, we are currently facing the **three research crises** (*reproducibility, replicability and generalisability crises*) by which most results are neither reproducible, nor replicable, nor generalisable ([Munafò et al. 2017](https://doi.org/10.1038/s41562-016-0021), [Simmons et al. 2011](https://doi.org/10.1177/0956797611417632), [Ioannidis 2005](https://doi.org/10.1371/journal.pmed.0020124), [Yarkoni 2022](https://doi.org/10.1017/S0140525X20001685)).
+
+The **Open Research** movement (also known as Open Science or Open Scholarship, [Crüwell et al. 2019](https://doi.org/10.1027/2151-2604/a000387)) was developed with the aim of improving our understanding of these crises and with the objective of providing researchers with guidelines and tools to produce reproducible, replicable and generalisable research.
+
+New Statistics.
+
+
+
+
 ## Contacts
 
 You can reach me (Stefano) at <s.coretta@ed.ac.uk> or on Teams.
