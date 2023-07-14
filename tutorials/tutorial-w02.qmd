@@ -32,9 +32,11 @@ So, let's assume I download a file, let's say `big_data.csv`, in the `Download` 
 
 Now we can represent the location of the `big_data.csv` file like so:
 
-    ste/
-    └── Downloads/
-        └── big_data.csv
+```         
+ste/
+└── Downloads/
+    └── big_data.csv
+```
 
 To mark that `ste` and `Downloads` are folders, we add a final forward slash `/`. That simply means "hey! I am a folder!". `big_data.csv` is a file, so it doesn't have a final `/`.
 

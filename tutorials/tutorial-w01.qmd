@@ -85,11 +85,11 @@ However, there is a more efficient way of working with RStudio: **RStudio Projec
 An **RStudio Project** is a folder on your computer that has an `.Rproj` file.
 :::
 
-You can create as many RStudio Projects as you wish, and I recommend to create one per project (your dissertation, a research project, etc...).
+You can create as many RStudio Projects as you wish, and I recommend to create one per project (your dissertation, a research project, a course, etc...).
 
-We will create an RStudio Project for this course. You will be using this Project throughout the semester.
+We will create an RStudio Project for this course (meaning, you will create a folder for the course which will be the RStudio Project). You will have to use this project/folder throughout the semester.
 
-To create an RStudio Project, click on the button that looks like a transparent light blue box with a plus, in the top-left corner of RStudio. A window like the one below will pop up.
+To create a new RStudio Project, click on the button that looks like a transparent light blue box with a plus, in the top-left corner of RStudio. A window like the one below will pop up.
 
 ![](../img/rstudio-3.png)
 
@@ -97,9 +97,9 @@ Click on `New Directory` then `New Project`.
 
 ![](../img/rstudio-4.png)
 
-Now, this will create a new folder (aka directory) on your computer and will make that an RStudio Project.
+Now, this will create a new folder (aka directory) on your computer and will make that an RStudio Project (meaning, it will add a file with the `.Rproj` extension to the folder; the name of the file will be the name of the project/folder).
 
-Give a name to your new project, something like the name of the course and year.
+Give a name to your new project, something like the name of the course and year (e.g. `qml-2023`).
 
 Then you need to specify where to create this new folder/Project. Click on `Browse…` and navigate to the folder you want to create the new folder/Project in.
 
@@ -107,17 +107,19 @@ When done, click on `Create Project`. RStudio will automatically open your new p
 
 ![](../img/rstudio-5.png)
 
-You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio.
+::: callout-important
+#### Important
 
-::: callout-note
 When working through these tutorials, always make sure you are in the course RStudio Project you just created.
-:::
+
+You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light blue cube icon.
 
 If your see `Project (none)` in the top-right corner, that means your **are not** in an RStudio Project.
+:::
 
 There are several ways of opening an RStudio Project:
 
--   You can go to the RStudio Project folder in Finder or File Explorer and double click on the `Rproj` file.
+-   You can go to the RStudio Project folder in Finder or File Explorer and double click on the `.Rproj` file.
 
 -   You can click on `File > Open Project` in the RStudio menu.
 
@@ -133,21 +135,37 @@ Before moving on, there are a few important settings that you need to change.
 
 2.  Un-tick `Restore .RData into workspace at startup`.
 
+    -   This mean that every time you start RStudio you are working with a clean Environment. Not restoring the workspace ensures that the code you write is fully reproducible.
+
 3.  Select `Never` in `Save workspace to .RData on exit`.
+
+    -   Since we are not restoring the workspace at startup, we don't need to save it. Remember that as long as you save the code, you will not lose any of your work! You will learn how to save code from next week.
 
 4.  Click `OK` to confirm the changes.
 
 ## R basics
 
+In this part of the tutorial you will learn the very basics of R.
+
+If you have prior experience with programming, you should find all this familiar. If not, not to worry! Make sure you understand the concept highlighted in the green boxes and practice the related skills.
+
+For this tutorial, you will just run code directly in the R Console in RStudio, i.e. you will type code in the Console and press `ENTER` to run it.
+
+In future tutorials, you will learn how to save your code in a script file, so that you can keep track of which code you have run and make your work reproducible.
+
 ### R as a calculator
 
-Write the following in the `Console`, then press `ENTER`: `1 + 2`.
+Write this code `1 + 2` in the `Console`, then press `ENTER/RETURN` to run the code.
 
-Fantastic! You should see that the answer to the addition has been printed in the `Console`, like this:
+Fantastic! You should see that the answer of the addition has been printed in the `Console`, like this:
 
-    [1] 3
+```         
+[1] 3
+```
 
-Now, try some more operations (write each of the following in the Console and press `ENTER`). Feel free to add your own to the mix!
+(Never mind the `[1]` part for now).
+
+Now, try some more operations (write each of the following in the Console and press `ENTER`). Feel free to add your own operations to the mix!
 
 ```{r eval=FALSE}
 67 - 13
@@ -200,6 +218,8 @@ A variable like `my_num` is also called a **numeric vector**: i.e. a vector that
 A **vector** is an R object that contains one or more values of the same type.
 :::
 
+A vector is a type of variable and a numeric vector is a type of vector. However, it's fine in most cases to use the word variable to mean vector (just note that a variable can also be something else than a vector; you will learn about more variable types from next week).
+
 Let's now try some operations using variables.
 
 ```{r}
@@ -236,7 +256,7 @@ two_i <- c(6, 8)
 three_i <- c(6, 8, 42)
 ```
 
-Check the list of variables in the `Environment` tab. You will see now that before the values of `two_i` and `three_i` you get the vector type `num` for numeric. (If the vector has only one value, you don't see the type in the `Enviroment` list but it is still of a particular type).
+Check the list of variables in the `Environment` tab. You will see now that before the values of `two_i` and `three_i` you get the vector type `num` for numeric. (If the vector has only one value, you don't see the type in the `Enviroment` list but it is still of a specific type).
 
 ::: callout-tip
 #### Numeric vector
@@ -251,6 +271,14 @@ one_i <- 6
 one_i
 one_ii <- c(6)
 one_ii
+```
+
+Another important aspect of variables is that they are... **variable**! Meaning that once you assign a value to one variable, you can overwrite the value by assigning a new one to the same variable.
+
+```{r}
+my_num <- 88
+my_num <- 63
+my_num
 ```
 
 ### Functions
@@ -284,6 +312,14 @@ my_nums <- c(3, 5, 7)
 sum(my_nums)
 mean(my_nums)
 ```
+
+::: callout-warning
+#### R vs Python
+
+If you are familiar with Python, you will soon realise that R and Python, although they share many concepts and types of objects, they can differ substantially. This is because R is a **functional** programminglanguage (based on *functions*) while Python is an **Object Oriented** programming language (based on *methods* applied on objects).
+
+Generally speaking, functions look like `print(x)` while methods look like `x.print()`
+:::
 
 ### String and logical vectors
 
@@ -344,6 +380,30 @@ A **logical vector** is a vector that holds one or more `TRUE` or `FALSE` values
 ```{r}
 groceries <- c("apple", "flour", "margarine", "sugar")
 in_pantry <- c(TRUE, TRUE, FALSE, TRUE)
+
+data.frame(groceries, in_pantry)
 ```
 
 `TRUE` and `FALSE` values must be written in all capitals and *without* double quotes (they are not strings!).
+
+(We will talk about data frames, another type of object in R, in the following weeks.)
+
+## Summary
+
+You made it! You completed this week's tutorial.
+
+Here's a summary of what you learnt.
+
+::: {.callout-note appearance="minimal"}
+-   **R** is a programming language while **RStudio** is an IDE.
+
+-   **RStudio projects** are folders with an `.Rproj` file (you can see the name of the project you are currently in in the top-right corner of RStudio).
+
+-   You can perform mathematical operations with `+, -, *, /.`
+
+-   You can store values in **variables**.
+
+-   A typical object to be stored in a variable is a **vector**: there are different type of vectors, like **numeric**, **character** and **logical**.
+
+-   Functions are used to perform an operation on its arguments: `sum()` sums it's arguments, `mean()` calculates the mean and `cat()` prints the arguments.
+:::
