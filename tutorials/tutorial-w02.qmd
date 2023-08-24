@@ -671,4 +671,3 @@ Here's a summary of the R functions you learnt.
 
 The pipe `%>%` can be used to chain multiple functions.
 :::
-

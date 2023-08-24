@@ -3,9 +3,9 @@ title: "Set-up instructions"
 editor: visual
 ---
 
-Please, follow these instructions to get ready **before** the workshop. It will take up to an hour to set everything up and you might encounter errors, so please do this asap.
+Please, follow these instructions to get ready **before** the first workshop. It will take up to an hour to set everything up and you might encounter errors, so please do this asap.
 
-## Pre-requisites
+## R and RStudio
 
 Before installing the necessary software, make sure you have installed or updated the following software.
 
@@ -15,7 +15,7 @@ Before installing the necessary software, make sure you have installed or update
 
 -   Ideally, your **operating system is up-to-date**.
 
-## Installation
+## R packages
 
 ::: {.callout-important icon="false"}
 If you have previously installed the C++ toolkit, CmdStan and/or cmdstanr, or if you have recently updated your OS, please follow these instructions to reinstall them.

@@ -2,7 +2,6 @@
 
 ...
 
-
 ## Weekly schedule
 
 ### Week 1: Quantitative methods and uncertainty
@@ -35,9 +34,9 @@
 
 **Install R and RStudio**
 
--   If you with to use your own laptop for the workshops, instead of the Lab PCs, you need to install both R and RStudio.
+-   For this course, you need to install both R and RStudio.
 -   **NOTE**: If you have installed either R or RStudio prior to January 2023, please make sure you delete both R and RStudio from your laptop.
--   Please, follow the instructions for **Step 1 and 2** here: <https://posit.co/download/rstudio-desktop/>.
+-   Please, follow the instructions in the [Setup](setup.qmd) page.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -124,19 +123,7 @@
 -   Create common types of plots with ggplot2.
 -   Use colour and shape to effectively convey meaning.
 -   Describe a plot in writing and comment on observable patterns.
--   Filter and mutate data.
-:::
-
-::: {.callout-note collapse="true"}
-#### Homework
-
-**Set-up your laptop**
-
-From Week 4 on, we will need to use software that unfortunately is not currently working on the Lab PCs. This means you will need to bring your own laptop to the workshop. Moreover, **you will have to install software prior to the workshop**.
-
-**Note that it will take up to an hour to install everything and you might encounter errors, so please do this asap. DO NOT WAIT NEXT WEEK.**
-
-You can find the full instructions here: [set-up instructions](setup.qmd).
+-   Create styled HTML reports.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -199,22 +186,10 @@ You can find the full instructions here: [set-up instructions](setup.qmd).
 
 **Skills**
 
--   Transform data by creating new columns and filtering based on specific values.
+-   Transform data by creating new columns (mutate) and filtering based on specific values (filter).
 -   Use logical operators to transform data.
 -   Fit a statistical model to estimate the mean and standard deviation of a Gaussian variable with `brm()`.
 -   Interpret the summary of the model and understand the meaning of the reported estimates.
-:::
-
-::: {.callout-note collapse="true"}
-#### Homework
-
-**Set-up your laptop**
-
-From Week 4 on, we will need to use software that unfortunately is not currently working on the Lab PCs. This means you will need to bring your own laptop to the workshop. Moreover, **you were asked to install software prior to the workshop**.
-
-**In the tragic event you did not go through the installation instructions last week, DO IT NOW AT YOUR OWN PERIL.** I won't be able to help you with the installation during the workshop.
-
-You can find the full instructions here: [set-up instructions](setup.qmd).
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -242,13 +217,9 @@ You can find the full instructions here: [set-up instructions](setup.qmd).
 ::: {.callout-warning collapse="true"}
 #### Formative assessment 1
 
--   **DUE on Thursday 16 February at NOON**.
+-   \*\*DUE on Thu 19 October at noon\*.
 
--   Formative assessment 1 requires you to read, mutate and plot a given data set. You can preview the formative instructions here: <https://github.com/uoelel/sqmb-f1>.
-
--   We will use GitHub Classroom for all assessments. For an overview of how GitHub Classroom works, watch [these videos](https://youtube.com/playlist?list=PLiqxyEAY_i3kItjlvEYN1VCwHvAdP6hZW).
-
--   The GitHub Classroom invitation link can be found on Learn.
+-   Formative assessment 1 requires you to complete a few guided exercises of the type that will be included in Summative 1.
 :::
 
 ::: {.callout-important collapse="true"}
@@ -318,16 +289,6 @@ There will be no classes.
 -   Convert between log-odds, odds and probabilities.
 :::
 
-::: {.callout-warning collapse="true"}
-#### Formative assessment 2
-
--   **DUE on Thursday 2 March at NOON**.
-
--   F2 requires you to find a data table and fit a model with one continuous outcome and one categorical predictor. You can preview the instructions here: <https://github.com/uoelel/sqmb-f2>.
-
--   From the .Rmd file, you will render a PDF and submit it over Turnitin. You can find the link to Turnitin on Learn under Assessment \> Formative Assessment F2.
-:::
-
 ::: {.callout-tip collapse="true"}
 #### Materials
 
@@ -368,16 +329,6 @@ There will be no classes.
     -   [dur-ita-pol.csv](data/dur-ita-pol.csv).
 :::
 
-::: {.callout-warning collapse="true"}
-## Formative assessment 3 (due Thursday April 6 at noon)
-
-**Data analysis report**
-
--   Given a data table and a research question, submit a short and concise data analysis report, including summary measures, plots, and a linear model. You can download everything you need from here: <https://github.com/uoelel/sqmb-f3>.
-
--   From the .Rmd file, you will render a PDF and submit it over Turnitin. You can find the link to Turnitin on Learn under Assessment \> Formative Assessment F3.
-:::
-
 ### Week 9: Continuous predictors and interactions
 
 ::: {.callout-important collapse="true"}
@@ -407,8 +358,17 @@ There will be no classes.
 
 ### Week 10: Bayesian inference
 
+::: {.callout-warning collapse="true"}
+#### Formative assessment 2
+
+-   **DUE on Thursday 23 November at noon**.
+
+-   F2 requires you to read, plot and model data. Summative 2 will have the same format.
+:::
+
 ### Week 11: Obtaining *p*-values (Optional)
 
+```{=html}
 <!--
 ### Thursday 30 March
 
@@ -438,3 +398,4 @@ In the second summative assessment, you will:
 You can find more information about the assessment on GitHub here: <https://github.com/uoelel/sqmb-s2>
 :::
 -->
+```

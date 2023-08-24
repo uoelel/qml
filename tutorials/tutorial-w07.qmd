@@ -311,19 +311,23 @@ Now we've got the data we need for plotting the conditional posterior distributi
 
 At this point, you should have two columns, `Maluma` and `Takete`, each containing log-odds values. Something like this (not necessarily containing these values exactly):
 
-    Maluma     Takete
-    -0.59      0.83
-    -0.53      0.93
-    ...
+```         
+Maluma     Takete
+-0.59      0.83
+-0.53      0.93
+...
+```
 
 But plotting would be easier if we could have instead something like:
 
-    Stimulus     logodds
-    Maluma       -0.59
-    Maluma       -0.53
-    Takete       0.83
-    Takete       0.93
-    ...
+```         
+Stimulus     logodds
+Maluma       -0.59
+Maluma       -0.53
+Takete       0.83
+Takete       0.93
+...
+```
 
 so that you could use `logodds` as the *x*-axis and `Stimulus` as fill.
 
