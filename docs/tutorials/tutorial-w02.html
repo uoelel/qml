@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -118,7 +89,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -140,25 +112,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">QML</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../content.html">
+    <a class="nav-link" href="../content.html" rel="" target="">
  <span class="menu-text">Course content</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assessments.html">
+    <a class="nav-link" href="../assessments.html" rel="" target="">
  <span class="menu-text">Assessment</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -172,37 +146,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#some-basics" id="toc-some-basics" class="nav-link active" data-scroll-target="#some-basics">Some basics</a>
+  <li><a href="#some-basics" id="toc-some-basics" class="nav-link active" data-scroll-target="#some-basics"><span class="header-section-number">1</span> Some basics</a>
   <ul class="collapse">
-  <li><a href="#files-folder-and-file-extensions" id="toc-files-folder-and-file-extensions" class="nav-link" data-scroll-target="#files-folder-and-file-extensions">Files, folder and file extensions</a></li>
-  <li><a href="#file-paths" id="toc-file-paths" class="nav-link" data-scroll-target="#file-paths">File paths</a></li>
+  <li><a href="#files-folder-and-file-extensions" id="toc-files-folder-and-file-extensions" class="nav-link" data-scroll-target="#files-folder-and-file-extensions"><span class="header-section-number">1.1</span> Files, folder and file extensions</a></li>
+  <li><a href="#file-paths" id="toc-file-paths" class="nav-link" data-scroll-target="#file-paths"><span class="header-section-number">1.2</span> File paths</a></li>
   </ul></li>
-  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data"><span class="header-section-number">2</span> The data</a>
   <ul class="collapse">
-  <li><a href="#download-the-data-file" id="toc-download-the-data-file" class="nav-link" data-scroll-target="#download-the-data-file">Download the data file</a></li>
-  <li><a href="#about-shallow.csv" id="toc-about-shallow.csv" class="nav-link" data-scroll-target="#about-shallow.csv">About <code>shallow.csv</code></a></li>
+  <li><a href="#download-the-data-file" id="toc-download-the-data-file" class="nav-link" data-scroll-target="#download-the-data-file"><span class="header-section-number">2.1</span> Download the data file</a></li>
+  <li><a href="#about-shallow.csv" id="toc-about-shallow.csv" class="nav-link" data-scroll-target="#about-shallow.csv"><span class="header-section-number">2.2</span> About <code>shallow.csv</code></a></li>
   </ul></li>
-  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R packages</a></li>
-  <li><a href="#import-and-view-data" id="toc-import-and-view-data" class="nav-link" data-scroll-target="#import-and-view-data">Import and view data</a>
+  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages"><span class="header-section-number">3</span> R packages</a></li>
+  <li><a href="#import-and-view-data" id="toc-import-and-view-data" class="nav-link" data-scroll-target="#import-and-view-data"><span class="header-section-number">4</span> Import and view data</a>
   <ul class="collapse">
-  <li><a href="#import-the-data" id="toc-import-the-data" class="nav-link" data-scroll-target="#import-the-data">Import the data</a></li>
-  <li><a href="#view-the-data" id="toc-view-the-data" class="nav-link" data-scroll-target="#view-the-data">View the data</a></li>
+  <li><a href="#import-the-data" id="toc-import-the-data" class="nav-link" data-scroll-target="#import-the-data"><span class="header-section-number">4.1</span> Import the data</a></li>
+  <li><a href="#view-the-data" id="toc-view-the-data" class="nav-link" data-scroll-target="#view-the-data"><span class="header-section-number">4.2</span> View the data</a></li>
   </ul></li>
-  <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link" data-scroll-target="#r-scripts">R scripts</a>
+  <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link" data-scroll-target="#r-scripts"><span class="header-section-number">5</span> R scripts</a>
   <ul class="collapse">
-  <li><a href="#create-an-r-script" id="toc-create-an-r-script" class="nav-link" data-scroll-target="#create-an-r-script">Create an R script</a></li>
-  <li><a href="#write-code" id="toc-write-code" class="nav-link" data-scroll-target="#write-code">Write code</a></li>
-  <li><a href="#relative-paths" id="toc-relative-paths" class="nav-link" data-scroll-target="#relative-paths">Relative paths</a></li>
-  <li><a href="#run-the-script" id="toc-run-the-script" class="nav-link" data-scroll-target="#run-the-script">Run the script!</a></li>
+  <li><a href="#create-an-r-script" id="toc-create-an-r-script" class="nav-link" data-scroll-target="#create-an-r-script"><span class="header-section-number">5.1</span> Create an R script</a></li>
+  <li><a href="#write-code" id="toc-write-code" class="nav-link" data-scroll-target="#write-code"><span class="header-section-number">5.2</span> Write code</a></li>
+  <li><a href="#relative-paths" id="toc-relative-paths" class="nav-link" data-scroll-target="#relative-paths"><span class="header-section-number">5.3</span> Relative paths</a></li>
+  <li><a href="#run-the-script" id="toc-run-the-script" class="nav-link" data-scroll-target="#run-the-script"><span class="header-section-number">5.4</span> Run the script!</a></li>
   </ul></li>
-  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation">Data transformation</a>
+  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation"><span class="header-section-number">6</span> Data transformation</a>
   <ul class="collapse">
-  <li><a href="#summary-measures" id="toc-summary-measures" class="nav-link" data-scroll-target="#summary-measures">Summary measures</a></li>
-  <li><a href="#count-occurrences" id="toc-count-occurrences" class="nav-link" data-scroll-target="#count-occurrences">Count occurrences</a></li>
-  <li><a href="#grouping-data" id="toc-grouping-data" class="nav-link" data-scroll-target="#grouping-data">Grouping data</a></li>
-  <li><a href="#what-the-pipe" id="toc-what-the-pipe" class="nav-link" data-scroll-target="#what-the-pipe">What the pipe?!</a></li>
+  <li><a href="#summary-measures" id="toc-summary-measures" class="nav-link" data-scroll-target="#summary-measures"><span class="header-section-number">6.1</span> Summary measures</a></li>
+  <li><a href="#count-occurrences" id="toc-count-occurrences" class="nav-link" data-scroll-target="#count-occurrences"><span class="header-section-number">6.2</span> Count occurrences</a></li>
+  <li><a href="#grouping-data" id="toc-grouping-data" class="nav-link" data-scroll-target="#grouping-data"><span class="header-section-number">6.3</span> Grouping data</a></li>
+  <li><a href="#what-the-pipe" id="toc-what-the-pipe" class="nav-link" data-scroll-target="#what-the-pipe"><span class="header-section-number">6.4</span> What the pipe?!</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">7</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -226,26 +200,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="some-basics" class="level2">
-<h2 class="anchored" data-anchor-id="some-basics">Some basics</h2>
+<section id="some-basics" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="some-basics"><span class="header-section-number">1</span> Some basics</h2>
 <p>In the tutorial last week you’ve been playing around with R and variables.</p>
 <p><strong>But what if you want to import data in R?</strong></p>
-<p>Easy! You can use the <code>read_csv()</code> function to read a <code>.csv</code> (comma separated value) file. But before we dive in, let’s first talk about some computer basics. (You can skip this section if it’s too basic for you)</p>
-<section id="files-folder-and-file-extensions" class="level3">
-<h3 class="anchored" data-anchor-id="files-folder-and-file-extensions">Files, folder and file extensions</h3>
+<p>Easy! You can use the <code>read_*()</code> functions to read your files into R. But before we dive in, let’s first talk about some computer basics. (You can skip this section if it’s too basic for you)</p>
+<section id="files-folder-and-file-extensions" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="files-folder-and-file-extensions"><span class="header-section-number">1.1</span> Files, folder and file extensions</h3>
 <p>Files saved on your computer live in a specific place. For example, if you download a file from a browser (like Google Chrome, Safari or Firefox), the file is normally saved in the <code>Download</code> folder.</p>
 <p>But where does the <code>Download</code> folder live? Usually, in your user folder! The user folder normally is the name of your account or a name you picked when you created your computer account. In my case, my user folder is simply called <code>ste</code>.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 User folder
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>The <strong>user folder</strong> is the folder with the name of your account.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to find your user folder name
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>On macOS</strong></p>
+<ul>
+<li><p>Open the Finder Preferences.</p></li>
+<li><p>Go to <code>Sidebar</code>.</p></li>
+<li><p>The name next to the house icon is the name of your home folder.</p></li>
+</ul>
+<p><strong>On Windows</strong></p>
+<ul>
+<li><p>Right-click an empty area on the navigation panel in File Explorer.</p></li>
+<li><p>From the context menu, select the ‘Show all folders’ and your user profile will be added as a location in the navigation bar.</p></li>
+</ul>
+</div>
 </div>
 </div>
 <p>So, let’s assume I download a file, let’s say <code>big_data.csv</code>, in the <code>Download</code> folder of my user folder.</p>
@@ -264,12 +264,12 @@ User folder
 <li>Video: <code>.mp4</code>, <code>.mov</code>, <code>.avi</code>.</li>
 <li>Etc…</li>
 </ul>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 File extension
 </div>
 </div>
@@ -278,17 +278,17 @@ File extension
 </div>
 </div>
 </section>
-<section id="file-paths" class="level3">
-<h3 class="anchored" data-anchor-id="file-paths">File paths</h3>
+<section id="file-paths" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="file-paths"><span class="header-section-number">1.2</span> File paths</h3>
 <p>Now, we can use an alternative, more succinct way, to represent the location of the <code>big_data.csv</code>:</p>
 <p><code>ste/Downloads/big_data.csv</code></p>
 <p>This is called a <strong>file path</strong>! It’s the path through folders that lead you to the file. Folders are separated by <code>/</code> and the file is marked with the extension <code>.csv</code>.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 File path
 </div>
 </div>
@@ -311,12 +311,12 @@ File path
 </ul></li>
 </ul>
 <p>When a file path starts from a top-most folder, we call that path the <strong>absolute</strong> file path.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Absolute path
 </div>
 </div>
@@ -329,41 +329,78 @@ Absolute path
 <p>The next sections will teach you how to import data in R!</p>
 </section>
 </section>
-<section id="the-data" class="level2">
-<h2 class="anchored" data-anchor-id="the-data">The data</h2>
+<section id="the-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="the-data"><span class="header-section-number">2</span> The data</h2>
 <p>For this tutorial, we will use the data from this paper: Song et al.&nbsp;2020. <em>Second language users exhibit shallow morphological processing</em>. DOI: <a href="https://doi.org/10.1017/S0272263120000170">10.1017/S0272263120000170</a>.</p>
-<section id="download-the-data-file" class="level3">
-<h3 class="anchored" data-anchor-id="download-the-data-file">Download the data file</h3>
-<p>To download the file with the data right-click on the following link and download the file: <a href="../data/shallow.csv">shallow.csv</a>. (Note that tutorial files are also linked in the <a href="../content.html">Syllabus</a>)</p>
-<p>Create a folder in the RStudio project of the course called <code>data</code> and move the downloaded file into that folder.</p>
-<p>I strongly recommend that you keep the course RStudio project folder as organised as possible. The Open Science Framework has the following recommendations that apply very well to any type of research project.</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
+<p>The study consisted of a lexical decision task in which participants where first shown a prime, followed by a target word for which they had to indicate whether it was a real word or a nonce word.</p>
+<p>The prime word belonged to one of three possible groups (<code>Relation_type</code> in the data) each of which refers to the morphological relation of the prime and the target word:</p>
+<ul>
+<li><p><code>Unrelated</code>: for example, <em>prolong</em> (assuming <em>unkindness</em> as target, [[un-kind]-ness]).</p></li>
+<li><p><code>Constituent</code>: <em>unkind</em>.</p></li>
+<li><p><code>NonConstituent</code>: <em>kindness</em>.</p></li>
+</ul>
+<p>The expectations are that</p>
+<ol type="1">
+<li>Lexical decisions for native English participants should be facilitated in the <code>Constituent</code> condition, but not in the <code>Unrelated</code> and <code>NonConstituent</code> conditions.</li>
+<li>Lexical decisions for non-native English participants should be facilitated both in the <code>Constituent</code> and <code>NonCostituent</code> condition, but not in the <code>Unrelated</code> condition.</li>
+</ol>
+<p>We can interpret “facilitated lexical decisions” as higher accuracy and shorter reaction times.</p>
+<p>In section 2-4 of this tutorial you will learn about:</p>
+<ul>
+<li><p>The data file format (a <code>.csv file</code>).</p></li>
+<li><p>How to read data with the <code>read_csv()</code> function from the tidyverse packages and what packages are.</p></li>
+<li><p>How to view the imported data.</p></li>
+</ul>
+<section id="download-the-data-file" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="download-the-data-file"><span class="header-section-number">2.1</span> Download the data file</h3>
+<p>Please, follow these instructions carefully.</p>
+<ol type="1">
+<li><p>Download the file with the data by right-clicking on the following link and download the file: <a href="../data/shallow.csv">shallow.csv</a>. (Note that tutorial files are also linked in the <a href="../content.html">Syllabus</a>)</p></li>
+<li><p>Create a folder called <code>data/</code> (the slash is there just to remind you that it’s a folder, but you don’t have to include it in the name) in the RStudio project of the course.</p>
+<ol type="1">
+<li><p>To create a folder, go to the Files tab of the bottom-right panel in RStudio.</p></li>
+<li><p>Make sure you are viewing the project’s main folder.</p></li>
+<li><p>Click on the <code>New Folder</code> button, enter “data” in the text box and click <code>OK</code></p></li>
+</ol></li>
+<li><p>Move the downloaded file into the <code>data/</code> folder.</p>
+<ol type="1">
+<li><p>Open a Finder or File Explorer window.</p></li>
+<li><p>Navigate to the folder where you have saved the downloaded file (it will very likely be the <code>Downloads/</code> folder).</p></li>
+<li><p>Copy the file.</p></li>
+<li><p>In Finder or File Explorer, navigate to the RStudio project folder, then the <code>data/</code> folder, and paste the file in there.</p></li>
+</ol></li>
+</ol>
+<p>The rest of the tutorial will assume that you have created a folder called <code>data/</code> in the RStudio project folder and that <code>shallow.csv</code> is in that folder.</p>
+<p>I recommend you to start being very organised with your files from now, whether it’s for this course or your dissertation or else. I also suggest to avoid overly nested structures (for example, avoid having one folder for each week for this course. Rather, save all data files in the <code>data/</code> folder).</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Organising files
+<div class="callout-title-container flex-fill">
+Organising your files
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>The Open Science Framework has the following recommendations that apply very well to any type of research project.</p>
 <ul>
 <li><p>Use <strong>one folder</strong> per project. This will also be your RStudio project folder.</p></li>
 <li><p>Separate <strong>raw data</strong> from <strong>derived data</strong>.</p></li>
 <li><p>Separate <strong>code</strong> from <strong>data</strong>.</p></li>
 <li><p>Make <strong>raw data read-only</strong>.</p></li>
 </ul>
-</div>
-</div>
 <p>To learn more about this, check the OSF page <a href="https://help.osf.io/article/147-organizing-files">Organising files</a>.</p>
-<p>In brief, what these recommendations mean is that you want a folder for your research project, and inside the folder two folders: one for data and one for code.</p>
+<p>In brief, what these recommendations mean is that you want a folder for your research project/course/else, and inside the folder two folders: one for data and one for code.</p>
 <p>The <code>data/</code> folder could further contain <code>raw/</code> for raw data (data that should not be lost or changed, for example collected data or annotations) and <code>derived/</code> for data that derives from the raw data, for example through automated data processing.</p>
 <p>I usually also have a separate folder called <code>figs/</code> or <code>img/</code> where I save plots. Of course which folders you will have it’s ultimately up to you and needs will vary depending on the project and field!</p>
-<p>The rest of the tutorial will assume that you have created a folder called <code>data/</code> and that <code>shallow.csv</code> is in that folder.</p>
-<p>I recommend you to start being very organised with your files from now, whether it’s for this course or your dissertation or else. I also suggest to avoid overly nested structures (for example, avoid having one folder for each week for this course).</p>
+</div>
+</div>
+</div>
 </section>
-<section id="about-shallow.csv" class="level3">
-<h3 class="anchored" data-anchor-id="about-shallow.csv">About <code>shallow.csv</code></h3>
+<section id="about-shallow.csv" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="about-shallow.csv"><span class="header-section-number">2.2</span> About <code>shallow.csv</code></h3>
 <p><code>shallow.csv</code> is a <code>.csv</code> file. It looks like this (the following is just an excerpt from the file, specifically the first 5 lines):</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Group,ID,List,Target,ACC,RT,logRT,Critical_Filler,Word_Nonword,Relation_type,Branching</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>L1,L1_01,A,banoshment,1,423,6.0474,Filler,Nonword,Phonological,NA</span>
@@ -385,17 +422,17 @@ Organising files
 <p>But what are R packages? Find out in the following section.</p>
 </section>
 </section>
-<section id="r-packages" class="level2">
-<h2 class="anchored" data-anchor-id="r-packages">R packages</h2>
+<section id="r-packages" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">3</span> R packages</h2>
 <p>When you install R, a <strong>library</strong> of packages is also installed. <strong>Packages</strong> are like plug-ins, they provide R with extra functionalities. The default <strong>R library</strong> contains all of the base R packages.</p>
 <p>You can check all of the currently installed packages in the bottom-right panel of RStudio, in the <strong>Packages</strong> tab.</p>
 <p>If you want to find the path of the R library on your computer, type <code>.libPaths()</code> in the Console. The function returns (i.e.&nbsp;outputs) the path or paths where your R library is.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 R library and packages
 </div>
 </div>
@@ -406,18 +443,30 @@ R library and packages
 </ul>
 </div>
 </div>
-<section id="install-packages" class="level4">
-<h4 class="anchored" data-anchor-id="install-packages">Install packages</h4>
+<section id="install-packages" class="level4" data-number="3.0.1">
+<h4 data-number="3.0.1" class="anchored" data-anchor-id="install-packages"><span class="header-section-number">3.0.1</span> Install packages</h4>
 <p>You can install extra packages in the R library in two ways:</p>
 <ol type="1">
 <li>You can use the <code>install.packages()</code> function. This function takes the name of package you want to install as a string, for example <code>install.packages("cowsay")</code></li>
 <li>Or you can go the <code>Packages</code> tab in the bottom-right panel of RStudio and click on <code>Install</code>.</li>
 </ol>
 <p>Go ahead and try to install a package using the second method. Install the fortunes package (remember to quote the name of the package). After installing you will see that the package fortunes is listed in the Packages tab.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>You need to install a package ONLY ONCE!</strong> Once installed, it’s there for ever, saved in the R library. You will be able to use all of your installed packages in any RStudio project you create.</p>
+</div>
+</div>
 </section>
-<section id="attach-packages" class="level4">
-<h4 class="anchored" data-anchor-id="attach-packages">Attach packages</h4>
+<section id="attach-packages" class="level4" data-number="3.0.2">
+<h4 data-number="3.0.2" class="anchored" data-anchor-id="attach-packages"><span class="header-section-number">3.0.2</span> Attach packages</h4>
 <p>Now, to use a package you need to <strong>attach</strong> the package with the <code>library()</code> function. <strong>You need to attach the package you want to use once per R session.</strong></p>
 <p>Let’s attach the fortunes package. Run the following code in the Console. Note that while <code>install.packages("fortunes")</code> takes the name of the package as a string, <code>library(fortunes)</code> takes the name of the package without quotes.</p>
 <div class="cell">
@@ -439,12 +488,27 @@ that will get you even more irritated at yourself for not having done it before.
 </div>
 </div>
 <p>To learn what a function does, you can check its documentation by typing the function name preceded by a <code>?</code> question mark. Type <code>?function</code> in the Console and hit ENTER to see the function documentation.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember, you need to install a package only once but you need to attach it with <code>library()</code> every time you start R.</p>
+<p>Think of <code>install.packages()</code> as mounting a light bulb (installing the package) and <code>library()</code> as the light switch (attaching the package).</p>
+<p><img src="../img/install-vs-attach.jpeg" class="img-fluid"></p>
+</div>
+</div>
 </section>
 </section>
-<section id="import-and-view-data" class="level2">
-<h2 class="anchored" data-anchor-id="import-and-view-data">Import and view data</h2>
-<section id="import-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="import-the-data">Import the data</h3>
+<section id="import-and-view-data" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="import-and-view-data"><span class="header-section-number">4</span> Import and view data</h2>
+<section id="import-the-data" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="import-the-data"><span class="header-section-number">4.1</span> Import the data</h3>
 <p>To import data in R we will use the <code>read_csv()</code> function from the <a href="https://readr.tidyverse.org">readr</a> package, one of the tidyverse packages.</p>
 <p>The <code>read_csv()</code> function only requires you to specify the file path as a string (remember, strings are quoted between <code>" "</code>.</p>
 <p>On my computer, the file path of <code>shallow.csv</code> is <code>/Users/ste/sqmb/data/shallow.csv</code>, but on your computer the file path will be different, of course.</p>
@@ -460,12 +524,12 @@ that will get you even more irritated at yourself for not having done it before.
 </div>
 <p>Fantastic!</p>
 </section>
-<section id="view-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="view-the-data">View the data</h3>
+<section id="view-the-data" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="view-the-data"><span class="header-section-number">4.2</span> View the data</h3>
 <p>Now we can view the data.</p>
 <p>The easiest way is to click on the name of the data listed in the <strong>Environment</strong> tab, in the top-right panel of RStudio.</p>
-<p>You will see a nicely formatted table, as you would in something like Excel.</p>
-<p>Data tables in R (i.e.&nbsp;spreadsheet-like data) are called <strong>data frames</strong> or <strong>tibbles</strong>.</p>
+<p>You will see a nicely formatted table, as you would in a programme like Excel.</p>
+<p>Data tables in R (i.e.&nbsp;spreadsheet-like data) are called <strong>data frames</strong> or <strong>tibbles</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>The <code>shallow</code> data frame contains 6500 observations and 11 columns (called variables in the <code>Environment</code> tab). The 11 columns are the following:</p>
 <ul>
 <li><code>Group</code>: <code>L1</code> vs <code>L2</code> speakers of English.</li>
@@ -481,22 +545,44 @@ that will get you even more irritated at yourself for not having done it before.
 <li><code>Branching</code>: Constituent syntactic branching, <code>Left</code> and <code>Right</code> (shout out to Charlie Puth).</li>
 </ul>
 <p>Great stuff! See how easy it was to import data?</p>
-<p>You can easily import other file types as long as they are tabular (i.e.&nbsp;spreadsheet-like), like Excel files.</p>
-<p>For Excel files (i.e.&nbsp;files with a <code>.xls</code> or <code>.xlsx</code> extension), you need to attach the <a href="https://readxl.tidyverse.org">readxl</a> package with <code>library(readxl)</code> and use the <code>read_excel()</code> function.</p>
-<p>We will use <code>.csv</code> files throughout the course and I recommend that you use this format for your work too!</p>
+<p>You can easily import other file types as long as they are tabular or rectangular (i.e.&nbsp;spreadsheet-like), like Excel files.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to import other file types
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Most of the data we will be using in this course will be in the <code>.csv</code> format.</p>
+<p>This is the best format to save data in because it is basically a plain text file, it’s quick to parse, and can be opened and edited with any software (plus, it’s not a proprietary format).</p>
+<p>Sometimes though you might have to read other file types, for example Excel spreadsheets.</p>
+<p>It’s easy to read other file type using the other <code>read_*()</code> functions:</p>
+<ul>
+<li><p>For Excel files (i.e.&nbsp;files with a <code>.xls</code> or <code>.xlsx</code> extension), you need to attach the <a href="https://readxl.tidyverse.org">readxl</a> package with <code>library(readxl)</code> and use the <code>read_excel()</code> function.</p></li>
+<li><p>Use <code>read_tsv()</code> from the readr package (installed with the tidyverse) to read tab separated values files.</p></li>
+<li><p>The flexible <code>read_delim()</code> function allows you to read a wide variety of delimited files.</p></li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="r-scripts" class="level2">
-<h2 class="anchored" data-anchor-id="r-scripts">R scripts</h2>
+<section id="r-scripts" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="r-scripts"><span class="header-section-number">5</span> R scripts</h2>
 <p>So far, you’ve been asked to write code in the <strong>Console</strong> and run it there.</p>
 <p>But this is not very efficient. Every time you need to write the code and execute it in the right order and it quickly becomes very difficult to keep track of everything when things start getting more involved.</p>
 <p>A solution is to use <strong>R scripts</strong>.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 R script
 </div>
 </div>
@@ -505,8 +591,8 @@ R script
 </div>
 </div>
 <p>For the rest of this tutorial, you will write all code in an R script.</p>
-<section id="create-an-r-script" class="level3">
-<h3 class="anchored" data-anchor-id="create-an-r-script">Create an R script</h3>
+<section id="create-an-r-script" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="create-an-r-script"><span class="header-section-number">5.1</span> Create an R script</h3>
 <p>First, create a folder called <code>code</code> in your RStudio project folder. This will be the folder where you will save all of your R scripts.</p>
 <p>Now, to create a new R script, look at the top-left corner of RStudio: the first button to the left looks like a white sheet with a green plus sign. This is the <code>New file</code> button. Click on that and you will see a few options to create a new file.</p>
 <p>Click on <code>R Script</code>. A new empty R script will be created and will open in the File Editor window of RStudio.</p>
@@ -516,8 +602,8 @@ R script
 <p>Save the file inside the <code>code/</code> folder with the following name: <code>tutorial-w02.R</code>.</p>
 <p>Remember that all the files of your RStudio project don’t live inside RStudio but on your computer. So you can always access them from the Finder or File Explorer!</p>
 </section>
-<section id="write-code" class="level3">
-<h3 class="anchored" data-anchor-id="write-code">Write code</h3>
+<section id="write-code" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="write-code"><span class="header-section-number">5.2</span> Write code</h3>
 <p>Now, let’s start filling up that script!</p>
 <p>Generally, you start the script with calls to <code>library()</code> to load all the packages you need for the script.</p>
 <p>Now we only need one package, tidyverse, but in most cases you will need more than one! The best practice is to attach all of packages first, in the top of your script. Please, get in the habit of doing this from now, so that you can keep your scripts tidy and pretty!</p>
@@ -528,16 +614,31 @@ R script
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>shallow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/shallow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Wait, what is that <code>"./data/shallow.csv"</code>? That’s a <strong>relative path</strong>. We briefly mentioned relative paths above, but let’s understand the details now.</p>
-</section>
-<section id="relative-paths" class="level3">
-<h3 class="anchored" data-anchor-id="relative-paths">Relative paths</h3>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Tip
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please, don’t include <code>install.packages()</code> in your R scripts!</p>
+<p>Remember, you only have to install a package once, and you can just type it in the Console.</p>
+<p>But <strong>DO</strong> include <code>library()</code> in your scripts.</p>
+</div>
+</div>
+</section>
+<section id="relative-paths" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="relative-paths"><span class="header-section-number">5.3</span> Relative paths</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Relative path
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -550,8 +651,8 @@ Tip
 <p>So from now on I encourage you to use RStudio projects, R scripts and relative paths always!</p>
 <p>The benefit of doing so is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!</p>
 </section>
-<section id="run-the-script" class="level3">
-<h3 class="anchored" data-anchor-id="run-the-script">Run the script!</h3>
+<section id="run-the-script" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="run-the-script"><span class="header-section-number">5.4</span> Run the script!</h3>
 <p>Finally, the time has come to <strong>run the script</strong>.</p>
 <p>There are several ways of doing this. The most straightforward is to click on the <code>Run</code> button. You can find this in the top-right corner of the script window.</p>
 <p><img src="../img/run-button.png" class="img-fluid"></p>
@@ -570,20 +671,20 @@ Tip
 </div>
 </section>
 </section>
-<section id="data-transformation" class="level2">
-<h2 class="anchored" data-anchor-id="data-transformation">Data transformation</h2>
+<section id="data-transformation" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="data-transformation"><span class="header-section-number">6</span> Data transformation</h2>
 <p><strong>Data transformation</strong> is a fundamental aspect of data analysis.</p>
 <p>After the data you need to use is imported into R, you will have to filter rows, create new columns, or join data frames, among many other transformation operations.</p>
 <p>In this tutorial we will learn how to obtain summary measures and how to count occurrences using the <code>summarise()</code> and <code>count()</code> functions.</p>
-<section id="summary-measures" class="level3">
-<h3 class="anchored" data-anchor-id="summary-measures">Summary measures</h3>
+<section id="summary-measures" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="summary-measures"><span class="header-section-number">6.1</span> Summary measures</h3>
 <p>During the lecture, we have learnt two types of measures.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Summary measures
 </div>
 </div>
@@ -648,8 +749,8 @@ Summary measures
 </blockquote>
 <p>In some cases, you will want to use the <code>median()</code> instead of the <code>mean()</code>. Note that R has a <code>mode()</code> function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!</p>
 </section>
-<section id="count-occurrences" class="level3">
-<h3 class="anchored" data-anchor-id="count-occurrences">Count occurrences</h3>
+<section id="count-occurrences" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="count-occurrences"><span class="header-section-number">6.2</span> Count occurrences</h3>
 <p>We can use the <code>count()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> tidyverse package to count the number of occurrences for each value of a specific column. Let’s count how many trials are correct, i.e.&nbsp;let’s count occurrences in the <code>ACC</code> column.</p>
 <p>Accuracy has been coded with <code>0</code> for incorrect and <code>1</code> for correct. We will see how this is not an ideal, although very common way, of coding binary variables. For now let’s keep it as is.</p>
 <p>The function <code>count()</code> takes the name of tibble and the name of column you want to count values in.</p>
@@ -662,17 +763,17 @@ Summary measures
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(shallow, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In <code>count()</code>, include the names of the two columns you want to get counts of, separated by commas.</p>
 </div>
@@ -680,8 +781,8 @@ Hint
 </div>
 <p>Are there differences in accuracy between the L1 and L2 group?</p>
 </section>
-<section id="grouping-data" class="level3">
-<h3 class="anchored" data-anchor-id="grouping-data">Grouping data</h3>
+<section id="grouping-data" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="grouping-data"><span class="header-section-number">6.3</span> Grouping data</h3>
 <p>Sometimes you might want to get summary measures for one variable depending on different values of another variable.</p>
 <p>You can use the <code>group_by()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> tidyverse package, together with <code>summarise()</code> to achieve that. Let’s see how it works.</p>
 <div class="cell">
@@ -707,8 +808,8 @@ Hint
 <p>Here we are grouping <code>shallow</code> by <code>Group</code>.</p>
 <p>If you are baffled by that <code>%&gt;%</code>, keep on reading.</p>
 </section>
-<section id="what-the-pipe" class="level3">
-<h3 class="anchored" data-anchor-id="what-the-pipe">What the pipe?!</h3>
+<section id="what-the-pipe" class="level3" data-number="6.4">
+<h3 data-number="6.4" class="anchored" data-anchor-id="what-the-pipe"><span class="header-section-number">6.4</span> What the pipe?!</h3>
 <p>Wait, what is that thing, <code>%&gt;%</code>?</p>
 <p>It’s called a <strong>pipe</strong>. Think of a pipe as a teleporter.</p>
 <p>In the code above we are chaning two functions together using the pipe opeartor <code>%&gt;%</code>. The output of the first function (<code>group_by()</code>) is “teleported” into the second function <code>summarise()</code>.</p>
@@ -753,11 +854,11 @@ Hint
 <p>Don’t worry too much if the concept of the pipe is not clear yet. It should become clearer later.</p>
 </section>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="summary" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="summary"><span class="header-section-number">7</span> Summary</h2>
 <p>You made it! You completed this week’s tutorial.</p>
 <p>Here’s a summary of the R functions you learnt.</p>
-<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -776,7 +877,13 @@ Hint
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>A <strong>tibble</strong> is a special data frame. We will learn more about tibbles in the following weeks.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -804,9 +911,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -871,6 +992,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

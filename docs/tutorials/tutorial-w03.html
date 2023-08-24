@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -118,7 +89,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -140,25 +112,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">QML</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../content.html">
+    <a class="nav-link" href="../content.html" rel="" target="">
  <span class="menu-text">Course content</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assessments.html">
+    <a class="nav-link" href="../assessments.html" rel="" target="">
  <span class="menu-text">Assessment</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -172,40 +146,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rmarkdown" id="toc-rmarkdown" class="nav-link active" data-scroll-target="#rmarkdown">Rmarkdown</a>
+  <li><a href="#rmarkdown" id="toc-rmarkdown" class="nav-link active" data-scroll-target="#rmarkdown"><span class="header-section-number">1</span> Rmarkdown</a>
   <ul class="collapse">
-  <li><a href="#code-and-text" id="toc-code-and-text" class="nav-link" data-scroll-target="#code-and-text">Code… and text!</a></li>
-  <li><a href="#formatting-text" id="toc-formatting-text" class="nav-link" data-scroll-target="#formatting-text">Formatting text</a></li>
-  <li><a href="#create-an-rmd-file" id="toc-create-an-rmd-file" class="nav-link" data-scroll-target="#create-an-rmd-file">Create an Rmd file</a></li>
-  <li><a href="#parts-of-an-rmd-file" id="toc-parts-of-an-rmd-file" class="nav-link" data-scroll-target="#parts-of-an-rmd-file">Parts of an Rmd file</a></li>
-  <li><a href="#render-rmd-files-to-html" id="toc-render-rmd-files-to-html" class="nav-link" data-scroll-target="#render-rmd-files-to-html">Render Rmd files to HTML</a></li>
-  <li><a href="#how-to-run-code" id="toc-how-to-run-code" class="nav-link" data-scroll-target="#how-to-run-code">How to run code</a></li>
+  <li><a href="#code-and-text" id="toc-code-and-text" class="nav-link" data-scroll-target="#code-and-text"><span class="header-section-number">1.1</span> Code… and text!</a></li>
+  <li><a href="#formatting-text" id="toc-formatting-text" class="nav-link" data-scroll-target="#formatting-text"><span class="header-section-number">1.2</span> Formatting text</a></li>
+  <li><a href="#create-an-rmd-file" id="toc-create-an-rmd-file" class="nav-link" data-scroll-target="#create-an-rmd-file"><span class="header-section-number">1.3</span> Create an Rmd file</a></li>
+  <li><a href="#parts-of-an-rmd-file" id="toc-parts-of-an-rmd-file" class="nav-link" data-scroll-target="#parts-of-an-rmd-file"><span class="header-section-number">1.4</span> Parts of an Rmd file</a></li>
+  <li><a href="#render-rmd-files-to-html" id="toc-render-rmd-files-to-html" class="nav-link" data-scroll-target="#render-rmd-files-to-html"><span class="header-section-number">1.5</span> Render Rmd files to HTML</a></li>
+  <li><a href="#how-to-run-code" id="toc-how-to-run-code" class="nav-link" data-scroll-target="#how-to-run-code"><span class="header-section-number">1.6</span> How to run code</a></li>
   </ul></li>
-  <li><a href="#plotting-basics" id="toc-plotting-basics" class="nav-link" data-scroll-target="#plotting-basics">Plotting basics</a>
+  <li><a href="#plotting-basics" id="toc-plotting-basics" class="nav-link" data-scroll-target="#plotting-basics"><span class="header-section-number">2</span> Plotting basics</a>
   <ul class="collapse">
-  <li><a href="#graphic-systems" id="toc-graphic-systems" class="nav-link" data-scroll-target="#graphic-systems">Graphic systems</a></li>
-  <li><a href="#base-r-plotting-function" id="toc-base-r-plotting-function" class="nav-link" data-scroll-target="#base-r-plotting-function">Base R plotting function</a></li>
+  <li><a href="#graphic-systems" id="toc-graphic-systems" class="nav-link" data-scroll-target="#graphic-systems"><span class="header-section-number">2.1</span> Graphic systems</a></li>
+  <li><a href="#base-r-plotting-function" id="toc-base-r-plotting-function" class="nav-link" data-scroll-target="#base-r-plotting-function"><span class="header-section-number">2.2</span> Base R plotting function</a></li>
   </ul></li>
-  <li><a href="#your-first-ggplot2-plot" id="toc-your-first-ggplot2-plot" class="nav-link" data-scroll-target="#your-first-ggplot2-plot">Your first ggplot2 plot</a>
+  <li><a href="#your-first-ggplot2-plot" id="toc-your-first-ggplot2-plot" class="nav-link" data-scroll-target="#your-first-ggplot2-plot"><span class="header-section-number">3</span> Your first ggplot2 plot</a>
   <ul class="collapse">
-  <li><a href="#the-polite-data" id="toc-the-polite-data" class="nav-link" data-scroll-target="#the-polite-data">The <code>polite</code> data</a></li>
-  <li><a href="#a-basic-plot" id="toc-a-basic-plot" class="nav-link" data-scroll-target="#a-basic-plot">A basic plot</a></li>
-  <li><a href="#lets-add-geometries" id="toc-lets-add-geometries" class="nav-link" data-scroll-target="#lets-add-geometries">Let’s add geometries</a></li>
-  <li><a href="#function-arguments" id="toc-function-arguments" class="nav-link" data-scroll-target="#function-arguments">Function arguments</a></li>
+  <li><a href="#the-polite-data" id="toc-the-polite-data" class="nav-link" data-scroll-target="#the-polite-data"><span class="header-section-number">3.1</span> The <code>polite</code> data</a></li>
+  <li><a href="#a-basic-plot" id="toc-a-basic-plot" class="nav-link" data-scroll-target="#a-basic-plot"><span class="header-section-number">3.2</span> A basic plot</a></li>
+  <li><a href="#lets-add-geometries" id="toc-lets-add-geometries" class="nav-link" data-scroll-target="#lets-add-geometries"><span class="header-section-number">3.3</span> Let’s add geometries</a></li>
+  <li><a href="#function-arguments" id="toc-function-arguments" class="nav-link" data-scroll-target="#function-arguments"><span class="header-section-number">3.4</span> Function arguments</a></li>
   </ul></li>
-  <li><a href="#bar-charts" id="toc-bar-charts" class="nav-link" data-scroll-target="#bar-charts">Bar charts</a>
+  <li><a href="#bar-charts" id="toc-bar-charts" class="nav-link" data-scroll-target="#bar-charts"><span class="header-section-number">4</span> Bar charts</a>
   <ul class="collapse">
-  <li><a href="#do-you-understand-me" id="toc-do-you-understand-me" class="nav-link" data-scroll-target="#do-you-understand-me">Do you understand me?</a></li>
-  <li><a href="#create-a-bar-chart" id="toc-create-a-bar-chart" class="nav-link" data-scroll-target="#create-a-bar-chart">Create a bar chart</a></li>
-  <li><a href="#stacked-bar-charts" id="toc-stacked-bar-charts" class="nav-link" data-scroll-target="#stacked-bar-charts">Stacked bar charts</a></li>
+  <li><a href="#do-you-understand-me" id="toc-do-you-understand-me" class="nav-link" data-scroll-target="#do-you-understand-me"><span class="header-section-number">4.1</span> Do you understand me?</a></li>
+  <li><a href="#create-a-bar-chart" id="toc-create-a-bar-chart" class="nav-link" data-scroll-target="#create-a-bar-chart"><span class="header-section-number">4.2</span> Create a bar chart</a></li>
+  <li><a href="#stacked-bar-charts" id="toc-stacked-bar-charts" class="nav-link" data-scroll-target="#stacked-bar-charts"><span class="header-section-number">4.3</span> Stacked bar charts</a></li>
   </ul></li>
-  <li><a href="#faceting-and-panels" id="toc-faceting-and-panels" class="nav-link" data-scroll-target="#faceting-and-panels">Faceting and panels</a>
+  <li><a href="#faceting-and-panels" id="toc-faceting-and-panels" class="nav-link" data-scroll-target="#faceting-and-panels"><span class="header-section-number">5</span> Faceting and panels</a>
   <ul class="collapse">
-  <li><a href="#polite-again" id="toc-polite-again" class="nav-link" data-scroll-target="#polite-again">Polite again</a></li>
-  <li><a href="#does-being-a-music-student-matter" id="toc-does-being-a-music-student-matter" class="nav-link" data-scroll-target="#does-being-a-music-student-matter">Does being a music student matter?</a></li>
+  <li><a href="#polite-again" id="toc-polite-again" class="nav-link" data-scroll-target="#polite-again"><span class="header-section-number">5.1</span> Polite again</a></li>
+  <li><a href="#does-being-a-music-student-matter" id="toc-does-being-a-music-student-matter" class="nav-link" data-scroll-target="#does-being-a-music-student-matter"><span class="header-section-number">5.2</span> Does being a music student matter?</a></li>
   </ul></li>
-  <li><a href="#render-your-rmd-file" id="toc-render-your-rmd-file" class="nav-link" data-scroll-target="#render-your-rmd-file">Render your Rmd file!</a></li>
-  <li><a href="#the-end" id="toc-the-end" class="nav-link" data-scroll-target="#the-end">The end</a></li>
+  <li><a href="#render-your-rmd-file" id="toc-render-your-rmd-file" class="nav-link" data-scroll-target="#render-your-rmd-file"><span class="header-section-number">6</span> Render your Rmd file!</a></li>
+  <li><a href="#the-end" id="toc-the-end" class="nav-link" data-scroll-target="#the-end"><span class="header-section-number">7</span> The end</a></li>
   </ul>
 </nav>
     </div>
@@ -229,25 +203,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="cell" data-hash="tutorial-w03_cache/html/packages_c5b8838626d466102058541ef1a26306">
-
-</div>
-<section id="rmarkdown" class="level2">
-<h2 class="anchored" data-anchor-id="rmarkdown">Rmarkdown</h2>
+<section id="rmarkdown" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="rmarkdown"><span class="header-section-number">1</span> Rmarkdown</h2>
 <p>Last week, you learnt how to use R scripts to save your code.</p>
 <p>Keeping track of the code you use for data analysis is a very important aspect of research project managing: not only the code is there if you need to rerun it later, but it allows your data analysis to be <strong>reproducible</strong> (i.e., it can be reproduced by you or other people in such a way that starting with the same data and code you get to the same results).</p>
 <p>R scripts are great for writing code, and you can even document the code (add explanations or notes) with comments (i.e.&nbsp;lines that start with <code>#</code>).</p>
 <p>But for longer text or complex data analysis reports, R scripts can be a bit cumbersome.</p>
 <p>A solution to this is using Rmarkdown files (they have the <code>.Rmd</code>) extension.</p>
-<section id="code-and-text" class="level3">
-<h3 class="anchored" data-anchor-id="code-and-text">Code… and text!</h3>
+<section id="code-and-text" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="code-and-text"><span class="header-section-number">1.1</span> Code… and text!</h3>
 <p>Rmarkdown is a file format that allows you to mix code and formatted text in the same file.</p>
 <p>This means that you can write <strong>dynamic reports</strong> using Rmd files: dynamic reports are just like analysis reports (i.e.&nbsp;they include formatted text, plots, tables, code output, code, etc…) but they are <strong>dynamic</strong> in the sense that if, for example, data or code changes, you can just rerun the report Rmd file and all code output (plots, tables, etc…) are updated accordingly!</p>
 <p>You can watch this short video for a quick tour.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://player.vimeo.com/video/178485416" frameborder="0" allow="autoplay; title=" "="" fullscreen;="" picture-in-picture"="" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://player.vimeo.com/video/178485416" frameborder="0" allow="autoplay; title=" "="" fullscreen;="" picture-in-picture"="" allowfullscreen=""></iframe></div>
 </section>
-<section id="formatting-text" class="level3">
-<h3 class="anchored" data-anchor-id="formatting-text">Formatting text</h3>
+<section id="formatting-text" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="formatting-text"><span class="header-section-number">1.2</span> Formatting text</h3>
 <p>R comments in R scripts cannot be formatted (for example, you can’t make bold or italic texts).</p>
 <p>Text in Rmd files can be fully formatted using a simple but powerful <strong>mark-up language</strong> called <a href="https://www.markdownguide.org">markdown</a>.</p>
 <p>You don’t have to learn markdown all in one go, so I encourage you to just learn it bit by bit, in your time. You can look at the the <a href="">Markdown Guide</a> for an in-depth intro and/or dive in the <a href="https://www.markdowntutorial.com">Markdown Tutorial</a> for a hands-on approach.</p>
@@ -258,8 +229,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Heading are created with <code>#</code>: <code># This is a level-1 heading</code>. <code>## This is a level-2 heading</code>.</p></li>
 </ul>
 </section>
-<section id="create-an-rmd-file" class="level3">
-<h3 class="anchored" data-anchor-id="create-an-rmd-file">Create an Rmd file</h3>
+<section id="create-an-rmd-file" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="create-an-rmd-file"><span class="header-section-number">1.3</span> Create an Rmd file</h3>
 <p>To create a new Rmd file, just click on the click on the <code>New file</code> button, then <code>R Markdown...</code>. (If you are asked to install/update packages, do so.)</p>
 <p><img src="../img/new-rmd.png" class="img-fluid"></p>
 <p>A window will open. Add a title of your choice and your name, then click <code>OK</code>.</p>
@@ -270,8 +241,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Save the file inside the <code>code/</code> folder with the following name: <code>tutorial-w03.Rmd</code>.</p>
 <p>Remember that all the files of your RStudio project don’t live inside RStudio but on your computer. So you can always access them from the Finder or File Explorer!</p>
 </section>
-<section id="parts-of-an-rmd-file" class="level3">
-<h3 class="anchored" data-anchor-id="parts-of-an-rmd-file">Parts of an Rmd file</h3>
+<section id="parts-of-an-rmd-file" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="parts-of-an-rmd-file"><span class="header-section-number">1.4</span> Parts of an Rmd file</h3>
 <p>An Rmd file usually has three main parts:</p>
 <ul>
 <li><p>The preamble (green).</p></li>
@@ -281,8 +252,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="../img/rmd-parts.png" class="img-fluid"></p>
 <p>Each Rmd file has to start with a preamble, but you can include as many code chunks and as much text as you wish, in any order.</p>
 </section>
-<section id="render-rmd-files-to-html" class="level3">
-<h3 class="anchored" data-anchor-id="render-rmd-files-to-html">Render Rmd files to HTML</h3>
+<section id="render-rmd-files-to-html" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="render-rmd-files-to-html"><span class="header-section-number">1.5</span> Render Rmd files to HTML</h3>
 <p>You can render an Rmd file into a nicely formatted HTML file.</p>
 <p>To render an Rmd file, just click on the <strong>Knit</strong> button and an HTML file will be created and saved in the same location of the Rmd file.</p>
 <p><img src="../img/knit.png" class="img-fluid"></p>
@@ -291,8 +262,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Rendering Rmd files is not restricted to HTML, but also PDFs and even Word documents!</p>
 <p>This is very handy when you are writing an analysis report you need to share with others.</p>
 </section>
-<section id="how-to-run-code" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-run-code">How to run code</h3>
+<section id="how-to-run-code" class="level3" data-number="1.6">
+<h3 data-number="1.6" class="anchored" data-anchor-id="how-to-run-code"><span class="header-section-number">1.6</span> How to run code</h3>
 <p>The first code chunk in an Rmd file is a special one: it’s called <code>setup</code> and it’s where you attach all the packages needed for running the code in the file. (You can find the name of a code chunk—or define one yourself!—in the first line of a code block: <code>```{r chunk-name}</code>). The first code chunk of an Rmd file should always be named <code>setup</code>.</p>
 <p>The <code>setup</code> code chunk also has special code from the knitr package. The knitr package is what allows you to run R code from Rmd files.</p>
 <p>The line <code>knitr::opts_chunk$set(echo = TRUE)</code> sets the option <code>echo</code> to <code>TRUE</code>. The <code>echo</code> option let’s you decide whether you want the R code printed (echoed) in the rendered Rmd file. When <code>echo = TRUE</code> the code is printed, when <code>echo = FALSE</code> the code is not printed.</p>
@@ -310,11 +281,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A new R code chunk will be inserted at the text cursor position.</p>
 </section>
 </section>
-<section id="plotting-basics" class="level2">
-<h2 class="anchored" data-anchor-id="plotting-basics">Plotting basics</h2>
+<section id="plotting-basics" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="plotting-basics"><span class="header-section-number">2</span> Plotting basics</h2>
 <p>Plotting data in R is easy once you understand the basics.</p>
-<section id="graphic-systems" class="level3">
-<h3 class="anchored" data-anchor-id="graphic-systems">Graphic systems</h3>
+<section id="graphic-systems" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="graphic-systems"><span class="header-section-number">2.1</span> Graphic systems</h3>
 <p>In R, you can create plots using different systems.</p>
 <ul>
 <li>Base R.</li>
@@ -324,8 +295,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>In this course you will learn how to use the ggplot2 system, but before we dive in, let’s have a look at the base R plotting system too.</p>
 </section>
-<section id="base-r-plotting-function" class="level3">
-<h3 class="anchored" data-anchor-id="base-r-plotting-function">Base R plotting function</h3>
+<section id="base-r-plotting-function" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="base-r-plotting-function"><span class="header-section-number">2.2</span> Base R plotting function</h3>
 <p>Let’s create two vectors, <code>x</code> and <code>y</code> and plot them. For now, run these in the Console (not in the code chunk we just created).</p>
 <div class="cell" data-hash="tutorial-w03_cache/html/scatter_3683926b50d07426d8eb05b2c7a48663">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
@@ -348,12 +319,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Instead we can use the tidyverse package <a href="https://ggplot2.tidyverse.org">ggplot2</a>. ggplot2 works well with the other tidyverse packages and it follows the same principles, so it is convenient to use it for data visualisation instead of base R!</p>
 </section>
 </section>
-<section id="your-first-ggplot2-plot" class="level2">
-<h2 class="anchored" data-anchor-id="your-first-ggplot2-plot">Your first ggplot2 plot</h2>
+<section id="your-first-ggplot2-plot" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="your-first-ggplot2-plot"><span class="header-section-number">3</span> Your first ggplot2 plot</h2>
 <p>The tidyverse package <a href="https://ggplot2.tidyverse.org">ggplot2</a> provides users with a consistent set of functions to create captivating graphics.</p>
 <p>Remember: To be able to use the functions in a package, you first need to <strong>attach the package</strong>. We have already attached the <code>library(tidyverse)</code> packages, among which there is ggplot2, so you don’t need to do anything else.</p>
-<section id="the-polite-data" class="level3">
-<h3 class="anchored" data-anchor-id="the-polite-data">The <code>polite</code> data</h3>
+<section id="the-polite-data" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="the-polite-data"><span class="header-section-number">3.1</span> The <code>polite</code> data</h3>
 <p>We will use the <code>polite</code> data to learn the basics of plotting using ggplot.</p>
 <p>The data comes from the paper by Winter and Grawunder, 2020. <em>The phonetic profile of Korean formal and informal speech registers</em>. DOI: <a href="https://doi.org/10.1016/j.wocn.2012.08.006">10.1016/j.wocn.2012.08.006</a></p>
 <p>To download the file with the data right-click on the following link and download the file: <a href="../data/polite.csv">polite.csv</a>. (Note that tutorial files are also linked in the <a href="../content.html">Syllabus</a>). Remember to save the file in <code>data/</code> in the course project folder.</p>
@@ -375,8 +346,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>musicstudent</code>: whether the speaker is a music student (<code>yes</code>) or not (<code>no</code>).</p></li>
 </ul>
 </section>
-<section id="a-basic-plot" class="level3">
-<h3 class="anchored" data-anchor-id="a-basic-plot">A basic plot</h3>
+<section id="a-basic-plot" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="a-basic-plot"><span class="header-section-number">3.2</span> A basic plot</h3>
 <p>These are the minimum constituents of a ggplot2 plot.</p>
 <ul>
 <li><p>The <code>data</code>: you have to specify the data frame with the data you want to plot.</p></li>
@@ -397,8 +368,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Not much to see here: just two axes!</p>
 </section>
-<section id="lets-add-geometries" class="level3">
-<h3 class="anchored" data-anchor-id="lets-add-geometries">Let’s add geometries</h3>
+<section id="lets-add-geometries" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="lets-add-geometries"><span class="header-section-number">3.3</span> Let’s add geometries</h3>
 <p>Nice, but we are missing the most important part: showing the data!</p>
 <p>Data is represented with <strong>geometries</strong>, or <code>geom</code>s for short. <code>geom</code>s are added to the base ggplot with functions whose names all start with <code>geom_</code>.</p>
 <p>For this plot, you want to use <code>geom_point()</code>. This geom simply adds point to the plot based on the data in the <code>polite</code> data frame.</p>
@@ -419,8 +390,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This type of plot, with two continuous axes and data represented by points, is called a <strong>scatter plot</strong>.</p>
 <p>Note that using the <code>+</code> is a quirk of <code>ggplot()</code>. The idea behind it is that you start from a bare plot and you <strong>add</strong> (<code>+</code>) layers of data on top of it. This is because of the philosophy behind the package, called the <a href="http://vita.had.co.nz/papers/layered-grammar.html">Layered Grammar of Graphics</a>.</p>
 </section>
-<section id="function-arguments" class="level3">
-<h3 class="anchored" data-anchor-id="function-arguments">Function arguments</h3>
+<section id="function-arguments" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="function-arguments"><span class="header-section-number">3.4</span> Function arguments</h3>
 <p>Note that the <code>data</code> and <code>mapping</code> arguments don’t have to be named explicitly (with <code>data =</code> and <code>mapping =</code>) in the <code>ggplot()</code> function, since they are obligatory and they are specified in that order.</p>
 <div class="cell" data-hash="tutorial-w03_cache/html/named-arguments_5dee62a067434f67917996c7666b9b6a">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
@@ -447,12 +418,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Try running <code>?ggplot</code> in the Console to see the arguments of the function and the order they appear in.</p>
-<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Question
 </div>
 </div>
@@ -467,12 +438,12 @@ Question
 </div>
 </section>
 </section>
-<section id="bar-charts" class="level2">
-<h2 class="anchored" data-anchor-id="bar-charts">Bar charts</h2>
+<section id="bar-charts" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="bar-charts"><span class="header-section-number">4</span> Bar charts</h2>
 <p>Another common type of plot is the <strong>bar chart</strong>.</p>
 <p><strong>Bar charts are useful when you are counting things.</strong> In the following example, we will be counting the number of languages by their endangerment status.</p>
-<section id="do-you-understand-me" class="level3">
-<h3 class="anchored" data-anchor-id="do-you-understand-me">Do you understand me?</h3>
+<section id="do-you-understand-me" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="do-you-understand-me"><span class="header-section-number">4.1</span> Do you understand me?</h3>
 <p>There are thousands of languages in the world, but most of them are losing speakers, and some are already no longer spoken. The endangerment status of a language in the data is on a scale from <code>not endangered</code> (languages with large populations of speakers) through <code>threatened</code>, <code>shifting</code> and <code>nearly extinct</code>, to <code>extinct</code> (languages that have no living speakers left).</p>
 <p>The <code>glot_status</code> data frame contains the endangerment status for 7,845 languages from <a href="https://glottolog.org">Glottolog</a>. To download the file with the data right-click on the following link and download the file: <a href="../data/glot_status.rds">glot_status.rds</a>. (Note that tutorial files are also linked in the <a href="../content.html">Syllabus</a>). Remember to save the file in <code>data/</code> in the course project folder.</p>
 <p>This time the file is not a <code>.csv</code> file but an <code>.rds</code> file. <code>.rds</code> files are files that can save any R object. They are commonly used to save data frames, like in this case.</p>
@@ -499,8 +470,8 @@ Question
 <li><p><code>Macroarea</code>: the geographic macro-area the language is spoken in.</p></li>
 </ul>
 </section>
-<section id="create-a-bar-chart" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-bar-chart">Create a bar chart</h3>
+<section id="create-a-bar-chart" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="create-a-bar-chart"><span class="header-section-number">4.2</span> Create a bar chart</h3>
 <p>To create a bar chart, add <code>geom_bar()</code> to the plot.</p>
 <p>You only need one axis, the <em>x</em> axis to be precise, because the <em>y</em>-axis will have the counts.</p>
 <p>Also, note how we’re using <code>%&gt;%</code> to pipe the <code>glot_status</code> data frame into the <code>ggplot()</code> function. This works because <code>ggplot()</code>’s first argument is the data, and piping is a different way of providing the first argument to a function.</p>
@@ -511,8 +482,8 @@ Question
 </div>
 <p>Note how the counting is done automatically. R looks in the <code>status</code> column and counts how many times each value in the column occurs in the data frame.</p>
 </section>
-<section id="stacked-bar-charts" class="level3">
-<h3 class="anchored" data-anchor-id="stacked-bar-charts">Stacked bar charts</h3>
+<section id="stacked-bar-charts" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="stacked-bar-charts"><span class="header-section-number">4.3</span> Stacked bar charts</h3>
 <p>A special type of bar charts are the so-called <strong>stacked bar charts</strong>. These are bar charts where each bar contains a “stack” of shorter bars, each indicating the counts of some sub-groups.</p>
 <p>To create a stacked bar chart, you just need to add a new aesthetic mapping: <code>fill</code>. The <code>fill</code> aesthetic lets you fill bars or areas with different colours depending on the values of a specified column.</p>
 <p>Let’s make a plot on language endangerment by macro-area.</p>
@@ -526,12 +497,12 @@ Question
 </div>
 </section>
 </section>
-<section id="faceting-and-panels" class="level2">
-<h2 class="anchored" data-anchor-id="faceting-and-panels">Faceting and panels</h2>
+<section id="faceting-and-panels" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="faceting-and-panels"><span class="header-section-number">5</span> Faceting and panels</h2>
 <p>Sometimes we might want to separate the data into separate panels.</p>
 <p>We can achieve that easily using <strong>faceting</strong>.</p>
-<section id="polite-again" class="level3">
-<h3 class="anchored" data-anchor-id="polite-again">Polite again</h3>
+<section id="polite-again" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="polite-again"><span class="header-section-number">5.1</span> Polite again</h3>
 <p>Let’s reproduce one of the plots from above, but this time let’s use the <code>colour</code> aesthetic to colour the points by <code>gender</code>.</p>
 <div class="cell" data-hash="tutorial-w03_cache/html/polite-gender_e8d867314189861cc45846f8513cb66d">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">%&gt;%</span></span>
@@ -542,8 +513,8 @@ Question
 </div>
 </div>
 </section>
-<section id="does-being-a-music-student-matter" class="level3">
-<h3 class="anchored" data-anchor-id="does-being-a-music-student-matter">Does being a music student matter?</h3>
+<section id="does-being-a-music-student-matter" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="does-being-a-music-student-matter"><span class="header-section-number">5.2</span> Does being a music student matter?</h3>
 <p>That looks great, but we want to know if being a music student has an effect on the relationship of <code>f0mn</code> and <code>H1H2</code>.</p>
 <p>In the plot above, the aesthetics mappings are the following:</p>
 <ul>
@@ -562,14 +533,14 @@ Question
 </div>
 </section>
 </section>
-<section id="render-your-rmd-file" class="level2">
-<h2 class="anchored" data-anchor-id="render-your-rmd-file">Render your Rmd file!</h2>
+<section id="render-your-rmd-file" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="render-your-rmd-file"><span class="header-section-number">6</span> Render your Rmd file!</h2>
 <p>Now that you have done all of this hard work, why don’t you try and render the Rmd file you’ve been working on to an HTML file?</p>
 <p>Go ahead, click on the “Knitr” button and if everything works fine you should see a rendered HTML file in a second!</p>
 <p>Note that you will be asked to render your Rmd files for the assessments, so I recommend you try this out now.</p>
 </section>
-<section id="the-end" class="level2">
-<h2 class="anchored" data-anchor-id="the-end">The end</h2>
+<section id="the-end" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="the-end"><span class="header-section-number">7</span> The end</h2>
 <p>That’s all for this week!</p>
 <p>Next week, you will learn how to create density and violin plots and how to customise legends, titles and labels!</p>
 
@@ -604,9 +575,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -671,6 +656,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

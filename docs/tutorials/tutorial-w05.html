@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -118,13 +89,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
 <link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
@@ -141,25 +114,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">QML</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../content.html">
+    <a class="nav-link" href="../content.html" rel="" target="">
  <span class="menu-text">Course content</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assessments.html">
+    <a class="nav-link" href="../assessments.html" rel="" target="">
  <span class="menu-text">Assessment</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -173,26 +148,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#emotional-valence-of-sense-words" id="toc-emotional-valence-of-sense-words" class="nav-link active" data-scroll-target="#emotional-valence-of-sense-words">Emotional valence of sense words</a>
+  <li><a href="#emotional-valence-of-sense-words" id="toc-emotional-valence-of-sense-words" class="nav-link active" data-scroll-target="#emotional-valence-of-sense-words"><span class="header-section-number">1</span> Emotional valence of sense words</a>
   <ul class="collapse">
-  <li><a href="#modelling-emotional-valence" id="toc-modelling-emotional-valence" class="nav-link" data-scroll-target="#modelling-emotional-valence">Modelling emotional valence</a></li>
-  <li><a href="#run-the-model" id="toc-run-the-model" class="nav-link" data-scroll-target="#run-the-model">Run the model</a></li>
-  <li><a href="#model-interpretation" id="toc-model-interpretation" class="nav-link" data-scroll-target="#model-interpretation">Model interpretation</a></li>
+  <li><a href="#modelling-emotional-valence" id="toc-modelling-emotional-valence" class="nav-link" data-scroll-target="#modelling-emotional-valence"><span class="header-section-number">1.1</span> Modelling emotional valence</a></li>
+  <li><a href="#run-the-model" id="toc-run-the-model" class="nav-link" data-scroll-target="#run-the-model"><span class="header-section-number">1.2</span> Run the model</a></li>
+  <li><a href="#model-interpretation" id="toc-model-interpretation" class="nav-link" data-scroll-target="#model-interpretation"><span class="header-section-number">1.3</span> Model interpretation</a></li>
   </ul></li>
-  <li><a href="#plotting-probability-distributions" id="toc-plotting-probability-distributions" class="nav-link" data-scroll-target="#plotting-probability-distributions">Plotting probability distributions</a>
+  <li><a href="#plotting-probability-distributions" id="toc-plotting-probability-distributions" class="nav-link" data-scroll-target="#plotting-probability-distributions"><span class="header-section-number">2</span> Plotting probability distributions</a>
   <ul class="collapse">
-  <li><a href="#posterior-probability-distributions" id="toc-posterior-probability-distributions" class="nav-link" data-scroll-target="#posterior-probability-distributions">Posterior probability distributions</a></li>
-  <li><a href="#posterior-draws" id="toc-posterior-draws" class="nav-link" data-scroll-target="#posterior-draws">Posterior draws</a></li>
-  <li><a href="#plotting-posteriors" id="toc-plotting-posteriors" class="nav-link" data-scroll-target="#plotting-posteriors">Plotting posteriors</a></li>
+  <li><a href="#posterior-probability-distributions" id="toc-posterior-probability-distributions" class="nav-link" data-scroll-target="#posterior-probability-distributions"><span class="header-section-number">2.1</span> Posterior probability distributions</a></li>
+  <li><a href="#posterior-draws" id="toc-posterior-draws" class="nav-link" data-scroll-target="#posterior-draws"><span class="header-section-number">2.2</span> Posterior draws</a></li>
+  <li><a href="#plotting-posteriors" id="toc-plotting-posteriors" class="nav-link" data-scroll-target="#plotting-posteriors"><span class="header-section-number">2.3</span> Plotting posteriors</a></li>
   </ul></li>
-  <li><a href="#plotting-conditional-probability-distributions" id="toc-plotting-conditional-probability-distributions" class="nav-link" data-scroll-target="#plotting-conditional-probability-distributions">Plotting conditional probability distributions</a></li>
-  <li><a href="#morphological-processing-and-reaction-times" id="toc-morphological-processing-and-reaction-times" class="nav-link" data-scroll-target="#morphological-processing-and-reaction-times">Morphological processing and reaction times</a>
+  <li><a href="#plotting-conditional-probability-distributions" id="toc-plotting-conditional-probability-distributions" class="nav-link" data-scroll-target="#plotting-conditional-probability-distributions"><span class="header-section-number">3</span> Plotting conditional probability distributions</a></li>
+  <li><a href="#morphological-processing-and-reaction-times" id="toc-morphological-processing-and-reaction-times" class="nav-link" data-scroll-target="#morphological-processing-and-reaction-times"><span class="header-section-number">4</span> Morphological processing and reaction times</a>
   <ul class="collapse">
-  <li><a href="#log-transformation" id="toc-log-transformation" class="nav-link" data-scroll-target="#log-transformation">Log-transformation</a></li>
-  <li><a href="#ordering-levels-of-a-categorical-predictor" id="toc-ordering-levels-of-a-categorical-predictor" class="nav-link" data-scroll-target="#ordering-levels-of-a-categorical-predictor">Ordering levels of a categorical predictor</a></li>
-  <li><a href="#model-rts-by-relation-type" id="toc-model-rts-by-relation-type" class="nav-link" data-scroll-target="#model-rts-by-relation-type">Model RTs by relation type</a></li>
+  <li><a href="#log-transformation" id="toc-log-transformation" class="nav-link" data-scroll-target="#log-transformation"><span class="header-section-number">4.1</span> Log-transformation</a></li>
+  <li><a href="#ordering-levels-of-a-categorical-predictor" id="toc-ordering-levels-of-a-categorical-predictor" class="nav-link" data-scroll-target="#ordering-levels-of-a-categorical-predictor"><span class="header-section-number">4.2</span> Ordering levels of a categorical predictor</a></li>
+  <li><a href="#model-rts-by-relation-type" id="toc-model-rts-by-relation-type" class="nav-link" data-scroll-target="#model-rts-by-relation-type"><span class="header-section-number">4.3</span> Model RTs by relation type</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -216,11 +191,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="cell" data-hash="tutorial-w05_cache/html/pkgs_669971f961c5d4c7e18dc90b44aaebc5">
-
-</div>
-<section id="emotional-valence-of-sense-words" class="level2">
-<h2 class="anchored" data-anchor-id="emotional-valence-of-sense-words">Emotional valence of sense words</h2>
+<section id="emotional-valence-of-sense-words" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="emotional-valence-of-sense-words"><span class="header-section-number">1</span> Emotional valence of sense words</h2>
 <p>We will model data from Winter, 2016. <em>Taste and smell words form an affectively loaded part of the English lexicon</em>. DOI: <a href="https://doi.org/10.1080/23273798.2016.1193619">10.1080/23273798.2016.1193619</a>. The study looked at the emotional valence of sense words in English, in the domains of taste and smell.</p>
 <p>To download the file with the data right-click on the following link and download the file: <a href="../data/senses_valence.csv">senses_valence.csv</a>. (Note that tutorial files are also linked in the <a href="../content.html">Syllabus</a>). Remember to save the file in <code>data/</code> in the course project folder.</p>
 <p>Create a new <code>.Rmd</code> file first, save it in <code>code/</code> and name it <code>tutorial-w05</code> (the extension <code>.Rmd</code> is added automatically!).</p>
@@ -276,8 +248,8 @@ dbl (1): Val
 </div>
 </div>
 <p>The plot thus suggests that, in this sample of 72 words, taste words are generally associated with a somewhat higher emotional valence than smell words.</p>
-<section id="modelling-emotional-valence" class="level3">
-<h3 class="anchored" data-anchor-id="modelling-emotional-valence">Modelling emotional valence</h3>
+<section id="modelling-emotional-valence" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="modelling-emotional-valence"><span class="header-section-number">1.1</span> Modelling emotional valence</h3>
 <p>Now that we got an overview of what the data looks like, let’s move onto modelling it with <code>brm()</code>!</p>
 <p>Let’s assume, as we did with the VOT values, that the emotional valence values come from a Gaussian distribution.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> In notation:</p>
 <p><span class="math display">\[
@@ -357,8 +329,8 @@ SC: we have not yet mentioned it's called linear model! But we will when we talk
 \]</span></p>
 <p>All together, we need to estimate the following parameters: <span class="math inline">\(\mu_0, \sigma_0, \mu_1, \sigma_1, \mu_2, \sigma_2\)</span>.</p>
 </section>
-<section id="run-the-model" class="level3">
-<h3 class="anchored" data-anchor-id="run-the-model">Run the model</h3>
+<section id="run-the-model" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="run-the-model"><span class="header-section-number">1.2</span> Run the model</h3>
 <p>Now we know what the model will do, we can run it.</p>
 <p>Before that though, create a folder called <code>cache/</code> in the <code>data/</code> folder of the RStudio project of the course. We will use this folder to save the output of model fitting so that you don’t have to refit the model every time. (This is useful because as models get more and more complex, they can take quite a while to fit.)</p>
 <p>After you have created the folder, run the following code.</p>
@@ -374,8 +346,8 @@ SC: we have not yet mentioned it's called linear model! But we will when we talk
 </div>
 <p>The model will be fitted and saved in <code>data/cache/</code> with the file name <code>val_bm.rds</code>. If you now re-run the same code again, you will notice that <code>brm()</code> does not fit the model again, but rather reads it from the file (no output is shown, but trust me, it works! Check the contents of <code>data/cache/</code> to see for yourself.).</p>
 </section>
-<section id="model-interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="model-interpretation">Model interpretation</h3>
+<section id="model-interpretation" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="model-interpretation"><span class="header-section-number">1.3</span> Model interpretation</h3>
 <p>Let’s inspect the model summary.</p>
 <div class="cell" data-hash="tutorial-w05_cache/html/val-bm-summ_45b65468d9ab6c2e85e832a0c670ad5c">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(val_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -435,18 +407,18 @@ ModalityTaste     0.34      0.08     0.18     0.50 1.00     3866     2984</code>
 </ul>
 </section>
 </section>
-<section id="plotting-probability-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="plotting-probability-distributions">Plotting probability distributions</h2>
+<section id="plotting-probability-distributions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="plotting-probability-distributions"><span class="header-section-number">2</span> Plotting probability distributions</h2>
 <p>They say a plot is better than a thousand words, so why don’t we plot the probability distributions of the <code>Intercept</code> (<span class="math inline">\(\beta_0\)</span>) and <code>ModalityTaste</code> (<span class="math inline">\(\beta_1\)</span>) coefficients?</p>
 <p>Before we do, just a quick terminological clarification.</p>
-<section id="posterior-probability-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="posterior-probability-distributions">Posterior probability distributions</h3>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<section id="posterior-probability-distributions" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="posterior-probability-distributions"><span class="header-section-number">2.1</span> Posterior probability distributions</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Posterior probability distribution
 </div>
 </div>
@@ -459,8 +431,8 @@ Posterior probability distribution
 <p>There are different methods, each of which has its own advantages and disadvantages. Some methods require extra packages, while others work with the packages you already know of.</p>
 <p>To simply things, we will use a method that works out of the box with just ggplot2. The first step to plot posterior distributions is to extract the values to be plotted from the model output.</p>
 </section>
-<section id="posterior-draws" class="level3">
-<h3 class="anchored" data-anchor-id="posterior-draws">Posterior draws</h3>
+<section id="posterior-draws" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="posterior-draws"><span class="header-section-number">2.2</span> Posterior draws</h3>
 <p>Which values, you might ask? The coefficient values obtained with the MCMC draws. (Remember we talked about Markov Chain Monte Carlo iterations last week?). In order to estimate the coefficients, <code>brm()</code> runs a number of MCMC iterations and at each iteration a value for each coefficient in the model is proposed (this is a simplification, if you want to know more about the inner working of MCMCs, check the Statistical (Re)Thinking book).</p>
 <p>At the end, what you get is a list of values for each coefficient in the model. These are called the <strong>posterior draws</strong>. The probability distribution of the posterior draws of a coefficient is the posterior probability distribution of that coefficient.</p>
 <p>And, if you take the mean and standard deviation of the posterior draws of a coefficient, you get the <code>Estimate</code> and <code>Est.Error</code> values in the model output!</p>
@@ -486,8 +458,8 @@ Posterior probability distribution
 <p>(Why is there a <code>b</code> at the beginning of <code>b_Intercept</code> and <code>b_ModalityTaste</code>? Well, “b” is for “beta”, and it’s brms’s way of telling us what kind of coefficient we’re working with.)</p>
 <p>Fantastic! Now that we have the posterior draws as a nice tibble, we can use <code>geom_density()</code> from ggplot2 to plot the probability density, a.k.a., the posterior probability distribution, for each coefficient.</p>
 </section>
-<section id="plotting-posteriors" class="level3">
-<h3 class="anchored" data-anchor-id="plotting-posteriors">Plotting posteriors</h3>
+<section id="plotting-posteriors" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="plotting-posteriors"><span class="header-section-number">2.3</span> Plotting posteriors</h3>
 <p>Let’s start with the posterior probability, or <em>posterior</em> for short, of <code>b_Intercept</code>.</p>
 <div class="cell" data-hash="tutorial-w05_cache/html/int-dens_da9dc41dce298f301fecb2741ac6917f">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>val_bm_draws <span class="sc">%&gt;%</span></span>
@@ -516,8 +488,8 @@ Posterior probability distribution
 <p>If you feel like it, go ahead and plot the posterior distribution of <code>sigma</code> as well.</p>
 </section>
 </section>
-<section id="plotting-conditional-probability-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="plotting-conditional-probability-distributions">Plotting conditional probability distributions</h2>
+<section id="plotting-conditional-probability-distributions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="plotting-conditional-probability-distributions"><span class="header-section-number">3</span> Plotting conditional probability distributions</h2>
 <p>This is all great, but what if you wanted to know the probability distribution of mean emotional valence in either smell or taste words? So far, we only know the probability distribution of mean valence for smell words (<span class="math inline">\(\beta_0\)</span>), and <em>how that valence is changed</em> for taste words (<span class="math inline">\(\beta_1\)</span>). We don’t yet know the probability distribution of mean emotional valence for taste words. How do we find that distribution?</p>
 <p>This is where <strong>conditional posterior probability distributions</strong> (or conditional probabilities for short) come in!</p>
 <p>They are posterior probability distributions like the ones we have plotted above, but they are <strong>conditional</strong> on specific values of each predictor in the model.</p>
@@ -574,8 +546,8 @@ Posterior probability distribution
 <p>To reiterate from above, based on the 95% CrI of <code>b_ModalityTaste</code>, there is a 95% probability that the mean emotional valence of taste words is 0.18 to 0.5 greater than that of smell words.</p>
 <p>You might ask now: <em>Is this difference relevant?</em> Unfortunately, statistics cannot help you to answer that question (remember, <em>we</em> imbue numbers with meaning). Only conceptual theories of lexical emotional valence can (or cannot)!</p>
 </section>
-<section id="morphological-processing-and-reaction-times" class="level2">
-<h2 class="anchored" data-anchor-id="morphological-processing-and-reaction-times">Morphological processing and reaction times</h2>
+<section id="morphological-processing-and-reaction-times" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="morphological-processing-and-reaction-times"><span class="header-section-number">4</span> Morphological processing and reaction times</h2>
 <p>So far, we’ve seen how to work with treatment-coded variables with only two levels. In this last section, we’ll take a look at how to use dummy coding for a variable with three levels.</p>
 <p>You might remember the <code>shallow.csv</code> data we used in Week 2, from Song et al.&nbsp;2020. <em>Second language users exhibit shallow morphological processing</em>. DOI: <a href="https://doi.org/10.1017/S0272263120000170">10.1017/S0272263120000170</a>.</p>
 <p>The study compared results of English L1 vs L2 participants and of left- vs right-branching words, but for this tutorial we will only be looking at the L1 and left-branching data.</p>
@@ -632,8 +604,8 @@ dbl (3): ACC, RT, logRT
 </div>
 <p>You will notice that <code>RT</code> can only be <em>positive</em>: reaction time is a numeric continuous variable, bounded to positive numbers only!</p>
 <p>Remember how we talked above about choosing an appropriate distribution to model your data? <strong>Variables that are bounded to positive numbers are known not to be distributed according to a Gaussian distribution</strong>. Each case might be a bit different, but when a variable is bounded (e.g., by zero), it is very safe to assume that the values of the variable do not follow a Gaussian distribution.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-<section id="log-transformation" class="level3">
-<h3 class="anchored" data-anchor-id="log-transformation">Log-transformation</h3>
+<section id="log-transformation" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="log-transformation"><span class="header-section-number">4.1</span> Log-transformation</h3>
 <p>But we have a trick in our pocket: just calculate the <strong>logarithm</strong> of the values and they will conform to a Gaussian distribution! This is a common trick in psycholinguistics for modelling reaction time data. You can calculate the logarithm (or log) of a number in R using the <code>log()</code> function. Calculating the logs of a variable is known as a <strong>log-transformation</strong>.</p>
 <p>I will illustrate what this looks like with the first five values of <code>RT</code> in <code>shallow</code>.</p>
 <div class="cell" data-hash="tutorial-w05_cache/html/log_df734e5397b8750ea51b7d2b80354b03">
@@ -662,12 +634,12 @@ dbl (3): ACC, RT, logRT
 </div>
 </div>
 <p><strong>Warning</strong>: it is usually not possible to rely on the shape of the probability density to determine if the probability is Gaussian or not! Rather, ask yourself the following question: are the values bounded to positive numbers only? If the answer is “yes”, then the variable is <strong>not</strong> Gaussian and you know you can log-transform it.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Log-normal distribution
 </div>
 </div>
@@ -693,8 +665,8 @@ Log-normal distribution
 </div>
 <p>Based on this, we can see that the bulk of the distribution (the place where the violin is wider) falls somewhat lower on the log-RT scale for the <code>Constituent</code> condition relative to the other conditions.</p>
 </section>
-<section id="ordering-levels-of-a-categorical-predictor" class="level3">
-<h3 class="anchored" data-anchor-id="ordering-levels-of-a-categorical-predictor">Ordering levels of a categorical predictor</h3>
+<section id="ordering-levels-of-a-categorical-predictor" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="ordering-levels-of-a-categorical-predictor"><span class="header-section-number">4.2</span> Ordering levels of a categorical predictor</h3>
 <p>By default, the levels in <code>Relation_type</code> follow the order: Constituent, NonConstituent, Unrelated (this is the default alphabetical order).</p>
 <p>There is nothing bad with this <em>per se</em>, but maybe we can reorder them so that they are in this order: Unrelated, NonConstituent, Constituent.</p>
 <p>This might make a bit more sense from a conceptual point of view (you can think of the unrelated condition as the “baseline” condition).</p>
@@ -707,8 +679,8 @@ Log-normal distribution
 </div>
 <p>This overwrites the <code>Relation_type</code> column so that the levels are in the specified order. You can check this in the Environment tab: click on the blue arrow next to <code>shallow</code> to see the column list and now <code>Relation_type</code> is a <code>Factor</code> column with 3 levels.</p>
 </section>
-<section id="model-rts-by-relation-type" class="level3">
-<h3 class="anchored" data-anchor-id="model-rts-by-relation-type">Model RTs by relation type</h3>
+<section id="model-rts-by-relation-type" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="model-rts-by-relation-type"><span class="header-section-number">4.3</span> Model RTs by relation type</h3>
 <p>Now it’s your turn! With the following guidance, go ahead and run a model with <code>brm()</code> to investigate the effect of relation type on log-RT. Inspect the model summary and plot the posterior probabilities.</p>
 <p><code>Relation_type</code> is a categorical variable with three levels, so here’s what treatment coding looks like (there will be N-1 = 3-1 = 2 dummy variables).</p>
 <table class="table">
@@ -755,9 +727,9 @@ Log-normal distribution
 <p>A hint for the conditional probability distributions: to plot these you need to <em>sum</em> the posterior draws of the beta coefficients depending on the level of relation type. Use the formula of <span class="math inline">\(\mu\)</span> to guide you: the process is the same as with the emotional valence data above, but now there are 3 levels instead of two.</p>
 </section>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<div class="callout-note callout callout-style-simple no-icon">
+<section id="summary" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="summary"><span class="header-section-number">5</span> Summary</h2>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -827,9 +799,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -894,6 +880,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

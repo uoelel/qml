@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -118,7 +89,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -140,25 +112,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">QML</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../content.html">
+    <a class="nav-link" href="../content.html" rel="" target="">
  <span class="menu-text">Course content</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assessments.html">
+    <a class="nav-link" href="../assessments.html" rel="" target="">
  <span class="menu-text">Assessment</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -172,20 +146,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-r" id="toc-why-r" class="nav-link active" data-scroll-target="#why-r">Why R?</a></li>
-  <li><a href="#r-vs-rstudio" id="toc-r-vs-rstudio" class="nav-link" data-scroll-target="#r-vs-rstudio">R vs RStudio</a></li>
-  <li><a href="#rstudio-1" id="toc-rstudio-1" class="nav-link" data-scroll-target="#rstudio-1">RStudio</a>
+  <li><a href="#why-r" id="toc-why-r" class="nav-link active" data-scroll-target="#why-r"><span class="header-section-number">1</span> Why R?</a></li>
+  <li><a href="#r-vs-rstudio" id="toc-r-vs-rstudio" class="nav-link" data-scroll-target="#r-vs-rstudio"><span class="header-section-number">2</span> R vs RStudio</a></li>
+  <li><a href="#rstudio-1" id="toc-rstudio-1" class="nav-link" data-scroll-target="#rstudio-1"><span class="header-section-number">3</span> RStudio</a>
   <ul class="collapse">
-  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio projects</a></li>
-  <li><a href="#a-few-important-settings" id="toc-a-few-important-settings" class="nav-link" data-scroll-target="#a-few-important-settings">A few important settings</a></li>
+  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects"><span class="header-section-number">3.1</span> RStudio projects</a></li>
+  <li><a href="#a-few-important-settings" id="toc-a-few-important-settings" class="nav-link" data-scroll-target="#a-few-important-settings"><span class="header-section-number">3.2</span> A few important settings</a></li>
   </ul></li>
-  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">R basics</a>
+  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics"><span class="header-section-number">4</span> R basics</a>
   <ul class="collapse">
-  <li><a href="#r-as-a-calculator" id="toc-r-as-a-calculator" class="nav-link" data-scroll-target="#r-as-a-calculator">R as a calculator</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
-  <li><a href="#string-and-logical-vectors" id="toc-string-and-logical-vectors" class="nav-link" data-scroll-target="#string-and-logical-vectors">String and logical vectors</a></li>
+  <li><a href="#r-as-a-calculator" id="toc-r-as-a-calculator" class="nav-link" data-scroll-target="#r-as-a-calculator"><span class="header-section-number">4.1</span> R as a calculator</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">4.2</span> Variables</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">4.3</span> Functions</a></li>
+  <li><a href="#string-and-logical-vectors" id="toc-string-and-logical-vectors" class="nav-link" data-scroll-target="#string-and-logical-vectors"><span class="header-section-number">4.4</span> String and logical vectors</a></li>
   </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -209,8 +184,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="why-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-r">Why R?</h2>
+<section id="why-r" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="why-r"><span class="header-section-number">1</span> Why R?</h2>
 <p>R can be used to <strong>analyse all sorts of data</strong>, from tabular data (also known as “spreadsheets”), textual data, geographic data and even images.</p>
 <p><img src="../img/what-r-for.png" class="img-fluid"></p>
 <p>This course will focus on the analysis of tabular data, since all of the techniques relevant to this type of data also apply to the other types.</p>
@@ -218,19 +193,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The R community is a <strong>very inclusive community</strong> and it’s easy to find help. There are several groups that promote R in minority/minoritised groups, like <a href="https://www.r-consortium.org/all-projects/r-ladies">R-Ladies</a>, <a href="https://r4africa.org">Africa R</a>, and <a href="https://rainbowr.netlify.app">Rainbow R</a> just to mention a few.</p>
 <p>Moreover, R is <strong>open source and free</strong>!</p>
 </section>
-<section id="r-vs-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="r-vs-rstudio">R vs RStudio</h2>
+<section id="r-vs-rstudio" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="r-vs-rstudio"><span class="header-section-number">2</span> R vs RStudio</h2>
 <p>Beginners usually have trouble understanding the difference between R and RStudio.</p>
 <p>Let’s use a car analogy.</p>
 <p>What makes the car go is the <strong>engine</strong> and you can control the engine through the <strong>dashboard</strong>.</p>
 <p>You can think of R as an engine and RStudio as the dashboard.</p>
 <p><img src="../img/R_vs_RStudio_1.png" class="img-fluid"></p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 R
 </div>
 </div>
@@ -242,12 +217,12 @@ R
 </ul>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 RStudio
 </div>
 </div>
@@ -261,8 +236,8 @@ RStudio
 </div>
 <p>The next section will give you a tour of RStudio.</p>
 </section>
-<section id="rstudio-1" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio-1">RStudio</h2>
+<section id="rstudio-1" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="rstudio-1"><span class="header-section-number">3</span> RStudio</h2>
 <p>When you open RStudio, you can see the window is divided into 3 panels:</p>
 <ul>
 <li><p>Blue (left): the <strong>Console</strong>.</p></li>
@@ -272,19 +247,19 @@ RStudio
 <p><img src="../img/rstudio-1-2.png" class="img-fluid"></p>
 <p>The <strong>Console</strong> is where R commands can be executed. Think of this as the interface to R.</p>
 <p>The <strong>Environment tab</strong> lists the objects created with R, while in the <strong>Files tab</strong> you can navigate folders on your computer to get to files and open them in the file Editor.</p>
-<section id="rstudio-projects" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio-projects">RStudio projects</h3>
+<section id="rstudio-projects" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="rstudio-projects"><span class="header-section-number">3.1</span> RStudio projects</h3>
 <p>RStudio is an IDE (see above) which allows you to work efficiently with R, all in one place.</p>
 <p><strong>Note</strong> that files and data live in folders on your computer, outside of RStudio: do not think of RStudio as an app where you can save files in.</p>
 <p>All the files that you see in the Files tab are files on your computer and you can access them from the Finder or File Explorer as you would with any other file.</p>
 <p>In principle, you can open RStudio and then navigate to any folder or file on your computer.</p>
 <p>However, there is a more efficient way of working with RStudio: <strong>RStudio Projects</strong>.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 RStudio Projects
 </div>
 </div>
@@ -292,59 +267,70 @@ RStudio Projects
 <p>An <strong>RStudio Project</strong> is a folder on your computer that has an <code>.Rproj</code> file.</p>
 </div>
 </div>
-<p>You can create as many RStudio Projects as you wish, and I recommend to create one per project (your dissertation, a research project, etc…).</p>
-<p>We will create an RStudio Project for this course. You will be using this Project throughout the semester.</p>
-<p>To create an RStudio Project, click on the button that looks like a transparent light blue box with a plus, in the top-left corner of RStudio. A window like the one below will pop up.</p>
+<p>You can create as many RStudio Projects as you wish, and I recommend to create one per project (your dissertation, a research project, a course, etc…).</p>
+<p>We will create an RStudio Project for this course (meaning, you will create a folder for the course which will be the RStudio Project). You will have to use this project/folder throughout the semester.</p>
+<p>To create a new RStudio Project, click on the button that looks like a transparent light blue box with a plus, in the top-left corner of RStudio. A window like the one below will pop up.</p>
 <p><img src="../img/rstudio-3.png" class="img-fluid"></p>
 <p>Click on <code>New Directory</code> then <code>New Project</code>.</p>
 <p><img src="../img/rstudio-4.png" class="img-fluid"></p>
-<p>Now, this will create a new folder (aka directory) on your computer and will make that an RStudio Project.</p>
-<p>Give a name to your new project, something like the name of the course and year.</p>
+<p>Now, this will create a new folder (aka directory) on your computer and will make that an RStudio Project (meaning, it will add a file with the <code>.Rproj</code> extension to the folder; the name of the file will be the name of the project/folder).</p>
+<p>Give a name to your new project, something like the name of the course and year (e.g.&nbsp;<code>qml-2023</code>).</p>
 <p>Then you need to specify where to create this new folder/Project. Click on <code>Browse…</code> and navigate to the folder you want to create the new folder/Project in.</p>
 <p>When done, click on <code>Create Project</code>. RStudio will automatically open your new project.</p>
 <p><img src="../img/rstudio-5.png" class="img-fluid"></p>
-<p>You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio.</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Note
+<div class="callout-title-container flex-fill">
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>When working through these tutorials, always make sure you are in the course RStudio Project you just created.</p>
-</div>
-</div>
+<p>You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light blue cube icon.</p>
 <p>If your see <code>Project (none)</code> in the top-right corner, that means your <strong>are not</strong> in an RStudio Project.</p>
+</div>
+</div>
 <p>There are several ways of opening an RStudio Project:</p>
 <ul>
-<li><p>You can go to the RStudio Project folder in Finder or File Explorer and double click on the <code>Rproj</code> file.</p></li>
+<li><p>You can go to the RStudio Project folder in Finder or File Explorer and double click on the <code>.Rproj</code> file.</p></li>
 <li><p>You can click on <code>File &gt; Open Project</code> in the RStudio menu.</p></li>
 <li><p>You can click on the project name in the top-right corner of RStudio, which will bring up a list of projects. Click on the desired project to open it.</p></li>
 </ul>
 </section>
-<section id="a-few-important-settings" class="level3">
-<h3 class="anchored" data-anchor-id="a-few-important-settings">A few important settings</h3>
+<section id="a-few-important-settings" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="a-few-important-settings"><span class="header-section-number">3.2</span> A few important settings</h3>
 <p>Before moving on, there are a few important settings that you need to change.</p>
 <p><img src="../img/rstudio-6.png" class="img-fluid"></p>
 <ol type="1">
 <li><p>Open the RStudio preferences (<code>Tools &gt; Global options...</code>).</p></li>
-<li><p>Un-tick <code>Restore .RData into workspace at startup</code>.</p></li>
-<li><p>Select <code>Never</code> in <code>Save workspace to .RData on exit</code>.</p></li>
+<li><p>Un-tick <code>Restore .RData into workspace at startup</code>.</p>
+<ul>
+<li>This mean that every time you start RStudio you are working with a clean Environment. Not restoring the workspace ensures that the code you write is fully reproducible.</li>
+</ul></li>
+<li><p>Select <code>Never</code> in <code>Save workspace to .RData on exit</code>.</p>
+<ul>
+<li>Since we are not restoring the workspace at startup, we don’t need to save it. Remember that as long as you save the code, you will not lose any of your work! You will learn how to save code from next week.</li>
+</ul></li>
 <li><p>Click <code>OK</code> to confirm the changes.</p></li>
 </ol>
 </section>
 </section>
-<section id="r-basics" class="level2">
-<h2 class="anchored" data-anchor-id="r-basics">R basics</h2>
-<section id="r-as-a-calculator" class="level3">
-<h3 class="anchored" data-anchor-id="r-as-a-calculator">R as a calculator</h3>
-<p>Write the following in the <code>Console</code>, then press <code>ENTER</code>: <code>1 + 2</code>.</p>
-<p>Fantastic! You should see that the answer to the addition has been printed in the <code>Console</code>, like this:</p>
+<section id="r-basics" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="r-basics"><span class="header-section-number">4</span> R basics</h2>
+<p>In this part of the tutorial you will learn the very basics of R.</p>
+<p>If you have prior experience with programming, you should find all this familiar. If not, not to worry! Make sure you understand the concept highlighted in the green boxes and practice the related skills.</p>
+<p>For this tutorial, you will just run code directly in the R Console in RStudio, i.e.&nbsp;you will type code in the Console and press <code>ENTER</code> to run it.</p>
+<p>In future tutorials, you will learn how to save your code in a script file, so that you can keep track of which code you have run and make your work reproducible.</p>
+<section id="r-as-a-calculator" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="r-as-a-calculator"><span class="header-section-number">4.1</span> R as a calculator</h3>
+<p>Write this code <code>1 + 2</code> in the <code>Console</code>, then press <code>ENTER/RETURN</code> to run the code.</p>
+<p>Fantastic! You should see that the answer of the addition has been printed in the <code>Console</code>, like this:</p>
 <pre><code>[1] 3</code></pre>
-<p>Now, try some more operations (write each of the following in the Console and press <code>ENTER</code>). Feel free to add your own to the mix!</p>
+<p>(Never mind the <code>[1]</code> part for now).</p>
+<p>Now, try some more operations (write each of the following in the Console and press <code>ENTER</code>). Feel free to add your own operations to the mix!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">67</span> <span class="sc">-</span> <span class="dv">13</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">4</span></span>
@@ -356,19 +342,19 @@ Note
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="variables" class="level3">
-<h3 class="anchored" data-anchor-id="variables">Variables</h3>
+<section id="variables" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="variables"><span class="header-section-number">4.2</span> Variables</h3>
 <blockquote class="blockquote">
 <p>Forget-me-not.</p>
 </blockquote>
 <p>Most times, we want to store a certain value so that we can use it again later.</p>
 <p>We can achieve this by creating <strong>variables</strong>.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Variable
 </div>
 </div>
@@ -390,12 +376,12 @@ Variable
 </div>
 </div>
 <p>A variable like <code>my_num</code> is also called a <strong>numeric vector</strong>: i.e.&nbsp;a vector that contains a number (hence numeric).</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Vector
 </div>
 </div>
@@ -403,6 +389,7 @@ Vector
 <p>A <strong>vector</strong> is an R object that contains one or more values of the same type.</p>
 </div>
 </div>
+<p>A vector is a type of variable and a numeric vector is a type of vector. However, it’s fine in most cases to use the word variable to mean vector (just note that a variable can also be something else than a vector; you will learn about more variable types from next week).</p>
 <p>Let’s now try some operations using variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>income <span class="ot">&lt;-</span> <span class="dv">1200</span></span>
@@ -434,13 +421,13 @@ Vector
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector with 3 values</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>three_i <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Check the list of variables in the <code>Environment</code> tab. You will see now that before the values of <code>two_i</code> and <code>three_i</code> you get the vector type <code>num</code> for numeric. (If the vector has only one value, you don’t see the type in the <code>Enviroment</code> list but it is still of a particular type).</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<p>Check the list of variables in the <code>Environment</code> tab. You will see now that before the values of <code>two_i</code> and <code>three_i</code> you get the vector type <code>num</code> for numeric. (If the vector has only one value, you don’t see the type in the <code>Enviroment</code> list but it is still of a specific type).</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Numeric vector
 </div>
 </div>
@@ -461,18 +448,27 @@ Numeric vector
 <pre><code>[1] 6</code></pre>
 </div>
 </div>
+<p>Another important aspect of variables is that they are… <strong>variable</strong>! Meaning that once you assign a value to one variable, you can overwrite the value by assigning a new one to the same variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>my_num <span class="ot">&lt;-</span> <span class="dv">88</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>my_num <span class="ot">&lt;-</span> <span class="dv">63</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>my_num</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 63</code></pre>
+</div>
+</div>
 </section>
-<section id="functions" class="level3">
-<h3 class="anchored" data-anchor-id="functions">Functions</h3>
+<section id="functions" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="functions"><span class="header-section-number">4.3</span> Functions</h3>
 <blockquote class="blockquote">
 <p>R cannot function without… functions.</p>
 </blockquote>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Function
 </div>
 </div>
@@ -487,7 +483,7 @@ Function
 </ul>
 <p>Let’s see an example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
@@ -495,20 +491,34 @@ Function
 <p>The <code>sum()</code> function sums the number listed as arguments. Above, the arguments are <code>3</code> and <code>5</code>.</p>
 <p>And of course arguments can be vectors!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>my_nums <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(my_nums)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>my_nums <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(my_nums)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(my_nums)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(my_nums)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R vs Python
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are familiar with Python, you will soon realise that R and Python, although they share many concepts and types of objects, they can differ substantially. This is because R is a <strong>functional</strong> programminglanguage (based on <em>functions</em>) while Python is an <strong>Object Oriented</strong> programming language (based on <em>methods</em> applied on objects).</p>
+<p>Generally speaking, functions look like <code>print(x)</code> while methods look like <code>x.print()</code></p>
+</div>
+</div>
 </section>
-<section id="string-and-logical-vectors" class="level3">
-<h3 class="anchored" data-anchor-id="string-and-logical-vectors">String and logical vectors</h3>
+<section id="string-and-logical-vectors" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="string-and-logical-vectors"><span class="header-section-number">4.4</span> String and logical vectors</h3>
 <blockquote class="blockquote">
 <p>Not just numbers.</p>
 </blockquote>
@@ -517,37 +527,37 @@ Function
 <p>In R, strings have to be <strong>quoted</strong> using double quotes <code>" "</code>.</p>
 <p>Change the following strings to your name and surname. Remember to keep the double quotes</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">"Stefano"</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>surname <span class="ot">&lt;-</span> <span class="st">"Coretta"</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">"Stefano"</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>surname <span class="ot">&lt;-</span> <span class="st">"Coretta"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Stefano"</code></pre>
 </div>
 </div>
 <p>Strings can be used as arguments in functions, like numbers can.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"My name is"</span>, name, surname)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"My name is"</span>, name, surname)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>My name is Stefano Coretta</code></pre>
 </div>
 </div>
 <p>Remember that you can reuse the same variable name to override the variable value.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">"Raj"</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"My name is"</span>, name, surname)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">"Raj"</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"My name is"</span>, name, surname)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>My name is Raj Coretta</code></pre>
 </div>
 </div>
 <p>You can combine multiple strings into a <strong>character vector</strong>, using <code>c()</code>.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Character vector
 </div>
 </div>
@@ -556,20 +566,20 @@ Character vector
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"oranges"</span>, <span class="st">"bananas"</span>)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>fruit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"oranges"</span>, <span class="st">"bananas"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>fruit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "apple"   "oranges" "bananas"</code></pre>
 </div>
 </div>
 <p>Check the Environment tab. Character vectors have <code>chr</code> before the values.</p>
 <p>Another type of vector is one that contains either <code>TRUE</code> or <code>FALSE</code>. Vectors of this type are called <strong>logical vectors</strong> and they are listed as <code>logi</code> in the <code>Environment</code> tab.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Logical vector
 </div>
 </div>
@@ -578,13 +588,46 @@ Logical vector
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>groceries <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"flour"</span>, <span class="st">"margarine"</span>, <span class="st">"sugar"</span>)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>in_pantry <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>groceries <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"flour"</span>, <span class="st">"margarine"</span>, <span class="st">"sugar"</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>in_pantry <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(groceries, in_pantry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["groceries"],"name":[1],"type":["chr"],"align":["left"]},{"label":["in_pantry"],"name":[2],"type":["lgl"],"align":["right"]}],"data":[{"1":"apple","2":"TRUE"},{"1":"flour","2":"TRUE"},{"1":"margarine","2":"FALSE"},{"1":"sugar","2":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
 </div>
 <p><code>TRUE</code> and <code>FALSE</code> values must be written in all capitals and <em>without</em> double quotes (they are not strings!).</p>
-
-
+<p>(We will talk about data frames, another type of object in R, in the following weeks.)</p>
 </section>
+</section>
+<section id="summary" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="summary"><span class="header-section-number">5</span> Summary</h2>
+<p>You made it! You completed this week’s tutorial.</p>
+<p>Here’s a summary of what you learnt.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li><p><strong>R</strong> is a programming language while <strong>RStudio</strong> is an IDE.</p></li>
+<li><p><strong>RStudio projects</strong> are folders with an <code>.Rproj</code> file (you can see the name of the project you are currently in in the top-right corner of RStudio).</p></li>
+<li><p>You can perform mathematical operations with <code>+, -, *, /.</code></p></li>
+<li><p>You can store values in <strong>variables</strong>.</p></li>
+<li><p>A typical object to be stored in a variable is a <strong>vector</strong>: there are different type of vectors, like <strong>numeric</strong>, <strong>character</strong> and <strong>logical</strong>.</p></li>
+<li><p>Functions are used to perform an operation on its arguments: <code>sum()</code> sums it’s arguments, <code>mean()</code> calculates the mean and <code>cat()</code> prints the arguments.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -615,9 +658,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -682,6 +739,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

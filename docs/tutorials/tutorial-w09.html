@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -118,13 +89,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
 <link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
@@ -141,25 +114,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">QML</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../content.html">
+    <a class="nav-link" href="../content.html" rel="" target="">
  <span class="menu-text">Course content</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assessments.html">
+    <a class="nav-link" href="../assessments.html" rel="" target="">
  <span class="menu-text">Assessment</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -173,23 +148,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#scalar-inferences-and-scalar-diversity" id="toc-scalar-inferences-and-scalar-diversity" class="nav-link active" data-scroll-target="#scalar-inferences-and-scalar-diversity">Scalar inferences and scalar diversity</a>
+  <li><a href="#scalar-inferences-and-scalar-diversity" id="toc-scalar-inferences-and-scalar-diversity" class="nav-link active" data-scroll-target="#scalar-inferences-and-scalar-diversity"><span class="header-section-number">1</span> Scalar inferences and scalar diversity</a>
   <ul class="collapse">
-  <li><a href="#read-and-process-the-data" id="toc-read-and-process-the-data" class="nav-link" data-scroll-target="#read-and-process-the-data">Read and process the data</a></li>
+  <li><a href="#read-and-process-the-data" id="toc-read-and-process-the-data" class="nav-link" data-scroll-target="#read-and-process-the-data"><span class="header-section-number">1.1</span> Read and process the data</a></li>
   </ul></li>
-  <li><a href="#model-1-binary-continuous" id="toc-model-1-binary-continuous" class="nav-link" data-scroll-target="#model-1-binary-continuous">Model 1: Binary ~ continuous</a>
+  <li><a href="#model-1-binary-continuous" id="toc-model-1-binary-continuous" class="nav-link" data-scroll-target="#model-1-binary-continuous"><span class="header-section-number">2</span> Model 1: Binary ~ continuous</a>
   <ul class="collapse">
-  <li><a href="#visualising-scalar-inferencing-and-centered-log-frequency" id="toc-visualising-scalar-inferencing-and-centered-log-frequency" class="nav-link" data-scroll-target="#visualising-scalar-inferencing-and-centered-log-frequency">Visualising scalar inferencing and centered log frequency</a></li>
-  <li><a href="#fitting-the-model" id="toc-fitting-the-model" class="nav-link" data-scroll-target="#fitting-the-model">Fitting the model</a></li>
-  <li><a href="#conditional-posterior-probability-distributions" id="toc-conditional-posterior-probability-distributions" class="nav-link" data-scroll-target="#conditional-posterior-probability-distributions">Conditional posterior probability distributions</a></li>
+  <li><a href="#visualising-scalar-inferencing-and-centered-log-frequency" id="toc-visualising-scalar-inferencing-and-centered-log-frequency" class="nav-link" data-scroll-target="#visualising-scalar-inferencing-and-centered-log-frequency"><span class="header-section-number">2.1</span> Visualising scalar inferencing and centered log frequency</a></li>
+  <li><a href="#fitting-the-model" id="toc-fitting-the-model" class="nav-link" data-scroll-target="#fitting-the-model"><span class="header-section-number">2.2</span> Fitting the model</a></li>
+  <li><a href="#conditional-posterior-probability-distributions" id="toc-conditional-posterior-probability-distributions" class="nav-link" data-scroll-target="#conditional-posterior-probability-distributions"><span class="header-section-number">2.3</span> Conditional posterior probability distributions</a></li>
   </ul></li>
-  <li><a href="#model-2-binary-continuous-continuous" id="toc-model-2-binary-continuous-continuous" class="nav-link" data-scroll-target="#model-2-binary-continuous-continuous">Model 2: Binary ~ continuous * continuous</a>
+  <li><a href="#model-2-binary-continuous-continuous" id="toc-model-2-binary-continuous-continuous" class="nav-link" data-scroll-target="#model-2-binary-continuous-continuous"><span class="header-section-number">3</span> Model 2: Binary ~ continuous * continuous</a>
   <ul class="collapse">
-  <li><a href="#visualising-scalar-inferencing-centered-log-frequency-and-semantic-distance" id="toc-visualising-scalar-inferencing-centered-log-frequency-and-semantic-distance" class="nav-link" data-scroll-target="#visualising-scalar-inferencing-centered-log-frequency-and-semantic-distance">Visualising scalar inferencing, centered log frequency, and semantic distance</a></li>
-  <li><a href="#fitting-the-model-1" id="toc-fitting-the-model-1" class="nav-link" data-scroll-target="#fitting-the-model-1">Fitting the model</a></li>
-  <li><a href="#conditional-posterior-probability-distributions-1" id="toc-conditional-posterior-probability-distributions-1" class="nav-link" data-scroll-target="#conditional-posterior-probability-distributions-1">Conditional posterior probability distributions</a></li>
+  <li><a href="#visualising-scalar-inferencing-centered-log-frequency-and-semantic-distance" id="toc-visualising-scalar-inferencing-centered-log-frequency-and-semantic-distance" class="nav-link" data-scroll-target="#visualising-scalar-inferencing-centered-log-frequency-and-semantic-distance"><span class="header-section-number">3.1</span> Visualising scalar inferencing, centered log frequency, and semantic distance</a></li>
+  <li><a href="#fitting-the-model-1" id="toc-fitting-the-model-1" class="nav-link" data-scroll-target="#fitting-the-model-1"><span class="header-section-number">3.2</span> Fitting the model</a></li>
+  <li><a href="#conditional-posterior-probability-distributions-1" id="toc-conditional-posterior-probability-distributions-1" class="nav-link" data-scroll-target="#conditional-posterior-probability-distributions-1"><span class="header-section-number">3.3</span> Conditional posterior probability distributions</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">4</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -213,11 +188,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="cell" data-hash="tutorial-w09_cache/html/pkgs_8ff3620f6aae832b21d1638e23789c4b">
-
-</div>
 <p>This tutorial will give you some practice working with continuous predictors. You’ll begin by fitting a model with a binary outcome and one continuous predictor. Then you’ll fit a model with the same binary outcome, but now predicted by an interaction between two continuous predictors.</p>
-<div class="callout-tip callout callout-style-simple no-icon">
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -233,19 +205,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>In the <code>setup</code> chunk, include the line <code>knitr::opts_knit$set(root.dir = here::here())</code>.</p></li>
 <li><p>Also in the <code>setup</code> chunk, include code to attach the libraries we’ll use in this tutorial: <code>tidyverse</code>, <code>posterior</code>, <code>brms</code>, and <code>broom.mixed</code>.</p></li>
 </ol>
-<section id="scalar-inferences-and-scalar-diversity" class="level2">
-<h2 class="anchored" data-anchor-id="scalar-inferences-and-scalar-diversity">Scalar inferences and scalar diversity</h2>
+<section id="scalar-inferences-and-scalar-diversity" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="scalar-inferences-and-scalar-diversity"><span class="header-section-number">1</span> Scalar inferences and scalar diversity</h2>
 <p>The data we’ll be using comes from Experiment 2 in Pankratz, E., &amp; van Tiel, B. (2021). The role of relevance for scalar diversity: A usage-based approach. <em>Language and Cognition</em>, 13(4), 562–594. <a href="https://www.doi.org/10.1017/langcog.2021.13" class="uri">https://www.doi.org/10.1017/langcog.2021.13</a></p>
 <p>This study looks at when people make so-called <strong>scalar inferences</strong>. A scalar inference happens when you encounter a sentence like “Fatima ate some of the cookies”, and you infer that Fatima didn’t eat <em>all</em> of the cookies. In particular, this study looks at the phenomenon of <strong>scalar diversity</strong>: the observation that scalar inferences are made at different rates for different words. For example, for “The food was <em>cheap</em>” (where “cheap” is a weaker scalar word), people do often infer that the food wasn’t <em>free</em> (a stronger word on the same scale of price). But, for “The village was <em>pretty</em>”, people don’t often infer that the village wasn’t <em>beautiful</em>. In this tutorial, we’ll look at the influence of a couple different predictors on whether or not people make scalar inferences.</p>
-<section id="read-and-process-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="read-and-process-the-data">Read and process the data</h3>
+<section id="read-and-process-the-data" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="read-and-process-the-data"><span class="header-section-number">1.1</span> Read and process the data</h3>
 <p>You can get the data for this tutorial by right-clicking and downloading the following link: <a href="../data/si.csv">si.csv</a>.</p>
 <p>Use <code>read_csv()</code> to read in the CSV and assign it to a variable called <code>si</code> (for <strong>s</strong>calar <strong>i</strong>nference).</p>
 <div class="cell" data-hash="tutorial-w09_cache/html/read-si-ex_4607b76f4eef58b6f33a45f394232c2a">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>si <span class="ot">&lt;-</span> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-hash="tutorial-w09_cache/html/read-si_bdc6c156ba4f4fdc90e69e94559401a3">
-
 </div>
 <div class="cell" data-hash="tutorial-w09_cache/html/print-si_f0d13bec08099eee55231d8992d151b8">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>si</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -267,8 +236,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>The first model we’ll fit will only look at <code>SI</code> as a function of frequency. The second will add on an interaction between frequency and semantic distance.</p>
 <p>Before we leap into modelling, though, let’s look in more detail at our predictors <code>freq</code> and <code>semdist</code>. A little bit of pre-processing is needed here, and the next sections will walk you through it.</p>
-<section id="transforming-and-centering-freq" class="level4">
-<h4 class="anchored" data-anchor-id="transforming-and-centering-freq">Transforming and centering <code>freq</code></h4>
+<section id="transforming-and-centering-freq" class="level4" data-number="1.1.1">
+<h4 data-number="1.1.1" class="anchored" data-anchor-id="transforming-and-centering-freq"><span class="header-section-number">1.1.1</span> Transforming and centering <code>freq</code></h4>
 <p>Frequencies notoriously yield an extremely skewed distribution, so it’s common practice in corpus linguistics to log-transform them before including them in an analysis.</p>
 <p>Here’s how the frequencies look right out of the box:</p>
 <div class="cell" data-hash="tutorial-w09_cache/html/freq-skew-plot_eea8322f6df113febbaafc4938232e5a">
@@ -287,9 +256,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    ...</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="tutorial-w09_cache/html/logfreq_3383c692ff23100742b696ed4c95bb8d">
-
-</div>
 <p>The result should look like this:</p>
 <div class="cell" data-hash="tutorial-w09_cache/html/logfreq-plot_46e4081ac77b86f74c11ab86b49d000d">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>si <span class="sc">%&gt;%</span> </span>
@@ -301,12 +267,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>When we’re interpreting the model estimates below, we’ll be talking about the effect on scalar inferencing of <strong>one unit change on the log frequency scale.</strong> One unit change corresponds to moving from, e.g., 3 to 4 on this plot, or from 2 to 3.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Deepen your understanding: Unit changes and non-linear transformations
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -344,20 +310,17 @@ Deepen your understanding: Unit changes and non-linear transformations
 <p>(The <code>round()</code> function is included because, for technical computer reasons, the mean actually comes out as an <em>incredibly</em> small number near zero. But effectively it’s zero, and that’s good enough for us.)</p>
 <p><code>logfreq_c</code> is now ready to be used in our analyses. Next, you’ll take care of semantic distance on your own, and then we’ll move on to the modelling.</p>
 </section>
-<section id="centering-semdist" class="level4">
-<h4 class="anchored" data-anchor-id="centering-semdist">Centering <code>semdist</code></h4>
+<section id="centering-semdist" class="level4" data-number="1.1.2">
+<h4 data-number="1.1.2" class="anchored" data-anchor-id="centering-semdist"><span class="header-section-number">1.1.2</span> Centering <code>semdist</code></h4>
 <p>Use <code>mutate()</code> to create a new, centered variable based on <code>semdist</code> that is called <code>semdist_c</code>. Verify that the mean of <code>semdist_c</code> is 0, and display <code>semdist_c</code> using a density plot with a rug, as above.</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/semdist-c_763c9cb6a53bc79c433ff2e7d312903c">
-
-</div>
 </section>
 </section>
 </section>
-<section id="model-1-binary-continuous" class="level2">
-<h2 class="anchored" data-anchor-id="model-1-binary-continuous">Model 1: Binary ~ continuous</h2>
+<section id="model-1-binary-continuous" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="model-1-binary-continuous"><span class="header-section-number">2</span> Model 1: Binary ~ continuous</h2>
 <p>The first model we’ll fit in this tutorial will be predicting <code>SI</code> as a function of <code>logfreq_c</code>. Before fitting the model, let’s take a moment to plot the proportion of scalar inferences as a function of centered log frequency.</p>
-<section id="visualising-scalar-inferencing-and-centered-log-frequency" class="level3">
-<h3 class="anchored" data-anchor-id="visualising-scalar-inferencing-and-centered-log-frequency">Visualising scalar inferencing and centered log frequency</h3>
+<section id="visualising-scalar-inferencing-and-centered-log-frequency" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="visualising-scalar-inferencing-and-centered-log-frequency"><span class="header-section-number">2.1</span> Visualising scalar inferencing and centered log frequency</h3>
 <p>The variable <code>SI</code> is binary: 0 if a scalar inference was not made, 1 if it was. We like to visualise binary outcomes as proportions. And here’s a useful trick for figuring out proportions when we have a variable coded as 0s and 1s: <strong>we can use the <code>mean()</code> function to give us the proportion of 1s in that variable.</strong> (If you feel inspired, have a think about why this works. What is a proportion? What gets computed when finding a variable’s mean?)</p>
 <p>The following code will compute the proportion of scalar inferences for every <code>weak_adj</code>ective and add the result as a new column to <code>si</code>.</p>
 <div class="cell" data-hash="tutorial-w09_cache/html/propn-si_68a1c01d996fe5fee6fc1e658797b0d8">
@@ -367,12 +330,12 @@ Deepen your understanding: Unit changes and non-linear transformations
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">propn_si =</span> <span class="fu">mean</span>(SI)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Deepen your understanding: <code>group_by() %&gt;% summarise()</code> vs.&nbsp;<code>group_by() %&gt;% mutate</code>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -412,8 +375,8 @@ Deepen your understanding: <code>group_by() %&gt;% summarise()</code> vs.&nbsp;<
 <p>Based on this plot, it looks like we can expect a positive association between <code>logfreq_c</code> and <code>SI</code>: as frequency increases, so does scalar inferencing. Let’s see if this is borne out in the model.</p>
 <p>(Note that we only created <code>propn_si</code> for visualisation! We won’t use this variable in our modelling; instead, we’ll be using the 0/1-coded variable <code>SI</code>.)</p>
 </section>
-<section id="fitting-the-model" class="level3">
-<h3 class="anchored" data-anchor-id="fitting-the-model">Fitting the model</h3>
+<section id="fitting-the-model" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="fitting-the-model"><span class="header-section-number">2.2</span> Fitting the model</h3>
 <p>Here’s the mathematical specification of the model that we’ll fit:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -436,9 +399,6 @@ logit(p) &amp; = \beta_0 + (\beta_1 \cdot logfreq\_c) \\
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="tutorial-w09_cache/html/si-freq-bm_b7c95d731a90698777fe81636a02d018">
-
-</div>
 <p>Run the model and have a look at the summary.</p>
 <div class="cell" data-hash="tutorial-w09_cache/html/si-freq-bm-summ_6420819764f3d044fb8cf7be9236d71a">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(si_freq_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -460,8 +420,8 @@ and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
-<section id="interpreting-the-coefficients" class="level4">
-<h4 class="anchored" data-anchor-id="interpreting-the-coefficients">Interpreting the coefficients</h4>
+<section id="interpreting-the-coefficients" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="interpreting-the-coefficients"><span class="header-section-number">2.2.1</span> Interpreting the coefficients</h4>
 <p>Here’s how we can understand these coefficient estimates (recall that they are in log-odds space, because we are dealing with binary outcomes):</p>
 <ul>
 <li><code>Intercept</code>, <span class="math inline">\(\beta_0\)</span>: When centered log frequency is at its mean of zero, the mean log-odds of making a scalar inference are –0.73, and there is a 95% probability that the true value lies between –0.82 and –0.63 log-odds.</li>
@@ -472,8 +432,8 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>The next section will walk you through how this computation works with a continuous predictor.</p>
 </section>
 </section>
-<section id="conditional-posterior-probability-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="conditional-posterior-probability-distributions">Conditional posterior probability distributions</h3>
+<section id="conditional-posterior-probability-distributions" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="conditional-posterior-probability-distributions"><span class="header-section-number">2.3</span> Conditional posterior probability distributions</h3>
 <p>In previous weeks, to compute conditional posterior probability distributions for categorical predictors, we would set the predictors’ values equal to however their levels were coded (0 or 1), multiply this coding with the <span class="math inline">\(\beta\)</span>s and let the zeroes cancel some of the <span class="math inline">\(\beta\)</span>s out, and then add together the ones that remained.</p>
 <p>Back then, it was easy to know which values to set the predictors equal to: whatever coding was used for each level. But what do we do now that we have a continuous predictor that can, in principle, take on any value?</p>
 <p>Rather than looking at the full range of values that the predictor can take on, <strong>in practice we will still choose just a few values to set the predictor to.</strong> In fact, we actually can use 0s and 1s again, as long as we bear in mind their new interpretation: <strong>0 is the mean of <code>logfreq_c</code>, and 1 is one unit above its mean.</strong> Evaluating a centered predictor at 0 and 1 is fairly standard (though, as we saw in the lecture, –1, 0, and 1 is also an option, and there will be another “Deepen your understanding” box below that illustrates how to use –5, 0, and 5!).</p>
@@ -497,8 +457,8 @@ logfreq\_c = 1 :   &amp; &amp; \beta_0 &amp;+ (\beta_1 \cdot 1) &amp;&amp;= \bet
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">'0'</span><span class="sc">:</span><span class="st">'1'</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="st">'0'</span><span class="sc">:</span><span class="st">'1'</span>, <span class="at">names_to =</span> <span class="st">'logfreq_c'</span>, <span class="at">values_to =</span> <span class="st">'sampled_logodds'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="reporting-means-and-95-cris" class="level4">
-<h4 class="anchored" data-anchor-id="reporting-means-and-95-cris">Reporting means and 95% CrIs</h4>
+<section id="reporting-means-and-95-cris" class="level4" data-number="2.3.1">
+<h4 data-number="2.3.1" class="anchored" data-anchor-id="reporting-means-and-95-cris"><span class="header-section-number">2.3.1</span> Reporting means and 95% CrIs</h4>
 <p>You can find out the means and 95% CrIs of both of these conditional posterior probability distributions by running the following code, which may by now look familiar to you:</p>
 <div class="cell" data-hash="tutorial-w09_cache/html/si-freq-draws-summ_22aa7e6e4e59bc768ebde4890d1cba59">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>si_freq_draws_cond <span class="sc">%&gt;%</span> </span>
@@ -528,8 +488,8 @@ logfreq\_c = 1 :   &amp; &amp; \beta_0 &amp;+ (\beta_1 \cdot 1) &amp;&amp;= \bet
 </blockquote>
 <p>Since we’re only reporting two values of <code>logfreq_c</code> here, giving this report in writing is relatively straightforward. But once there are more predictors in play, it’ll become more convenient to report model estimates in a table and/or visually.</p>
 </section>
-<section id="visualising-the-full-conditional-posteriors" class="level4">
-<h4 class="anchored" data-anchor-id="visualising-the-full-conditional-posteriors">Visualising the full conditional posteriors</h4>
+<section id="visualising-the-full-conditional-posteriors" class="level4" data-number="2.3.2">
+<h4 data-number="2.3.2" class="anchored" data-anchor-id="visualising-the-full-conditional-posteriors"><span class="header-section-number">2.3.2</span> Visualising the full conditional posteriors</h4>
 <p>You have seen similar code in last week’s tutorial—make sure you understand how this plot is being created.</p>
 <div class="cell" data-hash="tutorial-w09_cache/html/si-freq-draws-dens_3d625820eceb7ac6f3ef5755038744cd">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>si_freq_draws_cond <span class="ot">&lt;-</span> si_freq_draws_cond <span class="sc">%&gt;%</span> </span>
@@ -553,11 +513,11 @@ logfreq\_c = 1 :   &amp; &amp; \beta_0 &amp;+ (\beta_1 \cdot 1) &amp;&amp;= \bet
 </section>
 </section>
 </section>
-<section id="model-2-binary-continuous-continuous" class="level2">
-<h2 class="anchored" data-anchor-id="model-2-binary-continuous-continuous">Model 2: Binary ~ continuous * continuous</h2>
+<section id="model-2-binary-continuous-continuous" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="model-2-binary-continuous-continuous"><span class="header-section-number">3</span> Model 2: Binary ~ continuous * continuous</h2>
 <p>We’ve seen how to fit a model with one continuous outcome. What about when we want to include another one in the mix, and the two continuous predictors interact?</p>
-<section id="visualising-scalar-inferencing-centered-log-frequency-and-semantic-distance" class="level3">
-<h3 class="anchored" data-anchor-id="visualising-scalar-inferencing-centered-log-frequency-and-semantic-distance">Visualising scalar inferencing, centered log frequency, and semantic distance</h3>
+<section id="visualising-scalar-inferencing-centered-log-frequency-and-semantic-distance" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="visualising-scalar-inferencing-centered-log-frequency-and-semantic-distance"><span class="header-section-number">3.1</span> Visualising scalar inferencing, centered log frequency, and semantic distance</h3>
 <p>The following plot shows the proportion of scalar inferences as a function of <code>logfreq_c</code> again, and the words are now coloured based on their centered semantic distance (i.e., the value in <code>semdist_c</code>).</p>
 <div class="cell" data-hash="tutorial-w09_cache/html/si-freq-semdist-scatter_3f5912b0de651b476e1b2fb2c76662c6">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>si <span class="sc">%&gt;%</span> </span>
@@ -575,8 +535,8 @@ logfreq\_c = 1 :   &amp; &amp; \beta_0 &amp;+ (\beta_1 \cdot 1) &amp;&amp;= \bet
 </div>
 <p>To see the interaction, the key observation here is that cyan words (low semantic distance) tend to be around the bottom of this plot, and their proportions of scalar inferences may increase more slowly than those of the red words (high semantic distance), which are around the top of the plot and seem to increase in scalar inferencing more rapidly. For continuous predictors, a difference of differences can be thought of as a <strong>difference of slopes.</strong> The red words (greater semantic distance) seem to have a larger positive slope than the cyan words (lower semantic distance), which may have a more gradual slope.</p>
 </section>
-<section id="fitting-the-model-1" class="level3">
-<h3 class="anchored" data-anchor-id="fitting-the-model-1">Fitting the model</h3>
+<section id="fitting-the-model-1" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="fitting-the-model-1"><span class="header-section-number">3.2</span> Fitting the model</h3>
 <p>Here’s the mathematical specification of the model we’ll fit:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -601,9 +561,6 @@ logit(p) &amp; = \beta_0 + (\beta_1 \cdot logfreq\_c) + (\beta_2 \cdot semdist\_
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="tutorial-w09_cache/html/si-freq-semdist-bm_10bb759fcd27421299058fc16fc3bf2c">
-
-</div>
 <p>Your model summary should look similar to this one.</p>
 <div class="cell" data-hash="tutorial-w09_cache/html/si-freq-semdist-summ_ccf8a419d304b18011a84addab54faac">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(si_freq_dist_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -627,8 +584,8 @@ and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
-<section id="interpreting-the-coefficients-1" class="level4">
-<h4 class="anchored" data-anchor-id="interpreting-the-coefficients-1">Interpreting the coefficients</h4>
+<section id="interpreting-the-coefficients-1" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="interpreting-the-coefficients-1"><span class="header-section-number">3.2.1</span> Interpreting the coefficients</h4>
 <ul>
 <li><code>Intercept</code>, <span class="math inline">\(\beta_0\)</span>: When <strong>both log frequency and semantic distance are at their means of zero</strong>, the mean log-odds of making a scalar inference is –0.70, and there is a 95% probability that the true value lies between –0.80 and –0.59 log-odds.</li>
 <li><code>logfreq_c</code>, <span class="math inline">\(\beta_1\)</span>: When <strong>semantic distance is at its mean of zero</strong>, for a <strong>unit change in log frequency</strong>, the change in the mean log-odds of making a scalar inference is 0.53 log-odds. There is a 95% probability that the true change lies between 0.42 and 0.63 log-odds.</li>
@@ -647,8 +604,8 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>Both of these interpretations are in line with the plot we created above.</p>
 </section>
 </section>
-<section id="conditional-posterior-probability-distributions-1" class="level3">
-<h3 class="anchored" data-anchor-id="conditional-posterior-probability-distributions-1">Conditional posterior probability distributions</h3>
+<section id="conditional-posterior-probability-distributions-1" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="conditional-posterior-probability-distributions-1"><span class="header-section-number">3.3</span> Conditional posterior probability distributions</h3>
 <p>Let’s polish off this section by getting the model’s posterior draws and using them to compute conditional posterior probability distributions for four combinations of values: when <code>logfreq_c</code> is equal to 0 and 1, crossed with <code>semdist_c</code> set equal to 0 and 1.</p>
 <p>Because these variables are both centered, 0 is the mean for both, and 1 corresponds in both cases to one unit above the mean.</p>
 <p><span class="math display">\[
@@ -677,8 +634,8 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="st">'0_0'</span><span class="sc">:</span><span class="st">'1_1'</span>, <span class="at">names_to =</span> <span class="st">'predvals'</span>, <span class="at">values_to =</span> <span class="st">'sampled_logodds'</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(predvals, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">'logfreq_c'</span>, <span class="st">'semdist_c'</span>), <span class="at">sep =</span> <span class="st">'_'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="reporting-means-and-95-cris-1" class="level4">
-<h4 class="anchored" data-anchor-id="reporting-means-and-95-cris-1">Reporting means and 95% CrIs</h4>
+<section id="reporting-means-and-95-cris-1" class="level4" data-number="3.3.1">
+<h4 data-number="3.3.1" class="anchored" data-anchor-id="reporting-means-and-95-cris-1"><span class="header-section-number">3.3.1</span> Reporting means and 95% CrIs</h4>
 <div class="cell" data-hash="tutorial-w09_cache/html/si-freq-dist-draws-summ_4eeb69606b8c0af001cb5defa007c0b6">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>si_freq_dist_draws_cond <span class="sc">%&gt;%</span> </span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(logfreq_c, semdist_c) <span class="sc">%&gt;%</span> </span>
@@ -707,8 +664,8 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 <p>At this point, there are enough rows in this table that reporting these means and 95% CrIs in prose might get a little unwieldy for you to write, not to mention difficult for the reader to follow. A better option might be to display the probability space estimates in a table, and/or as a density plot as usual.</p>
 </section>
-<section id="visualising-the-full-conditional-posteriors-1" class="level4">
-<h4 class="anchored" data-anchor-id="visualising-the-full-conditional-posteriors-1">Visualising the full conditional posteriors</h4>
+<section id="visualising-the-full-conditional-posteriors-1" class="level4" data-number="3.3.2">
+<h4 data-number="3.3.2" class="anchored" data-anchor-id="visualising-the-full-conditional-posteriors-1"><span class="header-section-number">3.3.2</span> Visualising the full conditional posteriors</h4>
 <div class="cell" data-hash="tutorial-w09_cache/html/si-freq-dist-draws-dens_e471fd11cbe8544dc689273b33a3582b">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>si_freq_dist_draws_cond <span class="ot">&lt;-</span> si_freq_dist_draws_cond <span class="sc">%&gt;%</span> </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
@@ -728,12 +685,12 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 <p>The interaction is quite small, so we don’t see a massive difference of differences here between <code>semdist_c = 0</code> and <code>semdist_c = 1</code>. If you want to learn how to incorporate other values of <code>semdist_c</code> beyond 0 and 1 that will illustrate the interaction more clearly, have a look at the box below. Otherwise, you’ve made it to the end—congratulations!</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Deepen your understanding: Using different values of <code>semdist_c</code>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -801,9 +758,9 @@ Deepen your understanding: Using different values of <code>semdist_c</code>
 </section>
 </section>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<div class="callout-note callout callout-style-simple no-icon">
+<section id="summary" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="summary"><span class="header-section-number">4</span> Summary</h2>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -861,9 +818,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -928,6 +899,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

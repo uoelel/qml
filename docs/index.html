@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -55,7 +55,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -74,25 +75,27 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">QML</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./content.html">
+    <a class="nav-link" href="./content.html" rel="" target="">
  <span class="menu-text">Course content</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html">
+    <a class="nav-link" href="./assessments.html" rel="" target="">
  <span class="menu-text">Assessment</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -102,14 +105,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#course-description" id="toc-course-description" class="nav-link active" data-scroll-target="#course-description">Course description</a></li>
-  <li><a href="#contacts" id="toc-contacts" class="nav-link" data-scroll-target="#contacts">Contacts</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -133,8 +129,16 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Welcome to the main site of the course <em>Quantitative Methods for Linguistics and English Language</em> (Semester 1).</p>
 <p>This website is your go-to place throughout the semester for any info related to the course.</p>
-<section id="course-description" class="level2">
-<h2 class="anchored" data-anchor-id="course-description">Course description</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Course description
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>This course is an introduction to <strong>quantitative data analysis</strong> (including data wrangling, visualisation and modelling) as commonly employed in linguistics, using the R software.</p>
 <p>We will cover the following <strong>topics</strong>:</p>
 <ul>
@@ -154,14 +158,63 @@ ul.task-list li input[type="checkbox"] {
 <li>Using Bayesian inference to answer research questions and avoid common interpretation pitfalls of frequentist techniques.</li>
 </ul>
 <p>Examples from different branches of linguistics will be used to provide you with hands-on experience in quantitative data analysis and Open Research practices.</p>
-</section>
-<section id="contacts" class="level2">
-<h2 class="anchored" data-anchor-id="contacts">Contacts</h2>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Course rationale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This course is designed to help you develop the necessary skills for conducting and interpreting analyses of data as commonly employed in linguistics.</p>
+<p>The content and objectives of the course are in response to recent advances in our understanding of the theory behind research methods.</p>
+<p>Recent meta-scientific research has identified three important aspects of research: the <strong>reproducibility, replicability and generalisability</strong>.</p>
+<ul>
+<li>A result is <strong>reproducible</strong> when the same analysis steps performed on the same dataset consistently produces the same answer.</li>
+<li>A result is <strong>replicable</strong> when the same analysis performed on different datasets produces qualitatively similar answers.</li>
+<li>A result is <strong>generalisable</strong> when a different analysis workflow performed on different data sets produces qualitatively similar answers.</li>
+</ul>
+<p>See <a href="https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html">Definitions</a> for a more detailed explanation.</p>
+<p>However, based on surveys from different disciplines, we are currently facing the <strong>three research crises</strong> (<em>reproducibility, replicability and generalisability crises</em>) by which most results are neither reproducible, nor replicable, nor generalisable (<a href="https://doi.org/10.1038/s41562-016-0021">Munafò et al.&nbsp;2017</a>, <a href="https://doi.org/10.1177/0956797611417632">Simmons et al.&nbsp;2011</a>, <a href="https://doi.org/10.1371/journal.pmed.0020124">Ioannidis 2005</a>, <a href="https://doi.org/10.1017/S0140525X20001685">Yarkoni 2022</a>).</p>
+<p>The <strong>Open Research</strong> movement (also known as Open Science or Open Scholarship, <a href="https://doi.org/10.1027/2151-2604/a000387">Crüwell et al.&nbsp;2019</a>) was developed with the aim of improving our understanding of these crises and with the objective of providing researchers with guidelines and tools to produce reproducible, replicable and generalisable research.</p>
+<p>The statistical philosophy adopted in the course is that of the <strong>New Statistics</strong> (<a href="https://doi.org/10.1177/0956797613504966">Cumming 2014</a>, <a href="https://doi.org/10.3758/s13423-016-1221-4">Kruschke and Liddell 2018</a>. The main goal of the New Statistics is to shift the attention from statistical significance to estimation with quantification of uncertainty.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ask for help
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If at any point during the course you don’t feel comfortable with any aspect of the course, you are unsure about anything that has been covered in class or in your own time, you are struggling to keep up with the course workload, you are experiencing mental of physical distress due to a pre-existing or new illness, medical condition or disability, or you find yourself unable to access basic needs like food or housing, <strong>please do get in touch with me and/or the PPLS support</strong> (<em>go to the PPLS UG or MSc Hub on SharePoint &gt; Support for students &gt; Health &amp; Wellbeing</em>).</p>
+<p>We are humans first and the rapidly-changing new world we are living in now can put us under pressure. What is most important to me is that you are first and foremost healthy and able to participate to the course, and that you succeed and get the most out of the course.</p>
+<p><strong>It is OK not to be OK, and remember that you are not alone.</strong> Other people, teachers and students, might be struggling right now or have struggled before and might have gone through what you are going through now. Remember that support exists for you, so please do reach out. If you see somebody close to you struggling, please let them know about the available support network and encourage them to reach out.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Contacts
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>You can reach me (Stefano) at <a href="mailto:s.coretta@ed.ac.uk" class="email">s.coretta@ed.ac.uk</a> or on Teams.</p>
 <p>If you want to book <strong>office hours</strong> with me (in person or online), you can do so here: <a href="https://bit.ly/33BH84L" class="uri">https://bit.ly/33BH84L</a>. My office is DSB 1.03 but I hold office hours in DSB 3.01.</p>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -191,9 +244,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -258,6 +325,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

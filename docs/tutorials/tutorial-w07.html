@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -118,13 +89,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
 <link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
@@ -141,25 +114,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">QML</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../content.html">
+    <a class="nav-link" href="../content.html" rel="" target="">
  <span class="menu-text">Course content</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assessments.html">
+    <a class="nav-link" href="../assessments.html" rel="" target="">
  <span class="menu-text">Assessment</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -173,24 +148,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#takete-and-maluma" id="toc-takete-and-maluma" class="nav-link active" data-scroll-target="#takete-and-maluma"><em>Takete</em> and <em>maluma</em></a></li>
-  <li><a href="#read-and-process-the-data" id="toc-read-and-process-the-data" class="nav-link" data-scroll-target="#read-and-process-the-data">Read and process the data</a></li>
-  <li><a href="#model-response" id="toc-model-response" class="nav-link" data-scroll-target="#model-response">Model <code>Response</code></a>
+  <li><a href="#takete-and-maluma" id="toc-takete-and-maluma" class="nav-link active" data-scroll-target="#takete-and-maluma"><span class="header-section-number">1</span> <em>Takete</em> and <em>maluma</em></a></li>
+  <li><a href="#read-and-process-the-data" id="toc-read-and-process-the-data" class="nav-link" data-scroll-target="#read-and-process-the-data"><span class="header-section-number">2</span> Read and process the data</a></li>
+  <li><a href="#model-response" id="toc-model-response" class="nav-link" data-scroll-target="#model-response"><span class="header-section-number">3</span> Model <code>Response</code></a>
   <ul class="collapse">
-  <li><a href="#random-mcmc" id="toc-random-mcmc" class="nav-link" data-scroll-target="#random-mcmc">Random MCMC</a></li>
+  <li><a href="#random-mcmc" id="toc-random-mcmc" class="nav-link" data-scroll-target="#random-mcmc"><span class="header-section-number">3.1</span> Random MCMC</a></li>
   </ul></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4</span> Results</a>
   <ul class="collapse">
-  <li><a href="#intercept" id="toc-intercept" class="nav-link" data-scroll-target="#intercept"><code>Intercept</code></a></li>
-  <li><a href="#stimulustakete" id="toc-stimulustakete" class="nav-link" data-scroll-target="#stimulustakete"><code>StimulusTakete</code></a></li>
+  <li><a href="#intercept" id="toc-intercept" class="nav-link" data-scroll-target="#intercept"><span class="header-section-number">4.1</span> <code>Intercept</code></a></li>
+  <li><a href="#stimulustakete" id="toc-stimulustakete" class="nav-link" data-scroll-target="#stimulustakete"><span class="header-section-number">4.2</span> <code>StimulusTakete</code></a></li>
   </ul></li>
-  <li><a href="#plotting" id="toc-plotting" class="nav-link" data-scroll-target="#plotting">Plotting</a>
+  <li><a href="#plotting" id="toc-plotting" class="nav-link" data-scroll-target="#plotting"><span class="header-section-number">5</span> Plotting</a>
   <ul class="collapse">
-  <li><a href="#posterior-probability-distributions" id="toc-posterior-probability-distributions" class="nav-link" data-scroll-target="#posterior-probability-distributions">Posterior probability distributions</a></li>
-  <li><a href="#conditional-posterior-probability-distributions" id="toc-conditional-posterior-probability-distributions" class="nav-link" data-scroll-target="#conditional-posterior-probability-distributions">Conditional posterior probability distributions</a></li>
+  <li><a href="#posterior-probability-distributions" id="toc-posterior-probability-distributions" class="nav-link" data-scroll-target="#posterior-probability-distributions"><span class="header-section-number">5.1</span> Posterior probability distributions</a></li>
+  <li><a href="#conditional-posterior-probability-distributions" id="toc-conditional-posterior-probability-distributions" class="nav-link" data-scroll-target="#conditional-posterior-probability-distributions"><span class="header-section-number">5.2</span> Conditional posterior probability distributions</a></li>
   </ul></li>
-  <li><a href="#credible-intervals" id="toc-credible-intervals" class="nav-link" data-scroll-target="#credible-intervals">Credible intervals</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#credible-intervals" id="toc-credible-intervals" class="nav-link" data-scroll-target="#credible-intervals"><span class="header-section-number">6</span> Credible intervals</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">7</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -214,24 +189,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="cell" data-hash="tutorial-w07_cache/html/pkgs_ec92503ea48541d0089d69e2ae0b66a9">
-
-</div>
-<section id="takete-and-maluma" class="level2">
-<h2 class="anchored" data-anchor-id="takete-and-maluma"><em>Takete</em> and <em>maluma</em></h2>
+<section id="takete-and-maluma" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="takete-and-maluma"><span class="header-section-number">1</span> <em>Takete</em> and <em>maluma</em></h2>
 <p>We will model data from Koppensteiner et al, 2016. <em>Shaking Takete and Flowing Maluma. Non-Sense Words Are Associated with Motion Patterns</em>. DOI: <a href="https://doi.org/10.1371/journal.pone.0150610">10.1371/journal.pone.0150610</a>. The study looked at the relationship between sound iconicity and body motion. Read the paper abstract for an overview.</p>
 <p>To download the file with the data right-click on the following link and download the file: <a href="../data/takete_maluma.txt">takete_maluma.txt</a>. (Note that tutorial files are also linked in the <a href="../content.html">Syllabus</a>). Remember to save the file in <code>data/</code> in the course project folder.</p>
 </section>
-<section id="read-and-process-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="read-and-process-the-data">Read and process the data</h2>
+<section id="read-and-process-the-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="read-and-process-the-data"><span class="header-section-number">2</span> Read and process the data</h2>
 <p>Create a new <code>.Rmd</code> file first, save it in <code>code/</code> and name it <code>tutorial-w07</code> (the extension <code>.Rmd</code> is added automatically!).</p>
 <p>I leave to you creating title headings in your file as you please. Remember to to add <code>knitr::opts_knit$set(root.dir = here::here())</code> in the <code>setup</code> chunk and to attach the tidyverse.</p>
 <p>Go ahead and read the data. Since this file is a <code>.txt</code> file, you will have to use the <code>read_tsv()</code> function, rather than the <code>read_csv()</code> function. (<code>read_tsv()</code> is in the package readr, which comes with the tidyverse, so you don’t need to attach any extra packages for this.) Assign the data table to a variable called <code>motion</code>.</p>
 <div class="cell" data-hash="tutorial-w07_cache/html/read-data-ex_502737be94d6cfb7cf9e18c14ebec2dc">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>motion <span class="ot">&lt;-</span> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-hash="tutorial-w07_cache/html/read-data_df1a7cfaf88296a4367f6abc7bc569a5">
-
 </div>
 <p>The data has the following columns:</p>
 <ul>
@@ -258,9 +227,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    ...</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="tutorial-w07_cache/html/resp_6e29b507835a8f483b4b2484fcdcaebf">
-
-</div>
 <p>The column <code>Tak_Mal_Stim</code> has quite a long and redundant name. Let’s change it to something shorter: <code>Stimulus</code>.</p>
 <p>You can do so with the <code>rename()</code> function from dplyr. The new name goes on the left of the equals sign <code>=</code>, and the current name goes on the right.</p>
 <div class="cell" data-hash="tutorial-w07_cache/html/rename_d7bf618d1e78f3fb0bb1860c95d66e31">
@@ -284,8 +250,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Before moving on, here’s another challenge: Plot the response by stimulus to get a descriptive picture of what the data looks like. In other words, make a plot that tells us something about the responses given for each kind of stimulus. (To help you along, identify what kind of data this is, and think about what kind of visualisation is appropriate for this data type.)</p>
 <p>Now we can use <code>Response</code> as our outcome variable!</p>
 </section>
-<section id="model-response" class="level2">
-<h2 class="anchored" data-anchor-id="model-response">Model <code>Response</code></h2>
+<section id="model-response" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="model-response"><span class="header-section-number">3</span> Model <code>Response</code></h2>
 <p>We want to model <code>Response</code> as a function of <code>Stimulus</code>. Since <code>Response</code> is binary, we have:</p>
 <p><span class="math display">\[
 \begin{align}
@@ -308,9 +274,6 @@ logit(p) &amp; = \beta_0 + \beta_1 \cdot \text{Stim} \\
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="tutorial-w07_cache/html/resp-bm_6083419ab616c082b6863814176186fb">
-
-</div>
 <p>Run the model and then check the summary:</p>
 <div class="cell" data-hash="tutorial-w07_cache/html/resp-bm-summ_af9a86727a567349bf260bcb988e1463">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(resp_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -332,8 +295,8 @@ and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
-<section id="random-mcmc" class="level3">
-<h3 class="anchored" data-anchor-id="random-mcmc">Random MCMC</h3>
+<section id="random-mcmc" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="random-mcmc"><span class="header-section-number">3.1</span> Random MCMC</h3>
 <p>If you compare the output of your model and the output shown here, you might notice that the values for the estimates and error are different.</p>
 <p>This is because of the random component of the MCMC algorithm: every time you re-run a Bayesian model, the results will be slightly different.</p>
 <p>One way to make your results <strong>reproducible</strong> (i.e.&nbsp;they return exactly the same values every time), is to set a <strong>seed</strong>, i.e.&nbsp;a number that is used for (pseudo-)random generation of numbers (which is used in the MCMC algorithm).</p>
@@ -341,12 +304,12 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>The best (and safest) practice is to both set a seed and save the output to file.</p>
 </section>
 </section>
-<section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">Results</h2>
+<section id="results" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="results"><span class="header-section-number">4</span> Results</h2>
 <p>Now, look at the population-level effects.</p>
 <p>Which coefficients from the formulae above do <code>Intercept</code> and <code>StimulusTakete</code> correspond to?</p>
-<section id="intercept" class="level3">
-<h3 class="anchored" data-anchor-id="intercept"><code>Intercept</code></h3>
+<section id="intercept" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="intercept"><span class="header-section-number">4.1</span> <code>Intercept</code></h3>
 <p>Let’s go through the <code>Intercept</code> together. I will leave working out the interpretation of <code>StimulusTakete</code> to you.</p>
 <p>Barring small differences in the results due to the random component of the MCMC, the estimate and error for the <code>Intercept</code> are –0.81 and 0.15. Before moving on, test your recall: Do you remember from the lecture which unit are these estimates in?</p>
 <p>They are in <strong>log-odds</strong>. This is because of the <span class="math inline">\(logit(p)\)</span> part in the formula above: to model <span class="math inline">\(p\)</span> we had to use the <strong>logit</strong> (mathematical) function, which outputs log-odds.</p>
@@ -356,20 +319,20 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p><span class="math inline">\(\beta_0\)</span> is the probability of choosing “takete” when the stimulus is “maluma”. (Why? To understand this, think about the order of the levels in <code>Response</code> and <code>Stimulus</code>, and what that means for how they are coded.)</p>
 <p>Based on the model and data, there is 30% probability of choosing the response “takete” when the stimulus is “maluma”, at 95% confidence.</p>
 </section>
-<section id="stimulustakete" class="level3">
-<h3 class="anchored" data-anchor-id="stimulustakete"><code>StimulusTakete</code></h3>
+<section id="stimulustakete" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="stimulustakete"><span class="header-section-number">4.2</span> <code>StimulusTakete</code></h3>
 <p>Now, what about <code>StimulusTakete</code>? Work through this for yourself, using what you’ve learned so far.</p>
 <p>Which coefficient in the formula above does it correspond to? How do we interpret the posterior probability of this coefficient?</p>
 <p>How does this coefficient relate to the intercept, i.e., the log-odds of choosing “takete” when the stimulus is “maluma”?</p>
 <p>If you’re feeling particularly adventurous, before you move on to the next section, compute the probability of choosing the response “takete” when the stimulus is “takete”.</p>
 </section>
 </section>
-<section id="plotting" class="level2">
-<h2 class="anchored" data-anchor-id="plotting">Plotting</h2>
+<section id="plotting" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="plotting"><span class="header-section-number">5</span> Plotting</h2>
 <p>Let’s plot the results.</p>
 <p>First, let’s plot the posterior probabilities of the <code>Intercept</code> and <code>StimulusTakete</code>.</p>
-<section id="posterior-probability-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="posterior-probability-distributions">Posterior probability distributions</h3>
+<section id="posterior-probability-distributions" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="posterior-probability-distributions"><span class="header-section-number">5.1</span> Posterior probability distributions</h3>
 <p>The first step is to obtain the draws with <code>as_draws_df()</code>.</p>
 <div class="cell" data-hash="tutorial-w07_cache/html/resp-bm-draws_a03f0f8f2518ad73d697de7eb07bc388">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>resp_bm_draws <span class="ot">&lt;-</span> <span class="fu">as_draws_df</span>(resp_bm)</span>
@@ -392,8 +355,8 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 <p>And separately, plot the density of <code>b_StimulusTakete</code>.</p>
 </section>
-<section id="conditional-posterior-probability-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="conditional-posterior-probability-distributions">Conditional posterior probability distributions</h3>
+<section id="conditional-posterior-probability-distributions" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="conditional-posterior-probability-distributions"><span class="header-section-number">5.2</span> Conditional posterior probability distributions</h3>
 <p>Now, let’s plot the conditional (posterior) probability distributions of the log-odds when the stimulus is “maluma” and when it is “takete”.</p>
 <p>There are a few data-manipulation steps involved before we can get our data into a format that ggplot can handle. First up, we’ll use our draws to compute the conditional posterior probability distributions for each level of <code>Stimulus</code>.</p>
 <p>Do you remember how to do this? Here’s a hint:</p>
@@ -409,9 +372,6 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Maluma =</span> ...,</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Takete =</span> ...</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-hash="tutorial-w07_cache/html/cond_6a38aea44f344b1ebdaacc7740bea8bc">
-
 </div>
 <p>Now we’ve got the data we need for plotting the conditional posterior distributions, but it’s not quite in the right format yet. So let’s reformat the data so that it’s easier to plot!</p>
 <p>At this point, you should have two columns, <code>Maluma</code> and <code>Takete</code>, each containing log-odds values. Something like this (not necessarily containing these values exactly):</p>
@@ -486,8 +446,8 @@ Takete       0.93
 <p>The take-away message from this plot: We can be quite confident that different stimuli result in different probabilities of choosing “takete”, and that it is very much more probable that participants choose “takete” when the stimulus is in fact of the “takete” type!</p>
 </section>
 </section>
-<section id="credible-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="credible-intervals">Credible intervals</h2>
+<section id="credible-intervals" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="credible-intervals"><span class="header-section-number">6</span> Credible intervals</h2>
 <p>In the lecture, we learnt about the empirical rule, quantiles and credible intervals.</p>
 <p>Now let’s look in more detail at how to obtain credible intervals (CrIs) for any probability distribution.</p>
 <p>For sake of illustration, let’s calculate CrIs of different levels (60%, 80%, 90%) for the conditional (posterior) probabilities of the model above. (Note that you can calculate CrIs also for the (non-conditional) posterior probability distributions).</p>
@@ -533,9 +493,9 @@ Takete       0.93
 <p>Nice!</p>
 <p>Now I leave to you calculating the 80% and 90% CrIs. Can you tell which values to use with the <code>probs</code> argument for an 80% and 90% interval?</p>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<div class="callout-note callout callout-style-simple no-icon">
+<section id="summary" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="summary"><span class="header-section-number">7</span> Summary</h2>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -592,9 +552,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -659,6 +633,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

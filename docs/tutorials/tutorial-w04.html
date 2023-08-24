@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -118,13 +89,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
 <link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
@@ -141,25 +114,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">QML</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../content.html">
+    <a class="nav-link" href="../content.html" rel="" target="">
  <span class="menu-text">Course content</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assessments.html">
+    <a class="nav-link" href="../assessments.html" rel="" target="">
  <span class="menu-text">Assessment</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -173,43 +148,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mutating-data" id="toc-mutating-data" class="nav-link active" data-scroll-target="#mutating-data">Mutating data</a>
+  <li><a href="#mutating-data" id="toc-mutating-data" class="nav-link active" data-scroll-target="#mutating-data"><span class="header-section-number">1</span> Mutating data</a>
   <ul class="collapse">
-  <li><a href="#the-alb_vot-data" id="toc-the-alb_vot-data" class="nav-link" data-scroll-target="#the-alb_vot-data">The <code>alb_vot</code> data</a></li>
-  <li><a href="#create-a-new-column" id="toc-create-a-new-column" class="nav-link" data-scroll-target="#create-a-new-column">Create a new column</a></li>
+  <li><a href="#the-alb_vot-data" id="toc-the-alb_vot-data" class="nav-link" data-scroll-target="#the-alb_vot-data"><span class="header-section-number">1.1</span> The <code>alb_vot</code> data</a></li>
+  <li><a href="#create-a-new-column" id="toc-create-a-new-column" class="nav-link" data-scroll-target="#create-a-new-column"><span class="header-section-number">1.2</span> Create a new column</a></li>
   </ul></li>
-  <li><a href="#density-plots" id="toc-density-plots" class="nav-link" data-scroll-target="#density-plots">Density plots</a>
+  <li><a href="#density-plots" id="toc-density-plots" class="nav-link" data-scroll-target="#density-plots"><span class="header-section-number">2</span> Density plots</a>
   <ul class="collapse">
-  <li><a href="#make-things-cozy-with-a-rug" id="toc-make-things-cozy-with-a-rug" class="nav-link" data-scroll-target="#make-things-cozy-with-a-rug">Make things cozy with a rug</a></li>
+  <li><a href="#make-things-cozy-with-a-rug" id="toc-make-things-cozy-with-a-rug" class="nav-link" data-scroll-target="#make-things-cozy-with-a-rug"><span class="header-section-number">2.1</span> Make things cozy with a rug</a></li>
   </ul></li>
-  <li><a href="#if-else" id="toc-if-else" class="nav-link" data-scroll-target="#if-else">If-else</a>
+  <li><a href="#if-else" id="toc-if-else" class="nav-link" data-scroll-target="#if-else"><span class="header-section-number">3</span> If-else</a>
   <ul class="collapse">
-  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators">Logical operators</a></li>
-  <li><a href="#finding-unique-values" id="toc-finding-unique-values" class="nav-link" data-scroll-target="#finding-unique-values">Finding unique values</a></li>
-  <li><a href="#the-in-operator" id="toc-the-in-operator" class="nav-link" data-scroll-target="#the-in-operator">The <code>%in%</code> operator</a></li>
-  <li><a href="#voiceless-or-voiced" id="toc-voiceless-or-voiced" class="nav-link" data-scroll-target="#voiceless-or-voiced">Voiceless or voiced?</a></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"><span class="header-section-number">3.1</span> Logical operators</a></li>
+  <li><a href="#finding-unique-values" id="toc-finding-unique-values" class="nav-link" data-scroll-target="#finding-unique-values"><span class="header-section-number">3.2</span> Finding unique values</a></li>
+  <li><a href="#the-in-operator" id="toc-the-in-operator" class="nav-link" data-scroll-target="#the-in-operator"><span class="header-section-number">3.3</span> The <code>%in%</code> operator</a></li>
+  <li><a href="#voiceless-or-voiced" id="toc-voiceless-or-voiced" class="nav-link" data-scroll-target="#voiceless-or-voiced"><span class="header-section-number">3.4</span> Voiceless or voiced?</a></li>
   </ul></li>
-  <li><a href="#violin-plots" id="toc-violin-plots" class="nav-link" data-scroll-target="#violin-plots">Violin plots</a>
+  <li><a href="#violin-plots" id="toc-violin-plots" class="nav-link" data-scroll-target="#violin-plots"><span class="header-section-number">4</span> Violin plots</a>
   <ul class="collapse">
-  <li><a href="#lay-over-the-raw-data" id="toc-lay-over-the-raw-data" class="nav-link" data-scroll-target="#lay-over-the-raw-data">Lay over the raw data</a></li>
-  <li><a href="#lets-add-some-colour" id="toc-lets-add-some-colour" class="nav-link" data-scroll-target="#lets-add-some-colour">Let’s add some colour</a></li>
+  <li><a href="#lay-over-the-raw-data" id="toc-lay-over-the-raw-data" class="nav-link" data-scroll-target="#lay-over-the-raw-data"><span class="header-section-number">4.1</span> Lay over the raw data</a></li>
+  <li><a href="#lets-add-some-colour" id="toc-lets-add-some-colour" class="nav-link" data-scroll-target="#lets-add-some-colour"><span class="header-section-number">4.2</span> Let’s add some colour</a></li>
   </ul></li>
-  <li><a href="#filtering-data" id="toc-filtering-data" class="nav-link" data-scroll-target="#filtering-data">Filtering data</a>
+  <li><a href="#filtering-data" id="toc-filtering-data" class="nav-link" data-scroll-target="#filtering-data"><span class="header-section-number">5</span> Filtering data</a>
   <ul class="collapse">
-  <li><a href="#the-filter-function" id="toc-the-filter-function" class="nav-link" data-scroll-target="#the-filter-function">The <code>filter()</code> function</a></li>
+  <li><a href="#the-filter-function" id="toc-the-filter-function" class="nav-link" data-scroll-target="#the-filter-function"><span class="header-section-number">5.1</span> The <code>filter()</code> function</a></li>
   </ul></li>
-  <li><a href="#modelling-with-brm" id="toc-modelling-with-brm" class="nav-link" data-scroll-target="#modelling-with-brm">Modelling with <code>brm()</code></a>
+  <li><a href="#modelling-with-brm" id="toc-modelling-with-brm" class="nav-link" data-scroll-target="#modelling-with-brm"><span class="header-section-number">6</span> Modelling with <code>brm()</code></a>
   <ul class="collapse">
-  <li><a href="#markov-chain-monte-carlo-mcmc" id="toc-markov-chain-monte-carlo-mcmc" class="nav-link" data-scroll-target="#markov-chain-monte-carlo-mcmc">Markov-Chain Monte Carlo (MCMC)</a></li>
-  <li><a href="#model-summary" id="toc-model-summary" class="nav-link" data-scroll-target="#model-summary">Model summary</a></li>
+  <li><a href="#markov-chain-monte-carlo-mcmc" id="toc-markov-chain-monte-carlo-mcmc" class="nav-link" data-scroll-target="#markov-chain-monte-carlo-mcmc"><span class="header-section-number">6.1</span> Markov-Chain Monte Carlo (MCMC)</a></li>
+  <li><a href="#model-summary" id="toc-model-summary" class="nav-link" data-scroll-target="#model-summary"><span class="header-section-number">6.2</span> Model summary</a></li>
   </ul></li>
-  <li><a href="#legends-and-labels-in-plots" id="toc-legends-and-labels-in-plots" class="nav-link" data-scroll-target="#legends-and-labels-in-plots">Legends and labels in plots</a>
+  <li><a href="#legends-and-labels-in-plots" id="toc-legends-and-labels-in-plots" class="nav-link" data-scroll-target="#legends-and-labels-in-plots"><span class="header-section-number">7</span> Legends and labels in plots</a>
   <ul class="collapse">
-  <li><a href="#plot-titles-and-labels" id="toc-plot-titles-and-labels" class="nav-link" data-scroll-target="#plot-titles-and-labels">Plot titles and labels</a></li>
-  <li><a href="#axis-labels" id="toc-axis-labels" class="nav-link" data-scroll-target="#axis-labels">Axis labels</a></li>
-  <li><a href="#positioning-the-legend" id="toc-positioning-the-legend" class="nav-link" data-scroll-target="#positioning-the-legend">Positioning the legend</a></li>
+  <li><a href="#plot-titles-and-labels" id="toc-plot-titles-and-labels" class="nav-link" data-scroll-target="#plot-titles-and-labels"><span class="header-section-number">7.1</span> Plot titles and labels</a></li>
+  <li><a href="#axis-labels" id="toc-axis-labels" class="nav-link" data-scroll-target="#axis-labels"><span class="header-section-number">7.2</span> Axis labels</a></li>
+  <li><a href="#positioning-the-legend" id="toc-positioning-the-legend" class="nav-link" data-scroll-target="#positioning-the-legend"><span class="header-section-number">7.3</span> Positioning the legend</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">8</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -233,18 +208,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="cell" data-hash="tutorial-w04_cache/html/pkgs_e30a8418cbf1d1de84f0e06d1b3592ed">
-
-</div>
 <p>Let’s pick up from where we left off last week.</p>
 <p>In week 3, you learnt how to use ggplot2 to create bar charts and how to create different panels. Bar charts are great for categorical data.</p>
 <p>This week you will learn how to make density and violin plots, which work very well with numeric data in combination of categorical data (for example, when you want to show values of a numeric variable across different groups).</p>
 <p>Then, you will use the <code>brm()</code> function from the <a href="https://paul-buerkner.github.io/brms/">brms</a> package to model continuous variables.</p>
 <p>But first, let’s read some data and transform it so that we can use it in the tutorial.</p>
-<section id="mutating-data" class="level2">
-<h2 class="anchored" data-anchor-id="mutating-data">Mutating data</h2>
-<section id="the-alb_vot-data" class="level3">
-<h3 class="anchored" data-anchor-id="the-alb_vot-data">The <code>alb_vot</code> data</h3>
+<section id="mutating-data" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="mutating-data"><span class="header-section-number">1</span> Mutating data</h2>
+<section id="the-alb_vot-data" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="the-alb_vot-data"><span class="header-section-number">1.1</span> The <code>alb_vot</code> data</h3>
 <p>Let’s play around with the Albanian VOT data we used in class.</p>
 <p>The data comes from the paper by Coretta and colleagues, 2022. <em>Northern Tosk Albanian</em>. DOI: <a href="https://doi.org/10.1017/S0025100322000044">10.1017/S0025100322000044</a>. This is an IPA Illustration of Northern Tosk Albanian. It contains data from voiceless and voiced consonants of Nothern Tosk Albanian, as uttered in a set of words by 5 speakers.</p>
 <p>To download the file with the data right-click on the following link and download the file: <a href="../data/alb_vot.csv">alb_vot.csv</a>. (Note that tutorial files are also linked in the <a href="../content.html">Syllabus</a>). Remember to save the file in <code>data/</code> in the course project folder.</p>
@@ -253,9 +225,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now you can create a new code chunk and read the <code>alb_vot.csv</code> file in R. Remember how to do this?</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/alb-vot-ex_b1323a114b3ec154e18ce26a1041be20">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="ot">&lt;-</span> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-hash="tutorial-w04_cache/html/alb-vot_92f85dca23e7cb6fd6513392de33d64f">
-
 </div>
 <p>Great!</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/alb-vot-view_c79c96a60e3555b2093670a4b1116e0c">
@@ -280,8 +249,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Now we need to create a new column with the Voice Onset Time (<code>vot</code>) values. Note that VOT is simply the difference between the onset of voicing (<code>voi_onset</code>) and the time of release (<code>release</code>).</p>
 </section>
-<section id="create-a-new-column" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-new-column">Create a new column</h3>
+<section id="create-a-new-column" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="create-a-new-column"><span class="header-section-number">1.2</span> Create a new column</h3>
 <p>To change or create columns, we can use the <code>mutate()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> package. This is another tidyverse package, and it’s attached when you attach the tidyverse. The <code>summarise()</code> and <code>count()</code> functions you used in Week 2 are from this same package.</p>
 <p>Let’s calculate VOT now.</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot_50c304086655f717c47a6c9a98cff16c">
@@ -304,8 +273,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Check <code>alb_vot</code> now to see that it worked.</p>
 </section>
 </section>
-<section id="density-plots" class="level2">
-<h2 class="anchored" data-anchor-id="density-plots">Density plots</h2>
+<section id="density-plots" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="density-plots"><span class="header-section-number">2</span> Density plots</h2>
 <p><strong>Density plots show the distribution (i.e.&nbsp;the probability density) of the values of a continuous variable.</strong></p>
 <p>VOT is a numeric continuous variable so density plots are appropriate.</p>
 <p>To plot the probability density of a continuous variable, you can use the <code>density</code> geometry. Remember, all geometry functions start with <code>geom_</code>.</p>
@@ -317,8 +286,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Note that to create a density plot, you only need to specify the <code>x</code>-axis. The <code>y</code>-axis is the probability density, which is automatically calculated.</p>
 <p>What can you notice about the distribution of VOT values?</p>
-<section id="make-things-cozy-with-a-rug" class="level3">
-<h3 class="anchored" data-anchor-id="make-things-cozy-with-a-rug">Make things cozy with a rug</h3>
+<section id="make-things-cozy-with-a-rug" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="make-things-cozy-with-a-rug"><span class="header-section-number">2.1</span> Make things cozy with a rug</h3>
 <p>The density line shows you a smoothed representation of the data distribution over the VOT values, but you might also want to see the raw data.</p>
 <p>You can do so by adding the <code>rug</code> geometry.</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-dens-rug-ex_258d188cbe2a5ac99f80ad372b1bc02c">
@@ -330,16 +299,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Nice huh?</p>
 </section>
 </section>
-<section id="if-else" class="level2">
-<h2 class="anchored" data-anchor-id="if-else">If-else</h2>
+<section id="if-else" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="if-else"><span class="header-section-number">3</span> If-else</h2>
 <p>What if we want to plot the density of voiceless and voiced consonants separately?</p>
 <p>We could use faceting, as you learnt in Week 3, or we can use the aesthetics <code>fill</code> and/or <code>colour</code>.</p>
 <p>However, first we need to create a new column that indicated if a consonant is voiceless or voiced!</p>
 <p>We will use the <code>mutate()</code> function again to create a new <code>voicing</code> column. But how do we get the values for this new column (without having to manually code each consonant as voiceless or voiced)?</p>
 <p>We can use the <code>ifelse()</code> function!</p>
 <p>The <code>ifelse()</code> function works a bit like the English sentence “If X is true, do Y, otherwise do Z”. The “X” has to be a “logical statement”, i.e.&nbsp;an expression using <strong>logical operators</strong>. So let’s talk about logical operators (we will get back to them below, when we will filter the VOT data).</p>
-<section id="logical-operators" class="level3">
-<h3 class="anchored" data-anchor-id="logical-operators">Logical operators</h3>
+<section id="logical-operators" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="logical-operators"><span class="header-section-number">3.1</span> Logical operators</h3>
 <p>There are four main logical operators:</p>
 <ul>
 <li><p><code>x == y</code>: <code>x</code> equals <code>y</code>.</p></li>
@@ -377,8 +346,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="finding-unique-values" class="level3">
-<h3 class="anchored" data-anchor-id="finding-unique-values">Finding unique values</h3>
+<section id="finding-unique-values" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="finding-unique-values"><span class="header-section-number">3.2</span> Finding unique values</h3>
 <p>Let’s create a new column that states whether a consonant is voiced or voiceless. Because we’re modifying the data frame, let’s move back into the editor so that all of our manipulations are recorded.</p>
 <p>So, the data contains the following consonants:</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/cons_31662f193fb51e5de11ea9de4b3e62e6">
@@ -408,8 +377,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Don’t worry about assigning these vectors to variables right now.</p>
 </section>
-<section id="the-in-operator" class="level3">
-<h3 class="anchored" data-anchor-id="the-in-operator">The <code>%in%</code> operator</h3>
+<section id="the-in-operator" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="the-in-operator"><span class="header-section-number">3.3</span> The <code>%in%</code> operator</h3>
 <p>Now with this knowledge we can create a new column with <code>voiceless</code> and <code>voiced</code> values for each row in the data frame. Like so:</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/voi_8c1a7fb5ab54f1bda7ff2ef266e1ce4e">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="ot">&lt;-</span> alb_vot <span class="sc">%&gt;%</span></span>
@@ -457,8 +426,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Try to understand what is going on in the code above before moving on.</p>
 </section>
-<section id="voiceless-or-voiced" class="level3">
-<h3 class="anchored" data-anchor-id="voiceless-or-voiced">Voiceless or voiced?</h3>
+<section id="voiceless-or-voiced" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="voiceless-or-voiced"><span class="header-section-number">3.4</span> Voiceless or voiced?</h3>
 <p>So now run the code to create a new column <code>voicing</code> (this is the same code as above).</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/voi-2_2b5749748504a4fbb960edca3dc5f1c9">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="ot">&lt;-</span> alb_vot <span class="sc">%&gt;%</span></span>
@@ -483,8 +452,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now that we have the info we need to plot voiceless and voiced consonants separately, let’s do that! But to spice things up a bit, let’s do it with violin plots.</p>
 </section>
 </section>
-<section id="violin-plots" class="level2">
-<h2 class="anchored" data-anchor-id="violin-plots">Violin plots</h2>
+<section id="violin-plots" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="violin-plots"><span class="header-section-number">4</span> Violin plots</h2>
 <p>An efficient way of showing the distribution of continuous variables depending on discrete groups (like <code>voicing</code>) are the so-called <strong>violin plots</strong>.</p>
 <p>Go ahead and run the following code.</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-vio_fc35d47bb7d31ce8f6ef6be4b1871979">
@@ -501,8 +470,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>x</code>-axis: a categorical variable, like <code>voicing</code>.</p></li>
 <li><p><code>y</code>-axis: a continuous numeric variable, like <code>vot</code>.</p></li>
 </ul>
-<section id="lay-over-the-raw-data" class="level3">
-<h3 class="anchored" data-anchor-id="lay-over-the-raw-data">Lay over the raw data</h3>
+<section id="lay-over-the-raw-data" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="lay-over-the-raw-data"><span class="header-section-number">4.1</span> Lay over the raw data</h3>
 <p>You can lay over raw data on top of the violins. To do so, you can use the <code>jitter</code> geometry.</p>
 <p><code>geom_jitter()</code> creates so-called strip charts. Let’s first see how these look like without violins.</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-jitter_daba7c2b5f9f06103dc0169b1c8a5b19">
@@ -529,8 +498,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Note that the order between the violin and jitter geoms is important. If you add the jitter geometry before the violin geometry, the violins will just cover the jittered points (see why it is called “layered” grammar of graphics?).</p>
 </section>
-<section id="lets-add-some-colour" class="level3">
-<h3 class="anchored" data-anchor-id="lets-add-some-colour">Let’s add some colour</h3>
+<section id="lets-add-some-colour" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="lets-add-some-colour"><span class="header-section-number">4.2</span> Let’s add some colour</h3>
 <p>Let’s <strong>fill</strong> the violins with colour. For now, just colour the violins depending on <code>voicing</code>.</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-vio-jit-2_57d20354b9769547088a816e0261a33f">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
@@ -553,14 +522,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Wonderful! Now, what can you tell about VOT in voiceless and voiced consonants in Albanian based on this plot?</p>
 </section>
 </section>
-<section id="filtering-data" class="level2">
-<h2 class="anchored" data-anchor-id="filtering-data">Filtering data</h2>
+<section id="filtering-data" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="filtering-data"><span class="header-section-number">5</span> Filtering data</h2>
 <p>We are getting closer and closer to start modelling our VOT data to learn more about them.</p>
 <p>Normally, you would approach data modelling by using the entire data set and including as many variables as it makes sense.</p>
 <p>Since you are just starting to learn how to model data with <a href="https://paul-buerkner.github.io/brms/">brms</a>, we will first take a pedagogical approach and start small.</p>
 <p>To do, we will filter the data so that we include only voiceless plosives that don’t have a VOT longer than 20 ms. (Again, we are doing this now for pedagogical reasons, not because this is what you would do with this data in real-life research).</p>
-<section id="the-filter-function" class="level3">
-<h3 class="anchored" data-anchor-id="the-filter-function">The <code>filter()</code> function</h3>
+<section id="the-filter-function" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="the-filter-function"><span class="header-section-number">5.1</span> The <code>filter()</code> function</h3>
 <p>Filtering in R with the tidyverse is straightforward. You can use the <code>filter()</code> function.</p>
 <p>In the code below, we are filtering the <code>alb_vot</code> data so that we only include the voiceless stops <code>c("p", "t", "k")</code>. Moreover, we want only rows for with the VOT is less than 20 ms.</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-filt_4c6f9be373a77bcda1d598fce4c0c190">
@@ -575,8 +544,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You might have noticed that we need to assign the output of <code>filter()</code>, which is a data frame, to a new variable <code>alb_vot_vl</code> (“vl” for “voiceless”). This will be the data frame you will use in the next section.</p>
 </section>
 </section>
-<section id="modelling-with-brm" class="level2">
-<h2 class="anchored" data-anchor-id="modelling-with-brm">Modelling with <code>brm()</code></h2>
+<section id="modelling-with-brm" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="modelling-with-brm"><span class="header-section-number">6</span> Modelling with <code>brm()</code></h2>
 <p>In the lecture, we have seen that we can assume voiceless VOT values to be distributed according to a Gaussian distribution (you may also have encountered Gaussian distributions under the name “normal distribution”).</p>
 <p><span class="math display">\[vot \sim Gaussian(\mu, \sigma)\]</span></p>
 <p>We can calculate the sample mean and standard deviation easily, using the <code>summarise()</code> function, as you learnt in Week 2.</p>
@@ -609,23 +578,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">backend =</span> <span class="st">"cmdstanr"</span></span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="tutorial-w04_cache/html/vot-bm-2_8e8d801937c568fbc71c9542b36d68cb">
-
-</div>
 <p>You will see the message <code>Compiling Stan program...</code> followed by <code>Start sampling</code> and <code>Running MCMC with 4 sequential chains...</code>. Something like in the figure below.</p>
 <p><img src="../img/mcmc-messages.png" class="img-fluid"></p>
 <p>We will get back to what all this means in the coming weeks. For now know that <a href="https://mc-stan.org">Stan</a> is a programming language that can run Bayesian models. <code>brm()</code> is an R interface to Stan, so that you can use R and R syntax to run Bayesian models without having to learn Stan! (If you feel adventurous, nobody stops you from learning Stan too, although it is not required for this course).</p>
 <p>After those initial messages, you will see a list of messages about <strong>chains</strong> and <strong>interactions</strong>, as in the figure below.</p>
 <p><img src="../img/mcmc-chains-info.png" class="img-fluid"></p>
 <p>These are about the MCMC stuff mentioned in one of the messages above: MCMC stands for Markov-Chain Monte Carlo. Keep reading for a quick intro.</p>
-<section id="markov-chain-monte-carlo-mcmc" class="level3">
-<h3 class="anchored" data-anchor-id="markov-chain-monte-carlo-mcmc">Markov-Chain Monte Carlo (MCMC)</h3>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<section id="markov-chain-monte-carlo-mcmc" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="markov-chain-monte-carlo-mcmc"><span class="header-section-number">6.1</span> Markov-Chain Monte Carlo (MCMC)</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 MCMC
 </div>
 </div>
@@ -636,8 +602,8 @@ MCMC
 <p>You don’t need to understand the details of this. For now, just remember that several draws are made (i.e.&nbsp;the algorithm is run for several <strong>iterations</strong>), and that the model runs 4 <strong>chains</strong> of these iterations.</p>
 <p>We will learn more about chains and iterations in the coming weeks and you will know how to use information about these to diagnose the robustness of the estimated parameters.</p>
 </section>
-<section id="model-summary" class="level3">
-<h3 class="anchored" data-anchor-id="model-summary">Model summary</h3>
+<section id="model-summary" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="model-summary"><span class="header-section-number">6.2</span> Model summary</h3>
 <p>Now we can inspect the model output using the <code>summary()</code> function (don’t confuse this with the <code>summarise()</code> function, used to get statistical summaries of data).</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-bm-summ_c929307a220bf7e45c2a570c1d98002f">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(alb_vot_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -695,12 +661,12 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>In other words:</p>
 <p><span class="math display">\[vot \sim Gaussian(\mu, \sigma)\]</span> <span class="math display">\[\mu = Gaussian(11.62, 0.57)\]</span> <span class="math display">\[\sigma = TruncGaussian(2.86, 0.44)\]</span></p>
 <p>Based on the model summary and on the tidy summary, we also know the <strong>95% Credible Intervals</strong> (CIs or CrIs) of the probability distributions of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(sigma\)</span>. They are in the columns called <code>conf.low</code> and <code>conf.high</code>.</p>
-<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Credible Interval
 </div>
 </div>
@@ -717,10 +683,10 @@ Credible Interval
 <p>In the meantime, read on to find out how to add titles and change axis labels to plots and how to position the legend!</p>
 </section>
 </section>
-<section id="legends-and-labels-in-plots" class="level2">
-<h2 class="anchored" data-anchor-id="legends-and-labels-in-plots">Legends and labels in plots</h2>
-<section id="plot-titles-and-labels" class="level3">
-<h3 class="anchored" data-anchor-id="plot-titles-and-labels">Plot titles and labels</h3>
+<section id="legends-and-labels-in-plots" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="legends-and-labels-in-plots"><span class="header-section-number">7</span> Legends and labels in plots</h2>
+<section id="plot-titles-and-labels" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="plot-titles-and-labels"><span class="header-section-number">7.1</span> Plot titles and labels</h3>
 <p>The <code>labs()</code> function allows you to set the plot title, subtitle, axis labels and more.</p>
 <p>Since these are strings (i.e.&nbsp;text), they must be quoted with <code>""</code>. Replace the <code>...</code> below with an appropriate title, like <code>"VOT of Albanian stops"</code>.</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-title_dacf9ee0409e987aed1e731ae3e03217">
@@ -733,8 +699,8 @@ Credible Interval
 <span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="axis-labels" class="level3">
-<h3 class="anchored" data-anchor-id="axis-labels">Axis labels</h3>
+<section id="axis-labels" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="axis-labels"><span class="header-section-number">7.2</span> Axis labels</h3>
 <p>To change the the axis labels, you can specify a string for <code>x</code> and <code>y</code> in the <code>labs()</code> function.</p>
 <p>I have changed the <code>x</code> label here below. Go ahead and change <code>y</code> to <code>"VOT (ms)"</code>. (Remember to also add the title).</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-labs_8cee63f001b57f674663dae3dd7d2f8a">
@@ -749,8 +715,8 @@ Credible Interval
 <span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="positioning-the-legend" class="level3">
-<h3 class="anchored" data-anchor-id="positioning-the-legend">Positioning the legend</h3>
+<section id="positioning-the-legend" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="positioning-the-legend"><span class="header-section-number">7.3</span> Positioning the legend</h3>
 <p>The position of the legend can be set with the <code>legend.position</code> argument in the <code>theme()</code> function.</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-legend_9c511c32b9fa1eba0e06838161a823da">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>alb_vot <span class="sc">%&gt;%</span></span>
@@ -772,9 +738,9 @@ Credible Interval
 </div>
 </section>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<div class="callout-note callout callout-style-simple no-icon">
+<section id="summary" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="summary"><span class="header-section-number">8</span> Summary</h2>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -838,9 +804,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -905,6 +885,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
