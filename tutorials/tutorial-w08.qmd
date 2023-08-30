@@ -375,7 +375,7 @@ plogis(0 + 0)
 
 #### Compute means and 95% CrIs
 
-Before moving on to plotting, we'll use `acc_draws_cond_long` to compute summary statistics of the posteriors. We can do this using some now-familiar machinery: `group_by()`, `summarise()`, `mean()`, and `quantile2()`.
+Before moving on to plotting, we'll use `acc_draws_cond_long` to compute summary statistics of the posteriors. We can do this using some now-familiar functions: `group_by()`, `summarise()`, `mean()`, and `quantile2()`.
 
 ```{r}
 #| label: acc-summ
@@ -394,20 +394,26 @@ acc_cond_summ <- acc_draws_cond_long %>%
 acc_cond_summ
 ```
 
-A good sense check to make sure that we did this computation correctly is to compare it to the output of `summary()`. Because `summary()` also computes summary measures using posterior draws, we can compare the numbers in the model summary and in `acc_cond_summ` that we'd expect to be the same. Specifically, in the model summary, the estimates for `Intercept` should match the summary measures here for `Relation_type == Unrelated` and `Branching == Left` (since those are the two baseline levels).
+A good sense check to make sure that we did this computation correctly is to compare it to the output of `summary()`. Because `summary()` also computes summary measures using precisely those same posterior draws, we can compare the numbers in the model summary and in `acc_cond_summ`.
+
+Specifically, in the model summary, the estimates for `Intercept` should match the summary measures here for `Relation_type == Unrelated` and `Branching == Left` (since those are the two baseline levels).
 
 Let's have a look:
 
 ```{r}
 #| label: acc-summ-fixef
+#| echo: false
+
 cat(capture.output(summary(acc_inter_bm))[8:13], sep = "\n")
 ```
 
-Yes! The intercept's `Estimate` matches the mean when `Relation_type == Unrelated` and `Branching == Left`, and the lower and upper bounds of the 95% CrI match as well. So now we can be reassured that our computation is reasonable.
+Yes! The intercept's `Estimate` matches the mean when `Relation_type == Unrelated` and `Branching == Left`, and the lower and upper bounds of the 95% CrI match as well.
+
+Now compute other CrI levels: 50%, 60, 75, and 85% (you have to work out which probabilities to use, given that for a 95% CrI we use 0.025 and 0.975).
 
 #### Plot multiple posterior densities
 
-Finally, we'll use the conditional posterior probability distributions to create a density plot.
+Finally, we'll use the conditional posterior draws to create a density plot.
 
 See if you understand how the following code creates the plot we see below.
 
@@ -423,7 +429,7 @@ acc_draws_cond_long %>%
        fill = "Relation type")
 ```
 
-How would you create the same plot, but instead of the x axis showing the data in log-odds, have the x axis showing the data back-transformed to probabilities? Something like this:
+How would you create the same plot, but instead of the *x*-axis showing the data in log-odds, have the x axis showing the data back-transformed to probabilities? Something like this:
 
 ```{r}
 #| label: acc-dens-prob
@@ -445,7 +451,9 @@ OK, that's it for our first model! Now we'll turn to the second part of the tuto
 
 ## Vowel duration in Italian and Polish
 
-The data we'll use in this section comes from Coretta, S., (2019) "An exploratory study of voicing-related differences in vowel duration as compensatory temporal adjustment in Italian and Polish", *Glossa: a journal of general linguistics* 4(1): 125. doi: <https://doi.org/10.5334/gjgl.869>.
+The data we'll use in this section comes from the paper *An exploratory study of voicing-related differences in vowel duration as compensatory temporal adjustment in Italian and Polish* (Coretta 2019, DOI: <https://doi.org/10.5334/gjgl.869>).
+
+Read the abstract to see what the study is about.
 
 The dataset can be downloaded here: [dur-ita-pol.csv](../data/dur-ita-pol.csv).
 
@@ -469,201 +477,41 @@ dur_ita_pol <- read_csv("data/dur-ita-pol.csv")
 The data you see should look something like this (selecting only a handful of the many columns to view!).
 
 ```{r}
+#| label: dur-ita-pol
+#| echo: false
+
 dur_ita_pol %>% 
   select(speaker, word, vowel, v1_duration, c2_phonation, language)
 ```
 
 The variables of interest for us are:
 
--   `v1_duration`: Vowel duration in milliseconds (ms).
+-   `v1_duration`: The duration of the first vowel in the word in milliseconds (ms).
 -   `c2_phonation`: Whether the word's second consonant is voiced or voiceless.
 -   `language`: The first language of the speaker (Italian or Polish).
 
 The model we'll build below will predict `v1_duration` as a function of `c2_phonation`, `language`, and their interaction.
 
-### Visualise (and process) the data
+### Wrangle and plot the data
 
 What kinds of transformations and level re-orderings, if any, will we need to do to prepare the data for analysis?
 
-We'll begin with the outcome variable, `v1_duration`.
+After you have prepared the data, make sure to create a few plots to see what the data looks like.
 
-#### Vowel duration
 
-Let's create a density plot to see how vowel duration is distributed.
 
-```{r}
-#| label: dur-voweldur
-dur_ita_pol %>% 
-  ggplot(aes(x = v1_duration)) +
-  geom_density(fill = "grey", alpha = 0.5) +
-  geom_rug() +
-  labs(x = "Vowel duration (ms)")
-```
 
-Some observations:
+### Some thinking
 
--   Vowel duration can only be positive.
--   The distribution is slightly right-skewed (that is, it is asymmetrical and has a longer tail going off to the right).
+Before fitting the model in the next section, try to answer the following questions based on what you have seen in the plots and based on the contrast coding of the predictors.
 
-These two things suggest that this variable, taken as-is, should perhaps not be modelled using a Gaussian distribution. Rather, **we'll want to transform it.**
+1.  Which level of each predictor corresponds to the **reference level**?
 
-We want to make this variable
+2.  Based on the plots above and on the contrast coding of `c2_phonation`, do you think the model's estimate for the coefficient of `c2_phonation` will be **positive, negative, or around zero?**
 
--   in principle able to be positive or negative, and
--   look less asymmetrical, more Gaussian.
+3.  What about the estimate for `language`?
 
-Which transformation that we've encountered before do you think would improve the situation?
-
-Before moving on:
-
-1.  Use `mutate()` to apply the transformation you've chosen to the `v1_duration` variable.
-2.  Make a new density plot to see whether your transformation has worked.
-
-*(For real! Pause here and work through it yourself first.)*
-
-```{r}
-#| label: dur-voweldur-log
-#| eval: false
-#| echo: false
-dur_ita_pol %>% 
-  ggplot(aes(x = log(v1_duration))) +
-  geom_density(fill = "grey", alpha = 0.5) +
-  geom_rug() +
-  labs(x = "Vowel duration (log(ms))")
-```
-
-Spoiler alert: The transformation that we'll use for the rest of this tutorial is the log transformation. (Is that the transformation you chose? If not, how does your choice of transformation compare?)
-
-Here's one way to log-transform `v1_duration`. The result, `log_v1_dur`, is what we'll use as the outcome variable in our model below.
-
-```{r}
-#| label: dur-voweldur-log-mutate
-dur_ita_pol <- dur_ita_pol %>% 
-  mutate(
-    log_v1_dur = log(v1_duration)
-  )
-```
-
-OK, let's now have a look at how the categorical predictors are associated with vowel duration.
-
-#### Vowel duration by phonation
-
-The following code creates a violin plot with overlaid jittered points to illustrate vowel duration (ms) by `c2_phonation`.
-
-```{r}
-#| label: dur-phon-plot
-dur_ita_pol %>% 
-  ggplot(aes(x = c2_phonation, 
-             y = v1_duration, 
-             fill = c2_phonation,    # fills the violin plots
-             colour = c2_phonation)  # colours the points and violin outlines
-         ) +
-  geom_violin(alpha = 0.5, width = 0.5) +
-  geom_jitter(alpha = 0.5) +
-  theme(legend.position = "none") +
-  labs(
-    y = "Vowel duration (ms)",
-    x = "Consonant phonation"
-  )
-```
-
-An optional activity, if you like playing around with plots: Change the y axis from the ms scale to the transformed log scale. (And be sure to also change the label of the y axis, since the units shown are no longer going to be milliseconds, but log(ms).)
-
-```{r}
-#| label: dur-phon-plot-log
-#| echo: false
-#| eval: false
-dur_ita_pol %>% 
-  ggplot(aes(x = c2_phonation, 
-             y = log_v1_dur, 
-             fill = c2_phonation,    # fills the violin plots
-             colour = c2_phonation)  # colours the points and violin outlines
-         ) +
-  geom_violin(alpha = 0.5, width = 0.5) +
-  geom_jitter(alpha = 0.5) +
-  theme(legend.position = "none") +
-  labs(
-    y = "Vowel duration (log(ms))",
-    x = "Consonant phonation"
-  )
-```
-
-#### Vowel duration by language
-
-`language` is also a two-level variable, so you should be able to adapt the code shown above to create another violin plot with jittered points, this time showing how vowel duration (either on the ms or log(ms) scale) differs by language. What can you discover about how long the vowels are in Italian vs. Polish?
-
-```{r}
-#| label: dur-lg-plot
-#| echo: false
-#| eval: false
-dur_ita_pol %>% 
-  ggplot(aes(x = language, 
-             y = v1_duration, 
-             fill = language,    # fills the violin plots
-             colour = language)  # colours the points and violin outlines
-         ) +
-  geom_violin(alpha = 0.5, width = 0.5) +
-  geom_jitter(alpha = 0.5) +
-  theme(legend.position = "none") +
-  labs(
-    y = "Vowel duration (ms)",
-    x = "Language"
-  )
-```
-
-```{r}
-#| label: dur-lg-plot-log
-#| echo: false
-#| eval: false
-dur_ita_pol %>% 
-  ggplot(aes(x = language, 
-             y = log_v1_dur, 
-             fill = language,    # fills the violin plots
-             colour = language)  # colours the points and violin outlines
-         ) +
-  geom_violin(alpha = 0.5, width = 0.5) +
-  geom_jitter(alpha = 0.5) +
-  theme(legend.position = "none") +
-  labs(
-    y = "Vowel duration (log(ms))",
-    x = "Language"
-  )
-```
-
-#### Vowel duration by phonation and language
-
-One final plot before we turn to the contrast coding! We'll now visualise both `c2_phonation` and `language` together. Specifically, we'll fill/colour the geoms by `c2_phonation` and facet the plot by `language`.
-
-```{r}
-#| label: dur-lg-phon-plot
-dur_ita_pol %>% 
-  ggplot(aes(x = c2_phonation, 
-             y = v1_duration, 
-             fill = c2_phonation,
-             colour = c2_phonation)
-         ) +
-  geom_violin(alpha = 0.5, width = 0.5) +
-  geom_jitter(alpha = 0.5) +
-  facet_wrap(~ language) +
-  theme(legend.position = "none") +
-  labs(
-    y = "Vowel duration (ms)",
-    x = "Consonant phonation"
-  )
-```
-
-(Again, if you would like, create a version of this plot with log(ms) on the y axis instead.)
-
-### Interpret the contrasts
-
-Use `contrasts()` to display the contrasts that R will use for `c2_phonation` and `language`.
-
-With respect to those contrasts, **try to answer the following questions:**
-
-1.  Which level of each predictor corresponds to the **baseline level** (a.k.a., the reference level)? How do we know?
-2.  Based on the plots above and on the coding of `c2_phonation`, do you think the model's estimate for the coefficient of `c2_phonation` will be **positive, negative, or near zero?**
-3.  What about for `language`?
-4.  What about for the interaction between `c2_phonation` and `language`?
+4.  What about the interaction between `c2_phonation` and `language`?
 
 ### Fit the model
 
@@ -675,7 +523,7 @@ dur_bm <- brm(
 )
 ```
 
--   The model formula should specify that we're predicting log vowel duration as a function of `c2_phonation`, `language`, and their interaction.
+-   The model formula should specify that we're predicting log vowel duration as a function of `c2_phonation`, `language`, and their interaction (do you understand why we need to include the interaction?).
 -   Use the appropriate model family.
 -   Tell the model which dataset to draw from.
 -   Use cmdstanr as the backend.
@@ -693,24 +541,28 @@ dur_bm <- brm(
 )
 ```
 
-Here's what your model summary should look like (more or less!).
+Here's what your model summary should look like (with possible small differences due to MCMC sampling).
 
 ```{r}
 #| label: dur-fit-summ
 summary(dur_bm)
 ```
 
-How does this line up with the predictions you made?
+How does this line up with your answers to the questions above?
 
 ### Interpreting the interaction
 
-Here, the interaction coefficient's mean is estimated at 0.01 (95% CrI: --0.05, 0.07). This posterior distribution is basically centered on zero, with near-equal probability assigned to both negative and positive values. This means that the model isn't at all certain about the direction of the interaction's effect, or even whether there is one at all.
+Here, the interaction coefficient 95% CrI is estimated to be [-0.05, 0.07].
 
-(Keep in mind that null results like this are just part of doing research, and that a model that yields null results isn't an inherently bad or uninteresting model.)
+This CrI is basically centered around zero, with near-equal probability assigned to both negative and positive values. This means that we can't be certain about the direction of the interaction's effect, or even whether there is an interaction at all.
 
-### Conditional posterior probability distributions
+Also, note how small the values in the 95% CrI are compared to the other coefficient, another sign that perhaps the interaction is very small and practically 0.
 
-Reproduce the workflow we went through above with your new model. This will involve:
+What does this mean for the cross-linguistic comparison of the effect of voicing on vowel duration?
+
+### Conditional posterior probabilities
+
+Now apply the workflow we went through above to this new model `dur_bm`. This will involve:
 
 1.  Getting the posterior draws from the model using `as_draws_df()`.
 2.  Work out which columns correspond to which $\beta$s.
@@ -718,11 +570,11 @@ Reproduce the workflow we went through above with your new model. This will invo
 4.  Transform the resulting data frame into "long" format using `pivot_longer()`.
 5.  Separate the column headers into two columns, one of which corresponds to `c2_phonation` and the other, `language`.
 
-Your data frame should have three columns: `c2_phonation`, `language`, and whatever you've chosen to name the column that contains all the posterior samples (perhaps something like `sampled_logms`).
+Your data frame should have three columns: `c2_phonation`, `language`, and whatever you've chosen to name the column that contains the values of the posterior draws (perhaps something like `sampled_logms`).
 
-Using this data, compute the mean and 95% CrIs of the conditional posterior probability distributions for every combination of `c2_phonation` and `language`, and generate density plots of the conditional posterior probability distributions.
+Using this data, compute the mean and 95% CrIs of the conditional posterior probability distributions for every combination of `c2_phonation` and `language`, and create density plots.
 
-These conditional posterior probability distributions are going to be in log space, because we log-transformed the durations to make them modellable as Gaussian. So, like the way we back-transformed the log-odds into probabilities above using `plogis()`, you'll also want to back-transform the log(ms) into ms by using the inverse of the `log()` function, which is `exp()`.
+These conditional posterior probability distributions are going to be in logs, because we log-transformed the durations to make them modellable as Gaussian. So, like the way we back-transformed the log-odds into probabilities above using `plogis()`, you'll also want to back-transform the log(ms) into ms by using the inverse of the `log()` function, which is `exp()`.
 
 ## Summary
 
@@ -731,9 +583,9 @@ These conditional posterior probability distributions are going to be in log spa
 
 -   A model that contains interactions is able to estimate a difference in the effect of one predictor between levels of another.
 
--   For treatment-coded variables A and B, a positive interaction coefficient represents a positive adjustment (i.e., an addition) to variable A's effect, when we compare variable B's baseline level to its non-baseline level. And a negative interaction coefficient represents a negative adjustment (i.e., a subtraction).
+-   For treatment-coded variables A and B, a positive interaction coefficient represents a positive adjustment (i.e., an addition) to variable A's effect, when we compare variable B's reference level to its otther level. And a negative interaction coefficient represents a negative adjustment (i.e., a subtraction).
 
--   Null results don't mean that a model is not useful.
+- Null results (when a coefficient is practically 0) are still interpretable and valid results.
 
 **Data processing and visualisation**
 
