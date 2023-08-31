@@ -152,19 +152,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#read-and-process-the-data" id="toc-read-and-process-the-data" class="nav-link" data-scroll-target="#read-and-process-the-data"><span class="header-section-number">1.1</span> Read and process the data</a></li>
   <li><a href="#visualise-the-data" id="toc-visualise-the-data" class="nav-link" data-scroll-target="#visualise-the-data"><span class="header-section-number">1.2</span> Visualise the data</a></li>
-  <li><a href="#check-in-on-our-contrasts" id="toc-check-in-on-our-contrasts" class="nav-link" data-scroll-target="#check-in-on-our-contrasts"><span class="header-section-number">1.3</span> Check in on our contrasts</a></li>
-  <li><a href="#fit-the-model" id="toc-fit-the-model" class="nav-link" data-scroll-target="#fit-the-model"><span class="header-section-number">1.4</span> Fit the model</a></li>
-  <li><a href="#interpreting-the-interaction" id="toc-interpreting-the-interaction" class="nav-link" data-scroll-target="#interpreting-the-interaction"><span class="header-section-number">1.5</span> Interpreting the interaction</a></li>
-  <li><a href="#conditional-posterior-probability-distributions" id="toc-conditional-posterior-probability-distributions" class="nav-link" data-scroll-target="#conditional-posterior-probability-distributions"><span class="header-section-number">1.6</span> Conditional posterior probability distributions</a></li>
+  <li><a href="#fit-the-model" id="toc-fit-the-model" class="nav-link" data-scroll-target="#fit-the-model"><span class="header-section-number">1.3</span> Fit the model</a></li>
+  <li><a href="#interpreting-the-interaction" id="toc-interpreting-the-interaction" class="nav-link" data-scroll-target="#interpreting-the-interaction"><span class="header-section-number">1.4</span> Interpreting the interaction</a></li>
+  <li><a href="#conditional-posterior-probability-distributions" id="toc-conditional-posterior-probability-distributions" class="nav-link" data-scroll-target="#conditional-posterior-probability-distributions"><span class="header-section-number">1.5</span> Conditional posterior probability distributions</a></li>
   </ul></li>
   <li><a href="#vowel-duration-in-italian-and-polish" id="toc-vowel-duration-in-italian-and-polish" class="nav-link" data-scroll-target="#vowel-duration-in-italian-and-polish"><span class="header-section-number">2</span> Vowel duration in Italian and Polish</a>
   <ul class="collapse">
   <li><a href="#read-in-the-data" id="toc-read-in-the-data" class="nav-link" data-scroll-target="#read-in-the-data"><span class="header-section-number">2.1</span> Read in the data</a></li>
-  <li><a href="#visualise-and-process-the-data" id="toc-visualise-and-process-the-data" class="nav-link" data-scroll-target="#visualise-and-process-the-data"><span class="header-section-number">2.2</span> Visualise (and process) the data</a></li>
-  <li><a href="#interpret-the-contrasts" id="toc-interpret-the-contrasts" class="nav-link" data-scroll-target="#interpret-the-contrasts"><span class="header-section-number">2.3</span> Interpret the contrasts</a></li>
+  <li><a href="#wrangle-and-plot-the-data" id="toc-wrangle-and-plot-the-data" class="nav-link" data-scroll-target="#wrangle-and-plot-the-data"><span class="header-section-number">2.2</span> Wrangle and plot the data</a></li>
+  <li><a href="#some-thinking" id="toc-some-thinking" class="nav-link" data-scroll-target="#some-thinking"><span class="header-section-number">2.3</span> Some thinking</a></li>
   <li><a href="#fit-the-model-1" id="toc-fit-the-model-1" class="nav-link" data-scroll-target="#fit-the-model-1"><span class="header-section-number">2.4</span> Fit the model</a></li>
   <li><a href="#interpreting-the-interaction-1" id="toc-interpreting-the-interaction-1" class="nav-link" data-scroll-target="#interpreting-the-interaction-1"><span class="header-section-number">2.5</span> Interpreting the interaction</a></li>
-  <li><a href="#conditional-posterior-probability-distributions-1" id="toc-conditional-posterior-probability-distributions-1" class="nav-link" data-scroll-target="#conditional-posterior-probability-distributions-1"><span class="header-section-number">2.6</span> Conditional posterior probability distributions</a></li>
+  <li><a href="#conditional-posterior-probabilities" id="toc-conditional-posterior-probabilities" class="nav-link" data-scroll-target="#conditional-posterior-probabilities"><span class="header-section-number">2.6</span> Conditional posterior probabilities</a></li>
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">3</span> Summary</a></li>
   </ul>
@@ -207,76 +206,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="ot">&lt;-</span> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Run the following code to filter this data frame for only the data we need for this example.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/filter-shallow_19899cb598ba347a782a723b3a143c3b">
+<div class="cell" data-hash="tutorial-w08_cache/html/filter-shallow_d274f16c4572d6c4ea67a7b0eab561c6">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="ot">&lt;-</span> shallow <span class="sc">%&gt;%</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    Group <span class="sc">==</span> <span class="st">"L1"</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    Critical_Filler <span class="sc">==</span> <span class="st">"Critical"</span>,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    RT <span class="sc">&gt;</span> <span class="dv">0</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    Relation_type <span class="sc">!=</span> <span class="st">'NonConstituent'</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    Relation_type <span class="sc">!=</span> <span class="st">"NonConstituent"</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, we’ll prepare our variables for analysis.</p>
-<p>The <strong>outcome variable</strong> that we want is:</p>
+<p>The <strong>outcome variable</strong> is <code>ACC</code>, accuracy (whether the response was correct or not). This variable is binary and it is now coded using <code>0</code> (for “incorrect”) and <code>1</code> (for “correct”). This type of coding (using 0/1) is quite common. However, it makes it a bit more difficult to keep track of what 0 and 1 mean, especially when you have a bunch of binary variables.</p>
+<p>As a general recommendation, it is best to code binary variables using meaningful labels. In the case of <code>ACC</code>, better, more transparent labels would be <code>incorrect</code> and <code>correct</code>. We will create a new column based on <code>ACC</code> with these new labels below.</p>
+<p>The data also contains the two <strong>predictor variables</strong> we want:</p>
 <ul>
-<li><code>Accuracy</code>, with two levels:
-<ul>
-<li><code>incorrect</code> (which we want coded as 0);</li>
-<li><code>correct</code> (which we want coded as 1).</li>
-</ul></li>
+<li><code>Relation_type</code>, with two levels: <code>Unrelated</code> and <code>Constituent</code>.</li>
+<li><code>Branching</code>, with two levels: <code>Left</code> and <code>Right</code>.</li>
 </ul>
-<p>Right now, <code>shallow</code> doesn’t contain a column <code>Accuracy</code>. There is a column called <code>ACC</code> that contains the same information, though, so below we’ll use that to create the <code>Accuracy</code> column of our dreams.</p>
-<p>Also, the two <strong>predictors</strong> we want are:</p>
-<ul>
-<li><code>Relation_type</code>, with two levels:
-<ul>
-<li><code>Unrelated</code> (which we want coded as 0);</li>
-<li><code>Constituent</code> (which we want coded as 1).</li>
-</ul></li>
-<li><code>Branching</code>, with two levels:
-<ul>
-<li><code>Left</code> (which we want coded as 0);</li>
-<li><code>Right</code> (which we want coded as 1).</li>
-</ul></li>
-</ul>
-<p>Can you see how the code below will ensure that each level receives our desired coding of 0 or 1?</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/var-setup-shallow_a02cba989af35fc6888fdc6bb79fc0cb">
+<p>Can you see how the code below will ensure that each variable has the desired ordering for their levels? (Remember that by default the ordering is alphabetical!)</p>
+<div class="cell" data-hash="tutorial-w08_cache/html/var-setup-shallow_13fec89b9e12f0416c6f5be5be1d0b8e">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="ot">&lt;-</span> shallow <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create Accuracy column based on ACC</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Accuracy      =</span> <span class="fu">ifelse</span>(ACC <span class="sc">==</span> <span class="dv">1</span>, <span class="st">'correct'</span>, <span class="st">'incorrect'</span>), </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create Accuracy column based on ACC with desired order</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Accuracy      =</span> <span class="fu">ifelse</span>(ACC <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"correct"</span>, <span class="st">"incorrect"</span>), </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Order factor levels</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Accuracy      =</span> <span class="fu">factor</span>(Accuracy, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'incorrect'</span>, <span class="st">'correct'</span>)),</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Relation_type =</span> <span class="fu">factor</span>(Relation_type, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'Unrelated'</span>, <span class="st">'Constituent'</span>)),</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Branching     =</span> <span class="fu">factor</span>(Branching, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'Left'</span>, <span class="st">'Right'</span>))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Accuracy      =</span> <span class="fu">factor</span>(Accuracy, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"incorrect"</span>, <span class="st">"correct"</span>)),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Relation_type =</span> <span class="fu">factor</span>(Relation_type, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Unrelated"</span>, <span class="st">"Constituent"</span>)),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Branching     =</span> <span class="fu">factor</span>(Branching, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Left"</span>, <span class="st">"Right"</span>))</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="visualise-the-data" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="visualise-the-data"><span class="header-section-number">1.2</span> Visualise the data</h3>
 <p>Use <code>shallow</code> to create a bar plot that looks like this one. Show the proportion of correct/incorrect responses by <code>Relation_type</code>, faceting by <code>Branching</code>.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/barplot-shallow_13a488fe18b0ad915321e7b9598f9446">
+<div class="cell" data-hash="tutorial-w08_cache/html/barplot-shallow_f2504914b34d930f3bbc99a81f877b0a">
 <div class="cell-output-display">
 <p><img src="tutorial-w08_files/figure-html/barplot-shallow-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>A couple hints:</p>
 <ul>
-<li>To make <code>geom_bar()</code> display proportions instead of counts, you can write <code>geom_bar(position = 'fill')</code>.</li>
+<li>To make <code>geom_bar()</code> display proportions instead of counts, you can write <code>geom_bar(position = "fill")</code>.</li>
 <li>To include the text “Branching” in the facet labels, give the function <code>facet_grid()</code> the following arguments:
 <ul>
 <li>First, <code>~ Branching</code>, to tell it to facet by branching,</li>
 <li>and then <code>labeller = labeller(Branching = label_both)</code>.</li>
 </ul></li>
 </ul>
-<p>Notice that this plot reveals a <em>difference of differences</em>: The difference between <code>Relation_type == Unrelated</code> and <code>Relation_Type == Constituent</code> is bigger when <code>Branching == Left</code>, and smaller when <code>Branching == Right</code>. <strong>It is this difference of differences that suggests that our model should probably include an interaction between these two variables.</strong></p>
-<p>Before we dive into the model, though, let’s verify that our variables are indeed going to be coded the way we want.</p>
-</section>
-<section id="check-in-on-our-contrasts" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="check-in-on-our-contrasts"><span class="header-section-number">1.3</span> Check in on our contrasts</h3>
+</div>
+</div>
+</div>
+<p>Notice that this plot reveals, among other things, a <em>difference of differences</em>: The difference between <code>Relation_type == Unrelated</code> and <code>Relation_Type == Constituent</code> is bigger when <code>Branching == Left</code>, and smaller when <code>Branching == Right</code>. <strong>The only way to capture this difference of differences is to include an interaction between <code>Relation_type</code> and <code>Branching</code>.</strong></p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extra: More on contrasts
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>The <code>contrasts()</code> function takes as its argument a factor, and returns the coding that R will use to represent this factor in a model.</p>
-<section id="accuracy" class="level4" data-number="1.3.1">
-<h4 data-number="1.3.1" class="anchored" data-anchor-id="accuracy"><span class="header-section-number">1.3.1</span> <code>Accuracy</code></h4>
+<section id="accuracy" class="level4" data-number="1.2.1">
+<h4 data-number="1.2.1" class="anchored" data-anchor-id="accuracy"><span class="header-section-number">1.2.1</span> <code>Accuracy</code></h4>
 <div class="cell" data-hash="tutorial-w08_cache/html/unnamed-chunk-7_53641545b228cf38d040443cf5bd3812">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(shallow<span class="sc">$</span>Accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -287,8 +294,8 @@ correct         1</code></pre>
 </div>
 <p>Which level of <code>Accuracy</code>, our outcome variable, corresponds to a “success” in Bernoulli terms? How do we know? What does this mean for the estimates that the model will produce?</p>
 </section>
-<section id="relation_type" class="level4" data-number="1.3.2">
-<h4 data-number="1.3.2" class="anchored" data-anchor-id="relation_type"><span class="header-section-number">1.3.2</span> <code>Relation_Type</code></h4>
+<section id="relation_type" class="level4" data-number="1.2.2">
+<h4 data-number="1.2.2" class="anchored" data-anchor-id="relation_type"><span class="header-section-number">1.2.2</span> <code>Relation_Type</code></h4>
 <div class="cell" data-hash="tutorial-w08_cache/html/unnamed-chunk-8_4004d779f1db335c7b592ee661e911ea">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(shallow<span class="sc">$</span>Relation_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -306,8 +313,8 @@ Constituent           1</code></pre>
 </ul>
 <p>Based on this information and on the bar plot above, do you expect that the coefficient’s posterior distribution will be largely positive, negative, or around zero?</p>
 </section>
-<section id="branching" class="level4" data-number="1.3.3">
-<h4 data-number="1.3.3" class="anchored" data-anchor-id="branching"><span class="header-section-number">1.3.3</span> <code>Branching</code></h4>
+<section id="branching" class="level4" data-number="1.2.3">
+<h4 data-number="1.2.3" class="anchored" data-anchor-id="branching"><span class="header-section-number">1.2.3</span> <code>Branching</code></h4>
 <div class="cell" data-hash="tutorial-w08_cache/html/unnamed-chunk-9_da970de5329b63b3a623107e303a9206">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(shallow<span class="sc">$</span>Branching)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -324,24 +331,26 @@ Right     1</code></pre>
 <li>Its <span class="math inline">\(\beta\)</span> coefficient’s 95% CrI will be <strong>centered around zero</strong> if there is no clear association between accuracy and branching.</li>
 </ul>
 <p>Again, based on this, what kind of expectations do you have about this coefficient’s posterior distribution?</p>
-<p>Let’s see if those expectations are borne out!</p>
 </section>
+</div>
+</div>
+</div>
 </section>
-<section id="fit-the-model" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="fit-the-model"><span class="header-section-number">1.4</span> Fit the model</h3>
+<section id="fit-the-model" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="fit-the-model"><span class="header-section-number">1.3</span> Fit the model</h3>
 <p>From the lecture slides, here is the mathematical specification of the model we want to fit.</p>
 <p><span class="math display">\[
 \begin{aligned}
 \text{acc} &amp; \sim Bernoulli(p) \\
-logit(p) &amp; = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (\beta_3 \cdot relation \cdot branch)\\
+logit(p) &amp; = \beta_0 + (\beta_1 \times relation) + (\beta_2 \times branch) + (\beta_3 \times relation \times branch)\\
 \beta_0 &amp; \sim Gaussian(\mu_0, \sigma_0) \\
 \beta_1 &amp; \sim Gaussian(\mu_1, \sigma_1) \\
 \beta_2 &amp; \sim Gaussian(\mu_2, \sigma_2) \\
 \beta_3 &amp; \sim Gaussian(\mu_3, \sigma_3) \\
 \end{aligned}
 \]</span></p>
-<p>Try to understand what each line is saying.</p>
-<p>Now, we’ll use <code>brm()</code> to fit a model called <code>acc_inter_bm</code>.</p>
+<p>Try to understand what each line mean before moving on.</p>
+<p>We’ll use <code>brm()</code> to fit a model called <code>acc_inter_bm</code>.</p>
 <ul>
 <li>The model formula should specify that we’re predicting <code>Accuracy</code> as a function of <code>Relation_type</code>, <code>Branching</code>, and their interaction.</li>
 <li>Specify the correct family for the model as well as the data we’ll draw on.</li>
@@ -353,7 +362,7 @@ logit(p) &amp; = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Run the model.</p>
+<p>Now run the model.</p>
 <p>The summary should look something like this (but don’t worry if your numbers are slightly different from these! That’ll happen due to the randomness inherent in the MCMC sampling process).</p>
 <div class="cell" data-hash="tutorial-w08_cache/html/shallow-summ_7b070f11cf8fb815aa4389fc538cf7b8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(acc_inter_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -382,22 +391,21 @@ and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
-<p>Do the coefficient estimates match the predictions you made above? If they don’t, can you figure out why not?</p>
 </section>
-<section id="interpreting-the-interaction" class="level3" data-number="1.5">
-<h3 data-number="1.5" class="anchored" data-anchor-id="interpreting-the-interaction"><span class="header-section-number">1.5</span> Interpreting the interaction</h3>
-<p><strong>In general, for treatment-coded predictors, a positive interaction coefficient represents a positive adjustment to one variable’s effect, when we move from the other variable’s baseline level to its non-baseline level (or in other words, when we compare the non-baseline level to the baseline). And a negative interaction coefficient represents a negative adjustment.</strong></p>
-<p>As we observed in the lecture, this interaction’s mean estimate of <span class="math inline">\(-0.63\)</span> suggests that, equivalently,</p>
+<section id="interpreting-the-interaction" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="interpreting-the-interaction"><span class="header-section-number">1.4</span> Interpreting the interaction</h3>
+<p>For predictors using treatment contrasts, a positive interaction coefficient represents a positive adjustment to one variable’s effect, when we go from the reference of other variable to its other level (or in other words, when we compare the second level to the reference level). And a negative interaction coefficient represents a negative adjustment.</p>
+<p>As we observed in the lecture, the mean estimate of <span class="math inline">\(-0.63\)</span> we obtained in the model above suggests that:</p>
 <ul>
-<li>there is a smaller effect of <code>Relation_type</code> in <code>Branching == Right</code> (non-baseline) when compared to <code>Branching == Left</code> (baseline); and</li>
-<li>there is a smaller effect of <code>Branching</code> in <code>Relation_type == Constituent</code> (non-baseline) when compared to <code>Relation_type == Unrelated</code> (baseline).</li>
+<li>There is on average a smaller effect of <code>Relation_type</code> in <code>Branching == Right</code> when compared to <code>Branching == Left</code> (the reference level);</li>
+<li>Or, equivalently, there is on average a smaller effect of <code>Branching</code> in <code>Relation_type == Constituent</code> when compared to <code>Relation_type == Unrelated</code> (the reference level).</li>
 </ul>
-<p>The 95% CrI of <span class="math inline">\([-1.72, 0.42]\)</span> suggests that the model thinks that a negative interaction is most probable (there is more probability mass on the negative side of zero than on the positive side). However, since positive values also come into question, this suggests that the model is slightly uncertain about the direction of the interaction.</p>
+<p>However, the 95% CrI of the interaction is <span class="math inline">\([-1.72, 0.42]\)</span> which includes both negative and positive values. In other words, while it seems that a negative adjustment is more probable (the range of negative values in the interval is greater than the positive range), a positive adjustment is also possible. This suggests that based on the model, the direction of the interaction is quite uncertain.</p>
 </section>
-<section id="conditional-posterior-probability-distributions" class="level3" data-number="1.6">
-<h3 data-number="1.6" class="anchored" data-anchor-id="conditional-posterior-probability-distributions"><span class="header-section-number">1.6</span> Conditional posterior probability distributions</h3>
+<section id="conditional-posterior-probability-distributions" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="conditional-posterior-probability-distributions"><span class="header-section-number">1.5</span> Conditional posterior probability distributions</h3>
 <p>Getting the conditional posterior probability distributions when so many predictors are at play is a bit of a process, but we’ll approach it step by step.</p>
-<p>The first thing to do is to get the posterior draws from our model, using <code>as_draws_df()</code>. (Fun fact: these are the very samples that <code>summary()</code> summarises when it shows us the model’s estimates.)</p>
+<p>The first thing to do is to get the posterior draws from our model, using <code>as_draws_df()</code>.</p>
 <div class="cell" data-hash="tutorial-w08_cache/html/acc-draws_bbfbbc8b1265ea5a2a1347498a3a4194">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>acc_draws <span class="ot">&lt;-</span> <span class="fu">as_draws_df</span>(acc_inter_bm)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>acc_draws</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -410,24 +418,38 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 </div>
-<p>Each column that begins with <code>b_</code> represents a posterior probability distribution of one of our model’s <span class="math inline">\(\beta\)</span> parameters. (Or, more accurately, each column contains a number of <em>samples</em> from the posterior distribution.) Can you identify which column corresponds to which <span class="math inline">\(\beta\)</span>?</p>
-<p>To know how to combine these columns to get the correct conditional posterior probability distributions, we have to reason about how the 0/1 treatment coding affects the presence or absence of the <span class="math inline">\(\beta\)</span>s.</p>
-<p>The basic linear expression in this model is</p>
+<p>Each column that begins with <code>b_</code> contains draws from the posterior probability distribution of each of our model’s <span class="math inline">\(\beta\)</span> parameters (see <strong>Extra: Draws</strong> to learn more). Can you identify which column corresponds to which model coefficient?</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extra: Draws
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The values in each column of the output of <code>as_draws_df()</code> are the values draws (Or, more accurately, each column contains a number of <em>draws</em> from the posterior distribution, as obtained by the MCMC sampling procedure.) that <code>summary()</code> summarises when it shows us the model’s estimates.</p>
+</div>
+</div>
+</div>
+<p>To know how to combine these columns to get the correct conditional posterior probability distributions, we have to reason about how the 0/1 treatment coding affects the presence or absence of the <span class="math inline">\(\beta\)</span>s in the model equation, shown below:</p>
 <p><span class="math display">\[
-logit(p) = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (\beta_3 \cdot relation \cdot branch)
+logit(p) = \beta_0 + (\beta_1 \times relation) + (\beta_2 \times branch) + (\beta_3 \times relation \times branch)
 \]</span></p>
-<p>Our goal is to figure out the conditional posterior probability distribution of <span class="math inline">\(logit(p)\)</span> (i.e., the log-odds of answering correctly) in each of our four combinations of levels. To do this, we substitute the appropriate 0s and 1s in for <span class="math inline">\(relation\)</span> and <span class="math inline">\(branch\)</span>.</p>
-<p>Again, from the lecture:</p>
+<p>Our goal is to figure out the conditional posterior probability distribution of <span class="math inline">\(logit(p)\)</span> (i.e., the log-odds of answering correctly) in each of our four combinations of levels. To do this, we substitute <span class="math inline">\(relation\)</span> and <span class="math inline">\(branch\)</span> in the equation with <code>0</code> or <code>1</code>, depending on the wanted levels (Remember that <code>0</code> is the reference level and <code>1</code> is the second level).</p>
 <p><span class="math display">\[
 \begin{aligned}
-\text{Unrelated, Left:}     &amp;&amp; \beta_0 &amp;+ (\beta_1 \cdot 0) + (\beta_2 \cdot 0) + (\beta_3 \cdot 0) &amp;&amp;= \beta_0  &amp;\\
-\text{Unrelated, Right:}    &amp;&amp; \beta_0 &amp;+ (\beta_1 \cdot 0) + (\beta_2 \cdot 1) + (\beta_3 \cdot 0) &amp;&amp;= \beta_0 + \beta_2 &amp;\\
-\text{Constituent, Left:}   &amp;&amp; \beta_0 &amp;+ (\beta_1 \cdot 1) + (\beta_2 \cdot 0) + (\beta_3 \cdot 0) &amp;&amp;= \beta_0 + \beta_1 &amp;\\
-\text{Constituent, Right:}  &amp;&amp; \beta_0 &amp;+ (\beta_1 \cdot 1) + (\beta_2 \cdot 1) + (\beta_3 \cdot 1) &amp;&amp;= \beta_0 + \beta_1 + \beta_2 + \beta_3 &amp;\\
+\text{Unrelated, Left:}     &amp;&amp; \beta_0 &amp;+ (\beta_1 \times 0) + (\beta_2 \times 0) + (\beta_3 \times 0) &amp;&amp;= \beta_0  &amp;\\
+\text{Unrelated, Right:}    &amp;&amp; \beta_0 &amp;+ (\beta_1 \times 0) + (\beta_2 \times 1) + (\beta_3 \times 0) &amp;&amp;= \beta_0 + \beta_2 &amp;\\
+\text{Constituent, Left:}   &amp;&amp; \beta_0 &amp;+ (\beta_1 \times 1) + (\beta_2 \times 0) + (\beta_3 \times 0) &amp;&amp;= \beta_0 + \beta_1 &amp;\\
+\text{Constituent, Right:}  &amp;&amp; \beta_0 &amp;+ (\beta_1 \times 1) + (\beta_2 \times 1) + (\beta_3 \times 1) &amp;&amp;= \beta_0 + \beta_1 + \beta_2 + \beta_3 &amp;\\
 \end{aligned}
 \]</span></p>
 <p>Make sure you understand why each 0 and 1 appears where it does.</p>
-<p>Now in R, we’ll use this working-out to tell us which columns to add together. The result will be a data frame where each column contains the conditional posterior probability distribution of <span class="math inline">\(logit(p)\)</span> for one of the four combination of levels.</p>
+<p>Now we just need to reproduce this in R, using the code below. The output is a data frame where each column contains the conditional posterior draws of <span class="math inline">\(logit(p)\)</span> of each of the four combination of levels.</p>
 <div class="cell" data-hash="tutorial-w08_cache/html/acc-cond-pstr_3fc8a61bb416ca34e549740178ac61e1">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>acc_draws_cond <span class="ot">&lt;-</span> acc_draws <span class="sc">%&gt;%</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
@@ -448,22 +470,34 @@ logit(p) = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (\beta_
 </div>
 </div>
 </div>
-<p>(Note that, in <code>acc_draws</code>, the column name that corresponds to the interaction’s <span class="math inline">\(\beta\)</span> contains the symbol <code>:</code>, which can be confusing to R. To avoid problems, we can wrap that column name in tick marks.)</p>
-<p>Now these conditional posterior probability distributions are almost ready to work with! There’s just one more big data-manipulation step left before we can compute some summary statistics and create some pretty plots.</p>
-<p>That step is to transform this data frame into “long” format using <code>pivot_longer()</code>. The goal is to have a data frame with the following columns:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that, in <code>acc_draws</code>, the column name that corresponds to the interaction’s <span class="math inline">\(\beta\)</span> contains <code>:</code>, which has a special meaning in R. (Try <code>nums &lt;- 1:10</code> in the console). To avoid problems, we must wrap the column name using tick marks <code>`b_Relation_typeConstituent:BranchingRight`</code>.</p>
+</div>
+</div>
+<p>Now the conditional posterior draws are almost ready to work with! There’s just one more data-manipulation step left before we can compute summary statistics and create pretty plots.</p>
+<p>That step is to transform this data frame into “long” format using <code>pivot_longer()</code>. The goal is to change the data into a data frame with the following columns:</p>
 <ul>
-<li><code>predictors</code>, which contains what is currently in the column headers;</li>
-<li><code>sampled_logodds</code>, which contains all of the values that currently fill the four columns.</li>
+<li><code>predictors</code>, with the combinations of levels (<code>Unrelated_Left</code>, <code>Unrelated_Rigth</code>, …);</li>
+<li><code>sampled_logodds</code>, with the posterior draws values.</li>
 </ul>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-pivot_2dc763220a4592064d04d7b10c87f2a6">
+<div class="cell" data-hash="tutorial-w08_cache/html/acc-pivot_8407d0c4f24715792fcdcff5f1e08d7e">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>acc_draws_cond_long <span class="ot">&lt;-</span> acc_draws_cond <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The range of columns to pivot:</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    Unrelated_Left<span class="sc">:</span>Constituent_Right,</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Name the column that will contain the current headers:</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">'predictors'</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"predictors"</span>,</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Name the column that will contain the current values:</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">'sampled_logodds'</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"sampled_logodds"</span></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>acc_draws_cond_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -475,20 +509,35 @@ logit(p) = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (\beta_
 </div>
 </div>
 </div>
-<p>Can you see how <code>acc_draws_cond_long</code> contains the same data as <code>acc_draws_cond</code>?</p>
-<p>Okay, just a couple tiny things left:</p>
+<p>Can you see how <code>acc_draws_cond_long</code> contains the same data as <code>acc_draws_cond</code>, but in a different layout?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pivoting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Pivoting</strong> is the process of reshaping a data frame so that either the number of columns increases and that of rows decreases (<code>pivot_wider()</code>), or, vice versa, the number of columns decreases and that of rows increases (<code>pivot_longer()</code>).</p>
+<p>These functions from the tidyverse package <a href="https://tidyr.tidyverse.org/index.html">tidyr</a> are very powerful and it’s very common to have to use them in data analyses.</p>
+<p>To learn more about pivoting, check the <a href="https://tidyr.tidyverse.org/articles/pivot.html">Pivoting</a> vignette.</p>
+</div>
+</div>
+<p>Now we have just a couple tiny things left:</p>
 <ul>
-<li>We’re going to use a function from the tidyverse called <code>separate()</code> to split the <code>predictors</code> column up into two columns: one for <code>Relation_type</code>, and another for <code>Branching</code>. Have a look at <a href="https://tidyr.tidyverse.org/reference/separate.html">the documentation</a> for <code>separate()</code> if you’re curious about the details.</li>
-<li><code>acc_draws_cond_long</code> is a new data frame, so R will apply its defaults for factor ordering unless we again set the factor levels manually.</li>
+<li>We’re going to use <code>separate()</code> to “separate” the <code>predictors</code> column into two columns: one with the value for <code>Relation_type</code>, and another for <code>Branching</code>. By default, column values are split at any punctuation character, like <code>_</code>. Have a look at <a href="https://tidyr.tidyverse.org/reference/separate.html">the documentation</a> for <code>separate()</code> if you’re curious about the details. The reverse of <code>separate()</code> is <code>unite()</code>.</li>
+<li><code>acc_draws_cond_long</code> is a new data frame, so R will apply its defaults for factor ordering unless we again order the factor levels manually.</li>
 </ul>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-draws-long-sep_8b97a7e939c70c416d940311ea1dc075">
+<div class="cell" data-hash="tutorial-w08_cache/html/acc-draws-long-sep_f8303e9d576d15b3da7c8290cee152fc">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>acc_draws_cond_long <span class="ot">&lt;-</span> acc_draws_cond_long <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split `predictors` on '_' into one column per predictor.</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(predictors, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">'Relation_type'</span>, <span class="st">'Branching'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Separate `predictors` at "_" into two columns</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(predictors, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Relation_type"</span>, <span class="st">"Branching"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set factor levels.</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Relation_type =</span> <span class="fu">factor</span>(Relation_type, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'Unrelated'</span>, <span class="st">'Constituent'</span>)),</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Branching     =</span> <span class="fu">factor</span>(Branching, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'Left'</span>, <span class="st">'Right'</span>))</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Relation_type =</span> <span class="fu">factor</span>(Relation_type, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Unrelated"</span>, <span class="st">"Constituent"</span>)),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Branching     =</span> <span class="fu">factor</span>(Branching, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Left"</span>, <span class="st">"Right"</span>))</span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>acc_draws_cond_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -502,34 +551,43 @@ logit(p) = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (\beta_
 </div>
 <p>Nice!</p>
 <p>We are finally ready to summarise and plot these distributions.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><strong>Note:</strong> When computing the conditional posterior probability distributions when the model involves non-linear transformations like <code>log()</code> or <code>logit()</code>, it is very important to do any addition/subtraction <strong>in the space the model was fit in</strong>. That is, figuring out the conditional probability distribution must be done <strong>before back-transforming</strong> back into the original space.</p>
-<p>If you were to first back-transform each individual <span class="math inline">\(\beta\)</span> and then add them together, for example, this would give you incorrect estimates. Take care to avoid this!</p>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>When computing the conditional posterior probability distributions when the model involves non-linear transformations like <code>log()</code> or <code>logit()</code>, it is very important to do any addition/subtraction of draws before transforming the values back to their original scale.</p>
+<p>If you were to first back-transform each individual <span class="math inline">\(\beta\)</span> and then add them together, for example, this would give you incorrect estimates.</p>
+<p>Try the following</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorrect</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plogis</span>(<span class="dv">0</span>) <span class="sc">+</span> <span class="fu">plogis</span>(<span class="dv">0</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plogis</span>(<span class="dv">0</span> <span class="sc">+</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="compute-means-and-95-cris" class="level4" data-number="1.6.1">
-<h4 data-number="1.6.1" class="anchored" data-anchor-id="compute-means-and-95-cris"><span class="header-section-number">1.6.1</span> Compute means and 95% CrIs</h4>
-<p>Before moving on to plotting, we’ll use <code>acc_draws_cond_long</code> to compute summary statistics of the posteriors. We can do this using some now-familiar machinery: <code>group_by()</code>, <code>summarise()</code>, <code>mean()</code>, and <code>quantile2()</code>.</p>
+</div>
+<section id="compute-means-and-95-cris" class="level4" data-number="1.5.1">
+<h4 data-number="1.5.1" class="anchored" data-anchor-id="compute-means-and-95-cris"><span class="header-section-number">1.5.1</span> Compute means and 95% CrIs</h4>
+<p>Before moving on to plotting, we’ll use <code>acc_draws_cond_long</code> to compute summary statistics of the posteriors. We can do this using some now-familiar functions: <code>group_by()</code>, <code>summarise()</code>, <code>mean()</code>, and <code>quantile2()</code>.</p>
 <div class="cell" data-hash="tutorial-w08_cache/html/acc-summ_2face09470c851902499ca1418fcd8bc">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>acc_cond_summ <span class="ot">&lt;-</span> acc_draws_cond_long <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Relation_type, Branching) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the lower and upper bounds of a 95% CrI + mean</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_logodds =</span> <span class="fu">mean</span>(sampled_logodds),</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">q95_lo =</span> <span class="fu">round</span>(<span class="fu">quantile2</span>(sampled_logodds, <span class="at">probs =</span> <span class="fl">0.025</span>), <span class="dv">2</span>),</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">q95_hi =</span> <span class="fu">round</span>(<span class="fu">quantile2</span>(sampled_logodds, <span class="at">probs =</span> <span class="fl">0.975</span>), <span class="dv">2</span>),</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Transform into probabilities</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_mean   =</span> <span class="fu">round</span>(<span class="fu">plogis</span>(mean_logodds), <span class="dv">2</span>),</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_q95_lo =</span> <span class="fu">round</span>(<span class="fu">plogis</span>(q95_lo), <span class="dv">2</span>),</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_q95_hi =</span> <span class="fu">round</span>(<span class="fu">plogis</span>(q95_hi), <span class="dv">2</span>)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>acc_cond_summ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>acc_cond_summ <span class="ot">&lt;-</span> acc_draws_cond_long <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Relation_type, Branching) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the lower and upper bounds of a 95% CrI + mean</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_logodds =</span> <span class="fu">mean</span>(sampled_logodds),</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">q95_lo =</span> <span class="fu">round</span>(<span class="fu">quantile2</span>(sampled_logodds, <span class="at">probs =</span> <span class="fl">0.025</span>), <span class="dv">2</span>),</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">q95_hi =</span> <span class="fu">round</span>(<span class="fu">quantile2</span>(sampled_logodds, <span class="at">probs =</span> <span class="fl">0.975</span>), <span class="dv">2</span>),</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Transform into probabilities</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_mean   =</span> <span class="fu">round</span>(<span class="fu">plogis</span>(mean_logodds), <span class="dv">2</span>),</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_q95_lo =</span> <span class="fu">round</span>(<span class="fu">plogis</span>(q95_lo), <span class="dv">2</span>),</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_q95_hi =</span> <span class="fu">round</span>(<span class="fu">plogis</span>(q95_hi), <span class="dv">2</span>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>acc_cond_summ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -539,10 +597,10 @@ logit(p) = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (\beta_
 </div>
 </div>
 </div>
-<p>A good sense check to make sure that we did this computation correctly is to compare it to the output of <code>summary()</code>. Because <code>summary()</code> also computes summary measures using posterior draws, we can compare the numbers in the model summary and in <code>acc_cond_summ</code> that we’d expect to be the same. Specifically, in the model summary, the estimates for <code>Intercept</code> should match the summary measures here for <code>Relation_type == Unrelated</code> and <code>Branching == Left</code> (since those are the two baseline levels).</p>
+<p>A good sense check to make sure that we did this computation correctly is to compare it to the output of <code>summary()</code>. Because <code>summary()</code> also computes summary measures using precisely those same posterior draws, we can compare the numbers in the model summary and in <code>acc_cond_summ</code>.</p>
+<p>Specifically, in the model summary, the estimates for <code>Intercept</code> should match the summary measures here for <code>Relation_type == Unrelated</code> and <code>Branching == Left</code> (since those are the two baseline levels).</p>
 <p>Let’s have a look:</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-summ-fixef_1a4698c0873cb5106d370efb8e3ef445">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">capture.output</span>(<span class="fu">summary</span>(acc_inter_bm))[<span class="dv">8</span><span class="sc">:</span><span class="dv">13</span>], <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="tutorial-w08_cache/html/acc-summ-fixef_a9df1163d90d762bd9ce288e8bbe8139">
 <div class="cell-output cell-output-stdout">
 <pre><code>Population-Level Effects: 
                                         Estimate Est.Error l-95% CI u-95% CI
@@ -552,27 +610,28 @@ BranchingRight                              1.69      0.36     1.04     2.42
 Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42</code></pre>
 </div>
 </div>
-<p>Yes! The intercept’s <code>Estimate</code> matches the mean when <code>Relation_type == Unrelated</code> and <code>Branching == Left</code>, and the lower and upper bounds of the 95% CrI match as well. So now we can be reassured that our computation is reasonable.</p>
+<p>Yes! The intercept’s <code>Estimate</code> matches the mean when <code>Relation_type == Unrelated</code> and <code>Branching == Left</code>, and the lower and upper bounds of the 95% CrI match as well.</p>
+<p>Now compute other CrI levels: 50%, 60, 75, and 85% (you have to work out which probabilities to use, given that for a 95% CrI we use 0.025 and 0.975).</p>
 </section>
-<section id="plot-multiple-posterior-densities" class="level4" data-number="1.6.2">
-<h4 data-number="1.6.2" class="anchored" data-anchor-id="plot-multiple-posterior-densities"><span class="header-section-number">1.6.2</span> Plot multiple posterior densities</h4>
-<p>Finally, we’ll use the conditional posterior probability distributions to create a density plot.</p>
+<section id="plot-multiple-posterior-densities" class="level4" data-number="1.5.2">
+<h4 data-number="1.5.2" class="anchored" data-anchor-id="plot-multiple-posterior-densities"><span class="header-section-number">1.5.2</span> Plot multiple posterior densities</h4>
+<p>Finally, we’ll use the conditional posterior draws to create a density plot.</p>
 <p>See if you understand how the following code creates the plot we see below.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-dens-logodds_b80ca5c65aff24011f3bc4d7d42ebf12">
+<div class="cell" data-hash="tutorial-w08_cache/html/acc-dens-logodds_49d50e915123f5ebe06dc394e748335f">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>acc_draws_cond_long <span class="sc">%&gt;%</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sampled_logodds, <span class="at">fill =</span> Relation_type)) <span class="sc">+</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Branching, <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">labeller =</span> <span class="fu">labeller</span>(<span class="at">Branching =</span> label_both)) <span class="sc">+</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Log-odds'</span>,</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">'Probability density'</span>,</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">'Conditional posterior probability of log-odds of "correct" response'</span>,</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">'Relation type'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Log-odds"</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Probability density"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Conditional posterior probability of log-odds of 'correct' response"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Relation type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tutorial-w08_files/figure-html/acc-dens-logodds-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>How would you create the same plot, but instead of the x axis showing the data in log-odds, have the x axis showing the data back-transformed to probabilities? Something like this:</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-dens-prob_2a95fd4c874960ddc6397f3dac495a1d">
+<p>How would you create the same plot, but instead of the <em>x</em>-axis showing the data in log-odds, have the x axis showing the data back-transformed to probabilities? Something like this:</p>
+<div class="cell" data-hash="tutorial-w08_cache/html/acc-dens-prob_4062cc093b5a8ed132cec6189e2e4e30">
 <div class="cell-output-display">
 <p><img src="tutorial-w08_files/figure-html/acc-dens-prob-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -584,7 +643,8 @@ Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42</co
 </section>
 <section id="vowel-duration-in-italian-and-polish" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="vowel-duration-in-italian-and-polish"><span class="header-section-number">2</span> Vowel duration in Italian and Polish</h2>
-<p>The data we’ll use in this section comes from Coretta, S., (2019) “An exploratory study of voicing-related differences in vowel duration as compensatory temporal adjustment in Italian and Polish”, <em>Glossa: a journal of general linguistics</em> 4(1): 125. doi: <a href="https://doi.org/10.5334/gjgl.869" class="uri">https://doi.org/10.5334/gjgl.869</a>.</p>
+<p>The data we’ll use in this section comes from the paper <em>An exploratory study of voicing-related differences in vowel duration as compensatory temporal adjustment in Italian and Polish</em> (Coretta 2019, DOI: <a href="https://doi.org/10.5334/gjgl.869" class="uri">https://doi.org/10.5334/gjgl.869</a>).</p>
+<p>Read the abstract to see what the study is about.</p>
 <p>The dataset can be downloaded here: <a href="../data/dur-ita-pol.csv">dur-ita-pol.csv</a>.</p>
 <section id="read-in-the-data" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="read-in-the-data"><span class="header-section-number">2.1</span> Read in the data</h3>
@@ -593,9 +653,7 @@ Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42</co
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dur_ita_pol <span class="ot">&lt;-</span> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The data you see should look something like this (selecting only a handful of the many columns to view!).</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/unnamed-chunk-23_6f5ae7300f321a386741af8cdc775e08">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dur_ita_pol <span class="sc">%&gt;%</span> </span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(speaker, word, vowel, v1_duration, c2_phonation, language)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="tutorial-w08_cache/html/dur-ita-pol_90dac1b8efc8da898ed49c3dba8fcbcd">
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -607,137 +665,44 @@ Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42</co
 </div>
 <p>The variables of interest for us are:</p>
 <ul>
-<li><code>v1_duration</code>: Vowel duration in milliseconds (ms).</li>
+<li><code>v1_duration</code>: The duration of the first vowel in the word in milliseconds (ms).</li>
 <li><code>c2_phonation</code>: Whether the word’s second consonant is voiced or voiceless.</li>
 <li><code>language</code>: The first language of the speaker (Italian or Polish).</li>
 </ul>
 <p>The model we’ll build below will predict <code>v1_duration</code> as a function of <code>c2_phonation</code>, <code>language</code>, and their interaction.</p>
 </section>
-<section id="visualise-and-process-the-data" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="visualise-and-process-the-data"><span class="header-section-number">2.2</span> Visualise (and process) the data</h3>
+<section id="wrangle-and-plot-the-data" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="wrangle-and-plot-the-data"><span class="header-section-number">2.2</span> Wrangle and plot the data</h3>
 <p>What kinds of transformations and level re-orderings, if any, will we need to do to prepare the data for analysis?</p>
-<p>We’ll begin with the outcome variable, <code>v1_duration</code>.</p>
-<section id="vowel-duration" class="level4" data-number="2.2.1">
-<h4 data-number="2.2.1" class="anchored" data-anchor-id="vowel-duration"><span class="header-section-number">2.2.1</span> Vowel duration</h4>
-<p>Let’s create a density plot to see how vowel duration is distributed.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/dur-voweldur_1854590231b6a81d5f9ea584a06f7b2d">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dur_ita_pol <span class="sc">%&gt;%</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> v1_duration)) <span class="sc">+</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">'grey'</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>() <span class="sc">+</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Vowel duration (ms)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="tutorial-w08_files/figure-html/dur-voweldur-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Some observations:</p>
-<ul>
-<li>Vowel duration can only be positive.</li>
-<li>The distribution is slightly right-skewed (that is, it is asymmetrical and has a longer tail going off to the right).</li>
-</ul>
-<p>These two things suggest that this variable, taken as-is, should perhaps not be modelled using a Gaussian distribution. Rather, <strong>we’ll want to transform it.</strong></p>
-<p>We want to make this variable</p>
-<ul>
-<li>in principle able to be positive or negative, and</li>
-<li>look less asymmetrical, more Gaussian.</li>
-</ul>
-<p>Which transformation that we’ve encountered before do you think would improve the situation?</p>
-<p>Before moving on:</p>
+<p>After you have prepared the data, make sure to create a few plots to see what the data looks like.</p>
+</section>
+<section id="some-thinking" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="some-thinking"><span class="header-section-number">2.3</span> Some thinking</h3>
+<p>Before fitting the model in the next section, try to answer the following questions based on what you have seen in the plots and based on the contrast coding of the predictors.</p>
 <ol type="1">
-<li>Use <code>mutate()</code> to apply the transformation you’ve chosen to the <code>v1_duration</code> variable.</li>
-<li>Make a new density plot to see whether your transformation has worked.</li>
-</ol>
-<p><em>(For real! Pause here and work through it yourself first.)</em></p>
-<p>Spoiler alert: The transformation that we’ll use for the rest of this tutorial is the log transformation. (Is that the transformation you chose? If not, how does your choice of transformation compare?)</p>
-<p>Here’s one way to log-transform <code>v1_duration</code>. The result, <code>log_v1_dur</code>, is what we’ll use as the outcome variable in our model below.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/dur-voweldur-log-mutate_5da0a200a2d4dc3ee2669d9db749f254">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dur_ita_pol <span class="ot">&lt;-</span> dur_ita_pol <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_v1_dur =</span> <span class="fu">log</span>(v1_duration)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>OK, let’s now have a look at how the categorical predictors are associated with vowel duration.</p>
-</section>
-<section id="vowel-duration-by-phonation" class="level4" data-number="2.2.2">
-<h4 data-number="2.2.2" class="anchored" data-anchor-id="vowel-duration-by-phonation"><span class="header-section-number">2.2.2</span> Vowel duration by phonation</h4>
-<p>The following code creates a violin plot with overlaid jittered points to illustrate vowel duration (ms) by <code>c2_phonation</code>.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/dur-phon-plot_4da0f53c4a8a34970451315ed6008353">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dur_ita_pol <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> c2_phonation, </span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> v1_duration, </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> c2_phonation,    <span class="co"># fills the violin plots</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> c2_phonation)  <span class="co"># colours the points and violin outlines</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'none'</span>) <span class="sc">+</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">'Vowel duration (ms)'</span>,</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">'Consonant phonation'</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="tutorial-w08_files/figure-html/dur-phon-plot-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>An optional activity, if you like playing around with plots: Change the y axis from the ms scale to the transformed log scale. (And be sure to also change the label of the y axis, since the units shown are no longer going to be milliseconds, but log(ms).)</p>
-</section>
-<section id="vowel-duration-by-language" class="level4" data-number="2.2.3">
-<h4 data-number="2.2.3" class="anchored" data-anchor-id="vowel-duration-by-language"><span class="header-section-number">2.2.3</span> Vowel duration by language</h4>
-<p><code>language</code> is also a two-level variable, so you should be able to adapt the code shown above to create another violin plot with jittered points, this time showing how vowel duration (either on the ms or log(ms) scale) differs by language. What can you discover about how long the vowels are in Italian vs.&nbsp;Polish?</p>
-</section>
-<section id="vowel-duration-by-phonation-and-language" class="level4" data-number="2.2.4">
-<h4 data-number="2.2.4" class="anchored" data-anchor-id="vowel-duration-by-phonation-and-language"><span class="header-section-number">2.2.4</span> Vowel duration by phonation and language</h4>
-<p>One final plot before we turn to the contrast coding! We’ll now visualise both <code>c2_phonation</code> and <code>language</code> together. Specifically, we’ll fill/colour the geoms by <code>c2_phonation</code> and facet the plot by <code>language</code>.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/dur-lg-phon-plot_d4c4c117ff7f8dae1540fb84c9ebe4e3">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>dur_ita_pol <span class="sc">%&gt;%</span> </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> c2_phonation, </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> v1_duration, </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> c2_phonation,</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> c2_phonation)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> language) <span class="sc">+</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'none'</span>) <span class="sc">+</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">'Vowel duration (ms)'</span>,</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">'Consonant phonation'</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="tutorial-w08_files/figure-html/dur-lg-phon-plot-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>(Again, if you would like, create a version of this plot with log(ms) on the y axis instead.)</p>
-</section>
-</section>
-<section id="interpret-the-contrasts" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="interpret-the-contrasts"><span class="header-section-number">2.3</span> Interpret the contrasts</h3>
-<p>Use <code>contrasts()</code> to display the contrasts that R will use for <code>c2_phonation</code> and <code>language</code>.</p>
-<p>With respect to those contrasts, <strong>try to answer the following questions:</strong></p>
-<ol type="1">
-<li>Which level of each predictor corresponds to the <strong>baseline level</strong> (a.k.a., the reference level)? How do we know?</li>
-<li>Based on the plots above and on the coding of <code>c2_phonation</code>, do you think the model’s estimate for the coefficient of <code>c2_phonation</code> will be <strong>positive, negative, or near zero?</strong></li>
-<li>What about for <code>language</code>?</li>
-<li>What about for the interaction between <code>c2_phonation</code> and <code>language</code>?</li>
+<li><p>Which level of each predictor corresponds to the <strong>reference level</strong>?</p></li>
+<li><p>Based on the plots above and on the contrast coding of <code>c2_phonation</code>, do you think the model’s estimate for the coefficient of <code>c2_phonation</code> will be <strong>positive, negative, or around zero?</strong></p></li>
+<li><p>What about the estimate for <code>language</code>?</p></li>
+<li><p>What about the interaction between <code>c2_phonation</code> and <code>language</code>?</p></li>
 </ol>
 </section>
 <section id="fit-the-model-1" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="fit-the-model-1"><span class="header-section-number">2.4</span> Fit the model</h3>
 <div class="cell" data-hash="tutorial-w08_cache/html/dur-fit-ex_46c4a1e86751ff2a9b71df961d980eef">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>dur_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dur_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>The model formula should specify that we’re predicting log vowel duration as a function of <code>c2_phonation</code>, <code>language</code>, and their interaction.</li>
+<li>The model formula should specify that we’re predicting log vowel duration as a function of <code>c2_phonation</code>, <code>language</code>, and their interaction (do you understand why we need to include the interaction?).</li>
 <li>Use the appropriate model family.</li>
 <li>Tell the model which dataset to draw from.</li>
 <li>Use cmdstanr as the backend.</li>
 <li>Save the model to a file.</li>
 </ul>
-<p>Here’s what your model summary should look like (more or less!).</p>
+<p>Here’s what your model summary should look like (with possible small differences due to MCMC sampling).</p>
 <div class="cell" data-hash="tutorial-w08_cache/html/dur-fit-summ_bbaab02712af8a9b8b98b9861279d0aa">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dur_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dur_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: gaussian 
   Links: mu = identity; sigma = identity 
@@ -767,16 +732,18 @@ and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
-<p>How does this line up with the predictions you made?</p>
+<p>How does this line up with your answers to the questions above?</p>
 </section>
 <section id="interpreting-the-interaction-1" class="level3" data-number="2.5">
 <h3 data-number="2.5" class="anchored" data-anchor-id="interpreting-the-interaction-1"><span class="header-section-number">2.5</span> Interpreting the interaction</h3>
-<p>Here, the interaction coefficient’s mean is estimated at 0.01 (95% CrI: –0.05, 0.07). This posterior distribution is basically centered on zero, with near-equal probability assigned to both negative and positive values. This means that the model isn’t at all certain about the direction of the interaction’s effect, or even whether there is one at all.</p>
-<p>(Keep in mind that null results like this are just part of doing research, and that a model that yields null results isn’t an inherently bad or uninteresting model.)</p>
+<p>Here, the interaction coefficient 95% CrI is estimated to be [-0.05, 0.07].</p>
+<p>This CrI is basically centered around zero, with near-equal probability assigned to both negative and positive values. This means that we can’t be certain about the direction of the interaction’s effect, or even whether there is an interaction at all.</p>
+<p>Also, note how small the values in the 95% CrI are compared to the other coefficient, another sign that perhaps the interaction is very small and practically 0.</p>
+<p>What does this mean for the cross-linguistic comparison of the effect of voicing on vowel duration?</p>
 </section>
-<section id="conditional-posterior-probability-distributions-1" class="level3" data-number="2.6">
-<h3 data-number="2.6" class="anchored" data-anchor-id="conditional-posterior-probability-distributions-1"><span class="header-section-number">2.6</span> Conditional posterior probability distributions</h3>
-<p>Reproduce the workflow we went through above with your new model. This will involve:</p>
+<section id="conditional-posterior-probabilities" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="conditional-posterior-probabilities"><span class="header-section-number">2.6</span> Conditional posterior probabilities</h3>
+<p>Now apply the workflow we went through above to this new model <code>dur_bm</code>. This will involve:</p>
 <ol type="1">
 <li>Getting the posterior draws from the model using <code>as_draws_df()</code>.</li>
 <li>Work out which columns correspond to which <span class="math inline">\(\beta\)</span>s.</li>
@@ -784,9 +751,9 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <li>Transform the resulting data frame into “long” format using <code>pivot_longer()</code>.</li>
 <li>Separate the column headers into two columns, one of which corresponds to <code>c2_phonation</code> and the other, <code>language</code>.</li>
 </ol>
-<p>Your data frame should have three columns: <code>c2_phonation</code>, <code>language</code>, and whatever you’ve chosen to name the column that contains all the posterior samples (perhaps something like <code>sampled_logms</code>).</p>
-<p>Using this data, compute the mean and 95% CrIs of the conditional posterior probability distributions for every combination of <code>c2_phonation</code> and <code>language</code>, and generate density plots of the conditional posterior probability distributions.</p>
-<p>These conditional posterior probability distributions are going to be in log space, because we log-transformed the durations to make them modellable as Gaussian. So, like the way we back-transformed the log-odds into probabilities above using <code>plogis()</code>, you’ll also want to back-transform the log(ms) into ms by using the inverse of the <code>log()</code> function, which is <code>exp()</code>.</p>
+<p>Your data frame should have three columns: <code>c2_phonation</code>, <code>language</code>, and whatever you’ve chosen to name the column that contains the values of the posterior draws (perhaps something like <code>sampled_logms</code>).</p>
+<p>Using this data, compute the mean and 95% CrIs of the conditional posterior probability distributions for every combination of <code>c2_phonation</code> and <code>language</code>, and create density plots.</p>
+<p>These conditional posterior probability distributions are going to be in logs, because we log-transformed the durations to make them modellable as Gaussian. So, like the way we back-transformed the log-odds into probabilities above using <code>plogis()</code>, you’ll also want to back-transform the log(ms) into ms by using the inverse of the <code>log()</code> function, which is <code>exp()</code>.</p>
 </section>
 </section>
 <section id="summary" class="level2" data-number="3">
@@ -800,8 +767,8 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p><strong>Modelling</strong></p>
 <ul>
 <li><p>A model that contains interactions is able to estimate a difference in the effect of one predictor between levels of another.</p></li>
-<li><p>For treatment-coded variables A and B, a positive interaction coefficient represents a positive adjustment (i.e., an addition) to variable A’s effect, when we compare variable B’s baseline level to its non-baseline level. And a negative interaction coefficient represents a negative adjustment (i.e., a subtraction).</p></li>
-<li><p>Null results don’t mean that a model is not useful.</p></li>
+<li><p>For treatment-coded variables A and B, a positive interaction coefficient represents a positive adjustment (i.e., an addition) to variable A’s effect, when we compare variable B’s reference level to its otther level. And a negative interaction coefficient represents a negative adjustment (i.e., a subtraction).</p></li>
+<li><p>Null results (when a coefficient is practically 0) are still interpretable and valid results.</p></li>
 </ul>
 <p><strong>Data processing and visualisation</strong></p>
 <ul>

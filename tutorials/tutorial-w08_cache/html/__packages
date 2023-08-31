@@ -11,3 +11,4 @@ posterior
 Rcpp
 brms
 broom.mixed
+lubridate
