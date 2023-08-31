@@ -1,5 +1,5 @@
 ---
-title: "SQM tutorial - Week 1"
+title: "QML tutorial - Week 1"
 editor: visual
 ---
 

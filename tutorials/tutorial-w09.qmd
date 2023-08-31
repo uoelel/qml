@@ -1,5 +1,5 @@
 ---
-title: "SQMB tutorial – Week 9"
+title: "qml tutorial – Week 9"
 execute: 
   cache: true
 ---

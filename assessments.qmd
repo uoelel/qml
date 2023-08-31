@@ -29,7 +29,7 @@ See below for details.
 
 **Due on Thursday 9 November at noon**
 
-The first summative contains a series of guided exercises. You can find the summative materials and exercises here: <https://github.com/uoelel/sqmb-s1>.
+The first summative contains a series of guided exercises. You can find the summative materials and exercises here: <https://github.com/uoelel/qml-s1>.
 
 You may find helpful information in the FAQ post on Piazza [here](https://piazza.com/class/lcns7m75s8pdw/post/63).
 :::
@@ -45,5 +45,5 @@ In the second summative assessment, you will:
 -   analyse the data using one linear model, and
 -   write a report about the data, the model, and your findings.
 
-You can find more information about the assessment on GitHub here: <https://github.com/uoelel/sqmb-s2>
+You can find more information about the assessment on GitHub here: <https://github.com/uoelel/qml-s2>
 :::

@@ -1,5 +1,5 @@
 ---
-title: "SQM tutorial - Week 2"
+title: "QML tutorial - Week 2"
 editor: visual
 ---
 
@@ -298,7 +298,7 @@ To import data in R we will use the `read_csv()` function from the [readr](https
 
 The `read_csv()` function only requires you to specify the file path as a string (remember, strings are quoted between `" "`.
 
-On my computer, the file path of `shallow.csv` is `/Users/ste/sqmb/data/shallow.csv`, but on your computer the file path will be different, of course.
+On my computer, the file path of `shallow.csv` is `/Users/ste/qml/data/shallow.csv`, but on your computer the file path will be different, of course.
 
 Also, note that it is not enough to use the `read_csv()` function. You also must assign the output of the `read_csv()` function (i.e. the data we are reading) to a variable, using the assignment arrow `<-`.
 
@@ -314,7 +314,7 @@ So, putting all together, here's the code. **Remember to change the file path to
 library(tidyverse)
 
 # CHANGE THE FILE PATH TO MATCH THE PATH ON YOUR COMPUTER
-shallow <- read_csv("/Users/ste/sqmb/data/shallow.csv")
+shallow <- read_csv("/Users/ste/qml/data/shallow.csv")
 ```
 
 Fantastic!
