@@ -107,7 +107,7 @@ When done, click on `Create Project`. RStudio will automatically open your new p
 
 ![](../img/rstudio-5.png)
 
-::: callout-important
+::: callout-warning
 #### Important
 
 When working through these tutorials, always make sure you are in the course RStudio Project you just created.
@@ -167,7 +167,10 @@ Fantastic! You should see that the answer of the addition has been printed in th
 
 Now, try some more operations (write each of the following in the Console and press `ENTER`). Feel free to add your own operations to the mix!
 
-```{r eval=FALSE}
+```{r}
+#| label: operations
+#| eval: false
+
 67 - 13
 2 * 4
 268 / 43
@@ -175,7 +178,10 @@ Now, try some more operations (write each of the following in the Console and pr
 
 You can also chain multiple operations.
 
-```{r eval=FALSE}
+```{r}
+#| label: operations-2
+#| eval: false
+
 6 + 4 - 1 + 2
 4 * 2 + 3 * 2
 ```
@@ -199,6 +205,8 @@ You can create a variable by using the **assignment operator** `<-`.
 Let's assign the value `156` to the variable `my_num`.
 
 ```{r}
+#| label: my-num
+
 my_num <- 156
 ```
 
@@ -207,6 +215,8 @@ Now, check the list of variables in the `Environment` tab of the top-right panel
 Now, you can just call the variable back when you need it! Write the following in the Console and press `ENTER`.
 
 ```{r}
+#| label: print-my-num
+
 my_num
 ```
 
@@ -223,6 +233,8 @@ A vector is a type of variable and a numeric vector is a type of vector. However
 Let's now try some operations using variables.
 
 ```{r}
+#| label: variables
+
 income <- 1200
 expenses <- 500
 income - expenses
@@ -233,12 +245,16 @@ See? You can use operations with variables too!
 And you can also go all the way with variables.
 
 ```{r}
+#| label: variables-2
+
 savings <- income - expenses
 ```
 
 And check the value...
 
 ```{r}
+#| label: variables-3
+
 savings
 ```
 
@@ -249,6 +265,8 @@ Just use the combine `c()` function to create a vector containing multiple value
 The following are all numeric vectors.
 
 ```{r}
+#| label: numeric
+
 one_i <- 6
 # Vector with 2 values
 two_i <- c(6, 8)
@@ -267,6 +285,8 @@ A **numeric vector** is a vector that holds one or more numeric values.
 Note that the following are the same:
 
 ```{r}
+#| label: numeric-2
+
 one_i <- 6
 one_i
 one_ii <- c(6)
@@ -276,6 +296,8 @@ one_ii
 Another important aspect of variables is that they are... **variable**! Meaning that once you assign a value to one variable, you can overwrite the value by assigning a new one to the same variable.
 
 ```{r}
+#| label: numeric-3
+
 my_num <- 88
 my_num <- 63
 my_num
@@ -299,6 +321,8 @@ A function in R has the form `function()` where:
 Let's see an example:
 
 ```{r}
+#| label: sum
+
 sum(3, 5)
 ```
 
@@ -307,16 +331,18 @@ The `sum()` function sums the number listed as arguments. Above, the arguments a
 And of course arguments can be vectors!
 
 ```{r}
+#| label: sum-2
+
 my_nums <- c(3, 5, 7)
 
 sum(my_nums)
 mean(my_nums)
 ```
 
-::: callout-warning
-#### R vs Python
+::: {.callout-important collapse="true"}
+#### Extra: R vs Python
 
-If you are familiar with Python, you will soon realise that R and Python, although they share many concepts and types of objects, they can differ substantially. This is because R is a **functional** programminglanguage (based on *functions*) while Python is an **Object Oriented** programming language (based on *methods* applied on objects).
+If you are familiar with Python, you will soon realise that R and Python, although they share many concepts and types of objects, they can differ substantially. This is because R is a **functional** programming language (based on *functions*) while Python is an **Object Oriented** programming language (based on *methods* applied on objects).
 
 Generally speaking, functions look like `print(x)` while methods look like `x.print()`
 :::
@@ -334,6 +360,8 @@ In R, strings have to be **quoted** using double quotes `" "`.
 Change the following strings to your name and surname. Remember to keep the double quotes
 
 ```{r}
+#| label: strings
+
 name <- "Stefano"
 surname <- "Coretta"
 
@@ -343,12 +371,16 @@ name
 Strings can be used as arguments in functions, like numbers can.
 
 ```{r}
+#| label: cat
+
 cat("My name is", name, surname)
 ```
 
 Remember that you can reuse the same variable name to override the variable value.
 
 ```{r}
+#| label: cat-2
+
 name <- "Raj"
 
 cat("My name is", name, surname)
@@ -363,6 +395,8 @@ A **character vector** is a vector that holds one or more strings.
 :::
 
 ```{r}
+#| label: character
+
 fruit <- c("apple", "oranges", "bananas")
 fruit
 ```
@@ -378,6 +412,8 @@ A **logical vector** is a vector that holds one or more `TRUE` or `FALSE` values
 :::
 
 ```{r}
+#| label: logical
+
 groceries <- c("apple", "flour", "margarine", "sugar")
 in_pantry <- c(TRUE, TRUE, FALSE, TRUE)
 
@@ -387,6 +423,36 @@ data.frame(groceries, in_pantry)
 `TRUE` and `FALSE` values must be written in all capitals and *without* double quotes (they are not strings!).
 
 (We will talk about data frames, another type of object in R, in the following weeks.)
+
+::: {.callout-important collapse="true"}
+#### Extra: For-loops and if-else statements
+
+This course does not cover programming in R in the strict sense, but if you are curious here's a short primer on for-loops and if-else statements in R.
+
+**For-loops**
+
+```{r for-loops}
+fruits <- c("apples", "mangos", "durians")
+
+for (fruit in fruits) {
+  cat("I like", fruit, "\n")
+}
+```
+
+**If-else**
+
+```{r if-else}
+for (fruit in fruits) {
+  if (grepl("n", fruit)) {
+    cat(fruit, "has an 'n'", "\n")
+  } else {
+    cat(fruit, "does not have an 'n'", "\n")
+  }
+}
+```
+
+
+:::
 
 ## Summary
 
