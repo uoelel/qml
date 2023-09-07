@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>QML - SQM tutorial - Week 1</title>
+<title>QML - QML tutorial - Week 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SQM tutorial - Week 1</h1>
+<h1 class="title">QML tutorial - Week 1</h1>
 </div>
 
 
@@ -278,7 +278,7 @@ RStudio Projects
 <p>Then you need to specify where to create this new folder/Project. Click on <code>Browse…</code> and navigate to the folder you want to create the new folder/Project in.</p>
 <p>When done, click on <code>Create Project</code>. RStudio will automatically open your new project.</p>
 <p><img src="../img/rstudio-5.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -502,18 +502,21 @@ Function
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R vs Python
+Extra: R vs Python
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you are familiar with Python, you will soon realise that R and Python, although they share many concepts and types of objects, they can differ substantially. This is because R is a <strong>functional</strong> programminglanguage (based on <em>functions</em>) while Python is an <strong>Object Oriented</strong> programming language (based on <em>methods</em> applied on objects).</p>
+<p>If you are familiar with Python, you will soon realise that R and Python, although they share many concepts and types of objects, they can differ substantially. This is because R is a <strong>functional</strong> programming language (based on <em>functions</em>) while Python is an <strong>Object Oriented</strong> programming language (based on <em>methods</em> applied on objects).</p>
 <p>Generally speaking, functions look like <code>print(x)</code> while methods look like <code>x.print()</code></p>
+</div>
 </div>
 </div>
 </section>
@@ -603,6 +606,50 @@ Logical vector
 </div>
 <p><code>TRUE</code> and <code>FALSE</code> values must be written in all capitals and <em>without</em> double quotes (they are not strings!).</p>
 <p>(We will talk about data frames, another type of object in R, in the following weeks.)</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extra: For-loops and if-else statements
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This course does not cover programming in R in the strict sense, but if you are curious here’s a short primer on for-loops and if-else statements in R.</p>
+<p><strong>For-loops</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apples"</span>, <span class="st">"mangos"</span>, <span class="st">"durians"</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (fruit <span class="cf">in</span> fruits) {</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"I like"</span>, fruit, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>I like apples 
+I like mangos 
+I like durians </code></pre>
+</div>
+</div>
+<p><strong>If-else</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (fruit <span class="cf">in</span> fruits) {</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"n"</span>, fruit)) {</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(fruit, <span class="st">"has an 'n'"</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(fruit, <span class="st">"does not have an 'n'"</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>apples does not have an 'n' 
+mangos has an 'n' 
+durians has an 'n' </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="summary" class="level2" data-number="5">

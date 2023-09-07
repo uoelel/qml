@@ -5,10 +5,10 @@ project:
   render:
     - "*.qmd"
     - "!data/"
-  # resources:
-  #   - "slides/"
-  #   - "img/"
-  #   - "data/"
+  resources:
+    - "slides/"
+    - "img/"
+    - "data/"
 
 website:
   title: "QML"
