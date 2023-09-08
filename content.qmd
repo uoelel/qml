@@ -1,19 +1,19 @@
 ## Schedule overview
 
-| Week       | Topic                                |                       |                                        |     |     |
-|-----------|--------------|--------|---------|-----------------|--------------|
-| 1          | Quantitative methods and uncertainty | [Slides](slides/w01/) | [Tutorial](tutorials/tutorial-w01.qmd) |     |     |
-| 2          | Data wrangling                       | [Slides](slides/w02/) | [Tutorial](tutorials/tutorial-w02.qmd) |     |     |
-| 3          | Data visualisation                   | [Slides](slides/w03/) | [Tutorial](tutorials/tutorial-w03.qmd) |     |     |
-| 4          | Statistical modeling basics          | [Slides](slides/w04/) | [Tutorial](tutorials/tutorial-w04.qmd) |     |     |
-| 5          | Categorical predictors               | [Slides](slides/w05/) | [Tutorial](tutorials/tutorial-w05.qmd) | F1  |     |
-| 6 Catch up | *No classes*                         |                       |                                        |     |     |
-| 7          | Binary outcomes                      | [Slides](slides/w07/) | [Tutorial](tutorials/tutorial-w07.qmd) |     |     |
-| 8          | Multiple predictors and interactions | [Slides](slides/w08/) | [Tutorial](tutorials/tutorial-w08.qmd) |     | S1  |
-| 9          | Continuous predictors                | [Slides](slides/w09/) | [Tutorial](tutorials/tutorial-w09.qmd) |     |     |
-| 10         | Bayesian inference                   | [Slides](slides/w10/) | [Tutorial](tutorials/tutorial-w10.qmd) | F2  |     |
-| 11         | Obtaining p-values (optional)        | [Slides](slides/w11/) | [Tutorial](tutorials/tutorial-w11.qmd) |     |     |
-| 12         |                                      |                       |                                        |     | S2  |
+| Week       | Topic                                |                       |                                        |                                        |     |
+|------------|------------|------------|------------|------------|------------|
+| 1          | Quantitative methods and uncertainty | [Slides](slides/w01/) | [Tutorial](tutorials/tutorial-w01.qmd) |                                        |     |
+| 2          | Data wrangling                       | [Slides](slides/w02/) | [Tutorial](tutorials/tutorial-w02.qmd) |                                        |     |
+| 3          | Data visualisation                   | [Slides](slides/w03/) | [Tutorial](tutorials/tutorial-w03.qmd) |                                        |     |
+| 4          | Statistical modeling basics          | [Slides](slides/w04/) | [Tutorial](tutorials/tutorial-w04.qmd) |                                        |     |
+| 5          | Categorical predictors               | [Slides](slides/w05/) | [Tutorial](tutorials/tutorial-w05.qmd) | [F1](https://github.com/uoelel/qml-f1) |     |
+| 6 Catch up | *No classes*                         |                       |                                        |                                        |     |
+| 7          | Binary outcomes                      | [Slides](slides/w07/) | [Tutorial](tutorials/tutorial-w07.qmd) |                                        |     |
+| 8          | Multiple predictors and interactions | [Slides](slides/w08/) | [Tutorial](tutorials/tutorial-w08.qmd) |                                        | S1  |
+| 9          | Continuous predictors                | [Slides](slides/w09/) | [Tutorial](tutorials/tutorial-w09.qmd) |                                        |     |
+| 10         | Bayesian inference                   | [Slides](slides/w10/) | [Tutorial](tutorials/tutorial-w10.qmd) | F2                                     |     |
+| 11         | Obtaining p-values (optional)        | [Slides](slides/w11/) | [Tutorial](tutorials/tutorial-w11.qmd) |                                        |     |
+| 12         |                                      |                       |                                        |                                        | S2  |
 
 ## Weekly schedule
 
@@ -233,6 +233,8 @@
 -   \*\*DUE on Thu 19 October at noon\*.
 
 -   Formative assessment 1 requires you to complete a few guided exercises of the type that will be included in Summative 1.
+
+-   Find instructions and data here: <https://github.com/uoelel/qml-f1>
 :::
 
 ::: {.callout-important collapse="true"}

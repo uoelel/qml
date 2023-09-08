@@ -14,6 +14,8 @@ See below for details.
 ## Formative 1: Week 5 (Thu 19 October at noon)
 
 **Data summary and visualisation**
+
+You can find the instructions and data for the first formative here: <https://github.com/uoelel/qml-f1/>.
 :::
 
 ::: {.callout-warning}

@@ -469,11 +469,11 @@ Warning
 <h4 data-number="3.0.2" class="anchored" data-anchor-id="attach-packages"><span class="header-section-number">3.0.2</span> Attach packages</h4>
 <p>Now, to use a package you need to <strong>attach</strong> the package with the <code>library()</code> function. <strong>You need to attach the package you want to use once per R session.</strong></p>
 <p>Let’s attach the fortunes package. Run the following code in the Console. Note that while <code>install.packages("fortunes")</code> takes the name of the package as a string, <code>library(fortunes)</code> takes the name of the package without quotes.</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/fortunes_0a98aed3feeb7d81de360317ac12f1d1">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fortunes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you can use the functions provided by the attached package. Try it out!</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/fortune_920717e3cfed214ae2b135a82d7de1d5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fortune</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -516,7 +516,7 @@ Warning
 <p>And since the <code>read_csv()</code> is a function from the tidyverse, you first need to attach the tidyverse packages with <code>library(tidyverse)</code> (remember, you need to attach packages <strong>only once</strong> per session).</p>
 <p>This will attach a set of the tidyverse packages that are commonly used in most data analysis applications, including readr. Of course, you can also attach the individual packages directly: <code>library(readr)</code>. If you use <code>library(tidyverse)</code> there is no need to attach tidyverse individual packages.</p>
 <p>So, putting all together, here’s the code. <strong>Remember to change the file path to match the path of the file on your computer</strong>. Run the code in the Console to read the data.</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/read-example_0ba6e37b0c561431965f8d6a9d591a33">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># CHANGE THE FILE PATH TO MATCH THE PATH ON YOUR COMPUTER</span></span>
@@ -608,7 +608,7 @@ R script
 <p>Generally, you start the script with calls to <code>library()</code> to load all the packages you need for the script.</p>
 <p>Now we only need one package, tidyverse, but in most cases you will need more than one! The best practice is to attach all of packages first, in the top of your script. Please, get in the habit of doing this from now, so that you can keep your scripts tidy and pretty!</p>
 <p>Go ahead, write the following code in the top of the <code>tutorial-w02.R</code> script.</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/read-shallow_fa98df92dc0fafda8a9e87c6b9716d42">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>shallow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/shallow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -662,7 +662,7 @@ Relative path
 <p>Just another tip: sometimes we might want to add a few lines of text in our script, for example to take notes.</p>
 <p>You can add so-called <strong>comments</strong> in R scripts, simply by starting a line with <code>#</code>.</p>
 <p>For example:</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/comments_02140d4dbf65db2f8f8f6d66a68c9276">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment. Let's add 6 + 3.</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -702,7 +702,7 @@ Summary measures
 <li><p>One or more summary function.</p></li>
 </ul>
 <p>For example, let’s get the mean the reaction time column <code>RT</code>. Easy!</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/mean_0c185632de468101299cacb49866a619">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(shallow, <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
@@ -715,7 +715,7 @@ Summary measures
 </div>
 <p>Great! The mean reaction times of the entire sample is 867 ms.</p>
 <p>What if we want also the standard deviation? Easy!</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/sd_c6d5be4b807c7d9e9b39a88dfa6f5e75">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(shallow, <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT), <span class="at">RT_sd =</span> <span class="fu">sd</span>(RT))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
@@ -728,7 +728,7 @@ Summary measures
 </div>
 <p>Now we know that reaction times are on average 867 ms long and have a standard deviation of about 293 ms (rounded to the nearest integer).</p>
 <p>Let’s go all the way and also get the minimum and maximum RT values.</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/minmax_2d94262f4a67eba13e7c6f8f6fcff7fb">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  shallow,</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT), <span class="at">RT_sd =</span> <span class="fu">sd</span>(RT),</span>
@@ -754,13 +754,13 @@ Summary measures
 <p>We can use the <code>count()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> tidyverse package to count the number of occurrences for each value of a specific column. Let’s count how many trials are correct, i.e.&nbsp;let’s count occurrences in the <code>ACC</code> column.</p>
 <p>Accuracy has been coded with <code>0</code> for incorrect and <code>1</code> for correct. We will see how this is not an ideal, although very common way, of coding binary variables. For now let’s keep it as is.</p>
 <p>The function <code>count()</code> takes the name of tibble and the name of column you want to count values in.</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/count-corr_79453764bc13162b9c4edc4758bfe6fc">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(shallow, ACC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>How many <em>correct</em> responses are there in the <code>shallow</code> tibble?</p>
 <p>Note that you can add <strong>multiple column names, separated by commas</strong>, to get counts for the combinations of values of each column.</p>
 <p>Try to get counts of the combination of <code>ACC</code> and <code>Group</code> (<code>L1</code> vs <code>L2</code> participants). Replace <code>...</code> with the right code.</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/count-corr-group_9298962846fd944055785aabc23712ea">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(shallow, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -785,7 +785,7 @@ Hint
 <h3 data-number="6.3" class="anchored" data-anchor-id="grouping-data"><span class="header-section-number">6.3</span> Grouping data</h3>
 <p>Sometimes you might want to get summary measures for one variable depending on different values of another variable.</p>
 <p>You can use the <code>group_by()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> tidyverse package, together with <code>summarise()</code> to achieve that. Let’s see how it works.</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/group_188208a918e4d62079902290b8161f14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(shallow, Group) <span class="sc">%&gt;%</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT),</span>
@@ -816,7 +816,7 @@ Hint
 <p>The pipe <code>%&gt;%</code> teleports the output of the preceding function as the first argument of the following function. The output of <code>group_by</code> is a (groupped) tibble, and <code>summarise()</code> needs a tibble as its first argument.</p>
 <p>That’s why the code above works!</p>
 <p>In fact, you can even use a pipe for the tibble of <code>group_by()</code>, like so:</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/pipe_8da8c3db7c9fddddc1ad533042bda08b">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="sc">%&gt;%</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
@@ -834,7 +834,7 @@ Hint
 </div>
 <p>You see that the output of the code is the same here as it is above.</p>
 <p>For comparison, this is what the code would look like without the pipe.</p>
-<div class="cell">
+<div class="cell" data-hash="tutorial-w02_cache/html/no-pipe_0c8555fe28f259ad763cdaa9b3127b5c">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>grouped_shallow <span class="ot">&lt;-</span> <span class="fu">group_by</span>(shallow, Group)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>

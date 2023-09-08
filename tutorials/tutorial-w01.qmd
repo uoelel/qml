@@ -1,6 +1,8 @@
 ---
 title: "QML tutorial - Week 1"
 editor: visual
+execute: 
+  cache: true
 ---
 
 ## Why R?
@@ -450,8 +452,6 @@ for (fruit in fruits) {
   }
 }
 ```
-
-
 :::
 
 ## Summary
@@ -473,3 +473,4 @@ Here's a summary of what you learnt.
 
 -   Functions are used to perform an operation on its arguments: `sum()` sums it's arguments, `mean()` calculates the mean and `cat()` prints the arguments.
 :::
+
