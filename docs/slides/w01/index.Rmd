@@ -1,9 +1,9 @@
 ---
-title: "Statistics and Quantitative Methods (S2)"
+title: "Quantitative Methods for LEL"
 subtitle: "Week 1"
 author: "Dr Stefano Coretta"
 institute: "University of Edinburgh"
-date: "2023/01/17"
+date: "2023/09/19"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -44,7 +44,7 @@ library(xaringanthemer)
 style_mono_light(outfile = "slides/xaringan-themer.css")
 ```
 
-# Before we begin...
+## Before we begin...
 
 .pull-left[
 .f3[Complete the **SATS-36 questionnaire**.]
@@ -63,35 +63,43 @@ style_mono_light(outfile = "slides/xaringan-themer.css")
 
 layout: true
 
-# This course
+## Course info
+
+---
+
+- The main course website <https://uoelel.github.io/qml/>.
+
+- Course announcements are sent via Learn.
+
+- **ASK FOR HELP**: It is OK not to be OK, and remember that you are not alone.
+
+  - Go to the PPLS UG or PG Hub (on SharePoint Online) > Support for students > Wellbeing and Health.
+  - Come to my office hours (booking link on Learn).
+
+- Assessment:
+
+  - **Formative assessments**: Two formative assessments due on Thursdays.
+  - **Summative assessments**: Two summative assessments (50-50).
 
 ---
 
 **News**
 
-- **SQM (Statistics and Quantitative Methods)** is an updated version of previous years' SED (Statistics and Experimental Design).
+- **QML (Quantitative Methods for Linguistics and English)** is an updated version of previous year's SQM courses.
 
-- The main learning objective is to allow you to **conduct basic data analyses** which can be applied to linguistic questions and data.
+- The main learning objective of this course is to allow you to **conduct basic data analyses** which can be applied to linguistic questions and data.
 
 - We will focus on **modern techniques** of data handling and quantitative analysis.
 
 ---
 
-**Your feedback**
+**Student Reps**
 
-- The course is very intense.
-  - Reduced course content and reordered some of it.
+- Two student reps (one should be EDI rep).
 
-- Not enough time during workshops. Workshops should be fully self-guided.
-  - Reduced workshop content.
-  - Tutor will assist during workshops.
-  - Workshops are fully self-guided.
+- Two meetings with CO on Week 3 and Week 7.
 
-- Information is scattered.
-  - All info, week by week, on the [online syllabus](https://stefanocoretta.github.io/sqmb/syllabus.html).
-
-- More code on slides.
-  - Done!
+- Collect feedback/suggestions from students.
 
 ---
 
@@ -116,7 +124,7 @@ class: middle
 
 ---
 
-# Research methods
+## Research methods
 
 .center[
 ![:scale 60%](../../img/res-methods.png)
@@ -126,13 +134,24 @@ class: middle
 
 layout: true
 
-# Research process
+## Research process
 
 ---
 
 .center[
 ![:scale 60%](../../img/res-process.png)
 ]
+
+---
+
+.center[
+![:scale 60%](../../img/res-process-context.png)
+]
+
+
+---
+
+
 
 ---
 
@@ -145,7 +164,7 @@ layout: true
 layour: false
 layout: true
 
-# Data analysis
+## Data analysis
 
 ---
 
@@ -171,7 +190,7 @@ class: inverse right middle
 
 ---
 
-# Inference process
+## Inference process
 
 .center[
 ![:scale 40%](../../img/bro.png)
@@ -193,7 +212,7 @@ NOTE: *Population* can be a set of anything, not just a specific group of people
 
 ---
 
-# Inference process
+## Inference process
 
 .center[
 ![:scale 75%](../../img/inference.png)
@@ -215,7 +234,7 @@ We can use **inference**.
 
 class: middle center inverse
 
-# Inference is not infallible
+## Inference is not infallible
 
 ???
 
@@ -229,7 +248,7 @@ EXTRA: Find out about Popper's view of falsification and fallibilism.
 
 ---
 
-# Uncertainty and variability
+## Uncertainty and variability
 
 .center[
 ![](../../img/pliny.jpg)
@@ -285,7 +304,7 @@ Photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=unsplash&utm_m
 
 ---
 
-# What is statistics?
+## What is statistics?
 
 .f3[
 - Statistics is the **science** concerned with developing and studying methods for collecting, analyzing, interpreting and presenting empirical data. (From [UCI Department of Statistics](https://www.stat.uci.edu/what-is-statistics/))
@@ -333,7 +352,7 @@ class: middle
 
 ---
 
-# What statistics is NOT
+## What statistics is NOT
 
 - Statistics is **not maths.**
 
@@ -350,7 +369,7 @@ class: middle
 
 layout: true
 
-# Many Analysts, One Data Set
+## Many Analysts, One Data Set
 
 ---
 
@@ -412,7 +431,7 @@ class: bottom
 background-image: url(../../img/francesco-gallarotti-ruQHpukrN7c-unsplash.jpg)
 background-size: cover
 
-# THE "NEW STATISTICS"
+## THE "NEW STATISTICS"
 
 ???
 
@@ -422,7 +441,7 @@ Photo by <a href="https://unsplash.com/@gallarotti?utm_source=unsplash&utm_mediu
 
 layout: true
 
-# The *New Statistics*
+## The *New Statistics*
 
 ---
 
@@ -462,7 +481,7 @@ This course will introduce you to the *New Statistics* approach incrementally.
 
 layout: false
 
-# The *Bayesian New Statistics*
+## The *Bayesian New Statistics*
 
 [Kurschke and Liddell 2018](https://doi.org/10.3758/s13423-016-1221-4).
 
@@ -473,21 +492,3 @@ layout: false
 - **Bayesian statistics** provides researchers with more appropriate and more robust ways to answer research questions.
 
   - Reallocation of belief/credibility across possibilities.
-
----
-
-# Course info
-
-- Check the course website <https://stefanocoretta.github.io/sqmb/>.
-
-- Course announcements are sent via Learn.
-
-- **ASK FOR HELP**: It is OK not to be OK, and remember that you are not alone.
-
-  - Go to the PPLS UG or PG Hub (on SharePoint Online) > Support for students > Wellbeing and Health.
-  - Come to my office hours (book an appointment [here](https://outlook.office365.com/owa/calendar/Stefanosofficehours@uoe.onmicrosoft.com/bookings/)).
-
-- Assessment:
-
-  - **Formative assessments**: Three formative assessments due on Thursdays.
-  - **Summative assessments**: Two summative assessments.
