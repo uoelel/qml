@@ -71,7 +71,7 @@
 **Main textbooks**
 
 -   Statistics for Linguists with R, by Bodo Winter (**S4LR**) Ch. 1. \[via library\]
--   R for Data Science (**R4DS**) [Ch. 1](https://r4ds.had.co.nz/introduction.html), [Ch. 2](https://r4ds.had.co.nz/explore-intro.html). \[online book\]
+-   R for Data Science (**R4DS**) [Ch. 1](https://r4ds.hadley.nz/intro.html), [Ch. 2](https://r4ds.hadley.nz/data-visualize). \[online book\]
 -   Statistical (Re)thinking, by Richard McElreath (**SReT**), Ch. 1. \[via library\]
 
 **Papers**
@@ -123,7 +123,7 @@
 **Main textbooks**
 
 -   **S4LR** Ch. 3. \[via library\]
--   **R4DS** [Ch. 4](https://r4ds.had.co.nz/workflow-basics.html) and [Ch. 5](https://r4ds.had.co.nz/transform.html). \[online book\]
+-   **R4DS** [Ch. 3](https://r4ds.hadley.nz/workflow-basics) and [Ch. 4](https://r4ds.hadley.nz/data-transform.html). \[online book\]
 :::
 
 ### Week 3: Data visualisation
@@ -161,7 +161,7 @@
 
 **Main textbooks**
 
--   **R4DS** [Ch. 3](https://r4ds.had.co.nz/data-visualisation.html). \[online book\]
+-   **R4DS** [Ch. 2](https://r4ds.hadley.nz/data-visualize.html). \[online book\]
 -   [ggplot2](https://ggplot2.tidyverse.org) documentation.
 
 **From the lecture**
@@ -226,7 +226,7 @@
 
 **Main textbooks**
 
--   **R4DS** [Ch. 3](https://r4ds.had.co.nz/data-visualisation.html). \[online book\]
+-   **R4DS** [Ch. 2](https://r4ds.hadley.nz/data-visualize.html). \[online book\]
 -   [ggplot2](https://ggplot2.tidyverse.org) documentation.
 -   **S4LR** Ch 3. \[via library\]
 -   **SReT** Ch 2, sparingly (we have not covered everything in the chapter yet). \[via library\]
@@ -276,7 +276,7 @@
 
 **Main textbooks**
 
--   **R4DS** [Ch. 15](https://r4ds.had.co.nz/factors.html). \[online book\]
+-   **R4DS** [Ch. 17](https://r4ds.hadley.nz/factors.html). \[online book\]
 -   **S4LR** Ch 7. \[via library\]
 -   **SReT** Sec 5.3. \[via library\]
 :::
