@@ -31,7 +31,7 @@ class: center, middle, inverse, title-slide
 ### University of Edinburgh
 ]
 .date[
-### 2023/01/24
+### 2023/09/26
 ]
 
 ---
@@ -186,7 +186,7 @@ layout: true
 
 layout: false
 
-# Operationalisation
+## Operationalisation
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 We can **operationalise** something as a numeric or a categorical variable.
@@ -208,35 +208,13 @@ Think of ways to operationalise the following:
 
 ---
 
-# Quick poll
-
-.f3[*Think of ways to operationalise (a) Voice Onset Time, (b) Friendliness of speech, (c) Lexical frequency*]
-
-&lt;br&gt;
-
-.pull-left[
-.f3[Join at]
-
-.f1[slido.com]
-
-.f1[\#2920 666]
-]
-
-.pull-right[
-.center[
-![](../../img/QR-SQM-2-Week-2.png)
-]
-]
-
-???
-
-Slido poll. &lt;https://app.sli.do/event/s6sFzqiJGew4tBKayTZH4q&gt;
+&lt;iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/65019850638677cbb76578e0" width="100%"&gt;&lt;/iframe&gt;
 
 ---
 
 layout: true
 
-# Summary measures
+## Summary measures
 
 ---
 
@@ -267,15 +245,15 @@ There are two types of summary measures.
 
 --
 
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-**Always report a measure of central tendency together with a measure of dispersion!**
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+**Always report a measure of central tendency together with its measure of dispersion!**
 ]
 
 ---
 
 layout: false
 
-# Measures of central tendency
+## Measures of central tendency
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 **Mean**
@@ -303,7 +281,13 @@ The most common value.
 
 ---
 
-# Measures of dispersion
+## Measures of dispersion
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+**Minimum and maximum** values
+]
+
+--
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 **Range**
@@ -325,7 +309,7 @@ The difference between the largest and smallest value.
 
 ---
 
-# Mean
+## Mean
 
 Use the mean with **numeric continuous variables**, if:
 
@@ -354,18 +338,20 @@ mean(c(0.32, 2.58, 1.5, 0.12, 1.09))
 --
 
 .bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt1[
-**Don't use the mean with proportions and percentages!**
+**Don't take the mean of proportions and percentages!**
+
+Better to calculate the proportion/percentage across the entire data, rather than take the mean of individual proportions/percentages: see [this blog post](https://www.robertoreif.com/blog/2018/1/7/why-you-should-be-careful-when-averaging-percentages). If you really really have to, use the *median*.
 ]
 
 ---
 
 layout: true
 
-# Median
+## Median
 
 ---
 
-Use the median with **numeric continuous and discrete variables**.
+Use the median with **numeric (continuous and discrete) variables**.
 
 
 ```r
@@ -466,9 +452,9 @@ mean(c(4, 6, 3, 9, 7, 40))
 
 layout: false
 
-# Mode
+## Mode
 
-Use the mode with **categorical discrete variables**.
+Use the mode with **categorical (discrete) variables**.
 
 
 ```r
@@ -487,11 +473,47 @@ The mode is the most frequent value: `red`.
 
 .bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt1[
 **Likert scales are ordinal (categorical) variables, so the mean and median are not appropriate!**
+
+You should use the mode (You can use the median with Likert scales if you really really need to...)
 ]
 
 ---
 
-# Range
+## Minimum and maximum
+
+Report minimum and maximum values for any **numeric variable**.
+
+
+```r
+x_1 &lt;- c(-1.12, 0.95, 0.41, -2.1, 0.09)
+
+min(x_1)
+```
+
+```
+## [1] -2.1
+```
+
+```r
+max(x_1)
+```
+
+```
+## [1] 0.95
+```
+
+```r
+range(x_1)
+```
+
+```
+## [1] -2.10  0.95
+```
+
+
+---
+
+## Range
 
 Use the range with any **numeric variable**.
 
@@ -525,7 +547,7 @@ max(x_3) - min(x_3)
 
 ---
 
-# Standard deviation
+## Standard deviation
 
 Use the standard deviation with **numeric continuous variables**, if:
 
@@ -553,41 +575,24 @@ sd(c(0.32, 2.58, 1.5, 0.12, 1.09))
 
 --
 
-.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt1[
-**Don't use the standard deviation with proportions and percentages!**
-
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt1[
 Standard deviations are **relative** and depend on the measurement **unit/scale!**
 ]
 
----
+--
 
-# Quick poll
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt1[
+**Don't use the standard deviation with proportions and percentages!**
 
-.f3[*For which of the following variables is the MEDIAN appropriate?*]
-
-&lt;br&gt;
-
-.pull-left[
-.f3[Join at]
-
-.f1[slido.com]
-
-.f1[\#2920 666]
 ]
-
-.pull-right[
-.center[
-![](../../img/QR-SQM-2-Week-2.png)
-]
-]
-
-???
-
-Slido poll. &lt;https://app.sli.do/event/s6sFzqiJGew4tBKayTZH4q&gt;
 
 ---
 
-# Summary measures overview
+&lt;iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/65019d638c8a6cf328483110" width="100%"&gt;&lt;/iframe&gt;
+
+---
+
+## Summary measures overview
 
 &lt;br&gt;
 &lt;br&gt;
@@ -599,7 +604,7 @@ Slido poll. &lt;https://app.sli.do/event/s6sFzqiJGew4tBKayTZH4q&gt;
 
 ---
 
-# Summary
+## Summary
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 - The **sample** `\(y\)` is generated by a (random) variable `\(Y\)`.
