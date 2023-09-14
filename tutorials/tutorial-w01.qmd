@@ -3,7 +3,19 @@ title: "QML tutorial - Week 1"
 editor: visual
 execute: 
   cache: true
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+    embed-resources: true 
 ---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(webexercises)
+```
 
 ## Why R?
 
@@ -145,6 +157,23 @@ Before moving on, there are a few important settings that you need to change.
 
 4.  Click `OK` to confirm the changes.
 
+::: callout-note
+#### Quiz 1
+
+```{r}
+#| label: quiz-1
+#| results: asis
+#| echo: false
+
+cat("**True or false?**", "\n\n")
+cat("a. RStudio executes the code.", torf(FALSE), "\n\n")
+cat("b. R is a programming language.", torf(TRUE), "\n\n")
+cat("c. An IDE is necessary to run R.", torf(FALSE), "\n\n")
+cat("d. RStudio projects are folders with an `.Rproj` file.", torf(TRUE), "\n\n")
+cat("f. The project name is shown in the top-right corner of RStudio.", torf(TRUE))
+```
+:::
+
 ## R basics
 
 In this part of the tutorial you will learn the very basics of R.
@@ -188,6 +217,20 @@ You can also chain multiple operations.
 4 * 2 + 3 * 2
 ```
 
+::: callout-note
+#### Quiz 2
+
+```{r}
+#| label: quiz-2
+#| results: asis
+#| echo: false
+
+cat("**Are the following pairs of operations equivalent?**", "\n\n")
+cat("a. `3 * 2 / 4` = `3 * (2 / 4)`", torf(TRUE), "\n\n")
+cat("b. `10 * 2 + 5 * 0.2` = `(10 * 2 + 5) * 0.2`", torf(FALSE), "\n\n")
+```
+:::
+
 ### Variables
 
 > Forget-me-not.
@@ -230,7 +273,7 @@ A variable like `my_num` is also called a **numeric vector**: i.e. a vector that
 A **vector** is an R object that contains one or more values of the same type.
 :::
 
-A vector is a type of variable and a numeric vector is a type of vector. However, it's fine in most cases to use the word variable to mean vector (just note that a variable can also be something else than a vector; you will learn about more variable types from next week).
+A vector is a type of variable and a numeric vector is a type of vector. However, it's fine in most cases to use the word variable to mean vector (just note that a variable can also be something else than a vector; you will learn about other R objects from next week).
 
 Let's now try some operations using variables.
 
@@ -305,6 +348,21 @@ my_num <- 63
 my_num
 ```
 
+::: callout-note
+#### Quiz 3
+
+```{r}
+#| label: quiz-3
+#| results: asis
+#| echo: false
+
+cat("**True or false?**", "\n\n")
+cat("a. A vector is a type of variable.", torf(TRUE), "\n\n")
+cat("b. Not all variables are vectors.", torf(TRUE), "\n\n")
+cat("c. A numeric vector can only hold numeric values.", torf(TRUE), "\n\n")
+```
+:::
+
 ### Functions
 
 > R cannot function without... functions.
@@ -312,7 +370,7 @@ my_num
 ::: callout-tip
 #### Function
 
-A **function** is an operation performed on one or more **arguments**.
+A **function** usually runs an operation on one or more specified **arguments**.
 :::
 
 A function in R has the form `function()` where:
@@ -340,6 +398,27 @@ my_nums <- c(3, 5, 7)
 sum(my_nums)
 mean(my_nums)
 ```
+
+::: callout-note
+#### Quiz 4
+
+```{r}
+#| label: quiz-4
+#| results: asis
+#| echo: false
+
+cat("**True or false?**", "\n\n")
+cat("a. Functions can take other functions as arguments.", torf(TRUE), "\n\n")
+cat("b. All function arguments must be specified.", torf(FALSE), "\n\n")
+cat("c. All functions need at least one argument.", torf(FALSE), "\n\n")
+```
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+The `Sys.Date()` function and other functions like it don't take any arguments.
+:::
 
 ::: {.callout-important collapse="true"}
 #### Extra: R vs Python
@@ -425,6 +504,46 @@ data.frame(groceries, in_pantry)
 `TRUE` and `FALSE` values must be written in all capitals and *without* double quotes (they are not strings!).
 
 (We will talk about data frames, another type of object in R, in the following weeks.)
+
+::: {.callout-note}
+#### Quiz 5
+
+```{r}
+#| label: quiz-5
+#| results: asis
+#| echo: false
+
+opts_5a <- c(
+  '`c(1, 2, "43")`',
+  '`"s"`',
+  answer = '`c(apple)` (assuming `apple <- 45`)',
+  "`c(letters)`"
+)
+
+cat("a. Which of the following is **not** a string vector.", longmcq(opts_5a))
+
+opts_5b <- c(
+  '`c(T, T, F)`',
+  '`TRUE`',
+  answer = '`"FALSE"`',
+  "`c(FALSE)`"
+)
+
+cat("b. Which of the following is **not** a logical vector.", longmcq(opts_5b))
+```
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+You can use the `class()` function to check the type ("class") of a vector.
+
+```{r}
+class(FALSE)
+class(c(1, 45))
+class(c("a", "b"))
+```
+:::
 
 ::: {.callout-important collapse="true"}
 #### Extra: For-loops and if-else statements

@@ -126,7 +126,7 @@ Importing files in R is very easy with the tidyverse packages. You just need to 
 
 The next sections will teach you how to import data in R!
 
-::: {.callout-note}
+::: callout-note
 #### Quiz 1
 
 ```{r}
@@ -321,7 +321,7 @@ Think of `install.packages()` as mounting a light bulb (installing the package) 
 ![](/img/install-vs-attach.jpeg)
 :::
 
-::: {.callout-note}
+::: callout-note
 #### Quiz 2
 
 ```{r}
@@ -394,7 +394,7 @@ The `shallow` data frame contains 11 columns (called variables in the `Environme
 -   `Relation_type`: The type of relation between prime and target word (`Unrelated`, `NonCostituent`, `Constituent`, `Phonological`).
 -   `Branching`: Constituent syntactic branching, `Left` and `Right` (shout out to Charlie Puth).
 
-::: {.callout-note}
+::: callout-note
 #### Quiz 3
 
 ```{r}
@@ -563,7 +563,7 @@ For example:
 6 + 3
 ```
 
-::: {.callout-note}
+::: callout-note
 #### Quiz 4
 
 ```{r}
@@ -574,11 +574,10 @@ For example:
 cat("Is the following a valid line of R code?", torf(TRUE))
 ```
 
-```r
+``` r
 sum(x + 2) # x = 4
 ```
 :::
-
 
 ## Data transformation
 
@@ -655,7 +654,7 @@ We will learn more about standard deviations from Week 4 on, but for now just th
 
 When required, you can use the `median()` function to calculate the median, instead of the `mean()`. Go ahead and calculate the median reaction times in the data. Is it similar to the mean?
 
-::: {.callout-note}
+::: callout-note
 #### Quiz 5
 
 ```{r}
@@ -680,7 +679,6 @@ opts_5b <- c(
 cat("b. Which is the mean of `c(4, 23, NA, 5)` when `na.rm` has the default value?", longmcq(opts_5b))
 ```
 :::
-
 
 Note that R has a `mode()` function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!
 
@@ -791,7 +789,7 @@ summarise(
 
 Don't worry too much if the concept of the pipe is not clear yet. It should become clearer later.
 
-::: {.callout-note}
+::: callout-note
 #### Quiz 6
 
 ```{r}
