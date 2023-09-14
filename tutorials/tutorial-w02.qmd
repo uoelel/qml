@@ -3,10 +3,17 @@ title: "QML tutorial - Week 2"
 editor: visual
 execute: 
   cache: true
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+    embed-resources: true 
 ---
 
 ```{r}
 #| include: false
+
+library(webexercises)
 set.seed(32986)
 ```
 
@@ -119,6 +126,24 @@ Importing files in R is very easy with the tidyverse packages. You just need to 
 
 The next sections will teach you how to import data in R!
 
+::: {.callout-note}
+#### Quiz 1
+
+```{r}
+#| label: quiz-1
+#| results: asis
+#| echo: false
+
+opts_1 <- c(
+   "`Downloads/courses/qml/data/`",
+   answer = "`/Users/smruti/Downloads/data.csv/files/`",
+   "`sascha/Documents/files_pdf/paper.pdf`"
+)
+
+cat("Which of the following paths is an impossible path?", longmcq(opts_1))
+```
+:::
+
 ## The data
 
 For this tutorial, we will use the data from this paper: Song et al. 2020. *Second language users exhibit shallow morphological processing*. DOI: [10.1017/S0272263120000170](https://doi.org/10.1017/S0272263120000170).
@@ -152,7 +177,7 @@ In section 2-4 of this tutorial you will learn about:
 
 Please, follow these instructions carefully.
 
-1.  Download the file with the data by right-clicking on the following link and download the file: [shallow.csv](../data/shallow.csv). (Note that tutorial files are also linked in the [Syllabus](../content.qmd))
+1.  Download the file with the data by right-clicking on the following link and download the file: [shallow.csv](../data/shallow.csv). (Note that tutorial files are also linked in the [Course content](../content.qmd) page)
 
 2.  Create a folder called `data/` (the slash is there just to remind you that it's a folder, but you don't have to include it in the name) in the RStudio project of the course.
 
@@ -268,7 +293,11 @@ Go ahead and try to install a package using the second method. Install the fortu
 
 #### Attach packages
 
-Now, to use a package you need to **attach** the package with the `library()` function. **You need to attach the package you want to use once per R session.**
+Now, to use a package you need to **attach** the package with the `library()` function.
+
+::: callout-warning
+**You need to attach the package you want to use once per R session.**
+:::
 
 Let's attach the fortunes package. Run the following code in the Console. Note that while `install.packages("fortunes")` takes the name of the package as a string, `library(fortunes)` takes the name of the package without quotes.
 
@@ -292,13 +321,31 @@ Think of `install.packages()` as mounting a light bulb (installing the package) 
 ![](/img/install-vs-attach.jpeg)
 :::
 
+::: {.callout-note}
+#### Quiz 2
+
+```{r}
+#| label: quiz-2
+#| results: asis
+#| echo: false
+
+opts_2 <- c(
+   answer = "You attach libraries with `library()`.",
+   "`install.packages()` does not load packages.",
+   "The R library is a folder."
+)
+
+cat("Which of the following statements is wrong?", longmcq(opts_2))
+```
+:::
+
 ## Import and view data
 
 ### Import the data
 
 To import data in R we will use the `read_csv()` function from the [readr](https://readr.tidyverse.org) package, one of the tidyverse packages.
 
-The `read_csv()` function only requires you to specify the file path as a string (remember, strings are quoted between `" "`.
+The `read_csv()` function only requires you to specify the file path as a string (remember, strings are quoted between `" "`, for example `"year_data.txt"`).
 
 On my computer, the file path of `shallow.csv` is `/Users/ste/qml/data/shallow.csv`, but on your computer the file path will be different, of course.
 
@@ -306,7 +353,7 @@ Also, note that it is not enough to use the `read_csv()` function. You also must
 
 And since the `read_csv()` is a function from the tidyverse, you first need to attach the tidyverse packages with `library(tidyverse)` (remember, you need to attach packages **only once** per session).
 
-This will attach a set of the tidyverse packages that are commonly used in most data analysis applications, including readr. Of course, you can also attach the individual packages directly: `library(readr)`. If you use `library(tidyverse)` there is no need to attach tidyverse individual packages.
+This will attach a set of the tidyverse packages that are commonly used in most data analysis applications, including readr. Of course, you can also attach the individual packages directly: `library(readr)`. If you use `library(tidyverse)` there is no need to attach individual tidyverse packages.
 
 So, putting all together, here's the code. **Remember to change the file path to match the path of the file on your computer**. Run the code in the Console to read the data.
 
@@ -333,7 +380,7 @@ Data tables in R (i.e. spreadsheet-like data) are called **data frames** or **ti
 
 [^1]: A **tibble** is a special data frame. We will learn more about tibbles in the following weeks.
 
-The `shallow` data frame contains 6500 observations and 11 columns (called variables in the `Environment` tab). The 11 columns are the following:
+The `shallow` data frame contains 11 columns (called variables in the `Environment` tab). The 11 columns are the following:
 
 -   `Group`: `L1` vs `L2` speakers of English.
 -   `ID`: Subject unique ID.
@@ -347,16 +394,38 @@ The `shallow` data frame contains 6500 observations and 11 columns (called varia
 -   `Relation_type`: The type of relation between prime and target word (`Unrelated`, `NonCostituent`, `Constituent`, `Phonological`).
 -   `Branching`: Constituent syntactic branching, `Left` and `Right` (shout out to Charlie Puth).
 
+::: {.callout-note}
+#### Quiz 3
+
+```{r}
+#| label: quiz-3
+#| results: asis
+#| echo: false
+
+opts_3 <- c(
+   "11",
+   "650",
+   answer = "6500"
+)
+
+cat("How many rows does `shallow` have?", longmcq(opts_3))
+```
+:::
+
 Great stuff! See how easy it was to import data?
 
-You can easily import other file types as long as they are tabular or rectangular (i.e. spreadsheet-like), like Excel files.
-
-::: {.callout-note collapse="true"}
-#### How to import other file types
+::: callout-tip
+## Data formats
 
 Most of the data we will be using in this course will be in the `.csv` format.
 
-This is the best format to save data in because it is basically a plain text file, it's quick to parse, and can be opened and edited with any software (plus, it's not a proprietary format).
+**The comma separated values format (`.csv`) is the best format to save data in** because it is basically a plain text file, it's quick to parse, and can be opened and edited with any software (plus, it's not a proprietary format).
+:::
+
+However, you can easily import other file types as long as they are tabular or rectangular (i.e. spreadsheet-like), like Excel files.
+
+::: {.callout-note collapse="true"}
+#### How to import other file types
 
 Sometimes though you might have to read other file types, for example Excel spreadsheets.
 
@@ -364,16 +433,28 @@ It's easy to read other file type using the other `read_*()` functions:
 
 -   For Excel files (i.e. files with a `.xls` or `.xlsx` extension), you need to attach the [readxl](https://readxl.tidyverse.org) package with `library(readxl)` and use the `read_excel()` function.
 
--   Use `read_tsv()` from the readr package (installed with the tidyverse) to read tab separated values files.
+-   Use `read_tsv()` from the readr package (installed with the tidyverse) to read tab separated values files (these have either the `.txt` or `.tsv` extensions.
 
 -   The flexible `read_delim()` function allows you to read a wide variety of delimited files.
+:::
+
+::: {.callout-note collapse="true"}
+#### Exercise 1
+
+Download the following files into the data folder. Read them in R, making sure you use the right `read_*()` function.
+
+-   [takete_maluma.txt](../data/takete_maluma.txt) (a tab separated file)
+
+-   [Relatives.xlsx](../data/Relatives.xlsx)
+
+-   Go to <https://datashare.ed.ac.uk/handle/10283/4006> and download the file `conflict_data_.xlsx`. Read both sheets ("conflict_data2" and "demographics"). Any issues?
 :::
 
 ## R scripts
 
 So far, you've been asked to write code in the **Console** and run it there.
 
-But this is not very efficient. Every time you need to write the code and execute it in the right order and it quickly becomes very difficult to keep track of everything when things start getting more involved.
+But this is not very efficient. Every time, you need to write the code and execute it in the right order and it quickly becomes very difficult to keep track of everything when things start getting more involved.
 
 A solution is to use **R scripts**.
 
@@ -401,7 +482,13 @@ Click on `R Script`. A new empty R script will be created and will open in the F
 
 Save the file inside the `code/` folder with the following name: `tutorial-w02.R`.
 
-Remember that all the files of your RStudio project don't live inside RStudio but on your computer. So you can always access them from the Finder or File Explorer!
+::: callout-warning
+Remember that all the files of your RStudio project don't live inside RStudio but on your computer.
+
+So you can always access them from the Finder or File Explorer! **However**, do not open a file by double clicking on it from the Finder/File Explorer.
+
+Rather, **open the RStudio project by double clicking on the `.Rproj` file** and then open files from RStudio to ensure you are working within the RStudio project and the working directory is set correctly. (See the tutorial from Week 1).
+:::
 
 ### Write code
 
@@ -476,6 +563,23 @@ For example:
 6 + 3
 ```
 
+::: {.callout-note}
+#### Quiz 4
+
+```{r}
+#| label: quiz-4
+#| results: asis
+#| echo: false
+
+cat("Is the following a valid line of R code?", torf(TRUE))
+```
+
+```r
+sum(x + 2) # x = 4
+```
+:::
+
+
 ## Data transformation
 
 **Data transformation** is a fundamental aspect of data analysis.
@@ -493,7 +597,7 @@ During the lecture, we have learnt two types of measures.
 
 **Measures of central tendency** (mean, median, mode) indicate the typical or central value of a sample.
 
-**Measures of dispersion** (standard deviation, range) indicate the dispersion of the sample values around the central tendency value.
+**Measures of dispersion** (min-max, range, standard deviation) indicate the dispersion of the sample values around the central tendency value.
 :::
 
 When you work with data, you always want to get summary measures for most of the variables in the data.
@@ -506,7 +610,7 @@ We have covered this in the lecture, so we won't go over it again here. Instead,
 
 -   The data frame to summarise.
 
--   One or more summary function.
+-   One or more summary functions.
 
 For example, let's get the mean the reaction time column `RT`. Easy!
 
@@ -547,7 +651,40 @@ Fab! When writing a data report, you could write something like this.
 
 > Reaction times are on average 867 ms long (SD = 293 ms), with values ranging from 0 to 1994 ms.
 
-In some cases, you will want to use the `median()` instead of the `mean()`. Note that R has a `mode()` function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!
+We will learn more about standard deviations from Week 4 on, but for now just think of this as a relative measure of how dispersed the data are around the mean: the higher the SD, the greater the dispersion around the mean, i.e. the greater the variability in the data.
+
+When required, you can use the `median()` function to calculate the median, instead of the `mean()`. Go ahead and calculate the median reaction times in the data. Is it similar to the mean?
+
+::: {.callout-note}
+#### Quiz 5
+
+```{r}
+#| label: quiz-5
+#| results: asis
+#| echo: false
+
+opts_5a <- c(
+   "It changes `NA`s to `FALSE`.",
+   "It converts `NA`s to `0`s.",
+   answer = "It removes `NA`s before taking the mean."
+)
+
+cat("a. What does the `na.rm` argument of `mean()` do?", longmcq(opts_5a))
+
+opts_5b <- c(
+   answer = "`NA`.",
+   "`0`.",
+   "`10.66`."
+)
+
+cat("b. Which is the mean of `c(4, 23, NA, 5)` when `na.rm` has the default value?", longmcq(opts_5b))
+```
+:::
+
+
+Note that R has a `mode()` function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!
+
+Keep reading to learn how to count occurrences.
 
 ### Count occurrences
 
@@ -615,9 +752,9 @@ Wait, what is that thing, `%>%`?
 
 It's called a **pipe**. Think of a pipe as a teleporter.
 
-In the code above we are chaning two functions together using the pipe opeartor `%>%`. The output of the first function (`group_by()`) is "teleported" into the second function `summarise()`.
+In the code above we are chaining two functions together using the pipe opeartor `%>%`. The output of the first function (`group_by()`) is "teleported" into the second function `summarise()`.
 
-The pipe `%>%` teleports the output of the preceding function as the first argument of the following function. The output of `group_by` is a (groupped) tibble, and `summarise()` needs a tibble as its first argument.
+The pipe `%>%` teleports the output of the preceding function as the first argument of the following function. The output of `group_by` is a (grouped) tibble, and `summarise()` needs a tibble as its first argument.
 
 That's why the code above works!
 
@@ -654,6 +791,54 @@ summarise(
 
 Don't worry too much if the concept of the pipe is not clear yet. It should become clearer later.
 
+::: {.callout-note}
+#### Quiz 6
+
+```{r}
+#| label: quiz-6
+#| results: asis
+#| echo: false
+
+opts_6a <- c(
+   "`count(shallow, Target)`.",
+   answer = "`shallow %>% distinct(Target) %>% count()`.",
+   "`shallow %>% count(Target)`."
+)
+
+cat("a. Which of the following returns the number of words in `shallow`?", longmcq(opts_6a))
+
+cat("b. The output of `summarise()` always drops the grouping.", torf(FALSE))
+```
+:::
+
+::: {.callout-note collapse="true"}
+#### Exercise 2
+
+-   Go to <https://github.com/stefanocoretta/infant-gestures> and download the `gestures.csv` file in the `data/` folder. This is data from the paper \[A Cross-Cultural Analysis of Early Prelinguistic Gesture Development and Its Relationship to Language Development\](https://doi.org/10.1111/cdev.13406).
+
+-   Read the file in R.
+
+-   Calculate the following:
+
+    -   Measure of central tendency and dispersion for the `count` column (it contains the number of gestures performed by each child in different tasks).
+
+    -   Measure of central tendency and dispersion for the `count`column grouped by `month` (the child's age).
+
+    -   Total number of gestures by children (`dyad`).
+
+    -   Number of children by `background`.
+
+-   Write a paragraph where you report the measures.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+-   To calculate the total number of gestures by children, you need the `sum()` function.
+
+-   To calculate the number of children by background, you need the `distinct()` function.
+:::
+
 ## Summary
 
 You made it! You completed this week's tutorial.
@@ -665,7 +850,7 @@ Here's a summary of the R functions you learnt.
 
 `read_csv()` reads `.csv` files in R.
 
-`summarise()` allows you to calculate measures of central tendency and dispersion.
+`summarise()` allows you to calculate measures of central tendency and dispersion (with `mean()`, `median()`, `min()` and `max()`).
 
 `count()` lets you count the number of occurrences of levels in a categorical variable.
 
@@ -673,4 +858,3 @@ Here's a summary of the R functions you learnt.
 
 The pipe `%>%` can be used to chain multiple functions.
 :::
-

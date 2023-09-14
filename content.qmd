@@ -74,11 +74,6 @@
 -   R for Data Science (**R4DS**) [Ch. 1](https://r4ds.hadley.nz/intro.html), [Ch. 2](https://r4ds.hadley.nz/data-visualize). \[online book\]
 -   Statistical (Re)thinking, by Richard McElreath (**SReT**), Ch. 1. \[via library\]
 
-**Papers**
-
--   [Darwin Holmes 2020](https://doi.org/10.34293/education.v8i4.3232). Researcher Positionality - A Consideration of Its Influence and Place in Qualitative Research - A New Researcher Guide
--   [Jafar 2018](https://doi.org/10.1136/emermed-2017-207158). What is positionality and should it be expressed in quantitative studies?
-
 **From the lecture**
 
 -   [Ellis and Levy 2008](https://www.informingscience.org/Publications/438?Source=%2FJournals%2FInformingSciJ%2FArticles%3FVolume%3D11-2008). Framework of Problem-Based Research: A Guide for Novice Researchers on the Development of a Research-Worthy Problem
@@ -86,6 +81,13 @@
 -   [Coretta et al. 2023](https://doi.org/10.31234/osf.io/q8t2k). Multidimensional signals and analytic flexibility: Estimating degrees of freedom in human speech analyses
 -   [Cumming 2014](https://doi.org/10.1177%2F0956797613504966). The New Statistics: Why and How
 -   [Kurschke and Liddell 2018](https://doi.org/10.3758/s13423-016-1221-4). The Bayesian New Statistics: Hypothesis testing, estimation, meta-analysis, and power analysis from a Bayesian perspective
+
+**Other**
+
+- [Methods as theory](https://stefanocoretta.github.io/post/methods-as-theory/).
+- Molnar 2022. Modeling Mindsets: The many cultures of learning from data.
+-   [Darwin Holmes 2020](https://doi.org/10.34293/education.v8i4.3232). Researcher Positionality - A Consideration of Its Influence and Place in Qualitative Research - A New Researcher Guide
+-   [Jafar 2018](https://doi.org/10.1136/emermed-2017-207158). What is positionality and should it be expressed in quantitative studies?
 :::
 
 ### Week 2: Data wrangling
@@ -168,8 +170,10 @@
 
 -   [Spiegelhalter 2020](https://www.penguin.co.uk/books/294857/the-art-of-statistics-by-spiegelhalter-david/9780241258767). *The Art of Statistics: Learning from Data.*
 
-**Extra**
+**Other**
 
+- [Gabry et al 2019](https://doi.org/10.1111/rssa.12378). Visualization in Bayesian workflow.
+- [Politzer-Ahles and Piccini](https://doi.org/10.1016/j.wocn.2018.05.002). On visualizing phonetic data from repeated measures experiments with multiple random effects.
 -   [Fundamentals of Data Visualisation](https://clauswilke.com/dataviz/).
 -   **Data viz catalogues**
     -   [Directory of visualisations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
@@ -230,6 +234,14 @@
 -   [ggplot2](https://ggplot2.tidyverse.org) documentation.
 -   **S4LR** Ch 3. \[via library\]
 -   **SReT** Ch 2, sparingly (we have not covered everything in the chapter yet). \[via library\]
+
+**Other**
+
+The following resources will be helpful throughout the course. Note they cover aspects that we have not yet discussed (some will be in the following weeks, others won't be due to time), but **do bookmark these** because they will be valuable when you will be working on your dissertation.
+
+- [Linear Models and Mixed Models with R](https://www.bodo-winter.net/tutorials.html) tutorials (1 and 2) by Bodo Winter (author of S4LR) for a general overview of the type of models we focus on in this course.
+- [One Thousand and One names](https://stefanocoretta.github.io/post/2022-07-22-one-thousand-and-one-names/): table with naming conventions for different types of linear models.
+- [Linear Models: A cheat-sheet](https://stefanocoretta.github.io/post/2021-08-21-regression-models-a-cheat-sheet/): use this to find out which building blocks you need for your linear model.
 :::
 
 ### Week 5: Categorical predictors
@@ -237,7 +249,7 @@
 ::: {.callout-warning collapse="true"}
 #### Formative assessment 1
 
--   \*\*DUE on Thu 19 October at noon\*.
+-   **DUE on Thu 19 October at noon**.
 
 -   Formative assessment 1 requires you to complete a few guided exercises of the type that will be included in Summative 1.
 
@@ -279,6 +291,10 @@
 -   **R4DS** [Ch. 17](https://r4ds.hadley.nz/factors.html). \[online book\]
 -   **S4LR** Ch 7. \[via library\]
 -   **SReT** Sec 5.3. \[via library\]
+
+**Other**
+
+- [Factors, coding and contrasts](https://stefanocoretta.github.io/post/contrasts/): blog post on factors in linear models. It also discusses interactions, which we will cover in Weeks 8-9.
 :::
 
 ### Week 6: Catch-up Week

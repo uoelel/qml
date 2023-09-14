@@ -2442,6 +2442,23 @@
       ],
       "Hash": "8318e64ffb3a70e652494017ec455561"
     },
+    "webexercises": {
+      "Package": "webexercises",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "jsonlite",
+        "knitr",
+        "rmarkdown",
+        "rstudioapi",
+        "utils",
+        "yaml"
+      ],
+      "Hash": "0bc402e12a6bf83525ee4cda6fd2232a"
+    },
     "whisker": {
       "Package": "whisker",
       "Version": "0.4.1",
