@@ -70,13 +70,12 @@ layout: true
 ---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**News**
 
 - **QML (Quantitative Methods for Linguistics and English)** is an updated version of previous year's SQM courses.
 
 - The main learning objective of this course is to allow you to **conduct basic data analyses** which can be applied to linguistic questions and data.
 
-- We will focus on **modern techniques** of data handling and quantitative analysis.
+- We will focus on **modern techniques** of data handling and quantitative analysis (estimation using linear models).
 ]
 
 --
@@ -87,6 +86,8 @@ layout: true
 - There will be little maths.
 
 - The course covers the basics, but you will very likely have to learn something extra for your dissertation.
+
+- We will not cover individual significance tests (t, chi-squared, z, ANOVA, ...). These are specific types of linear models. See [Tests as linear models](https://lindeloev.github.io/tests-as-linear/).
 ]
 
 ---
@@ -102,6 +103,14 @@ layout: true
 
 - Ensure course is as inclusive as possible.
 ]
+
+**Please, volunteer yourself by writing to Stefano by the end of Thursday 21 Sep.**
+
+- Specify whether you are interested in the General of EDI position.
+
+- Write a short spiel about yourself and what you wish to achieve by being a student rep. This will be shared with the class to inform your classmates vote!
+
+- You will vote for your General and EDI Student rep next week on Tuesday in class.
 
 ---
 
