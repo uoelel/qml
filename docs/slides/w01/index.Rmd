@@ -44,6 +44,10 @@ library(xaringanthemer)
 style_mono_light(outfile = "slides/xaringan-themer.css", link_color = "#7E3817")
 ```
 
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/6508406dd8d005384526a86c" width="100%"></iframe>
+
+---
+
 layout: true
 
 ## Course info
