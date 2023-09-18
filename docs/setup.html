@@ -149,6 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#install-the-c-toolchain" id="toc-install-the-c-toolchain" class="nav-link" data-scroll-target="#install-the-c-toolchain"><span class="header-section-number">2.1</span> Install the C++ toolchain</a></li>
   <li><a href="#install-the-r-packages" id="toc-install-the-r-packages" class="nav-link" data-scroll-target="#install-the-r-packages"><span class="header-section-number">2.2</span> Install the R packages</a></li>
   <li><a href="#install-cmdstan" id="toc-install-cmdstan" class="nav-link" data-scroll-target="#install-cmdstan"><span class="header-section-number">2.3</span> Install CmdStan</a></li>
+  <li><a href="#check-your-installation" id="toc-check-your-installation" class="nav-link" data-scroll-target="#check-your-installation"><span class="header-section-number">2.4</span> Check your installation</a></li>
   </ul></li>
   <li><a href="#troubleshoot" id="toc-troubleshoot" class="nav-link" data-scroll-target="#troubleshoot"><span class="header-section-number">3</span> Troubleshoot</a></li>
   </ul>
@@ -175,6 +176,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>Please, follow these instructions to get ready <strong>before</strong> the first workshop. It will take up to an hour to set everything up and you might encounter errors, so please do this asap.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Installing the necessary software takes a lot of space on your computer and can take a long of time (1-3 hours depending on the system).</p>
+</div>
+</div>
 <section id="r-and-rstudio" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="r-and-rstudio"><span class="header-section-number">1</span> R and RStudio</h2>
 <p>Before installing the necessary software, make sure you have installed or updated the following software.</p>
@@ -231,6 +245,22 @@ Important
 <p>To install CmdStan, run the following command in the R console:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cmdstanr<span class="sc">::</span><span class="fu">install_cmdstan</span>(<span class="at">cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>(), <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>It will take several minutes and you will see a lot of text flashing in the Console.</p>
+</section>
+<section id="check-your-installation" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="check-your-installation"><span class="header-section-number">2.4</span> Check your installation</h3>
+<p>Run the following in the RStudio Console.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cmdstanr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">cmdstan_path</span>(), <span class="st">"examples"</span>, <span class="st">"bernoulli"</span>, <span class="st">"bernoulli.stan"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">cmdstan_model</span>(file, <span class="at">force_recompile =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">N =</span> <span class="dv">10</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> mod<span class="sc">$</span><span class="fu">sample</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> data_list, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">seed =</span> <span class="dv">123</span>, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">parallel_chains =</span> <span class="dv">4</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">refresh =</span> <span class="dv">500</span> <span class="co"># print update every 500 iters</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If everything goes well you should see <code>Compiling Stan program…</code> and then <code>Running MCMC with 4 parallel chains…</code> followed by information on chains and iterations.</p>
 </section>
 </section>
 <section id="troubleshoot" class="level2" data-number="3">
