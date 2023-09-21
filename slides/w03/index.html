@@ -42,7 +42,7 @@ class: center, middle, inverse, title-slide
 
 
 
-# Data visualisation
+## Data visualisation
 
 .center[
 ![](../../img/data-viz.png)
@@ -50,10 +50,10 @@ class: center, middle, inverse, title-slide
 
 ---
 
-# Good data visualisation
+## Good data visualisation
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-Alberto Cairo has identified four common features of a good data visualisation ([Spiegelhalter 2019](https://www.penguin.co.uk/books/294857/the-art-of-statistics-by-spiegelhalter-david/9780241258767):64-66):
+Alberto Cairo has identified four common features of good data visualisation ([Spiegelhalter 2019](https://www.penguin.co.uk/books/294857/the-art-of-statistics-by-spiegelhalter-david/9780241258767):64-66):
 
 1. It contains **reliable information**.
 
@@ -66,61 +66,45 @@ Alberto Cairo has identified four common features of a good data visualisation (
 
 ---
 
-# Quick poll
-
-.f3[*Which of the following are not continuous measures, i.e. they are discrete?*]
-
-&lt;br&gt;
-
-.pull-left[
-.f3[Join at]
-
-.f1[slido.com]
-
-.f1[\#9921 685]
-]
-
-.pull-right[
-.center[
-![](../../img/QR-SQM-2-Week-3.png)
-]
-]
-
-???
-
-Slido poll. &lt;https://app.sli.do/event/96zG4S3rZ4hyaoFNPcMqTg&gt;
-
----
-
 layout: false
 
-# Quick poll
-
-.f3[*Which of the following graphs are you familiar with?*]
-
-&lt;br&gt;
-
-.pull-left[
-.f3[Join at]
-
-.f1[slido.com]
-
-.f1[\#9921 685]
-]
-
-.pull-right[
-.center[
-![](../../img/QR-SQM-2-Week-3.png)
-]
-]
-
-???
-
-Slido poll. &lt;https://app.sli.do/event/96zG4S3rZ4hyaoFNPcMqTg&gt;
+&lt;iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/650c1c85fc9e77ddc2cf39e6" width="100%"&gt;&lt;/iframe&gt;
 
 ---
 
-# Bar chart
+&lt;iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/650c1d1c6829de60e682066b" width="100%"&gt;&lt;/iframe&gt;
+
+---
+
+## Endangerment status
+
+
+```r
+glot_status
+```
+
+```
+## # A tibble: 8,345 × 18
+##    ID         Language_ID Parameter_ID Value Code_ID Comment Source codeReference status Name  Macroarea Latitude Longitude Glottocode ISO639P3code
+##    &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;lgl&gt;         &lt;fct&gt;  &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       
+##  1 kolp1236-… kolp1236    aes          3     aes-sh… Kol (1… hh:he… NA            shift… Kol … Papunesia    -5.21     152.  kolp1236   kol         
+##  2 tana1288-… tana1288    aes          3     aes-sh… Tanahm… hh:he… NA            shift… Tana… Papunesia    -2.55     133.  tana1288   tcm         
+##  3 touo1238-… touo1238    aes          3     aes-sh… Touo (… hh:he… NA            shift… Touo  Papunesia    -8.58     157.  touo1238   tqu         
+##  4 bert1248-… bert1248    aes          3     aes-sh… Fadash… hh:he… NA            shift… Berta Africa       10.6       34.7 bert1248   wti         
+##  5 sius1254-… sius1254    aes          6     aes-ex… Siusla… hh:he… NA            extin… Sius… North Am…    42.5     -124.  sius1254   sis         
+##  6 cent2045-… cent2045    aes          6     aes-ex… Jalaa … &lt;NA&gt;   NA            extin… Jalaa Africa        9.59      11.6 cent2045   cet         
+##  7 else1239-… else1239    aes          3     aes-sh… Elseng… hh:he… NA            shift… Else… Papunesia    -3.00     140.  else1239   mrf         
+##  8 taia1239-… taia1239    aes          4     aes-mo… Taiap … hh:he… NA            morib… Taiap Papunesia    -4.05     145.  taia1239   gpn         
+##  9 pyuu1245-… pyuu1245    aes          3     aes-sh… Pyu (4… hh:he… NA            shift… Pyu   Papunesia    -4.45     141.  pyuu1245   pby         
+## 10 mato1253-… mato1253    aes          6     aes-ex… Arára … hh:he… NA            extin… Mato… South Am…    -9.17     -60.6 mato1253   axg         
+## # ℹ 8,335 more rows
+## # ℹ 3 more variables: Countries &lt;chr&gt;, Family_ID &lt;chr&gt;, Language_ID.y &lt;chr&gt;
+```
+
+
+---
+
+## Bar chart
 
 &lt;img src="index_files/figure-html/status-bar-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
@@ -134,7 +118,7 @@ The *x*-axis includes the level of status, while the *y*-axis shows the number o
 
 layout: true
 
-# Stacked bar chart
+## Stacked bar chart
 
 ---
 
@@ -158,7 +142,7 @@ Within each bar, the counts for each of the status levels is given.
 
 layout: false
 
-# Stacked proportion (filled) bar chart
+## Stacked proportion (filled) bar chart
 
 &lt;img src="index_files/figure-html/status-filled-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
@@ -176,7 +160,7 @@ By default, `geom_bar()` adds a *y* label "counts" so you have to manually chang
 
 ---
 
-# Dot matrix chart
+## Dot matrix chart
 
 &lt;img src="index_files/figure-html/status-matrix-1.png" width="45%" style="display: block; margin: auto;" /&gt;
 
@@ -184,15 +168,42 @@ By default, `geom_bar()` adds a *y* label "counts" so you have to manually chang
 
 ---
 
-# Mosaic plot
+## Mosaic plot
 
 &lt;img src="index_files/figure-html/status-mosaic-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
+## Formant values
+
+
+```r
+formants
+```
+
+```
+## # A tibble: 24,012 × 22
+##    speaker file     word   time    f3    f0 language gender glottocode  item ipa   c1    c1_phonation vowel anteropost height c2    c2_phonation
+##    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       
+##  1 it01    it01-001 pugu  0.111 2280.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+##  2 it01    it01-001 pugu  0.111 2280.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+##  3 it01    it01-001 pugu  0.222 2124.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+##  4 it01    it01-001 pugu  0.222 2124.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+##  5 it01    it01-001 pugu  0.333 2314.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+##  6 it01    it01-001 pugu  0.333 2314.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+##  7 it01    it01-001 pugu  0.444 2374.  135. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+##  8 it01    it01-001 pugu  0.444 2374.  135. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+##  9 it01    it01-001 pugu  0.556 2307.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+## 10 it01    it01-001 pugu  0.556 2307.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+## # ℹ 24,002 more rows
+## # ℹ 4 more variables: c2_place &lt;chr&gt;, formant &lt;chr&gt;, value &lt;dbl&gt;, id &lt;chr&gt;
+```
+
+---
+
 layout: true
 
-# Line plot
+## Line plot
 
 ---
 
@@ -205,6 +216,40 @@ layout: true
 ---
 
 &lt;img src="index_files/figure-html/forms-line-point-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+layout: false
+
+## Infant gestures
+
+
+```r
+gestures
+```
+
+```
+## # A tibble: 1,620 × 11
+##    dyad  background months task  gesture count_raw count ct_raw    ct pro_rata    id
+##    &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+##  1 b01   Bengali        10 five  reach           5     5      1     1 no           3
+##  2 b01   Bengali        10 five  point           0     0      0     0 no           2
+##  3 b01   Bengali        10 five  ho_gv           0     0      0     0 no           1
+##  4 b01   Bengali        10 tp1   reach           0     0      0     0 no           6
+##  5 b01   Bengali        10 tp1   point           0     0      0     0 no           5
+##  6 b01   Bengali        10 tp1   ho_gv           0     0      0     0 no           4
+##  7 b01   Bengali        10 tp2   reach           0     0      0     0 no           9
+##  8 b01   Bengali        10 tp2   point           0     0      0     0 no           8
+##  9 b01   Bengali        10 tp2   ho_gv           0     0      0     0 no           7
+## 10 b01   Bengali        11 five  reach           7     8      3     3 yes          3
+## # ℹ 1,610 more rows
+```
+
+---
+
+layout: true
+
+## More line plots
 
 ---
 
@@ -224,7 +269,7 @@ layout: true
 layout: false
 layout: true
 
-# Connected dots plot
+## Connected dots plot
 
 ---
 
@@ -237,9 +282,38 @@ layout: true
 ---
 
 layout: false
+
+## Phonetics of politeness
+
+
+```r
+polite
+```
+
+```
+## # A tibble: 224 × 27
+##    subject gender birthplace musicstudent months_ger scenario task  attitude total_duration articulation_rate  f0mn  f0sd f0range  inmn  insd
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 F1      F      seoul_area yes                  18        6 not   inf               55.2               3.38  229.  4.18    10.6  64.6  7.94
+##  2 F1      F      seoul_area yes                  18        6 not   pol               28.5              12.2   181.  3.78     9    63.2  7.75
+##  3 F1      F      seoul_area yes                  18        7 not   inf               60.3               6.19  220.  4.18    10.4  61.8  8.89
+##  4 F1      F      seoul_area yes                  18        7 not   pol               40.8               6.03  176.  4.59    13.1  61.7  8.51
+##  5 F1      F      seoul_area yes                  18        1 dct   pol               18.4               5.61  215.  4.28    10.3  62    8.29
+##  6 F1      F      seoul_area yes                  18        1 dct   inf               13.6               5.82  211.  3.43    10.5  61.5  8.95
+##  7 F1      F      seoul_area yes                  18        2 dct   pol                5.22              6.49  285.  2.09     7.1  65.7  5.81
+##  8 F1      F      seoul_area yes                  18        2 dct   inf                4.25              6.22  266.  4.93    18.3  64.9  8.52
+##  9 F1      F      seoul_area yes                  18        3 dct   pol                6.79              4.89  211.  3.22     6.7  61.3  8.43
+## 10 F1      F      seoul_area yes                  18        3 dct   inf                4.13              7.79  286.  3.92    11.2  64.9  8.35
+## # ℹ 214 more rows
+## # ℹ 12 more variables: inrange &lt;dbl&gt;, shimmer &lt;dbl&gt;, jitter &lt;dbl&gt;, HNRmn &lt;dbl&gt;, H1H2 &lt;dbl&gt;, breath_count &lt;dbl&gt;, filler_count &lt;dbl&gt;,
+## #   hiss_count &lt;dbl&gt;, nasal_count &lt;dbl&gt;, sil_count &lt;dbl&gt;, ya_count &lt;dbl&gt;, yey_count &lt;dbl&gt;
+```
+
+---
+
 layout: true
 
-# Strip chart
+## Strip chart
 
 ---
 
@@ -254,7 +328,7 @@ layout: true
 layout: false
 layout: true
 
-# Density plot
+## Density plot
 
 ---
 
@@ -277,7 +351,7 @@ layout: true
 layout: false
 layout: true
 
-# Violin plot
+## Violin plot
 
 ---
 
@@ -300,7 +374,7 @@ layout: true
 layout: false
 layout: true
 
-# Scatter plot
+## Scatter plot
 
 ---
 
@@ -333,13 +407,13 @@ layout: false
 
 class: center middle reverse
 
-# DO'S AND DON'TS
+## DO'S AND DON'TS
 
 ---
 
 layout: true
 
-# DO
+## DO
 
 ---
 
@@ -369,7 +443,7 @@ To show proportions from multiple subjects/items, use strip charts.
 
 layout: false
 
-# DON'T
+## DON'T
 
 &lt;img src="index_files/figure-html/mald-dont-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
@@ -384,7 +458,7 @@ For more see: https://www.data-to-viz.com/caveat/error_bar.html, https://stats.s
 
 ---
 
-# DO
+## DO
 
 &lt;img src="index_files/figure-html/pol-do-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
@@ -394,7 +468,7 @@ For continuous variables, like acoustic measures or reaction times, use violins 
 
 ---
 
-# DON'T
+## DON'T
 
 &lt;img src="index_files/figure-html/pol-dont-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
@@ -404,7 +478,7 @@ Can you see what difference it makes to use box plots only?
 
 ---
 
-# Summary
+## Summary
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 - Carefully think about which type of variable you are working with: **continuous or discrete**?
