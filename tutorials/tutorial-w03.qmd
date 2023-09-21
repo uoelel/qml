@@ -20,21 +20,35 @@ Last week, you learnt how to use R scripts to save your code.
 
 Keeping track of the code you use for data analysis is a very important aspect of research project managing: not only the code is there if you need to rerun it later, but it allows your data analysis to be **reproducible** (i.e., it can be reproduced by you or other people in such a way that starting with the same data and code you get to the same results).
 
+::: callout-tip
+#### Reproducible research
+
+Research is **reproducible** when the same data and same code return the same results.
+:::
+
 R scripts are great for writing code, and you can even document the code (add explanations or notes) with comments (i.e. lines that start with `#`).
 
 But for longer text or complex data analysis reports, R scripts can be a bit cumbersome.
 
-A solution to this is using Rmarkdown files (they have the `.Rmd`) extension.
+A solution to this is using Rmarkdown files (they have the `.Rmd` extension).
 
 ### Code... and text!
 
 Rmarkdown is a file format that allows you to mix code and formatted text in the same file.
 
-This means that you can write **dynamic reports** using Rmd files: dynamic reports are just like analysis reports (i.e. they include formatted text, plots, tables, code output, code, etc...) but they are **dynamic** in the sense that if, for example, data or code changes, you can just rerun the report Rmd file and all code output (plots, tables, etc...) are updated accordingly!
+This means that you can write **dynamic reports** using Rmd files: dynamic reports are just like analysis reports (i.e. they include formatted text, plots, tables, code output, code, etc...) but they are **dynamic** in the sense that if, for example, data or code changes, you can just rerun the report Rmd file and all code output (plots, tables, etc...) is updated accordingly!
 
 You can watch this short video for a quick tour.
 
 {{< video https://vimeo.com/178485416 >}}
+
+::: callout-tip
+#### Dynamic reports in R Markdown
+
+**R Markdown** is a file type with extension `.Rmd` in which you can write formatted text and code together.
+
+R Markdown can be used to generate **dynamic reports**: these are files that are generated automatically from the R Markdown source, ensuring data and results in the report are always up to date.
+:::
 
 ### Formatting text
 
@@ -50,11 +64,19 @@ A few quick pointers (you can test them in the [Markdown Live Preview](https://m
 
 -   You can make text bold with two stars: `**this text is bold!**`.
 
--   Heading are created with `#`: `# This is a level-1 heading`. `## This is a level-2 heading`.
+-   Headings are created with `#`: `# This is a level-1 heading`. `## This is a level-2 heading`.
+
+::: callout-tip
+#### Mark-up, Markdown
+
+A **mark-up language** is a text-formatting system consisting of symbols or keywords that control the structure, formatting or relationships of textual elements. The most common mark-up languages are HTML, XML and TeX.
+
+**Markdown** is a simple yet powerful mark-up language.
+:::
 
 ### Create an Rmd file
 
-To create a new Rmd file, just click on the click on the `New file` button, then `R Markdown...`. (If you are asked to install/update packages, do so.)
+To create a new Rmd file, just click on the `New file` button, then `R Markdown...`. (If you are asked to install/update packages, do so.)
 
 ![](/img/new-rmd.png)
 
@@ -86,6 +108,22 @@ An Rmd file usually has three main parts:
 
 Each Rmd file has to start with a preamble, but you can include as many code chunks and as much text as you wish, in any order.
 
+::: callout-tip
+#### R Markdown: Preamble
+
+The **preamble** of an `.Rmd` file contains a list of `key: value` pairs, used to specify settings or document info like the `title` and `author`.
+
+Preambles start and end with three dashes `---`.
+:::
+
+::: callout-tip
+#### R Markdown: Code chunks
+
+**Code chunks** start and end with three back-ticks ```` ``` ```` and they contain code.
+
+Settings can be specified between curly brackets `{}` on the first ```` ``` ```` line: for example `{r chunk-name, eval=FALSE}`. `r` indicates that the code is R code.
+:::
+
 ### Render Rmd files to HTML
 
 You can render an Rmd file into a nicely formatted HTML file.
@@ -102,6 +140,12 @@ Rendering Rmd files is not restricted to HTML, but also PDFs and even Word docum
 
 This is very handy when you are writing an analysis report you need to share with others.
 
+::: callout-tip
+#### R Markdown: Rendering
+
+Rmd files can be **rendered** into other formats, like HTML, PDF and Word documents.
+:::
+
 ### How to run code
 
 The first code chunk in an Rmd file is a special one: it's called `setup` and it's where you attach all the packages needed for running the code in the file. (You can find the name of a code chunk---or define one yourself!---in the first line of a code block: ```` ```{r chunk-name} ````). The first code chunk of an Rmd file should always be named `setup`.
@@ -112,6 +156,9 @@ The line `knitr::opts_chunk$set(echo = TRUE)` sets the option `echo` to `TRUE`. 
 
 Now go ahead and add `library(tidyverse)` in the line next to the `knitr::opts_chunk` line.
 
+::: callout-note
+#### Running code
+
 To run the code of a code chunk you can use different approaches:
 
 -   Click on the green arrow to the right of the code chunk to run the entire code chunk.
@@ -119,6 +166,7 @@ To run the code of a code chunk you can use different approaches:
 -   Alternatively, place the text cursor inside the code chunk and press `CMD/CTRL + SHIFT + ENTER`.
 
 -   You can also run line by line as you do in an R script by placing the text cursor on the line you want to run and press `CMD/CTRL + ENTER`.
+:::
 
 Now delete everything after the `setup` code chunk and write a new level-2 heading after the chunk with the name "Plotting basics". (Remember to leave an empty line between the chunk and the heading.)
 

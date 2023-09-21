@@ -207,15 +207,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1" class="anchored" data-anchor-id="rmarkdown"><span class="header-section-number">1</span> Rmarkdown</h2>
 <p>Last week, you learnt how to use R scripts to save your code.</p>
 <p>Keeping track of the code you use for data analysis is a very important aspect of research project managing: not only the code is there if you need to rerun it later, but it allows your data analysis to be <strong>reproducible</strong> (i.e., it can be reproduced by you or other people in such a way that starting with the same data and code you get to the same results).</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reproducible research
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Research is <strong>reproducible</strong> when the same data and same code return the same results.</p>
+</div>
+</div>
 <p>R scripts are great for writing code, and you can even document the code (add explanations or notes) with comments (i.e.&nbsp;lines that start with <code>#</code>).</p>
 <p>But for longer text or complex data analysis reports, R scripts can be a bit cumbersome.</p>
-<p>A solution to this is using Rmarkdown files (they have the <code>.Rmd</code>) extension.</p>
+<p>A solution to this is using Rmarkdown files (they have the <code>.Rmd</code> extension).</p>
 <section id="code-and-text" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="code-and-text"><span class="header-section-number">1.1</span> Code… and text!</h3>
 <p>Rmarkdown is a file format that allows you to mix code and formatted text in the same file.</p>
-<p>This means that you can write <strong>dynamic reports</strong> using Rmd files: dynamic reports are just like analysis reports (i.e.&nbsp;they include formatted text, plots, tables, code output, code, etc…) but they are <strong>dynamic</strong> in the sense that if, for example, data or code changes, you can just rerun the report Rmd file and all code output (plots, tables, etc…) are updated accordingly!</p>
+<p>This means that you can write <strong>dynamic reports</strong> using Rmd files: dynamic reports are just like analysis reports (i.e.&nbsp;they include formatted text, plots, tables, code output, code, etc…) but they are <strong>dynamic</strong> in the sense that if, for example, data or code changes, you can just rerun the report Rmd file and all code output (plots, tables, etc…) is updated accordingly!</p>
 <p>You can watch this short video for a quick tour.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://player.vimeo.com/video/178485416" frameborder="0" allow="autoplay; title=" "="" fullscreen;="" picture-in-picture"="" allowfullscreen=""></iframe></div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dynamic reports in R Markdown
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>R Markdown</strong> is a file type with extension <code>.Rmd</code> in which you can write formatted text and code together.</p>
+<p>R Markdown can be used to generate <strong>dynamic reports</strong>: these are files that are generated automatically from the R Markdown source, ensuring data and results in the report are always up to date.</p>
+</div>
+</div>
 </section>
 <section id="formatting-text" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="formatting-text"><span class="header-section-number">1.2</span> Formatting text</h3>
@@ -226,12 +253,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Text can be made italics by enclosing it between single stars: <code>*this text is in italics*</code>.</p></li>
 <li><p>You can make text bold with two stars: <code>**this text is bold!**</code>.</p></li>
-<li><p>Heading are created with <code>#</code>: <code># This is a level-1 heading</code>. <code>## This is a level-2 heading</code>.</p></li>
+<li><p>Headings are created with <code>#</code>: <code># This is a level-1 heading</code>. <code>## This is a level-2 heading</code>.</p></li>
 </ul>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mark-up, Markdown
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>mark-up language</strong> is a text-formatting system consisting of symbols or keywords that control the structure, formatting or relationships of textual elements. The most common mark-up languages are HTML, XML and TeX.</p>
+<p><strong>Markdown</strong> is a simple yet powerful mark-up language.</p>
+</div>
+</div>
 </section>
 <section id="create-an-rmd-file" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="create-an-rmd-file"><span class="header-section-number">1.3</span> Create an Rmd file</h3>
-<p>To create a new Rmd file, just click on the click on the <code>New file</code> button, then <code>R Markdown...</code>. (If you are asked to install/update packages, do so.)</p>
+<p>To create a new Rmd file, just click on the <code>New file</code> button, then <code>R Markdown...</code>. (If you are asked to install/update packages, do so.)</p>
 <p><img src="../img/new-rmd.png" class="img-fluid"></p>
 <p>A window will open. Add a title of your choice and your name, then click <code>OK</code>.</p>
 <p><img src="../img/new-rmd-window.png" class="img-fluid"></p>
@@ -251,6 +292,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><img src="../img/rmd-parts.png" class="img-fluid"></p>
 <p>Each Rmd file has to start with a preamble, but you can include as many code chunks and as much text as you wish, in any order.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R Markdown: Preamble
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>preamble</strong> of an <code>.Rmd</code> file contains a list of <code>key: value</code> pairs, used to specify settings or document info like the <code>title</code> and <code>author</code>.</p>
+<p>Preambles start and end with three dashes <code>---</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R Markdown: Code chunks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Code chunks</strong> start and end with three back-ticks <code>```</code> and they contain code.</p>
+<p>Settings can be specified between curly brackets <code>{}</code> on the first <code>```</code> line: for example <code>{r chunk-name, eval=FALSE}</code>. <code>r</code> indicates that the code is R code.</p>
+</div>
+</div>
 </section>
 <section id="render-rmd-files-to-html" class="level3" data-number="1.5">
 <h3 data-number="1.5" class="anchored" data-anchor-id="render-rmd-files-to-html"><span class="header-section-number">1.5</span> Render Rmd files to HTML</h3>
@@ -261,6 +330,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="../img/rendered.png" class="img-fluid"></p>
 <p>Rendering Rmd files is not restricted to HTML, but also PDFs and even Word documents!</p>
 <p>This is very handy when you are writing an analysis report you need to share with others.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R Markdown: Rendering
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rmd files can be <strong>rendered</strong> into other formats, like HTML, PDF and Word documents.</p>
+</div>
+</div>
 </section>
 <section id="how-to-run-code" class="level3" data-number="1.6">
 <h3 data-number="1.6" class="anchored" data-anchor-id="how-to-run-code"><span class="header-section-number">1.6</span> How to run code</h3>
@@ -268,12 +350,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The <code>setup</code> code chunk also has special code from the knitr package. The knitr package is what allows you to run R code from Rmd files.</p>
 <p>The line <code>knitr::opts_chunk$set(echo = TRUE)</code> sets the option <code>echo</code> to <code>TRUE</code>. The <code>echo</code> option let’s you decide whether you want the R code printed (echoed) in the rendered Rmd file. When <code>echo = TRUE</code> the code is printed, when <code>echo = FALSE</code> the code is not printed.</p>
 <p>Now go ahead and add <code>library(tidyverse)</code> in the line next to the <code>knitr::opts_chunk</code> line.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Running code
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>To run the code of a code chunk you can use different approaches:</p>
 <ul>
 <li><p>Click on the green arrow to the right of the code chunk to run the entire code chunk.</p></li>
 <li><p>Alternatively, place the text cursor inside the code chunk and press <code>CMD/CTRL + SHIFT + ENTER</code>.</p></li>
 <li><p>You can also run line by line as you do in an R script by placing the text cursor on the line you want to run and press <code>CMD/CTRL + ENTER</code>.</p></li>
 </ul>
+</div>
+</div>
 <p>Now delete everything after the <code>setup</code> code chunk and write a new level-2 heading after the chunk with the name “Plotting basics”. (Remember to leave an empty line between the chunk and the heading.)</p>
 <p><img src="../img/rmd-setup.png" class="img-fluid"></p>
 <p>You will use this Rmd file to write text and code for this tutorial. To insert a new code chunk, you can click on the <code>Insert a new code chunk</code> button and then select <code>R</code>, or you can press <code>OPT/ALT + CMD/CTRL + I</code>.</p>
