@@ -45,6 +45,10 @@ class: center middle reverse
 
 ---
 
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/650da2afee00ec87f4ba2bb2" width="100%"></iframe>
+
+---
+
 layout: true
 
 ## Sample $y$
