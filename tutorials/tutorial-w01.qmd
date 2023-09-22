@@ -555,7 +555,7 @@ class(c("a", "b"))
 ```
 :::
 
-::: callout-warning
+::: {.callout-warning collapse="true"}
 #### Explanation
 
 **5a**
