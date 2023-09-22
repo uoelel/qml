@@ -231,6 +231,16 @@ cat("b. `10 * 2 + 5 * 0.2` = `(10 * 2 + 5) * 0.2`", torf(FALSE), "\n\n")
 ```
 :::
 
+::: {.callout-important collapse="true"}
+## Extra: Arithmetics
+
+If you need a maths refresher, I recommend checking the following pages:
+
+-   <https://www.mathsisfun.com/definitions/order-of-operations.html>
+
+-   <https://www.mathsisfun.com/algebra/introduction.html>
+:::
+
 ### Variables
 
 > Forget-me-not.
@@ -505,7 +515,7 @@ data.frame(groceries, in_pantry)
 
 (We will talk about data frames, another type of object in R, in the following weeks.)
 
-::: {.callout-note}
+::: callout-note
 #### Quiz 5
 
 ```{r}
@@ -520,7 +530,7 @@ opts_5a <- c(
   "`c(letters)`"
 )
 
-cat("a. Which of the following is **not** a string vector.", longmcq(opts_5a))
+cat("a. Which of the following is **not** a character vector.", longmcq(opts_5a))
 
 opts_5b <- c(
   '`c(T, T, F)`',
@@ -543,6 +553,31 @@ class(FALSE)
 class(c(1, 45))
 class(c("a", "b"))
 ```
+:::
+
+::: callout-warning
+#### Explanation
+
+**5a**
+
+-   `c(1, 2, "43")` is a character vector because the last number `"43"` is a string (it's between double quotes!). A vector cannot have a mix of types of elements: they have to be all numbers or all strings or else, but not some numbers and some strings. Numbers are special in that if you include a number in a character vector without quoting it, it is automatically converted into a string. Try the following:
+
+```{r}
+#| eval: false
+
+char <- c("a", "b", "c")
+char <- c(char, 1)
+char
+class(char)
+```
+
+-   `c(letters)` is a character vector because `letters` contains the letters of the alphabet as strings (this vector comes with base R).
+
+-   `` c(apple) is not a character vector because the variable `apple` holds a number, `45`! ``
+
+**5b**
+
+-   `"FALSE"` is **not** a logical vector because `FALSE` has been quoted (anything that is quoted is a string!).
 :::
 
 ::: {.callout-important collapse="true"}

@@ -439,7 +439,7 @@ It's easy to read other file type using the other `read_*()` functions:
 :::
 
 ::: {.callout-note collapse="true"}
-#### Exercise 1
+#### Practice 1
 
 Download the following files into the data folder. Read them in R, making sure you use the right `read_*()` function.
 
@@ -530,11 +530,37 @@ When you are using R scripts in RStudio projects, the `./` folder paths are rela
 
 For example, if your project it's called `awesome_proj` and it's in `Downloads/stuff/`, then if you write `./data/results.csv` you really mean `Downloads/stuff/awesome_proj/data/results.csv`!
 
+**How does R know the path is relative to the project folder?**
+
+That is because when working with RStudio projects, all relative paths are relative to the project folder (i.e. the folder with the `.Rproj` file)!
+
+The folder which relative paths are relative to is called the **working directory** (directory is just another way of saying folder).
+
+::: callout-tip
+#### Working directory
+
+The **working directory** is the folder which relative paths are relative to.
+
+When using RStudio projects, the working directory is the project folder.
+:::
+
 The code `read_csv("./data/shallow.csv")` above will work because you are using an RStudio project and inside the project folder there is a folder called `data/` and in it there's the `shallow.csv` file.
 
 So from now on I encourage you to use RStudio projects, R scripts and relative paths always!
 
 The benefit of doing so is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!
+
+::: {.callout-note collapse="true"}
+#### Get the working directory
+
+You can get the current working directory with the `getwd()` command.
+
+Run it now in the Console! Is the returned path the project folder path?
+
+If not, it might be that you are not working from the RStudio project. Check the top-right corner of RStudio: is the project name in there or do you see `Project (none)?`
+
+If it's the latter, you are not in an RStudio project, but you are running R from somewhere else (meaning, the working directory is somewhere else).
+:::
 
 ### Run the script!
 
@@ -809,8 +835,14 @@ cat("b. The output of `summarise()` always drops the grouping.", torf(FALSE))
 ```
 :::
 
+::: {.callout-tip collapse="true"}
+#### Hint
+
+For 6b., check the documentation of `?summarise`.
+:::
+
 ::: {.callout-note collapse="true"}
-#### Exercise 2
+#### Practice 2
 
 -   Go to <https://github.com/stefanocoretta/infant-gestures> and download the `gestures.csv` file in the `data/` folder. This is data from the paper \[A Cross-Cultural Analysis of Early Prelinguistic Gesture Development and Its Relationship to Language Development\](https://doi.org/10.1111/cdev.13406).
 
@@ -830,11 +862,52 @@ cat("b. The output of `summarise()` always drops the grouping.", torf(FALSE))
 :::
 
 ::: {.callout-tip collapse="true"}
-## Hint
+#### Hint
 
 -   To calculate the total number of gestures by children, you need the `sum()` function.
 
 -   To calculate the number of children by background, you need the `distinct()` function.
+:::
+
+::: {.callout-warning collapse="true"}
+#### Solution
+
+Have you tried doing the exercise and couldn't work it out?
+
+The you can check the code solution here...
+
+::: {.callout-important collapse="true"}
+#### Code
+
+``` r
+gestures %>%
+  summarise(
+    count_med = median(count, na.rm = TRUE),
+    count_min = min(count, na.rm = TRUE),
+    count_max = max(count, na.rm = TRUE),
+    count_range = count_max - count_min
+  )
+
+gestures %>%
+  group_by(months) %>%
+  summarise(
+    count_med = median(count, na.rm = TRUE),
+    count_min = min(count, na.rm = TRUE),
+    count_max = max(count, na.rm = TRUE),
+    count_range = count_max - count_min
+  )
+
+gestures %>%
+  group_by(dyad) %>%
+  summarise(
+    count_tot = sum(count)
+  )
+
+gestures %>%
+  distinct(background, dyad) %>%
+  count(background)
+```
+:::
 :::
 
 ## Summary

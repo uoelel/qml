@@ -3,6 +3,11 @@ title: "QML tutorial - Week 3"
 editor: visual
 execute:
   cache: true
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+    embed-resources: true 
 ---
 
 ```{r}
@@ -11,7 +16,7 @@ execute:
 #| message: false
 
 library(tidyverse)
-
+library(webexercises)
 ```
 
 ## Rmarkdown
@@ -224,13 +229,15 @@ Instead we can use the tidyverse package [ggplot2](https://ggplot2.tidyverse.org
 
 The tidyverse package [ggplot2](https://ggplot2.tidyverse.org) provides users with a consistent set of functions to create captivating graphics.
 
-Remember: To be able to use the functions in a package, you first need to **attach the package**. We have already attached the `library(tidyverse)` packages, among which there is ggplot2, so you don't need to do anything else.
+::: callout-warning
+To be able to use the functions in a package, you first need to **attach the package**. We have already attached the `library(tidyverse)` packages, among which there is ggplot2, so you don't need to do anything else.
+:::
 
 ### The `polite` data
 
 We will use the `polite` data to learn the basics of plotting using ggplot.
 
-The data comes from the paper by Winter and Grawunder, 2020. *The phonetic profile of Korean formal and informal speech registers*. DOI: [10.1016/j.wocn.2012.08.006](https://doi.org/10.1016/j.wocn.2012.08.006)
+The data comes from the paper by Winter and Grawunder, 2020. *The phonetic profile of Korean formal and informal speech registers*. DOI: [10.1016/j.wocn.2012.08.006](https://doi.org/10.1016/j.wocn.2012.08.006). Read the abstract to familiarise yourself with the study.
 
 To download the file with the data right-click on the following link and download the file: [polite.csv](../data/polite.csv). (Note that tutorial files are also linked in the [Syllabus](../content.qmd)). Remember to save the file in `data/` in the course project folder.
 
@@ -246,7 +253,9 @@ Now rerun the `setup` code chunk to set the new option.
 
 This will set the working directory for the Rmd file to the project working directory.
 
-**Make sure that this line is always in the `setup` block**, or R might get confused about where the working directory is and not be able to find the data.
+::: callout-warning
+**Make sure that you [always]{.underline} include that** `knitr::opts_knit()` **line in the `setup` block**, or R might get confused about where the working directory is and not be able to find the data.
+:::
 
 Finally, **create a new code chunk, add the following line of code and then run the code chunk to read the data**.
 
@@ -268,17 +277,45 @@ In this tutorial we will use the following columns:
 
 -   `musicstudent`: whether the speaker is a music student (`yes`) or not (`no`).
 
+::: callout-note
+#### Quiz 1
+
+```{r}
+#| label: quiz-1
+#| results: asis
+#| echo: false
+
+opts_1 <- c(
+   "The current working directory.",
+   answer = "The project directory.",
+   "The data directory."
+)
+
+cat("What does `here::here()` return?", longmcq(opts_1))
+```
+:::
+
+::: {.callout-important collapse="true"}
+#### Explanation
+
+The answer `The current working directory.` is wrong because if you manually set the working directory with `setwd(),` `here::here()` will still return the project directory!
+:::
+
 ### A basic plot
 
 These are the minimum constituents of a ggplot2 plot.
 
+::: callout-tip
+## ggplot basics
+
 -   The `data`: you have to specify the data frame with the data you want to plot.
 
 -   The `mapping`: the mapping tells ggplot how to map data columns to parts of the plot like the axes or groupings within the data. These parts are called *aesthetics*, or `aes` for short.
+:::
 
 You can specify the data and mapping with the `data` and `mapping` arguments of the `ggplot()` function.
 
-Note that the `mapping` argument is always specified with `aes()`.
+Note that the `mapping` argument is always specified with `aes()`: `mapping = aes(…)`.
 
 In the following bare plot, we are just mapping the mean f0 (`f0`) to the *x*-axis and the H2-H1 difference to the *y*-axis, from the `polite` data frame.
 
@@ -295,11 +332,39 @@ ggplot(
 
 Not much to see here: just two axes!
 
+::: callout-note
+#### Quiz 2
+
+```{r}
+#| label: quiz-2
+#| results: asis
+#| echo: false
+
+cat("Is the following code correct? Justify your answer.", torf(FALSE))
+
+```
+
+``` r
+ggplot(
+  data = polite,
+  mapping = c(x = total_duration, y = articulation_rate)
+)
+```
+:::
+
 ### Let's add geometries
 
 Nice, but we are missing the most important part: showing the data!
 
 Data is represented with **geometries**, or `geom`s for short. `geom`s are added to the base ggplot with functions whose names all start with `geom_`.
+
+::: callout-tip
+#### Geometries
+
+**Geometries** are plot elements that show the data through geometric shapes.
+
+Different geometries are added to a ggplot using one of the `geom_*()` functions.
+:::
 
 For this plot, you want to use `geom_point()`. This geom simply adds point to the plot based on the data in the `polite` data frame.
 
@@ -317,7 +382,17 @@ ggplot(
 
 This type of plot, with two continuous axes and data represented by points, is called a **scatter plot**.
 
+::: callout-tip
+#### Scatter plot
+
+A **scatter plot** is a plot with two numeric axes and points indicating the data. It is used when you want to show the relationship between two numeric variables.
+
+To create a scatter plot, use the `geom_point()` geometry.
+:::
+
+::: callout-warning
 Note that using the `+` is a quirk of `ggplot()`. The idea behind it is that you start from a bare plot and you **add** (`+`) layers of data on top of it. This is because of the philosophy behind the package, called the [Layered Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.html).
+:::
 
 ### Function arguments
 
@@ -348,21 +423,55 @@ ggplot(
 
 Try running `?ggplot` in the Console to see the arguments of the function and the order they appear in.
 
-::: callout-important
-#### Question
+::: callout-note
+#### Quiz 3
 
 **Which of the following will produce the same plot as the one above?** Reason through it first without running the code, then run all of these to check whether they look the way you expected.
 
-1.  `ggplot(polite, aes(H1H2, f0mn)) + geom_point()`
-2.  `ggplot(polite, aes(y = H1H2, x = f0mn)) + geom_point()`
-3.  `ggplot(polite, aes(y = f0mn, x = H1H2)) + geom_point()`
+```{r}
+#| label: quiz-3
+#| results: asis
+#| echo: false
+
+opts_3 <- c(
+  "`ggplot(polite, aes(H1H2, f0mn)) + geom_point()`",
+  answer = "`ggplot(polite, aes(y = H1H2, x = f0mn)) + geom_point()`",
+  "`ggplot(polite, aes(y = f0mn, x = H1H2)) + geom_point()`"
+)
+
+cat("Which of the following will produce the same plot as the one above? Reason through it first without running the code, then run all of these to check whether they look the way you expected.", longmcq(opts_3))
+```
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+When specifying arguments, the order matters when not using the argument names.
+
+So this `aes(a, b)` is different from `aes(b, a)`.
+
+But this `aes(y = b, x = a)` is the same as `aes(a, b)`.
 :::
 
 ## Bar charts
 
 Another common type of plot is the **bar chart**.
 
-**Bar charts are useful when you are counting things.** In the following example, we will be counting the number of languages by their endangerment status.
+::: callout-tip
+#### Bar charts
+
+**Bar charts** are useful when you are counting things. For example:
+
+-   Number of verbs vs nouns vs adjectives in a corpus.
+
+-   Number of languages by geographic area.
+
+-   Number of correct vs incorrect responses.
+
+The bar chart geometry is `geom_bar()`.
+:::
+
+In the following example, we will be counting the number of languages by their endangerment status.
 
 ### Do you understand me?
 
@@ -371,6 +480,14 @@ There are thousands of languages in the world, but most of them are losing speak
 The `glot_status` data frame contains the endangerment status for 7,845 languages from [Glottolog](https://glottolog.org). To download the file with the data right-click on the following link and download the file: [glot_status.rds](../data/glot_status.rds). (Note that tutorial files are also linked in the [Syllabus](../content.qmd)). Remember to save the file in `data/` in the course project folder.
 
 This time the file is not a `.csv` file but an `.rds` file. `.rds` files are files that can save any R object. They are commonly used to save data frames, like in this case.
+
+::: callout-tip
+#### Rds files
+
+`.Rds` files are a type of R file which can store any R object and save it on disk.
+
+R objects can be saved to an `.Rds` file with the `saveRDS()` function and they can be read with the `readRDS()` function.
+:::
 
 To read an `.rds` file you need the `readRDS()` function.
 
@@ -389,7 +506,7 @@ Here's what the data frame looks like.
 glot_status
 ```
 
-For us today, the most important columns are:
+For us today, the relevant columns are:
 
 -   `Name`: the language name.
 
@@ -399,11 +516,19 @@ For us today, the most important columns are:
 
 ### Create a bar chart
 
-To create a bar chart, add `geom_bar()` to the plot.
+To create a bar chart, use the `geom_bar()` geometry.
 
-You only need one axis, the *x* axis to be precise, because the *y*-axis will have the counts.
+::: callout-warning
+## Bar chart axes
 
-Also, note how we're using `%>%` to pipe the `glot_status` data frame into the `ggplot()` function. This works because `ggplot()`'s first argument is the data, and piping is a different way of providing the first argument to a function.
+In a simple bar chart, **you only need to specify one axis, the *x*-axis**, in the aesthetics `aes()`.
+
+This is because the counts that are placed on the *y*-axis are calculated by the `geom_bar()` function under the hood.
+
+This quirk is something that confuses many new learners, so make sure you internalise this.
+:::
+
+Go ahead and complete the following code to create a bar chart.
 
 ```{r}
 #| label: status-bar
@@ -414,13 +539,29 @@ glot_status %>%
   ...
 ```
 
-Note how the counting is done automatically. R looks in the `status` column and counts how many times each value in the column occurs in the data frame.
+Note how we're using `%>%` to pipe the `glot_status` data frame into the `ggplot()` function. This works because `ggplot()`'s first argument is the data, and piping is a different way of providing the first argument to a function.
+
+As mentioned above, the counting for the *y*-axis is done automatically. R looks in the `status` column and counts how many times each value in the column occurs in the data frame.
 
 ### Stacked bar charts
 
-A special type of bar charts are the so-called **stacked bar charts**. These are bar charts where each bar contains a "stack" of shorter bars, each indicating the counts of some sub-groups.
+A special type of bar charts are the so-called stacked bar charts.
 
-To create a stacked bar chart, you just need to add a new aesthetic mapping: `fill`. The `fill` aesthetic lets you fill bars or areas with different colours depending on the values of a specified column.
+::: callout-tip
+#### Stacked bar chart
+
+A **stacked bar chart** is a bar chart in which each contains a "stack" of shorter bars, each indicating the counts of some sub-groups.
+
+This type of plot is useful to show how counts of something vary depending on some other grouping (in other words, when you want to count the occurrences of a categorical variable based on another categorical variable). For example:
+
+-   Number of languages by endangerment status, grouped by geographic area.
+
+-   Number of infants by head-turning preference, grouped by first language.
+
+-   Number of past vs non-past verbs, grouped by verb class.
+:::
+
+To create a stacked bar chart, you just need to add a new aesthetic mapping to `aes()`: `fill`. The `fill` aesthetic lets you fill bars or areas with different colours depending on the values of a specified column.
 
 Let's make a plot on language endangerment by macro-area.
 
@@ -431,11 +572,23 @@ Complete the following code by specifying that `fill` should be based on `status
 #| eval: false
 
 ggplot(
-  data = glot_status,
-  mapping = aes(x = Macroarea, ...)
+  glot_status,
+  aes(x = Macroarea, ...)
 ) +
   geom_bar()
 ```
+
+::: callout-note
+#### Quiz 4
+
+What is wrong in the following code?
+
+``` r
+gestures %>%
+  ggplot(aes(x = status), fill = Macroarea) +
+  geom_bar()
+```
+:::
 
 ## Faceting and panels
 
@@ -466,9 +619,17 @@ In the plot above, the aesthetics mappings are the following:
 -   `H1H2` on the *y*-axis.
 -   `gender` as colour.
 
-How can we separate data further depending on whether the participant is a music student or not?
+How can we separate data further depending on whether the participant is a music student or not (`musicstudent`)?
 
 We can create panels using `facet_grid()`. This function takes lists of variables to specify panels in rows and/or columns.
+
+::: callout-note
+#### Faceting
+
+**Faceting** a plot allows to split the plot into multiple panels, arranged in rows and columns, based on one or more variables.
+
+To facet a plot, use the `facet_grid()` function.
+:::
 
 The syntax is a bit strange. Check the documentation with `?facet_grid()` (especially the examples) to see how it works and then complete the code below and run it to produce a plot with two column panels for `musicstudent`.
 
@@ -490,8 +651,36 @@ Go ahead, click on the "Knitr" button and if everything works fine you should se
 
 Note that you will be asked to render your Rmd files for the assessments, so I recommend you try this out now.
 
-## The end
+## Summary
 
 That's all for this week!
 
-Next week, you will learn how to create density and violin plots and how to customise legends, titles and labels!
+::: {.callout-note appearance="minimal"}
+**R Markdown**
+
+-   **R Markdown** can be used to create dynamic and reproducible reports.
+
+-   **Mark-up languages** are text-formatting systems that specify text formatting and structure using symbols or keywords. Markdown is the mark-up language R Markdown is based on.
+
+-   The main parts of an `.Rmd` file are the preamble, text and code chunks.
+
+**Plotting**
+
+-   **ggplot2** is a plotting package from the tidyverse.
+
+    -   To create a basic plot, you use the `ggplot()` function and specify `data` and `mapping`.
+
+    -   The `aes()` function allows you to specify aesthetics (like axes, colours, ...) in the `mapping` argument.
+
+    -   Geometries map data values onto shapes in the plot. All geometry functions are of the type `geom_*()`.
+
+-   **Scatter plots** are created with `geom_point()` and can be used with two numeric variables.
+
+-   **Bar charts** are created with `geom_bar()` and can be used to show the counts of different levels of a categorical variable.
+
+-   **Stacked bar charts** are created by specifying the `fill` aesthetic and can be used to show counts grouped by a second categorical variable.
+
+-   **Faceting** allows you to split the plot in different panels, based on other variables in the data. Faceting is achieved with `facet_grid()`.
+:::
+
+Next week, we will start learning about statistical modelling and while doing that you will also learn how to create density and violin plots and how to customise legends, titles and labels!
