@@ -1,7 +1,7 @@
 ---
-title: "Statistics and Quantitative Methods (S2)"
+title: "Quantitative Methods for LEL"
 subtitle: "Week 8 - Multiple predictors and interactions"
-author: "Elizabeth Pankratz"
+author: "Elizabeth Pankratz and Stefano Coretta"
 institute: "University of Edinburgh"
 date: "2023/03/14"
 output:

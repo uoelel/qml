@@ -1,5 +1,5 @@
 ---
-title: "Statistics and Quantitative Methods (S2)"
+title: "Quantitative Methods for LEL"
 subtitle: "Week 3"
 author: "Dr Stefano Coretta"
 institute: "University of Edinburgh"
