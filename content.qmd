@@ -92,7 +92,7 @@
 
 ### Week 2: Data wrangling
 
-::: {.callout-important collapse="true"}
+::: {.callout-important collapse="false"}
 #### Learning Objectives
 
 **Questions**
@@ -110,7 +110,7 @@
 -   Use R scripts to save and reuse code.
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-tip collapse="false"}
 #### Materials
 
 -   [Lecture slides](slides/w02/).
@@ -119,7 +119,7 @@
     -   [shallow.csv](data/shallow.csv)
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-tip collapse="false"}
 #### Suggested readings
 
 **Main textbooks**
