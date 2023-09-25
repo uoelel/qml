@@ -3,6 +3,11 @@ title: "QML tutorial - Week 4"
 editor: visual
 execute: 
   cache: true
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+    embed-resources: true 
 ---
 
 ```{r}

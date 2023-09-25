@@ -7,7 +7,7 @@ format:
   html:
     css: [webex.css]
     include-after-body: [webex.js]
-    embed-resources: true 
+    # embed-resources: true 
 ---
 
 ```{r}
@@ -655,6 +655,13 @@ What if we want also the standard deviation? Easy!
 
 summarise(shallow, RT_mean = mean(RT), RT_sd = sd(RT))
 
+```
+
+```{r}
+#| label: comments-2
+
+# This is a comment. Let's add 6 + 3.
+6 + 3
 ```
 
 Now we know that reaction times are on average 867 ms long and have a standard deviation of about 293 ms (rounded to the nearest integer).

@@ -201,6 +201,7 @@ window.onload = function() {
   }
 
   update_total_correct();
+  PagedTableDoc.initAll();
 }
 
 </script>
