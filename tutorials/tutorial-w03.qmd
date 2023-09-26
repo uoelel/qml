@@ -293,12 +293,13 @@ opts_1 <- c(
 
 cat("What does `here::here()` return?", longmcq(opts_1))
 ```
-:::
+
 
 ::: {.callout-important collapse="true"}
 #### Explanation
 
 The answer `The current working directory.` is wrong because if you manually set the working directory with `setwd(),` `here::here()` will still return the project directory!
+:::
 :::
 
 ### A basic plot
@@ -441,7 +442,7 @@ opts_3 <- c(
 
 cat("Which of the following will produce the same plot as the one above? Reason through it first without running the code, then run all of these to check whether they look the way you expected.", longmcq(opts_3))
 ```
-:::
+
 
 ::: {.callout-tip collapse="true"}
 #### Hint
@@ -451,6 +452,8 @@ When specifying arguments, the order matters when not using the argument names.
 So this `aes(a, b)` is different from `aes(b, a)`.
 
 But this `aes(y = b, x = a)` is the same as `aes(a, b)`.
+:::
+
 :::
 
 ## Bar charts
