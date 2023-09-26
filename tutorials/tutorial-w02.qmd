@@ -711,6 +711,13 @@ opts_5b <- c(
 
 cat("b. Which is the mean of `c(4, 23, NA, 5)` when `na.rm` has the default value?", longmcq(opts_5b))
 ```
+
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Check the documentation of `?mean`.
+:::
 :::
 
 Note that R has a `mode()` function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!
@@ -840,12 +847,12 @@ cat("a. Which of the following returns the number of words in `shallow`?", longm
 
 cat("b. The output of `summarise()` always drops the grouping.", torf(FALSE))
 ```
-:::
 
 ::: {.callout-tip collapse="true"}
 #### Hint
 
 For 6b., check the documentation of `?summarise`.
+:::
 :::
 
 ::: {.callout-note collapse="true"}
@@ -866,7 +873,6 @@ For 6b., check the documentation of `?summarise`.
     -   Number of children by `background`.
 
 -   Write a paragraph where you report the measures.
-:::
 
 ::: {.callout-tip collapse="true"}
 #### Hint
@@ -875,6 +881,7 @@ For 6b., check the documentation of `?summarise`.
 
 -   To calculate the number of children by background, you need the `distinct()` function.
 :::
+
 
 ::: {.callout-warning collapse="true"}
 #### Solution
@@ -916,6 +923,11 @@ gestures %>%
 ```
 :::
 :::
+
+
+:::
+
+
 
 ## Summary
 
