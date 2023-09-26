@@ -44,7 +44,7 @@ To download the file with the data right-click on the following link and downloa
 
 Create a new `.Rmd` file first, save it in `code/` and name it `tutorial-w04` (the extension `.Rmd` is added automatically!).
 
-I leave to you creating title headings in your file as you please. Remember to to add `knitr::opts_knit$set(root.dir = here::here())` in the `setup` chunk and to attach the tidyverse.
+I leave to you creating headings in your file as you please. Remember to to add `knitr::opts_knit$set(root.dir = here::here())` in the `setup` chunk and to attach the tidyverse.
 
 Now you can create a new code chunk and read the `alb_vot.csv` file in R. Remember how to do this?
 
@@ -54,6 +54,12 @@ Now you can create a new code chunk and read the `alb_vot.csv` file in R. Rememb
 
 alb_vot <- ...
 ```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+It's one of the `read_*()` functions.
+:::
 
 ```{r}
 #| label: alb-vot
@@ -74,13 +80,13 @@ alb_vot
 The data frame has the following columns:
 
 -   `speaker`: the speaker ID.
--   `file`: the file the measurements are take from.
--   `label`: the label in the interval.
--   `release`: the time of the consonant's closure release in seconds.
--   `voi_onset`: the onset of voicing of the vowel following the target consonant in seconds.
+-   `file`: the sound file the measurements are take from.
+-   `label`: the label in the interval the measurements are taken from.
+-   `release`: the time of the consonant's closure release from the beginning of the sound file in seconds.
+-   `voi_onset`: the onset of voicing of the vowel following the target consonant from the beginning of the sound file in seconds.
 -   `consonant`: the IPA transcription of the target consonant.
 
-Now we need to create a new column with the Voice Onset Time (`vot`) values. Note that VOT is simply the difference between the onset of voicing (`voi_onset`) and the time of release (`release`).
+Now we need to create a new column with the Voice Onset Time (`vot`) values. Note that VOT is simply the difference between the onset of voicing (`voi_onset`) and the time of release (`release`). We will do this in the next section.
 
 ### Create a new column
 
@@ -101,9 +107,17 @@ Since we are mutating `alb_vot`, we need to assign (`<-`) the output of `mutate(
 
 Well done!
 
+::: callout-warning
+Note that the following code, without the pipe, gives you the same result.
+
+``` r
+alb_vot <- mutate(alb_vot, vot = voi_onset - release)
+```
+:::
+
 Normally, VOT is measured in milliseconds (ms), but the `vot` column is now in seconds (because `release` and `voi_onset` are in seconds).
 
-Let's change this. We can overwrite the `vot` column:
+Let's change this. We can overwrite the `vot` column like so:
 
 ```{r}
 #| label: vot-2
@@ -117,9 +131,21 @@ alb_vot <- alb_vot %>%
 
 Check `alb_vot` now to see that it worked.
 
+::: callout-tip
+#### Mutate
+
+The function `mutate()` allows you to create new columns or to change existing ones.
+:::
+
 ## Density plots
 
-**Density plots show the distribution (i.e. the probability density) of the values of a continuous variable.**
+::: callout-tip
+## Density plots
+
+**Density plots** show the distribution (i.e. the probability density) of the values of a continuous variable**.**
+
+They are created with `geom_density()`.
+:::
 
 VOT is a numeric continuous variable so density plots are appropriate.
 
@@ -136,15 +162,25 @@ alb_vot %>%
   ...
 ```
 
-Note that to create a density plot, you only need to specify the `x`-axis. The `y`-axis is the probability density, which is automatically calculated.
+Note that to create a density plot, you only need to specify the `x`-axis. The `y`-axis is the probability density, which is automatically calculated (a bit like counts in bar charts, remember?).
+
+::: callout-note
+#### Quiz 1
 
 What can you notice about the distribution of VOT values?
 
-### Make things cozy with a rug
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Are there multiple peaks in the distribution?
+:::
+:::
+
+### Make things cosy with a rug
 
 The density line shows you a smoothed representation of the data distribution over the VOT values, but you might also want to see the raw data.
 
-You can do so by adding the `rug` geometry.
+You can do so by adding the `rug` geometry. Go ahead and add a rug...
 
 ```{r}
 #| label: vot-dens-rug-ex
@@ -156,7 +192,27 @@ alb_vot %>%
   ...
 ```
 
+You should get the following:
+
+```{r}
+#| label: vot-dens-rug
+#| echo: false
+
+alb_vot %>%
+  ggplot(aes(vot)) +
+  geom_density() +
+  geom_rug()
+```
+
 Nice huh?
+
+::: callout-tip
+#### Rug
+
+Raw data can be shown with a **rug**, i.e. ticks on the axes that mark where the data is.
+
+You can add a rug with `geom_rug()`.
+:::
 
 ## If-else
 
@@ -208,9 +264,17 @@ Try these out in the Console:
 
 ```
 
+::: callout-tip
+#### Logical operators
+
+**Logical operators** are symbols that compare two objects and return either `TRUE` or `FALSE`.
+
+The most common logical operators are `==`, `!=`, `>`, and `<`.
+:::
+
 ### Finding unique values
 
-Let's create a new column that states whether a consonant is voiced or voiceless. Because we're modifying the data frame, let's move back into the editor so that all of our manipulations are recorded.
+Let's create a new column that states whether a consonant is voiced or voiceless. Because we're modifying the data frame, let's go back to the R Markdown file of the tutorial and keep on writing code there.
 
 So, the data contains the following consonants:
 
@@ -223,9 +287,19 @@ unique(cons_ipa)
 
 Wait, what's that `$` in `alb_vot$consonant` there? That is a base R way of extracting a single column (in this case `consonant`) from a data frame (`alb_vot`).
 
+::: callout-tip
+#### The dollar sign \`\$\`
+
+You can use the dollar sign `$` to extract a single column from a data frame as a vector.
+:::
+
 If you check `cons_ipa` in the Environment tab, it will say that this is `chr` vector, i.e. a character vector. This makes sense, because `consonant` is a character column in `alb_vot`.
 
+::: callout-tip
+#### Find unique values
+
 The `unique()` function shows the unique values of a vector (it works with any type of vector, numeric, character, logical, ...).
+:::
 
 This is great, we now know all the consonants in the `consonant` column, but maybe it will be easier to type them later if we use the custom transcription in `label` rather than IPA.
 
