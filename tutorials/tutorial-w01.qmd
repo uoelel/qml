@@ -541,7 +541,6 @@ opts_5b <- c(
 
 cat("b. Which of the following is **not** a logical vector.", longmcq(opts_5b))
 ```
-:::
 
 ::: {.callout-tip collapse="true"}
 #### Hint
@@ -573,12 +572,16 @@ class(char)
 
 -   `c(letters)` is a character vector because `letters` contains the letters of the alphabet as strings (this vector comes with base R).
 
--   `` c(apple) is not a character vector because the variable `apple` holds a number, `45`! ``
+-   `c(apple)` is not a character vector because the variable `apple` holds a number, `45`!
 
 **5b**
 
 -   `"FALSE"` is **not** a logical vector because `FALSE` has been quoted (anything that is quoted is a string!).
 :::
+
+:::
+
+
 
 ::: {.callout-important collapse="true"}
 #### Extra: For-loops and if-else statements
