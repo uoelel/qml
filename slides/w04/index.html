@@ -196,7 +196,7 @@ layout: true
 ---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-A **probability distribution** is a mathematical function that describes *how the probabilities are distributed over the values* that a random variable can take on.
+A **probability distribution** is a mathematical function that describes *how the probabilities are distributed over the values* that a variable can take on.
 ]
 
 --
@@ -214,7 +214,7 @@ Two types of probability distributions
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 **We talked about discrete and continuous variables in Week 2!**
 
-Discrete variables follow discrete probability distributions and continuous variables follow continuous probability distributions.
+Discrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions.
 ]
 
 ---
@@ -255,8 +255,6 @@ You don't need to understand the math behind this, but you are free to learn abo
 **Probability distributions can be expressed by a set of parameters.**
 
 - We summarise a probability distribution with a **set of parameters**.
-
-  - In mathematical notation: `\(\Theta = (\theta_1, ..., \theta_n)\)`
   
   - Different (sub-)types of probability distributions have a different number of parameters and different parameters.
 ]
@@ -296,7 +294,7 @@ Now, let's talk a bit about ontology...
 ---
 
 .bg-washed-yellow.b--orange.ba.bw2.br3.shadow-5.ph4.mt2[
-**Frequentist view**
+**Frequentist view of probabilities**
 
 - The parameters are **fixed** (they are *unknown but certain*).
 
@@ -306,23 +304,18 @@ Now, let's talk a bit about ontology...
 --
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-**Bayesian view**
+**Bayesian view of probabilities**
 
-- The parameters are **random variables** (they are *unknown and uncertain*).
+- The parameters are **variables** themselves (they are *unknown and uncertain*).
 
-- We describe each parameter as a probability distribution.
+- We describe each parameter of a probability distribution as another probability distribution.
 
-- And each parameter's probability distribution is described by a set of parameters (called hyper-parameters).
+- And each parameter's probability distribution is described by a set of parameters (called *hyper-parameters*).
 ]
 
 ---
 
-layout: false
 background-image: url(https://media.giphy.com/media/443pAv9m6Ti8KiCoAi/giphy.gif)
-
----
-
-aaa
 
 ---
 
@@ -509,9 +502,9 @@ vot_bm &lt;- brm(
 `vot ~ 1`
 ]
 
-**Read as**: Model VOT values (`vot`) as a function of (`~`) the mean (`1`).
+**Read as**: Model VOT values (`vot`) as a function of (`~`) the overall mean (`1`).
 
-.f7[We will see later that `1` is also called the *Intercept*.]
+.f7[In other words, estimate the mean VOT. We will see later that `1` is also called the *Intercept*.]
 
 --
 
@@ -519,15 +512,15 @@ vot_bm &lt;- brm(
 `family = gaussian()`
 ]
 
-**Read as**: using a Gaussian probability distribution.
-
-- The Gaussian distribution also has another parameter, the SD.
+**Read as**: using a Gaussian probability distribution. The Gaussian distribution also has another parameter, the SD.
 
 
 --
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 **Altogether**: Model VOT values as a function of the mean and standard deviation of a Gaussian probability distribution.
+
+.f7[In other words, estimate the mean and SD of a Gaussian probability distribution.]
 ]
 
 ---
@@ -573,15 +566,6 @@ vot_bm &lt;- brm(
 
 ---
 
-
-```
-##  Family: gaussian 
-## Formula: vot ~ 1 
-##    Data: alb_vot_vl (Number of observations: 24)
-```
-
----
-
 layout: false
 layout: true
 
@@ -601,26 +585,46 @@ layout: true
 &lt;br&gt;
 &lt;br&gt;
 
-.pull-left[
+$$
+`\begin{align}
+vot &amp; \sim Gaussian(\mu, \sigma) \\
+\mu &amp; \sim Gaussian(\mu_1, \sigma_1) \\
+\sigma &amp; \sim TruncGaussian(\mu_2, \sigma_2)
+\end{align}`
+$$
+
 - **Intercept**: the mean `\(\mu\)`.
 
 - **Estimate**: `\(\mu_1 = 11.62\)` ms.
 
 - **Est.Error**: `\(\sigma_1 = 0.59\)` ms.
-]
 
-.pull-right[
-`$$vot \sim Gaussian(\mu, \sigma)$$`
-.purple[
-`$$\mu \sim Gaussian(\mu_1, \sigma_1)$$`
-]
-
-`$$\sigma \sim TruncGaussian(\mu_2, \sigma_2)$$`
-]
 
 ---
 
 &lt;img src="index_files/figure-html/vot-int-p-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+```
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept    11.62      0.59    10.48    12.78 1.00     2559     2158
+```
+
+&lt;br&gt;
+&lt;br&gt;
+
+- `l-95% CI`: LOWER boundary of the 95% Credible Interval.
+
+- `u-95% CI`: UPPER boundary of the 95% Credible Interval.
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+A 95% Credible interval (CrI) includes the real value at 95% probability.
+
+OR, there is a 95% probability that the real value is within the 95% CrI.
+]
 
 ---
 
@@ -651,27 +655,32 @@ layout: true
 &lt;br&gt;
 &lt;br&gt;
 
-.pull-left[
+$$
+`\begin{align}
+vot &amp; \sim Gaussian(\mu, \sigma) \\
+\mu &amp; \sim Gaussian(\mu_1, \sigma_1) \\
+\sigma &amp; \sim TruncGaussian(\mu_2, \sigma_2)
+\end{align}`
+$$
+
 - **sigma**: the SD `\(\sigma\)`.
 
 - **Estimate**: `\(\mu_2 = 2.88\)` ms.
 
 - **Est.Error**: `\(\sigma_2 = 0.44\)` ms.
-]
-
-.pull-right[
-`$$vot \sim Gaussian(\mu, \sigma)$$`
-
-`$$\mu \sim Gaussian(\mu_1, \sigma_1)$$`
-
-.purple[
-`$$\sigma \sim TruncGaussian(\mu_2, \sigma_2)$$`
-]
-]
 
 ---
 
 &lt;img src="index_files/figure-html/vot-sig-p-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+```
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma     2.88      0.44     2.18     3.88 1.00     2327     2013
+```
 
 ---
 
@@ -685,9 +694,20 @@ There is a 95% probability that VOT standard deviation is between 2.18 and 3.88 
 
 layout: false
 
-## Putting mean and SD together
+## Putting it all together
 
-&lt;img src="index_files/figure-html/vot-bm-pp-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+$$
+`\begin{align}
+vot &amp; \sim Gaussian(\mu, \sigma) \\
+\mu &amp; \sim Gaussian(11.62, 0.59) \\
+\sigma &amp; \sim TruncGaussian(2.88, 0.44)
+\end{align}`
+$$
+
+&lt;br&gt;
+&lt;br&gt;
+
+&gt; According to a Bayesian model of Albanian voiceless VOT with a Gaussian distribution as the distribution family, the VOT mean is between 10.48 and 12.78 ms and the VOT SD is between 2.18 and 3.88 ms, at 95% probability.
 
 
 ---
