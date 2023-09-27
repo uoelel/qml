@@ -140,7 +140,7 @@ The function `mutate()` allows you to create new columns or to change existing o
 ## Density plots
 
 ::: callout-tip
-## Density plots
+#### Density plots
 
 **Density plots** show the distribution (i.e. the probability density) of the values of a continuous variable**.**
 
@@ -163,18 +163,6 @@ alb_vot %>%
 ```
 
 Note that to create a density plot, you only need to specify the `x`-axis. The `y`-axis is the probability density, which is automatically calculated (a bit like counts in bar charts, remember?).
-
-::: callout-note
-#### Quiz 1
-
-What can you notice about the distribution of VOT values?
-
-::: {.callout-tip collapse="true"}
-#### Hint
-
-Are there multiple peaks in the distribution?
-:::
-:::
 
 ### Make things cosy with a rug
 
@@ -214,19 +202,29 @@ Raw data can be shown with a **rug**, i.e. ticks on the axes that mark where the
 You can add a rug with `geom_rug()`.
 :::
 
-## If-else
+::: callout-note
+#### Quiz 1
 
-What if we want to plot the density of voiceless and voiced consonants separately?
+What can you notice about the distribution of VOT values?
 
-We could use faceting, as you learnt in Week 3, or we can use the aesthetics `fill` and/or `colour`.
+::: {.callout-tip collapse="true"}
+#### Hint
 
-However, first we need to create a new column that indicated if a consonant is voiceless or voiced!
+Are there multiple peaks in the distribution?
+:::
+:::
 
-We will use the `mutate()` function again to create a new `voicing` column. But how do we get the values for this new column (without having to manually code each consonant as voiceless or voiced)?
+## Filtering data
 
-We can use the `ifelse()` function!
+We are getting closer and closer to start modelling our VOT data to learn more about them.
 
-The `ifelse()` function works a bit like the English sentence "If X is true, do Y, otherwise do Z". The "X" has to be a "logical statement", i.e. an expression using **logical operators**. So let's talk about logical operators (we will get back to them below, when we will filter the VOT data).
+Normally, you would approach data modelling by using the entire data set and including as many variables as it makes sense. Since you are just starting to learn how to model data with [brms](https://paul-buerkner.github.io/brms/), we will first take a pedagogical approach and start small.
+
+You will have noticed in the density plot that there seems to be two groups of data: and you would be right! The data contains VOT values for both voiceless and voiced plosives.
+
+For now, we will filter the data so that we include *only voiceless plosives that don't have a VOT longer than 20 ms*. (Again, we are doing this for pedagogical reasons, not because this is what you would do with this data in real-life research!).
+
+Before we can move on onto filtering data, we first need to learn about *logical operators*.
 
 ### Logical operators
 
@@ -272,9 +270,405 @@ Try these out in the Console:
 The most common logical operators are `==`, `!=`, `>`, and `<`.
 :::
 
-### Finding unique values
+Now let's see how these work with `filter()`!
 
-Let's create a new column that states whether a consonant is voiced or voiceless. Because we're modifying the data frame, let's go back to the R Markdown file of the tutorial and keep on writing code there.
+### The `filter()` function
+
+Filtering in R with the tidyverse is straightforward. You can use the `filter()` function.
+
+`filter()` takes one or more statements with logical operators.
+
+Let's try this out. The following code filters the `consonant` column so that only the consonant `p` is included.
+
+```{r}
+#| label: vot-filt-1
+
+alb_vot %>%
+  filter(consonant == "p")
+```
+
+Neat! What if we want to include *all consonants except* `p`? Easy, we use the non-equal operator `!=`.
+
+```{r}
+#| label: vot-filt-2
+
+alb_vot %>%
+  filter(consonant != "p")
+```
+
+And if we want only `k` from speaker `s02`? We can include multiple statements separated by a comma!
+
+```{r}
+#| label: vot-filt-3
+
+alb_vot %>%
+  filter(consonant == "k", speaker == "s02")
+```
+
+Combining statements like this will give you only those rows where both conditions apply. You can add as many statements as you need.
+
+Now try to filter the data so that you include only speaker `s04` and VOT values that are shorter than 20 ms.
+
+```{r}
+#| label: vot-filt-ex
+#| eval: false
+
+alb_vot %>%
+  filter(...)
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Do you remember the logical operator for "smaller than"?
+:::
+
+This is all great, but what if we want to include multiple consonants?
+
+To do that we need another operator: `%in%`.
+
+### The `%in%` operator
+
+::: callout-tip
+#### `%in%`
+
+The `%in%` operator is a special logical operator that returns `TRUE` if the value to the left of the operator is one of the values in the vector to its right, and `FALSE` if not.
+:::
+
+Try these in the Console:
+
+```{r}
+#| label: in
+
+# TRUE
+5 %in% c(1, 2, 5, 7)
+
+# FALSE
+"apples" %in% c("oranges", "bananas")
+```
+
+But `%in%` is even more powerful because the value on the left does not have to be a single value, but it can also be a vector! We say `%in%` is *vectorised* because it can work with vectors (most functions and operators in R are vectorised).
+
+```{r}
+#| label: in-vct
+
+# TRUE, TRUE
+c(1, 5) %in% c(4, 1, 7, 5, 8)
+
+stocked <- c("durian", "bananas", "grapes")
+needed <- c("durian", "apples")
+
+# TRUE, FALSE
+needed %in% stocked
+
+```
+
+Try to understand what is going on in the code above before moving on.
+
+### Now filter the data
+
+Now we can filter `alb_vot` to include only the voiceless plosives `p, t, k` and VOT values smaller than 20 ms.
+
+```{r}
+#| label: vot-filt-vl
+
+alb_vot_vl <- alb_vot %>%
+  filter(
+    consonant %in% c("p", "t", "k"),
+    vot < 20
+  )
+```
+
+This should not look too alien! The first statement, `consonant %in% c("p", "t", "k")` looks at the `consonant` column and, for each row, it returns `TRUE` if the current row value is in `c("p", "t", "k")`, and `FALSE` if not.
+
+::: {.callout-warning collapse="true"}
+## Explanation
+
+If it's not very clear what is going on, try the following code.
+
+``` r
+alb_vless <- alb_vot %>%
+  mutate(voiceless = consonant %in% c("p", "t", "k"))
+alb_vless
+
+alb_vless %>%
+  filter(voiceless == TRUE)
+```
+:::
+
+The second statement, `vot < 20`, filters in VOT values that are less than 20 ms.
+
+You might have noticed that we need to assign the output of `filter()`, which is a data frame, to a new variable `alb_vot_vl` ("vl" for "voiceless"). This will be the data frame you will use in the next section.
+
+## Modelling with `brm()`
+
+In the lecture, we have seen that we can assume voiceless VOT values to be distributed according to a Gaussian distribution (you may also have encountered Gaussian distributions under the name "normal distribution").
+
+$$vot \sim Gaussian(\mu, \sigma)$$
+
+We can calculate the sample mean and standard deviation easily, using the `summarise()` function, as you learnt in Week 2. Go ahead and complete the code.
+
+```{r}
+#| label: vot-msd
+#| eval: false
+
+alb_vot_vl %>%
+  summarise(
+    ...
+  )
+```
+
+But now we want to make inference from our sample (N = 24) to the entire population of VOT values of the Albanian voiceless plosives /p/, /t/, /k/.
+
+We want to estimate the following probability distributions and parameters:
+
+$$
+\begin{align}
+vot & \sim Gaussian(\mu, \sigma) \\
+\mu & \sim Gaussian(\mu_1, \sigma_1) \\
+\sigma & \sim TruncGaussian(\mu_2, \sigma_2)
+\end{align}
+$$
+
+In other words, we are trying to estimate the following hyperparameters: $\mu_1$, $\sigma_1$, $\mu_2$, $\sigma_2$.
+
+We can achieve this by modelling the data using the `brm()` function from the brms package (BRM stands for Bayesian Regression Model). We will go into more details about what this means in the weeks to follow. For now, note that regression is a synonym of linear model, a type of modelling approach that you are learning in this course.
+
+Add `library(brms)` in the `setup` chunk and run that chunk again so that the brms package is attached. Then, run the following code.
+
+```{r}
+#| label: vot-bm
+#| eval: false
+
+alb_vot_bm <- brm(
+  vot ~ 1,
+  family = gaussian(),
+  data = alb_vot_vl,
+  backend = "cmdstanr"
+)
+```
+
+```{r}
+#| label: vot-bm-2
+#| echo: false
+#| message: false
+
+alb_vot_bm <- brm(
+  vot ~ 1,
+  family = gaussian(),
+  data = alb_vot_vl,
+  backend = "cmdstanr",
+  file = "data/cache/vot_bm.rds"
+)
+```
+
+You will see the message `Compiling Stan program...` followed by `Start sampling`. Something like in the figure below.
+
+![](/img/mcmc-messages.png)
+
+We will get back to what all this means in the coming weeks. For now know that [Stan](https://mc-stan.org) is a programming language that can run Bayesian models. `brm()` is an R interface to Stan, so that you can use R and R syntax to run Bayesian models without having to learn Stan! (If you feel adventurous, nobody stops you from learning Stan too, although it is not required for this course).
+
+The "sampling" part is about the Markov-Chain Monte Carlo (or MCMC) sampling algorithm. For a quick intro on MCMC, check the Extra box below.
+
+::: {.callout-important collapse="true"}
+#### Extra: Markov-Chain Monte Carlo
+
+::: {.callout-tip icon="false"}
+#### MCMC
+
+Markov-Chain Monte Carlo refers to a set of algorithms used to estimate parameters of unknown distributions, based on repeated draws from parameter values and observed data.
+:::
+
+You don't need to understand the details of this. For now, just remember that several draws are made (i.e. the algorithm is run for several iterations), and that the model runs 4 chains of these iterations.
+
+We will learn more about chains and iterations in the coming weeks and you will know how to use information about these to diagnose the robustness of the estimated parameters.
+:::
+
+### Model summary
+
+Now we can inspect the model output using the `summary()` function (don't confuse this with the `summarise()` function, used to get statistical summaries of data).
+
+```{r}
+#| label: vot-bm-summ
+
+summary(alb_vot_bm)
+
+```
+
+We have seen the summary of this model during the lecture. Do you remember how to interpret it?
+
+You can use the `tidy()` function from the [broom.mixed](https://github.com/bbolker/broom.mixed) package to extract the information on the estimated parameters as a table (remember to attach the package in the `setup` chunk; you might also need to install the package).
+
+```{r}
+#| label: vot-bm-tidy
+
+tidy(alb_vot_bm)
+```
+
+The `term` column gives us the two main parameters we wanted to estimate:
+
+-   `(Intercept)` is actually $\mu$.
+
+-   `sd__Observation` is $\sigma$.
+
+Note that `sd__Observation` in the tidy table corresponds to `sigma` in the model summary above.
+
+Now, for each of the two parameters, you get `estimate` and `std.error`. There are the hyperparameters of the probability distributions for $\mu$ and $\sigma$.
+
+- `(Intercept)` ($\mu$): `estimate` is $\mu_1$: 11.62 ms, `std.error` is $\sigma_1$: 0.57 ms.
+
+- `sd__Observation` ($\sigma$): `estimate` is $\mu_2$: 2.86 ms, `std.error` is $\sigma_2$: 0.44 ms.
+
+In notation:
+
+$$
+\begin{align}
+vot & \sim Gaussian(\mu, \sigma) \\
+\mu & \sim Gaussian(11.62, 0.57) \\
+\sigma & \sim TruncGaussian(2.86, 0.44)
+\end{align}
+$$
+
+Based on the model summary and on the tidy summary, we also know the **95% Credible Intervals** (CrIs) of the probability distributions of $\mu$ and $sigma$. They are in the columns of the tidy summary called `conf.low` and `conf.high`.
+
+::: {.callout-tip icon="false"}
+#### Credible Interval
+
+A 95% (Bayesian) Credible Interval indicates the range of values we can be 95% confident contains the true parameter value.
+:::
+
+-   At 95% confidence, the mean ($\mu$) VOT value for Albanian voiceless stops is between 10.48 and 12.78 ms.
+
+-   As for the standard deviation ($\sigma$), we can be 95% confident that it is between 2.18 and 3.88 ms.
+
+### Reporting
+
+How would you report all that?
+
+Reporting statistical models is quite formulaic, so you can use the following as a template and replace values as needed when you need to report other models.
+
+> We fitted a Bayesian model of the VOT of Albanian voiceless plosives, using a Gaussian distribution as the distribution family. According to the model, there is a 95% probability that the VOT mean is between 10.48 and 12.78 ms ($\beta$ = 11.6, SD = 0.59), and there is a 95% probability that the VOT SD is between 2.18 and 3.88 ($\beta$ = 2.87, SD = 0.43).
+
+It is common to report both the CrIs and the estimate and standard deviation of each parameter.
+
+It is also helpful to visualise probability distributions by plotting probability densities. You will learn how to do this next week!
+
+In the meantime, read on to find out how to create violin plots and customise your plots!
+
+## Violin plots
+
+An efficient way of showing the distribution of continuous variables depending on discrete groups (like `consonant`) are the so-called **violin plots**.
+
+Go ahead and run the following code.
+
+```{r}
+#| label: vot-consonant
+
+alb_vot %>%
+  ggplot(aes(consonant, vot)) +
+  geom_violin()
+```
+
+They are called violin plots because they look like violins! The geometry for violin plots is... `geom_violin()`.
+
+Usually, you need the following `aes`thetics:
+
+-   `x`-axis: a categorical variable, like `consonant`.
+
+-   `y`-axis: a continuous numeric variable, like `vot`.
+
+### Lay over the raw data
+
+You can lay over raw data on top of the violins. To do so, you can use the `jitter` geometry.
+
+`geom_jitter()` creates so-called strip charts. Let's first see how these look like without violins.
+
+```{r}
+#| label: vot-jitter
+alb_vot %>%
+  ggplot(aes(consonant, vot)) +
+  geom_jitter()
+```
+
+That doesn't look great right? The points are spread too wide.
+
+We can fix that by specifying the argument `width` in the jitter geometry to be something smaller than `0.5`. Try a few values until you think it looks better.
+
+```{r}
+#| label: vot-jitter-1-ex
+#| eval: false
+
+alb_vot %>%
+  ggplot(aes(consonant, vot)) +
+  geom_jitter(width = ...)
+```
+
+When you are satisfied, create a violin plot with overlaid strip charts.
+
+```{r}
+#| label: vot-vio-jit-ex
+#| eval: false
+
+alb_vot %>%
+  ggplot(aes(consonant, vot)) +
+  geom_violin() +
+  geom_jitter(width = ...)
+```
+
+Note that the order between the violin and jitter geometries is important. If you add the jitter geometry before the violin geometry, the violins will just cover the jittered points (see why it is called "layered" grammar of graphics?).
+
+Now, try to create a violin and strip chart plot so that each `speaker` is plotted separately on the *y*-axis instead of `consonant`.
+
+### If-else
+
+It's clear from this last plot where each speaker is plotted separately that there are two subgroups of consonants: there are voiced and voiceless consonants (and you have also noticed this in the density plot above).
+
+So, what if we want to plot voiceless and voiced consonants separately? 
+
+We can use faceting, as you learnt in Week 3, or we can use the aesthetics `fill` and/or `colour`. However, first we need to create a new column that indicates if a consonant is voiceless or voiced!
+
+We will use the `mutate()` function to create a new `voicing` column. But how do we get the values for this new column (without having to manually code each row as voiceless or voiced)?
+
+We can use the `ifelse()` function!
+
+The `ifelse()` function works a bit like the English sentence "If X is true, do Y, otherwise do Z". The "X" has to be a logical statement, i.e. an expression using the logical operators you learnt above.
+
+Look at the following code.
+
+```{r}
+#| label: ifelse
+#| eval: false
+
+ifelse(10 > 9, "correct!", "wrong...")
+```
+
+You can read that as: If `10 > 9` is `TRUE`, then return `correct!`, if it's `FALSE`, then return `wrong...`.
+
+What will that code return? Think about this and then try the code to see that you got it right.
+
+`ifelse()` is vectorised, so you can even test multiple values, like so:
+
+```{r}
+#| label: ifelse-2
+
+ifelse(c(1, 3, 10) > 9, "correct!", "wrong...")
+```
+
+We get `wrong...` for `1 > 9` and `3 > 9`, and `correct!` for `10 > 9`.
+
+You can even use `%in%`!
+
+```{r}
+#| label: ifelse-3
+
+ifelse(c("apple", "banana", "cherry") %in% c("apple", "durian", "passion fruit"), "got it!", "need to by")
+```
+
+We will use `ifelse()` in conjunction with `mutate()` to create a new column `voicing`. But first, we need to get the list of consonants in the data set!
+
+(You could find these manually, but why do so when you can automate things with code?)
+
+### Finding unique values
 
 So, the data contains the following consonants:
 
@@ -316,70 +710,10 @@ Great! Now, to make things easier, let me tell you which consonants are voiceles
 
 -   voiced: `c("b", "g", "d", "dz", "J", "dZ")`.
 
-Don't worry about assigning these vectors to variables right now.
-
-### The `%in%` operator
-
 Now with this knowledge we can create a new column with `voiceless` and `voiced` values for each row in the data frame. Like so:
 
 ```{r}
 #| label: voi
-#| eval: false
-
-alb_vot <- alb_vot %>%
-  mutate(
-    voicing = ifelse(
-      # IF this is TRUE
-      label %in% c("ts", "k", "p", "t", "tS", "c"),
-      # Write
-      "voiceless",
-      # OR ELSE write
-      "voiced"
-    )
-  )
-
-```
-
-Let's unpack this. First of all, what is `label %in% c("ts", "k", "p", "t", "tS", "c")` doing?
-
-The `%in%` operator is a special logical operator that returns `TRUE` if the value to the left is one of the values in the list to its right, and `FALSE` if not.
-
-Try these in the Console:
-
-```{r}
-#| label: in
-
-# TRUE
-5 %in% c(1, 2, 5, 7)
-
-# FALSE
-"apples" %in% c("oranges", "bananas")
-```
-
-But `%in%` is even more powerful because the value on the left does not have to be a single value, but it can also be a vector! We say `%in%` is *vectorised* because it can work with vectors (most functions and operators in R are vectorised).
-
-```{r}
-#| label: in-vct
-
-# TRUE, TRUE
-c(1, 5) %in% c(4, 1, 7, 5, 8)
-
-stocked <- c("durian", "bananas", "grapes")
-needed <- c("durian", "apples")
-
-# TRUE, FALSE
-needed %in% stocked
-
-```
-
-Try to understand what is going on in the code above before moving on.
-
-### Voiceless or voiced?
-
-So now run the code to create a new column `voicing` (this is the same code as above).
-
-```{r}
-#| label: voi-2
 
 alb_vot <- alb_vot %>%
   mutate(
@@ -404,76 +738,59 @@ The `ifelse()` function is doing the following:
 
 Check out the `voicing` column in `alb_vot`.
 
-Now that we have the info we need to plot voiceless and voiced consonants separately, let's do that! But to spice things up a bit, let's do it with violin plots.
+Now that we have the info we need to plot voiceless and voiced consonants separately, let's do that!
 
-## Violin plots
+### Plotting voiceless and voiced VOT
 
-An efficient way of showing the distribution of continuous variables depending on discrete groups (like `voicing`) are the so-called **violin plots**.
-
-Go ahead and run the following code.
+Go ahead and fill in the code to create a plot with violins and overlayed strip chart with `voicing` on the *x*-axis.
 
 ```{r}
-#| label: vot-vio
-
-alb_vot %>%
-  ggplot(aes(voicing, vot)) +
-  geom_violin()
-```
-
-They are called violin plots because they look like violins! The geometry for violin plots is... `geom_violin()`.
-
-Usually, you need the following `aes`thetics:
-
--   `x`-axis: a categorical variable, like `voicing`.
-
--   `y`-axis: a continuous numeric variable, like `vot`.
-
-### Lay over the raw data
-
-You can lay over raw data on top of the violins. To do so, you can use the `jitter` geometry.
-
-`geom_jitter()` creates so-called strip charts. Let's first see how these look like without violins.
-
-```{r}
-#| label: vot-jitter
-alb_vot %>%
-  ggplot(aes(voicing, vot)) +
-  geom_jitter()
-```
-
-That doesn't look great right? The points are spread too widely.
-
-We can fix that by specifying the argument `width` in the jitter geometry to be something smaller than `0.5`. Try a few values until you think it looks better.
-
-```{r}
-#| label: vot-jitter-1-ex
+#| label: vot-vio-jitt-voi-ex
 #| eval: false
 
 alb_vot %>%
-  ggplot(aes(voicing, vot)) +
-  geom_jitter(width = ...)
+  ggplot(...) +
+  ...
 ```
 
-When you are satisfied, create a violin plot with overlaid strip charts.
+You should get the following:
 
 ```{r}
-#| label: vot-vio-jit-ex
-#| eval: false
+#| label: vot-vio-jitt-voi
+#| echo: false
 
 alb_vot %>%
   ggplot(aes(voicing, vot)) +
   geom_violin() +
-  geom_jitter(width = ...)
+  geom_jitter(width = 0.05)
 ```
 
-Note that the order between the violin and jitter geoms is important. If you add the jitter geometry before the violin geometry, the violins will just cover the jittered points (see why it is called "layered" grammar of graphics?).
 
 ### Let's add some colour
 
 Let's **fill** the violins with colour. For now, just colour the violins depending on `voicing`.
 
 ```{r}
+#| label: vot-vio-jit-2-ex
+#| eval: false
+
+alb_vot %>%
+  ggplot(aes(voicing, vot, ...)) +
+  geom_violin() +
+  geom_jitter(width = 0.05)
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Use the `fill` aesthetic in `aes()`.
+:::
+
+You should get this:
+
+```{r}
 #| label: vot-vio-jit-2
+#| echo: false
 
 alb_vot %>%
   ggplot(aes(voicing, vot, fill = voicing)) +
@@ -499,182 +816,9 @@ alb_vot %>%
 
 Wonderful! Now, what can you tell about VOT in voiceless and voiced consonants in Albanian based on this plot?
 
-## Filtering data
+Next week we will learn how to model variables depending on different groups!
 
-We are getting closer and closer to start modelling our VOT data to learn more about them.
-
-Normally, you would approach data modelling by using the entire data set and including as many variables as it makes sense.
-
-Since you are just starting to learn how to model data with [brms](https://paul-buerkner.github.io/brms/), we will first take a pedagogical approach and start small.
-
-To do, we will filter the data so that we include only voiceless plosives that don't have a VOT longer than 20 ms. (Again, we are doing this now for pedagogical reasons, not because this is what you would do with this data in real-life research).
-
-### The `filter()` function
-
-Filtering in R with the tidyverse is straightforward. You can use the `filter()` function.
-
-In the code below, we are filtering the `alb_vot` data so that we only include the voiceless stops `c("p", "t", "k")`. Moreover, we want only rows for with the VOT is less than 20 ms.
-
-```{r}
-#| label: vot-filt
-
-alb_vot_vl <- alb_vot %>%
-  filter(
-    label %in% c("p", "t", "k"),
-    vot < 20
-  )
-```
-
-This should not look too alien! The first statement, `label %in% c("p", "t", "k")` works like the `%in%` statement we used above with `mutate()`.
-
-In `filter()`, you can add multiple statements to filter the data with, separated by commas. Here we have a second statement, `vot < 20`, i.e. "give me VOT values that are less than 20 ms". Combining statements like this will give you only those rows where both conditions apply.
-
-You might have noticed that we need to assign the output of `filter()`, which is a data frame, to a new variable `alb_vot_vl` ("vl" for "voiceless"). This will be the data frame you will use in the next section.
-
-## Modelling with `brm()`
-
-In the lecture, we have seen that we can assume voiceless VOT values to be distributed according to a Gaussian distribution (you may also have encountered Gaussian distributions under the name "normal distribution").
-
-$$vot \sim Gaussian(\mu, \sigma)$$
-
-We can calculate the sample mean and standard deviation easily, using the `summarise()` function, as you learnt in Week 2.
-
-```{r}
-#| label: vot-msd
-
-alb_vot_vl %>%
-  summarise(
-    vot_mean = mean(vot),
-    vot_sd = sd(vot)
-  )
-```
-
-But now we want to make inference from our sample (N = 24) to the entire population of VOT values of the Albanian voiceless plosives /p/, /t/, /k/.
-
-We want to estimate the following probability distributions:
-
-$$\mu = Gaussian(\mu_1, \sigma_1)$$ $$\sigma = TruncGaussian(\mu_2, \sigma_2)$$
-
-In other words, we are trying to estimate the following parameters (called "hyperparameters"): $\mu_1$, $\sigma_1$, $\mu_2$, $\sigma_2$.
-
-We can achieve this by modelling the data using the `brm()` function from the brms package (BRM stands for Bayesian Regression Model). We will go into more details about what this means in the weeks to follow. For now, note that regression is a synonym of linear model, a type of modelling approach that you are learning in this course).
-
-Add `library(brms)` in the `setup` chunk and run that chunk again. Then, run the following code.
-
-```{r}
-#| label: vot-bm
-#| eval: false
-
-alb_vot_bm <- brm(
-  vot ~ 1,
-  family = gaussian(),
-  data = alb_vot_vl,
-  backend = "cmdstanr"
-)
-```
-
-```{r}
-#| label: vot-bm-2
-#| echo: false
-#| message: false
-
-alb_vot_bm <- brm(
-  vot ~ 1,
-  family = gaussian(),
-  data = alb_vot_vl,
-  backend = "cmdstanr",
-  file = "data/cache/vot_bm.rds"
-)
-```
-
-You will see the message `Compiling Stan program...` followed by `Start sampling` and `Running MCMC with 4 sequential chains...`. Something like in the figure below.
-
-![](/img/mcmc-messages.png)
-
-We will get back to what all this means in the coming weeks. For now know that [Stan](https://mc-stan.org) is a programming language that can run Bayesian models. `brm()` is an R interface to Stan, so that you can use R and R syntax to run Bayesian models without having to learn Stan! (If you feel adventurous, nobody stops you from learning Stan too, although it is not required for this course).
-
-After those initial messages, you will see a list of messages about **chains** and **interactions**, as in the figure below.
-
-![](/img/mcmc-chains-info.png)
-
-These are about the MCMC stuff mentioned in one of the messages above: MCMC stands for Markov-Chain Monte Carlo. Keep reading for a quick intro.
-
-### Markov-Chain Monte Carlo (MCMC)
-
-::: {.callout-tip icon="false"}
-#### MCMC
-
-Markov-Chain Monte Carlo refers to a set of algorithms used to estimate parameters of unknown distributions, based on repeated draws from parameter values and observed data.
-:::
-
-You don't need to understand the details of this. For now, just remember that several draws are made (i.e. the algorithm is run for several **iterations**), and that the model runs 4 **chains** of these iterations.
-
-We will learn more about chains and iterations in the coming weeks and you will know how to use information about these to diagnose the robustness of the estimated parameters.
-
-### Model summary
-
-Now we can inspect the model output using the `summary()` function (don't confuse this with the `summarise()` function, used to get statistical summaries of data).
-
-```{r}
-#| label: vot-bm-summ
-
-summary(alb_vot_bm)
-
-```
-
-We have seen the summary of this model during the lecture. Do you remember how to interpret it?
-
-You can use the `tidy()` function from the [broom.mixed](https://github.com/bbolker/broom.mixed) package to extract the information on the estimated parameters as a table (remember to attach the package in the `setup` chunk; you might also need to install the package).
-
-```{r}
-#| label: vot-bm-tidy
-
-tidy(alb_vot_bm)
-```
-
-The `term` column gives us the two parameters we wanted to estimate:
-
--   `(Intercept)` is actually $\mu$.
-
--   `sd__Observation` is $\sigma$.
-
-Note that `sd__Observation` in the tidy table corresponds to `sigma` in the model summary above.
-
-Now, for each of the two parameters, you get `estimate` and `std.error`. There are the hyper-parameters of the probability distributions for $\mu$ and $\sigma$.
-
-For `(Intercept)` ($\mu$):
-
--   `estimate` is $\mu_1$: 11.62 ms.
-
--   `std.error` is $\sigma_1$: 0.57 ms.
-
-For `sd__Observation` ($\sigma$):
-
--   `estimate` is $\mu_2$: 2.86 ms.
-
--   `std.error` is $\sigma_2$: 0.44 ms.
-
-In other words:
-
-$$vot \sim Gaussian(\mu, \sigma)$$ $$\mu = Gaussian(11.62, 0.57)$$ $$\sigma = TruncGaussian(2.86, 0.44)$$
-
-Based on the model summary and on the tidy summary, we also know the **95% Credible Intervals** (CIs or CrIs) of the probability distributions of $\mu$ and $sigma$. They are in the columns called `conf.low` and `conf.high`.
-
-::: {.callout-tip icon="false"}
-#### Credible Interval
-
-A 95% (Bayesian) Credible Interval indicates the range of values we can be 95% confident contains the true parameter value.
-:::
-
--   At 95% confidence, the mean ($\mu$) VOT value for Albanian voiceless stops is between 10.5 and 12.8 ms.
-
--   As for the standard deviation ($\sigma$), we can be 95% confident that it is between 2.18 and 3.88 ms.
-
-One way to describe probability distributions is to state the values of their parameters and their 95% CrIs, as we just did.
-
-Another way is to visualise probability distributions by plotting probability densities. You will learn how to do this next week. <!-- ^ EP: We've done the basics of probability densities above—are we doing it differently next week, e.g., with bayesplot, or by extracting the samples from the model ourselves? That should be specified.-->
-
-In the meantime, read on to find out how to add titles and change axis labels to plots and how to position the legend!
+But for now, let's talk about legends and labels.
 
 ## Legends and labels in plots
 
