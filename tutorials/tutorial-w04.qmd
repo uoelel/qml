@@ -20,6 +20,7 @@ theme_set(theme_light())
 
 library(brms)
 library(broom.mixed)
+library(webexercises)
 ```
 
 Let's pick up from where we left off last week.
@@ -270,6 +271,47 @@ Try these out in the Console:
 The most common logical operators are `==`, `!=`, `>`, and `<`.
 :::
 
+::: callout-note
+#### Quiz 2
+
+```{r}
+#| label: quiz-2
+#| results: asis
+#| echo: false
+
+opts_2a <- c(
+  "`3 > 1`",
+  answer = '`"a" = "a"`',
+  '`"b" != "b"`',
+  "`19 < 2`"
+)
+
+cat("a. Which of the following is wrong?", longmcq(opts_2a))
+
+opts_2b <- c(
+  "`3 > c(1, 5)`",
+  answer = '`c("a", "b") != c("a")`',
+  '`"apple" != "apple"`',
+  '`c("A", ";") == c("B", ";")`'
+)
+
+cat("b. Which of the following returns `c(FALSE, TRUE)`?", longmcq(opts_2b))
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+**2a.**
+
+Check for errors in the logical operators.
+
+**2b.**
+
+I tricked you! `;` is the Roman semicolon, and `;` is the Greek question mark!
+
+:::
+:::
+
 Now let's see how these work with `filter()`!
 
 ### The `filter()` function
@@ -497,6 +539,21 @@ summary(alb_vot_bm)
 
 We have seen the summary of this model during the lecture. Do you remember how to interpret it?
 
+::: {.callout-note}
+#### Quiz 3
+
+```{r}
+#| label: quiz-3
+#| results: asis
+#| echo: false
+
+cat("a. The 95% CrI of $\\mu$ (`Intercept`) includes 12.9.", torf(FALSE), "\n\n")
+
+cat("b. The standard deviation $\\sigma_2$ of $\\sigma$ (`sigma`) is 0.44", torf(TRUE))
+```
+
+:::
+
 You can use the `tidy()` function from the [broom.mixed](https://github.com/bbolker/broom.mixed) package to extract the information on the estimated parameters as a table (remember to attach the package in the `setup` chunk; you might also need to install the package).
 
 ```{r}
@@ -515,9 +572,9 @@ Note that `sd__Observation` in the tidy table corresponds to `sigma` in the mode
 
 Now, for each of the two parameters, you get `estimate` and `std.error`. There are the hyperparameters of the probability distributions for $\mu$ and $\sigma$.
 
-- `(Intercept)` ($\mu$): `estimate` is $\mu_1$: 11.62 ms, `std.error` is $\sigma_1$: 0.57 ms.
+-   `(Intercept)` ($\mu$): `estimate` is $\mu_1$: 11.62 ms, `std.error` is $\sigma_1$: 0.57 ms.
 
-- `sd__Observation` ($\sigma$): `estimate` is $\mu_2$: 2.86 ms, `std.error` is $\sigma_2$: 0.44 ms.
+-   `sd__Observation` ($\sigma$): `estimate` is $\mu_2$: 2.86 ms, `std.error` is $\sigma_2$: 0.44 ms.
 
 In notation:
 
@@ -623,7 +680,7 @@ Now, try to create a violin and strip chart plot so that each `speaker` is plott
 
 It's clear from this last plot where each speaker is plotted separately that there are two subgroups of consonants: there are voiced and voiceless consonants (and you have also noticed this in the density plot above).
 
-So, what if we want to plot voiceless and voiced consonants separately? 
+So, what if we want to plot voiceless and voiced consonants separately?
 
 We can use faceting, as you learnt in Week 3, or we can use the aesthetics `fill` and/or `colour`. However, first we need to create a new column that indicates if a consonant is voiceless or voiced!
 
@@ -764,7 +821,6 @@ alb_vot %>%
   geom_violin() +
   geom_jitter(width = 0.05)
 ```
-
 
 ### Let's add some colour
 

@@ -578,10 +578,7 @@ class(char)
 
 -   `"FALSE"` is **not** a logical vector because `FALSE` has been quoted (anything that is quoted is a string!).
 :::
-
 :::
-
-
 
 ::: {.callout-important collapse="true"}
 #### Extra: For-loops and if-else statements

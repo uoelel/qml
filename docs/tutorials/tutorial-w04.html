@@ -6323,6 +6323,49 @@ Logical operators
 <p>The most common logical operators are <code>==</code>, <code>!=</code>, <code>&gt;</code>, and <code>&lt;</code>.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quiz 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell" data-hash="tutorial-w04_cache/html/quiz-2_62dd58d2dd2c70d7c8d7388019e98efa">
+<ol type="a">
+<li>Which of the following is wrong?
+<div id="radio_UWNOIMCEWE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UWNOIMCEWE" value> <span><code>3 &gt; 1</code></span></label><label><input type="radio" autocomplete="off" name="radio_UWNOIMCEWE" value="answer"> <span><code>&quot;a&quot; = &quot;a&quot;</code></span></label><label><input type="radio" autocomplete="off" name="radio_UWNOIMCEWE" value> <span><code>&quot;b&quot; != &quot;b&quot;</code></span></label><label><input type="radio" autocomplete="off" name="radio_UWNOIMCEWE" value> <span><code>19 &lt; 2</code></span></label>
+</div></li>
+<li>Which of the following returns <code>c(FALSE, TRUE)</code>?
+<div id="radio_RVTNBRVFTK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RVTNBRVFTK" value> <span><code>3 &gt; c(1, 5)</code></span></label><label><input type="radio" autocomplete="off" name="radio_RVTNBRVFTK" value="answer"> <span><code>c(&quot;a&quot;, &quot;b&quot;) != c(&quot;a&quot;)</code></span></label><label><input type="radio" autocomplete="off" name="radio_RVTNBRVFTK" value> <span><code>&quot;apple&quot; != &quot;apple&quot;</code></span></label><label><input type="radio" autocomplete="off" name="radio_RVTNBRVFTK" value> <span><code>c(&quot;A&quot;, &quot;;&quot;) == c(&quot;B&quot;, &quot;;&quot;)</code></span></label>
+</div></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>2a.</strong></p>
+<p>Check for errors in the logical operators.</p>
+<p><strong>2b.</strong></p>
+<p>I tricked you! <code>;</code> is the Roman semicolon, and <code>;</code> is the Greek question mark!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>Now let’s see how these work with <code>filter()</code>!</p>
 </section>
 <section id="the-filter-function" class="level3" data-number="3.2">
@@ -6375,7 +6418,7 @@ Logical operators
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -6384,7 +6427,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Do you remember the logical operator for “smaller than”?</p>
 </div>
@@ -6451,7 +6494,7 @@ Hint
 </div>
 <p>This should not look too alien! The first statement, <code>consonant %in% c(&quot;p&quot;, &quot;t&quot;, &quot;k&quot;)</code> looks at the <code>consonant</code> column and, for each row, it returns <code>TRUE</code> if the current row value is in <code>c(&quot;p&quot;, &quot;t&quot;, &quot;k&quot;)</code>, and <code>FALSE</code> if not.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -6460,7 +6503,7 @@ Explanation
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If it’s not very clear what is going on, try the following code.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>alb_vless <span class="ot">&lt;-</span> alb_vot <span class="sc">%&gt;%</span></span>
@@ -6512,7 +6555,7 @@ vot &amp; \sim Gaussian(\mu, \sigma) \\
 <p>We will get back to what all this means in the coming weeks. For now know that <a href="https://mc-stan.org">Stan</a> is a programming language that can run Bayesian models. <code>brm()</code> is an R interface to Stan, so that you can use R and R syntax to run Bayesian models without having to learn Stan! (If you feel adventurous, nobody stops you from learning Stan too, although it is not required for this course).</p>
 <p>The “sampling” part is about the Markov-Chain Monte Carlo (or MCMC) sampling algorithm. For a quick intro on MCMC, check the Extra box below.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -6521,7 +6564,7 @@ Extra: Markov-Chain Monte Carlo
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -6568,6 +6611,24 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 <p>We have seen the summary of this model during the lecture. Do you remember how to interpret it?</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quiz 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell" data-hash="tutorial-w04_cache/html/quiz-3_3bc9793df61ef03f7fcc4feaf4e135e6">
+<ol type="a">
+<li><p>The 95% CrI of <span class="math inline">\(\mu\)</span> (<code>Intercept</code>) includes 12.9. <select class="webex-select"><option value="blank"></option><option value>TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>The standard deviation <span class="math inline">\(\sigma_2\)</span> of <span class="math inline">\(\sigma\)</span> (<code>sigma</code>) is 0.44 <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value>FALSE</option></select></p></li>
+</ol>
+</div>
+</div>
+</div>
 <p>You can use the <code>tidy()</code> function from the <a href="https://github.com/bbolker/broom.mixed">broom.mixed</a> package to extract the information on the estimated parameters as a table (remember to attach the package in the <code>setup</code> chunk; you might also need to install the package).</p>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-bm-tidy_ca18bd58a68c84a4af890b7bdf95f1bc">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(alb_vot_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6810,7 +6871,7 @@ Find unique values
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -6819,7 +6880,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Use the <code>fill</code> aesthetic in <code>aes()</code>.</p>
 </div>
