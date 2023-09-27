@@ -311,7 +311,7 @@ The difference between the largest and smallest value.
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 **Standard deviation**
 
-$$\text{SD} = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n+1}} = \sqrt{\frac{(x_1 - \bar{x})^2 + ... + (x_n - \bar{x})^2}{n+1}}$$
+$$\text{SD} = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}} = \sqrt{\frac{(x_1 - \bar{x})^2 + ... + (x_n - \bar{x})^2}{n-1}}$$
 ]
 
 
