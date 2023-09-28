@@ -3,7 +3,7 @@ title: "Quantitative Methods for LEL"
 subtitle: "Week 5"
 author: "Dr Stefano Coretta"
 institute: "University of Edinburgh"
-date: "2023/02/14"
+date: "2023/10/17"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -92,6 +92,13 @@ layout: true
 
 ---
 
+```{r pol}
+polite
+```
+
+
+---
+
 ```{r hnr}
 polite %>%
   ggplot(aes(attitude, HNRmn, fill = attitude)) +
@@ -99,9 +106,12 @@ polite %>%
   geom_jitter(width = 0.1, alpha = 0.5) +
   labs(
     y = "Harmonics-to-noise ratio (dB)",
-    title = "Harmonics-to-noise ratio is Korean speakers"
+    title = "Harmonics-to-noise ratio in Korean speakers"
   )
 ```
+
+
+HNR is the ratio between periodicity and noise in the voice signal. Lower HNR values indicate less modal voice (i.e. creakier or breathier).
 
 ---
 
@@ -128,92 +138,291 @@ $$\text{HNR} \sim Gaussian(\mu, \sigma)$$
 ]
 
 --
-
 .f3[
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$
+
+$$
+\begin{align}
+\mu_{attitude=informal} & \sim Gaussian(\mu_1, \sigma_1) \\
+\mu_{attitude=polite} & \sim Gaussian(\mu_2, \sigma_2) \\
+\sigma & \sim TruncGaussian(\mu_3, \sigma_3)
+\end{align}
+$$
+]
+
+--
+
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+That would be great, but alas these models are set up in a different way by default!
 ]
 
 --
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-- $\beta_0$: mean HNR when [attitude = informal].
+These models are called *linear models*, or *regression models*, or *linear regression models*. They are a generalisation of the formula of a line:
 
-- $\beta_1$: difference of mean HNR between [attitude = polite] and [attitude = informal].
-
-  - $\beta_1 = \mu_{pol} - \mu_{inf}$
-  
-  - **`\(\beta_1\)` is the effect of [attitude = polite] on mean HNR relative to the baseline mean HNR when [attitude = informal]**.
-
-- $attitude_{pol}$: is 0 for [attitude = informal] and 1 for [attitude = polite].
+$$
+y = a + b \cdot x
+$$
 ]
 
 ---
 
-.f3[
-$$\text{HNR} \sim Gaussian(\mu, \sigma)$$
+layout: false
+layout: true
+
+## Linear models
+
+---
+
+<iframe src="https://stefanocoretta.shinyapps.io/lines/" width="100%" height="500"></iframe>
+
+---
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+.f3.center[
+`brm(y ~ x)`
 ]
 
-.f3[
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$
+- The variable `y` to the left of `~` is called the **outcome variable** (aka response variable, dependent variable).
+
+- The variable `x` to the right of `~` is called the **predictor variable** (aka independent variable).
+]
+
+--
+
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+There is a catch: linear models are meant to be used with numeric variables.
+
+😱 But... `attitude` is not a numeric predictor! 
+]
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+Let's talk about coding of categorical variables!
+]
+
+---
+
+layout: false
+layout: true
+
+## Coding categorical predictors
+
+---
+
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+**NOTE**: What follows is for you how to understand how coding works, but remember that this is done automatically by R for you so you never have to do it by hand!!!
 ]
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**For [attitude = informal]**, $\mu$ is:
+**Categorical predictors can be coded using numbers.**
 
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol} = \beta_0 + \beta_1 \cdot 0 = \beta_0$$
+There are two common types of coding systems:
 
-**For [attitude = polite]**, $\mu$ is:
+- **Treatment** coding (this week's focus).
 
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol} = \beta_0 + \beta_1 \cdot 1 = \beta_0 + \beta_1$$
+- **Sum** coding.
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+As with anything else in stats, **naming of coding systems is not an established matter** and the same coding can have different names, and vice versa the same name could refer to different systems.
+
+For an excellent overview, see <https://debruine.github.io/faux/articles/contrasts.html>.
 ]
 
 ---
 
-.f3[
-$$\text{HNR} \sim Gaussian(\mu, \sigma)$$
-]
+**Treatment** coding uses `0` and `1` to code categorical predictors.
 
 .f3[
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$
-]
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**For [attitude = informal]**, $\mu$ is:
-
-$$\mu_{\text{(attitude = informal)}} = \beta_0$$
-
-**For [attitude = polite]**, $\mu$ is:
-
-$$\mu_{\text{(attitude = polite)}} = \beta_0 + \beta_1$$
-]
-
----
-
-.f3[
-$$\text{HNR} \sim Gaussian(\mu, \sigma)$$
-]
-
-.f3[
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$
+|               | attitude_pol |
+| ------------- | -------:     |
+| informal      | 0            |
+| polite        | 1            |
 ]
 
 --
 
 <br>
 
-.f3[
-$$\beta_0 \sim Gaussian(\mu_0, \sigma_0)$$
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+With **treatment coding**, the first level in the predictor is the **reference level** (in `attitude`, it is `informal`).
 ]
 
-.f3[
-$$\beta_1 \sim Gaussian(\mu_1, \sigma_1)$$
+--
+
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+**Level order**
+
+By default, the ordering of levels in a categorical predictor is based on alphabetical order. But you can specify the order manually using the `factor()` function. (You will see how in the tutorial).
 ]
+
+---
+
+```{r att-coding}
+polite %>%
+  mutate(
+    attitude_pol = ifelse(attitude == "informal", 0, 1)
+  ) %>%
+  select(HNRmn, attitude, attitude_pol)
+```
+
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+**NOTE**: Remember that this is done automatically by R under the hood for you so you never have to do it by hand!!!
+
+We will use `attitude` in the model.
+]
+
+---
+
+layout: false
+layout: true
+
+## Comparing groups
+
+---
+
+.f4[
+$$
+\begin{align}
+\text{HNR} & \sim Gaussian(\mu, \sigma) \\
+\mu & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+[\text{formula of line: } y & = a + b \cdot x]
+\end{align}
+$$
+]
+
+--
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-- We estimate the probability distribution of mean HNR when [attitude = informal].
+**For [attitude = informal]**, $attitude_{pol} = 0$:
 
-- We estimate the probability distribution of the difference in mean HNR between [attitude = polite] and [attitude = informal]. 
+$$
+\begin{align}
+\mu & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+    & = \beta_0 + \beta_1 \cdot 0 \\
+    & = \beta_0
+\end{align}
+$$
+
+**For [attitude = polite]**, $attitude_{pol} = 1$:
+
+$$
+\begin{align}
+\mu & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+    & = \beta_0 + \beta_1 \cdot 1 \\
+    & = \beta_0 + \beta_1
+\end{align}
+$$
 ]
+
+---
+
+.f4[
+$$
+\begin{align}
+\text{HNR} & \sim Gaussian(\mu, \sigma) \\
+\mu & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+[\text{formula of line: } y & = a + b \cdot x]
+\end{align}
+$$
+]
+
+<br>
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+- $\beta_0$: (`Intercept`) mean HNR when [attitude = informal], the reference level of `attitude`.
+
+- $\beta_1$: **difference** of mean HNR between [attitude = polite] and [attitude = informal].
+  
+$$
+\begin{align}
+\beta_1 & = \mu_{pol} - \mu_{inf} \\
+        & = (\beta_0 + \beta_1) - (\beta_0) \\
+        & = \beta_1
+\end{align}
+$$
+]
+
+---
+
+.f4[
+$$
+\begin{align}
+\text{HNR} & \sim Gaussian(\mu, \sigma) \\
+\mu & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+[\text{formula of line: } y & = a + b \cdot x]
+\end{align}
+$$
+]
+
+<br>
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+`\(\beta_1\)` is the **effect of [attitude = polite]** on mean HNR relative to the baseline mean HNR when [attitude = informal].
+]
+
+--
+
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+With **treatment coding**, the second level [polite] is compared against the reference level [informal].
+]
+
+
+---
+
+.f4[
+$$
+\begin{align}
+\text{HNR} & \sim Gaussian(\mu, \sigma) \\
+\mu & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+\beta_0 & \sim Gaussian(\mu_0, \sigma_0) \\
+\beta_1 & \sim Gaussian(\mu_1, \sigma_1) \\
+\sigma & \sim TruncGaussian(\mu_2, \sigma_2)
+\end{align}
+$$
+]
+
+<br>
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+We need to estimate:
+
+- The **probability distribution of $\beta_0$**, i.e. the mean HNR when [attitude = informal].
+
+- The **probability distribution of $\beta_1$**, i.e. the difference in mean HNR between [attitude = polite] and [attitude = informal]. 
+
+- The **probability distribution of $\sigma$**, i.e. the standard deviation. 
+]
+
+---
+
+.f4[
+$$
+\begin{align}
+\text{HNR} & \sim Gaussian(\mu, \sigma) \\
+\mu & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+\beta_0 & \sim Gaussian(\mu_0, \sigma_0) \\
+\beta_1 & \sim Gaussian(\mu_1, \sigma_1) \\
+\sigma & \sim TruncGaussian(\mu_2, \sigma_2)
+\end{align}
+$$
+]
+
+<br>
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+In other words, we need to estimate the following hyperparameters: $\mu_0, \sigma_0, \mu_1, \sigma_1, \mu_2, \sigma_2$.
+]
+
+---
+
+layout: false
+layout: true
+
+## Modelling HNR by attitude
 
 ---
 
@@ -262,167 +471,10 @@ We can omit the `1` (it is implied by default when there are other terms in the 
 --
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-- The variable to the left of `~` is called the **outcome variable** (aka response variable, dependent variable).
+- `HNRmn` is the **outcome variable** (aka response variable, dependent variable).
 
-- The variable(s) to the right of `~` are called **predictor variables** (aka independent variables).
+- `attitude` is the **predictor variable** (aka independent variables).
 ]
-
----
-
-.f2.center[
-`HNRmn ~ attitude`
-]
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-😱 But... `attitude` is not a numeric predictor! 
-]
-
-```{r att-col}
-polite
-```
-
-
----
-
-.f3[
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$
-]
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-The formula works with numeric variables.
-
-- But `attitude` is a categorical variable.
-
-- 🤔 Think about it: what does it mean to multiply $\beta_1$ by "informal" or "polite"?
-]
-
---
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-Let's talk about coding of categorical variables!
-]
-
-<br>
-
-**NOTE**: What follows is for you how to understand how coding works, but remember that this is done automatically by R for you so you never have to do it by hand!!!
-
----
-
-layout: false
-layout: true
-
-## Coding categorical predictors
-
----
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**Categorical predictors can be coded using numbers.**
-
-There are two common types of coding systems:
-
-- **Treatment** coding (this week's focus).
-
-- **Sum** coding.
-]
-
---
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-As with anything else in stats, **naming of coding systems is not an established matter** and the same coding can have different names, and vice versa the same name could refer to different systems.
-
-For an excellent overview, see <https://debruine.github.io/faux/articles/contrasts.html>.
-]
-
----
-
-**Treatment** coding uses `0` and `1` to code categorical predictors.
-
-<br>
-
-.f3[
-|               | attitude_pol |
-| ------------- | -------:     |
-| informal      | 0            |
-| polite        | 1            |
-]
-
----
-
-```{r att-coding}
-polite %>%
-  mutate(
-    attitude_pol = ifelse(attitude == "informal", 0, 1)
-  ) %>%
-  select(HNRmn, attitude, attitude_pol)
-```
-
-**NOTE**: Remember that this is done automatically by R under the hood for you so you never have to do it by hand!!!
-
----
-
-.f3[
-|               | attitude_pol |
-| ------------- | -------:     |
-| informal      | 0            |
-| polite        | 1            |
-]
-
-<br>
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-$$\mu_{\text{(attitude = informal)}} = \beta_0 + \beta_1 \cdot attitude\_pol = \beta_0 + \beta_1 \cdot 0 = \beta_0$$
-
-$$\mu_{\text{(attitude = polite)}} = \beta_0 + \beta_1 \cdot attitude\_pol = \beta_0 + \beta_1 \cdot 1 = \beta_0 + \beta_1$$
-]
-
----
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-With **treatment coding**, the first level in the predictor is the **reference level** (in `attitude`, it is `informal`).
-
-The other level is compared against the reference level (`polite` vs `informal`).
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**Level order**
-
-- By default, the ordering of levels in a categorical predictor is based on alphabetical order.
-
-- But you can specify the order manually using the `factor()` function. (You will see how in the tutorial).
-]
-
----
-
-.f3[
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$
-]
-
-<br>
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-To reiterate from above:
-
-- $\beta_0$ corresponds to the mean NHR when [attitude = informal], because `informal` is the reference level of `attitude`.
-
-- $\beta_1$ corresponds to the **DIFFERENCE** between $\beta_0$ and mean HNR when [attitude = polite], because `polite` is the other level in `attitude`.
-
-  - In other words, we are comparing mean HNR when [attitude = polite] vs [attitude = informal].
-]
-
---
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-For now, things are easy because we only have two levels (informal vs polite), but we will see an example with three levels later.
-]
-
----
-
-layout: false
-layout: true
-
-## Modelling HNR by attitude
 
 ---
 
@@ -436,24 +488,6 @@ vot_bm <- brm(
   data = polite
 )
 ```
-
---
-
-$$\text{HNR} \sim Gaussian(\mu, \sigma)$$
-
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$
-
-$$\beta_0 \sim Gaussian(\mu_0, \sigma_0)$$
-
-$$\beta_1 \sim Gaussian(\mu_1, \sigma_1)$$
-
-$$\sigma \sim TruncGaussian(\mu_2, \sigma_2)$$
-
---
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-We need to estimate $\mu_0$, $\sigma_0$, $\mu_1$, $\sigma_1$, $\mu_2$, $\sigma_2$.
-]
 
 ---
 
@@ -471,25 +505,23 @@ cat(hnr_bm_summ[8:11], sep = "\n")
 --
 
 <br>
-<br>
 
-.pull-left[
-- **Intercept**: $\mu_{\text{attitude = informal}} = \beta_0$.
+.f4[
+$$
+\begin{align}
+\mu     & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+\beta_0 & \sim Gaussian(16.27, 0.16) \\
+\beta_1 & \sim Gaussian(\mu_1, \sigma_1)
+\end{align}
+$$
+]
+
+- Parameter `\(\beta_0\)` (`Intercept`).
 
 - **Estimate**: $\mu_0 = 16.27$ dB.
 
 - **Est.Error**: $\sigma_0 = 0.16$ dB.
-]
 
-.pull-right[
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$
-
-.purple[
-$$\beta_0 \sim Gaussian(16.27, 0.16)$$
-]
-
-$$\beta_1 \sim Gaussian(\mu_1, \sigma_1)$$
-]
 
 --
 
@@ -564,30 +596,27 @@ cat(hnr_bm_summ[8:11], sep = "\n")
 ```
 
 <br>
-<br>
 
-.pull-left[
-- **attitudepolite**: $\beta_1$.
-
-- **Estimate**: $\mu_0 = 1.25$ dB.
-
-- **Est.Error**: $\sigma_0 = 0.23$ dB.
+.f4[
+$$
+\begin{align}
+\mu     & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+\beta_0 & \sim Gaussian(16.27, 0.16) \\
+\beta_1 & \sim Gaussian(1.25, 0.23)
+\end{align}
+$$
 ]
 
-.pull-right[
-$$\mu = \beta_0 + \beta_1 \cdot attitude_{pol}$$
+- Parameter: **`\(\beta_1\)`**.
 
-$$\beta_0 \sim Gaussian(16.27, 0.16)$$
+- **Estimate**: $\mu_1 = 1.25$ dB.
 
-.purple[
-$$\beta_1 \sim Gaussian(1.25, 0.23)$$
-]
-]
+- **Est.Error**: $\sigma_1 = 0.23$ dB.
 
 --
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-When [attitude = polite], the probability distribution of the difference between $\mu_{\text{attitude = polite}}$ and $\mu_{\text{attitude = informal}}$ is the probability distribution of $\beta_1$, which is $Gaussian(1.25, 0.23)$.
+The probability distribution of the difference between $\mu_{\text{attitude = polite}}$ and $\mu_{\text{attitude = informal}}$ is the probability distribution of $\beta_1$, which is $Gaussian(1.25, 0.23)$.
 ]
 
 ---
@@ -703,14 +732,6 @@ hnr_sig_p +
 --
 
 There is a 95% probability that the standard deviation of the probability distribution of HNR values is between `r ci_low` and `r ci_hi` dB.
-
----
-
-```{r hnr-pp}
-pp_check(hnr_bm, nsamples = 50)
-```
-
-.f6[**Posterior predictive checks**: the model can be assessed by visually inspecting the plot above. The closer the match between the light blue distributions and the dark blue distribution, the better the model captures the data.]
 
 ---
 
