@@ -294,7 +294,6 @@ opts_1 <- c(
 cat("What does `here::here()` return?", longmcq(opts_1))
 ```
 
-
 ::: {.callout-important collapse="true"}
 #### Explanation
 
@@ -391,6 +390,10 @@ A **scatter plot** is a plot with two numeric axes and points indicating the dat
 To create a scatter plot, use the `geom_point()` geometry.
 :::
 
+When writing your results section, you could describe the plot this way:
+
+> Figure 1 shows a scatter plot of mean f0 on the *x*-axis and H1-H2 difference on the *y*-axis. The plot suggest an overall negative relationship between mean f0 and H1-H2 difference.
+
 ::: callout-warning
 Note that using the `+` is a quirk of `ggplot()`. The idea behind it is that you start from a bare plot and you **add** (`+`) layers of data on top of it. This is because of the philosophy behind the package, called the [Layered Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.html).
 :::
@@ -443,7 +446,6 @@ opts_3 <- c(
 cat("Which of the following will produce the same plot as the one above? Reason through it first without running the code, then run all of these to check whether they look the way you expected.", longmcq(opts_3))
 ```
 
-
 ::: {.callout-tip collapse="true"}
 #### Hint
 
@@ -453,7 +455,6 @@ So this `aes(a, b)` is different from `aes(b, a)`.
 
 But this `aes(y = b, x = a)` is the same as `aes(a, b)`.
 :::
-
 :::
 
 ## Bar charts
@@ -534,7 +535,7 @@ This quirk is something that confuses many new learners, so make sure you intern
 Go ahead and complete the following code to create a bar chart.
 
 ```{r}
-#| label: status-bar
+#| label: status-bar-ex
 #| eval: false
 
 glot_status %>%
@@ -545,6 +546,21 @@ glot_status %>%
 Note how we're using `%>%` to pipe the `glot_status` data frame into the `ggplot()` function. This works because `ggplot()`'s first argument is the data, and piping is a different way of providing the first argument to a function.
 
 As mentioned above, the counting for the *y*-axis is done automatically. R looks in the `status` column and counts how many times each value in the column occurs in the data frame.
+
+If you did things correctly, you should get the following plot.
+
+```{r}
+#| label: status-bar
+#| echo: false
+
+glot_status %>%
+  ggplot(aes(x = status)) +
+  geom_bar()
+```
+
+A description of the plot:
+
+> The number of languages by endangered status is shown as a bar chart in Figure 2. Among the languages that are endangered, excluding those that are extinct, the majority are either threatened or shifting.
 
 ### Stacked bar charts
 
@@ -571,7 +587,7 @@ Let's make a plot on language endangerment by macro-area.
 Complete the following code by specifying that `fill` should be based on `status`.
 
 ```{r}
-#| label: status-stacked
+#| label: status-stacked-ex
 #| eval: false
 
 ggplot(
@@ -580,6 +596,23 @@ ggplot(
 ) +
   geom_bar()
 ```
+
+You should get the following.
+
+```{r}
+#| label: status-stacked
+#| echo: false
+
+ggplot(
+  glot_status,
+  aes(x = Macroarea, fill = status)
+) +
+  geom_bar()
+```
+
+A write-up example:
+
+> Figure 3 shows the number of languages by geographic macroarea, subdivided by endangerment status. Africa, Eurasia and Papunesia have substantially more languages than the other areas.
 
 ::: callout-note
 #### Quiz 4
@@ -592,6 +625,31 @@ gestures %>%
   geom_bar()
 ```
 :::
+
+In the plot above it is difficult to assess whether different macroareas have different proportions of endangerment. This is because the overall number of languages per area differs between areas.
+
+A solution to this is to plot **proportions** instead of raw counts.
+
+You could calculate the proportions yourself, but there is a quicker way: using the `position` argument in `geom_bar()`.
+
+You can plot proportions instead of counts by setting `position = "fill"` inside `geom_bar()`, like so:
+
+```{r}
+#| label: status-stacked-2
+#| echo: false
+
+ggplot(
+  glot_status,
+  aes(x = Macroarea, fill = status)
+) +
+  geom_bar(position = "fill")
+```
+
+The plot now shows proportions of languages by endangerment status for each area separately. (Note that the *y*-axis label is still "count" but it is in fact proportions; you will learn how to change labels next week).
+
+With this plot it is easier to see that different areas have different proportions of endangerment. In writing:
+
+> Figure 4 shows proportions of languages by endangerment status for each macroarea. Australia, South and North America have a substantially higher proportion of extinct languages than the other areas. These areas also have a higher proportion of near extinct languages. On the other hand, Africa has the greatest proportion of non-endangered languages followed by Papunesia and Eurasia, while North and South America are among the areas with the lower proportion, together with Australia which has the lowest.
 
 ## Faceting and panels
 
@@ -637,7 +695,7 @@ To facet a plot, use the `facet_grid()` function.
 The syntax is a bit strange. Check the documentation with `?facet_grid()` (especially the examples) to see how it works and then complete the code below and run it to produce a plot with two column panels for `musicstudent`.
 
 ```{r}
-#| label: polite-facet
+#| label: polite-facet-ex
 #| eval: false
 
 polite %>%
@@ -645,6 +703,21 @@ polite %>%
   geom_point() +
   facet_grid(...)
 ```
+
+This should be the result.
+
+```{r}
+#| label: polite-facet
+#| echo: false
+#| warning: false
+
+polite %>%
+  ggplot(aes(f0mn, H1H2, colour = gender)) +
+  geom_point() +
+  facet_grid(~ musicstudent)
+```
+
+> The figure shows mean f0 and H1-H2 difference as a scatter plot. The two panels indicate whether the participant was a student of music. Within each panel, the participant's gender is represented by colour (red for female and blue for male). Male participants tend to have higher H1-H2 differences and lower mean f0 than females. From the plot it can also be seen that there is greater variability in H1-H2 difference in female music students compared to female non-music participants. Within each group of gender by music student there does not seem to be any specific relation between mean f0 and H1-H2 difference.
 
 ## Render your Rmd file!
 
@@ -682,6 +755,8 @@ That's all for this week!
 -   **Bar charts** are created with `geom_bar()` and can be used to show the counts of different levels of a categorical variable.
 
 -   **Stacked bar charts** are created by specifying the `fill` aesthetic and can be used to show counts grouped by a second categorical variable.
+
+-   **Stacked bar charts showing proportions** can be created with the argument `position = "fill"` in `geom_bar()`.
 
 -   **Faceting** allows you to split the plot in different panels, based on other variables in the data. Faceting is achieved with `facet_grid()`.
 :::
