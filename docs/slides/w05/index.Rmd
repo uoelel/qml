@@ -92,7 +92,7 @@ layout: true
 
 ---
 
-```{r pol}
+```{r pol, echo=TRUE}
 polite
 ```
 
@@ -516,7 +516,7 @@ $$
 $$
 ]
 
-- Parameter `\(\beta_0\)` (`Intercept`).
+- Parameter `\(\beta_0\)` (`Intercept`): this is $\mu$ when [attitude = informal].
 
 - **Estimate**: $\mu_0 = 16.27$ dB.
 
@@ -607,7 +607,7 @@ $$
 $$
 ]
 
-- Parameter: **`\(\beta_1\)`**.
+- Parameter: **`\(\beta_1\)`**: difference of $\mu$ when [attitude = polite] and [attitude = informal].
 
 - **Estimate**: $\mu_1 = 1.25$ dB.
 
@@ -675,6 +675,58 @@ hnr_att_p +
 --
 
 There is 95% probability that the difference in mean HNR between $\mu_{\text{attitude = polite}}$ and $\mu_{\text{attitude = informal}}$ is between `r ci_low` and `r ci_hi` dB.
+
+---
+
+```{r nhr-bm-summ-4}
+hnr_bm_summ <- capture.output(summary(hnr_bm))
+cat(hnr_bm_summ[8:11], sep = "\n")
+```
+
+
+.f4[
+$$
+\begin{align}
+\mu     & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+\beta_0 & \sim Gaussian(16.27, 0.16) \\
+\beta_1 & \sim Gaussian(1.25, 0.23)
+\end{align}
+$$
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+What is the average $\mu$ when [attitude = polite]?
+
+$$
+\begin{align}
+\mu & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+    & = \beta_0 + \beta_1 \cdot 1 \\
+    & = \beta_0 + \beta_1 \\
+    & = 16.27 + 1.25 \\
+    & = 17.52
+\end{align}
+$$
+]
+
+---
+
+```{r nhr-bm-summ-5}
+cat(hnr_bm_summ[13:15], sep = "\n")
+```
+
+<br>
+
+.f4[
+$$
+\begin{align}
+\text{HNR} & \sim Gaussian(\mu, \sigma) \\
+\mu & = \beta_0 + \beta_1 \cdot attitude_{pol} \\
+\beta_0 & \sim Gaussian(16.27, 0.16) \\
+\beta_1 & \sim Gaussian(1.25, 0.23) \\
+\sigma & \sim TruncGaussian(1.69, 0.08)
+\end{align}
+$$
+]
 
 ---
 
@@ -748,6 +800,13 @@ layout: true
 
 ---
 
+```{r alb-vot, echo=TRUE}
+alb_vot_vl
+```
+
+
+---
+
 ```{r vot-1}
 alb_vot_vl %>%
   ggplot(aes(vot)) +
@@ -791,7 +850,7 @@ alb_vot_vl %>%
 
   - Let's assume it is a Gaussian probability distribution.
   
-  - So, `\(\text{VOT} \sim Gaussian(\mu, \sigma)\)`.
+  - So, `\(\text{vot} \sim Gaussian(\mu, \sigma)\)`.
 ]
 
 --
@@ -820,6 +879,7 @@ In treatment coding, **N-1 dummy variables** are created where N is the number o
 - `attitude` has two levels (informal vs polite) so we need $N-1 = 2-1 = 1$ dummy variable: `attitude_pol`.
 
 - `stop` has three levels (/k, p, t/) so we need $N-1 = 3-1 = 2$ dummy variables: `stop_p` and `stop_t`.
+  - The reference level does not get a dummy variable!
 ]
 
 --
@@ -832,93 +892,6 @@ In treatment coding, **N-1 dummy variables** are created where N is the number o
 | p | 1      | 0      |
 | t | 0      | 1      |
 
-
----
-
-.f3[
-$$\text{VOT} \sim Gaussian(\mu, \sigma)$$
-]
-
---
-
-.f3[
-$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$
-]
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-- $\beta_0$: mean VOT when [stop = /k/].
-
-  - `k` is the reference level because of the alphabetical order in `k, p, t`.
-
-- $\beta_1$: difference of mean VOT between [stop = /p/] and [stop = /k/].
-
-  - $\beta_1 = \mu_{p} - \mu_{k}$
-  
-  - **`\(\beta_1\)` is the effect of [stop = /p/] on mean VOT relative to the baseline mean VOT when [stop = k]**.
-
-- $stop_p$: is 0 for [stop = /k/] and [stop = /t/] and 1 for [stop = /p/].
-]
-
----
-
-.f3[
-$$\text{VOT} \sim Gaussian(\mu, \sigma)$$
-]
-
-.f3[
-$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$
-]
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-- $\beta_2$: difference of mean VOT between [stop = /t/] and [stop = /k/].
-
-  - $\beta_2 = \mu_{t} - \mu_{k}$
-  
-  - **`\(\beta_2\)` is the effect of [stop = /t/] on mean VOT relative to the baseline mean VOT when [stop = k]**.
-
-- $stop_t$: is 0 for [stop = /k/] and [stop = /p/] and 1 for [stop = /t/].
-]
-
----
-
-
-.f3[
-$$\text{VOT} \sim Gaussian(\mu, \sigma)$$
-]
-
-.f3[
-$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$
-]
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-$$\mu_{\text{(stop = k)}} = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t = \beta_0 + \beta_1 \cdot 0 + \beta_2 \cdot 0 = \beta_0$$
-
-$$\mu_{\text{(stop = p)}} = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t = \beta_0 + \beta_1 \cdot 1 + \beta_2 \cdot 0 = \beta_0 + \beta_1$$
-
-$$\mu_{\text{(stop = t)}} = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t = \beta_0 + \beta_1 \cdot 0 + \beta_2 \cdot 1 = \beta_0 + \beta_2$$
-]
-
----
-
-$$\text{VOT} \sim Gaussian(\mu, \sigma)$$
-
-$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$
-
-$$\beta_0 \sim Gaussian(\mu_0, \sigma_0)$$
-
-$$\beta_1 \sim Gaussian(\mu_1, \sigma_1)$$
-
-$$\beta_2 \sim Gaussian(\mu_2, \sigma_2)$$
-
-$$\sigma \sim TruncGaussian(\mu_3, \sigma_3)$$
-
---
-
-<br>
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-We need to estimate $\mu_0$, $\sigma_0$, $\mu_1$, $\sigma_1$, $\mu_2$, $\sigma_2$, $\mu_3$, $\sigma_3$.
-]
 
 ---
 
@@ -945,6 +918,12 @@ vot_bm <- brm(
 )
 ```
 
+--
+
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+**Remember**: coding is done under the hood for you. You don't have to do it manually!
+]
+
 ---
 
 ```{r vot-bm-2-summ}
@@ -953,116 +932,101 @@ summary(vot_bm_2)
 
 ---
 
-```{r vot-bm-2-summ-2}
-vot_bm_summ <- capture.output(summary(vot_bm_2))
-cat(vot_bm_summ[8:12], sep = "\n")
-```
-
---
-
-<br>
-<br>
-
-.pull-left[
-- **Intercept**: $\mu_{\text{stop = k}} = \beta_0$.
-
-- **Estimate**: $\mu_0 = 54.12$ ms.
-
-- **Est.Error**: $\sigma_0 = 4.44$ ms.
+.f5[
+$$
+\begin{align}
+vot     & \sim Gaussian(\mu, \sigma) \\
+\mu     & \sim \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t \\
+\sigma  & \sim TruncGaussian(\mu_3, \sigma_3)
+\end{align}
+$$
 ]
-
-.pull-right[
-$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$
-
-.purple[
-$$\beta_0 \sim Gaussian(54.12, 4.14)$$
-]
-
-$$\beta_1 \sim Gaussian(\mu_1, \sigma_1)$$
-
-$$\beta_2 \sim Gaussian(\mu_2, \sigma_2)$$
-]
-
---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-When [stop = k], the probability distribution of $\mu$ is the probability distribution of $\beta_0$, which is $Gaussian(54.12, 4.12)$.
+**For [stop = k]**, $stop_p = 0$ and $stop_t = 0$:
+
+$$
+\begin{align}
+\mu & = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t \\
+    & = \beta_0 + \beta_1 \cdot 0 + \beta_2 \cdot 0 = \beta_0
+\end{align}
+$$
+
+**For [stop = p]**, $stop_p = 1$ and $stop_t = 0$:
+
+$$
+\begin{align}
+\mu & = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t \\
+    & = \beta_0 + \beta_1 \cdot 1 + \beta_2 \cdot 0 = \beta_0 + \beta_1
+\end{align}
+$$
+
+**For [stop = t]**, $stop_p = 0$ and $stop_t = 1$:
+
+$$
+\begin{align}
+\mu & = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t \\
+    & = \beta_0 + \beta_1 \cdot 0 + \beta_2 \cdot 1 = \beta_0 + \beta_2
+\end{align}
+$$
 ]
 
 ---
 
-
-```{r vot-bm-2-summ-3}
-vot_bm_summ <- capture.output(summary(vot_bm_2))
-cat(vot_bm_summ[8:12], sep = "\n")
-```
-
-<br>
-<br>
-
-.pull-left[
-- **stopp**: $\beta_1$.
-
-- **Estimate**: $\mu_1 = -40.55$ ms.
-
-- **Est.Error**: $\sigma_1 = 6.27$ ms.
+.f5[
+$$
+\begin{align}
+vot     & \sim Gaussian(\mu, \sigma) \\
+\mu     & \sim \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t \\
+\sigma  & \sim TruncGaussian(\mu_3, \sigma_3)
+\end{align}
+$$
 ]
-
-.pull-right[
-$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$
-
-$$\beta_0 \sim Gaussian(54.12, 4.14)$$
-
-.purple[
-$$\beta_1 \sim Gaussian(-40.55, 6.27)$$
-]
-
-$$\beta_2 \sim Gaussian(\mu_2, \sigma_2)$$
-]
-
---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-When [stop = p], the probability distribution of the difference between $\mu_{\text{stop = p}}$ and $\mu_{\text{stop = k}}$ is the probability distribution of $\beta_1$, which is $Gaussian(-40.55, 6.27)$.
+**For [stop = k]**, $stop_p = 0$ and $stop_t = 0$:
+
+$$
+\begin{align}
+\mu & = 54.12 + (-40.55) \cdot stop_p + (-39.42) \cdot stop_t \\
+    & = 54.12 - 40.55 \cdot 0 - 39.42 \cdot 0 = 54.12
+\end{align}
+$$
+
+**For [stop = p]**, $stop_p = 1$ and $stop_t = 0$:
+
+$$
+\begin{align}
+\mu & = 54.12 + (-40.55) \cdot stop_p + (-39.42) \cdot stop_t \\
+    & = 54.12 - 40.55 \cdot 1 - 39.42 \cdot 0 = 54.12 - 40.55 = 13.57
+\end{align}
+$$
+
+**For [stop = t]**, $stop_p = 0$ and $stop_t = 1$:
+
+$$
+\begin{align}
+\mu & = 54.12 + (-40.55) \cdot stop_p + (-39.42) \cdot stop_t \\
+    & = 54.12 - 40.55 \cdot 1 - 39.42 \cdot 1 = 54.12 - 39.42 = 14.7
+\end{align}
+$$
 ]
+
 
 ---
 
-```{r vot-bm-2-summ-4}
-vot_bm_summ <- capture.output(summary(vot_bm_2))
-cat(vot_bm_summ[8:12], sep = "\n")
-```
-
-<br>
-<br>
-
-.pull-left[
-- **stopp**: $\beta_2$.
-
-- **Estimate**: $\mu_2 = -39.42$ ms.
-
-- **Est.Error**: $\sigma_2 = 6.32$ ms.
+.f4[
+$$
+\begin{align}
+vot     & \sim Gaussian(\mu, \sigma) \\
+\mu     & \sim \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t \\
+\beta_0 & \sim Gaussian(54.12, 4.44) \\
+\beta_1 & \sim Gaussian(-40.55, 6.27) \\
+\beta_2 & \sim Gaussian(-39.42, 6.32) \\
+\sigma  & \sim TruncGaussian(16.77, 1.82)
+\end{align}
+$$
 ]
-
-.pull-right[
-$$\mu = \beta_0 + \beta_1 \cdot stop_p + \beta_2 \cdot stop_t$$
-
-$$\beta_0 \sim Gaussian(54.12, 4.14)$$
-
-$$\beta_1 \sim Gaussian(-40.55, 6.27)$$
-
-.purple[
-$$\beta_2 \sim Gaussian(-39.42, 6.32)$$
-]
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-When [stop = t], the probability distribution of the difference between $\mu_{\text{stop = t}}$ and $\mu_{\text{stop = k}}$ is the probability distribution of $\beta_2$, which is $Gaussian(-39.42, 6.32)$.
-]
-
----
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **IMPORTANT**
