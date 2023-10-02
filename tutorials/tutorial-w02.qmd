@@ -712,7 +712,6 @@ opts_5b <- c(
 cat("b. Which is the mean of `c(4, 23, NA, 5)` when `na.rm` has the default value?", longmcq(opts_5b))
 ```
 
-
 ::: {.callout-tip collapse="true"}
 #### Hint
 
@@ -872,7 +871,7 @@ For 6b., check the documentation of `?summarise`.
 
     -   Number of children by `background`.
 
--   Write a paragraph where you report the measures.
+-   Write a short paragraph where you report the measures. You can right this as comments in your R script. For examples, see above.
 
 ::: {.callout-tip collapse="true"}
 #### Hint
@@ -881,7 +880,6 @@ For 6b., check the documentation of `?summarise`.
 
 -   To calculate the number of children by background, you need the `distinct()` function.
 :::
-
 
 ::: {.callout-warning collapse="true"}
 #### Solution
@@ -923,11 +921,7 @@ gestures %>%
 ```
 :::
 :::
-
-
 :::
-
-
 
 ## Summary
 
