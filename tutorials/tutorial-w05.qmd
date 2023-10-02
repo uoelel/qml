@@ -286,7 +286,15 @@ val_bm <- brm(
 
 The model will be fitted and saved in `data/cache/` with the file name `val_bm.rds`. If you now re-run the same code again, you will notice that `brm()` does not fit the model again, but rather reads it from the file (no output is shown, but trust me, it works! Check the contents of `data/cache/` to see for yourself.).
 
-### Model interpretation
+::: callout-warning
+When you save the model fit to a file, R does not keep track of changes in the model specification, so if you make changes to the formula or data, you need to **delete the saved model file** before re-running the code for the changes to have effect!
+:::
+
+When reporting the model specification, you can write the following:
+
+> We fitted a Bayesian model with emotional valency as the outcome variable and modality (smell vs taste) as the only predictor. A Gaussian family was used as the outcome distribution family. The modality predictor was coded with the default treatment contrasts (with "smell" as the reference level).
+
+### Interpret the model output
 
 Let's inspect the model summary.
 
@@ -296,6 +304,14 @@ Let's inspect the model summary.
 summary(val_bm)
 
 ```
+
+Model summaries have three main parts:
+
+-   Information on the model, like family, formula and data.
+
+-   Population-level effects, with estimates of the intercept and any predictor's coefficient.
+
+-   Family specific parameters, with `sigma` when using a Gaussian family.
 
 Look at the `Population-Level Effects` part of the summary.
 
@@ -307,7 +323,7 @@ cat(capture.output(summary(val_bm))[8:11], sep = "\n")
 
 ```
 
-We get two "effects" or **coefficients**:
+We get two **coefficients**:
 
 -   `Intercept`: this is our $\beta_0$.
 
@@ -318,22 +334,21 @@ Each coefficient has an `Estimate` and an `Est.Error` (estimate error). As we ha
 In notation:
 
 $$
-\beta_0 = Gaussian(5.47, 0.06)
-$$
-
-$$
-\beta_1 = Gaussian(0.34, 0.08)
+\begin{align}
+\beta_0 & = Gaussian(5.47, 0.06) \\
+\beta_1 & = Gaussian(0.34, 0.08)
+\end{align}
 $$
 
 This means that:
 
--   The probability distribution of the mean valence when \[modality = smell\] is a Gaussian distribution with mean = 5.47 and SD = 0.06.
+-   The **probability distribution of the mean valence when \[modality = smell\]** is a Gaussian distribution with mean = 5.47 and SD = 0.06.
 
--   The probability distribution of the difference between the mean valence of \[modality = taste\] and that of \[modality = smell\] is a Gaussian distribution with mean = 0.34 and SD = 0.08.
+-   The **probability distribution of the difference** between the mean valence of \[modality = taste\] and that of \[modality = smell\] is a Gaussian distribution with mean = 0.34 and SD = 0.08.
 
 Now look at the **Credible Intervals** (CrIs, or CI in the model summary) of the coefficients. Based on their CrIs, we can say that:
 
--   We can be 95% confident that (or, there is 95% probability that), based on the data and the model, the mean emotional valence of smell words is between 5.35 and 5.59.
+-   We can be 95% confident that (or, "there is 95% probability that"), based on the data and the model, the mean emotional valence of smell words is between 5.35 and 5.59.
 
 -   There is a 95% probability that the difference in mean emotional valence between taste and smell words is between 0.18 and 0.5. In other words, the emotional valence increases by 0.18 to 0.5 in taste words relative to smell words.
 
