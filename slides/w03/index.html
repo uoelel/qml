@@ -85,20 +85,20 @@ glot_status
 
 ```
 ## # A tibble: 8,345 × 18
-##    ID         Language_ID Parameter_ID Value Code_ID Comment Source codeReference status Name  Macroarea Latitude Longitude Glottocode ISO639P3code
-##    &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;lgl&gt;         &lt;fct&gt;  &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       
-##  1 kolp1236-… kolp1236    aes          3     aes-sh… Kol (1… hh:he… NA            shift… Kol … Papunesia    -5.21     152.  kolp1236   kol         
-##  2 tana1288-… tana1288    aes          3     aes-sh… Tanahm… hh:he… NA            shift… Tana… Papunesia    -2.55     133.  tana1288   tcm         
-##  3 touo1238-… touo1238    aes          3     aes-sh… Touo (… hh:he… NA            shift… Touo  Papunesia    -8.58     157.  touo1238   tqu         
-##  4 bert1248-… bert1248    aes          3     aes-sh… Fadash… hh:he… NA            shift… Berta Africa       10.6       34.7 bert1248   wti         
-##  5 sius1254-… sius1254    aes          6     aes-ex… Siusla… hh:he… NA            extin… Sius… North Am…    42.5     -124.  sius1254   sis         
-##  6 cent2045-… cent2045    aes          6     aes-ex… Jalaa … &lt;NA&gt;   NA            extin… Jalaa Africa        9.59      11.6 cent2045   cet         
-##  7 else1239-… else1239    aes          3     aes-sh… Elseng… hh:he… NA            shift… Else… Papunesia    -3.00     140.  else1239   mrf         
-##  8 taia1239-… taia1239    aes          4     aes-mo… Taiap … hh:he… NA            morib… Taiap Papunesia    -4.05     145.  taia1239   gpn         
-##  9 pyuu1245-… pyuu1245    aes          3     aes-sh… Pyu (4… hh:he… NA            shift… Pyu   Papunesia    -4.45     141.  pyuu1245   pby         
-## 10 mato1253-… mato1253    aes          6     aes-ex… Arára … hh:he… NA            extin… Mato… South Am…    -9.17     -60.6 mato1253   axg         
+##    ID          Language_ID Parameter_ID Value Code_ID Comment Source codeReference status Name  Macroarea Latitude Longitude Glottocode
+##    &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;lgl&gt;         &lt;fct&gt;  &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     
+##  1 kolp1236-a… kolp1236    aes          3     aes-sh… Kol (1… hh:he… NA            shift… Kol … Papunesia    -5.21     152.  kolp1236  
+##  2 tana1288-a… tana1288    aes          3     aes-sh… Tanahm… hh:he… NA            shift… Tana… Papunesia    -2.55     133.  tana1288  
+##  3 touo1238-a… touo1238    aes          3     aes-sh… Touo (… hh:he… NA            shift… Touo  Papunesia    -8.58     157.  touo1238  
+##  4 bert1248-a… bert1248    aes          3     aes-sh… Fadash… hh:he… NA            shift… Berta Africa       10.6       34.7 bert1248  
+##  5 sius1254-a… sius1254    aes          6     aes-ex… Siusla… hh:he… NA            extin… Sius… North Am…    42.5     -124.  sius1254  
+##  6 cent2045-a… cent2045    aes          6     aes-ex… Jalaa … &lt;NA&gt;   NA            extin… Jalaa Africa        9.59      11.6 cent2045  
+##  7 else1239-a… else1239    aes          3     aes-sh… Elseng… hh:he… NA            shift… Else… Papunesia    -3.00     140.  else1239  
+##  8 taia1239-a… taia1239    aes          4     aes-mo… Taiap … hh:he… NA            morib… Taiap Papunesia    -4.05     145.  taia1239  
+##  9 pyuu1245-a… pyuu1245    aes          3     aes-sh… Pyu (4… hh:he… NA            shift… Pyu   Papunesia    -4.45     141.  pyuu1245  
+## 10 mato1253-a… mato1253    aes          6     aes-ex… Arára … hh:he… NA            extin… Mato… South Am…    -9.17     -60.6 mato1253  
 ## # ℹ 8,335 more rows
-## # ℹ 3 more variables: Countries &lt;chr&gt;, Family_ID &lt;chr&gt;, Language_ID.y &lt;chr&gt;
+## # ℹ 4 more variables: ISO639P3code &lt;chr&gt;, Countries &lt;chr&gt;, Family_ID &lt;chr&gt;, Language_ID.y &lt;chr&gt;
 ```
 
 
@@ -183,20 +183,20 @@ formants
 
 ```
 ## # A tibble: 24,012 × 22
-##    speaker file     word   time    f3    f0 language gender glottocode  item ipa   c1    c1_phonation vowel anteropost height c2    c2_phonation
-##    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       
-##  1 it01    it01-001 pugu  0.111 2280.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
-##  2 it01    it01-001 pugu  0.111 2280.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
-##  3 it01    it01-001 pugu  0.222 2124.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
-##  4 it01    it01-001 pugu  0.222 2124.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
-##  5 it01    it01-001 pugu  0.333 2314.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
-##  6 it01    it01-001 pugu  0.333 2314.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
-##  7 it01    it01-001 pugu  0.444 2374.  135. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
-##  8 it01    it01-001 pugu  0.444 2374.  135. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
-##  9 it01    it01-001 pugu  0.556 2307.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
-## 10 it01    it01-001 pugu  0.556 2307.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g     voiced      
+##    speaker file     word   time    f3    f0 language gender glottocode  item ipa   c1    c1_phonation vowel anteropost height c2   
+##    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;
+##  1 it01    it01-001 pugu  0.111 2280.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g    
+##  2 it01    it01-001 pugu  0.111 2280.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g    
+##  3 it01    it01-001 pugu  0.222 2124.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g    
+##  4 it01    it01-001 pugu  0.222 2124.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g    
+##  5 it01    it01-001 pugu  0.333 2314.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g    
+##  6 it01    it01-001 pugu  0.333 2314.  134. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g    
+##  7 it01    it01-001 pugu  0.444 2374.  135. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g    
+##  8 it01    it01-001 pugu  0.444 2374.  135. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g    
+##  9 it01    it01-001 pugu  0.556 2307.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g    
+## 10 it01    it01-001 pugu  0.556 2307.  137. Italian  m      ital1282      20 pugu  p     voiceless    u     back       high   g    
 ## # ℹ 24,002 more rows
-## # ℹ 4 more variables: c2_place &lt;chr&gt;, formant &lt;chr&gt;, value &lt;dbl&gt;, id &lt;chr&gt;
+## # ℹ 5 more variables: c2_phonation &lt;chr&gt;, c2_place &lt;chr&gt;, formant &lt;chr&gt;, value &lt;dbl&gt;, id &lt;chr&gt;
 ```
 
 ---
@@ -292,21 +292,21 @@ polite
 
 ```
 ## # A tibble: 224 × 27
-##    subject gender birthplace musicstudent months_ger scenario task  attitude total_duration articulation_rate  f0mn  f0sd f0range  inmn  insd
-##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1 F1      F      seoul_area yes                  18        6 not   inf               55.2               3.38  229.  4.18    10.6  64.6  7.94
-##  2 F1      F      seoul_area yes                  18        6 not   pol               28.5              12.2   181.  3.78     9    63.2  7.75
-##  3 F1      F      seoul_area yes                  18        7 not   inf               60.3               6.19  220.  4.18    10.4  61.8  8.89
-##  4 F1      F      seoul_area yes                  18        7 not   pol               40.8               6.03  176.  4.59    13.1  61.7  8.51
-##  5 F1      F      seoul_area yes                  18        1 dct   pol               18.4               5.61  215.  4.28    10.3  62    8.29
-##  6 F1      F      seoul_area yes                  18        1 dct   inf               13.6               5.82  211.  3.43    10.5  61.5  8.95
-##  7 F1      F      seoul_area yes                  18        2 dct   pol                5.22              6.49  285.  2.09     7.1  65.7  5.81
-##  8 F1      F      seoul_area yes                  18        2 dct   inf                4.25              6.22  266.  4.93    18.3  64.9  8.52
-##  9 F1      F      seoul_area yes                  18        3 dct   pol                6.79              4.89  211.  3.22     6.7  61.3  8.43
-## 10 F1      F      seoul_area yes                  18        3 dct   inf                4.13              7.79  286.  3.92    11.2  64.9  8.35
+##    subject gender birthplace musicstudent months_ger scenario task  attitude total_duration articulation_rate  f0mn  f0sd f0range  inmn
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1 F1      F      seoul_area yes                  18        6 not   inf               55.2               3.38  229.  4.18    10.6  64.6
+##  2 F1      F      seoul_area yes                  18        6 not   pol               28.5              12.2   181.  3.78     9    63.2
+##  3 F1      F      seoul_area yes                  18        7 not   inf               60.3               6.19  220.  4.18    10.4  61.8
+##  4 F1      F      seoul_area yes                  18        7 not   pol               40.8               6.03  176.  4.59    13.1  61.7
+##  5 F1      F      seoul_area yes                  18        1 dct   pol               18.4               5.61  215.  4.28    10.3  62  
+##  6 F1      F      seoul_area yes                  18        1 dct   inf               13.6               5.82  211.  3.43    10.5  61.5
+##  7 F1      F      seoul_area yes                  18        2 dct   pol                5.22              6.49  285.  2.09     7.1  65.7
+##  8 F1      F      seoul_area yes                  18        2 dct   inf                4.25              6.22  266.  4.93    18.3  64.9
+##  9 F1      F      seoul_area yes                  18        3 dct   pol                6.79              4.89  211.  3.22     6.7  61.3
+## 10 F1      F      seoul_area yes                  18        3 dct   inf                4.13              7.79  286.  3.92    11.2  64.9
 ## # ℹ 214 more rows
-## # ℹ 12 more variables: inrange &lt;dbl&gt;, shimmer &lt;dbl&gt;, jitter &lt;dbl&gt;, HNRmn &lt;dbl&gt;, H1H2 &lt;dbl&gt;, breath_count &lt;dbl&gt;, filler_count &lt;dbl&gt;,
-## #   hiss_count &lt;dbl&gt;, nasal_count &lt;dbl&gt;, sil_count &lt;dbl&gt;, ya_count &lt;dbl&gt;, yey_count &lt;dbl&gt;
+## # ℹ 13 more variables: insd &lt;dbl&gt;, inrange &lt;dbl&gt;, shimmer &lt;dbl&gt;, jitter &lt;dbl&gt;, HNRmn &lt;dbl&gt;, H1H2 &lt;dbl&gt;, breath_count &lt;dbl&gt;,
+## #   filler_count &lt;dbl&gt;, hiss_count &lt;dbl&gt;, nasal_count &lt;dbl&gt;, sil_count &lt;dbl&gt;, ya_count &lt;dbl&gt;, yey_count &lt;dbl&gt;
 ```
 
 ---
