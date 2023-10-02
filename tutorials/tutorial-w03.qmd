@@ -239,7 +239,7 @@ We will use the `polite` data to learn the basics of plotting using ggplot.
 
 The data comes from the paper by Winter and Grawunder, 2020. *The phonetic profile of Korean formal and informal speech registers*. DOI: [10.1016/j.wocn.2012.08.006](https://doi.org/10.1016/j.wocn.2012.08.006). Read the abstract to familiarise yourself with the study.
 
-To download the file with the data right-click on the following link and download the file: [polite.csv](../data/polite.csv). (Note that tutorial files are also linked in the [Syllabus](../content.qmd)). Remember to save the file in `data/` in the course project folder.
+To download the file with the data right-click on the following link and download the file: [polite.csv](../data/polite.csv). (Note that tutorial files are also linked in [Course content](../content.qmd)). Remember to save the file in `data/` in the course project folder.
 
 With Rmd files, we can use relative paths to read data. For relative paths to work relative to the project working directory, you need to install the [here](https://here.r-lib.org) package (remember how to install packages?) and **add the following line in the setup chunk**, just after the first line of code.
 

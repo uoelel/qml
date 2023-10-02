@@ -41,7 +41,7 @@ Let's play around with the Albanian VOT data we used in class.
 
 The data comes from the paper by Coretta and colleagues, 2022. *Northern Tosk Albanian*. DOI: [10.1017/S0025100322000044](https://doi.org/10.1017/S0025100322000044). This is an IPA Illustration of Northern Tosk Albanian. It contains data from voiceless and voiced consonants of Nothern Tosk Albanian, as uttered in a set of words by 5 speakers.
 
-To download the file with the data right-click on the following link and download the file: [alb_vot.csv](../data/alb_vot.csv). (Note that tutorial files are also linked in the [Syllabus](../content.qmd)). Remember to save the file in `data/` in the course project folder.
+To download the file with the data right-click on the following link and download the file: [alb_vot.csv](../data/alb_vot.csv). (Note that tutorial files are also linked in [Course content](../content.qmd)). Remember to save the file in `data/` in the course project folder.
 
 Create a new `.Rmd` file first, save it in `code/` and name it `tutorial-w04` (the extension `.Rmd` is added automatically!).
 
@@ -308,7 +308,6 @@ Check for errors in the logical operators.
 **2b.**
 
 I tricked you! `;` is the Roman semicolon, and `;` is the Greek question mark!
-
 :::
 :::
 
@@ -539,7 +538,7 @@ summary(alb_vot_bm)
 
 We have seen the summary of this model during the lecture. Do you remember how to interpret it?
 
-::: {.callout-note}
+::: callout-note
 #### Quiz 3
 
 ```{r}
@@ -551,7 +550,6 @@ cat("a. The 95% CrI of $\\mu$ (`Intercept`) includes 12.9.", torf(FALSE), "\n\n"
 
 cat("b. The standard deviation $\\sigma_2$ of $\\sigma$ (`sigma`) is 0.44", torf(TRUE))
 ```
-
 :::
 
 You can use the `tidy()` function from the [broom.mixed](https://github.com/bbolker/broom.mixed) package to extract the information on the estimated parameters as a table (remember to attach the package in the `setup` chunk; you might also need to install the package).

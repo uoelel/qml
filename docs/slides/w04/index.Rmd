@@ -65,6 +65,12 @@ layout: true
 
 ---
 
+```{r alb-vot, echo=TRUE}
+alb_vot_vl
+```
+
+---
+
 ```{r alb-vot-1}
 alb_vot_p <- alb_vot_vl %>%
   ggplot(aes(vot)) +
@@ -121,7 +127,23 @@ Based on the sample (N = 24): mean VOT = `r round(vot_mean, 1)` ms, with SD = `r
 **Does this mean that the population mean and SD are `r round(vot_mean, 1)` and `r round(vot_sd, 1)` ms?**
 ]
 
---
+---
+
+layout: false
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/651a9b5b7a8d1c2028f959e9" width="100%"></iframe>
+
+---
+
+layout: true
+
+## Albanian VOT
+
+---
+
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+**Does this mean that the population mean and SD are `r round(vot_mean, 1)` and `r round(vot_sd, 1)` ms?**
+]
 
 .center[
 .f1[NO!]
@@ -139,14 +161,20 @@ Let's simulate some data:
 
 --
 
-```{r vot-l}
+```{r vot-l, echo=TRUE}
 set.seed(9899)
 vot_l <- list()
 
 for (i in 1:10) {
-  vot_l[i] <- list(rnorm(24, 12, 3))
+  vot_l[i] <- list(rnorm(n = 24, mean = 12, sd = 3))
 }
 
+vot_l
+```
+
+---
+
+```{r vot-l-2}
 cat("Mean:\n", round(unlist(lapply(vot_l, mean)), 1), "\n")
 cat("SD:\n", round(unlist(lapply(vot_l, sd)), 1))
 ```
@@ -189,6 +217,10 @@ We can **quantify the uncertainty** of an estimate by specifying the **probabili
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 **Probabilities are at the very core of statistics**, because the ultimate aim of statistics is to quantify WHAT?
 ]
+
+---
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/651a9f0a632adc7486bc0962" width="100%"></iframe>
 
 ---
 
@@ -349,7 +381,7 @@ Now, let's talk a bit about ontology...
 .bg-washed-yellow.b--orange.ba.bw2.br3.shadow-5.ph4.mt2[
 **Frequentist view of probabilities**
 
-- The parameters are **fixed** (they are *unknown but certain*).
+- The parameters (like $\mu$ and $\sigma$) are **fixed** (they are *unknown but certain*).
 
 - They take on a specific value.
 ]
@@ -361,7 +393,7 @@ Now, let's talk a bit about ontology...
 
 - The parameters are **variables** themselves (they are *unknown and uncertain*).
 
-- We describe each parameter of a probability distribution as another probability distribution.
+- **We describe each parameter of a probability distribution as another probability distribution.**
 
 - And each parameter's probability distribution is described by a set of parameters (called *hyper-parameters*).
 ]
@@ -369,6 +401,18 @@ Now, let's talk a bit about ontology...
 ---
 
 background-image: url(https://media.giphy.com/media/443pAv9m6Ti8KiCoAi/giphy.gif)
+
+---
+
+layout: false
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/651aa1dcc2099e62dcf20eb3" width="100%"></iframe>
+
+---
+
+layout: true
+
+## Probability distributions
 
 ---
 
@@ -568,7 +612,14 @@ ggplot(data = tibble(x = 0:5), aes(x)) +
 ---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-- `\(Gaussian(\mu, \sigma), \mu = Gaussian(\mu_1, \sigma_1), \sigma = TruncGaussian(\mu_2, \sigma_2)\)`
+
+$$
+\begin{align}
+\text{vot} & \sim Gaussian(\mu, \sigma) \\
+\mu        & \sim Gaussian(\mu_1, \sigma_1) \\
+\sigma     & \sim TruncGaussian(\mu_2, \sigma_2)
+\end{align}
+$$
 
 - We need to estimate:
 

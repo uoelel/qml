@@ -3,6 +3,11 @@ title: "QML tutorial - Week 5"
 editor: visual
 execute: 
   cache: true
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+    embed-resources: true 
 ---
 
 ```{r}
@@ -15,27 +20,50 @@ theme_set(theme_light())
 
 library(brms)
 library(broom.mixed)
+
+library(webexercises)
 ```
 
 ## Emotional valence of sense words
 
 We will model data from Winter, 2016. *Taste and smell words form an affectively loaded part of the English lexicon*. DOI: [10.1080/23273798.2016.1193619](https://doi.org/10.1080/23273798.2016.1193619). The study looked at the emotional valence of sense words in English, in the domains of taste and smell.
 
-To download the file with the data right-click on the following link and download the file: [senses_valence.csv](../data/senses_valence.csv). (Note that tutorial files are also linked in the [Syllabus](../content.qmd)). Remember to save the file in `data/` in the course project folder.
+To download the file with the data right-click on the following link and download the file: [senses_valence.csv](../data/senses_valence.csv). (Note that tutorial files are also linked in [Course content](../content.qmd)). Remember to save the file in `data/` in the course project folder.
 
 Create a new `.Rmd` file first, save it in `code/` and name it `tutorial-w05` (the extension `.Rmd` is added automatically!).
 
 I leave to you creating title headings in your file as you please. Remember to to add `knitr::opts_knit$set(root.dir = here::here())` in the `setup` chunk and to attach the tidyverse.
 
-Let's read the data. The original data also include words from other senses, so for this tutorial we will filter the data to include only smell and taste words.
+Let's read the data. The original data also include words from other senses, so for this tutorial we will filter the data to include only the following `Modality`: `Smell` and `Taste` words. Complete the code below to filter the data.
+
+```{r}
+#| label: senses-ex
+#| eval: false
+
+senses_valence <- read_csv("data/senses_valence.csv") %>%
+  filter(
+    ...
+  )
+```
 
 ```{r}
 #| label: senses
+#| echo: false
+#| message: false
 
 senses_valence <- read_csv("data/senses_valence.csv") %>%
   filter(
     Modality %in% c("Smell", "Taste")
   )
+```
+
+This is what the data frame looks like.
+
+```{r}
+#| label: senses-valence
+
+senses_valence
+
 ```
 
 There are three columns:
@@ -46,13 +74,21 @@ There are three columns:
 
 -   `Val`: emotional valence \[numeric, continuous\]. The higher the number the more positive the valence.
 
-Let's quickly check the range of values in `Val`.
+Let's quickly check the minimum and maximum values in `Val`. Do you remember which function returns those two?
+
+```{r}
+#| label: val-range-ex
+#| eval: false
+
+...(senses_valence$Val)
+
+```
 
 ```{r}
 #| label: val-range
+#| echo: false
 
 range(senses_valence$Val)
-
 ```
 
 This is what the density plot of `Val` looks like.
@@ -67,19 +103,28 @@ senses_valence %>%
 
 ```
 
-And if we separate by `Modality` (by using the `fill` parameter), we can see that the density of taste words is shifted towards higher values than that of smell words.
+And if we separate by `Modality`, we can see that the density of taste words is shifted towards higher values than that of smell words. Try to reproduce the following plot in your code.
 
 ```{r}
 #| label: val-dens-mod
+#| echo: false
 
 senses_valence %>%
-  ggplot(aes(Val, fill = Modality)) +
+  ggplot(aes(Val, fill = Modality, colour = Modality)) +
   geom_density(alpha = 0.5) +
   geom_rug()
 
 ```
 
-The plot thus suggests that, in this sample of 72 words, taste words are generally associated with a somewhat higher emotional valence than smell words.
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Make sure that `fill` and `colour` are within `aes()`.
+:::
+
+If you were asked to write a description of the data, you could write the following:
+
+> The data contains 72 observations of the emotional valence of taste (N = 47) and smell (N = 25) words. The range of emotional valence is 1.8 (min = 4.6, max = 6.4). The median valence for taste words is 5.9 (SD = 0.3) while the median valence for smell words is 5.5 (SD = 0.3). As shown in the plot, in this sample of 72 words, taste words are generally associated with a somewhat higher emotional valence than smell words.
 
 ### Modelling emotional valence
 
@@ -104,20 +149,31 @@ This is what the coding would look like:
 | modality = smell | 0              |
 | modality = taste | 1              |
 
-(R assigns the reference level, i.e., 0, to "smell", because "s" comes before "t" in the alphabet.)
+::: callout-warning
+R assigns the reference level, i.e., 0, to "smell", because "s" comes before "t" in the alphabet.
+:::
 
 Now we allow $\mu$ to vary depending on modality.
 
-```{=html}
-<!-- EP: (You might recognise the form of this equation from school, where you probably saw the formula for a line: $y = b + m \cdot x$, where $b$ is the y-intercept, and $m$ is the slope. Exact same thing here! That's why it's called "linear" regression).
-SC: we have not yet mentioned it's called linear model! But we will when we talk about continuous predictors so I save the text here for the time being.
--->
-```
 $$
 \mu = \beta_0 + \beta_1 \cdot modality_{Taste}
 $$
 
-Let's unpack that. There's a bit of algebra in what follows, so take your time if this is a bit out of your comfort zone. But it's worth it---comfort with basic algebra will also help you become more comfortable working with linear models.
+::: callout-tip
+#### Formula of a line
+
+You might recognise the form of this equation from school, where you probably saw the formula for a line:
+
+$$
+y = b + m \cdot x
+$$
+
+where $b$ is the **intercept**, and $m$ is the **slope**. Exact same thing here! That's why it's called a *linear* model or *linear* regression).
+
+You can play with this web app to learn what the intercept and slope do: <https://stefanocoretta.shinyapps.io/lines/>
+:::
+
+Let's unpack the equation. There's a bit of algebra in what follows, so take your time if this is a bit out of your comfort zone. But it's worth it---familiarity with basic algebra will also help you become more comfortable working with linear models.
 
 -   $\beta_0$ is the **mean valence** $\mu$ when \[modality = smell\]. That's because the variable $modality_{Taste}$ takes on the value 0 when \[modality = smell\] (as we can see from the table above). Multiplying by 0 means that $\beta_1$ vanishes from the equation, and all that's left is $\beta_0$.
 
@@ -129,7 +185,7 @@ $$
 \end{aligned}
 $$
 
--   $\beta_1$ is the **difference in mean valence** $\mu$ between the mean valence when \[modality = smell\] and the mean valence when \[modality = taste\]. That's because $modality_{Taste}$ takes on the value 1 when \[modality = taste\], and multiplying $\beta_1$ by 1 leaves it unchanged in the equation.
+-   $\beta_1$ is the **difference in mean valence** $\mu$ between the mean valence when \[modality = taste\] and the mean valence when \[modality = smell\]. That's because $modality_{Taste}$ takes on the value 1 when \[modality = taste\], and multiplying $\beta_1$ by 1 leaves it unchanged in the equation.
 
 $$
 \begin{aligned}
@@ -143,8 +199,10 @@ $$
 
 $$
 \begin{aligned}
+\beta_0 & = \mu_{mod=smell} \\
 \mu_{mod = taste} &= \beta_0 + \beta_1 \\
 \mu_{mod = taste} &= \mu_{mod=smell} + \beta_1 \\
+\mu_{mod = taste} - \mu_{mod=smell} &= \mu_{mod=smell} + \beta_1 - \mu_{mod=smell} \\
 \mu_{mod = taste} - \mu_{mod=smell} &= \beta_1
 \end{aligned}
 $$
@@ -154,11 +212,10 @@ So, $\beta_1$ really is the difference between the means of these two levels of 
 Now we can define the probability distributions of $\beta_0$ and $\beta_1$.
 
 $$
-\beta_0 \sim Gaussian(\mu_0, \sigma_0)
-$$
-
-$$
-\beta_1 \sim Gaussian(\mu_1, \sigma_1)
+\begin{align}
+\beta_0 & \sim Gaussian(\mu_0, \sigma_0) \\
+\beta_1 & \sim Gaussian(\mu_1, \sigma_1)
+\end{align}
 $$
 
 And the usual for $\sigma$.
@@ -167,7 +224,43 @@ $$
 \sigma \sim TruncGaussian(\mu_2, \sigma_2)
 $$
 
+Here's the full mathematical specification of the model.
+
+$$
+\begin{align}
+\text{val} & \sim Gaussian(\mu, \sigma) \\
+\mu        & = \beta_0 + \beta_1 \cdot modality_{Taste} \\
+\beta_0    & \sim Gaussian(\mu_0, \sigma_0) \\
+\beta_1    & \sim Gaussian(\mu_1, \sigma_1) \\
+\sigma     & \sim TruncGaussian(\mu_2, \sigma_2)
+\end{align}
+$$
+
 All together, we need to estimate the following parameters: $\mu_0, \sigma_0, \mu_1, \sigma_1, \mu_2, \sigma_2$.
+
+::: callout-note
+#### Quiz 1
+
+```{r}
+#| label: quiz-3
+#| results: asis
+#| echo: false
+
+opts_1 <- c(
+  answer = "Positive.",
+  "0.",
+  "Negative."
+)
+
+cat("Since smell words have a lower emotional value than taste words, will $\\beta_1$ be:", longmcq(opts_1))
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Be careful: $\beta_1$ is the difference between taste and smell words (`taste - smell`), rather than the difference between smell and taste words (`smell - taste`).
+:::
+:::
 
 ### Run the model
 
