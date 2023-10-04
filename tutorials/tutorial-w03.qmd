@@ -81,6 +81,18 @@ A **mark-up language** is a text-formatting system consisting of symbols or keyw
 
 ### Create an Rmd file
 
+::: callout-warning
+#### Important
+
+When working through these tutorials, always **make sure you are in the course RStudio Project** you just created.
+
+You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
+
+If you see `Project (none)` in the top-right corner, that means **you are not** in an RStudio Project.
+
+To make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
+:::
+
 To create a new Rmd file, just click on the `New file` button, then `R Markdown...`. (If you are asked to install/update packages, do so.)
 
 ![](/img/new-rmd.png)
@@ -430,8 +442,6 @@ Try running `?ggplot` in the Console to see the arguments of the function and th
 ::: callout-note
 #### Quiz 3
 
-**Which of the following will produce the same plot as the one above?** Reason through it first without running the code, then run all of these to check whether they look the way you expected.
-
 ```{r}
 #| label: quiz-3
 #| results: asis
@@ -443,7 +453,7 @@ opts_3 <- c(
   "`ggplot(polite, aes(y = f0mn, x = H1H2)) + geom_point()`"
 )
 
-cat("Which of the following will produce the same plot as the one above? Reason through it first without running the code, then run all of these to check whether they look the way you expected.", longmcq(opts_3))
+cat("**Which of the following will produce the same plot as the one above?** Reason through it first without running the code, then run all of these to check whether they look the way you expected.", longmcq(opts_3))
 ```
 
 ::: {.callout-tip collapse="true"}

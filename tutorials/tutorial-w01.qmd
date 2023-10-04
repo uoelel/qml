@@ -128,7 +128,9 @@ When working through these tutorials, always make sure you are in the course RSt
 
 You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light blue cube icon.
 
-If your see `Project (none)` in the top-right corner, that means your **are not** in an RStudio Project.
+If you see `Project (none)` in the top-right corner, that means your **are not** in an RStudio Project.
+
+To make sure you are in the RStudio project, go to the project folder in File Explorer or Finder and double click on the `.Rproj` file.
 :::
 
 There are several ways of opening an RStudio Project:
