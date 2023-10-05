@@ -149,7 +149,7 @@ To render an Rmd file, just click on the **Knit** button and an HTML file will b
 
 ![](/img/knit.png)
 
-It will also be shown in the Viewer pane, in the bottom-right panel of RStudio.
+It will also be shown in the Viewer pane (like in the picture below) or in a new window (you can set this option in the RStudio preferences \> R Markdown \> Basics \> Show output preview in...).
 
 ![](/img/rendered.png)
 
@@ -171,7 +171,7 @@ The `setup` code chunk also has special code from the knitr package. The knitr p
 
 The line `knitr::opts_chunk$set(echo = TRUE)` sets the option `echo` to `TRUE`. The `echo` option let's you decide whether you want the R code printed (echoed) in the rendered Rmd file. When `echo = TRUE` the code is printed, when `echo = FALSE` the code is not printed.
 
-Now go ahead and add `library(tidyverse)` in the line next to the `knitr::opts_chunk` line.
+Now go ahead and add `library(tidyverse)` in the line below the `knitr::opts_chunk` line.
 
 ::: callout-note
 #### Running code
