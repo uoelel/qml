@@ -3,7 +3,7 @@ title: "Quantitative Methods for LEL"
 subtitle: "Week 3"
 author: "Dr Stefano Coretta"
 institute: "University of Edinburgh"
-date: "2023/01/31"
+date: "2023/10/03"
 output:
   xaringan::moon_reader:
     lib_dir: libs

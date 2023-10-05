@@ -3,7 +3,7 @@ title: "Quantitative Methods for LEL"
 subtitle: "Week 4"
 author: "Dr Stefano Coretta"
 institute: "University of Edinburgh"
-date: "2023/02/07"
+date: "2023/10/10"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -58,6 +58,10 @@ alb_vot_vl <- alb_vot %>%
     vot < 20
   )
 ```
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/651ea764afe90e83a405a209" width="100%"></iframe>
+
+---
 
 layout: true
 
