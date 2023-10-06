@@ -82,6 +82,12 @@
 -   [Cumming 2014](https://doi.org/10.1177%2F0956797613504966). The New Statistics: Why and How
 -   [Kurschke and Liddell 2018](https://doi.org/10.3758/s13423-016-1221-4). The Bayesian New Statistics: Hypothesis testing, estimation, meta-analysis, and power analysis from a Bayesian perspective
 
+**Replication**
+
+- 👉 [Assessing the replication landscape in experimental linguistics](https://doi.org/10.31234/osf.io/fzngs).
+- [The Stark realities of reproducible statistically orientated sociological research: Some newer rules of the sociological method](
+https://doi.org/10.1177/20597991221111681).
+
 **Other**
 
 - [Methods as theory](https://stefanocoretta.github.io/post/methods-as-theory/).
