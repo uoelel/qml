@@ -3,7 +3,7 @@ title: "Quantitative Methods for LEL"
 subtitle: "Week 7 - Binary outcomes"
 author: "Elizabeth Pankratz and Stefano Coretta"
 institute: "University of Edinburgh"
-date: "2023/03/07"
+date: "2023/10/31"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -41,8 +41,6 @@ library(extraDistr)
 library(ggdist)
 library(glue)
 
-theme_update(text = element_text(size=16))
-
 options(ggplot2.discrete.fill = RColorBrewer::brewer.pal(8, "Dark2"))
 options(ggplot2.discrete.colour = RColorBrewer::brewer.pal(8, "Dark2"))
 options(show.signif.stars = FALSE)
@@ -58,24 +56,13 @@ shallow <- read_csv("data/shallow.csv") %>%
     RT > 0
   ) %>%
   mutate(
-    Accuracy = ifelse(ACC == 1, "correct", "incorrect")
+    Accuracy = ifelse(ACC == 1, "correct", "incorrect"),
+    Relation_type = factor(Relation_type, level = c("Unrelated", "NonConstituent", "Constituent")),
+    Accuracy = factor(Accuracy, levels = c("incorrect", "correct"))
   )
 ```
 
-
-class: center middle reverse
-
-## Any questions about the new teaching situation?
-
-While you're thinking, please fill out the attendance form:
-
-`https://forms.office.com/e/XzxhFEBHv6`
-
-![:scale 30%](imgs/qr.png)
-
----
-
-## Summary from last time
+## Summary from last week
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 - **Comparing groups** with `brm()`
@@ -97,53 +84,10 @@ While you're thinking, please fill out the attendance form:
 
 ---
 
-layout: false
-
-## Six learning objectives for this week
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(1)** What are **binary outcomes?**
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(2)** How do we **visualise** them?
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(3)** What **distribution** do binary outcomes follow?
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(4)** The data is binary, but linear models require a **continuous outcome space.**
-How do we fit such a model using binary data?
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(5)** How do we **interpret** the estimates of such a model?
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(6)** What are **credible intervals**?
-]
-
----
-
-layout: false
-
 ## What are binary outcomes?
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**The variable you're trying to predict has two levels**, e.g.: 
+**The variable you're trying to model has two levels**, e.g.: 
 
   - yes / no
   - grammatical / ungrammatical
@@ -154,19 +98,20 @@ layout: false
 Very common in linguistics!
 ]
 
-???
-
-LO 1
 
 ---
 
-## Today's running example: Morphological processing
+layout: true
+
+## Morphological processing
+
+---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
 - English L1 and L2 participants (L2 participants are native speakers of Cantonese).
 
-- **Lexical decision task:** Is the string you see a word in English or not?
+- **Lexical decision task:** Is the word a real English word or not?
 
 - Each trial:
 
@@ -185,8 +130,6 @@ We will focus on **accuracy** (correct identification of real word: **correct/in
 
 ---
 
-## Visualise as proportions
-
 ```{r shal}
 shallow %>%
   ggplot(aes(Relation_type, fill = Accuracy)) +
@@ -198,15 +141,35 @@ shallow %>%
   )
 ```
 
-???
-
-LO2
-
 ---
 
-## What process could have generated this data?
+```{r shal-2}
+shal_prop <- shallow %>%
+  group_by(ID, Relation_type) %>%
+  summarise(
+    accuracy_prop = sum(ACC) / n()
+  ) 
+
+ggplot() +
+  geom_jitter(data = shal_prop, aes(x = Relation_type, y = accuracy_prop), width = 0.1, alpha = 0.5) +
+  stat_summary(data = shallow, aes(x = Relation_type, y = ACC, colour = Relation_type), fun.data = "mean_cl_boot", size = 1) +
+  labs(
+    title = "Proportion of correct vs incorrect responses by participant",
+    caption = "Mean proportion is represented by coloured points with 95% bootstrapped Confidence Intervals.",
+    x = "Prime relation type",
+    y = "Proportion"
+  ) +
+  ylim(0, 1) +
+  theme(legend.position = "none")
+```
 
 --
+
+
+**Use this instead of bar charts with error bars!**
+
+
+---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 We assume that there is **some probability $p$ of responding correctly.**
@@ -216,66 +179,48 @@ We don't know this probability, so we want to **use the data to estimate it.**
 
 --
 
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**How can a probability generate binary outcomes?**
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 
-  - Imagine a coin flip: $p = 0.5$.
-  
-  - You flip the coin 10 times, you get 10 observations of binary outcomes (heads/tails), with probably about 50/50 frequency.
-  
-  - If it's not a fair coin, you might get 9 heads and 1 tail  from, e.g., $p = 0.9$.
-]
+Remember that probabilities are between 0 and 1.
 
-
----
-
-## What distribution do we use to model this process?
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-We want to use a distribution that is:
-
-  - based on the probability of some event $p$, and
-  - able to generate binary outcomes (0 and 1).
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-
-The best distribution for the job: the **Bernoulli distribution**.
+Probabilities of a binary variable follow the **Bernoulli distribution**.
 
 $$Bernoulli(p)$$
 
 ]
 
---
+---
+
+layout: false
+layout: true
+
+## Binary outcomes
+
+---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+$$Bernoulli(p)$$
+
 - A Bernoulli distribution generates a 1 ("success") with probability $p$.
 - And a 0 ("failure") with probability $1 - p = q$.
   
 And we can **think of our binary outcomes in terms of 0s and 1s:**
 
-  - 0 = incorrect (or tails, or English, or ...)
-  - 1 = correct (or heads, or Spanish, or ...)
-
+  - 0 = incorrect (or English, or no)
+  - 1 = correct (or Scots, or yes)
 ]
 
-???
+--
 
-LO3
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+Examples:
+
+- There is a 62% (= 0.62) probability that the response is correct. Which means there is a 38% (= 1 - 0.62 = 0.38) probability that the response is incorrect.
+
+- There is a 89% (= 0.89) probability that the writer chooses an English spelling. Which means there is a 11% (= 1 - 0.89 = 0.11) probability that the writer chooses a Scots spelling.
+]
 
 ---
-
-## Building up the model
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-
-- Accuracy $\text{acc}$ is a binary variable: incorrect vs. correct.
-
-- $p$ is the probability of obtaining a "correct" response.
-
-]
 
 .f3[
 $$
@@ -290,25 +235,28 @@ $$
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 
-**Our goal: estimate $p$.**
+- Accuracy $\text{acc}$ is a binary variable: incorrect vs. correct.
 
+- $p$ is the probability of obtaining a "correct" response.
+
+- **Our goal: estimate $p$.**
+]
+
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
 But there's a problem...
-
 ]
 
 ---
 
-## Linear models can't cope with bounded data
-
---
-
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
-- A line, in principle, goes on forever in a continuous space.
+**Linear models can't estimate bounded data (probabilities) out of the box!**
+
+- A straight line, in principle, goes on forever in am unbounded space.
 
 - But probabilities are bounded between 0 and 1.
 
-- This means we can't fit a line to probabilities directly.
+- This means we can't fit a straight line to probabilities directly.
 
 ]
 
@@ -316,14 +264,15 @@ But there's a problem...
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 
-The solution: **transform the probabilities into a continuous space**.
+The solution: **transform the probabilities into something that is not bounded**.
 
 ]
 
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+**NOTE**: What follows is for you how to understand how this works, but remember that this is done automatically by R for you so you never have to do it by hand!!!
+]
 
 ---
-
-## The transformation: `logit()`
 
 .f3[
 $$
@@ -339,6 +288,8 @@ $$
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
 - The **logit** (*log*istic un*it*) function converts probabilities to **log-odds**.
+
+  - Log-odds are simply the log(arithm) of the odds.
 
 - The model can work with log-odds because they are not bounded.
 
@@ -358,13 +309,16 @@ LO 4
 
 ---
 
-## What are log-odds?
+layout: false
+layout: true
 
---
+## Odds and log-odds
+
+---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
-First, **what are odds**?
+**What are odds**?
 
 $$
 \text{odds} = \frac{\text{probability of a thing happening}}{\text{probability of the thing not happening}} = \frac{p}{1-p}
@@ -373,7 +327,7 @@ $$
 
 --
 
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 
 If the probability of rain tomorrow is $p = 0.7$, then the odds of rain tomorrow are:
 
@@ -393,41 +347,54 @@ No longer bounded by 1, but are odds unbounded?
 
 ---
 
-## Odds are still bounded (and also asymmetrical)
+**Odds are still bounded (and also asymmetrical)**
 
 .center[
 ![:scale 60%](imgs/numberline_odds.png)
 ]
 
 ---
-## Applying the log function unsquishes [0, 1]
+
+We can log the odds to make them unbounded.
 
 ```{r logarithm, warning=FALSE}
 ggplot() +
   xlim(0, 5) +
   ylim(-5, 2) +
-  geom_function(fun = log, colour = '#8856a7', size=1) +
-  geom_text(aes(x = 2.5, y = -1), label = "y = log(x)", size = 8, colour = '#8856a7')
+  geom_function(fun = log, colour = "#8856a7", size = 1) +
+  annotate("text", x = 2.5, y = -1, label = "log-odds = log(odds)", size = 8) +
+  annotate("segment", x = 1, xend = 1, y = -5, yend = 0, linetype = "dashed") +
+  annotate("segment", x = 0, xend = 1, y = 0, yend = 0, linetype = "dashed") +
+  labs(
+    x = "Odds", y = "Log-odds"
+  )
 ```
 
 
 ---
-## Log-odds are continuous and unbounded
+
+**Log-odds are unbounded (and symmetrical)**
 
 .center[
 ![:scale 60%](imgs/numberline_logodds.png)
 ]
 
 ---
-## Probabilities and log-odds
 
-```{r p-log-odds, warning=FALSE}
+layout: false
+layout: true
+
+## Log-odds and probabilities
+
+---
+
+```{r p-log-odds}
 dots <- tibble(
   p = seq(0.1, 0.9, by = 0.1),
   log_odds = qlogis(p)
 )
 
-tibble(
+p_log_odds <- tibble(
   p = seq(0, 1, by = 0.001),
   log_odds = qlogis(p)
 ) %>%
@@ -439,6 +406,7 @@ tibble(
   geom_line(size = 2) +
   # geom_point(data = dots, size = 4) +
   geom_point(x = 0, y = 0.5, colour = "#8856a7", size = 4) +
+  annotate("text", x = -4, y = 0.8, label = "p = logit(log-odds)") +
   scale_x_continuous(breaks = seq(-6, 6, by = 1), minor_breaks = NULL, limits = c(-6, 6)) +
   scale_y_continuous(breaks = seq(0, 1, by = 0.1), minor_breaks = NULL) +
   labs(
@@ -446,6 +414,7 @@ tibble(
     x = "Log-odds",
     y = "Probability"
   )
+p_log_odds
 ```
 
 ???
@@ -454,9 +423,7 @@ On logit vs logistic function: <https://stats.stackexchange.com/a/120364>.
 
 ---
 
-## From probabilities to log-odds
-
-Use `qlogis()` (logit function) to go from probabilities to log-odds.
+Use `qlogis()` (*logit* function) to go from probabilities to log-odds.
 
 ```{r qlogis, echo=TRUE}
 qlogis(0.3)
@@ -466,9 +433,7 @@ qlogis(0.7)
 
 ---
 
-## From log-odds to probabilities
-
-Use `plogis()` (logistic function, the inverse of the logit function) to go from log-odds to probabilities.
+Use `plogis()` (*logistic* function, the inverse of the logit function) to go from log-odds to probabilities.
 
 ```{r plogis, echo=TRUE}
 plogis(-1)
@@ -478,21 +443,25 @@ plogis(1)
 
 ---
 
-## Back to the model
+layout: false
+layout: true
 
-.f3[
+## Modelling accuracy
+
+---
+
+.f4[
 $$
 \begin{aligned}
 \text{acc} & \sim Bernoulli(p) \\
-logit(p) & \sim Gaussian(\mu, \sigma)
+logit(p)   & \sim Gaussian(\mu, \sigma) \\
 \end{aligned}
 $$
 ]
 
---
 
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-- Because we are dealing with the outcome variable in log-odds space, **all the parameters of the model are going to be estimated in log-odds space.**
+.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+- Because we are dealing with the outcome variable in the log-odds space, **all the parameters of the model are going to be estimated in log-odds.**
   - Here, this applies to $\mu$ and $\sigma$.
   
 - We'll need to remember this when interpreting the model's estimates.
@@ -500,22 +469,15 @@ $$
 
 ---
 
-class: center middle reverse
-
-# But first, a few minutes' break 😮‍💨
-
-Then we'll fit the model to the lexical decision data!
-
----
-## Set up the outcome variable
-
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
-- We need to define a "success" level for our outcome variable.
+**We need to pick a level of our outcome variable to be the "success"** (i.e. the `1` in the Bernoulli outcome).
 
-- We'll set success = `"correct"`, so that we estimate $p$ as the probability of responding correctly.
+- Let's choose `"correct"` as the success, so that we estimate $p$ as the probability of getting a "correct" response (or in other words the probability of responding correctly).
 
-- To make this happen, let's manually reorder the levels in `Accuracy` as `"incorrect"` (will be coded as 0), `"correct"` (will be coded as 1).
+- To set this in out data, we can reorder the levels in `Accuracy` as `c("incorrect", "correct")`.
+
+  - Note that the "success" level is the *second* level! This is different from the reference level business of categorical predictors, because now we are talking about *outcome variables*.
 ]
 
 --
@@ -528,12 +490,6 @@ shallow <- shallow %>%
 
 levels(shallow$Accuracy)
 ```
-
----
-layout:false
-layout:true
-
-## Starting small: Intercept-only model
 
 ---
 
@@ -562,24 +518,65 @@ cat(capture.output(summary(acc_bm))[8:10], sep = "\n")
 
 
 <br>
+
+.f4[
+$$
+\begin{aligned}
+\text{acc} & \sim Bernoulli(p) \\
+logit(p) & \sim Gaussian(\mu = 1.32, \sigma = 0.11)
+\end{aligned}
+$$
+]
+
 <br>
 
-.pull-left[
-- **Intercept**: $logit(p)$.
+- Parameter (`Intercept`): this is $logit(p)$.
 
 - **Estimate**: $\mu = 1.32$ log-odds.
 
 - **Est.Error**: $\sigma = 0.11$ log-odds.
-]
 
-.pull-right[
-$$
-\begin{aligned}
-\text{acc} & \sim Bernoulli(p) \\
-logit(p) & \sim Gaussian(1.32, 0.11)
-\end{aligned}
-$$
-]
+---
+
+layout: false
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/65242dcc8f155ba53211f38e" width="100%"></iframe>
+
+---
+
+layout: true
+
+## Modelling accuracy
+
+---
+
+```{r p-log-odds-2}
+p_log_odds_2 <- tibble(
+  p = seq(0, 1, by = 0.001),
+  log_odds = qlogis(p)
+) %>%
+  ggplot(aes(log_odds, p)) +
+  geom_hline(yintercept = 0.5, linetype = "dashed") +
+  geom_hline(yintercept = 0, colour = "#8856a7", size = 1) +
+  geom_hline(yintercept = 1, colour = "#8856a7", size = 1) +
+  geom_vline(xintercept = 0, alpha = 0.5) +
+  geom_line(size = 2) +
+  annotate("segment", x = 1.32, xend = 1.32, y = 0, yend = plogis(1.32), colour = "#d95f02", linewidth = 1) +
+  annotate("segment", x = -6, xend = 1.32, y = plogis(1.32), yend = plogis(1.32), colour = "#d95f02", linewidth = 1) +
+  annotate("point", x = 1.32, y = plogis(1.32), colour = "#d95f02", size = 3) +
+  annotate("text", x = 3, y = 0.1, label = "log-odds = 1.32") +
+  annotate("text", x = -5, y = 0.9, label = "p = 0.79") +
+  scale_x_continuous(breaks = seq(-6, 6, by = 1), minor_breaks = NULL, limits = c(-6, 6)) +
+  scale_y_continuous(breaks = seq(0, 1, by = 0.1), minor_breaks = NULL) +
+  labs(
+    title = "Correspondence between log-odds and probabilities",
+    x = "Log-odds",
+    y = "Probability"
+  )
+p_log_odds_2
+```
+
+
 
 ---
 
@@ -653,9 +650,13 @@ round(plogis(1.53), 2)
 ```
 
 ---
-layout:false
 
-## Set up the predictor `Relation_type`
+layout: false
+layout: true
+
+## Modelling accuracy by relation type
+
+---
 
 ```{r rel-ord, echo=TRUE}
 shallow <- shallow %>%
@@ -676,8 +677,6 @@ levels(shallow$Relation_type)
 | Relation type = Constituent     | 0              | 1             |
 
 ---
-
-## Modelling accuracy by relation type
 
 .f3[
 $$
@@ -702,8 +701,6 @@ acc_bm_2 <- brm(
 ```
 
 ---
-
-## Modelling accuracy by relation type: Intercept
 
 ```{r acc-bm-2-summ}
 cat(capture.output(summary(acc_bm_2))[8:12], sep = "\n")
@@ -736,12 +733,6 @@ $$
 - The mean log-odds of getting a correct response is 1.02 (corresponds to a **probability of `r round(plogis(1.02), 2)`.**)
 - 95% probability that the true mean is between 0.71 and 1.36 (corresponds to a **probability between `r round(plogis(0.71), 2)` and `r round(plogis(1.36), 2)`**).
 ]
-
----
-layout: false
-layout: true
-
-## Modelling accuracy by relation type: `NonConstituent`
 
 ---
 
@@ -835,18 +826,13 @@ acc_bm_2_draws %>%
 ```
 
 ---
-layout:false
-layout: true
-
-## Modelling accuracy by relation type: `Constituent`
-
----
 
 ```{r acc-bm-2-summ-5}
 cat(capture.output(summary(acc_bm_2))[8:12], sep = "\n")
 ```
 
 <br>
+
 --
 
 ```{r plog-3, echo=TRUE}
@@ -871,24 +857,8 @@ acc_bm_2_draws %>%
 ```
 
 ---
-layout:false
-class: center middle reverse
 
-# Questions about what we just saw?
-
-The models themselves?
-
-Moving between log-odds and probabilities?
-
-Interpreting the models' estimates?
-
-Anything else not sitting right?
-
-???
-
-LO 5
-
----
+layout: false
 
 ## How do we find the 95% CrIs?
 
@@ -897,8 +867,9 @@ LO 5
 ]
 
 ---
-layout:false
-layout:true
+
+layout: false
+layout: true
 
 ## The empirical rule
 
@@ -1214,71 +1185,4 @@ acc_bm_2_draws %>%
 ```
 
 
----
-layout: false
-layout: true
 
-## Learning objectives revisited
-
----
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(1)** What are **binary outcomes?**
-
-- Outcomes with two discrete levels (e.g., yes/no, grammatical/ungrammatical, correct/incorrect).
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(2)** How do we **visualise** them?
-
-- As proportions.
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(3)** What **distribution** do binary outcomes follow?
-
-- A Bernoulli distribution with one parameter, $p$, the probability of success.
-- In brms: `family = bernoulli()`.
-]
-
----
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(4)**  How do we fit a model requiring a **continuous outcome space** using binary data?
-
-- We model the binary outcomes as being generated based on the probability of success $p$.
-- We transform this probability into log-odds, which is continuous.
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(5)** How do we **interpret** the estimates of such a model?
-
-- The model's estimates are in log-odds space.
-- To interpret them, we convert back to probability space using `plogis()`.
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(6)** What are **credible intervals**?
-
-- Credible intervals are the difference between two quantiles.
-- For Bayesian modelling, they are the region in which, with some probability (usually 95%), the true value lies.
-]
-
----
-layout:false
-class: center middle reverse
-
-## We made it! 😊📈
-### For any latecomers: please fill out the attendance form.
-
-`https://forms.office.com/e/XzxhFEBHv6`
-
-![:scale 30%](imgs/qr.png)
