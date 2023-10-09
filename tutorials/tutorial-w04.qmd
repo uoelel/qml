@@ -520,6 +520,8 @@ The "sampling" part is about the Markov-Chain Monte Carlo (or MCMC) sampling alg
 Markov-Chain Monte Carlo refers to a set of algorithms used to estimate parameters of unknown distributions, based on repeated draws from parameter values and observed data.
 :::
 
+You can read a more extended explanation by Elizabeth Pankratz [here](https://elizabethpankratz.github.io/bayes_stat/day1/mcmc.html).
+
 You don't need to understand the details of this. For now, just remember that several draws are made (i.e. the algorithm is run for several iterations), and that the model runs 4 chains of these iterations.
 
 We will learn more about chains and iterations in the coming weeks and you will know how to use information about these to diagnose the robustness of the estimated parameters.
