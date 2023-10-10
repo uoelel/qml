@@ -541,16 +541,8 @@ There is a 95% probability that the log-odds of getting a "correct" response are
 
 ---
 
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-- 'There is a 95% probability that the log-odds of getting a "correct" response are between 1.11 and 1.53.'
-
-  - Uh, but what do these numbers actually mean...?
-]
-
---
-
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-In easier-to-understand probability terms: 
+It's easier to understand what that means if we convert log-odds to probabilities:
 
 **There is a 95% probability that the probability of getting a "correct" response is between 0.75 and 0.82.**
 ]
@@ -571,6 +563,10 @@ round(plogis(1.53), 2)
 ```
 ## [1] 0.82
 ```
+
+---
+
+REPORTING
 
 ---
 
@@ -640,15 +636,7 @@ acc_bm_2 &lt;- brm(
 ## Relation_typeConstituent        0.86      0.29     0.30     1.42 1.00     2999     2789
 ```
 
-.pull-left[
-- **Intercept**: `\(\beta_0\)`.
 
-- **Estimate**: `\(\mu = 1.02\)` log-odds.
-
-- **Est.Error**: `\(\sigma = 0.17\)` log-odds.
-]
-
-.pull-right[
 $$
 `\begin{aligned}
 \text{acc} &amp; \sim Bernoulli(p) \\
@@ -658,14 +646,41 @@ logit(p) &amp; = \beta_0 + \beta_1 \cdot relation_{ncons} + \beta_2 \cdot relati
 \beta_2 &amp; \sim Gaussian(\mu_2, \sigma_2) \\
 \end{aligned}`
 $$
-]
+- Parameter `Intercept`: this is `\(\beta_0\)` (the probability of a correct response when relation type is "unrelated").
 
---
+- **Estimate**: `\(\mu = 1.02\)` log-odds.
+
+- **Est.Error**: `\(\sigma = 0.17\)` log-odds.
+
+
+---
+
+
+```
+## Population-Level Effects: 
+##                             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept                       1.02      0.17     0.71     1.36 1.00     2777     2484
+## Relation_typeNonConstituent     0.19      0.25    -0.30     0.67 1.00     2948     2801
+## Relation_typeConstituent        0.86      0.29     0.30     1.42 1.00     2999     2789
+```
+
+
+$$
+`\begin{aligned}
+\text{acc} &amp; \sim Bernoulli(p) \\
+logit(p) &amp; = \beta_0 + \beta_1 \cdot relation_{ncons} + \beta_2 \cdot relation_{cons} \\
+\beta_0 &amp; \sim Gaussian(1.02, 0.17) \\
+\beta_1 &amp; \sim Gaussian(\mu_1, \sigma_1) \\
+\beta_2 &amp; \sim Gaussian(\mu_2, \sigma_2) \\
+\end{aligned}`
+$$
+
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 **When relation type is `Unrelated`:**
-- The mean log-odds of getting a correct response is 1.02 (corresponds to a **probability of 0.73.**)
-- 95% probability that the true mean is between 0.71 and 1.36 (corresponds to a **probability between 0.67 and 0.8**).
+- The mean log-odds of getting a correct response is 1.02 (which corresponds to a 73% probability).
+
+- Based on the CrIs, there is a 95% probability that the mean is between 0.71 and 1.36 log-odds (which corresponds to a probability between 0.67 and 0.8).
 ]
 
 ---
@@ -679,15 +694,6 @@ $$
 ## Relation_typeConstituent        0.86      0.29     0.30     1.42 1.00     2999     2789
 ```
 
-.pull-left[
-- **Effect of `\(relation_{ncons}\)`**: `\(\beta_1\)`.
-
-- **Estimate**: `\(\mu = 0.19\)` log-odds.
-
-- **Est.Error**: `\(\sigma = 0.25\)` log-odds.
-]
-
-.pull-right[
 $$
 `\begin{aligned}
 \text{acc} &amp; \sim Bernoulli(p) \\
@@ -697,14 +703,42 @@ logit(p) &amp; = \beta_0 + \beta_1 \cdot relation_{ncons} + \beta_2 \cdot relati
 \beta_2 &amp; \sim Gaussian(\mu_2, \sigma_2) \\
 \end{aligned}`
 $$
-]
 
---
+- **Effect of `\(relation_{ncons}\)`**: `\(\beta_1\)` (the difference in log-odds between non-constituent and unrelated).
+
+- **Estimate**: `\(\mu = 0.19\)` log-odds.
+
+- **Est.Error**: `\(\sigma = 0.25\)` log-odds.
+
+---
+
+
+```
+## Population-Level Effects: 
+##                             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept                       1.02      0.17     0.71     1.36 1.00     2777     2484
+## Relation_typeNonConstituent     0.19      0.25    -0.30     0.67 1.00     2948     2801
+## Relation_typeConstituent        0.86      0.29     0.30     1.42 1.00     2999     2789
+```
+
+$$
+`\begin{aligned}
+\text{acc} &amp; \sim Bernoulli(p) \\
+logit(p) &amp; = \beta_0 + \beta_1 \cdot relation_{ncons} + \beta_2 \cdot relation_{cons} \\
+\beta_0 &amp; \sim Gaussian(1.02, 0.17) \\
+\beta_1 &amp; \sim Gaussian(0.19, 0.25) \\
+\beta_2 &amp; \sim Gaussian(\mu_2, \sigma_2) \\
+\end{aligned}`
+$$
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-**When the relation type is non-constituent**: 
+**When the relation type is non-constituent**:
+
 - The mean change in log-odds is 0.19.
-- To figure out the **conditional probability of answering correctly**, we'll put some of this math to use.
+
+- **You cannot converting this to probabilities!**
+
+- We need to calculate the conditional probability of non-constituent.
 ]
 
 ---
