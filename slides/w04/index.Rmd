@@ -443,6 +443,45 @@ Let's assume VOT values are **distributed according to a Gaussian distribution**
 $$vot \sim Gaussian(\mu, \sigma)$$
 ]
 
+---
+
+.f3[
+$$vot \sim Gaussian(\mu, \sigma)$$
+]
+
+**Read as**: VOT values (`\(vot\)`) are distributed according to (`\(\sim\)`) a Gaussian distribution (`\(Gaussian()\)`) with mean $\mu$ and standard deviation $\sigma$.
+
+---
+
+.f3[
+$$vot \sim Gaussian(\mu, \sigma)$$
+]
+
+**Parameters**: mean $\mu$ and SD $\sigma$.
+
+--
+
+.f3[
+$$\mu = ...$$
+$$\sigma = ...$$
+]
+
+---
+
+.f3[
+$$vot \sim Gaussian(\mu, \sigma)$$
+]
+
+**Parameters**: mean $\mu$ and SD $\sigma$.
+
+
+
+.f3[
+$$\mu = 12.6$$
+$$\sigma = 2.8$$
+]
+
+Let's pretend that the population mean and SD are the sample mean and SD...
 
 ---
 
@@ -489,50 +528,6 @@ alb_dist +
 
 --
 
-We want to make inferences about the population based on the sample.
-
----
-
-.f3[
-$$vot \sim Gaussian(\mu, \sigma)$$
-]
-
-**Read as**: VOT values (`\(vot\)`) are distributed according to (`\(\sim\)`) a Gaussian distribution (`\(Gaussian()\)`) with mean $\mu$ and standard deviation $\sigma$.
-
----
-
-.f3[
-$$vot \sim Gaussian(\mu, \sigma)$$
-]
-
-**Parameters**: mean $\mu$ and SD $\sigma$.
-
---
-
-.f3[
-$$\mu = ...$$
-$$\sigma = ...$$
-]
-
----
-
-.f3[
-$$vot \sim Gaussian(\mu, \sigma)$$
-]
-
-**Parameters**: mean $\mu$ and SD $\sigma$.
-
-
-
-.f3[
-$$\mu = 12.6$$
-$$\sigma = 2.8$$
-]
-
---
-
-<br>
-
 **BUT**, this does not keep into consideration the **uncertainty and variability** of the sampling procedure.
 
 ---
@@ -543,11 +538,15 @@ $$vot \sim Gaussian(\mu, \sigma)$$
 
 **Parameters**: mean $\mu$ and SD $\sigma$.
 
+--
+
 .f3[
 $$\mu \sim Gaussian(\mu_1, \sigma_1)$$
 ]
 
 **Hyperparameters**: mean $\mu_1$ and SD $\sigma_1$.
+
+--
 
 .f3[
 $$\sigma = ...$$
@@ -782,6 +781,12 @@ A 95% Credible interval (CrI) includes the real value at 95% probability.
 
 OR, there is a 95% probability that the real value is within the 95% CrI.
 ]
+
+???
+
+Confidence Intervals are different.
+
+<https://rpsychologist.com/d3/ci/>
 
 ---
 
