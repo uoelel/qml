@@ -298,7 +298,7 @@ opts_2a <- c(
   "`19 < 2`"
 )
 
-cat("a. Which of the following is wrong?", longmcq(opts_2a))
+cat("a. Which of the following is not a logical operator?", longmcq(opts_2a))
 
 opts_2b <- c(
   "`3 > c(1, 5)`",
@@ -319,7 +319,7 @@ Check for errors in the logical operators.
 
 **2b.**
 
-I tricked you! `;` is the Roman semicolon, and `;` is the Greek question mark!
+I tricked you! The first `;` is the Roman semicolon, and the second `;` is the Greek question mark! (Have you copy-pasted from the tutorial? If not, do that!)
 :::
 :::
 
@@ -543,6 +543,12 @@ We will learn more about chains and iterations in the coming weeks and you will 
 
 Now we can inspect the model output using the `summary()` function (don't confuse this with the `summarise()` function, used to get statistical summaries of data).
 
+::: callout-warning
+The summary *might look* something like this, but don't worry if your numbers are slightly different from these!
+
+That happens due to the randomness inherent in the MCMC sampling process.
+:::
+
 ```{r}
 #| label: vot-bm-summ
 
@@ -603,12 +609,32 @@ Based on the model summary and on the tidy summary, we also know the **95% Credi
 ::: {.callout-tip icon="false"}
 #### Credible Interval
 
-A 95% (Bayesian) Credible Interval indicates the range of values we can be 95% confident contains the true parameter value.
+A **95% (Bayesian) Credible Interval** indicates that we can be **95% confident** that the true parameter value is within that interval.
+
+You can also say that there is a **95% probability** that the true parameter value is within that interval.
 :::
 
 -   At 95% confidence, the mean ($\mu$) VOT value for Albanian voiceless stops is between 10.48 and 12.78 ms.
 
 -   As for the standard deviation ($\sigma$), we can be 95% confident that it is between 2.18 and 3.88 ms.
+
+You can also say:
+
+-   There is a 95% probability that the mean ($\mu$) VOT value for Albanian voiceless stops is between 10.48 and 12.78 ms.
+
+-   As for the standard deviation ($\sigma$), there is a 95% probabilty that it is between 2.18 and 3.88 ms.
+
+::: {.callout-important collapse="true"}
+## Extra: Frequentist Confidence Intervals
+
+If you are familiar with or have heard of Confidence Intervals, these are not the same as Credible Intervals (even though we talk about *confidence* when talking about Credible Intervals.
+
+Credible Intervals are *Bayesian*, while Confidence Intervals are *frequentist* (remember we mentioned the frequentist and Bayesian views of probabilities in class?).
+
+If you want to know more about frequentist Confidence Intervals, check this web app: \<<https://rpsychologist.com/d3/ci/>\>.
+
+Funnily enough, even experienced researchers don't really understand frequentist Confidence Intervals and tend to interpret them as Bayesian Credible Intervals. Check this paper for more info: [Robust misinterpretation of confidence intervals](https://link.springer.com/article/10.3758/s13423-013-0572-3).
+:::
 
 ### Reporting
 
@@ -616,7 +642,7 @@ How would you report all that?
 
 Reporting statistical models is quite formulaic, so you can use the following as a template and replace values as needed when you need to report other models.
 
-> We fitted a Bayesian model of the VOT of Albanian voiceless plosives, using a Gaussian distribution as the distribution family. According to the model, there is a 95% probability that the VOT mean is between 10.48 and 12.78 ms ($\beta$ = 11.6, SD = 0.59), and there is a 95% probability that the VOT SD is between 2.18 and 3.88 ($\beta$ = 2.87, SD = 0.43).
+> We fitted a Bayesian model of the VOT of Albanian voiceless plosive, using a Gaussian distribution as the distribution family of the model. According to the model, there is a 95% probability that the VOT mean is between 10.48 and 12.78 ms ($\beta$ = 11.6, SD = 0.59), and there is a 95% probability that the VOT SD is between 2.18 and 3.88 ($\beta$ = 2.87, SD = 0.43).
 
 It is common to report both the CrIs and the estimate and standard deviation of each parameter.
 
@@ -688,6 +714,14 @@ Note that the order between the violin and jitter geometries is important. If yo
 
 Now, try to create a violin and strip chart plot so that each `speaker` is plotted separately on the *y*-axis instead of `consonant`.
 
+::: {.callout-tip collapse="true"}
+## Hint
+
+Normally, the violins are vertical (meaning, that `speaker` would be on the *x*-axis), but here I ask to create a plot with `speaker` on the *y*-axis!
+
+You can achieve this by inverting the axes aesthetics (i.e. `x` and `y`) in `aes()`.
+:::
+
 ### If-else
 
 It's clear from this last plot where each speaker is plotted separately that there are two subgroups of consonants: there are voiced and voiceless consonants (and you have also noticed this in the density plot above).
@@ -730,7 +764,7 @@ You can even use `%in%`!
 ```{r}
 #| label: ifelse-3
 
-ifelse(c("apple", "banana", "cherry") %in% c("apple", "durian", "passion fruit"), "got it!", "need to by")
+ifelse(c("apple", "banana", "cherry") %in% c("apple", "durian", "passion fruit"), "got it!", "need to buy")
 ```
 
 We will use `ifelse()` in conjunction with `mutate()` to create a new column `voicing`. But first, we need to get the list of consonants in the data set!

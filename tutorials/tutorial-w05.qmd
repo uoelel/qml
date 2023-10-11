@@ -408,7 +408,25 @@ The answer is: through the MCMC algorithm! (If you need a refresher on what MCMC
 ::: {.callout-important collapse="true"}
 #### Extra: Priors
 
-...
+Bayes' theorem states that the posterior $P(\theta|d)$ is proportional to the product of the prior $P(\theta)$ and the evidence of the data $P(d|\theta)$:
+
+$$
+\begin{aligned}
+P(\theta|d) & \sim P(\theta) \times P(d|\theta)
+\end{aligned}
+$$
+
+where you can think of $\theta$ as the theory and $d$ as the data.
+
+In other words, the probability of a theory $\theta$ given the data $d$ ($P(\theta|d)$) is proportional to the product of the prior probability of $\theta$ ($P(\theta)$) and the probability of the data $d$ given theory $\theta$ ($P(d|\theta)$).
+
+You see that a prior is a *probability*, more specifically a probability distribution expressing the prior beliefs or expectations of the researcher concerning a particular "theory", explanation, etc...
+
+The **prior probability distribution** is *updated* by multiplying it with the evidence of the data (also called the likelihood).
+
+This updating process is called **Bayesian belief update**, because you update your prior beliefs based on the evidence.
+
+In a Bayesian linear model, you can specify priors as probability distributions of the different parameters, based on previous work, specific frameworks, common sense, domain expertise, etc.
 :::
 
 ### Posterior draws

@@ -6349,9 +6349,9 @@ Quiz 2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="cell" data-hash="tutorial-w04_cache/html/quiz-2_62dd58d2dd2c70d7c8d7388019e98efa">
+<div class="cell" data-hash="tutorial-w04_cache/html/quiz-2_9809c9112acf5b6d496ed2e932d77153">
 <ol type="a">
-<li>Which of the following is wrong?
+<li>Which of the following is not a logical operator?
 <div id="radio_UWNOIMCEWE" class="webex-radiogroup">
 <label><input type="radio" autocomplete="off" name="radio_UWNOIMCEWE" value> <span><code>3 &gt; 1</code></span></label><label><input type="radio" autocomplete="off" name="radio_UWNOIMCEWE" value="answer"> <span><code>&quot;a&quot; = &quot;a&quot;</code></span></label><label><input type="radio" autocomplete="off" name="radio_UWNOIMCEWE" value> <span><code>&quot;b&quot; != &quot;b&quot;</code></span></label><label><input type="radio" autocomplete="off" name="radio_UWNOIMCEWE" value> <span><code>19 &lt; 2</code></span></label>
 </div></li>
@@ -6376,7 +6376,7 @@ Hint
 <p><strong>2a.</strong></p>
 <p>Check for errors in the logical operators.</p>
 <p><strong>2b.</strong></p>
-<p>I tricked you! <code>;</code> is the Roman semicolon, and <code>;</code> is the Greek question mark!</p>
+<p>I tricked you! The first <code>;</code> is the Roman semicolon, and the second <code>;</code> is the Greek question mark! (Have you copy-pasted from the tutorial? If not, do that!)</p>
 </div>
 </div>
 </div>
@@ -6604,6 +6604,20 @@ MCMC
 <section id="model-summary" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="model-summary"><span class="header-section-number">4.1</span> Model summary</h3>
 <p>Now we can inspect the model output using the <code>summary()</code> function (don’t confuse this with the <code>summarise()</code> function, used to get statistical summaries of data).</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The summary <em>might look</em> something like this, but don’t worry if your numbers are slightly different from these!</p>
+<p>That happens due to the randomness inherent in the MCMC sampling process.</p>
+</div>
+</div>
 <div class="cell" data-hash="tutorial-w04_cache/html/vot-bm-summ_c929307a220bf7e45c2a570c1d98002f">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(alb_vot_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -6688,20 +6702,45 @@ Credible Interval
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A 95% (Bayesian) Credible Interval indicates the range of values we can be 95% confident contains the true parameter value.</p>
+<p>A <strong>95% (Bayesian) Credible Interval</strong> indicates that we can be <strong>95% confident</strong> that the true parameter value is within that interval.</p>
+<p>You can also say that there is a <strong>95% probability</strong> that the true parameter value is within that interval.</p>
 </div>
 </div>
 <ul>
 <li><p>At 95% confidence, the mean (<span class="math inline">\(\mu\)</span>) VOT value for Albanian voiceless stops is between 10.48 and 12.78 ms.</p></li>
 <li><p>As for the standard deviation (<span class="math inline">\(\sigma\)</span>), we can be 95% confident that it is between 2.18 and 3.88 ms.</p></li>
 </ul>
+<p>You can also say:</p>
+<ul>
+<li><p>There is a 95% probability that the mean (<span class="math inline">\(\mu\)</span>) VOT value for Albanian voiceless stops is between 10.48 and 12.78 ms.</p></li>
+<li><p>As for the standard deviation (<span class="math inline">\(\sigma\)</span>), there is a 95% probabilty that it is between 2.18 and 3.88 ms.</p></li>
+</ul>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extra: Frequentist Confidence Intervals
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you are familiar with or have heard of Confidence Intervals, these are not the same as Credible Intervals (even though we talk about <em>confidence</em> when talking about Credible Intervals.</p>
+<p>Credible Intervals are <em>Bayesian</em>, while Confidence Intervals are <em>frequentist</em> (remember we mentioned the frequentist and Bayesian views of probabilities in class?).</p>
+<p>If you want to know more about frequentist Confidence Intervals, check this web app: &lt;<a href="https://rpsychologist.com/d3/ci/" class="uri">https://rpsychologist.com/d3/ci/</a>&gt;.</p>
+<p>Funnily enough, even experienced researchers don’t really understand frequentist Confidence Intervals and tend to interpret them as Bayesian Credible Intervals. Check this paper for more info: <a href="https://link.springer.com/article/10.3758/s13423-013-0572-3">Robust misinterpretation of confidence intervals</a>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="reporting" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="reporting"><span class="header-section-number">4.2</span> Reporting</h3>
 <p>How would you report all that?</p>
 <p>Reporting statistical models is quite formulaic, so you can use the following as a template and replace values as needed when you need to report other models.</p>
 <blockquote class="blockquote">
-<p>We fitted a Bayesian model of the VOT of Albanian voiceless plosives, using a Gaussian distribution as the distribution family. According to the model, there is a 95% probability that the VOT mean is between 10.48 and 12.78 ms (<span class="math inline">\(\beta\)</span> = 11.6, SD = 0.59), and there is a 95% probability that the VOT SD is between 2.18 and 3.88 (<span class="math inline">\(\beta\)</span> = 2.87, SD = 0.43).</p>
+<p>We fitted a Bayesian model of the VOT of Albanian voiceless plosive, using a Gaussian distribution as the distribution family of the model. According to the model, there is a 95% probability that the VOT mean is between 10.48 and 12.78 ms (<span class="math inline">\(\beta\)</span> = 11.6, SD = 0.59), and there is a 95% probability that the VOT SD is between 2.18 and 3.88 (<span class="math inline">\(\beta\)</span> = 2.87, SD = 0.43).</p>
 </blockquote>
 <p>It is common to report both the CrIs and the estimate and standard deviation of each parameter.</p>
 <p>It is also helpful to visualise probability distributions by plotting probability densities. You will learn how to do this next week!</p>
@@ -6754,6 +6793,23 @@ Credible Interval
 </div>
 <p>Note that the order between the violin and jitter geometries is important. If you add the jitter geometry before the violin geometry, the violins will just cover the jittered points (see why it is called “layered” grammar of graphics?).</p>
 <p>Now, try to create a violin and strip chart plot so that each <code>speaker</code> is plotted separately on the <em>y</em>-axis instead of <code>consonant</code>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Normally, the violins are vertical (meaning, that <code>speaker</code> would be on the <em>x</em>-axis), but here I ask to create a plot with <code>speaker</code> on the <em>y</em>-axis!</p>
+<p>You can achieve this by inverting the axes aesthetics (i.e. <code>x</code> and <code>y</code>) in <code>aes()</code>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="if-else" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="if-else"><span class="header-section-number">5.2</span> If-else</h3>
@@ -6778,10 +6834,10 @@ Credible Interval
 </div>
 <p>We get <code>wrong...</code> for <code>1 &gt; 9</code> and <code>3 &gt; 9</code>, and <code>correct!</code> for <code>10 &gt; 9</code>.</p>
 <p>You can even use <code>%in%</code>!</p>
-<div class="cell" data-hash="tutorial-w04_cache/html/ifelse-3_63a3ca4c5f1948f81336485b464a111a">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;durian&quot;</span>, <span class="st">&quot;passion fruit&quot;</span>), <span class="st">&quot;got it!&quot;</span>, <span class="st">&quot;need to by&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="tutorial-w04_cache/html/ifelse-3_75adc21d28b66b6fe2fa3de2e91d3fca">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;durian&quot;</span>, <span class="st">&quot;passion fruit&quot;</span>), <span class="st">&quot;got it!&quot;</span>, <span class="st">&quot;need to buy&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;got it!&quot;    &quot;need to by&quot; &quot;need to by&quot;</code></pre>
+<pre><code>[1] &quot;got it!&quot;     &quot;need to buy&quot; &quot;need to buy&quot;</code></pre>
 </div>
 </div>
 <p>We will use <code>ifelse()</code> in conjunction with <code>mutate()</code> to create a new column <code>voicing</code>. But first, we need to get the list of consonants in the data set!</p>
@@ -6888,7 +6944,11 @@ Find unique values
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
+<<<<<<< HEAD
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+=======
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+>>>>>>> 3fd4acb475c3c85e70c7f5d6acc3ec8600b3448a
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -6897,7 +6957,11 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<<<<<<< HEAD
 <div id="callout-21" class="callout-21-contents callout-collapse collapse">
+=======
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+>>>>>>> 3fd4acb475c3c85e70c7f5d6acc3ec8600b3448a
 <div class="callout-body-container callout-body">
 <p>Use the <code>fill</code> aesthetic in <code>aes()</code>.</p>
 </div>
