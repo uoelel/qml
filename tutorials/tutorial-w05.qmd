@@ -919,4 +919,3 @@ For the conditional probability distributions, you need to *sum* the posterior d
 
 -   You can fit a Gaussian model to log-transformed values if the variable is log-normal.
 :::
-
