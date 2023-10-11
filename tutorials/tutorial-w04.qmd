@@ -37,6 +37,18 @@ But first, let's read some data and transform it so that we can use it in the tu
 
 ### The `alb_vot` data
 
+::: callout-warning
+#### Important
+
+When working through these tutorials, always **make sure you are in the course RStudio Project** you just created.
+
+You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
+
+If you see `Project (none)` in the top-right corner, that means **you are not** in an RStudio Project.
+
+To make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
+:::
+
 Let's play around with the Albanian VOT data we used in class.
 
 The data comes from the paper by Coretta and colleagues, 2022. *Northern Tosk Albanian*. DOI: [10.1017/S0025100322000044](https://doi.org/10.1017/S0025100322000044). This is an IPA Illustration of Northern Tosk Albanian. It contains data from voiceless and voiced consonants of Nothern Tosk Albanian, as uttered in a set of words by 5 speakers.

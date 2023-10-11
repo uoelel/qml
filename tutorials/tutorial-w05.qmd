@@ -26,6 +26,18 @@ library(webexercises)
 
 ## Emotional valence of sense words
 
+::: callout-warning
+#### Important
+
+When working through these tutorials, always **make sure you are in the course RStudio Project** you just created.
+
+You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
+
+If you see `Project (none)` in the top-right corner, that means **you are not** in an RStudio Project.
+
+To make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
+:::
+
 We will model data from Winter, 2016. *Taste and smell words form an affectively loaded part of the English lexicon*. DOI: [10.1080/23273798.2016.1193619](https://doi.org/10.1080/23273798.2016.1193619). The study looked at the emotional valence of sense words in English, in the domains of taste and smell.
 
 To download the file with the data right-click on the following link and download the file: [senses_valence.csv](../data/senses_valence.csv). (Note that tutorial files are also linked in [Course content](../content.qmd)). Remember to save the file in `data/` in the course project folder.
@@ -889,3 +901,4 @@ For the conditional probability distributions, you need to *sum* the posterior d
 
 -   You can fit a Gaussian model to log-transformed values if the variable is log-normal.
 :::
+
