@@ -67,6 +67,10 @@ alb_vot_vl <- alb_vot %>%
   )
 ```
 
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/652a98157fefc577d4567060" width="100%"></iframe>
+
+---
+
 ## Summary from last week
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
@@ -370,6 +374,17 @@ $$
 With **treatment coding**, the second level [polite] is compared against the reference level [informal].
 ]
 
+---
+
+layout: false
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/652aa2082f02d279df6cf38f" width="100%"></iframe>
+
+---
+
+layout: true
+
+## Comparing groups
 
 ---
 
@@ -730,6 +745,14 @@ $$
 
 ---
 
+**Reporting**
+
+> We fitted a Bayesian model with HNR as the outcome variable and attitude (informal vs polite) as the only predictor, using a Gaussian distribution as the distribution family of the outcome variable. The categorical predictor attitude was coded using the default treatment contrasts, with "informal" as the reference level.
+>
+> According to the model, the mean HNR for the informal attitude is between 16 and 16.5 db (`\(\beta\)` = 16.3, SD = 0.16), at 95% probability. When the attitude is polite, there is an increase in HNR between 0.8 and 1.7 db (`\(\beta\)` = 1.25, SD = 0.23).
+
+---
+
 ```{r hnr-sig-p}
 sig_dens_l <- density(hnr_bm_draws$sigma, adjust = 1.5)
 sig_dens <- tibble(
@@ -788,9 +811,11 @@ There is a 95% probability that the standard deviation of the probability distri
 ---
 
 layout: false
-class: center middle reverse
+class: center middle
 
 ## MID-TERM COURSE EVALUATION
+
+## [bit.ly/45wgCEf](http://bit.ly/45wgCEf)
 
 ---
 

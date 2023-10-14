@@ -655,7 +655,7 @@ You could report this model like so (text copied from above):
 >
 > According to the model, the mean valency of smell words is 5.47 (SD = 0.06), with a 95% probability that it is between 5.35 and 5.59. At 95% confidence, the difference in valency between taste and smell words is between 0.18 and 0.5 ($\beta$ = 0.34, SD = 0.08).
 
-The only thing that is missing is information on the conditional probability of emotional valency in smell words: you could already calculate the mean and SD of this conditional probability using the conditional posterior draws for smell words and add it in the report, but we have not yet seen how to obtain Credible Intervals of conditional distributions. You will learn this next week!
+The only thing that is missing is information on the conditional probability of emotional valency in smell words: you could already calculate the mean and SD of this conditional probability using the conditional posterior draws for smell words and add it in the report, but we have not yet seen how to obtain Credible Intervals of conditional distributions. You will learn this in Week 7!
 
 If you are curious about how the write-up would look like with the information on smell words, check the box below.
 
