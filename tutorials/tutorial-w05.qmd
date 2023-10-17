@@ -264,7 +264,7 @@ opts_1 <- c(
   "Negative."
 )
 
-cat("Since smell words have a lower emotional value than taste words, will $\\beta_1$ be:", longmcq(opts_1))
+cat("Since smell words have a lower emotional valence than taste words, will $\\beta_1$ be:", longmcq(opts_1))
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -397,7 +397,7 @@ Note that you can abbreviate the phrase "posterior probability distribution" to 
 
 They are called **posterior** probabilities because they are the product of the evidence from the data and any *prior* probability distribution. A prior probability distribution is a probability distribution that conveys the prior beliefs of the researcher in regards to the model coefficients.
 
-We will not further talk about priors in this course, but for now, just know that we are using the default priors used by `brm()`: these priors are basically equivalent to saying "I have no prior believes about the model coefficients, so I will let the data speak for themselves".
+We will not further talk about priors in this course, but for now, just know that we are using the default priors used by `brm()`: these priors are basically equivalent to saying "I have no prior beliefs about the model coefficients, so I will let the data speak for themselves".
 
 If you are interested in learning a bit more about priors, check the "Extra" box below.
 
@@ -655,7 +655,7 @@ You could report this model like so (text copied from above):
 >
 > According to the model, the mean valency of smell words is 5.47 (SD = 0.06), with a 95% probability that it is between 5.35 and 5.59. At 95% confidence, the difference in valency between taste and smell words is between 0.18 and 0.5 ($\beta$ = 0.34, SD = 0.08).
 
-The only thing that is missing is information on the conditional probability of emotional valency in smell words: you could already calculate the mean and SD of this conditional probability using the conditional posterior draws for smell words and add it in the report, but we have not yet seen how to obtain Credible Intervals of conditional distributions. You will learn this in Week 7!
+The only thing that is missing is information on the conditional probability of emotional valency in taste words: you could already calculate the mean and SD of this conditional probability using the conditional posterior draws for smell words (with the `summary()` function, just like you would with any other data frame) and add it in the report, but we have not yet seen how to obtain Credible Intervals of conditional distributions. You will learn this in Week 7!
 
 If you are curious about how the write-up would look like with the information on smell words, check the box below.
 
@@ -691,7 +691,10 @@ Write the code to:
 #| echo: false
 #| message: false
 
-shallow <- read_csv("data/shallow.csv") %>%
+shallow <- read_csv("data/shallow.csv")
+shallow
+
+shallow_filt <- shallow %>%
   filter(
     Group == "L1",
     Branching == "Left",
@@ -701,9 +704,9 @@ shallow <- read_csv("data/shallow.csv") %>%
 ```
 
 ```{r}
-#| label: shallow
+#| label: shallow-filt
 
-shallow
+shallow_filt
 ```
 
 The study consisted of a lexical decision task in which participants where first shown a prime, followed by a target word for which they had to indicate whether it was a real word or a nonce word.
@@ -728,7 +731,7 @@ Before moving on, let's visualise the reaction times (`RT`) values, which are re
 #| label: rt-dens
 #| echo: false
 
-shallow %>%
+shallow_filt %>%
   ggplot(aes(RT)) +
   geom_density() +
   geom_rug()
@@ -766,14 +769,14 @@ log(RT)
 
 So the log of 603 is `6.4`, the log of `739` is `6.6` and so on.
 
-The `shallow` data table already has a column with the log-transformed RTs: `logRT`. So let's plot that now.
+The `shallow_filt` data table already has a column with the log-transformed RTs: `logRT`. So let's plot that now.
 
 ```{r}
 #| label: rt-log-dens
 #| echo: false
 #| message: false
 
-shallow %>%
+shallow_filt %>%
   ggplot(aes(logRT)) +
   geom_density() +
   geom_rug()
@@ -799,7 +802,7 @@ Now let's look at a violin and strip plot with `Relation_type` on the *x*-axis a
 #| label: rt-rel-type
 #| warning: false
 
-shallow %>%
+shallow_filt %>%
   ggplot(aes(Relation_type, logRT, fill = Relation_type)) +
   geom_violin() +
   geom_jitter(width = 0.1, alpha = 0.2)
@@ -814,7 +817,7 @@ Why don't we add the median RT in the plot? We can do so with `stat_summary()` (
 #| label: rt-rel-type-2
 #| warning: false
 
-shallow %>%
+shallow_filt %>%
   ggplot(aes(Relation_type, logRT, fill = Relation_type)) +
   geom_violin() +
   geom_jitter(width = 0.1, alpha = 0.2) +
@@ -845,7 +848,7 @@ The function `factor()` takes the following arguments:
 ```{r}
 #| label: factor
 
-shallow <- shallow %>%
+shallow_filt <- shallow_filt %>%
   mutate(
     Relation_type = factor(Relation_type, levels = c("Unrelated", "NonConstituent", "Constituent"))
   )
