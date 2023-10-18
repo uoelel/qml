@@ -33,6 +33,8 @@ You can find the instructions and data for the first formative here: <https://gi
 
 The first summative contains a series of guided exercises that cover things done in Weeks 1 to 7.
 
+You can find the instructions and data for the first summative here: <https://github.com/uoelel/qml-s1/>.
+
 :::
 
 ::: {.callout-tip}
