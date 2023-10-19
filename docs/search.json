@@ -280,18 +280,25 @@
     "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
   },
   {
+    "objectID": "assessments.html#feedback-and-marking",
+    "href": "assessments.html#feedback-and-marking",
+    "title": "QML",
+    "section": "2 Feedback and marking",
+    "text": "2 Feedback and marking\nYou will receive individual feedback for the summative assessments, as comments on the submitted file in Turnitin.\nThe comments will be categorised according the the Feedback Categorisation Rubric used for this course, which you can see here. The rubric is based on the learning outcomes of the course. For each criterion in the rubric there are three possible outcomes: insufficient, developing, proficient. This should help you identify areas of strength and those that can be improved.\nNote that the Feedback Categorisation Form is not used to calculate a numeric mark. Marking will follow the PPLS MSc Common Marking Scheme, which you can find here (login required).\nMore specifically, we will use a “step marking” procedure, where, within each mark band, you can get a 2, 5 or 8 (for example, 62, 65 or 68). We will not use other numbers within the scale. These are the criteria for getting 2, 5, or 8:\n\n2: The criteria for the mark band have been achieved, but there might be minor issues.\n5: The criteria for the mark band have been achieved fully.\n8: The criteria for the mark band have been achieved fully and in a particularly remarkable way, but not in such a way to grant a higher mark band.\n\nFinally, please note that marking does not follow a point-based system, i.e. different exercises are not assigned a specific amount of points you can obtain and we will instead adopt an “impression-based” marking system, based on the descriptors of the PPLS MSC Common Marking Scheme."
+  },
+  {
     "objectID": "assessments.html#formative-assessments",
     "href": "assessments.html#formative-assessments",
     "title": "QML",
-    "section": "2 Formative assessments",
-    "text": "2 Formative assessments\n\n\n\n\n\n\nFormative 1: Week 5 (Thu 19 October at noon)\n\n\n\nData summary and visualisation\nYou can find the instructions and data for the first formative here: https://github.com/uoelel/qml-f1/.\n\n\n\n\n\n\n\n\nFormative 2: Week 10 (Thu 23 November at noon)\n\n\n\nStatistical modelling"
+    "section": "3 Formative assessments",
+    "text": "3 Formative assessments\n\n\n\n\n\n\nFormative 1: Week 5 (Thu 19 October at noon)\n\n\n\nData summary and visualisation\nYou can find the instructions and data for the first formative here: https://github.com/uoelel/qml-f1/.\n\n\n\n\n\n\n\n\nFormative 2: Week 10 (Thu 23 November at noon)\n\n\n\nStatistical modelling"
   },
   {
     "objectID": "assessments.html#summative-assessments",
     "href": "assessments.html#summative-assessments",
     "title": "QML",
-    "section": "3 Summative assessments",
-    "text": "3 Summative assessments\n\n\n\n\n\n\nSummative 1: Week 8 (Thu 9 November at noon)\n\n\n\nDue on Thursday 9 November at noon\nThe first summative contains a series of guided exercises that cover things done in Weeks 1 to 7.\nYou can find the instructions and data for the first summative here: https://github.com/uoelel/qml-s1/.\n\n\n\n\n\n\n\n\nSummative 2: Week 12 (Thu 7 December at noon)\n\n\n\nDue on Thursday 7 December at noon\nIn the second summative assessment, you will:\n\nSelect a dataset from a list and its associated research questions.\nAnalyse the data using one linear model.\nWrite a report about the data, the model, and your findings."
+    "section": "4 Summative assessments",
+    "text": "4 Summative assessments\n\n\n\n\n\n\nSummative 1: Week 8 (Thu 9 November at noon)\n\n\n\nDue on Thursday 9 November at noon\nThe first summative contains a series of guided exercises that cover things done in Weeks 1 to 7.\nYou can find the instructions and data for the first summative here: https://github.com/uoelel/qml-s1/.\n\n\n\n\n\n\n\n\nSummative 2: Week 12 (Thu 7 December at noon)\n\n\n\nDue on Thursday 7 December at noon\nIn the second summative assessment, you will:\n\nSelect a dataset from a list and its associated research questions.\nAnalyse the data using one linear model.\nWrite a report about the data, the model, and your findings."
   },
   {
     "objectID": "index.html",
