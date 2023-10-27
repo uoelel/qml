@@ -542,7 +542,7 @@ There is a 95% probability that the log-odds of getting a "correct" response are
 ---
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-It's easier to understand what that means if we convert log-odds to probabilities:
+It's easier to understand what that means if we convert log-odds to probabilities using the **logistic function** (which is the inverse of the logit function):
 
 **There is a 95% probability that the probability of getting a "correct" response is between 0.75 and 0.82.**
 ]
@@ -566,7 +566,15 @@ round(plogis(1.53), 2)
 
 ---
 
-REPORTING
+layout: false
+
+## Reporting
+
+&gt; We fitted a Bayesian linear model to accuracy with a Bernoulli distribution. According to the model, there is a 95% probability that the probability of getting a "correct" response is between 0.75 and 0.82 (`\(\beta\)` = 1.32, SD = 0.11).
+
+--
+
+Note that it is easier to interpret probabilities than log-odds, so I recommend you report the probabilities in running text and the log-odds estimates between parentheses.
 
 ---
 
@@ -736,7 +744,7 @@ $$
 
 - The mean change in log-odds is 0.19.
 
-- **You cannot converting this to probabilities!**
+- **You cannot convert this to probabilities!**
 
 - We need to calculate the conditional probability of non-constituent.
 ]
@@ -752,7 +760,6 @@ $$
 ## Relation_typeConstituent        0.86      0.29     0.30     1.42 1.00     2999     2789
 ```
 
---
 
 $$
 `\begin{aligned}
@@ -800,17 +807,18 @@ round(plogis(1.02 + 0.19), 2)
 
 &lt;br&gt;
 
---
-
 
 ```r
-# Mean probability of success when relation type = constituent:
 round(plogis(1.02 + 0.86), 2)
 ```
 
 ```
 ## [1] 0.87
 ```
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+**When the relation type is constituent**, there is on average an 87% probability of a "correct" response.
+]
 
 ???
 
@@ -880,7 +888,7 @@ layout: true
 
 - Common quantiles:
 
-  - Quartiles (4 intervals).
+  - Quartiles (4 intervals, 25% of the data each).
 
   - Percentiles or centiles (100 intervals).
 ]
@@ -947,7 +955,7 @@ acc_bm_2_draws
 
 ---
 
-
+Calculate the **conditional posteriors** of the probability of a "correct" response in each relation type (as log-odds and probabilities).
 
 
 ```r
@@ -973,8 +981,44 @@ acc_bm_2_draws %&gt;%
 ## 3 Constituent     1.44    2.35     0.81     0.91
 ```
 
+---
+
+Calculate the **difference** between unrelated and non-constituent/constituent in **percent points**.
 
 
+```r
+as_draws_df(acc_bm_2) %&gt;%
+  mutate(
+    NonConstituent_d = plogis(b_Intercept + b_Relation_typeNonConstituent) - plogis(b_Intercept),
+    Constituent_d = plogis(b_Intercept + b_Relation_typeConstituent) - plogis(b_Intercept)
+  ) %&gt;%
+  summarise(
+    NC_p_95_lo = round(quantile2(NonConstituent_d, probs = 0.025), 2),
+    NC_p_q95_hi = round(quantile2(NonConstituent_d, probs = 0.975), 2),
+    C_p_95_lo = round(quantile2(Constituent_d, probs = 0.025), 2),
+    C_p_q95_hi = round(quantile2(Constituent_d, probs = 0.975), 2)
+  )
+```
+
+```
+## # A tibble: 1 × 4
+##   NC_p_95_lo NC_p_q95_hi C_p_95_lo C_p_q95_hi
+##        &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+## 1      -0.05        0.12      0.05       0.21
+```
+
+
+---
+
+layout: false
+
+## Reporting
+
+&gt; We fitted a Bayesian model to accuracy, with a Bernoulli distribution family and relation type (unrelated, non-constituent, constituent) as the only predictor. Relation type was coded using the default treatment contrasts with the unrelated level as the reference level.
+&gt;
+&gt; Based on the model, there is a 67-80% probability of a "correct" response when the relation type is unrelated, at 95% confidence (`\(\beta\)` = 1.02, SD = 0.17). When the type is non-constituent, the probability of a "correct" response is 70-83%; at 95% confidence, the difference between unrelated and non-constituent types is between -5 and +12 percent points (`\(\beta\)` = 0.19, SD = 0.25). When the type is constituent, the probability of a "correct" response is 81-91%; at 95% confidence, the difference between unrelated and non-constituent types is between +5 and +21 percent points (`\(\beta\)` = 0.86, SD = 0.29).
+&gt;
+&gt; While the results suggest a robust increase in the probability of a "correct" response in the constituent vs unrelated conditions, rangin from 5 to 21 percent points, the difference between non-constituent and unrelated is less certain with a range that includes both negative and positive values between -5 and +12 points. However, it can be noted that the interval leans more towards positive values than negative values, thus suggesting that if there is a difference it is probably positive although smaller than the difference between constituent and unrelated.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
