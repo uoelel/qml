@@ -11,3 +11,5 @@ Rcpp
 brms
 broom.mixed
 posterior
+lubridate
+webexercises

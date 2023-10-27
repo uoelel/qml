@@ -263,7 +263,7 @@ The following resources will be helpful throughout the course. Note they cover a
 -   Find instructions and data here: <https://github.com/uoelel/qml-f1>
 :::
 
-::: {.callout-important collapse="false"}
+::: {.callout-important collapse="true"}
 #### Learning Objectives
 
 **Questions**
@@ -281,7 +281,7 @@ The following resources will be helpful throughout the course. Note they cover a
 -   Reporting of model specification and results.
 :::
 
-::: {.callout-tip collapse="false"}
+::: {.callout-tip collapse="true"}
 #### Materials
 
 -   [Lecture slides](slides/w05/).
@@ -290,7 +290,7 @@ The following resources will be helpful throughout the course. Note they cover a
     -   [senses_valence.csv](data/senses_valence.csv)
 :::
 
-::: {.callout-tip collapse="false"}
+::: {.callout-tip collapse="true"}
 #### Suggested readings
 
 **Main textbooks**
@@ -318,7 +318,7 @@ There will be no classes.
 
 
 
-::: {.callout-important collapse="true"}
+::: {.callout-important collapse="false"}
 #### Learning Objectives
 
 **Questions**
@@ -336,13 +336,23 @@ There will be no classes.
 -   Convert between log-odds, odds and probabilities.
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-tip collapse="false"}
 #### Materials
 
 -   [Lecture slides](slides/w07/).
 -   [Workshop tutorial](tutorials/tutorial-w07.qmd).
 -   Workshop files (right-click and download):
     -   [takete_maluma.txt](data/takete_maluma.txt).
+:::
+
+::: {.callout-tip collapse="false"}
+#### Suggested readings
+
+**Main textbooks**
+
+-   **R4DS** [Ch. 6](https://r4ds.hadley.nz/data-tidy). \[online book\]
+-   **S4LR** Ch 12. \[via library\]
+-   **SReT** Ch 11. \[via library\]
 :::
 
 ### Week 8: Multiple predictors and interactions
