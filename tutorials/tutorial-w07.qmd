@@ -171,7 +171,21 @@ Now, it's time to model the data with `brm()` (you need to attach the brms packa
 
 -   Add `backend = "cmdstanr"`.
 
--   Remember to save the model to a file using the `file` argument.
+-   Remember to save the model to a file using the `file` argument (if you make changes to the model formula after running the model, remember to delete the model file first or the code will just read in the save file instead of running the model again).
+
+Just a reminder about a few things that you want to look out for:
+
+-   R orders the levels of categorical variables following the alphabetical order by default. Since we have not specified the order ourselves, the levels in the variables to be included in the models will be in alphabetical order.
+
+-   Note that both the outcome `Response` and the predictor `Stimulus` have two levels `Maluma` and `Takete`.
+
+-   However, note the difference:
+
+    -   The model will estimate the probability of getting the **second** level in `Response` (i.e. `Takete`).
+
+    -   For the predictor `Stimulus`, the `Intercept` will be the probability of getting `Takete` when stimulus = "maluma".
+
+    -   To summarise: the estimates refer to the probability of getting the **second level** of the outcome (not the reference level) and the intercept refers to the probability of getting the second level of the outcome when the predictors are at their reference level!
 
 ```{r}
 #| label: resp-bm-ex
@@ -243,7 +257,7 @@ cat("Which parameters from the formulae above do `Intercept` and `StimulusTakete
 ::: {.callout-tip collapse="true"}
 #### Hint
 
-The model summary reports information on the beta coefficients.
+The model summary of the population-level effects includes information on the beta coefficients.
 :::
 :::
 
@@ -283,7 +297,7 @@ The logistic function is the inverse of the **logit** function (which in R is `q
 
 As an exercise, convert the estimate of the `Intercept` to a probability. What probability does --0.81 log-odds correspond to? Again, do this before moving on.
 
-Since the `Intercept` is $\mu_0$ from the formula above, you can say that the mean probability of $\beta_0$ is the probability that corresponds to --0.81 log-odds (which you should have found is approximately 0.3 or 30% probability).
+Since the `Intercept` corresponds to $\beta_0$ and the `Intercept`'s *estimate* is $\mu_0$ from the formula above, you can say that the mean probability of $\beta_0$ is the probability that corresponds to --0.81 log-odds (which you should have found is approximately 0.3 or 30% probability).
 
 $\beta_0$ is the probability of choosing "takete" when the stimulus is "maluma". (Why? To understand this, think about the order of the levels in `Response` and `Stimulus`, and what that means for how they are coded.)
 
@@ -463,7 +477,7 @@ Now let's look in more detail at how to obtain credible intervals (CrIs) for any
 
 For sake of illustration, let's calculate CrIs of different levels (60%, 80%, 90%) for the conditional posterior probability distributions of the model above. (Note that you can calculate CrIs also for the (non-conditional) posterior probability distributions).
 
-The following code uses the `quantile2()` function from the [posterior](https://mc-stan.org/posterior/) package.
+The following code uses the `quantile2()` function from the [posterior](https://mc-stan.org/posterior/) package to calculate the 60% CrIs.
 
 The posterior package should already be installed, but if not make sure you install it (to know if a package is installed, go to the Packages tab in the bottom-right panel of RStudio and use the search box).
 
@@ -490,7 +504,7 @@ We have already seen `group_by()` and `summarise()` before, so I leave understan
 
 The new piece of code is `quantile2(logodds, probs = 0.2)` and `quantile2(logodds, probs = 0.8)`:
 
--   The `quantile2()` function gives you the percentile based on the specified probability (the `probs` argument). So `probs = 0.2` returns the 20th percentile and `probs = 0.8` returns the 80th percentile.
+-   The `quantile2()` function gives you the percentile based on the specified probability (the `probs` argument). So `probs = 0.2` returns the 20th percentile and `probs = 0.8` returns the 80th percentile. These percentiles give you the 60% CrI.
 -   The `round()` function is used to round numbers to the nearest integer or decimal:
     -   The second argument of `round()` is the number of digits you want to round to, here `2`.
 -   Finally, we convert log-odds to probabilities with the `plogis()` function (which mathematically is the logistic function).
@@ -505,6 +519,8 @@ $$
 p_{takete-maluma} = logistic(\beta_0 + \beta_1) - logistic(\beta_0)
 $$
 
+Note that it is not correct to just do $logistic(\beta_1)$. This is because to get probabilities from log-odds you always have to include the `Intercept` $\beta_0$.
+
 In R:
 
 ```{r}
@@ -515,16 +531,16 @@ as_draws_df(resp_bm) %>%
     TM_d = plogis(b_Intercept + b_StimulusTakete) - plogis(b_Intercept)
   ) %>%
   summarise(
-    TM_p_q60_lo = round(quantile2(TM_d, probs = 0.025), 2),
-    TM_p_q50_hi = round(quantile2(TM_d, probs = 0.975), 2),
+    TM_p_q60_lo = round(quantile2(TM_d, probs = 0.2), 2),
+    TM_p_q60_hi = round(quantile2(TM_d, probs = 0.8), 2),
   )
 ```
 
-So at 60% probability, there is an increase of 33 to 50 percent points in the probability of a "takete" response when the word is a "takete" word relative to when it is a "maluma" word.
+So at 60% probability, there is an increase of 38 to 45 percent points in the probability of a "takete" response when the word is a "takete" word relative to when it is a "maluma" word.
 
 We could then report the following:
 
-> We can be 60% confident that the probability of a "takete" response is between 28% and 33% ($\beta$ = -0.81, SD = 0.15) with the "maluma" stimuli, and it is between 70% and 75% with the "takete" stimuli. At 60% confidence, the difference in probability between the "takete" and "maluma" stimuli is between 33 and 50 percent points ($\beta$ = 1.78, SD = 0.21).
+> We can be 60% confident that the probability of a "takete" response is between 28% and 33% ($\beta$ = -0.81, SD = 0.15) with the "maluma" stimuli, and it is between 70% and 75% with the "takete" stimuli. At 60% confidence, the difference in probability between the "takete" and "maluma" stimuli is between 38 and 45 percent points ($\beta$ = 1.78, SD = 0.21).
 
 Nice!
 
@@ -550,9 +566,9 @@ cat("Which percentiles correspond to a 90% interval?", longmcq(opts_3))
 ::: {.callout-important collapse="true"}
 #### Answer
 
-a. These are the percentiles for an 80% CrI.
-b. These correspond to the 90% left tail of the distribution, but not a CrI.
-c. This is the correct answer. $95-5=90$.
+a.  These are the percentiles for an 80% CrI.
+b.  These correspond to the 90% left tail of the distribution, but not a CrI.
+c.  This is the correct answer. $95-5=90$.
 :::
 :::
 
@@ -562,7 +578,7 @@ Try and fill in the missing parts in the following report.
 
 > We fitted a Bayesian model to ... with a ... distribution family. We included ... as the only predictor, with the levels ... and .... The predictor was coded using the default ..., with ... as the reference level.
 >
-> According to the model, there is ...-... probability of a "takete" response when the stimulus is a "maluma" word, at 80% confidence ($\beta$ = ..., SD = ..., 80% CrI [..., ...]). The probability of a "takete" response when the stimulus is a "takete" word is between ... and .... The difference in probability between the two conditions is ...-... percent points, at 80% probability ($\beta$ = ..., SD = ..., 80% CrI [..., ...]).
+> According to the model, there is ...-... probability of a "takete" response when the stimulus is a "maluma" word, at 80% confidence ($\beta$ = ..., SD = ..., 80% CrI \[..., ...\]). The probability of a "takete" response when the stimulus is a "takete" word is between ... and .... The difference in probability between the two conditions is ...-... percent points, at 80% probability ($\beta$ = ..., SD = ..., 80% CrI \[..., ...\]).
 
 ## Summary
 

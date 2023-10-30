@@ -6156,7 +6156,18 @@ logit(p) &amp; = \beta_0 + \beta_1 \cdot \text{Stim} \\
 <li><p>Add the formula (referring to lecture materials if needed).</p></li>
 <li><p>Specify the family and data.</p></li>
 <li><p>Add <code>backend = &quot;cmdstanr&quot;</code>.</p></li>
-<li><p>Remember to save the model to a file using the <code>file</code> argument.</p></li>
+<li><p>Remember to save the model to a file using the <code>file</code> argument (if you make changes to the model formula after running the model, remember to delete the model file first or the code will just read in the save file instead of running the model again).</p></li>
+</ul>
+<p>Just a reminder about a few things that you want to look out for:</p>
+<ul>
+<li><p>R orders the levels of categorical variables following the alphabetical order by default. Since we have not specified the order ourselves, the levels in the variables to be included in the models will be in alphabetical order.</p></li>
+<li><p>Note that both the outcome <code>Response</code> and the predictor <code>Stimulus</code> have two levels <code>Maluma</code> and <code>Takete</code>.</p></li>
+<li><p>However, note the difference:</p>
+<ul>
+<li><p>The model will estimate the probability of getting the <strong>second</strong> level in <code>Response</code> (i.e. <code>Takete</code>).</p></li>
+<li><p>For the predictor <code>Stimulus</code>, the <code>Intercept</code> will be the probability of getting <code>Takete</code> when stimulus = “maluma”.</p></li>
+<li><p>To summarise: the estimates refer to the probability of getting the <strong>second level</strong> of the outcome (not the reference level) and the intercept refers to the probability of getting the second level of the outcome when the predictors are at their reference level!</p></li>
+</ul></li>
 </ul>
 <div class="cell" data-hash="tutorial-w07_cache/html/resp-bm-ex_6282dd39c2a78494789232cfdfee3ebb">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>resp_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
@@ -6224,7 +6235,7 @@ Hint
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The model summary reports information on the beta coefficients.</p>
+<p>The model summary of the population-level effects includes information on the beta coefficients.</p>
 </div>
 </div>
 </div>
@@ -6271,7 +6282,7 @@ Answer
 <p>We can convert log-odds back into probabilities with the <code>plogis()</code> function. Mathematically, this R function uses the logistic function to transform log-odds into probabilities.</p>
 <p>The logistic function is the inverse of the <strong>logit</strong> function (which in R is <code>qlogis()</code>. You will very rarely have to use this R function).</p>
 <p>As an exercise, convert the estimate of the <code>Intercept</code> to a probability. What probability does –0.81 log-odds correspond to? Again, do this before moving on.</p>
-<p>Since the <code>Intercept</code> is <span class="math inline">\(\mu_0\)</span> from the formula above, you can say that the mean probability of <span class="math inline">\(\beta_0\)</span> is the probability that corresponds to –0.81 log-odds (which you should have found is approximately 0.3 or 30% probability).</p>
+<p>Since the <code>Intercept</code> corresponds to <span class="math inline">\(\beta_0\)</span> and the <code>Intercept</code>’s <em>estimate</em> is <span class="math inline">\(\mu_0\)</span> from the formula above, you can say that the mean probability of <span class="math inline">\(\beta_0\)</span> is the probability that corresponds to –0.81 log-odds (which you should have found is approximately 0.3 or 30% probability).</p>
 <p><span class="math inline">\(\beta_0\)</span> is the probability of choosing “takete” when the stimulus is “maluma”. (Why? To understand this, think about the order of the levels in <code>Response</code> and <code>Stimulus</code>, and what that means for how they are coded.)</p>
 <blockquote class="blockquote">
 <p>Based on the model and data, there is 30% probability of choosing the response “takete” when the stimulus is “maluma”, at 95% confidence.</p>
@@ -6409,7 +6420,7 @@ Takete       0.93
 <p>In the lecture, we learnt about the empirical rule, quantiles and credible intervals.</p>
 <p>Now let’s look in more detail at how to obtain credible intervals (CrIs) for any probability distribution.</p>
 <p>For sake of illustration, let’s calculate CrIs of different levels (60%, 80%, 90%) for the conditional posterior probability distributions of the model above. (Note that you can calculate CrIs also for the (non-conditional) posterior probability distributions).</p>
-<p>The following code uses the <code>quantile2()</code> function from the <a href="https://mc-stan.org/posterior/">posterior</a> package.</p>
+<p>The following code uses the <code>quantile2()</code> function from the <a href="https://mc-stan.org/posterior/">posterior</a> package to calculate the 60% CrIs.</p>
 <p>The posterior package should already be installed, but if not make sure you install it (to know if a package is installed, go to the Packages tab in the bottom-right panel of RStudio and use the search box).</p>
 <p>Then you also need to <strong>attach the package</strong>. Add the code for attaching packages in the <code>setup</code> chunk and make sure you run the chunk to attach the package!</p>
 <p>For this function, we’ll again need to use the longer-format version of the draws we obtained from our model. This data is in <code>resp_bm_draws_l</code>.</p>
@@ -6436,7 +6447,7 @@ Takete       0.93
 <p>We have already seen <code>group_by()</code> and <code>summarise()</code> before, so I leave understanding this part to you.</p>
 <p>The new piece of code is <code>quantile2(logodds, probs = 0.2)</code> and <code>quantile2(logodds, probs = 0.8)</code>:</p>
 <ul>
-<li>The <code>quantile2()</code> function gives you the percentile based on the specified probability (the <code>probs</code> argument). So <code>probs = 0.2</code> returns the 20th percentile and <code>probs = 0.8</code> returns the 80th percentile.</li>
+<li>The <code>quantile2()</code> function gives you the percentile based on the specified probability (the <code>probs</code> argument). So <code>probs = 0.2</code> returns the 20th percentile and <code>probs = 0.8</code> returns the 80th percentile. These percentiles give you the 60% CrI.</li>
 <li>The <code>round()</code> function is used to round numbers to the nearest integer or decimal:
 <ul>
 <li>The second argument of <code>round()</code> is the number of digits you want to round to, here <code>2</code>.</li>
@@ -6449,29 +6460,30 @@ Takete       0.93
 <p><span class="math display">\[
 p_{takete-maluma} = logistic(\beta_0 + \beta_1) - logistic(\beta_0)
 \]</span></p>
+<p>Note that it is not correct to just do <span class="math inline">\(logistic(\beta_1)\)</span>. This is because to get probabilities from log-odds you always have to include the <code>Intercept</code> <span class="math inline">\(\beta_0\)</span>.</p>
 <p>In R:</p>
-<div class="cell" data-hash="tutorial-w07_cache/html/60-cri-diff_8011382960a2c36c256b50e0f730e81d">
+<div class="cell" data-hash="tutorial-w07_cache/html/60-cri-diff_11630195e98b20416eaba4f617605d85">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_draws_df</span>(resp_bm) <span class="sc">%&gt;%</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">TM_d =</span> <span class="fu">plogis</span>(b_Intercept <span class="sc">+</span> b_StimulusTakete) <span class="sc">-</span> <span class="fu">plogis</span>(b_Intercept)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">TM_p_q60_lo =</span> <span class="fu">round</span>(<span class="fu">quantile2</span>(TM_d, <span class="at">probs =</span> <span class="fl">0.025</span>), <span class="dv">2</span>),</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">TM_p_q50_hi =</span> <span class="fu">round</span>(<span class="fu">quantile2</span>(TM_d, <span class="at">probs =</span> <span class="fl">0.975</span>), <span class="dv">2</span>),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">TM_p_q60_lo =</span> <span class="fu">round</span>(<span class="fu">quantile2</span>(TM_d, <span class="at">probs =</span> <span class="fl">0.2</span>), <span class="dv">2</span>),</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">TM_p_q60_hi =</span> <span class="fu">round</span>(<span class="fu">quantile2</span>(TM_d, <span class="at">probs =</span> <span class="fl">0.8</span>), <span class="dv">2</span>),</span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["TM_p_q60_lo"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["TM_p_q50_hi"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.33","2":"0.5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["TM_p_q60_lo"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["TM_p_q60_hi"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.38","2":"0.45"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
-<p>So at 60% probability, there is an increase of 33 to 50 percent points in the probability of a “takete” response when the word is a “takete” word relative to when it is a “maluma” word.</p>
+<p>So at 60% probability, there is an increase of 38 to 45 percent points in the probability of a “takete” response when the word is a “takete” word relative to when it is a “maluma” word.</p>
 <p>We could then report the following:</p>
 <blockquote class="blockquote">
-<p>We can be 60% confident that the probability of a “takete” response is between 28% and 33% (<span class="math inline">\(\beta\)</span> = -0.81, SD = 0.15) with the “maluma” stimuli, and it is between 70% and 75% with the “takete” stimuli. At 60% confidence, the difference in probability between the “takete” and “maluma” stimuli is between 33 and 50 percent points (<span class="math inline">\(\beta\)</span> = 1.78, SD = 0.21).</p>
+<p>We can be 60% confident that the probability of a “takete” response is between 28% and 33% (<span class="math inline">\(\beta\)</span> = -0.81, SD = 0.15) with the “maluma” stimuli, and it is between 70% and 75% with the “takete” stimuli. At 60% confidence, the difference in probability between the “takete” and “maluma” stimuli is between 38 and 45 percent points (<span class="math inline">\(\beta\)</span> = 1.78, SD = 0.21).</p>
 </blockquote>
 <p>Nice!</p>
 <p>I leave to you calculating the 80% and 90% CrIs. Can you tell which values to use with the <code>probs</code> argument for an 80% and 90% intervals?</p>
