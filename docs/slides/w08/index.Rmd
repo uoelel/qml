@@ -1,9 +1,9 @@
 ---
 title: "Quantitative Methods for LEL"
 subtitle: "Week 8 - Multiple predictors and interactions"
-author: "Elizabeth Pankratz and Stefano Coretta"
+author: "Stefano Coretta and Elizabeth Pankratz"
 institute: "University of Edinburgh"
-date: "2023/03/14"
+date: "2023/11/07"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -62,105 +62,23 @@ shallow <- read_csv("data/shallow.csv") %>%
   )
 ```
 
-
-class: center middle reverse
-
-# Please fill out today's attendance form:
-
-`https://forms.office.com/e/A0X816LnUp`
-
-![:scale 30%](imgs/qr.png)
-
-<!-- .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[ -->
-<!-- We will focus on **accuracy** (correct identification of real word: **correct/incorrect**) for L1 participants. ]-->
-
----
 layout: false
 layout: true
 
-## Summary from last time
+## Summary from last week
 
 ---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(1)** What are **binary outcomes?**
+- **Binary outcomes** are outcome variables with two discrete levels (e.g., yes/no, grammatical/ungrammatical, correct/incorrect).
 
-- Outcomes with two discrete levels (e.g., yes/no, grammatical/ungrammatical, correct/incorrect).
-]
+- We can visualise binary outcomes as **proportions**.
 
+- Binary outcomes follow the Bernoulli distribution which has one parameter, $p$, the probability of "success" (`family = bernoulli()`).
 
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(2)** How do we **visualise** them?
+- A Bernoulli model returns estimates in log-odds. We can convert log-odds into probabilities with the logistic function (`plogis()`).
 
-- As proportions.
-]
-
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(3)** What **distribution** do binary outcomes follow?
-
-- A Bernoulli distribution with one parameter, $p$, the probability of success.
-- In brms: `family = bernoulli()`.
-]
-
----
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(4)**  How do we fit a model requiring a **continuous outcome space** using binary data?
-
-- We model the binary outcomes as being generated based on the probability of success $p$.
-- We transform this probability into log-odds, which is continuous.
-]
-
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(5)** How do we **interpret** the estimates of such a model?
-
-- The model's estimates are in log-odds space.
-- To interpret them, we convert back to probability space using `plogis()`.
-]
-
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(6)** What are **credible intervals**?
-
-- Credible intervals are the difference between two quantiles.
-- For Bayesian modelling, they are the region in which, with some probability (usually 95%), the true value lies.
-]
-
----
-layout:false
-
-## Five learning objectives for today
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(1)** What is a **factorial design?**
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(2)** How do we estimate and interpret the effects of **multiple predictors?**
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(3)** How do we deal with situations when **one predictor's effect is different, depending on the value of the other predictor?**
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(4)** How can such interactions between predictors be **built into our models?**
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(5)** How do we **interpret model estimates** of interactions? 
+- A Bayesian Credible Interval (CrI) tells you the region in which, with some probability (like 95%, 60%, 73%, etc), the true value lies.
 ]
 
 ---
@@ -212,7 +130,8 @@ $$logit(p) = \beta_0 + (\beta_1 \cdot relation_{ncons}) + (\beta_2 \cdot relatio
 ]
 
 ---
-layout:false
+
+layout: false
 layout: true
 
 ## Running example: Morphological processing
@@ -253,7 +172,8 @@ shallow <- shallow %>%
 ```
 
 ---
-layout:false
+
+layout: false
 
 ## Visualising `Relation_type` and `Branching`
 
@@ -277,8 +197,9 @@ layout:false
 
 
 ---
-layout:false
-layout:true
+
+layout: false
+layout: true
 
 ## Setting up `Relation_type` and `Branching`
 
@@ -343,6 +264,7 @@ contrasts(shallow$Branching)
 ]
 
 ---
+
 layout: false
 
 ## What will the $\beta$s mean now?
@@ -403,7 +325,8 @@ summary(acc_mult_bm)
 ```
 
 ---
-layout:true
+
+layout: true
 
 ## Model estimates: `Intercept`
 
@@ -450,7 +373,8 @@ $$
 ]
 
 ---
-layout:false
+
+layout: false
 
 ## Model estimates: `Relation_type`
 
@@ -510,11 +434,13 @@ $$
 $$
 
 <br>
+
 --
 
 From the model: $\beta_0 = 1.08$, $\beta_1 = 0.69$, and $\beta_2 = 1.44$.
 
 <br>
+
 --
 
 $$
@@ -604,7 +530,8 @@ mult_draws_dens +
 
 
 ---
-layout:true
+
+layout: true
 
 ## Do these estimates match the data?
 
@@ -637,18 +564,8 @@ If only there were some way to tell the model that the effect of relation type c
 Oh wait...
 
 ---
-layout:false
-class: center middle reverse
 
-# Time for a wee break!
-
-### If you haven't yet, please fill in today's attendance form:
-
-`https://forms.office.com/e/A0X816LnUp`
-
-![:scale 30%](imgs/qr.png)
-
----
+layout: false
 
 ## How does the current model fall short?
 
@@ -672,7 +589,8 @@ The solution: Include an **interaction** between these two predictors.
 ]
 
 ---
-layout:true
+
+layout: true
 
 ## In other words: we want a _difference of differences_
 
@@ -697,6 +615,7 @@ barplot_shallow +
 ```
 
 ---
+
 layout: false
 
 ## How do we make this happen?
@@ -735,11 +654,13 @@ Estimate $\beta$ as usual.
 | <table> <thead> <tr> <th>Relation_type</th> <th>Branching</th> </tr> </thead> <tbody> <tr> <td>Unrelated</td> <td>Left</td> </tr> <tr> <td>Unrelated</td> <td>Right</td> </tr> <tr> <td>Constituent</td> <td>Left</td> </tr> <tr> <td>Constituent</td> <td>Right</td> </tr> </tbody> </table> | <table> <thead> <tr> <th>Relation_type</th> <th>Branching</th> <th>Relation_type:Branching</th> </tr> </thead> <tbody> <tr> <td>0</td> <td>0</td> <td>0 \* 0 = 0</td> </tr> <tr> <td>0</td> <td>1</td> <td>0 \* 1 = 0</td> </tr> <tr> <td>1</td> <td>0</td> <td>1 \* 0 = 0</td> </tr> <tr> <td>1</td> <td>1</td> <td>1 \* 1 = 1</td> </tr> </tbody> </table>  |  
 
 <br>
+
 --
 
 $$logit(p) = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (\beta_3 \cdot relation \cdot branch)$$
 
 <br>
+
 --
 
 $$
@@ -864,6 +785,7 @@ $$
 ]
 
 ---
+
 layout: true
 
 ## How to interpret $\beta_3 \sim Gaussian(-0.63, 0.55)$
@@ -917,7 +839,8 @@ shallow %>%
 ]
 
 ---
-layout:false
+
+layout: false
 
 ## Conditional posterior probability of log-odds of "correct" response
 
@@ -931,11 +854,13 @@ $$
 $$
 
 <br>
+
 --
 
 From the model: $\beta_0 = 1.02$, $\beta_1 = 0.85$, $\beta_2 = 1.69$, and $\beta_3 = -0.63$.
 
 <br>
+
 --
 
 $$
@@ -1070,6 +995,7 @@ barplot_shallow_inter +
 
 
 ---
+
 layout: false
 layout: true
 
