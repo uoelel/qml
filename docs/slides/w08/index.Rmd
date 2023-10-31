@@ -42,8 +42,6 @@ library(ggdist)
 library(glue)
 library(posterior)
 
-theme_update(text = element_text(size=14))
-
 options(ggplot2.discrete.fill = RColorBrewer::brewer.pal(8, "Dark2"))
 options(ggplot2.discrete.colour = RColorBrewer::brewer.pal(8, "Dark2"))
 options(show.signif.stars = FALSE)
@@ -58,16 +56,12 @@ shallow <- read_csv("data/shallow.csv") %>%
     RT > 0
   ) %>%
   mutate(
-    Accuracy = ifelse(ACC == 1, "correct", "incorrect")
+    Accuracy = ifelse(ACC == 1, "correct", "incorrect"),
+    Accuracy = factor(Accuracy, levels = c("incorrect", "correct"))
   )
 ```
 
-layout: false
-layout: true
-
 ## Summary from last week
-
----
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 - **Binary outcomes** are outcome variables with two discrete levels (e.g., yes/no, grammatical/ungrammatical, correct/incorrect).
@@ -83,45 +77,91 @@ layout: true
 
 ---
 
-## What is a factorial design?
+layout: true
 
-<br>
+## The `shallow` data: Relation type and Branching
 
-.pull-left[
-.center[
-.pull-left[![:scale 80%](imgs/tree_a.pdf)]
-
-.pull-right[![:scale 80%](imgs/tree_b.pdf)]
-]
-]
-
---
-
-.pull-right[
-<br>
-.center[
-.f4[
-|    	    | B = B1     	| B = B2     	|
-|-------- |--------	|--------	|
-| **A = A1** 	| A1, B1 	| A1, B2 	|
-| **A = A2** 	| A2, B1 	| A2, B2 	|
-]]]
-
---
-
-<br><br>
+---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-How can we analyse **both predictors** at the same time?
+**Lexical decision task:** Is the string you see a word in English or not?
+
+- Outcome variable: **Accuracy** (incorrect vs correct).
+
+- Predictors: 
+
+  - **Relation_type**: unrelated, non-constituent, constituent.
+  
+  - **Branching**: left ([[un-[ripe]]-ness]), right ([un-[[grace]-ful]]).
 ]
 
 ---
 
-## We've seen multiple predictors before!
+```{r shallow}
+shallow %>% select(Group, ID, Accuracy, Relation_type, Branching)
+```
 
-<br> <br> <br> <br> <br> 
+---
 
-Last week's model with dummy variables:
+```{r shallow-plot}
+shallow %>%
+  ggplot(aes(Relation_type, fill = Accuracy)) +
+  geom_bar(position = "fill") +
+  facet_grid(cols = vars(Branching)) +
+  labs(y = "Proportion")
+```
+
+
+???
+
+*reobtainable*: left, *undeniable*: right
+
+---
+
+layout: false
+
+## Factorial design
+
+**Two-by-two factorial design**
+
+.center[
+
+|    	    | B = B1     	| B = B2     	|
+|-------- |--------	|--------	|
+| **A = A1** 	| A1, B1 	| A1, B2 	|
+| **A = A2** 	| A2, B1 	| A2, B2 	|
+
+]
+
+--
+
+<br>
+
+(Let's filter the data so we exclude the non-constituent cases)
+
+|                        | Branching = left  | Branching = right  |
+|------------------------|-------------------|--------------------|
+| Relation = unrelated   | unrelated, left   | unrelated, right   |
+| Relation = constituent | constituent, left | constituent, right |
+
+
+--
+
+<br>
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+How can we include **both predictors** in the model?
+]
+
+---
+
+layout: true
+
+## Multiple predictors
+
+---
+
+Last week's model with two dummy variables (for a three-level predictor):
 
 <br>
 
@@ -131,51 +171,20 @@ $$logit(p) = \beta_0 + (\beta_1 \cdot relation_{ncons}) + (\beta_2 \cdot relatio
 
 ---
 
-layout: false
-layout: true
-
-## Running example: Morphological processing
-
----
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**Lexical decision task:** Is the string you see a word in English or not?
-
-- Outcome variable: **Accuracy** (incorrect/correct)
-
-- Predictors: 
-
-  - **Relation_type** (Unrelated/Constituent)
-  
-  - **Branching** (Left (*[unripe]-ness*) /Right (*un-[graceful]*))
-]
-
-<br>
-
---
-
-|                                 	| Branching = Left  	| Branching = Right  	|
-|---------------------------------	|-------------------	|--------------------	|
-| **Relation_type = Unrelated**   	| Unrelated, Left   	| Unrelated, Right   	|
-| **Relation_type = Constituent** 	| Constituent, Left 	| Constituent, Right 	|
-
----
+Let's wrangle the data.
 
 ```{r setup-shallow, echo = TRUE}
 shallow <- shallow %>% 
-  filter(Relation_type != 'NonConstituent') %>% 
+  filter(Relation_type != "NonConstituent") %>% 
   mutate(
-    Relation_type = factor(Relation_type, levels = c('Unrelated', 'Constituent')),
-    Branching     = factor(Branching, levels = c('Left', 'Right')),
-    Accuracy      = factor(Accuracy, levels = c('incorrect', 'correct'))
+    Relation_type = factor(Relation_type, levels = c("Unrelated", "Constituent")),
+    Branching     = factor(Branching, levels = c("Left", "Right")),
+    Accuracy      = factor(Accuracy, levels = c("incorrect", "correct"))
   )
 ```
 
 ---
 
-layout: false
-
-## Visualising `Relation_type` and `Branching`
 
 ```{r barplot-shallow}
 # Manual recreation of proportions stacked bar chart (as basis for later)
@@ -198,23 +207,15 @@ layout: false
 
 ---
 
-layout: false
-layout: true
+|                        | Branching = left  | Branching = right  |
+|------------------------|-------------------|--------------------|
+| Relation = unrelated   | unrelated, left   | unrelated, right   |
+| Relation = constituent | constituent, left | constituent, right |
 
-## Setting up `Relation_type` and `Branching`
 
----
-
-<br>
-
-|                                 	| Branching = Left  	| Branching = Right  	|
-|---------------------------------	|-------------------	|--------------------	|
-| **Relation_type = Unrelated**   	| Unrelated, Left   	| Unrelated, Right   	|
-| **Relation_type = Constituent** 	| Constituent, Left 	| Constituent, Right 	|
-
-<br>
 --
 
+<br>
 
 | Relation_type 	| Branching 	|
 |---------------	|-----------	|
@@ -247,6 +248,7 @@ layout: true
 <!-- | 1             	| 1         	| -->
 
 <br>
+
 --
 
 Let's verify that this coding is what R will use:
@@ -265,10 +267,6 @@ contrasts(shallow$Branching)
 
 ---
 
-layout: false
-
-## What will the $\beta$s mean now?
-
 | When: | Then coded as: |
 | --- | --- |
 | <table> <thead> <tr> <th>Relation_type</th> <th>Branching</th> </tr> </thead> <tbody> <tr> <td>Unrelated</td> <td>Left</td> </tr> <tr> <td>Unrelated</td> <td>Right</td> </tr> <tr> <td>Constituent</td> <td>Left</td> </tr> <tr> <td>Constituent</td> <td>Right</td> </tr> </tbody> </table> | <table> <thead> <tr> <th>Relation_type</th> <th>Branching</th> </tr> </thead> <tbody> <tr> <td>0</td> <td>0</td> </tr> <tr> <td>0</td> <td>1</td> </tr> <tr> <td>1</td> <td>0</td> </tr> <tr> <td>1</td> <td>1</td> </tr> </tbody> </table> | 
@@ -276,6 +274,7 @@ layout: false
 
 $$logit(p) = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch)$$
 <br>
+
 --
 
 $$
@@ -289,12 +288,6 @@ $$
 
 ---
 
-## The model we'll fit
-
-<br>
-<br>
-
-.f3[
 $$
 \begin{aligned}
 \text{acc} & \sim Bernoulli(p) \\
@@ -304,9 +297,8 @@ logit(p) & = \beta_0 + \beta_1 \cdot relation + \beta_2 \cdot branch \\
 \beta_2 & \sim Gaussian(\mu_2, \sigma_2) \\
 \end{aligned}
 $$
-]
 
----
+--
 
 ```{r mult-fit, echo=TRUE}
 acc_mult_bm <- brm(
@@ -318,17 +310,11 @@ acc_mult_bm <- brm(
 )
 ```
 
---
+---
 
 ```{r mult-summary-full, echo=TRUE}
 summary(acc_mult_bm)
 ```
-
----
-
-layout: true
-
-## Model estimates: `Intercept`
 
 ---
 
@@ -374,10 +360,6 @@ $$
 
 ---
 
-layout: false
-
-## Model estimates: `Relation_type`
-
 ```{r mult-summ-2}
 cat(capture.output(summary(acc_mult_bm))[8:12], sep = "\n")
 ```
@@ -397,8 +379,6 @@ $$
 ]
 
 ---
-
-## Model estimates: `Branching`
 
 ```{r mult-summ-3}
 cat(capture.output(summary(acc_mult_bm))[8:12], sep = "\n")
@@ -421,8 +401,12 @@ $$
 
 ---
 
-## Conditional posterior probability of log-odds of "correct" response
+layout: false
+layout: true
 
+## Conditional posterior probabilities
+
+---
 
 $$
 \begin{aligned}
@@ -437,7 +421,7 @@ $$
 
 --
 
-From the model: $\beta_0 = 1.08$, $\beta_1 = 0.69$, and $\beta_2 = 1.44$.
+From the model: mean $\beta_0 = 1.08$, mean $\beta_1 = 0.69$, and mean $\beta_2 = 1.44$.
 
 <br>
 
@@ -495,22 +479,34 @@ mult_cri <- mult_draws_long %>%
 ```
 
 
-```{r mult-draws-dens, out.width = "80%"}
+```{r mult-draws-dens-lo}
+mult_draws_long %>% 
+  ggplot(aes(x = logodds_samples)) +
+  geom_density(alpha = 0.5, aes(fill = Relation_type)) +
+  facet_wrap(~ Branching, nrow=2, labeller = labeller(Branching = label_both)) +
+  labs(x = "Log-odds",
+       y = "Probability density",
+       title = "Conditional posterior probability distributions\nof the log-odds of a 'correct' response",
+       fill = "Relation type")
+```
+
+---
+
+```{r mult-draws-dens-p}
 (mult_draws_dens <- mult_draws_long %>% 
   ggplot(aes(x = plogis(logodds_samples))) +
   geom_density(alpha = 0.5, aes(fill = Relation_type)) +
   facet_wrap(~ Branching, nrow=2, labeller = labeller(Branching = label_both)) +
-  xlim(0, 1) +
+  xlim(0.5, 1) +
   labs(x = 'Probability',
        y = 'Probability density',
-       title = 'Conditional posterior probability distributions\nof "correct" response',
-       # subtitle = 'Model with no interaction',
+       title = "Conditional posterior probability distributions\nof the probability of a 'correct' response",
        fill = 'Relation type'))
 ```
 
 ---
 
-```{r mult-draws-dens2, out.width = "80%"}
+```{r mult-draws-dens2}
 mult_draws_dens +
   # intervals + means
   geom_point(data = mult_cri, aes(x = p_mean, 

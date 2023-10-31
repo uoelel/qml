@@ -144,7 +144,20 @@ motion %>%
   select(Stimulus, Answer, Response)
 ```
 
-Before moving on, here's another challenge: Plot the response by stimulus to get a descriptive picture of what the data looks like. In other words, make a plot that tells us something about the responses given for each kind of stimulus. (To help you along, identify what kind of data this is, and think about what kind of visualisation is appropriate for this data type.)
+Before moving on, plot the proportion of response ("takete" vs "maluma") by stimulus ("takete" vs "maluma"). Come up with the code yourself to reproduce the following plot.
+
+```{r}
+#| label: motion-plot
+#| echo: false
+
+motion %>%
+  ggplot(aes(Stimulus, fill = Response)) +
+  geom_bar(position = "fill") +
+  labs(y = "Proportion")
+
+```
+
+You will learn how to create an alternative plot of this type of data below.
 
 Now we can use `Response` as our outcome variable!
 
@@ -299,19 +312,15 @@ As an exercise, convert the estimate of the `Intercept` to a probability. What p
 
 Since the `Intercept` corresponds to $\beta_0$ and the `Intercept`'s *estimate* is $\mu_0$ from the formula above, you can say that the mean probability of $\beta_0$ is the probability that corresponds to --0.81 log-odds (which you should have found is approximately 0.3 or 30% probability).
 
-$\beta_0$ is the probability of choosing "takete" when the stimulus is "maluma". (Why? To understand this, think about the order of the levels in `Response` and `Stimulus`, and what that means for how they are coded.)
+$\beta_0$ is the probability of choosing "takete" when the stimulus is "maluma". Why? To understand this, think about the order of the levels in `Response` and `Stimulus`, and how they are coded with `0`s and `1`s. Remember that things work differently in *outcomes* vs *predictors*.
 
 > Based on the model and data, there is 30% probability of choosing the response "takete" when the stimulus is "maluma", at 95% confidence.
 
 ### `StimulusTakete`
 
-Now, what about `StimulusTakete`? Work through this for yourself, using what you've learned so far.
+We have calculate the probability of getting "takete" when the stimulus is "maluma".
 
-Which coefficient in the formula above does it correspond to? How do we interpret the posterior probability of this coefficient?
-
-How does this coefficient relate to the intercept, i.e., the log-odds of choosing "takete" when the stimulus is "maluma"?
-
-If you're feeling particularly adventurous, before you move on to the next section, compute the probability of choosing the response "takete" when the stimulus is "takete".
+Now, what about the coefficient `StimulusTakete`? What does this tell you? Work through this for yourself, using what you've learned so far. As a hint, remember that beta coefficients that are not the intercept tell you about the *difference* of other levels relative to the reference level (i.e. the intercept).
 
 ## Plotting
 
@@ -579,6 +588,84 @@ Try and fill in the missing parts in the following report.
 > We fitted a Bayesian model to ... with a ... distribution family. We included ... as the only predictor, with the levels ... and .... The predictor was coded using the default ..., with ... as the reference level.
 >
 > According to the model, there is ...-... probability of a "takete" response when the stimulus is a "maluma" word, at 80% confidence ($\beta$ = ..., SD = ..., 80% CrI \[..., ...\]). The probability of a "takete" response when the stimulus is a "takete" word is between ... and .... The difference in probability between the two conditions is ...-... percent points, at 80% probability ($\beta$ = ..., SD = ..., 80% CrI \[..., ...\]).
+
+## Extra: Plotting proportions of individual participants
+
+An alternative way to plot proportion data is to plot the proportion for individual participants (`Rater` in the `motion` data frame).
+
+To do so we can use a combination of `summarise()`, `geom_jitter()` and `stat_summary()`, which you have seen already.
+
+First we need to calculate the proportion of "takete" response (our "success" level, corresponding to `1`) for each participant for each stimulus.
+
+To calculate this proportion we need to create a new column with a numeric version of the `Response` column. Since we want to calculate the proportion of "takete" responses, we use `1` for takete and `0` for maluma.
+
+We can do that using the `ifelse()` function.
+
+```{r}
+#| label: motion-num
+
+motion <- motion %>%
+  mutate(
+    Response_num = ifelse(Response == "Takete", 1, 0)
+  )
+motion
+```
+
+Now we can calculate the proportion of takete responses by participant (`Rater`) with the simple formula: number of takete responses / total number of responses.
+
+Since we have coded takete as `1` and maluma as `0`, we can get the number of takete responses by simply taking the sum of `Response_num`.
+
+We can use a special tidyverse function, `n()`, which returns the number of rows in the data frame. Since we will group the data frame by `Rater` and `Stimulus`, `n()` returns the number of rows for each participant and each stimulus!
+
+```{r}
+#| label: motion-prop
+
+motion_prop <- motion %>%
+  group_by(Rater, Stimulus) %>%
+  summarise(
+    takete_prop = sum(Response_num) / n(),
+    # The following drops the grouping created by group_by() which we don't
+    # need anymore.
+    .groups = "drop"
+  )
+motion_prop
+```
+
+Now we can plot the proportions and add mean and confidence intervals using `geom_jitter()` and `stat_summary()`.
+
+Before proceeding, you need to install the **Hmisc** package. There is no need to attach it (it is used by `stat_summary()` under the hood).
+
+```{r}
+#| label: prop-plot
+
+ggplot() +
+  # Proportion of each participant
+  geom_jitter(
+    data = motion_prop,
+    aes(x = Stimulus, y = takete_prop),
+    width = 0.1, alpha = 0.5
+  ) +
+  # Mean proportion by stimulus with CI
+  stat_summary(
+    data = motion,
+    aes(x = Stimulus, y = Response_num, colour = Stimulus),
+    fun.data = "mean_cl_boot", size = 1
+  ) +
+  labs(
+    title = "Proportion of takete responses by participant and stimulus",
+    caption = "Mean proportion is represented by coloured points with 95% bootstrapped Confidence Intervals.",
+    x = "Stimulus",
+    y = "Proportion"
+  ) +
+  # ylim(0, 1) +
+  theme(legend.position = "none")
+```
+
+You will notice something new: we have specified the data inside `geom_jitter()` and `stat_summary()` instead of inside `ggplot()`. This is because the two functions need different data: `geom_jitter()` needs the data with the proportion we calculated for each participant and stimulus; `stat_summary()` needs to calculate the mean and CIs from the overall data, rather than from the proportion data we created.
+
+We are also specifying the aesthetics within each geom/stat function, because while `x` is the same, the `y` differs!
+
+In `stat_summary()`, the `fun.data` argument lets you specify the function you want to use for the summary statistics to be added. Here we are using the `mean_cl_boot` function, which returns the mean proportion of `Response_num` and the 95% Confidence Intervals (CIs, there are *frequentist* confidence intervals, rather than Bayesian Credible Intervals) of that mean. The CIs are calculated using a bootstrapping procedure (if you are interested in learning what that is, check the documentation of `smean.sd` from the Hmisc package).
 
 ## Summary
 

@@ -41,12 +41,7 @@ class: center, middle, inverse, title-slide
 
 
 
-layout: false
-layout: true
-
 ## Summary from last week
-
----
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 - **Binary outcomes** are outcome variables with two discrete levels (e.g., yes/no, grammatical/ungrammatical, correct/incorrect).
@@ -62,45 +57,99 @@ layout: true
 
 ---
 
-## What is a factorial design?
+layout: true
 
-&lt;br&gt;
+## The `shallow` data: Relation type and Branching
 
-.pull-left[
-.center[
-.pull-left[![:scale 80%](imgs/tree_a.pdf)]
-
-.pull-right[![:scale 80%](imgs/tree_b.pdf)]
-]
-]
-
---
-
-.pull-right[
-&lt;br&gt;
-.center[
-.f4[
-|    	    | B = B1     	| B = B2     	|
-|-------- |--------	|--------	|
-| **A = A1** 	| A1, B1 	| A1, B2 	|
-| **A = A2** 	| A2, B1 	| A2, B2 	|
-]]]
-
---
-
-&lt;br&gt;&lt;br&gt;
+---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-How can we analyse **both predictors** at the same time?
+**Lexical decision task:** Is the string you see a word in English or not?
+
+- Outcome variable: **Accuracy** (incorrect vs correct).
+
+- Predictors: 
+
+  - **Relation_type**: unrelated, non-constituent, constituent.
+  
+  - **Branching**: left ([[un-[ripe]]-ness]), right ([un-[[grace]-ful]]).
 ]
 
 ---
 
-## We've seen multiple predictors before!
 
-&lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;br&gt; 
+```
+## # A tibble: 865 × 5
+##    Group ID    Accuracy  Relation_type  Branching
+##    &lt;chr&gt; &lt;chr&gt; &lt;fct&gt;     &lt;chr&gt;          &lt;chr&gt;    
+##  1 L1    L1_01 correct   Unrelated      Left     
+##  2 L1    L1_01 correct   Constituent    Left     
+##  3 L1    L1_01 correct   Unrelated      Left     
+##  4 L1    L1_01 correct   Constituent    Left     
+##  5 L1    L1_01 incorrect Unrelated      Left     
+##  6 L1    L1_01 correct   Unrelated      Right    
+##  7 L1    L1_01 correct   Constituent    Right    
+##  8 L1    L1_01 correct   NonConstituent Left     
+##  9 L1    L1_01 correct   NonConstituent Left     
+## 10 L1    L1_01 correct   Constituent    Left     
+## # ℹ 855 more rows
+```
 
-Last week's model with dummy variables:
+---
+
+&lt;img src="index_files/figure-html/shallow-plot-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+???
+
+*reobtainable*: left, *undeniable*: right
+
+---
+
+layout: false
+
+## Factorial design
+
+**Two-by-two factorial design**
+
+.center[
+
+|    	    | B = B1     	| B = B2     	|
+|-------- |--------	|--------	|
+| **A = A1** 	| A1, B1 	| A1, B2 	|
+| **A = A2** 	| A2, B1 	| A2, B2 	|
+
+]
+
+--
+
+&lt;br&gt;
+
+(Let's filter the data so we exclude the non-constituent cases)
+
+|                        | Branching = left  | Branching = right  |
+|------------------------|-------------------|--------------------|
+| Relation = unrelated   | unrelated, left   | unrelated, right   |
+| Relation = constituent | constituent, left | constituent, right |
+
+
+--
+
+&lt;br&gt;
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+How can we include **both predictors** in the model?
+]
+
+---
+
+layout: true
+
+## Multiple predictors
+
+---
+
+Last week's model with two dummy variables (for a three-level predictor):
 
 &lt;br&gt;
 
@@ -110,52 +159,21 @@ Last week's model with dummy variables:
 
 ---
 
-layout: false
-layout: true
-
-## Running example: Morphological processing
-
----
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**Lexical decision task:** Is the string you see a word in English or not?
-
-- Outcome variable: **Accuracy** (incorrect/correct)
-
-- Predictors: 
-
-  - **Relation_type** (Unrelated/Constituent)
-  
-  - **Branching** (Left (*[unripe]-ness*) /Right (*un-[graceful]*))
-]
-
-&lt;br&gt;
-
---
-
-|                                 	| Branching = Left  	| Branching = Right  	|
-|---------------------------------	|-------------------	|--------------------	|
-| **Relation_type = Unrelated**   	| Unrelated, Left   	| Unrelated, Right   	|
-| **Relation_type = Constituent** 	| Constituent, Left 	| Constituent, Right 	|
-
----
+Let's wrangle the data.
 
 
 ```r
 shallow &lt;- shallow %&gt;% 
-  filter(Relation_type != 'NonConstituent') %&gt;% 
+  filter(Relation_type != "NonConstituent") %&gt;% 
   mutate(
-    Relation_type = factor(Relation_type, levels = c('Unrelated', 'Constituent')),
-    Branching     = factor(Branching, levels = c('Left', 'Right')),
-    Accuracy      = factor(Accuracy, levels = c('incorrect', 'correct'))
+    Relation_type = factor(Relation_type, levels = c("Unrelated", "Constituent")),
+    Branching     = factor(Branching, levels = c("Left", "Right")),
+    Accuracy      = factor(Accuracy, levels = c("incorrect", "correct"))
   )
 ```
 
 ---
 
-layout: false
-
-## Visualising `Relation_type` and `Branching`
 
 &lt;img src="index_files/figure-html/barplot-shallow-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
@@ -164,23 +182,15 @@ layout: false
 
 ---
 
-layout: false
-layout: true
+|                        | Branching = left  | Branching = right  |
+|------------------------|-------------------|--------------------|
+| Relation = unrelated   | unrelated, left   | unrelated, right   |
+| Relation = constituent | constituent, left | constituent, right |
 
-## Setting up `Relation_type` and `Branching`
 
----
-
-&lt;br&gt;
-
-|                                 	| Branching = Left  	| Branching = Right  	|
-|---------------------------------	|-------------------	|--------------------	|
-| **Relation_type = Unrelated**   	| Unrelated, Left   	| Unrelated, Right   	|
-| **Relation_type = Constituent** 	| Constituent, Left 	| Constituent, Right 	|
-
-&lt;br&gt;
 --
 
+&lt;br&gt;
 
 | Relation_type 	| Branching 	|
 |---------------	|-----------	|
@@ -213,6 +223,7 @@ layout: true
 &lt;!-- | 1             	| 1         	| --&gt;
 
 &lt;br&gt;
+
 --
 
 Let's verify that this coding is what R will use:
@@ -245,10 +256,6 @@ contrasts(shallow$Branching)
 
 ---
 
-layout: false
-
-## What will the `\(\beta\)`s mean now?
-
 | When: | Then coded as: |
 | --- | --- |
 | &lt;table&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;Relation_type&lt;/th&gt; &lt;th&gt;Branching&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;Unrelated&lt;/td&gt; &lt;td&gt;Left&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Unrelated&lt;/td&gt; &lt;td&gt;Right&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Constituent&lt;/td&gt; &lt;td&gt;Left&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Constituent&lt;/td&gt; &lt;td&gt;Right&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; | &lt;table&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;Relation_type&lt;/th&gt; &lt;th&gt;Branching&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;0&lt;/td&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;0&lt;/td&gt; &lt;td&gt;1&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;1&lt;/td&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;1&lt;/td&gt; &lt;td&gt;1&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; | 
@@ -256,6 +263,7 @@ layout: false
 
 `$$logit(p) = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch)$$`
 &lt;br&gt;
+
 --
 
 $$
@@ -269,12 +277,6 @@ $$
 
 ---
 
-## The model we'll fit
-
-&lt;br&gt;
-&lt;br&gt;
-
-.f3[
 $$
 `\begin{aligned}
 \text{acc} &amp; \sim Bernoulli(p) \\
@@ -284,9 +286,8 @@ logit(p) &amp; = \beta_0 + \beta_1 \cdot relation + \beta_2 \cdot branch \\
 \beta_2 &amp; \sim Gaussian(\mu_2, \sigma_2) \\
 \end{aligned}`
 $$
-]
 
----
+--
 
 
 ```r
@@ -299,7 +300,7 @@ acc_mult_bm &lt;- brm(
 )
 ```
 
---
+---
 
 
 ```r
@@ -327,12 +328,6 @@ summary(acc_mult_bm)
 
 ---
 
-layout: true
-
-## Model estimates: `Intercept`
-
----
-
 
 ```
 ## Population-Level Effects: 
@@ -385,10 +380,6 @@ $$
 
 ---
 
-layout: false
-
-## Model estimates: `Relation_type`
-
 
 ```
 ## Population-Level Effects: 
@@ -413,8 +404,6 @@ $$
 ]
 
 ---
-
-## Model estimates: `Branching`
 
 
 ```
@@ -442,8 +431,12 @@ $$
 
 ---
 
-## Conditional posterior probability of log-odds of "correct" response
+layout: false
+layout: true
 
+## Conditional posterior probabilities
+
+---
 
 $$
 `\begin{aligned}
@@ -458,7 +451,7 @@ $$
 
 --
 
-From the model: `\(\beta_0 = 1.08\)`, `\(\beta_1 = 0.69\)`, and `\(\beta_2 = 1.44\)`.
+From the model: mean `\(\beta_0 = 1.08\)`, mean `\(\beta_1 = 0.69\)`, and mean `\(\beta_2 = 1.44\)`.
 
 &lt;br&gt;
 
@@ -485,11 +478,15 @@ Ask: now, how move to probs?
 
 
 
-&lt;img src="index_files/figure-html/mult-draws-dens-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/mult-draws-dens-lo-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-&lt;img src="index_files/figure-html/mult-draws-dens2-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/mult-draws-dens-p-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="index_files/figure-html/mult-draws-dens2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 
 ---
