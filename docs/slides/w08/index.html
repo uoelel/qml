@@ -57,6 +57,10 @@ class: center, middle, inverse, title-slide
 
 ---
 
+&lt;iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/65436cf3c1a55c4249b6d94e" width="100%"&gt;&lt;/iframe&gt;
+
+---
+
 layout: true
 
 ## The `shallow` data: Relation type and Branching
@@ -516,10 +520,11 @@ Oh wait...
 ---
 
 layout: false
+layout: true
 
 ## How does the current model fall short?
 
---
+---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 The question we want to answer: 
@@ -540,64 +545,40 @@ The solution: Include an **interaction** between these two predictors.
 
 ---
 
-layout: true
-
-## In other words: we want a _difference of differences_
-
----
+In other words: we want a **difference of differences**
 
 &lt;img src="index_files/figure-html/barplot-shallow3-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
+
+In other words: we want a **difference of differences**
 
 &lt;img src="index_files/figure-html/shallow-diffs-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 layout: false
+layout: true
 
-## How do we make this happen?
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-Create a **new variable** that represents the interaction.
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-Assign that variable **its own `\(\beta\)` coefficient.**
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-Estimate `\(\beta\)` as usual.
-
-- This estimate tells us **how much one predictor's effect changes between levels of the other**.
-]
-
---
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-**What does the new variable look like?**
-]
-
+## Including an interaction
 
 ---
 
-## Treatment coding, feat. interaction
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- Add an **interaction term** in the model.
 
-| When: | Then coded as: |
-| --- | --- |
-| &lt;table&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;Relation_type&lt;/th&gt; &lt;th&gt;Branching&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;Unrelated&lt;/td&gt; &lt;td&gt;Left&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Unrelated&lt;/td&gt; &lt;td&gt;Right&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Constituent&lt;/td&gt; &lt;td&gt;Left&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Constituent&lt;/td&gt; &lt;td&gt;Right&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; | &lt;table&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;Relation_type&lt;/th&gt; &lt;th&gt;Branching&lt;/th&gt; &lt;th&gt;Relation_type:Branching&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;0&lt;/td&gt; &lt;td&gt;0&lt;/td&gt; &lt;td&gt;0 \* 0 = 0&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;0&lt;/td&gt; &lt;td&gt;1&lt;/td&gt; &lt;td&gt;0 \* 1 = 0&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;1&lt;/td&gt; &lt;td&gt;0&lt;/td&gt; &lt;td&gt;1 \* 0 = 0&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;1&lt;/td&gt; &lt;td&gt;1&lt;/td&gt; &lt;td&gt;1 \* 1 = 1&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt;  |  
+- The interaction term gets its own beta coefficient.
 
-&lt;br&gt;
+- The estimate of the interaction beta coefficient tells us **how much one predictor's effect changes between levels of the other**.
+]
 
---
+---
 
 `$$logit(p) = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (\beta_3 \cdot relation \cdot branch)$$`
 
-&lt;br&gt;
+| When: | Then coded as: |
+| --- | --- |
+| &lt;table&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;Relation_type&lt;/th&gt; &lt;th&gt;Branching&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;Unrelated&lt;/td&gt; &lt;td&gt;Left&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Unrelated&lt;/td&gt; &lt;td&gt;Right&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Constituent&lt;/td&gt; &lt;td&gt;Left&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Constituent&lt;/td&gt; &lt;td&gt;Right&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; | &lt;table&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;Relation_type&lt;/th&gt; &lt;th&gt;Branching&lt;/th&gt; &lt;th&gt;Relation_type:Branching&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;0&lt;/td&gt; &lt;td&gt;0&lt;/td&gt; &lt;td&gt;0 \* 0 = 0&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;0&lt;/td&gt; &lt;td&gt;1&lt;/td&gt; &lt;td&gt;0 \* 1 = 0&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;1&lt;/td&gt; &lt;td&gt;0&lt;/td&gt; &lt;td&gt;1 \* 0 = 0&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;1&lt;/td&gt; &lt;td&gt;1&lt;/td&gt; &lt;td&gt;1 \* 1 = 1&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt;  |
 
 --
 
@@ -612,10 +593,8 @@ $$
 
 ---
 
-## What does the extra `\(\beta\)` give us?
-
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-With both variables at their non-baseline level (coded as 1) in a model **with no interaction:**
+With both variables at their non-reference level (coded with 1) in a model **with no interaction:**
 
 $$
  \beta_0 + (\beta_1 \cdot 1) + (\beta_2 \cdot 1) = \beta_0 + \beta_1 + \beta_2 \\
@@ -626,41 +605,19 @@ $$
 And in a model **with an interaction:**
 
 $$
-\beta_0 + (\beta_1 \cdot 1) + (\beta_2 \cdot 1) + (\beta_3 \cdot 1) = \beta_0 + \beta_1 + \beta_2 + \beta_3 \\
+\beta_0 + (\beta_1 \cdot 1) + (\beta_2 \cdot 1) + (\beta_3 \cdot 1 \cdot 1) = \beta_0 + \beta_1 + \beta_2 + \beta_3 \\
 $$
 ]
 
 --
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-`\(\beta_3\)` can **adjust** the value of `\(\beta_1\)` or `\(\beta_2\)`.
+`\(\beta_3\)` **adjusts** the value of `\(\beta_1\)` and `\(\beta_2\)`.
 
-In other words, it can **modulate the other effects.**
+In other words, it **modulates the effect** of one predictor depending on the levels of the other.
 ]
 
 ---
-
-## The model we'll fit
-
-&lt;br&gt;
-&lt;br&gt;
-
-.f4[
-$$
-`\begin{aligned}
-\text{acc} &amp; \sim Bernoulli(p) \\
-logit(p) &amp; = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (\beta_3 \cdot relation \cdot branch)\\
-\beta_0 &amp; \sim Gaussian(\mu_0, \sigma_0) \\
-\beta_1 &amp; \sim Gaussian(\mu_1, \sigma_1) \\
-\beta_2 &amp; \sim Gaussian(\mu_2, \sigma_2) \\
-\beta_3 &amp; \sim Gaussian(\mu_3, \sigma_3) \\
-\end{aligned}`
-$$
-]
-
----
-
-## How to specify a model with an interaction
 
 
 ```r
@@ -672,7 +629,6 @@ acc_inter_bm &lt;- brm(
   file = 'data/cache/acc_inter_bm'
 )
 ```
-
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 A note on the syntax for specifying interactions in R:
@@ -688,7 +644,18 @@ but more transparent about what's happening behind the scenes!
 
 ---
 
-&lt;br&gt;
+$$
+`\begin{aligned}
+\text{acc} &amp; \sim Bernoulli(p) \\
+logit(p) &amp; = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (\beta_3 \cdot relation \cdot branch)\\
+\beta_0 &amp; \sim Gaussian(\mu_0, \sigma_0) \\
+\beta_1 &amp; \sim Gaussian(\mu_1, \sigma_1) \\
+\beta_2 &amp; \sim Gaussian(\mu_2, \sigma_2) \\
+\beta_3 &amp; \sim Gaussian(\mu_3, \sigma_3) \\
+\end{aligned}`
+$$
+
+---
 
 
 ```r
@@ -715,15 +682,8 @@ summary(acc_inter_bm)
 ## scale reduction factor on split chains (at convergence, Rhat = 1).
 ```
 
-???
-
-`\(\beta_3\)`'s mean of -0.63 means that, when we move from Branching Left -&gt; Right, the effect of Relation_type is smaller.
-
-Or equivalently (but not how we're looking at it here), it means that, when we move from Relation_type Unrelated -&gt; Constituent, the effect of Branching is smaller.
 
 ---
-
-&lt;br&gt;
 
 
 ```
@@ -737,7 +697,6 @@ Or equivalently (but not how we're looking at it here), it means that, when we m
 
 &lt;br&gt;
 
-.f4[
 $$
 `\begin{aligned}
 \text{acc} &amp; \sim Bernoulli(p) \\
@@ -748,24 +707,24 @@ logit(p) &amp; = \beta_0 + (\beta_1 \cdot relation) + (\beta_2 \cdot branch) + (
 \beta_3 &amp; \sim Gaussian(-0.63, 0.55) \\
 \end{aligned}`
 $$
-]
 
 ---
 
+layout: false
 layout: true
 
-## How to interpret `\(\beta_3 \sim Gaussian(-0.63, 0.55)\)`
+## Interpreting an interaction
 
 ---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **Interpretation 1:**
 
-- `\(\beta_3\)`'s mean of `\(-0.63\)` is a **_negative_ adjustment to the effect of `Relation_type`** when we move from `Branching == Left` (baseline) to `Branching == Right` (non-baseline).
+- `\(\beta_3\)`'s mean of `\(-0.63\)` indicates an **average _negative_ adjustment to the effect of `Relation_type`** when we go from [branching = left] (the reference level) to [branching = right].
 
-  - In other words, the model thinks the effect of `Relation_type` is **smaller** in `Branching == Right` (non-baseline) than in `Branching == Left` (baseline).
+  - In other words, the model suggests that the effect of `Relation_type` is **on average smaller** in [branching = right] than in [branching = left] (the reference level).
   
-  - The 95% CrI `\([-1.72, 0.42]\)` suggests a little uncertainty about the direction of the interaction.
+  - **However**, the 95% CrI `\([-1.72, 0.42]\)` covers both negative and positive values, thus suggesting uncertainty about the sign and magnitude of the interaction.
 ]
 
 --
@@ -773,9 +732,9 @@ layout: true
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **Equivalently, interpretation 2:**
 
-- `\(\beta_3\)` is a **_negative_ adjustment to the effect of `Branching`** when we move from `Relation_type == Unrelated` (baseline) to `Relation_type == Constituent` (non-baseline).
+- `\(\beta_3\)`'s mean indicates an **average _negative_ adjustment to the effect of `Branching`** when we go from [relation_type = unrelated] (reference level) to [relation_type = constituent].
 
-  - Or: the model thinks the effect of `Branching` is **(probably) smaller** in `Relation_type == Constituent` (non-baseline) than in `Relation_type == Unrelated` (baseline).
+  - Or: the model suggests that the effect of `Branching` is **on average smaller** in [relation_type = constituent] than in [relation_type = unrelated] (reference level). But the CrI suggests uncertainty.
 ]
 
 ---
@@ -791,8 +750,13 @@ layout: true
 ---
 
 layout: false
+layout: true
 
-## Conditional posterior probability of log-odds of "correct" response
+## Conditional posterior probabilities
+
+---
+
+**Mean conditional posterior probabilities (log-odds)**
 
 $$
 `\begin{aligned}
@@ -803,15 +767,11 @@ $$
 \end{aligned}`
 $$
 
-&lt;br&gt;
-
 --
-
-From the model: `\(\beta_0 = 1.02\)`, `\(\beta_1 = 0.85\)`, `\(\beta_2 = 1.69\)`, and `\(\beta_3 = -0.63\)`.
 
 &lt;br&gt;
 
---
+From the model, the means are: `\(\beta_0 = 1.02\)`, `\(\beta_1 = 0.85\)`, `\(\beta_2 = 1.69\)`, and `\(\beta_3 = -0.63\)`.
 
 $$
 `\begin{aligned}
@@ -826,11 +786,30 @@ $$
 
 
 
-&lt;img src="index_files/figure-html/inter-draws-dens-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+.pull-left[
+&lt;img src="index_files/figure-html/inter-draws-dens-1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/inter-draws-dens2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
-## Compare estimates with and without the interaction
+**Log-odds of "correct" response**
+
+.pull-left[
+&lt;img src="index_files/figure-html/mult-draws-dens-L-lo-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/inter-draws-dens-R-lo-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+**Probability of "correct" response**
 
 .pull-left[
 &lt;img src="index_files/figure-html/mult-draws-dens-L-1.png" width="100%" style="display: block; margin: auto;" /&gt;
@@ -842,13 +821,9 @@ $$
 
 ---
 
-## How well does the interaction model fit the data?
 
 
 
-&lt;img src="index_files/figure-html/barplot-shallow-inter-1.png" width="60%" style="display: block; margin: auto;" /&gt;
-
----
 
 .pull-left[
 &lt;img src="index_files/figure-html/mult-barplot-L-1.png" width="100%" style="display: block; margin: auto;" /&gt;
@@ -862,44 +837,23 @@ $$
 ---
 
 layout: false
-layout: true
 
-## Learning objectives revisited
-
----
-
---
+## Summary
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **(1)** What is a **factorial design?**
 - A design with multiple categorical predictors in which data is gathered for **every combination** of those predictors' levels.
-]
 
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **(2)** How do we estimate and interpret the effects of **multiple predictors?**
 - A predictor's `\(\beta\)` is the effect of that predictor *when the other predictor's value is 0*.
-]
 
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **(3)** How do we deal with situations when **one predictor's effect is different, depending on the value of the other predictor?**
 - We fit a model that contains an **interaction term** between those two predictors.
-]
 
----
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **(4)** How can such interactions between predictors be **built into our models?**
 - The interaction term is defined as the **product** of the two interacting predictors.
 - It gets its own `\(\beta\)` coefficient, which we estimate as usual.
-]
 
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **(5)** How do we **interpret model estimates** of interactions? 
 - The interaction term's `\(\beta\)` tells us **how much one predictor's effect changes between the baseline and non-baseline levels of the other**.
 - Interactions are symmetrical, and so they have two equivalent interpretations.
