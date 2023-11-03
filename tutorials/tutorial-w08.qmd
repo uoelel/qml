@@ -1,5 +1,5 @@
 ---
-title: "qml tutorial – Week 8"
+title: "QML tutorial – Week 8"
 execute: 
   cache: true
 ---
@@ -23,6 +23,20 @@ options(dplyr.summarise.inform = FALSE)
 
 my_seed <- 8878
 ```
+
+## Introduction
+
+::: callout-warning
+#### Important
+
+When working through these tutorials, always **make sure you are in the course RStudio Project** you just created.
+
+You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
+
+If you see `Project (none)` in the top-right corner, that means **you are not** in an RStudio Project.
+
+To make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
+:::
 
 This tutorial has two sections, and each will guide you through one example of an interaction between two binary variables. The first section revisits the morphological processing data from the lecture. The second section focuses on a different data set, this time with a continuous outcome. This analysis will require you to adapt the code from earlier in the tutorial, as well as recall from earlier weeks how to fit and interpret a Gaussian model.
 
@@ -57,15 +71,18 @@ shallow <- ...
 shallow <- read_csv("data/shallow.csv")
 ```
 
-Run the following code to filter this data frame for only the data we need for this example.
+Run the following code to filter this data frame to include only the data we need for this example.
 
 ```{r}
 #| label: filter-shallow
 shallow <- shallow %>% 
   filter(
     Group == "L1",
+    # We filter out filler items
     Critical_Filler == "Critical",
     RT > 0,
+    # Since NonConstituent trials have only left-branching,
+    # we filter them out
     Relation_type != "NonConstituent"
   )
 ```
@@ -125,8 +142,7 @@ A couple hints:
     -   and then `labeller = labeller(Branching = label_both)`.
 :::
 
-Notice that this plot reveals, among other things, a *difference of differences*: The difference between `Relation_type == Unrelated` and `Relation_Type == Constituent` is bigger when `Branching == Left`, and smaller when `Branching == Right`. **The only way to capture this difference of differences is to include an interaction between `Relation_type` and `Branching`.**
-
+Notice that this plot reveals, among other things, a *difference of differences*: The difference between [Relation_type = Unrelated] and [Relation_Type = Constituent] is bigger when [Branching == Left], and smaller when [Branching = Right]. **The only way to capture this difference of differences is to include an interaction between `Relation_type` and `Branching`.**
 
 ::: {.callout-important collapse="true" icon="false"}
 #### Extra: More on contrasts
@@ -139,7 +155,7 @@ The `contrasts()` function takes as its argument a factor, and returns the codin
 contrasts(shallow$Accuracy)
 ```
 
-Which level of `Accuracy`, our outcome variable, corresponds to a "success" in Bernoulli terms? How do we know? What does this mean for the estimates that the model will produce?
+Which level of `Accuracy`, our outcome variable, corresponds to a "success" in Bernoulli terms?
 
 #### `Relation_Type`
 
@@ -147,13 +163,13 @@ Which level of `Accuracy`, our outcome variable, corresponds to a "success" in B
 contrasts(shallow$Relation_type)
 ```
 
-Because we are using 0/1 treatment coding, `Relation_type`'s $\beta$ coefficient tells us the effect of moving from the baseline level to the non-baseline level. In this case, the baseline is `Unrelated`, coded as 0. This means that the $\beta$ coefficient will represent the estimated effect of moving from `Unrelated` to `Constituent`.
+Because we are using 0/1 treatment coding, `Relation_type`'s $\beta$ coefficient tells us the effect of going from the baseline level to the non-baseline level. In this case, the baseline is `Unrelated`, coded as 0. This means that the $\beta$ coefficient will represent the estimated effect of going from `Unrelated` to `Constituent`.
 
 In other words:
 
 -   `Relation_type`'s $\beta$ coefficient's 95% CrI will be mostly or entirely **positive** if greater accuracy is associated with `Relation_type == Constituent` than with `Relation_type == Unrelated`.
 -   Its $\beta$ coefficient's 95% CrI will be mostly or entirely **negative** if lower accuracy is associated with `Relation_type == Constituent` than with `Relation_type == Unrelated`.
--   Its $\beta$ coefficient's 95% CrI will be **centered around zero** if there is no clear association between accuracy and relation type.
+-   Its $\beta$ coefficient's 95% CrI will be **centred around zero** if there is no clear association between accuracy and relation type.
 
 Based on this information and on the bar plot above, do you expect that the coefficient's posterior distribution will be largely positive, negative, or around zero?
 
@@ -169,7 +185,7 @@ In other words:
 
 -   `Branching`'s $\beta$ coefficient's 95% CrI will be mostly or entirely **positive** if greater accuracy is associated with `Branching == Right` than with `Branching == Left`.
 -   Its $\beta$ coefficient's 95% CrI will be mostly or entirely **negative** if lower accuracy is associated with `Branching == Right` than with `Branching == Left`.
--   Its $\beta$ coefficient's 95% CrI will be **centered around zero** if there is no clear association between accuracy and branching.
+-   Its $\beta$ coefficient's 95% CrI will be **centred around zero** if there is no clear association between accuracy and branching.
 
 Again, based on this, what kind of expectations do you have about this coefficient's posterior distribution?
 :::
@@ -191,12 +207,13 @@ $$
 
 Try to understand what each line mean before moving on.
 
-We'll use `brm()` to fit a model called `acc_inter_bm`.
+We'll use `brm()` to fit a model saved to a variable called `acc_inter_bm`.
 
 -   The model formula should specify that we're predicting `Accuracy` as a function of `Relation_type`, `Branching`, and their interaction.
 -   Specify the correct family for the model as well as the data we'll draw on.
 -   Include `backend = "cmdstanr"`.
--   Finish off by saving the model file using `brm()`'s `file` argument.
+-   Specify a file path using `brm()`'s `file` argument so that the model fit will be saved.
+-   Specify a seed with the `seed` argument to ensure reproducibility. The seed can be any big number you wish!
 
 ```{r}
 #| label: shallow-fit-ex
@@ -229,17 +246,16 @@ The summary should look something like this (but don't worry if your numbers are
 summary(acc_inter_bm)
 ```
 
-
 ### Interpreting the interaction
 
 For predictors using treatment contrasts, a positive interaction coefficient represents a positive adjustment to one variable's effect, when we go from the reference of other variable to its other level (or in other words, when we compare the second level to the reference level). And a negative interaction coefficient represents a negative adjustment.
 
-As we observed in the lecture, the mean estimate of $-0.63$ we obtained in the model above suggests that:
+As we observed in the lecture, the mean estimate of the interaction term $-0.63$ we obtained in the model above suggests that:
 
--   There is on average a smaller effect of `Relation_type` in `Branching == Right` when compared to `Branching == Left` (the reference level); 
+-   There is on average a smaller effect of `Relation_type` in `Branching == Right` when compared to `Branching == Left` (the reference level);
 -   Or, equivalently, there is on average a smaller effect of `Branching` in `Relation_type == Constituent` when compared to `Relation_type == Unrelated` (the reference level).
 
-However, the 95% CrI of the interaction is $[-1.72, 0.42]$ which includes both negative and positive values. In other words, while it seems that a negative adjustment is more probable (the range of negative values in the interval is greater than the positive range), a positive adjustment is also possible. This suggests that based on the model, the direction of the interaction is quite uncertain.
+However, the 95% CrI of the interaction is $[-1.72, 0.42]$ which includes both negative and positive values. In other words, while it seems that a negative adjustment is more probable (the range of negative values in the interval is greater than the positive range), a positive adjustment is also possible. This suggests that based on the model, the direction of the interaction is uncertain.
 
 ### Conditional posterior probability distributions
 
@@ -253,12 +269,7 @@ acc_draws <- as_draws_df(acc_inter_bm)
 acc_draws
 ```
 
-Each column that begins with `b_` contains draws from the posterior probability distribution of each of our model's $\beta$ parameters (see **Extra: Draws** to learn more). Can you identify which column corresponds to which model coefficient?
-
-::: {.callout-important collapse="true" icon="false"}
-#### Extra: Draws
-The values in each column of the output of `as_draws_df()` are the values draws (Or, more accurately, each column contains a number of *draws* from the posterior distribution, as obtained by the MCMC sampling procedure.) that `summary()` summarises when it shows us the model's estimates.
-:::
+Each column that begins with `b_` contains draws from the posterior probability distribution of each of our model's $\beta$ parameters. Can you identify which column corresponds to which model coefficient?
 
 To know how to combine these columns to get the correct conditional posterior probability distributions, we have to reason about how the 0/1 treatment coding affects the presence or absence of the $\beta$s in the model equation, shown below:
 
@@ -291,19 +302,20 @@ acc_draws_cond <- acc_draws %>%
     Unrelated_Right = b_Intercept + b_BranchingRight,
     Constituent_Left = b_Intercept + b_Relation_typeConstituent,
     Constituent_Right = b_Intercept + b_BranchingRight + b_Relation_typeConstituent + `b_Relation_typeConstituent:BranchingRight`
-  ) %>% 
+  ) %>%
+  # Let's select only the newly created columns
   select(Unrelated_Left:Constituent_Right)
 
 acc_draws_cond
 ```
 
 ::: {.callout-note icon="false"}
-Note that, in `acc_draws`, the column name that corresponds to the interaction's $\beta$ contains `:`, which has a special meaning in R. (Try `nums <- 1:10` in the console). To avoid problems, we must wrap the column name using tick marks `` `b_Relation_typeConstituent:BranchingRight` ``.
+Note that, in `acc_draws`, the column name that corresponds to the interaction's $\beta$ contains a colon `:`, which has a special meaning in R. (Try `nums <- 1:10` in the console). To avoid problems, we must wrap the column name using tick marks `` `b_Relation_typeConstituent:BranchingRight` ``.
 :::
 
 Now the conditional posterior draws are almost ready to work with! There's just one more data-manipulation step left before we can compute summary statistics and create pretty plots.
 
-That step is to transform this data frame into "long" format using `pivot_longer()`. The goal is to change the data into a data frame with the following columns:
+That step is to transform this data frame into a "long" format using `pivot_longer()`. The goal is to change the data frame into a data frame with the following columns:
 
 -   `predictors`, with the combinations of levels (`Unrelated_Left`, `Unrelated_Rigth`, ...);
 -   `sampled_logodds`, with the posterior draws values.
@@ -315,7 +327,7 @@ acc_draws_cond_long <- acc_draws_cond %>%
   pivot_longer(
     # The range of columns to pivot:
     Unrelated_Left:Constituent_Right,
-    # Name the column that will contain the current headers:
+    # Name the column that will contain the current column names:
     names_to = "predictors",
     # Name the column that will contain the current values:
     values_to = "sampled_logodds"
@@ -325,7 +337,7 @@ acc_draws_cond_long
 
 Can you see how `acc_draws_cond_long` contains the same data as `acc_draws_cond`, but in a different layout?
 
-::: {.callout-tip}
+::: callout-tip
 #### Pivoting
 
 **Pivoting** is the process of reshaping a data frame so that either the number of columns increases and that of rows decreases (`pivot_wider()`), or, vice versa, the number of columns decreases and that of rows increases (`pivot_longer()`).
@@ -357,14 +369,14 @@ Nice!
 
 We are finally ready to summarise and plot these distributions.
 
-::: {.callout-note}
-When computing the conditional posterior probability distributions when the model involves non-linear transformations like `log()` or `logit()`, it is very important to do any addition/subtraction of draws before transforming the values back to their original scale.
+::: callout-note
+When computing the conditional posterior probability distributions when the model involves non-linear transformations like `log()` or `logit()`, it is very important to do any addition/subtraction of draws **before** transforming the values back to their original scale.
 
 If you were to first back-transform each individual $\beta$ and then add them together, for example, this would give you incorrect estimates.
 
-Try the following
+Try the following addition of two log-odds that are both `0`. The result of the sum is 0.5.
 
-```r
+``` r
 # Incorrect
 plogis(0) + plogis(0)
 
@@ -409,7 +421,7 @@ cat(capture.output(summary(acc_inter_bm))[8:13], sep = "\n")
 
 Yes! The intercept's `Estimate` matches the mean when `Relation_type == Unrelated` and `Branching == Left`, and the lower and upper bounds of the 95% CrI match as well.
 
-Now compute other CrI levels: 50%, 60, 75, and 85% (you have to work out which probabilities to use, given that for a 95% CrI we use 0.025 and 0.975).
+Now compute other CrI levels like 50%, 60, 75, or 85% (you have to work out which probabilities to use, given that for a 95% CrI we use 0.025 and 0.975).
 
 #### Plot multiple posterior densities
 
@@ -445,9 +457,43 @@ acc_draws_cond_long %>%
        fill = "Relation type")
 ```
 
-Give it a shot. Creating this kind of plot is really worth practicing, because these are exactly the kinds of plots you'll want to show in your reports and dissertations.
+Give it a shot. Creating this kind of plot is really worth practising, because these are exactly the kinds of plots you'll want to show in your reports and dissertations.
 
-OK, that's it for our first model! Now we'll turn to the second part of the tutorial: a more loosely-guided walkthrough of how to put a few different things you've learned so far into practice.
+### Reporting
+
+Here is the report from the lecture. Read through it and reason about each part.
+
+> We fitted a Bayesian linear model with response accuracy as the outcome variable, using a Bernoulli distribution as the distribution family of the outcome. We included the following predictors: prime relation type (unrelated vs constituent), branching (left vs right), and an interaction between the two. The predictors were coded using the default treatment contrasts and the reference level was set to the first level as indicated here.
+>
+> According to the model, we can be 95% confident that the probability of obtaining a correct response is between 67 and 80% when the relation type is unrelated and the word pair is left-branching ($\beta$ = 1.02, SD = 0.17, 95% CrI [0.69, 1.38]). When the relation type is unrelated and the word pair is right-branching, the probability of a correct response is between 90 and 97%, at 95% confidence ($\beta$ = 1.69, SD = 0.36, 95% CrI [1.04, 2.42]). Turning to the constituent relation type, the model suggests a probability of a correct response between 81 and 91% ($\beta$ = 1.02, SD = 0.17, 95% CrI [0.69, 1.38]). When the relation type is constituent and the word pair is right-branching, we can be 95% confident that the probability of a correct response is between 91 and 97% ($\beta$ = -0.63, SD = 0.55, 95% CrI [-1.72, 0.42]).
+>
+> As suggested by the 95% CrI of the interaction term (in log-odds [-1.72, 0.42]) for constituent relation type and right-branching pairs, there is quite a lot of uncertainty in relation to the difference in probability of correct response in unrelated vs constituent in right-branching pairs, since the interval covers both negative and positive values. Moreover, the conditional posterior probabilities of unrelated and right-branching on the one hand and constituent and right branching on the other are very similar, as can be seen in the plot above (and as suggested by the respective 95% CrIs: 90-97% vs 91-97% respectively).
+
+This is pretty much the minimum you should be reporting. Depending on the specific research question you could calculate conditional probabilities of the difference of other combinations (for example unrelated-right vs constituent-left). The sky is the limit!
+
+In a real-research context, you would also put in writing your interpretation of the results in relation to the research question. In this study, one of the questions was whether native speakers are sensitive to the morphological nature of words when confronted with a lexical decision task in which the target word was preceded by a prime.
+
+In here we focussed only on the unrelated and constituent relation types and on left and right-branching pairs in the native speakers. Based on the model results, we could further write the following.
+
+> Based on the current results, in the left-branching condition we find that the correct response rate is higher when the relation type is constituent relative to when it is unrelated. On the other hand, the results suggest that the correct response rate is very similar, if not identical, in the right-branching condition (with the caveat that there could still be a very small difference). The predicted difference in percentage points between unrelated and constituent relations in the right-branching condition is between -4 to +6 points at 95% probability. At 60% confidence, the difference is between -1 and +3 percent points. In sum, given the level of uncertainty in the estiamted difference, it is safer to conclude that more data is needed to estimate the difference with greater certainty.
+
+Here is how you can calculate the predicted difference in percentage points.
+
+```{r}
+#| label: ucr
+
+acc_draws_cond %>%
+  mutate(ucr = plogis(Constituent_Right) - plogis(Unrelated_Right)) %>%
+  summarise(
+    q95_lo = round(quantile2(ucr, probs = 0.025), 2),
+    q95_hi = round(quantile2(ucr, probs = 0.975), 2),
+    q60_lo = round(quantile2(ucr, probs = 0.2), 2),
+    q60_hi = round(quantile2(ucr, probs = 0.8), 2)
+  )
+```
+
+
+OK, that's it for our first model! Now we'll turn to the second part of the tutorial: a more loosely-guided walk-through of how to put a few different things you've learned so far into practice.
 
 ## Vowel duration in Italian and Polish
 
@@ -494,18 +540,15 @@ The model we'll build below will predict `v1_duration` as a function of `c2_phon
 
 ### Wrangle and plot the data
 
-What kinds of transformations and level re-orderings, if any, will we need to do to prepare the data for analysis?
+What kinds of transformations and level re-orderings, if any, will we need to do to prepare the data for analysis? Segment durations are numeric and continuous, but they are bounded to positive numbers only. Does this sound familiar? Remember what we did to reactions times?
 
-After you have prepared the data, make sure to create a few plots to see what the data looks like.
-
-
-
+After you have prepared the data and trasformed `v1_duration` appropriately, make sure to create a few plots to see what the data looks like.
 
 ### Some thinking
 
 Before fitting the model in the next section, try to answer the following questions based on what you have seen in the plots and based on the contrast coding of the predictors.
 
-1.  Which level of each predictor corresponds to the **reference level**?
+1.  Which level of each predictor corresponds to the **reference level**, assuming the default ordering?
 
 2.  Based on the plots above and on the contrast coding of `c2_phonation`, do you think the model's estimate for the coefficient of `c2_phonation` will be **positive, negative, or around zero?**
 
@@ -527,7 +570,8 @@ dur_bm <- brm(
 -   Use the appropriate model family.
 -   Tell the model which dataset to draw from.
 -   Use cmdstanr as the backend.
--   Save the model to a file.
+-   Specify a file path to save the model to.
+-   Specify a seed.
 
 ```{r}
 #| label: dur-fit
@@ -554,7 +598,7 @@ How does this line up with your answers to the questions above?
 
 Here, the interaction coefficient 95% CrI is estimated to be [-0.05, 0.07].
 
-This CrI is basically centered around zero, with near-equal probability assigned to both negative and positive values. This means that we can't be certain about the direction of the interaction's effect, or even whether there is an interaction at all.
+This CrI is basically centred around zero, with near-equal probability assigned to both negative and positive values. This means that we can't be certain about the direction of the interaction's effect, or even whether there is an interaction at all (i.e. the interaction coefficient is 0).
 
 Also, note how small the values in the 95% CrI are compared to the other coefficient, another sign that perhaps the interaction is very small and practically 0.
 
@@ -574,7 +618,7 @@ Your data frame should have three columns: `c2_phonation`, `language`, and whate
 
 Using this data, compute the mean and 95% CrIs of the conditional posterior probability distributions for every combination of `c2_phonation` and `language`, and create density plots.
 
-These conditional posterior probability distributions are going to be in logs, because we log-transformed the durations to make them modellable as Gaussian. So, like the way we back-transformed the log-odds into probabilities above using `plogis()`, you'll also want to back-transform the log(ms) into ms by using the inverse of the `log()` function, which is `exp()`.
+These conditional posterior probability distributions are going to be in logs, because we log-transformed the durations to make them more Gaussian so that we could use a Gaussian distribution as the outcome family. So, like the way we back-transformed the log-odds into probabilities above using `plogis()`, you'll also want to back-transform the log(ms) into ms by using the inverse of the `log()` function, which is `exp()`.
 
 ## Summary
 
@@ -585,7 +629,7 @@ These conditional posterior probability distributions are going to be in logs, b
 
 -   For treatment-coded variables A and B, a positive interaction coefficient represents a positive adjustment (i.e., an addition) to variable A's effect, when we compare variable B's reference level to its otther level. And a negative interaction coefficient represents a negative adjustment (i.e., a subtraction).
 
-- Null results (when a coefficient is practically 0) are still interpretable and valid results.
+-   Null results (when a coefficient is practically 0) are still interpretable and valid results.
 
 **Data processing and visualisation**
 
