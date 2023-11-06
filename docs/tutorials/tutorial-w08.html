@@ -328,7 +328,7 @@ Unrelated             0
 Constituent           1</code></pre>
 </div>
 </div>
-<p>Because we are using 0/1 treatment coding, <code>Relation_type</code>’s <span class="math inline">\(\beta\)</span> coefficient tells us the effect of going from the baseline level to the non-baseline level. In this case, the baseline is <code>Unrelated</code>, coded as 0. This means that the <span class="math inline">\(\beta\)</span> coefficient will represent the estimated effect of going from <code>Unrelated</code> to <code>Constituent</code>.</p>
+<p>Because we are using 0/1 treatment coding, <code>Relation_type</code>’s <span class="math inline">\(\beta\)</span> coefficient tells us the effect of going from the reference level to the non-reference level. In this case, the reference is <code>Unrelated</code>, coded as 0. This means that the <span class="math inline">\(\beta\)</span> coefficient will represent the estimated effect of going from <code>Unrelated</code> to <code>Constituent</code>.</p>
 <p>In other words:</p>
 <ul>
 <li><code>Relation_type</code>’s <span class="math inline">\(\beta\)</span> coefficient’s 95% CrI will be mostly or entirely <strong>positive</strong> if greater accuracy is associated with <code>Relation_type == Constituent</code> than with <code>Relation_type == Unrelated</code>.</li>
@@ -347,7 +347,7 @@ Left      0
 Right     1</code></pre>
 </div>
 </div>
-<p>Here, the baseline is <code>Left</code>, so the <span class="math inline">\(\beta\)</span> for <code>Branching</code> will represent the estimated effect of moving from <code>Left</code> to <code>Right</code>.</p>
+<p>Here, the reference is <code>Left</code>, so the <span class="math inline">\(\beta\)</span> for <code>Branching</code> will represent the estimated effect of moving from <code>Left</code> to <code>Right</code>.</p>
 <p>In other words:</p>
 <ul>
 <li><code>Branching</code>’s <span class="math inline">\(\beta\)</span> coefficient’s 95% CrI will be mostly or entirely <strong>positive</strong> if greater accuracy is associated with <code>Branching == Right</code> than with <code>Branching == Left</code>.</li>
@@ -373,7 +373,7 @@ logit(p) &amp; = \beta_0 + (\beta_1 \times relation) + (\beta_2 \times branch) +
 \beta_3 &amp; \sim Gaussian(\mu_3, \sigma_3) \\
 \end{aligned}
 \]</span></p>
-<p>Try to understand what each line mean before moving on.</p>
+<p>Try to understand what each line means before moving on.</p>
 <p>We’ll use <code>brm()</code> to fit a model saved to a variable called <code>acc_inter_bm</code>.</p>
 <ul>
 <li>The model formula should specify that we’re predicting <code>Accuracy</code> as a function of <code>Relation_type</code>, <code>Branching</code>, and their interaction.</li>
@@ -496,7 +496,7 @@ Note
 <p>Now the conditional posterior draws are almost ready to work with! There’s just one more data-manipulation step left before we can compute summary statistics and create pretty plots.</p>
 <p>That step is to transform this data frame into a “long” format using <code>pivot_longer()</code>. The goal is to change the data frame into a data frame with the following columns:</p>
 <ul>
-<li><code>predictors</code>, with the combinations of levels (<code>Unrelated_Left</code>, <code>Unrelated_Rigth</code>, …);</li>
+<li><code>predictors</code>, with the combinations of levels (<code>Unrelated_Left</code>, <code>Unrelated_Right</code>, …);</li>
 <li><code>sampled_logodds</code>, with the posterior draws values.</li>
 </ul>
 <div class="cell" data-hash="tutorial-w08_cache/html/acc-pivot_49d2acdc55a648ea4603abdd85de0886">
@@ -573,7 +573,7 @@ Note
 <div class="callout-body-container callout-body">
 <p>When computing the conditional posterior probability distributions when the model involves non-linear transformations like <code>log()</code> or <code>logit()</code>, it is very important to do any addition/subtraction of draws <strong>before</strong> transforming the values back to their original scale.</p>
 <p>If you were to first back-transform each individual <span class="math inline">\(\beta\)</span> and then add them together, for example, this would give you incorrect estimates.</p>
-<p>Try the following addition of two log-odds that are both <code>0</code>. The result of the sum is 0.5.</p>
+<p>Try the following addition of two log-odds that are both <code>0</code>. The correct result is 0.5.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorrect</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plogis</span>(<span class="dv">0</span>) <span class="sc">+</span> <span class="fu">plogis</span>(<span class="dv">0</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -608,7 +608,7 @@ Note
 </div>
 </div>
 <p>A good sense check to make sure that we did this computation correctly is to compare it to the output of <code>summary()</code>. Because <code>summary()</code> also computes summary measures using precisely those same posterior draws, we can compare the numbers in the model summary and in <code>acc_cond_summ</code>.</p>
-<p>Specifically, in the model summary, the estimates for <code>Intercept</code> should match the summary measures here for <code>Relation_type == Unrelated</code> and <code>Branching == Left</code> (since those are the two baseline levels).</p>
+<p>Specifically, in the model summary, the estimates for <code>Intercept</code> should match the summary measures here for <code>Relation_type == Unrelated</code> and <code>Branching == Left</code> (since those are the two reference levels).</p>
 <p>Let’s have a look:</p>
 <div class="cell" data-hash="tutorial-w08_cache/html/acc-summ-fixef_a9df1163d90d762bd9ce288e8bbe8139">
 <div class="cell-output cell-output-stdout">
@@ -812,7 +812,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p><strong>Modelling</strong></p>
 <ul>
 <li><p>A model that contains interactions is able to estimate a difference in the effect of one predictor between levels of another.</p></li>
-<li><p>For treatment-coded variables A and B, a positive interaction coefficient represents a positive adjustment (i.e., an addition) to variable A’s effect, when we compare variable B’s reference level to its otther level. And a negative interaction coefficient represents a negative adjustment (i.e., a subtraction).</p></li>
+<li><p>For treatment-coded variables A and B, a positive interaction coefficient represents a positive adjustment (i.e., an addition) to variable A’s effect, when we compare variable B’s reference level to its other level. And a negative interaction coefficient represents a negative adjustment (i.e., a subtraction).</p></li>
 <li><p>Null results (when a coefficient is practically 0) are still interpretable and valid results.</p></li>
 </ul>
 <p><strong>Data processing and visualisation</strong></p>

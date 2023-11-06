@@ -163,7 +163,7 @@ Which level of `Accuracy`, our outcome variable, corresponds to a "success" in B
 contrasts(shallow$Relation_type)
 ```
 
-Because we are using 0/1 treatment coding, `Relation_type`'s $\beta$ coefficient tells us the effect of going from the baseline level to the non-baseline level. In this case, the baseline is `Unrelated`, coded as 0. This means that the $\beta$ coefficient will represent the estimated effect of going from `Unrelated` to `Constituent`.
+Because we are using 0/1 treatment coding, `Relation_type`'s $\beta$ coefficient tells us the effect of going from the reference level to the non-reference level. In this case, the reference is `Unrelated`, coded as 0. This means that the $\beta$ coefficient will represent the estimated effect of going from `Unrelated` to `Constituent`.
 
 In other words:
 
@@ -179,7 +179,7 @@ Based on this information and on the bar plot above, do you expect that the coef
 contrasts(shallow$Branching)
 ```
 
-Here, the baseline is `Left`, so the $\beta$ for `Branching` will represent the estimated effect of moving from `Left` to `Right`.
+Here, the reference is `Left`, so the $\beta$ for `Branching` will represent the estimated effect of moving from `Left` to `Right`.
 
 In other words:
 
@@ -205,7 +205,7 @@ logit(p) & = \beta_0 + (\beta_1 \times relation) + (\beta_2 \times branch) + (\b
 \end{aligned}
 $$
 
-Try to understand what each line mean before moving on.
+Try to understand what each line means before moving on.
 
 We'll use `brm()` to fit a model saved to a variable called `acc_inter_bm`.
 
@@ -317,7 +317,7 @@ Now the conditional posterior draws are almost ready to work with! There's just 
 
 That step is to transform this data frame into a "long" format using `pivot_longer()`. The goal is to change the data frame into a data frame with the following columns:
 
--   `predictors`, with the combinations of levels (`Unrelated_Left`, `Unrelated_Rigth`, ...);
+-   `predictors`, with the combinations of levels (`Unrelated_Left`, `Unrelated_Right`, ...);
 -   `sampled_logodds`, with the posterior draws values.
 
 ```{r}
@@ -374,7 +374,7 @@ When computing the conditional posterior probability distributions when the mode
 
 If you were to first back-transform each individual $\beta$ and then add them together, for example, this would give you incorrect estimates.
 
-Try the following addition of two log-odds that are both `0`. The result of the sum is 0.5.
+Try the following addition of two log-odds that are both `0`. The correct result is 0.5.
 
 ``` r
 # Incorrect
@@ -408,7 +408,7 @@ acc_cond_summ
 
 A good sense check to make sure that we did this computation correctly is to compare it to the output of `summary()`. Because `summary()` also computes summary measures using precisely those same posterior draws, we can compare the numbers in the model summary and in `acc_cond_summ`.
 
-Specifically, in the model summary, the estimates for `Intercept` should match the summary measures here for `Relation_type == Unrelated` and `Branching == Left` (since those are the two baseline levels).
+Specifically, in the model summary, the estimates for `Intercept` should match the summary measures here for `Relation_type == Unrelated` and `Branching == Left` (since those are the two reference levels).
 
 Let's have a look:
 
@@ -627,7 +627,7 @@ These conditional posterior probability distributions are going to be in logs, b
 
 -   A model that contains interactions is able to estimate a difference in the effect of one predictor between levels of another.
 
--   For treatment-coded variables A and B, a positive interaction coefficient represents a positive adjustment (i.e., an addition) to variable A's effect, when we compare variable B's reference level to its otther level. And a negative interaction coefficient represents a negative adjustment (i.e., a subtraction).
+-   For treatment-coded variables A and B, a positive interaction coefficient represents a positive adjustment (i.e., an addition) to variable A's effect, when we compare variable B's reference level to its other level. And a negative interaction coefficient represents a negative adjustment (i.e., a subtraction).
 
 -   Null results (when a coefficient is practically 0) are still interpretable and valid results.
 
