@@ -3,7 +3,7 @@ title: "Quantitative Methods for LEL"
 subtitle: "Week 9 - Continuous predictors and interactions"
 author: "Elizabeth Pankratz and Stefano Coretta"
 institute: "University of Edinburgh"
-date: "2023/03/21"
+date: "2023/11/14"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -54,80 +54,11 @@ build <- function(){
 }
 ```
 
-class: center middle reverse
-
-# Please fill out today's attendance form:
-
-`https://forms.office.com/e/NC24KPHgRv`
-
-![:scale 30%](imgs/qr.png)
-
-<!-- .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[ -->
-<!-- We will focus on **accuracy** (correct identification of real word: **correct/incorrect**) for L1 participants. ]-->
-
----
-layout: false
-layout: true
-
-## Summary from last time
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/6548ccc4fb81c902774a7e58" width="100%"></iframe>
 
 ---
 
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(1)** What is a **factorial design?**
-- A design with multiple categorical predictors in which data is gathered for **every combination** of those predictors' levels.
-]
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(2)** How do we estimate and interpret the effects of **multiple predictors?**
-- A predictor's $\beta$ is the effect of that predictor *when the other predictor's value is 0*.
-]
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(3)** How do we deal with situations when **one predictor's effect is different, depending on the value of the other predictor?**
-- We fit a model that contains an **interaction term** between those two predictors.
-]
-
----
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(4)** How can such interactions between predictors be **built into our models?**
-- The interaction term is defined as the **product** of the two interacting predictors.
-- It gets its own $\beta$ coefficient, which we estimate as usual.
-]
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(5)** How do we **interpret model estimates** of interactions? 
-- The interaction term's $\beta$ tells us **how much one predictor's effect changes between the baseline and non-baseline levels of the other**.
-- Interactions are symmetrical, and so they have two equivalent interpretations.
-]
-
----
-layout:false
-
-## Three learning objectives for today
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(1)** How do we model predictors that aren't categorical, but **continuous?**
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(2)** How do we **interpret model estimates** for continuous predictors?
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**(3)** How do we fit and interpret **interactions involving continuous predictors?**
-]
-
----
-
-## Up to now: Categorical predictors, numerically coded
+## Categorical predictors, numerically coded
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
@@ -143,7 +74,7 @@ Categorical predictors from earlier in the course:
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
-**To make these predictors modellable,** we treatment-coded them using 0s and 1s.
+**To be able to model these predictors,** the model codes them as 0/1s using the (default) treatment contrasts.
 
 ]
 
@@ -161,37 +92,27 @@ But, consequence: interpreting the model's estimates is a little different.
 
 ---
 
-## Examples of continuous predictors
+layout: true
+
+## Continuous predictors
+
+---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
-- **reaction time** in milliseconds
+- **Reaction time** in milliseconds.
 
-- **age** in years
+- **Age** in years.
 
-- **speech rate** in syllables per second
+- **Speech rate** in syllables per second.
+
+- **Friendliness ratings** on a 0-100 scale.
 
 ]
 
 ---
-layout: true
 
-## How to interpret estimates from a continuous predictor?
-
----
-
---
-
-### A little excursion into math from school...
-
---
-
-<!-- Our linear expressions so far: -->
-
-<!-- .f3[ -->
-<!-- $$ y = \beta_0 + \beta_1 \cdot x  $$] -->
-
-The basic equation for a line:
+The basic **equation for a line**:
 
 .f3[
 $$
@@ -206,9 +127,10 @@ $$
 y: &~~~ \text{outcome variable} \\
 b: &~~~ \text{intercept} \\
 m: &~~~ \text{slope} \\
-x: &~~~ \text{input variable} \\
+x: &~~~ \text{predictor variable} \\
 \end{aligned}
 $$
+
 <br>
 
 --
@@ -352,15 +274,10 @@ p_pos_slope +
 
 
 ---
-layout:false
-
-## So what?
-
---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
-Our linear models have the same form as the lines we saw in school.
+Our linear models have the same form as the lines we just saw.
 
 $$
 \begin{aligned}
@@ -377,7 +294,7 @@ $$
 
 $\beta_0$ corresponds to the line's $y$-intercept:
 
-**The outcome value when the input value (i.e., the predictor) equals zero.**
+**The outcome value when the predictor equals zero.**
 
 ]
 
@@ -392,8 +309,6 @@ And $\beta_1$ has the same interpretation as $m$:
 ]
 
 ---
-
-## Interpreting model estimates: A comparison
 
 .pull-left[
 .center[
@@ -418,7 +333,7 @@ And $\beta_1$ has the same interpretation as $m$:
 **Intercept ( $\beta_0$ ):**
 
 - Estimated value of the outcome when predictor(s) equal to zero. 
-  - i.e., **at predictor's baseline/reference level**.
+  - i.e., **at predictor's reference level**.
 ]
 ]
 
@@ -429,8 +344,8 @@ And $\beta_1$ has the same interpretation as $m$:
 **Intercept ( $\beta_0$ ):**
 
 - Estimated value of the outcome when predictor(s) equal to zero. 
-  - **on the predictor's scale**, e.g., <br> 0 ms, 0 lbs, 0 metres.
-  <!-- - or if centered: 0 = the predictor's mean -->
+  - **on the predictor's scale**, e.g., <br> 0 ms, 0 kg, 0 metres.
+  <!-- - or if centred: 0 = the predictor's mean -->
 ]
 ]
 
@@ -440,7 +355,7 @@ And $\beta_1$ has the same interpretation as $m$:
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **Effects (other $\beta$s):**
 
-- Difference between estimated value of the outcome when predictor = 0 and when predictor = 1.
+- **Difference** between estimated value of the outcome when predictor = 0 (reference level) and when predictor = 1 (other level).
 ]
 ]
 
@@ -450,13 +365,13 @@ And $\beta_1$ has the same interpretation as $m$:
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **Effects (other $\beta$s):**
 
-- Difference between estimated value of the outcome **for one unit increase in predictor's value**.
+- Difference between estimated value of the outcome **for one unit change in predictor's value**.
 ]
 ]
 
 ---
 
-## "Difference in outcome for one unit increase"?
+**Difference in outcome for one unit change**
 
 --
 
@@ -465,6 +380,7 @@ $$
 $$
 
 --
+
 <br>
 
 $$
@@ -478,7 +394,6 @@ $$
 $$\vdots$$
 
 --
-<br>
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
@@ -491,7 +406,7 @@ $$\vdots$$
 
 ---
 
-## Let's build a model predicting vowel duration<br> by speech rate (from `dur-ita-pol.csv`)
+Let's build a model predicting vowel duration by speech rate (from `dur-ita-pol.csv`)
 
 ```{r read-data}
 dur_ita_pol <- read_csv('data/dur-ita-pol.csv') %>% 
@@ -500,8 +415,6 @@ dur_ita_pol <- read_csv('data/dur-ita-pol.csv') %>%
   )
 ```
 
-
---
 
 .pull-left[
 
@@ -531,8 +444,6 @@ dur_ita_pol %>%
 
 ---
 
-## Log vowel duration ~ Speech rate
-
 ```{r scatter-dur-sr}
 (p_dur_sr <- dur_ita_pol %>% 
    ggplot(aes(x = speech_rate, y = log_v1_dur)) +
@@ -551,23 +462,16 @@ The faster you talk, the shorter your vowels are gonna be.
 
 ---
 
-## The model we'll fit
-
-<br><br>
-
-.f3[
 $$
 \begin{aligned}
 log(duration) &\sim Gaussian(\mu, \sigma)\\
-\mu &= \beta_0 + \beta_1 \cdot speechrate \\
+\mu &= \beta_0 + \beta_1 \cdot speech\_rate \\
 \beta_0 &\sim Gaussian(\mu_0, \sigma_0)\\
 \beta_1 &\sim Gaussian(\mu_1, \sigma_1)\\
 \sigma &\sim TruncGaussian(\mu_2, \sigma_2)
 \end{aligned}
 $$
-]
 
----
 
 ```{r fit1, echo = TRUE}
 dur_sr_bm <- brm(
@@ -580,7 +484,7 @@ dur_sr_bm <- brm(
 ```
 
 
---
+---
 
 ```{r fit1-summ, echo = TRUE}
 summary(dur_sr_bm)
@@ -589,8 +493,6 @@ summary(dur_sr_bm)
 
 
 ---
-
-## Interpreting $\beta_0$ and $\beta_1$
 
 ```{r fit1-summ2}
 cat(capture.output(summary(dur_sr_bm))[8:12], sep = "\n")
@@ -602,11 +504,11 @@ cat(capture.output(summary(dur_sr_bm))[8:12], sep = "\n")
 
 **`Intercept`, a.k.a. $\beta_0$:**
 
-- The mean log vowel duration when speech rate is equal to zero is 5.88 (95% CrI: [5.78, 5.99]).
+- The logged vowel duration when speech rate is equal to zero is between 5.78 and 5.99 log-ms (324-399 ms), at 95% probability.
 
 **`speech_rate`, a.k.a. $\beta_1$:**
 
-- For one unit change in speech rate, log vowel duration changes by –0.24 (95% CrI: [–0.26, –0.22]).
+- For one unit change in speech rate, logged vowel duration changes by –0.22 to -0.26 log-ms, at 95% probability.
 
 ]
 
@@ -621,8 +523,6 @@ cat(capture.output(summary(dur_sr_bm))[8:12], sep = "\n")
 
 ---
 
-## A speech rate of zero is far outside the data observed
-
 ```{r scatter-dur-sr-vline}
 p_dur_sr +
   geom_vline(xintercept = 0, 
@@ -632,18 +532,18 @@ p_dur_sr +
 
 ---
 
-## To interpret the intercept more sensibly:<br> Centre `speech_rate`
+layout: false
+layout: true
+
+## Centring continous predictors
+
+---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
-To centre a variable means to **transform it so that the mean of the centered version is zero.**
-]
+To centre a variable means to **transform it so that the mean of the centred version is zero.**
 
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-
-How?
+And, **conversely**, zero in the centred variable corresponds to the mean of the non-centred variable.
 ]
 
 --
@@ -662,16 +562,15 @@ dur_ita_pol <- dur_ita_pol %>%
 
 ---
 
-## How does the centered version compare to the original?
-
 .pull-left[
 
 ```{r scatter-dur-sr-2, out.width = "100%"}
 p_dur_sr +
-  labs(title = 'Speech rate is not centered')
+  geom_vline(xintercept = round(mean(dur_ita_pol$speech_rate), 2), colour = "red") +
+  labs(title = 'Speech rate is not centred')
 ```
 
-```{r mean-noncentered, echo = TRUE}
+```{r mean-noncentred, echo = TRUE}
 round(mean(dur_ita_pol$speech_rate), 2)
 ```
 
@@ -682,16 +581,17 @@ round(mean(dur_ita_pol$speech_rate), 2)
 ```{r scatter-dur-sr-3, out.width = "100%"}
 dur_ita_pol %>% 
    ggplot(aes(x = speech_rate_c, y = log_v1_dur)) +
+  geom_vline(xintercept = 0, colour = "red") +
    geom_point() +
    labs(
-     x = 'Centered speech rate (syllables/sec)',
+     x = 'centred speech rate (syllables/sec)',
      y = 'Vowel duration (log ms)',
-     title = 'Speech rate is centered'
+     title = 'Speech rate is centred'
    ) +
    NULL
 ```
 
-```{r mean-centered, echo = TRUE}
+```{r mean-centred, echo = TRUE}
 round(mean(dur_ita_pol$speech_rate_c))
 ```
 
@@ -722,10 +622,6 @@ summary(dur_sr_c_bm)
 
 ---
 
-
-
-## Interpreting the new $\beta_0$ and $\beta_1$ after centering
-
 ```{r fit2-summ2}
 cat(capture.output(summary(dur_sr_c_bm))[8:12], sep = "\n")
 ```
@@ -736,13 +632,13 @@ cat(capture.output(summary(dur_sr_c_bm))[8:12], sep = "\n")
 
 **`Intercept`, a.k.a. $\beta_0$:**
 
-- When centered speech rate is equal to zero, **i.e., when speech rate is at its mean value,** <br> the mean log vowel duration is 4.59 (95% CrI: [4.58, 4.61]).
+- When centred speech rate is equal to zero, **i.e., when speech rate is at its mean value of `r round(mean(dur_ita_pol$speech_rate_c))`,** <br> the log vowel duration is between 4.58 and 4.61 (98-100 ms).
 
-  - Before, uncentered: $\beta_0$ = 5.88 (95% CrI: [5.78, 5.99]).
+  - Before, uncentred: $\beta_0$ = 5.88 (95% CrI: [5.78, 5.99]).
 
 **`speech_rate_c`, a.k.a. $\beta_1$**, is the same as before:
 
-- For one unit change in speech rate, log vowel duration changes by –0.24 (95% CrI: [–0.26, –0.22]).
+- For one unit change in speech rate, logged vowel duration changes by –0.22 to -0.26 log-ms, at 95% probability.
 
 ]
 
@@ -750,7 +646,7 @@ cat(capture.output(summary(dur_sr_c_bm))[8:12], sep = "\n")
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
 
-**Centering continuous variables is pretty much always a good idea** to ease interpretation of the intercept.
+**Centring continuous predictors is pretty much always a good idea** to ease interpretation of the intercept.
 
 ]
 
@@ -761,14 +657,15 @@ Not going to show mathematical formulation of model with priors filled in—peop
 Also not going to do the conditional posterior probability distribs—doesn't fit narratively.
 
 ---
-class: center middle reverse
 
-# Part 2: Interactions <br> involving a continuous predictor
+layout: false
+layout: true
+
+## Interactions: continuous * categorical
 
 ---
-## Speech rate * Italian vowels "a" and "o" 
 
---
+**Speech rate * Italian vowels /a/ and /o/**
 
 ```{r dur-ita}
 dur_ita <- dur_ita_pol %>% 
@@ -800,7 +697,7 @@ dur_ita %>%
   geom_point() +
   geom_smooth(method = 'lm') +
   labs(
-    x = 'Centered speech rate (syll/sec)',
+    x = 'centred speech rate (syll/sec)',
     y = 'Vowel duration (log ms)'
   )
 ```
@@ -813,7 +710,7 @@ dur_ita %>%
   geom_point() +
   geom_smooth(method = 'lm') +
   labs(
-    x = 'Centered speech rate (syll/sec)',
+    x = 'centred speech rate (syll/sec)',
     y = 'Vowel duration (log ms)'
   ))
 ```
@@ -825,15 +722,10 @@ say out loud somewhere in here that "a" = 0, "o" = 1.
 
 ---
 
-## The model we'll fit
-
-<br><br>
-
-.f4[
 $$
 \begin{aligned}
 log(duration) &\sim Gaussian(\mu, \sigma)\\
-\mu &= \beta_0 + (\beta_1 \cdot speechrate) + (\beta_2 \cdot vowel) + (\beta_3 \cdot speechrate \cdot vowel) \\
+\mu &= \beta_0 + (\beta_1 \cdot speechrate) + (\beta_2 \cdot vowel_o) + (\beta_3 \cdot speechrate \cdot vowel_o) \\
 \beta_0 &\sim Gaussian(\mu_0, \sigma_0)\\
 \beta_1 &\sim Gaussian(\mu_1, \sigma_1)\\
 \beta_2 &\sim Gaussian(\mu_2, \sigma_2)\\
@@ -841,9 +733,8 @@ log(duration) &\sim Gaussian(\mu, \sigma)\\
 \sigma &\sim TruncGaussian(\mu_4, \sigma_4)
 \end{aligned}
 $$
-]
 
----
+<br>
 
 ```{r fit3, echo = TRUE}
 dur_sr_vow_bm <- brm(
@@ -854,7 +745,7 @@ dur_sr_vow_bm <- brm(
 )
 ```
 
---
+---
 
 ```{r fit3-summ, echo = TRUE}
 summary(dur_sr_vow_bm)
@@ -863,39 +754,30 @@ summary(dur_sr_vow_bm)
 
 ---
 
-## How to report `Intercept` ( $\beta_0$ )
-
 ```{r fit3-summ2}
 cat(capture.output(summary(dur_sr_vow_bm))[8:13], sep = "\n")
 ```
-
-<br>
---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
 **`Intercept`**, a.k.a. $\beta_0$:
 
-- When centered speech rate is at its mean of zero and when the vowel is "a" (coded as zero), <br> the mean log vowel duration is 4.79 (95% CrI: [4.77, 4.81]).
+- **When centred speech rate is 0 and when the vowel is /a/** (reference level), the log vowel duration is between 4.77 and 4.81, at 95% confidence (`\(\beta\)` = 4.79, SD = 0.01).
 
 ]
 
 ---
 
-## How to report `speech_rate_c` ( $\beta_1$ ), `vowelo` ( $\beta_2$ )
-
 ```{r fit3-summ3}
 cat(capture.output(summary(dur_sr_vow_bm))[8:13], sep = "\n")
 ```
 
-<br>
---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
 **`speech_rate_c`**, a.k.a. $\beta_1$:
 
-- When the vowel is "a" (coded as zero), when speech rate increases by one syllable/second, <br> the change in the mean log vowel duration is –0.26 (95% CrI: [–0.29, –0.24]).
+- **When the vowel is /a/ (reference), for each unit increase in speech rate**, the log vowel duration changes between –0.24 and -0.29, at 95% probability (`\(\beta\)` = -0.26, SD = 0.01).
 
 ]
 
@@ -905,34 +787,29 @@ cat(capture.output(summary(dur_sr_vow_bm))[8:13], sep = "\n")
 
  **`vowelo`**, a.k.a. $\beta_2$:
 
-- With centered speech rate at its mean of zero, when changing from the vowel "a" to the vowel "o", <br> the change in the mean log vowel duration is –0.04 (95% CrI: [–0.07, –0.01]).
+- **When centred speech rate is 0 (i.e. when speech rate is at its mean, `r round(mean(dur_ita_pol$speech_rate), 2)`), when going from /a/ to /o/**, the change in log vowel duration is between -0.07 and -0.01 at 95% confidence (`\(\beta\)` = –0.04, SD = 0.02).
 
 ]
-
----
-layout: true
-
-## How to report `speech_rate_c:vowelo` ( $\beta_3$ )
 
 ---
 
 ```{r fit3-summ4}
 cat(capture.output(summary(dur_sr_vow_bm))[8:13], sep = "\n")
 ```
+
 <br>
---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **`speech_rate_c:vowelo`**, a.k.a. $\beta_3$, interpretation 1:
 
-- When we move from the vowel "a" (baseline) to "o" (non-baseline), there is a positive adjustment <br> to the effect of speech rate of 0.04 (95% CrI [0, 0.07]).
+- **When we go from /a/ to /o/, the effect of speech rate** increases by 0 to 0.07 at 95% confidence (`\(\beta\)` = 0.04, SD = 0.02).
 
 ]
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **`speech_rate_c:vowelo`**, a.k.a. $\beta_3$, interpretation 2:
 
-- When we increase the speech rate by one syllable/second, there is a positive adjustment <br> to the effect of the vowel of 0.04 (95% CrI [0, 0.07]).
+- **When we increase speech rate by one syllable/second, the difference between /o/ and /a/** increases by 0 to 0.07 at 95% probability (`\(\beta\)` = 0.04, SD = 0.02).
 ]
 
 ---
@@ -948,52 +825,52 @@ p_dur_ita
 .pull-right[
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**1: Positive adjustment to effect of speech rate when vowel "a" $\rightarrow$ "o"**
+**1: No or small positive adjustment to effect of speech rate in /o/ relative to /a/**
 - The effect of `speech_rate_c` is negative, so a positive adjustment brings the effect closer to zero.
-- **The slope (effect) when vowel = "o" is a bit weaker than for "a".**
+- **The speech rate effect for /o/ might be a bit weaker than for /a/.**
 ]
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
-**2: Positive adjustment to effect of vowel when speech rate increases**
+**2: No or small positive adjustment to effect of vowel when speech rate increases**
 - The effect of `vowel` is negative, so a positive adjustment brings the effect closer to zero.
-- **As speech rate increases, the difference (effect) between "a" and "o" decreases.**
+- **As speech rate increases, the difference between /a/ and /o/ decreases.**
 
 ]
 
 ]
 
 ---
+
 layout: false
 layout: true
 
-## Conditional posterior probability distributions<br> of log vowel duration
+## Conditional posterior probability distributions
 
 ---
-
---
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
 With continuous variables, we can **choose a few representative values** to compute conditional posterior distributions for. 
-Here, we'll do:
+Here, we'll do (remember that speech rate is *centred*, so 0 is the mean speech rate `r round(mean(dur_ita_pol$speech_rate), 2)`):
 
   - $-1$: one syllable/second below mean
-  - $0$: mean
+  - $0$: mean (`r round(mean(dur_ita_pol$speech_rate), 2)`)
   - $1$: one syllable/second above mean
 
 ]
 
 <br>
+
 --
 
 $$
 \begin{aligned}
-\text{Speech rate = –1, vowel = “a”:}   && \beta_0 &+ (\beta_1 \cdot -1) + (\beta_2 \cdot 0) + (\beta_3 \cdot 0) &&= \beta_0 - \beta_1 &\\
-\text{Speech rate = –1, vowel = “o”:}  && \beta_0 &+ (\beta_1 \cdot -1) + (\beta_2 \cdot 1) + (\beta_3 \cdot -1) &&= \beta_0 - \beta_1 + \beta_2 - \beta_3 &\\
-\text{Speech rate = 0, vowel = “a”:}     && \beta_0 &+ (\beta_1 \cdot 0) + (\beta_2 \cdot 0) + (\beta_3 \cdot 0) &&= \beta_0  &\\
-\text{Speech rate = 0, vowel = “o”:}    && \beta_0 &+ (\beta_1 \cdot 0) + (\beta_2 \cdot 1) + (\beta_3 \cdot 0) &&= \beta_0 + \beta_2 &\\
-\text{Speech rate = 1, vowel = “a”:}   && \beta_0 &+ (\beta_1 \cdot 1) + (\beta_2 \cdot 0) + (\beta_3 \cdot 0) &&= \beta_0 + \beta_1 &\\
-\text{Speech rate = 1, vowel = “o”:}  && \beta_0 &+ (\beta_1 \cdot 1) + (\beta_2 \cdot 1) + (\beta_3 \cdot 1) &&= \beta_0 + \beta_1 + \beta_2 + \beta_3 &\\
+\text{Cent Speech rate = –1, vowel = /a/:}   && \beta_0 &+ (\beta_1 \cdot -1) + (\beta_2 \cdot 0) + (\beta_3 \cdot 0) &&= \beta_0 - \beta_1 &\\
+\text{Cent Speech rate = –1, vowel = /o/:}  && \beta_0 &+ (\beta_1 \cdot -1) + (\beta_2 \cdot 1) + (\beta_3 \cdot -1) &&= \beta_0 - \beta_1 + \beta_2 - \beta_3 &\\
+\text{Cent Speech rate = 0, vowel = /a/:}     && \beta_0 &+ (\beta_1 \cdot 0) + (\beta_2 \cdot 0) + (\beta_3 \cdot 0) &&= \beta_0  &\\
+\text{Cent Speech rate = 0, vowel = /o/:}    && \beta_0 &+ (\beta_1 \cdot 0) + (\beta_2 \cdot 1) + (\beta_3 \cdot 0) &&= \beta_0 + \beta_2 &\\
+\text{Cent Speech rate = 1, vowel = /a/:}   && \beta_0 &+ (\beta_1 \cdot 1) + (\beta_2 \cdot 0) + (\beta_3 \cdot 0) &&= \beta_0 + \beta_1 &\\
+\text{Cent Speech rate = 1, vowel = /o/:}  && \beta_0 &+ (\beta_1 \cdot 1) + (\beta_2 \cdot 1) + (\beta_3 \cdot 1) &&= \beta_0 + \beta_1 + \beta_2 + \beta_3 &\\
 \end{aligned}
 $$
 
@@ -1040,11 +917,10 @@ dur_draws_long %>%
 ```
 
 ---
+
 layout: false
 
-## Learning objectives revisited
-
---
+## Summary
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **(1)** How do we model predictors that aren't categorical, but **continuous?**
@@ -1052,112 +928,13 @@ layout: false
 - They're already numeric, so strictly speaking, they *can* go into the model as-is.
 - To interpret the intercept more easily, it's **usually good to centre them** by subtracting the mean.
 
-]
-
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **(2)** How do we **interpret model estimates** for continuous predictors?
 
 - In terms of **how much the outcome changes for one unit change** in the predictor.
 - This general statement actually applies to treatment coding too: **0 $\rightarrow$ 1 is a unit change.**
-]
 
---
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 **(3)** How do we fit and interpret **interactions involving continuous predictors?**
 
 - Pretty similarly to categorical predictors!
 - To compute conditional posterior probability distributions, it's useful to **choose individual values<br> from the continuous predictor** to evaluate (e.g., the mean, mean + 1, mean – 1).
 ]
-
----
-class: center middle reverse
-
-## Statistics and Quantitative Methods: The Finale
-
-Please fill out the **SATS-36 questionnaire** again (best done on a computer):
-
-`https://forms.office.com/e/0UkDKTHWhp`
-
-![:scale 30%](imgs/sats-qr.png)
-
----
-
-.center[
-![:scale 90%](../../img/inference.png)
-]
-
----
-
-<br>
-
-.center[
-![:scale 100%](../../img/data-quant.png)
-]
-
----
-class: center middle reverse
-
-# Stats can be hard.
-
-
-### You don't have to know absolutely everything all the time.
-
-
-It's OK to look up information as you need it.
-
-It's OK to ask for help.
-
-
-
-
-
----
-
-## Future avenues you're now ready to explore
-
-**You can...**
-
---
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-
-... take into account individual differences by **estimating slope and intercept adjustments** for, e.g., every participant in an experiment.
-  - So-called **"random effects"** (the frequentist term) or **"group-level effects"** (the Bayesian term).
-
-]
-
---
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-
-... explore Bayesian hypothesis testing using **Bayes Factors.**
-
-]
-
---
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
-
-... incorporate existing knowledge into your models by **setting your own priors**.
-
-]
-
----
-background-image: url(../../img/francesco-gallarotti-ruQHpukrN7c-unsplash.jpg)
-background-size: cover
-
-
-???
-
-Photo by <a href="https://unsplash.com/@gallarotti?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Francesco Gallarotti</a> on <a href="https://unsplash.com/s/photos/new?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
-
-- Rather than testing "significance" and thus making binary yes/no decisions about the existence of effects, we care about how big effects are.
-- Bayesian models are a great tool for this: We lay out a range of possibilities (e.g., for a Bernoulli model, the probs of success), and use data to allocate different amounts of belief over the possibilities (i.e., to create the posterior probability distributions).
-By using an approach based on estimating effect sizes and being explicit about uncertainty, you're on the cutting edge of modern statistical analysis
-
-Even if you don't do Bayes down the road, many of the skills you've learned here are general and applicable to frequentist models as well.
-
