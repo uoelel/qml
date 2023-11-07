@@ -320,10 +320,14 @@ summary(acc_mult_bm)
 ##          total post-warmup draws = 4000
 ## 
 ## Population-Level Effects: 
-##                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept                    1.08      0.17     0.75     1.43 1.00     4499     3212
-## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00     2877     2567
-## BranchingRight               1.44      0.27     0.91     1.99 1.00     2465     2441
+##                          Estimate Est.Error l-95% CI u-95% CI Rhat
+## Intercept                    1.08      0.17     0.75     1.43 1.00
+## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00
+## BranchingRight               1.44      0.27     0.91     1.99 1.00
+##                          Bulk_ESS Tail_ESS
+## Intercept                    4499     3212
+## Relation_typeConstituent     2877     2567
+## BranchingRight               2465     2441
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -335,10 +339,10 @@ summary(acc_mult_bm)
 
 ```
 ## Population-Level Effects: 
-##                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept                    1.08      0.17     0.75     1.43 1.00     4499     3212
-## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00     2877     2567
-## BranchingRight               1.44      0.27     0.91     1.99 1.00     2465     2441
+##                          Estimate Est.Error l-95% CI u-95% CI Rhat
+## Intercept                    1.08      0.17     0.75     1.43 1.00
+## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00
+## BranchingRight               1.44      0.27     0.91     1.99 1.00
 ```
 
 --
@@ -362,10 +366,10 @@ $$
 
 ```
 ## Population-Level Effects: 
-##                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept                    1.08      0.17     0.75     1.43 1.00     4499     3212
-## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00     2877     2567
-## BranchingRight               1.44      0.27     0.91     1.99 1.00     2465     2441
+##                          Estimate Est.Error l-95% CI u-95% CI Rhat
+## Intercept                    1.08      0.17     0.75     1.43 1.00
+## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00
+## BranchingRight               1.44      0.27     0.91     1.99 1.00
 ```
 
 &lt;br&gt;
@@ -387,10 +391,10 @@ $$
 
 ```
 ## Population-Level Effects: 
-##                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept                    1.08      0.17     0.75     1.43 1.00     4499     3212
-## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00     2877     2567
-## BranchingRight               1.44      0.27     0.91     1.99 1.00     2465     2441
+##                          Estimate Est.Error l-95% CI u-95% CI Rhat
+## Intercept                    1.08      0.17     0.75     1.43 1.00
+## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00
+## BranchingRight               1.44      0.27     0.91     1.99 1.00
 ```
 
 &lt;br&gt;
@@ -412,10 +416,10 @@ $$
 
 ```
 ## Population-Level Effects: 
-##                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept                    1.08      0.17     0.75     1.43 1.00     4499     3212
-## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00     2877     2567
-## BranchingRight               1.44      0.27     0.91     1.99 1.00     2465     2441
+##                          Estimate Est.Error l-95% CI u-95% CI Rhat
+## Intercept                    1.08      0.17     0.75     1.43 1.00
+## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00
+## BranchingRight               1.44      0.27     0.91     1.99 1.00
 ```
 
 &lt;br&gt;
@@ -671,11 +675,21 @@ summary(acc_inter_bm)
 ##          total post-warmup draws = 4000
 ## 
 ## Population-Level Effects: 
-##                                         Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept                                   1.02      0.17     0.69     1.38 1.00     3445     3109
-## Relation_typeConstituent                    0.85      0.29     0.28     1.43 1.00     2527     2141
-## BranchingRight                              1.69      0.36     1.04     2.42 1.00     2131     2325
-## Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42 1.00     1860     2203
+##                                         Estimate Est.Error l-95% CI
+## Intercept                                   1.02      0.17     0.69
+## Relation_typeConstituent                    0.85      0.29     0.28
+## BranchingRight                              1.69      0.36     1.04
+## Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72
+##                                         u-95% CI Rhat Bulk_ESS
+## Intercept                                   1.38 1.00     3445
+## Relation_typeConstituent                    1.43 1.00     2527
+## BranchingRight                              2.42 1.00     2131
+## Relation_typeConstituent:BranchingRight     0.42 1.00     1860
+##                                         Tail_ESS
+## Intercept                                   3109
+## Relation_typeConstituent                    2141
+## BranchingRight                              2325
+## Relation_typeConstituent:BranchingRight     2203
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -688,11 +702,11 @@ summary(acc_inter_bm)
 
 ```
 ## Population-Level Effects: 
-##                                         Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## Intercept                                   1.02      0.17     0.69     1.38 1.00     3445     3109
-## Relation_typeConstituent                    0.85      0.29     0.28     1.43 1.00     2527     2141
-## BranchingRight                              1.69      0.36     1.04     2.42 1.00     2131     2325
-## Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42 1.00     1860     2203
+##                                         Estimate Est.Error l-95% CI
+## Intercept                                   1.02      0.17     0.69
+## Relation_typeConstituent                    0.85      0.29     0.28
+## BranchingRight                              1.69      0.36     1.04
+## Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72
 ```
 
 &lt;br&gt;
@@ -841,7 +855,7 @@ layout: false
 
 &gt; We fitted a Bayesian linear model with response accuracy as the outcome variable, using a Bernoulli distribution as the distribution family of the outcome. We included the following predictors: prime relation type (unrelated vs constituent), branching (left vs right), and an interaction between the two. The predictors were coded using the default treatment contrasts and the reference level was set to the first level as indicated here.
 &gt;
-&gt; According to the model, we can be 95% confident that the probability of obtaining a correct response is between 67 and 80% when the relation type is unrelated and the word pair is left-branching ($\beta$ = 1.02, SD = 0.17, 95% CrI [0.69, 1.38]). When the relation type is unrelated and the word pair is right-branching, the probability of a correct response is between 90 and 97%, at 95% confidence ($\beta$ = 1.69, SD = 0.36, 95% CrI [1.04, 2.42]). Turning to the constituent relation type, the model suggests a probability of a correct response between 81 and 91% ($\beta$ = 1.02, SD = 0.17, 95% CrI [0.69, 1.38]). When the relation type is constituent and the word pair is right-branching, we can be 95% confident that the probability of a correct response is between 91 and 97% ($\beta$ = -0.63, SD = 0.55, 95% CrI [-1.72, 0.42]).
+&gt; According to the model, we can be 95% confident that the probability of obtaining a correct response is between 67 and 80% when the relation type is unrelated and the word pair is left-branching ($\beta$ = 1.02, SD = 0.17, 95% CrI [0.69, 1.38]). When the relation type is unrelated and the word pair is right-branching, the probability of a correct response is between 90 and 97%, at 95% confidence ($\beta$ = 1.69, SD = 0.36, 95% CrI [1.04, 2.42]). Turning to the constituent relation type, the model suggests a probability of a correct response between 81 and 91% ($\beta$ = 0.85, SD = 0.29, 95% CrI [0.28, 1.43]). When the relation type is constituent and the word pair is right-branching, we can be 95% confident that the probability of a correct response is between 91 and 97% ($\beta$ = -0.63, SD = 0.55, 95% CrI [-1.72, 0.42]).
 &gt;
 &gt; As suggested by the 95% CrI of the interaction term (in log-odds [-1.72, 0.42]) for constituent relation type and right-branching pairs, there is quite a lot of uncertainty in relation to the difference in probability of correct response in unrelated vs constituent in right-branching pairs, since the interval covers both negative and positive values. Moreover, the conditional posterior probabilities of unrelated and right-branching on the one hand and constituent and right branching on the other are very similar, as can be seen in the plot above (and as suggested by the respective 95% CrIs: 90-97% vs 91-97% respectively).
 

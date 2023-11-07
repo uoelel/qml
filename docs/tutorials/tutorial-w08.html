@@ -654,7 +654,7 @@ Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42</co
 <p>Here is the report from the lecture. Read through it and reason about each part.</p>
 <blockquote class="blockquote">
 <p>We fitted a Bayesian linear model with response accuracy as the outcome variable, using a Bernoulli distribution as the distribution family of the outcome. We included the following predictors: prime relation type (unrelated vs constituent), branching (left vs right), and an interaction between the two. The predictors were coded using the default treatment contrasts and the reference level was set to the first level as indicated here.</p>
-<p>According to the model, we can be 95% confident that the probability of obtaining a correct response is between 67 and 80% when the relation type is unrelated and the word pair is left-branching (<span class="math inline">\(\beta\)</span> = 1.02, SD = 0.17, 95% CrI [0.69, 1.38]). When the relation type is unrelated and the word pair is right-branching, the probability of a correct response is between 90 and 97%, at 95% confidence (<span class="math inline">\(\beta\)</span> = 1.69, SD = 0.36, 95% CrI [1.04, 2.42]). Turning to the constituent relation type, the model suggests a probability of a correct response between 81 and 91% (<span class="math inline">\(\beta\)</span> = 1.02, SD = 0.17, 95% CrI [0.69, 1.38]). When the relation type is constituent and the word pair is right-branching, we can be 95% confident that the probability of a correct response is between 91 and 97% (<span class="math inline">\(\beta\)</span> = -0.63, SD = 0.55, 95% CrI [-1.72, 0.42]).</p>
+<p>According to the model, we can be 95% confident that the probability of obtaining a correct response is between 67 and 80% when the relation type is unrelated and the word pair is left-branching (<span class="math inline">\(\beta\)</span> = 1.02, SD = 0.17, 95% CrI [0.69, 1.38]). When the relation type is unrelated and the word pair is right-branching, the probability of a correct response is between 90 and 97%, at 95% confidence (<span class="math inline">\(\beta\)</span> = 1.69, SD = 0.36, 95% CrI [1.04, 2.42]). Turning to the constituent relation type, the model suggests a probability of a correct response between 81 and 91% (<span class="math inline">\(\beta\)</span> = 0.85, SD = 0.29, 95% CrI [0.28, 1.43]). When the relation type is constituent and the word pair is right-branching, we can be 95% confident that the probability of a correct response is between 91 and 97% (<span class="math inline">\(\beta\)</span> = -0.63, SD = 0.55, 95% CrI [-1.72, 0.42]).</p>
 <p>As suggested by the 95% CrI of the interaction term (in log-odds [-1.72, 0.42]) for constituent relation type and right-branching pairs, there is quite a lot of uncertainty in relation to the difference in probability of correct response in unrelated vs constituent in right-branching pairs, since the interval covers both negative and positive values. Moreover, the conditional posterior probabilities of unrelated and right-branching on the one hand and constituent and right branching on the other are very similar, as can be seen in the plot above (and as suggested by the respective 95% CrIs: 90-97% vs 91-97% respectively).</p>
 </blockquote>
 <p>This is pretty much the minimum you should be reporting. Depending on the specific research question you could calculate conditional probabilities of the difference of other combinations (for example unrelated-right vs constituent-left). The sky is the limit!</p>
@@ -729,6 +729,23 @@ Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42</co
 <li><p>What about the estimate for <code>language</code>?</p></li>
 <li><p>What about the interaction between <code>c2_phonation</code> and <code>language</code>?</p></li>
 </ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the tutorials we are asking you to reflect on the data based on the plots so that you can practice thinking about the model in relation to the data.</p>
+<p>Note however that in most real-world cases, <strong>it might not be obvious from the plots which results you might get</strong> and in some cases—especially with more complex models—what you see in the “raw” data might not emerge in the model and vice versa.</p>
+<p>Moreover, if you have specific hypotheses (and you are conducting corroboratory research), looking too much at the raw data might influence you towards one analytical approach over another, thus increasing the subjectivity of the analysis (and making the analysis less robust).</p>
+<p>If you are conducting a purely exploratory analysis, then instead you <em>should</em> look at the raw data and plot it in many different ways.</p>
+<p>As with other things, this is more of an art than a science. We are happy to help you navigate all this when the time comes for you to work on your dissertation.</p>
+</div>
+</div>
 </section>
 <section id="fit-the-model-1" class="level3" data-number="3.4">
 <h3 data-number="3.4" class="anchored" data-anchor-id="fit-the-model-1"><span class="header-section-number">3.4</span> Fit the model</h3>
@@ -784,7 +801,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>Here, the interaction coefficient 95% CrI is estimated to be [-0.05, 0.07].</p>
 <p>This CrI is basically centred around zero, with near-equal probability assigned to both negative and positive values. This means that we can’t be certain about the direction of the interaction’s effect, or even whether there is an interaction at all (i.e.&nbsp;the interaction coefficient is 0).</p>
 <p>Also, note how small the values in the 95% CrI are compared to the other coefficient, another sign that perhaps the interaction is very small and practically 0.</p>
-<p>What does this mean for the cross-linguistic comparison of the effect of voicing on vowel duration?</p>
+<p>If you are comfortable with phonetics, reason about the following question: <em>What do the result mean for the cross-linguistic comparison between Italian and Polish of the effect of voicing on vowel duration?</em></p>
 </section>
 <section id="conditional-posterior-probabilities" class="level3" data-number="3.6">
 <h3 data-number="3.6" class="anchored" data-anchor-id="conditional-posterior-probabilities"><span class="header-section-number">3.6</span> Conditional posterior probabilities</h3>

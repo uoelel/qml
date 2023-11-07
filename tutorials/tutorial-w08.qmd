@@ -142,7 +142,7 @@ A couple hints:
     -   and then `labeller = labeller(Branching = label_both)`.
 :::
 
-Notice that this plot reveals, among other things, a *difference of differences*: The difference between [Relation_type = Unrelated] and [Relation_Type = Constituent] is bigger when [Branching == Left], and smaller when [Branching = Right]. **The only way to capture this difference of differences is to include an interaction between `Relation_type` and `Branching`.**
+Notice that this plot reveals, among other things, a *difference of differences*: The difference between \[Relation_type = Unrelated\] and \[Relation_Type = Constituent\] is bigger when \[Branching == Left\], and smaller when \[Branching = Right\]. **The only way to capture this difference of differences is to include an interaction between `Relation_type` and `Branching`.**
 
 ::: {.callout-important collapse="true" icon="false"}
 #### Extra: More on contrasts
@@ -465,9 +465,9 @@ Here is the report from the lecture. Read through it and reason about each part.
 
 > We fitted a Bayesian linear model with response accuracy as the outcome variable, using a Bernoulli distribution as the distribution family of the outcome. We included the following predictors: prime relation type (unrelated vs constituent), branching (left vs right), and an interaction between the two. The predictors were coded using the default treatment contrasts and the reference level was set to the first level as indicated here.
 >
-> According to the model, we can be 95% confident that the probability of obtaining a correct response is between 67 and 80% when the relation type is unrelated and the word pair is left-branching ($\beta$ = 1.02, SD = 0.17, 95% CrI [0.69, 1.38]). When the relation type is unrelated and the word pair is right-branching, the probability of a correct response is between 90 and 97%, at 95% confidence ($\beta$ = 1.69, SD = 0.36, 95% CrI [1.04, 2.42]). Turning to the constituent relation type, the model suggests a probability of a correct response between 81 and 91% ($\beta$ = 1.02, SD = 0.17, 95% CrI [0.69, 1.38]). When the relation type is constituent and the word pair is right-branching, we can be 95% confident that the probability of a correct response is between 91 and 97% ($\beta$ = -0.63, SD = 0.55, 95% CrI [-1.72, 0.42]).
+> According to the model, we can be 95% confident that the probability of obtaining a correct response is between 67 and 80% when the relation type is unrelated and the word pair is left-branching ($\beta$ = 1.02, SD = 0.17, 95% CrI \[0.69, 1.38\]). When the relation type is unrelated and the word pair is right-branching, the probability of a correct response is between 90 and 97%, at 95% confidence ($\beta$ = 1.69, SD = 0.36, 95% CrI \[1.04, 2.42\]). Turning to the constituent relation type, the model suggests a probability of a correct response between 81 and 91% ($\beta$ = 0.85, SD = 0.29, 95% CrI \[0.28, 1.43\]). When the relation type is constituent and the word pair is right-branching, we can be 95% confident that the probability of a correct response is between 91 and 97% ($\beta$ = -0.63, SD = 0.55, 95% CrI \[-1.72, 0.42\]).
 >
-> As suggested by the 95% CrI of the interaction term (in log-odds [-1.72, 0.42]) for constituent relation type and right-branching pairs, there is quite a lot of uncertainty in relation to the difference in probability of correct response in unrelated vs constituent in right-branching pairs, since the interval covers both negative and positive values. Moreover, the conditional posterior probabilities of unrelated and right-branching on the one hand and constituent and right branching on the other are very similar, as can be seen in the plot above (and as suggested by the respective 95% CrIs: 90-97% vs 91-97% respectively).
+> As suggested by the 95% CrI of the interaction term (in log-odds \[-1.72, 0.42\]) for constituent relation type and right-branching pairs, there is quite a lot of uncertainty in relation to the difference in probability of correct response in unrelated vs constituent in right-branching pairs, since the interval covers both negative and positive values. Moreover, the conditional posterior probabilities of unrelated and right-branching on the one hand and constituent and right branching on the other are very similar, as can be seen in the plot above (and as suggested by the respective 95% CrIs: 90-97% vs 91-97% respectively).
 
 This is pretty much the minimum you should be reporting. Depending on the specific research question you could calculate conditional probabilities of the difference of other combinations (for example unrelated-right vs constituent-left). The sky is the limit!
 
@@ -491,7 +491,6 @@ acc_draws_cond %>%
     q60_hi = round(quantile2(ucr, probs = 0.8), 2)
   )
 ```
-
 
 OK, that's it for our first model! Now we'll turn to the second part of the tutorial: a more loosely-guided walk-through of how to put a few different things you've learned so far into practice.
 
@@ -556,6 +555,18 @@ Before fitting the model in the next section, try to answer the following questi
 
 4.  What about the interaction between `c2_phonation` and `language`?
 
+::: callout-warning
+In the tutorials we are asking you to reflect on the data based on the plots so that you can practice thinking about the model in relation to the data.
+
+Note however that in most real-world cases, **it might not be obvious from the plots which results you might get** and in some cases---especially with more complex models---what you see in the "raw" data might not emerge in the model and vice versa.
+
+Moreover, if you have specific hypotheses (and you are conducting corroboratory research), looking too much at the raw data might influence you towards one analytical approach over another, thus increasing the subjectivity of the analysis (and making the analysis less robust).
+
+If you are conducting a purely exploratory analysis, then instead you *should* look at the raw data and plot it in many different ways.
+
+As with other things, this is more of an art than a science. We are happy to help you navigate all this when the time comes for you to work on your dissertation.
+:::
+
 ### Fit the model
 
 ```{r}
@@ -596,13 +607,13 @@ How does this line up with your answers to the questions above?
 
 ### Interpreting the interaction
 
-Here, the interaction coefficient 95% CrI is estimated to be [-0.05, 0.07].
+Here, the interaction coefficient 95% CrI is estimated to be \[-0.05, 0.07\].
 
 This CrI is basically centred around zero, with near-equal probability assigned to both negative and positive values. This means that we can't be certain about the direction of the interaction's effect, or even whether there is an interaction at all (i.e. the interaction coefficient is 0).
 
 Also, note how small the values in the 95% CrI are compared to the other coefficient, another sign that perhaps the interaction is very small and practically 0.
 
-What does this mean for the cross-linguistic comparison of the effect of voicing on vowel duration?
+If you are comfortable with phonetics, reason about the following question: *What do the result mean for the cross-linguistic comparison between Italian and Polish of the effect of voicing on vowel duration?*
 
 ### Conditional posterior probabilities
 
