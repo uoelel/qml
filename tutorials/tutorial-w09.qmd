@@ -24,7 +24,21 @@ options(dplyr.summarise.inform = FALSE)
 my_seed <- 8878
 ```
 
-This tutorial will give you some practice working with continuous predictors. You'll begin by fitting a model with a binary outcome and one continuous predictor. Then you'll fit a model with the same binary outcome, but now predicted by an interaction between two continuous predictors.
+## Introduction
+
+::: callout-warning
+#### Important
+
+When working through these tutorials, always **make sure you are in the course RStudio Project** you just created.
+
+You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
+
+If you see `Project (none)` in the top-right corner, that means **you are not** in an RStudio Project.
+
+To make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
+:::
+
+This tutorial will allow you to practice working with continuous predictors. You'll fit a model with a binary outcome, predicted by two continuous predictors and their interaction.
 
 OK, let's dive in! Set up the Rmd file you'll use for this tutorial:
 
@@ -42,7 +56,7 @@ This study looks at when people make so-called **scalar inferences**. A scalar i
 
 ### Read and process the data
 
-You can get the data for this tutorial by right-clicking and downloading the following link: [si.csv](../data/si.csv).
+You can get the data for this tutorial by right-clicking and downloading the following link: [si.csv](../data/si.csv). As always, the data is also link on the [Content](content.qmd) page.
 
 Use `read_csv()` to read in the CSV and assign it to a variable called `si` (for **s**calar **i**nference).
 
@@ -112,6 +126,7 @@ Here's how the frequencies look right out of the box:
 
 ```{r}
 #| label: freq-skew-plot
+#| echo: false
 
 si %>% 
   ggplot(aes(x = freq)) +
@@ -146,6 +161,7 @@ The result should look like this:
 
 ```{r}
 #| label: logfreq-plot
+#| echo: false
 
 si %>% 
   ggplot(aes(x = logfreq)) +
@@ -153,14 +169,14 @@ si %>%
   geom_rug()
 ```
 
-When we're interpreting the model estimates below, we'll be talking about the effect on scalar inferencing of **one unit change on the log frequency scale.** One unit change corresponds to moving from, e.g., 3 to 4 on this plot, or from 2 to 3, and so on...
+When we're interpreting the model estimates below, we'll be talking about the effect on scalar inferencing of **one unit change on the log frequency scale.** One unit change corresponds to moving from 0 to 1, from 1 to 2, 3 to 4, and so on...
 
 ::: {.callout-important collapse="true"}
 #### Extra: Unit changes and non-linear transformations
 
 We've been talking a lot in recent weeks about transforming and back-transforming, so you might be asking yourself: what do unit changes on the log scale equate to on the original frequency scale?
 
-Because the log transformation is **non-linear**, a unit change on the log frequency scale (e.g., moving from 1 to 2, or moving from 2 to 3) corresponds to different changes on the frequency scale, **depending on which unit change on the log scale we evaluate.**
+Because the log transformation is **non-linear**, a unit change on the log frequency scale (e.g., going from 0 to 1, or going from 2 to 3) corresponds to different changes on the frequency scale, **depending on which unit change on the log scale we evaluate.**
 
 To illustrate this:
 
@@ -223,7 +239,7 @@ Run the following to verify that the mean is zero:
 round(mean(si$logfreq_c))
 ```
 
-The `round()` function is included because, for technical computational reasons, the mean actually comes out as an *incredibly* small number near 0, rather than 0 precisely. But in practice we can consider this incredibly small number near 0 to be 0 in practice. If you want to know why it is not precisely 0, see [Floating Point Arithmetic](https://docs.python.org/3/tutorial/floatingpoint.html).
+The `round()` function is included because, for technical computational reasons, the mean actually comes out as an *incredibly* small number near 0, rather than 0 precisely. But in practice we can consider this incredibly small number near 0 to be 0. If you want to know why it is not precisely 0, see [Floating Point Arithmetic](https://docs.python.org/3/tutorial/floatingpoint.html).
 
 `logfreq_c` is now ready to be used in our analyses. Next, you'll take care of semantic distance on your own, and then we'll move on to the modelling.
 
@@ -245,17 +261,16 @@ si <- si %>%
 
 The model we'll fit in this tutorial will be predicting `SI` as a function of `logfreq_c`, `semdist_c` and the interaction between the two. Before fitting the model, let's take a moment to plot the proportion of scalar inferences as a function of centred log frequency and as a function of semantic distance.
 
-### Visualising scalar inferencing and centred log frequency
-
 The variable `SI` is binary: `no_scalar` if a scalar inference was not made, `scalar` if it was. We like to visualise binary outcomes as proportions on the *y*-axis and centred log frequency on the *x*-axis.
 
 This type of plot (proportion \~ continuous) requires a small trick.
 
-`SI` is categorical, but we want to show the **proportion** of `scalar` vs `no_scalar` across values of centred log frequency. We can achieve this by temporarily converting `SI` to *numeric* and subtract `1`, and then using `geom_smooth()` with a binomial family, like so:
+`SI` is categorical, but we want to show the **proportion** of `scalar` vs `no_scalar` across values of centred log frequency. We can achieve this by temporarily converting `SI` to a *numeric* variable and subtract `1` (which basically gives us the original `SI` column, coded with 0 and 1), and then using `geom_smooth()` with a binomial family, like so:
 
 ```{r}
 #| label: si-freq
 #| message: false
+#| warning: false
 
 si %>%
   mutate(SI = as.numeric(SI) - 1) %>%
@@ -296,14 +311,40 @@ si %>%
 Note that we only created `prop_si` for visualisation! We won't use this variable in our modelling; instead, we'll be using the 0/1-coded variable `SI`.
 :::
 
-### Visualising scalar inference and semantic distance
+Now it's your turn! Reproduce the following plot.
 
-Now it's your turn! Reproduce the plot above this time using `semdist_c` instead of `logfreq_c`.
+```{r}
+#| label: si-semd
+#| message: false
+#| warning: false
+#| echo: false
+
+si %>%
+  mutate(SI = as.numeric(SI) - 1) %>%
+  ggplot(aes(semdist, SI)) +
+  geom_point() +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"))
+```
 
 ::: {.callout-important collapse="true"}
 #### Extra: Frequency and semantic distance together
 
-...
+It is possible to plot frequency and semantic distance together like so:
+
+```{r}
+#| label: si-freq-semd
+
+si %>%
+  group_by(weak_adj) %>%
+  summarise(
+    prop_si = mean(as.numeric(SI) - 1),
+    logfreq_c = mean(logfreq_c),
+    semdist = mean(semdist)
+  ) %>%
+  ggplot(aes(logfreq_c, semdist, fill = prop_si)) +
+  geom_point(size = 3, pch = 21) +
+  scale_fill_distiller(type = "div")
+```
 :::
 
 ## Fitting the model
@@ -321,20 +362,21 @@ logit(p) & = \beta_0 + (\beta_1 \cdot logfreq\_c) + (\beta_2 \cdot semdist\_c) +
 \end{aligned}
 $$
 
-Write `brm()` code for this model, and call it `si_freq_dist_bm`.
+Write `brm()` code for this model, and name the variable you assign the model output to as `si_bm`.
 
 -   The model formula should specify that we are predicting `SI` as a function of `logfreq_c`, `semdist_c`, and their interaction.
 -   Use the appropriate model family.
 -   The data comes from `si`.
 -   The backend is `cmdstanr`.
--   Save the model to a file.[^1] \]
+-   Specify a seed for reproducibility.
+-   Specify a file path to save the model fit to a file.[^1]
 
 [^1]: **The first time you run a model with this argument, that's the version of the model that will be saved and loaded every time after.** Beware of this if you use the same `file` argument to run a model that's different from the final one you'll want to run!
 
 ```{r}
 #| label: si-freq-semdist-bm-ex
 #| eval: false
-si_freq_dist_bm <- brm(
+si_bm <- brm(
   ...
 )
 ```
@@ -342,12 +384,12 @@ si_freq_dist_bm <- brm(
 ```{r}
 #| label: si-freq-semdist-bm
 #| echo: false
-si_freq_dist_bm <- brm(
+si_bm <- brm(
   SI ~ logfreq_c + semdist_c + logfreq_c:semdist_c,
   family = bernoulli(),
   data = si,
   backend = 'cmdstanr',
-  file = 'data/cache/si_freq_dist_bm'
+  file = 'data/cache/si_bm'
 )
 ```
 
@@ -355,41 +397,45 @@ Your model summary should look similar to this one.
 
 ```{r}
 #| label: si-freq-semdist-summ
-summary(si_freq_dist_bm)
+summary(si_bm)
 ```
 
 ### Interpreting the estimates
 
 Before we move to interpreting the estimate of this model, let's just clarify something about numeric predictors and centred numeric predictors.
 
+::: {.callout-note appearance="minimal"}
 When a predictor is categorical, the intercept of the model indicates the mean outcome value at the reference level of that predictor, and the other coefficients estimate the difference in mean outcome value between the other levels of the predictor and the value at the reference.
 
 With **numeric predictors**, the **intercept indicates the mean outcome value when the numeric predictor is at 0**.
+:::
 
-The numeric predictor gets one coefficient estimate: this is the **change in mean outcome value when the numeric predictor goes from 0 to 1** (referred to as a **unit increase**).
+The numeric predictor gets one coefficient estimate: this is the **change in the outcome value when the numeric predictor goes from 0 to 1** (referred to as a **unit change**).
 
-Note that the same estimate applies when going from 1 to 2, 2 to 3, 4.5 to 5.5 and so on. In other words, the change in mean outcome value applies across any unit increase of the numeric predictor.
+Note that the same estimate applies when going from 1 to 2, 2 to 3, 4.5 to 5.5 and so on. In other words, the change in the outcome value applies across any unit change of the numeric predictor.
 
 ::: callout-tip
 #### Numeric predictors
 
-The estimated coefficient of a numeric predictor corresponds to the **change in the outcome mean for each unit increase** in the predictor.
+The estimated coefficient of a numeric predictor corresponds to the **change in the outcome value for each unit change** in the predictor.
 :::
 
-Now, when a continuous predictor is centred, `0` corresponds to whatever value is the mean of the non-centred predictor (`1` in the centred predictor corresponds to the non-centred predictor mean + 1, `-3` corresponds to the mean -3, and so on).
+Now, when a continuous predictor is centred, `0` corresponds to whatever value is the mean of the non-centred predictor (`1` in the centred predictor corresponds to the non-centred predictor mean + 1 unit, `-3` corresponds to the mean - 3 units, whatever the units of the non-centred predictor are, and so on).
 
-This means that the **intercept of a model with centred numeric predictors corresponds to the mean outcome value when the numeric predictors are at their mean**.
+::: {.callout-tip appearance="minimal"}
+This means that the **intercept of a model with centred numeric predictors corresponds to the outcome value when the numeric predictors are at their mean**.
+:::
 
-Let's interpret the model estimates.
+Now, let's interpret the model estimates.
 
 -   `Intercept`, $\beta_0$: When **both log frequency and semantic distance are at their mean**, the mean log-odds of making a scalar inference is --0.70, and there is a 95% probability that the value lies between --0.80 and --0.59 log-odds.
--   `logfreq_c`, $\beta_1$: When **semantic distance is at its mean**, for a **unit increase in log frequency**, the change in the mean log-odds of making a scalar inference is 0.53 log-odds. There is a 95% probability that the true change lies between 0.42 and 0.63 log-odds.
--   `semdist_c`, $\beta_2$: When **log frequency is at its mean**, for a **unit increase in semantic distance**, the change in the mean log-odds of making a scalar inference is 0.08 log-odds. There is a 95% probability that the true change lies between 0.06 and 0.11 log-odds.
+-   `logfreq_c`, $\beta_1$: When **semantic distance is at its mean**, for a **unit change in log frequency**, the change in the mean log-odds of making a scalar inference is 0.53 log-odds. There is a 95% probability that the true change lies between 0.42 and 0.63 log-odds.
+-   `semdist_c`, $\beta_2$: When **log frequency is at its mean**, for a **unit change in semantic distance**, the change in the mean log-odds of making a scalar inference is 0.08 log-odds. There is a 95% probability that the true change lies between 0.06 and 0.11 log-odds.
 -   `logfreq_c:semdist_c`, $\beta_3$: As usual, this coefficient has **two interpretations.**
 
 Interpreting the interaction between two numeric predictors:
 
-**(1) A unit increase in log frequency is associated with a positive adjustment of 0.05 log-odds to the effect of semantic distance**, and there is a 95% probability that the true adjustment is between 0.03 and 0.08 log-odds.
+**(1) A unit change in log frequency is associated with a positive adjustment of 0.05 log-odds to the effect of semantic distance**, and there is a 95% probability that the true adjustment is between 0.03 and 0.08 log-odds.
 
 -   In other words: As log frequency increases, the effect of semantic distance (i.e., the difference between semantically closer and semantically more distant words) increases as well.
 
@@ -426,7 +472,7 @@ Now, try to follow what this code is doing (and revisit Tutorial 8 if you'd like
 #| label: si-freq-dist-draws
 #| warning: false
 
-si_freq_dist_draws <- as_draws_df(si_freq_dist_bm)
+si_freq_dist_draws <- as_draws_df(si_bm)
 
 si_freq_dist_draws_cond <- si_freq_dist_draws %>% 
   # Recall our trick for combining the values of multiple predictors 
@@ -582,9 +628,9 @@ Now we can really see the difference between differences: the effect of log freq
 
 **Modelling**
 
--   With a continuous predictor, the $\beta$ coefficient that the model estimates represents the change in the outcome variable that is associated with one unit change (in fact, one unit increase) in the predictor.
+-   With a continuous predictor, the $\beta$ coefficient that the model estimates represents the change in the outcome variable that is associated with one unit change (in fact, one unit change) in the predictor.
 
--   When two continuous predictors A and B interact, then the $\beta$ coefficient estimated for the interaction term corresponds to the change in predictor A's effect that accompanies a unit increase in predictor B (and equivalently, the change in predictor B's effect that accompanies a unit increase in A).
+-   When two continuous predictors A and B interact, then the $\beta$ coefficient estimated for the interaction term corresponds to the change in predictor A's effect that accompanies a unit change in predictor B (and equivalently, the change in predictor B's effect that accompanies a unit change in A).
 
 -   When reporting a model's estimates, you should always report and interpret the population-level coefficients' means and 95% CrIs. It's also generally a good idea to compute the conditional posterior probability distributions, because with these, you can report and/or visualise for all conditions of interest what the model thinks the outcome variable's mean values will be.
 :::
