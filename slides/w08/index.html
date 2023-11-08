@@ -320,14 +320,14 @@ summary(acc_mult_bm)
 ##          total post-warmup draws = 4000
 ## 
 ## Population-Level Effects: 
-##                          Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept                    1.08      0.17     0.75     1.43 1.00
-## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00
-## BranchingRight               1.44      0.27     0.91     1.99 1.00
-##                          Bulk_ESS Tail_ESS
-## Intercept                    4499     3212
-## Relation_typeConstituent     2877     2567
-## BranchingRight               2465     2441
+##                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## Intercept                    1.08      0.17     0.75     1.43 1.00     4499
+## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00     2877
+## BranchingRight               1.44      0.27     0.91     1.99 1.00     2465
+##                          Tail_ESS
+## Intercept                    3212
+## Relation_typeConstituent     2567
+## BranchingRight               2441
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -339,10 +339,10 @@ summary(acc_mult_bm)
 
 ```
 ## Population-Level Effects: 
-##                          Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept                    1.08      0.17     0.75     1.43 1.00
-## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00
-## BranchingRight               1.44      0.27     0.91     1.99 1.00
+##                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## Intercept                    1.08      0.17     0.75     1.43 1.00     4499
+## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00     2877
+## BranchingRight               1.44      0.27     0.91     1.99 1.00     2465
 ```
 
 --
@@ -366,10 +366,10 @@ $$
 
 ```
 ## Population-Level Effects: 
-##                          Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept                    1.08      0.17     0.75     1.43 1.00
-## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00
-## BranchingRight               1.44      0.27     0.91     1.99 1.00
+##                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## Intercept                    1.08      0.17     0.75     1.43 1.00     4499
+## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00     2877
+## BranchingRight               1.44      0.27     0.91     1.99 1.00     2465
 ```
 
 &lt;br&gt;
@@ -391,10 +391,10 @@ $$
 
 ```
 ## Population-Level Effects: 
-##                          Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept                    1.08      0.17     0.75     1.43 1.00
-## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00
-## BranchingRight               1.44      0.27     0.91     1.99 1.00
+##                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## Intercept                    1.08      0.17     0.75     1.43 1.00     4499
+## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00     2877
+## BranchingRight               1.44      0.27     0.91     1.99 1.00     2465
 ```
 
 &lt;br&gt;
@@ -416,10 +416,10 @@ $$
 
 ```
 ## Population-Level Effects: 
-##                          Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept                    1.08      0.17     0.75     1.43 1.00
-## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00
-## BranchingRight               1.44      0.27     0.91     1.99 1.00
+##                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## Intercept                    1.08      0.17     0.75     1.43 1.00     4499
+## Relation_typeConstituent     0.69      0.25     0.20     1.17 1.00     2877
+## BranchingRight               1.44      0.27     0.91     1.99 1.00     2465
 ```
 
 &lt;br&gt;
@@ -661,6 +661,7 @@ $$
 
 ---
 
+.f4[
 
 ```r
 summary(acc_inter_bm)
@@ -675,38 +676,33 @@ summary(acc_inter_bm)
 ##          total post-warmup draws = 4000
 ## 
 ## Population-Level Effects: 
-##                                         Estimate Est.Error l-95% CI
-## Intercept                                   1.02      0.17     0.69
-## Relation_typeConstituent                    0.85      0.29     0.28
-## BranchingRight                              1.69      0.36     1.04
-## Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72
-##                                         u-95% CI Rhat Bulk_ESS
-## Intercept                                   1.38 1.00     3445
-## Relation_typeConstituent                    1.43 1.00     2527
-## BranchingRight                              2.42 1.00     2131
-## Relation_typeConstituent:BranchingRight     0.42 1.00     1860
-##                                         Tail_ESS
-## Intercept                                   3109
-## Relation_typeConstituent                    2141
-## BranchingRight                              2325
-## Relation_typeConstituent:BranchingRight     2203
+##                                         Estimate Est.Error l-95% CI u-95% CI
+## Intercept                                   1.02      0.17     0.69     1.38
+## Relation_typeConstituent                    0.85      0.29     0.28     1.43
+## BranchingRight                              1.69      0.36     1.04     2.42
+## Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42
+##                                         Rhat Bulk_ESS Tail_ESS
+## Intercept                               1.00     3445     3109
+## Relation_typeConstituent                1.00     2527     2141
+## BranchingRight                          1.00     2131     2325
+## Relation_typeConstituent:BranchingRight 1.00     1860     2203
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
 ## scale reduction factor on split chains (at convergence, Rhat = 1).
 ```
-
+]
 
 ---
 
 
 ```
 ## Population-Level Effects: 
-##                                         Estimate Est.Error l-95% CI
-## Intercept                                   1.02      0.17     0.69
-## Relation_typeConstituent                    0.85      0.29     0.28
-## BranchingRight                              1.69      0.36     1.04
-## Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72
+##                                         Estimate Est.Error l-95% CI u-95% CI
+## Intercept                                   1.02      0.17     0.69     1.38
+## Relation_typeConstituent                    0.85      0.29     0.28     1.43
+## BranchingRight                              1.69      0.36     1.04     2.42
+## Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42
 ```
 
 &lt;br&gt;

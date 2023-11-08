@@ -714,10 +714,11 @@ $$
 
 ---
 
+.f4[
 ```{r inter-summary, echo = TRUE}
 summary(acc_inter_bm)
 ```
-
+]
 
 ---
 
