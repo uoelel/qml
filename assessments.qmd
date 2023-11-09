@@ -38,6 +38,8 @@ You can find the instructions and data for the first formative here: <https://gi
 ## Formative 2: Week 10 (Thu 23 November at noon)
 
 **Statistical modelling**
+
+You can find the instructions and data for the second formative here: <https://github.com/uoelel/qml-f2/>.
 :::
 
 ## Summative assessments

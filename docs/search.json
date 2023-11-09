@@ -7,6 +7,13 @@
     "text": "Important\n\n\n\nWhen working through these tutorials, always make sure you are in the course RStudio Project you just created.\nYou know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.\nIf you see Project (none) in the top-right corner, that means you are not in an RStudio Project.\nTo make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the .Rproj file.\n\n\nThis tutorial will allow you to practice working with continuous predictors. You’ll fit a model with a binary outcome, predicted by two continuous predictors and their interaction.\nOK, let’s dive in! Set up the Rmd file you’ll use for this tutorial:\n\nCreate a new .Rmd file, save it in code/, and name it tutorial-w09.\nIn the setup chunk, include the line knitr::opts_knit$set(root.dir = here::here()).\nAlso in the setup chunk, include code to attach the libraries we’ll use in this tutorial: tidyverse, posterior, brms, and broom.mixed."
   },
   {
+    "objectID": "tutorials/tutorial-w09.html#introduction",
+    "href": "tutorials/tutorial-w09.html#introduction",
+    "title": "QML tutorial – Week 9",
+    "section": "",
+    "text": "Important\n\n\n\nWhen working through these tutorials, always make sure you are in the course RStudio Project you just created.\nYou know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.\nIf you see Project (none) in the top-right corner, that means you are not in an RStudio Project.\nTo make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the .Rproj file.\n\n\nThis tutorial will allow you to practice working with continuous predictors. You’ll fit a model with a binary outcome, predicted by two continuous predictors and their interaction.\nOK, let’s dive in! Set up the Rmd file you’ll use for this tutorial:\n\nCreate a new .Rmd file, save it in code/, and name it tutorial-w09.\nIn the setup chunk, include the line knitr::opts_knit$set(root.dir = here::here()).\nAlso in the setup chunk, include code to attach the libraries we’ll use in this tutorial: tidyverse, posterior, brms, and broom.mixed."
+  },
+  {
     "objectID": "tutorials/tutorial-w09.html#scalar-inferences-and-scalar-diversity",
     "href": "tutorials/tutorial-w09.html#scalar-inferences-and-scalar-diversity",
     "title": "QML tutorial – Week 9",
@@ -305,7 +312,7 @@
     "href": "assessments.html#formative-assessments",
     "title": "QML",
     "section": "3 Formative assessments",
-    "text": "3 Formative assessments\n\n\n\n\n\n\nFormative 1: Week 5 (Thu 19 October at noon)\n\n\n\nData summary and visualisation\nYou can find the instructions and data for the first formative here: https://github.com/uoelel/qml-f1/.\n\n\n\n\n\n\n\n\nFormative 2: Week 10 (Thu 23 November at noon)\n\n\n\nStatistical modelling"
+    "text": "3 Formative assessments\n\n\n\n\n\n\nFormative 1: Week 5 (Thu 19 October at noon)\n\n\n\nData summary and visualisation\nYou can find the instructions and data for the first formative here: https://github.com/uoelel/qml-f1/.\n\n\n\n\n\n\n\n\nFormative 2: Week 10 (Thu 23 November at noon)\n\n\n\nStatistical modelling\nYou can find the instructions and data for the second formative here: https://github.com/uoelel/qml-f2/."
   },
   {
     "objectID": "assessments.html#summative-assessments",
@@ -495,12 +502,5 @@
     "title": "QML tutorial – Week 8",
     "section": "4 Summary",
     "text": "4 Summary\n\n\n\n\n\n\nModelling\n\nA model that contains interactions is able to estimate a difference in the effect of one predictor between levels of another.\nFor treatment-coded variables A and B, a positive interaction coefficient represents a positive adjustment (i.e., an addition) to variable A’s effect, when we compare variable B’s reference level to its other level. And a negative interaction coefficient represents a negative adjustment (i.e., a subtraction).\nNull results (when a coefficient is practically 0) are still interpretable and valid results.\n\nData processing and visualisation\n\nseparate() can split up a single column into multiple ones, as long as every value in that column contains the same separator, e.g., _.\nThe same way that we back-transform log-odds into probabilities using plogis(), we can back-transform log values into the original space (here, ms) using exp().\nAny operations that we use to create conditional posterior probability distributions must be done on the scale in which the model was fit (e.g., log-odds or log), not the scale of the original variable (e.g., probability or ms). Back-transformation into the original space should be the final step.\nTo create density plots of multiple distributions, give ggplot the data in “long” format and let the fill aesthetic separate the data into differently-coloured densities. This also automatically creates a legend for each colour."
-  },
-  {
-    "objectID": "tutorials/tutorial-w09.html#introduction",
-    "href": "tutorials/tutorial-w09.html#introduction",
-    "title": "QML tutorial – Week 9",
-    "section": "",
-    "text": "Important\n\n\n\nWhen working through these tutorials, always make sure you are in the course RStudio Project you just created.\nYou know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.\nIf you see Project (none) in the top-right corner, that means you are not in an RStudio Project.\nTo make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the .Rproj file.\n\n\nThis tutorial will allow you to practice working with continuous predictors. You’ll fit a model with a binary outcome, predicted by two continuous predictors and their interaction.\nOK, let’s dive in! Set up the Rmd file you’ll use for this tutorial:\n\nCreate a new .Rmd file, save it in code/, and name it tutorial-w09.\nIn the setup chunk, include the line knitr::opts_knit$set(root.dir = here::here()).\nAlso in the setup chunk, include code to attach the libraries we’ll use in this tutorial: tidyverse, posterior, brms, and broom.mixed."
   }
 ]

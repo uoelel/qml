@@ -11,7 +11,7 @@
 | 7          | Binary outcomes                      | [Slides](slides/w07/) | [Tutorial](tutorials/tutorial-w07.qmd) |                                        |     |
 | 8          | Multiple predictors and interactions | [Slides](slides/w08/) | [Tutorial](tutorials/tutorial-w08.qmd) |                                        | [S1](https://github.com/uoelel/qml-s1/)  |
 | 9          | Continuous predictors                | [Slides](slides/w09/) | [Tutorial](tutorials/tutorial-w09.qmd) |                                        |     |
-| 10         | Research process: an overview                   | [Slides](slides/w10/) | [Tutorial](tutorials/tutorial-w10.qmd) | F2                                     |     |
+| 10         | Research process: an overview                   | [Slides](slides/w10/) | [Tutorial](tutorials/tutorial-w10.qmd) | [F2](https://github.com/uoelel/qml-f2/)                                     |     |
 | 11         | Obtaining p-values (optional)        | [Slides](slides/w11/) | [Tutorial](tutorials/tutorial-w11.qmd) |                                        |     |
 | 12         |                                      |                       |                                        |                                        | S2  |
 
