@@ -89,23 +89,23 @@ glot_status
 
 ```
 ## # A tibble: 8,345 × 18
-##    ID          Language_ID Parameter_ID Value Code_ID Comment Source
-##    &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; 
-##  1 kolp1236-a… kolp1236    aes          3     aes-sh… Kol (1… hh:he…
-##  2 tana1288-a… tana1288    aes          3     aes-sh… Tanahm… hh:he…
-##  3 touo1238-a… touo1238    aes          3     aes-sh… Touo (… hh:he…
-##  4 bert1248-a… bert1248    aes          3     aes-sh… Fadash… hh:he…
-##  5 sius1254-a… sius1254    aes          6     aes-ex… Siusla… hh:he…
-##  6 cent2045-a… cent2045    aes          6     aes-ex… Jalaa … &lt;NA&gt;  
-##  7 else1239-a… else1239    aes          3     aes-sh… Elseng… hh:he…
-##  8 taia1239-a… taia1239    aes          4     aes-mo… Taiap … hh:he…
-##  9 pyuu1245-a… pyuu1245    aes          3     aes-sh… Pyu (4… hh:he…
-## 10 mato1253-a… mato1253    aes          6     aes-ex… Arára … hh:he…
+##    ID      Language_ID Parameter_ID Value Code_ID Comment Source
+##    &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; 
+##  1 kolp12… kolp1236    aes          3     aes-sh… Kol (1… hh:he…
+##  2 tana12… tana1288    aes          3     aes-sh… Tanahm… hh:he…
+##  3 touo12… touo1238    aes          3     aes-sh… Touo (… hh:he…
+##  4 bert12… bert1248    aes          3     aes-sh… Fadash… hh:he…
+##  5 sius12… sius1254    aes          6     aes-ex… Siusla… hh:he…
+##  6 cent20… cent2045    aes          6     aes-ex… Jalaa … &lt;NA&gt;  
+##  7 else12… else1239    aes          3     aes-sh… Elseng… hh:he…
+##  8 taia12… taia1239    aes          4     aes-mo… Taiap … hh:he…
+##  9 pyuu12… pyuu1245    aes          3     aes-sh… Pyu (4… hh:he…
+## 10 mato12… mato1253    aes          6     aes-ex… Arára … hh:he…
 ## # ℹ 8,335 more rows
 ## # ℹ 11 more variables: codeReference &lt;lgl&gt;, status &lt;fct&gt;,
-## #   Name &lt;chr&gt;, Macroarea &lt;chr&gt;, Latitude &lt;dbl&gt;, Longitude &lt;dbl&gt;,
-## #   Glottocode &lt;chr&gt;, ISO639P3code &lt;chr&gt;, Countries &lt;chr&gt;,
-## #   Family_ID &lt;chr&gt;, Language_ID.y &lt;chr&gt;
+## #   Name &lt;chr&gt;, Macroarea &lt;chr&gt;, Latitude &lt;dbl&gt;,
+## #   Longitude &lt;dbl&gt;, Glottocode &lt;chr&gt;, ISO639P3code &lt;chr&gt;,
+## #   Countries &lt;chr&gt;, Family_ID &lt;chr&gt;, Language_ID.y &lt;chr&gt;
 ```
 
 
@@ -190,23 +190,24 @@ formants
 
 ```
 ## # A tibble: 24,012 × 22
-##    speaker file   word   time    f3    f0 language gender glottocode
-##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;     
-##  1 it01    it01-… pugu  0.111 2280.  137. Italian  m      ital1282  
-##  2 it01    it01-… pugu  0.111 2280.  137. Italian  m      ital1282  
-##  3 it01    it01-… pugu  0.222 2124.  134. Italian  m      ital1282  
-##  4 it01    it01-… pugu  0.222 2124.  134. Italian  m      ital1282  
-##  5 it01    it01-… pugu  0.333 2314.  134. Italian  m      ital1282  
-##  6 it01    it01-… pugu  0.333 2314.  134. Italian  m      ital1282  
-##  7 it01    it01-… pugu  0.444 2374.  135. Italian  m      ital1282  
-##  8 it01    it01-… pugu  0.444 2374.  135. Italian  m      ital1282  
-##  9 it01    it01-… pugu  0.556 2307.  137. Italian  m      ital1282  
-## 10 it01    it01-… pugu  0.556 2307.  137. Italian  m      ital1282  
+##    speaker file     word   time    f3    f0 language gender
+##    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; 
+##  1 it01    it01-001 pugu  0.111 2280.  137. Italian  m     
+##  2 it01    it01-001 pugu  0.111 2280.  137. Italian  m     
+##  3 it01    it01-001 pugu  0.222 2124.  134. Italian  m     
+##  4 it01    it01-001 pugu  0.222 2124.  134. Italian  m     
+##  5 it01    it01-001 pugu  0.333 2314.  134. Italian  m     
+##  6 it01    it01-001 pugu  0.333 2314.  134. Italian  m     
+##  7 it01    it01-001 pugu  0.444 2374.  135. Italian  m     
+##  8 it01    it01-001 pugu  0.444 2374.  135. Italian  m     
+##  9 it01    it01-001 pugu  0.556 2307.  137. Italian  m     
+## 10 it01    it01-001 pugu  0.556 2307.  137. Italian  m     
 ## # ℹ 24,002 more rows
-## # ℹ 13 more variables: item &lt;dbl&gt;, ipa &lt;chr&gt;, c1 &lt;chr&gt;,
-## #   c1_phonation &lt;chr&gt;, vowel &lt;chr&gt;, anteropost &lt;chr&gt;,
-## #   height &lt;chr&gt;, c2 &lt;chr&gt;, c2_phonation &lt;chr&gt;, c2_place &lt;chr&gt;,
-## #   formant &lt;chr&gt;, value &lt;dbl&gt;, id &lt;chr&gt;
+## # ℹ 14 more variables: glottocode &lt;chr&gt;, item &lt;dbl&gt;, ipa &lt;chr&gt;,
+## #   c1 &lt;chr&gt;, c1_phonation &lt;chr&gt;, vowel &lt;chr&gt;,
+## #   anteropost &lt;chr&gt;, height &lt;chr&gt;, c2 &lt;chr&gt;,
+## #   c2_phonation &lt;chr&gt;, c2_place &lt;chr&gt;, formant &lt;chr&gt;,
+## #   value &lt;dbl&gt;, id &lt;chr&gt;
 ```
 
 ---
@@ -303,25 +304,25 @@ polite
 
 ```
 ## # A tibble: 224 × 27
-##    subject gender birthplace musicstudent months_ger scenario task 
-##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;
-##  1 F1      F      seoul_area yes                  18        6 not  
-##  2 F1      F      seoul_area yes                  18        6 not  
-##  3 F1      F      seoul_area yes                  18        7 not  
-##  4 F1      F      seoul_area yes                  18        7 not  
-##  5 F1      F      seoul_area yes                  18        1 dct  
-##  6 F1      F      seoul_area yes                  18        1 dct  
-##  7 F1      F      seoul_area yes                  18        2 dct  
-##  8 F1      F      seoul_area yes                  18        2 dct  
-##  9 F1      F      seoul_area yes                  18        3 dct  
-## 10 F1      F      seoul_area yes                  18        3 dct  
+##    subject gender birthplace musicstudent months_ger scenario
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;
+##  1 F1      F      seoul_area yes                  18        6
+##  2 F1      F      seoul_area yes                  18        6
+##  3 F1      F      seoul_area yes                  18        7
+##  4 F1      F      seoul_area yes                  18        7
+##  5 F1      F      seoul_area yes                  18        1
+##  6 F1      F      seoul_area yes                  18        1
+##  7 F1      F      seoul_area yes                  18        2
+##  8 F1      F      seoul_area yes                  18        2
+##  9 F1      F      seoul_area yes                  18        3
+## 10 F1      F      seoul_area yes                  18        3
 ## # ℹ 214 more rows
-## # ℹ 20 more variables: attitude &lt;chr&gt;, total_duration &lt;dbl&gt;,
-## #   articulation_rate &lt;dbl&gt;, f0mn &lt;dbl&gt;, f0sd &lt;dbl&gt;, f0range &lt;dbl&gt;,
-## #   inmn &lt;dbl&gt;, insd &lt;dbl&gt;, inrange &lt;dbl&gt;, shimmer &lt;dbl&gt;,
-## #   jitter &lt;dbl&gt;, HNRmn &lt;dbl&gt;, H1H2 &lt;dbl&gt;, breath_count &lt;dbl&gt;,
-## #   filler_count &lt;dbl&gt;, hiss_count &lt;dbl&gt;, nasal_count &lt;dbl&gt;,
-## #   sil_count &lt;dbl&gt;, ya_count &lt;dbl&gt;, yey_count &lt;dbl&gt;
+## # ℹ 21 more variables: task &lt;chr&gt;, attitude &lt;chr&gt;,
+## #   total_duration &lt;dbl&gt;, articulation_rate &lt;dbl&gt;, f0mn &lt;dbl&gt;,
+## #   f0sd &lt;dbl&gt;, f0range &lt;dbl&gt;, inmn &lt;dbl&gt;, insd &lt;dbl&gt;,
+## #   inrange &lt;dbl&gt;, shimmer &lt;dbl&gt;, jitter &lt;dbl&gt;, HNRmn &lt;dbl&gt;,
+## #   H1H2 &lt;dbl&gt;, breath_count &lt;dbl&gt;, filler_count &lt;dbl&gt;,
+## #   hiss_count &lt;dbl&gt;, nasal_count &lt;dbl&gt;, sil_count &lt;dbl&gt;, …
 ```
 
 ---

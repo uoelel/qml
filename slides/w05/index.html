@@ -77,25 +77,25 @@ polite
 
 ```
 ## # A tibble: 224 × 27
-##    subject gender birthplace musicstudent months_ger scenario task 
-##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;
-##  1 F1      F      seoul_area yes                  18        6 not  
-##  2 F1      F      seoul_area yes                  18        6 not  
-##  3 F1      F      seoul_area yes                  18        7 not  
-##  4 F1      F      seoul_area yes                  18        7 not  
-##  5 F1      F      seoul_area yes                  18        1 dct  
-##  6 F1      F      seoul_area yes                  18        1 dct  
-##  7 F1      F      seoul_area yes                  18        2 dct  
-##  8 F1      F      seoul_area yes                  18        2 dct  
-##  9 F1      F      seoul_area yes                  18        3 dct  
-## 10 F1      F      seoul_area yes                  18        3 dct  
+##    subject gender birthplace musicstudent months_ger scenario
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;
+##  1 F1      F      seoul_area yes                  18        6
+##  2 F1      F      seoul_area yes                  18        6
+##  3 F1      F      seoul_area yes                  18        7
+##  4 F1      F      seoul_area yes                  18        7
+##  5 F1      F      seoul_area yes                  18        1
+##  6 F1      F      seoul_area yes                  18        1
+##  7 F1      F      seoul_area yes                  18        2
+##  8 F1      F      seoul_area yes                  18        2
+##  9 F1      F      seoul_area yes                  18        3
+## 10 F1      F      seoul_area yes                  18        3
 ## # ℹ 214 more rows
-## # ℹ 20 more variables: attitude &lt;fct&gt;, total_duration &lt;dbl&gt;,
-## #   articulation_rate &lt;dbl&gt;, f0mn &lt;dbl&gt;, f0sd &lt;dbl&gt;, f0range &lt;dbl&gt;,
-## #   inmn &lt;dbl&gt;, insd &lt;dbl&gt;, inrange &lt;dbl&gt;, shimmer &lt;dbl&gt;,
-## #   jitter &lt;dbl&gt;, HNRmn &lt;dbl&gt;, H1H2 &lt;dbl&gt;, breath_count &lt;dbl&gt;,
-## #   filler_count &lt;dbl&gt;, hiss_count &lt;dbl&gt;, nasal_count &lt;dbl&gt;,
-## #   sil_count &lt;dbl&gt;, ya_count &lt;dbl&gt;, yey_count &lt;dbl&gt;
+## # ℹ 21 more variables: task &lt;chr&gt;, attitude &lt;fct&gt;,
+## #   total_duration &lt;dbl&gt;, articulation_rate &lt;dbl&gt;, f0mn &lt;dbl&gt;,
+## #   f0sd &lt;dbl&gt;, f0range &lt;dbl&gt;, inmn &lt;dbl&gt;, insd &lt;dbl&gt;,
+## #   inrange &lt;dbl&gt;, shimmer &lt;dbl&gt;, jitter &lt;dbl&gt;, HNRmn &lt;dbl&gt;,
+## #   H1H2 &lt;dbl&gt;, breath_count &lt;dbl&gt;, filler_count &lt;dbl&gt;,
+## #   hiss_count &lt;dbl&gt;, nasal_count &lt;dbl&gt;, sil_count &lt;dbl&gt;, …
 ```
 
 
@@ -508,16 +508,18 @@ vot_bm &lt;- brm(
 ##          total post-warmup draws = 4000
 ## 
 ## Population-Level Effects: 
-##                Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## Intercept         16.27      0.16    15.97    16.59 1.00     4136
-## attitudepolite     1.25      0.23     0.80     1.70 1.00     4396
-##                Tail_ESS
-## Intercept          3237
-## attitudepolite     2937
+##                Estimate Est.Error l-95% CI u-95% CI Rhat
+## Intercept         16.27      0.16    15.97    16.59 1.00
+## attitudepolite     1.25      0.23     0.80     1.70 1.00
+##                Bulk_ESS Tail_ESS
+## Intercept          4136     3237
+## attitudepolite     4396     2937
 ## 
 ## Family Specific Parameters: 
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sigma     1.69      0.08     1.54     1.86 1.00     4065     2979
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## sigma     1.69      0.08     1.54     1.86 1.00     4065
+##       Tail_ESS
+## sigma     2979
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -529,9 +531,9 @@ vot_bm &lt;- brm(
 
 ```
 ## Population-Level Effects: 
-##                Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## Intercept         16.27      0.16    15.97    16.59 1.00     4136
-## attitudepolite     1.25      0.23     0.80     1.70 1.00     4396
+##                Estimate Est.Error l-95% CI u-95% CI Rhat
+## Intercept         16.27      0.16    15.97    16.59 1.00
+## attitudepolite     1.25      0.23     0.80     1.70 1.00
 ```
 
 --
@@ -579,9 +581,9 @@ There is a 95% probability that mean HNR when [attitude = informal] is between 1
 
 ```
 ## Population-Level Effects: 
-##                Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## Intercept         16.27      0.16    15.97    16.59 1.00     4136
-## attitudepolite     1.25      0.23     0.80     1.70 1.00     4396
+##                Estimate Est.Error l-95% CI u-95% CI Rhat
+## Intercept         16.27      0.16    15.97    16.59 1.00
+## attitudepolite     1.25      0.23     0.80     1.70 1.00
 ```
 
 &lt;br&gt;
@@ -625,9 +627,9 @@ There is 95% probability that the difference in mean HNR between `\(\mu_{\text{a
 
 ```
 ## Population-Level Effects: 
-##                Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## Intercept         16.27      0.16    15.97    16.59 1.00     4136
-## attitudepolite     1.25      0.23     0.80     1.70 1.00     4396
+##                Estimate Est.Error l-95% CI u-95% CI Rhat
+## Intercept         16.27      0.16    15.97    16.59 1.00
+## attitudepolite     1.25      0.23     0.80     1.70 1.00
 ```
 
 
@@ -659,8 +661,8 @@ $$
 
 
 ```
-## Intercept          3237
-## attitudepolite     2937
+## Intercept          4136     3237
+## attitudepolite     4396     2937
 ```
 
 &lt;br&gt;
@@ -721,18 +723,18 @@ alb_vot_vl
 
 ```
 ## # A tibble: 45 × 8
-##    speaker file     label release voi_onset consonant   vot stop 
-##    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;
-##  1 s01     011-kati k       0.754     0.785 k         31.5  k    
-##  2 s01     014-pata p       0.705     0.712 p          7.46 p    
-##  3 s01     020-tapa t       0.825     0.833 t          8.00 t    
-##  4 s01     052-kati k       0.772     0.807 k         35.0  k    
-##  5 s01     055-pata p       0.823     0.838 p         15.0  p    
-##  6 s01     061-tapa t       0.944     0.953 t          8.62 t    
-##  7 s01     093-kati k       0.908     0.946 k         38.1  k    
-##  8 s01     096-pata p       1.10      1.10  p          6.24 p    
-##  9 s01     102-tapa t       0.951     0.964 t         13.1  t    
-## 10 s02     011-tapa t       0.752     0.766 t         13.9  t    
+##    speaker file    label release voi_onset consonant   vot stop 
+##    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;
+##  1 s01     011-ka… k       0.754     0.785 k         31.5  k    
+##  2 s01     014-pa… p       0.705     0.712 p          7.46 p    
+##  3 s01     020-ta… t       0.825     0.833 t          8.00 t    
+##  4 s01     052-ka… k       0.772     0.807 k         35.0  k    
+##  5 s01     055-pa… p       0.823     0.838 p         15.0  p    
+##  6 s01     061-ta… t       0.944     0.953 t          8.62 t    
+##  7 s01     093-ka… k       0.908     0.946 k         38.1  k    
+##  8 s01     096-pa… p       1.10      1.10  p          6.24 p    
+##  9 s01     102-ta… t       0.951     0.964 t         13.1  t    
+## 10 s02     011-ta… t       0.752     0.766 t         13.9  t    
 ## # ℹ 35 more rows
 ```
 
@@ -844,8 +846,10 @@ vot_bm &lt;- brm(
 ## stopt         2577
 ## 
 ## Family Specific Parameters: 
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sigma    16.77      1.82    13.71    20.89 1.00     3141     2785
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## sigma    16.77      1.82    13.71    20.89 1.00     3141
+##       Tail_ESS
+## sigma     2785
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
