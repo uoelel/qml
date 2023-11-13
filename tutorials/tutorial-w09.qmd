@@ -88,15 +88,13 @@ The variables in this data frame that we'll refer to in this tutorial are:
 -   `freq`: How frequently the `weak_adj` co-occurred with a stronger adjective on the same scale in a large corpus.
 -   `semdist`: A measure of the semantic distance between `weak_adj` and `strong_adj`. A negative score indicates that the words are semantically closer; a positive score indicates that the words are semantically more distant (the units are arbitrary).
 
-The first model we'll fit will only look at `SI` as a function of frequency. The second will add an interaction between frequency and semantic distance.
-
 Before we leap into modelling, though, let's look in more detail at our predictors `freq` and `semdist`. A little bit of pre-processing is needed here, and the next sections will walk you through it.
 
 #### Recoding `SI`
 
 Now `SI` is coded with `0` for "participant did not make a scalar inference" and `1` for "participant made a scalar inference".
 
-Let's recode `SI` so that `0` becomes `no_scalar` and `1` becomes `scalar`.
+Let's recode `SI` so that `0` becomes `no_scalar` and `1` becomes `scalar` and make this into a factor with levels in the order `c("no_scalar", "scalar")`.
 
 ```{r}
 #| label: si-recode-ex
@@ -265,7 +263,7 @@ The variable `SI` is binary: `no_scalar` if a scalar inference was not made, `sc
 
 This type of plot (proportion \~ continuous) requires a small trick.
 
-`SI` is categorical, but we want to show the **proportion** of `scalar` vs `no_scalar` across values of centred log frequency. We can achieve this by temporarily converting `SI` to a *numeric* variable and subtract `1` (which basically gives us the original `SI` column, coded with 0 and 1), and then using `geom_smooth()` with a binomial family, like so:
+`SI` is categorical, but we want to show the **proportion** of `scalar` vs `no_scalar` across values of centred log frequency. We can achieve this by temporarily converting `SI` to a *numeric* variable and subtract `1` (which basically gives us the original `SI` column, coded with 0 and 1), and then using `geom_smooth()` with a binomial family (which will indicate the proportion of `scalar` responses), like so:
 
 ```{r}
 #| label: si-freq
@@ -439,7 +437,7 @@ Since semantic distance and log frequency are **centred**, 0 on the centred pred
 -   `semdist_c`, $\beta_2$: When **log frequency is at its mean**, for a **unit change in semantic distance**, the change in the log-odds of making a scalar inference is between 0.06 and 0.11, at 95% confidence.
 
 ::: {.callout-note appearance="minimal"}
-Note how now we say "log frequency" and "semantic distance", instead of "centred log frequency" and "semantic distance"
+Note how now we say "log frequency" and "semantic distance", instead of "centred log frequency" and "centred semantic distance"
 :::
 
 It is customary, when reporting results with centred predictors, to use the "non-centred" version of the report (so you would write e.g. "when log frequency is at its mean" rather than "when centred log frequency is at 0").
