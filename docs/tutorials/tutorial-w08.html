@@ -223,11 +223,11 @@ Important
 <h3 data-number="2.1" class="anchored" data-anchor-id="read-and-process-the-data"><span class="header-section-number">2.1</span> Read and process the data</h3>
 <p>We’ve played with the data in <code>shallow.csv</code> before, way back in week 2 (ah, the good old days!). This means you might already have it in your <code>data/</code> folder, but if not, you can download it again from here: <a href="../data/shallow.csv">shallow.csv</a>.</p>
 <p>Use the usual <code>read_csv()</code> function to read in the dataset, and assign it to a variable called <code>shallow</code>.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/read-shallow-ex_d16362cadd43005469b5b6da471839d3">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="ot">&lt;-</span> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Run the following code to filter this data frame to include only the data we need for this example.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/filter-shallow_5a30213afc74b75c2affdc4cfd8c3ad9">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="ot">&lt;-</span> shallow <span class="sc">%&gt;%</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    Group <span class="sc">==</span> <span class="st">"L1"</span>,</span>
@@ -248,7 +248,7 @@ Important
 <li><code>Branching</code>, with two levels: <code>Left</code> and <code>Right</code>.</li>
 </ul>
 <p>Can you see how the code below will ensure that each variable has the desired ordering for their levels? (Remember that by default the ordering is alphabetical!)</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/var-setup-shallow_13fec89b9e12f0416c6f5be5be1d0b8e">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="ot">&lt;-</span> shallow <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create Accuracy column based on ACC with desired order</span></span>
@@ -263,7 +263,7 @@ Important
 <section id="visualise-the-data" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="visualise-the-data"><span class="header-section-number">2.2</span> Visualise the data</h3>
 <p>Use <code>shallow</code> to create a bar plot that looks like this one. Show the proportion of correct/incorrect responses by <code>Relation_type</code>, faceting by <code>Branching</code>.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/barplot-shallow_f2504914b34d930f3bbc99a81f877b0a">
+<div class="cell">
 <div class="cell-output-display">
 <p><img src="tutorial-w08_files/figure-html/barplot-shallow-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -308,7 +308,7 @@ Extra: More on contrasts
 <p>The <code>contrasts()</code> function takes as its argument a factor, and returns the coding that R will use to represent this factor in a model.</p>
 <section id="accuracy" class="level4" data-number="2.2.1">
 <h4 data-number="2.2.1" class="anchored" data-anchor-id="accuracy"><span class="header-section-number">2.2.1</span> <code>Accuracy</code></h4>
-<div class="cell" data-hash="tutorial-w08_cache/html/unnamed-chunk-7_53641545b228cf38d040443cf5bd3812">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(shallow<span class="sc">$</span>Accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          correct
@@ -320,7 +320,7 @@ correct         1</code></pre>
 </section>
 <section id="relation_type" class="level4" data-number="2.2.2">
 <h4 data-number="2.2.2" class="anchored" data-anchor-id="relation_type"><span class="header-section-number">2.2.2</span> <code>Relation_Type</code></h4>
-<div class="cell" data-hash="tutorial-w08_cache/html/unnamed-chunk-8_4004d779f1db335c7b592ee661e911ea">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(shallow<span class="sc">$</span>Relation_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Constituent
@@ -339,7 +339,7 @@ Constituent           1</code></pre>
 </section>
 <section id="branching" class="level4" data-number="2.2.3">
 <h4 data-number="2.2.3" class="anchored" data-anchor-id="branching"><span class="header-section-number">2.2.3</span> <code>Branching</code></h4>
-<div class="cell" data-hash="tutorial-w08_cache/html/unnamed-chunk-9_da970de5329b63b3a623107e303a9206">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(shallow<span class="sc">$</span>Branching)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Right
@@ -382,14 +382,14 @@ logit(p) &amp; = \beta_0 + (\beta_1 \times relation) + (\beta_2 \times branch) +
 <li>Specify a file path using <code>brm()</code>’s <code>file</code> argument so that the model fit will be saved.</li>
 <li>Specify a seed with the <code>seed</code> argument to ensure reproducibility. The seed can be any big number you wish!</li>
 </ul>
-<div class="cell" data-hash="tutorial-w08_cache/html/shallow-fit-ex_3900b3d0567b402541189f62a0f41477">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>acc_inter_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now run the model.</p>
 <p>The summary should look something like this (but don’t worry if your numbers are slightly different from these! That’ll happen due to the randomness inherent in the MCMC sampling process).</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/shallow-summ_7b070f11cf8fb815aa4389fc538cf7b8">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(acc_inter_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: bernoulli 
@@ -431,7 +431,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <h3 data-number="2.5" class="anchored" data-anchor-id="conditional-posterior-probability-distributions"><span class="header-section-number">2.5</span> Conditional posterior probability distributions</h3>
 <p>Getting the conditional posterior probability distributions when so many predictors are at play is a bit of a process, but we’ll approach it step by step.</p>
 <p>The first thing to do is to get the posterior draws from our model, using <code>as_draws_df()</code>.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-draws_bbfbbc8b1265ea5a2a1347498a3a4194">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>acc_draws <span class="ot">&lt;-</span> <span class="fu">as_draws_df</span>(acc_inter_bm)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>acc_draws</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -459,7 +459,7 @@ logit(p) = \beta_0 + (\beta_1 \times relation) + (\beta_2 \times branch) + (\bet
 \]</span></p>
 <p>Make sure you understand why each 0 and 1 appears where it does.</p>
 <p>Now we just need to reproduce this in R, using the code below. The output is a data frame where each column contains the conditional posterior draws of <span class="math inline">\(logit(p)\)</span> of each of the four combination of levels.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-cond-pstr_4b9cf06a78908c1ed91af3d8f57e3f78">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>acc_draws_cond <span class="ot">&lt;-</span> acc_draws <span class="sc">%&gt;%</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Unrelated_Left =</span> b_Intercept,</span>
@@ -499,7 +499,7 @@ Note
 <li><code>predictors</code>, with the combinations of levels (<code>Unrelated_Left</code>, <code>Unrelated_Right</code>, …);</li>
 <li><code>sampled_logodds</code>, with the posterior draws values.</li>
 </ul>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-pivot_49d2acdc55a648ea4603abdd85de0886">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>acc_draws_cond_long <span class="ot">&lt;-</span> acc_draws_cond <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The range of columns to pivot:</span></span>
@@ -540,7 +540,7 @@ Pivoting
 <li>We’re going to use <code>separate()</code> to “separate” the <code>predictors</code> column into two columns: one with the value for <code>Relation_type</code>, and another for <code>Branching</code>. By default, column values are split at any punctuation character, like <code>_</code>. Have a look at <a href="https://tidyr.tidyverse.org/reference/separate.html">the documentation</a> for <code>separate()</code> if you’re curious about the details. The reverse of <code>separate()</code> is <code>unite()</code>.</li>
 <li><code>acc_draws_cond_long</code> is a new data frame, so R will apply its defaults for factor ordering unless we again order the factor levels manually.</li>
 </ul>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-draws-long-sep_f8303e9d576d15b3da7c8290cee152fc">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>acc_draws_cond_long <span class="ot">&lt;-</span> acc_draws_cond_long <span class="sc">%&gt;%</span> </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Separate `predictors` at "_" into two columns</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(predictors, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Relation_type"</span>, <span class="st">"Branching"</span>)) <span class="sc">%&gt;%</span> </span>
@@ -584,7 +584,7 @@ Note
 <section id="compute-means-and-95-cris" class="level4" data-number="2.5.1">
 <h4 data-number="2.5.1" class="anchored" data-anchor-id="compute-means-and-95-cris"><span class="header-section-number">2.5.1</span> Compute means and 95% CrIs</h4>
 <p>Before moving on to plotting, we’ll use <code>acc_draws_cond_long</code> to compute summary statistics of the posteriors. We can do this using some now-familiar functions: <code>group_by()</code>, <code>summarise()</code>, <code>mean()</code>, and <code>quantile2()</code>.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-summ_2face09470c851902499ca1418fcd8bc">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>acc_cond_summ <span class="ot">&lt;-</span> acc_draws_cond_long <span class="sc">%&gt;%</span> </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Relation_type, Branching) <span class="sc">%&gt;%</span> </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -610,7 +610,7 @@ Note
 <p>A good sense check to make sure that we did this computation correctly is to compare it to the output of <code>summary()</code>. Because <code>summary()</code> also computes summary measures using precisely those same posterior draws, we can compare the numbers in the model summary and in <code>acc_cond_summ</code>.</p>
 <p>Specifically, in the model summary, the estimates for <code>Intercept</code> should match the summary measures here for <code>Relation_type == Unrelated</code> and <code>Branching == Left</code> (since those are the two reference levels).</p>
 <p>Let’s have a look:</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-summ-fixef_a9df1163d90d762bd9ce288e8bbe8139">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Population-Level Effects: 
                                         Estimate Est.Error l-95% CI u-95% CI
@@ -627,7 +627,7 @@ Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42</co
 <h4 data-number="2.5.2" class="anchored" data-anchor-id="plot-multiple-posterior-densities"><span class="header-section-number">2.5.2</span> Plot multiple posterior densities</h4>
 <p>Finally, we’ll use the conditional posterior draws to create a density plot.</p>
 <p>See if you understand how the following code creates the plot we see below.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-dens-logodds_49d50e915123f5ebe06dc394e748335f">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>acc_draws_cond_long <span class="sc">%&gt;%</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sampled_logodds, <span class="at">fill =</span> Relation_type)) <span class="sc">+</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
@@ -641,7 +641,7 @@ Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42</co
 </div>
 </div>
 <p>How would you create the same plot, but instead of the <em>x</em>-axis showing the data in log-odds, have the x axis showing the data back-transformed to probabilities? Something like this:</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/acc-dens-prob_4062cc093b5a8ed132cec6189e2e4e30">
+<div class="cell">
 <div class="cell-output-display">
 <p><img src="tutorial-w08_files/figure-html/acc-dens-prob-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -664,7 +664,7 @@ Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42</co
 <p>Based on the current results, in the left-branching condition we find that the correct response rate is higher when the relation type is constituent relative to when it is unrelated. On the other hand, the results suggest that the correct response rate is very similar, if not identical, in the right-branching condition (with the caveat that there could still be a very small difference). The predicted difference in percentage points between unrelated and constituent relations in the right-branching condition is between -4 to +6 points at 95% probability. At 60% confidence, the difference is between -1 and +3 percent points. In sum, given the level of uncertainty in the estiamted difference, it is safer to conclude that more data is needed to estimate the difference with greater certainty.</p>
 </blockquote>
 <p>Here is how you can calculate the predicted difference in percentage points.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/ucr_6b6c34c21ed12b844eca9ad39e84bb29">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>acc_draws_cond <span class="sc">%&gt;%</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ucr =</span> <span class="fu">plogis</span>(Constituent_Right) <span class="sc">-</span> <span class="fu">plogis</span>(Unrelated_Right)) <span class="sc">%&gt;%</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -693,11 +693,11 @@ Relation_typeConstituent:BranchingRight    -0.63      0.55    -1.72     0.42</co
 <section id="read-in-the-data" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="read-in-the-data"><span class="header-section-number">3.1</span> Read in the data</h3>
 <p>Save <code>dur-ita-pol.csv</code> in your <code>data/</code> folder, and read it in using <code>read_csv()</code>.</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/read-dur-ex_ab21e08deb41985ac1a6acbbd9c8368f">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dur_ita_pol <span class="ot">&lt;-</span> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The data you see should look something like this (selecting only a handful of the many columns to view!).</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/dur-ita-pol_90dac1b8efc8da898ed49c3dba8fcbcd">
+<div class="cell">
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -749,7 +749,7 @@ Warning
 </section>
 <section id="fit-the-model-1" class="level3" data-number="3.4">
 <h3 data-number="3.4" class="anchored" data-anchor-id="fit-the-model-1"><span class="header-section-number">3.4</span> Fit the model</h3>
-<div class="cell" data-hash="tutorial-w08_cache/html/dur-fit-ex_46c4a1e86751ff2a9b71df961d980eef">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dur_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -763,7 +763,7 @@ Warning
 <li>Specify a seed.</li>
 </ul>
 <p>Here’s what your model summary should look like (with possible small differences due to MCMC sampling).</p>
-<div class="cell" data-hash="tutorial-w08_cache/html/dur-fit-summ_bbaab02712af8a9b8b98b9861279d0aa">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dur_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: gaussian 

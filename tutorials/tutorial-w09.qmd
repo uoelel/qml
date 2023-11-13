@@ -1,11 +1,11 @@
 ---
 title: "QML tutorial – Week 9"
 execute: 
-  cache: true
+  cache: false
 ---
 
-```{r}
-#| label: pkgs
+```{r setup}
+#| label: setup
 #| message: false
 #| echo: false
 
@@ -492,6 +492,15 @@ conditional_effects(si_bm, effects = "semdist_c:logfreq_c")
 ```
 
 Here we see that, equivalently, the effect of semantic distance increases with increasing log frequency.
+
+## Reporting
+
+Now, let's write a full report of model and results. Fill in the blanks yourself.
+
+> We fitted a Bayesian model to scalar inference (absent vs present), using a Bernoulli distribution. We included logged word frequency and semantic distance, and their interaction as predictors. Both predictors were centred.
+>
+> The model's results suggest that, when logged frequency and semantic distance are at their mean, the probability of a scalar inference being present is between ... and ...% ($\beta$ = ..., SD = ...). For each unit increase of logged frequency, when semantic distance is at its mean, the probability increases by ... to ... percent points ($\beta$ = ..., SD = ...). For each unit increase of semantic distance, when logged frequency is at its mean, the probability increases by ... to ... percent points ($\beta$ = ..., SD = ...). The positive effect of logged word frequency increases with increasing semantic distance, by ... to ... log-odds ($\beta$ = ..., SD = ...).
+
 
 ## Summary
 

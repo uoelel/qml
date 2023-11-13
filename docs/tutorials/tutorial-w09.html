@@ -159,7 +159,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#interpreting-the-estimates" id="toc-interpreting-the-estimates" class="nav-link" data-scroll-target="#interpreting-the-estimates"><span class="header-section-number">4.1</span> Interpreting the estimates</a></li>
   <li><a href="#conditional-posterior-probabilities" id="toc-conditional-posterior-probabilities" class="nav-link" data-scroll-target="#conditional-posterior-probabilities"><span class="header-section-number">4.2</span> Conditional posterior probabilities</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5</span> Summary</a></li>
+  <li><a href="#reporting" id="toc-reporting" class="nav-link" data-scroll-target="#reporting"><span class="header-section-number">5</span> Reporting</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -217,10 +218,10 @@ Important
 <h3 data-number="2.1" class="anchored" data-anchor-id="read-and-process-the-data"><span class="header-section-number">2.1</span> Read and process the data</h3>
 <p>You can get the data for this tutorial by right-clicking and downloading the following link: <a href="../data/si.csv">si.csv</a>. As always, the data is also link on the <a href="../content.html">Content</a> page.</p>
 <p>Use <code>read_csv()</code> to read in the CSV and assign it to a variable called <code>si</code> (for <strong>s</strong>calar <strong>i</strong>nference).</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/read-si-ex_4607b76f4eef58b6f33a45f394232c2a">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>si <span class="ot">&lt;-</span> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="tutorial-w09_cache/html/print-si_f0d13bec08099eee55231d8992d151b8">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>si</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
@@ -244,7 +245,7 @@ Important
 <h4 data-number="2.1.1" class="anchored" data-anchor-id="recoding-si"><span class="header-section-number">2.1.1</span> Recoding <code>SI</code></h4>
 <p>Now <code>SI</code> is coded with <code>0</code> for “participant did not make a scalar inference” and <code>1</code> for “participant made a scalar inference”.</p>
 <p>Let’s recode <code>SI</code> so that <code>0</code> becomes <code>no_scalar</code> and <code>1</code> becomes <code>scalar</code>.</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/si-recode-ex_0e196de85ec03a29f3276dd59c1678ea">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>si <span class="ot">&lt;-</span> si <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">SI =</span> ...</span>
@@ -255,20 +256,20 @@ Important
 <h4 data-number="2.1.2" class="anchored" data-anchor-id="transforming-and-centring-freq"><span class="header-section-number">2.1.2</span> Transforming and centring <code>freq</code></h4>
 <p>Frequencies notoriously yield an extremely skewed distribution, so it’s common practice in corpus linguistics to log-transform them before including them in an analysis.</p>
 <p>Here’s how the frequencies look right out of the box:</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/freq-skew-plot_55bc18225ecc5155798eef7844489d21">
+<div class="cell">
 <div class="cell-output-display">
 <p><img src="tutorial-w09_files/figure-html/freq-skew-plot-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Log-transforming the frequencies helps to reduce the skewness. Use <code>mutate()</code> to take the log of <code>freq</code> and store the result in a new column called <code>logfreq</code>:</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/logfreq-ex_8d5585d108e2d7d62d54f46ede1e5331">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>si <span class="ot">&lt;-</span> si <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    ...</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The result should look like this:</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/logfreq-plot_74d04b81017d4639a204747ef3ea7820">
+<div class="cell">
 <div class="cell-output-display">
 <p><img src="tutorial-w09_files/figure-html/logfreq-plot-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -289,7 +290,7 @@ Extra: Unit changes and non-linear transformations
 <p>We’ve been talking a lot in recent weeks about transforming and back-transforming, so you might be asking yourself: what do unit changes on the log scale equate to on the original frequency scale?</p>
 <p>Because the log transformation is <strong>non-linear</strong>, a unit change on the log frequency scale (e.g., going from 0 to 1, or going from 2 to 3) corresponds to different changes on the frequency scale, <strong>depending on which unit change on the log scale we evaluate.</strong></p>
 <p>To illustrate this:</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/log-nonlinear-plot_3fede35fee9356383eb8fca8d169cf60">
+<div class="cell">
 <div class="cell-output-display">
 <p><img src="tutorial-w09_files/figure-html/log-nonlinear-plot-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -301,14 +302,14 @@ Extra: Unit changes and non-linear transformations
 </div>
 </div>
 <p>We’re nearly done with <code>logfreq</code>—all that’s left is to centre it. As we saw in the lecture, to centre a variable, we compute its mean and subtract that from every observation of the variable. The goal is to get a new version of variable that has a mean of zero.</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/logfreq-c_ca843b2062d5170c02c3d82f7e52b3f1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>si <span class="ot">&lt;-</span> si <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">logfreq_c =</span> logfreq <span class="sc">-</span> <span class="fu">mean</span>(logfreq)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Run the following to verify that the mean is zero:</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/logfreq-c-mean_034ea4cb5cf752a4c22a79070a2c6457">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(si<span class="sc">$</span>logfreq_c))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
@@ -329,7 +330,7 @@ Extra: Unit changes and non-linear transformations
 <p>The variable <code>SI</code> is binary: <code>no_scalar</code> if a scalar inference was not made, <code>scalar</code> if it was. We like to visualise binary outcomes as proportions on the <em>y</em>-axis and centred log frequency on the <em>x</em>-axis.</p>
 <p>This type of plot (proportion ~ continuous) requires a small trick.</p>
 <p><code>SI</code> is categorical, but we want to show the <strong>proportion</strong> of <code>scalar</code> vs <code>no_scalar</code> across values of centred log frequency. We can achieve this by temporarily converting <code>SI</code> to a <em>numeric</em> variable and subtract <code>1</code> (which basically gives us the original <code>SI</code> column, coded with 0 and 1), and then using <code>geom_smooth()</code> with a binomial family, like so:</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/si-freq_d70522528d79bc051625ef11f953b9d2">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>si <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SI =</span> <span class="fu">as.numeric</span>(SI) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(logfreq_c, SI)) <span class="sc">+</span></span>
@@ -355,7 +356,7 @@ Extra: Adding text geometries
 <div class="callout-body-container callout-body">
 <p>Let’s add <code>geom_text()</code> to show the corresponding <code>weak_adj on the plot</code>.</p>
 <p>To achieve this, we need to calculate the proportion of <code>SI</code> ourselves, to use as the <em>y</em>-axis. See the following code.</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/si-freq-scatter_d3ea07ff8a1869aa8462c964dcb8ff90">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>si <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(weak_adj) <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -369,9 +370,6 @@ Extra: Adding text geometries
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">'Proportion of scalar inferences'</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 50 rows containing missing values (`geom_text()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="tutorial-w09_files/figure-html/si-freq-scatter-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -381,7 +379,7 @@ Extra: Adding text geometries
 </div>
 </div>
 <p>Now it’s your turn! Reproduce the following plot.</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/si-semd_a4c06a195c1561605193de787b9a3922">
+<div class="cell">
 <div class="cell-output-display">
 <p><img src="tutorial-w09_files/figure-html/si-semd-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -399,17 +397,17 @@ Extra: Frequency and semantic distance together
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>It is possible to plot frequency and semantic distance together like so:</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/si-freq-semd_cb5960ec00336b259da20c6639f086f0">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>si <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(weak_adj) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">prop_si =</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(SI) <span class="sc">-</span> <span class="dv">1</span>),</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">logfreq_c =</span> <span class="fu">mean</span>(logfreq_c),</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">semdist =</span> <span class="fu">mean</span>(semdist)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(logfreq_c, semdist, <span class="at">fill =</span> prop_si)) <span class="sc">+</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">pch =</span> <span class="dv">21</span>) <span class="sc">+</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">type =</span> <span class="st">"div"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>si <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(weak_adj) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">prop_si =</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(SI) <span class="sc">-</span> <span class="dv">1</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">logfreq_c =</span> <span class="fu">mean</span>(logfreq_c),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">semdist =</span> <span class="fu">mean</span>(semdist)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(logfreq_c, semdist, <span class="at">fill =</span> prop_si)) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">pch =</span> <span class="dv">21</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">type =</span> <span class="st">"div"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tutorial-w09_files/figure-html/si-freq-semd-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -440,14 +438,14 @@ logit(p) &amp; = \beta_0 + (\beta_1 \cdot logfreq\_c) + (\beta_2 \cdot semdist\_
 <li>Specify a seed for reproducibility.</li>
 <li>Specify a file path to save the model fit to a file.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ul>
-<div class="cell" data-hash="tutorial-w09_cache/html/si-freq-semdist-bm-ex_c43bd51dde93e482ba50cd9bb245b129">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>si_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>si_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Your model summary should look similar to this one.</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/si-freq-semdist-summ_b53508b53ebccd27c8cdf46a4172ec49">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(si_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(si_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: bernoulli 
   Links: mu = logit 
@@ -551,8 +549,8 @@ Numeric predictors
 <p>A common practice is to use the mean of the predictor and then the value that corresponds to 1 standard deviation above the mean and 1 standard deviation below the mean.</p>
 <p>If you wish you can try and work out how to do the calculations yourself using the draws, but luckily there is a function from the brms package that simplifies things.</p>
 <p>The function is <code>conditional_effects()</code> (aptly named!). It takes the model as the first argument and then a string specifying the effects to plot, here <code>"logfreq_c:semdist_c"</code> for “<code>logfreq_c</code>, <code>semdist_c</code> and their interaction”.</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/condeff_536456fd1d28372da3c26f37c2205c7a">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(si_bm, <span class="at">effects =</span> <span class="st">"logfreq_c:semdist_c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(si_bm, <span class="at">effects =</span> <span class="st">"logfreq_c:semdist_c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tutorial-w09_files/figure-html/condeff-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -560,8 +558,8 @@ Numeric predictors
 <p>You will see that the plot has picked representative values for <code>semdist_c</code> (by default these are the mean, and mean <span class="math inline">\(\pm\)</span> 1 standard deviation. You can calculate the mean and SD of <code>semdist_c</code> yourself to compare). Since we have listed <code>logfreq_c</code> first, the plot shows the entire range of values in <code>logfreq_c</code>.</p>
 <p><strong>The effect of log frequency gets stronger with increasing semantic distance.</strong></p>
 <p>We can invert the predictors to see the effect of semantic distance at representative values of log frequency.</p>
-<div class="cell" data-hash="tutorial-w09_cache/html/condeff-2_24fb2f43aca18658b88394c591e62dac">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(si_bm, <span class="at">effects =</span> <span class="st">"semdist_c:logfreq_c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(si_bm, <span class="at">effects =</span> <span class="st">"semdist_c:logfreq_c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tutorial-w09_files/figure-html/condeff-2-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -569,8 +567,16 @@ Numeric predictors
 <p>Here we see that, equivalently, the effect of semantic distance increases with increasing log frequency.</p>
 </section>
 </section>
-<section id="summary" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="summary"><span class="header-section-number">5</span> Summary</h2>
+<section id="reporting" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="reporting"><span class="header-section-number">5</span> Reporting</h2>
+<p>Now, let’s write a full report of model and results. Fill in the blanks yourself.</p>
+<blockquote class="blockquote">
+<p>We fitted a Bayesian model to scalar inference (absent vs present), using a Bernoulli distribution. We included logged word frequency and semantic distance, and their interaction as predictors. Both predictors were centred.</p>
+<p>The model’s results suggest that, when logged frequency and semantic distance are at their mean, the probability of a scalar inference being present is between … and …% (<span class="math inline">\(\beta\)</span> = …, SD = …). For each unit increase of logged frequency, when semantic distance is at its mean, the probability increases by … to … percent points (<span class="math inline">\(\beta\)</span> = …, SD = …). For each unit increase of semantic distance, when logged frequency is at its mean, the probability increases by … to … percent points (<span class="math inline">\(\beta\)</span> = …, SD = …). The positive effect of logged word frequency increases with increasing semantic distance, by … to … log-odds (<span class="math inline">\(\beta\)</span> = …, SD = …).</p>
+</blockquote>
+</section>
+<section id="summary" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="summary"><span class="header-section-number">6</span> Summary</h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">

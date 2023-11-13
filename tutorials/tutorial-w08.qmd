@@ -1,11 +1,11 @@
 ---
 title: "QML tutorial – Week 8"
 execute: 
-  cache: true
+  cache: false
 ---
 
 ```{r}
-#| label: pkgs
+#| label: setup
 #| message: false
 #| echo: false
 

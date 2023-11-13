@@ -359,18 +359,13 @@ summary(dur_sr_bm)
 ##          total post-warmup draws = 4000
 ## 
 ## Population-Level Effects: 
-##             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## Intercept       5.88      0.06     5.78     5.99 1.00     4371
-## speech_rate    -0.24      0.01    -0.26    -0.22 1.00     4340
-##             Tail_ESS
-## Intercept       3111
-## speech_rate     3063
+##             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept       5.88      0.06     5.78     5.99 1.00     4371     3111
+## speech_rate    -0.24      0.01    -0.26    -0.22 1.00     4340     3063
 ## 
 ## Family Specific Parameters: 
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## sigma     0.27      0.01     0.26     0.28 1.00     3444
-##       Tail_ESS
-## sigma     2667
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma     0.27      0.01     0.26     0.28 1.00     3444     2667
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -384,10 +379,9 @@ summary(dur_sr_bm)
 
 ```
 ## Population-Level Effects: 
-##             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## Intercept       5.88      0.06     5.78     5.99 1.00     4371
-## speech_rate    -0.24      0.01    -0.26    -0.22 1.00     4340
-##             Tail_ESS
+##             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept       5.88      0.06     5.78     5.99 1.00     4371     3111
+## speech_rate    -0.24      0.01    -0.26    -0.22 1.00     4340     3063
 ```
 
 &lt;br&gt;
@@ -514,18 +508,13 @@ summary(dur_sr_c_bm)
 ##          total post-warmup draws = 4000
 ## 
 ## Population-Level Effects: 
-##               Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept         4.59      0.01     4.58     4.61 1.00
-## speech_rate_c    -0.24      0.01    -0.26    -0.22 1.00
-##               Bulk_ESS Tail_ESS
-## Intercept         4523     2901
-## speech_rate_c     4271     3037
+##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept         4.59      0.01     4.58     4.61 1.00     4523     2901
+## speech_rate_c    -0.24      0.01    -0.26    -0.22 1.00     4271     3037
 ## 
 ## Family Specific Parameters: 
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## sigma     0.27      0.01     0.26     0.28 1.00     3738
-##       Tail_ESS
-## sigma     2902
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma     0.27      0.01     0.26     0.28 1.00     3738     2902
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -537,10 +526,9 @@ summary(dur_sr_c_bm)
 
 ```
 ## Population-Level Effects: 
-##               Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept         4.59      0.01     4.58     4.61 1.00
-## speech_rate_c    -0.24      0.01    -0.26    -0.22 1.00
-##               Bulk_ESS Tail_ESS
+##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept         4.59      0.01     4.58     4.61 1.00     4523     2901
+## speech_rate_c    -0.24      0.01    -0.26    -0.22 1.00     4271     3037
 ```
 
 --
@@ -662,22 +650,15 @@ summary(dur_sr_vow_bm)
 ##          total post-warmup draws = 4000
 ## 
 ## Population-Level Effects: 
-##                      Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept                4.79      0.01     4.77     4.81 1.00
-## speech_rate_c           -0.26      0.01    -0.29    -0.24 1.00
-## vowelo                  -0.04      0.02    -0.07    -0.01 1.00
-## speech_rate_c:vowelo     0.04      0.02     0.00     0.07 1.00
-##                      Bulk_ESS Tail_ESS
-## Intercept                4722     2788
-## speech_rate_c            3396     2920
-## vowelo                   4693     2767
-## speech_rate_c:vowelo     3137     2518
+##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept                4.79      0.01     4.77     4.81 1.00     4722     2788
+## speech_rate_c           -0.26      0.01    -0.29    -0.24 1.00     3396     2920
+## vowelo                  -0.04      0.02    -0.07    -0.01 1.00     4693     2767
+## speech_rate_c:vowelo     0.04      0.02     0.00     0.07 1.00     3137     2518
 ## 
 ## Family Specific Parameters: 
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## sigma     0.18      0.01     0.17     0.19 1.00     3993
-##       Tail_ESS
-## sigma     2366
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma     0.18      0.01     0.17     0.19 1.00     3993     2366
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -690,11 +671,11 @@ summary(dur_sr_vow_bm)
 
 ```
 ## Population-Level Effects: 
-##                      Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept                4.79      0.01     4.77     4.81 1.00
-## speech_rate_c           -0.26      0.01    -0.29    -0.24 1.00
-## vowelo                  -0.04      0.02    -0.07    -0.01 1.00
-## speech_rate_c:vowelo     0.04      0.02     0.00     0.07 1.00
+##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept                4.79      0.01     4.77     4.81 1.00     4722     2788
+## speech_rate_c           -0.26      0.01    -0.29    -0.24 1.00     3396     2920
+## vowelo                  -0.04      0.02    -0.07    -0.01 1.00     4693     2767
+## speech_rate_c:vowelo     0.04      0.02     0.00     0.07 1.00     3137     2518
 ```
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
@@ -710,11 +691,11 @@ summary(dur_sr_vow_bm)
 
 ```
 ## Population-Level Effects: 
-##                      Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept                4.79      0.01     4.77     4.81 1.00
-## speech_rate_c           -0.26      0.01    -0.29    -0.24 1.00
-## vowelo                  -0.04      0.02    -0.07    -0.01 1.00
-## speech_rate_c:vowelo     0.04      0.02     0.00     0.07 1.00
+##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept                4.79      0.01     4.77     4.81 1.00     4722     2788
+## speech_rate_c           -0.26      0.01    -0.29    -0.24 1.00     3396     2920
+## vowelo                  -0.04      0.02    -0.07    -0.01 1.00     4693     2767
+## speech_rate_c:vowelo     0.04      0.02     0.00     0.07 1.00     3137     2518
 ```
 
 
@@ -741,11 +722,11 @@ summary(dur_sr_vow_bm)
 
 ```
 ## Population-Level Effects: 
-##                      Estimate Est.Error l-95% CI u-95% CI Rhat
-## Intercept                4.79      0.01     4.77     4.81 1.00
-## speech_rate_c           -0.26      0.01    -0.29    -0.24 1.00
-## vowelo                  -0.04      0.02    -0.07    -0.01 1.00
-## speech_rate_c:vowelo     0.04      0.02     0.00     0.07 1.00
+##                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept                4.79      0.01     4.77     4.81 1.00     4722     2788
+## speech_rate_c           -0.26      0.01    -0.29    -0.24 1.00     3396     2920
+## vowelo                  -0.04      0.02    -0.07    -0.01 1.00     4693     2767
+## speech_rate_c:vowelo     0.04      0.02     0.00     0.07 1.00     3137     2518
 ```
 
 &lt;br&gt;
