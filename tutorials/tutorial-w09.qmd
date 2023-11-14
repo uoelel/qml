@@ -1,7 +1,7 @@
 ---
 title: "QML tutorial – Week 9"
 execute: 
-  cache: false
+  freeze: auto
 ---
 
 ```{r setup}

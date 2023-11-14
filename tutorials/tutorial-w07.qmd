@@ -2,7 +2,7 @@
 title: "QML tutorial - Week 7"
 editor: visual
 execute: 
-  cache: false
+  freeze: auto
 format: 
   html:
     css: [webex.css]
