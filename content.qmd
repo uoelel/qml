@@ -318,7 +318,7 @@ There will be no classes.
 
 
 
-::: {.callout-important collapse="false"}
+::: {.callout-important collapse="true"}
 #### Learning Objectives
 
 **Questions**
@@ -336,7 +336,7 @@ There will be no classes.
 -   Convert between log-odds, odds and probabilities.
 :::
 
-::: {.callout-tip collapse="false"}
+::: {.callout-tip collapse="true"}
 #### Materials
 
 -   [Lecture slides](slides/w07/).
@@ -345,7 +345,7 @@ There will be no classes.
     -   [takete_maluma.txt](data/takete_maluma.txt).
 :::
 
-::: {.callout-tip collapse="false"}
+::: {.callout-tip collapse="true"}
 #### Suggested readings
 
 **Main textbooks**
@@ -399,7 +399,7 @@ You can find the instructions and data for the first summative here: <https://gi
 
 ### Week 9: Continuous predictors and interactions
 
-::: {.callout-important collapse="true"}
+::: {.callout-important collapse="false"}
 #### Learning Objectives
 
 **Questions**
@@ -415,7 +415,7 @@ You can find the instructions and data for the first summative here: <https://gi
 -   Interpret interactions that are categorical \* continuous (in the lecture) and continuous \* continuous (in the tutorial).
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-tip collapse="false"}
 #### Materials
 
 -   [Lecture slides](slides/w09/).
@@ -432,6 +432,23 @@ You can find the instructions and data for the first summative here: <https://gi
 -   **DUE on Thursday 23 November at noon**.
 
 -   F2 requires you to read, plot and model data. Summative 2 will have the same format.
+:::
+
+::: {.callout-note collapse="true"}
+#### Homework
+
+Please, read the following before coming to class on Wednesday (there will be no lecture on Tuesday).
+
+- [Stroop Effect in Language](https://doi.org/10.1016/B0-08-044854-2/00871-3)
+- [Half a Century of Research on the Stroop Effect: An Integrative Review](http://www.ezproxy.is.ed.ac.uk/login?url=http://ovidsp.ovid.com.ezproxy.is.ed.ac.uk/ovidweb.cgi?T=JS&CSC=Y&NEWS=N&PAGE=fulltext&AN=00006823-199103000-00001&D=ovft), pp 163--165 plus one extra section of your choice.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Materials
+
+-   [Lecture slides](slides/w10/).
+-   [Workshop tutorial](tutorials/tutorial-w10.qmd).
+-   Workshop files: <https://github.com/uoelel/qml-stroop>.
 :::
 
 ### Week 11: Obtaining *p*-values (Optional)
