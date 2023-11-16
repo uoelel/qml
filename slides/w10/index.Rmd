@@ -92,6 +92,16 @@ set.seed(my_seed)
 
 ## L1 vs L2 English speakers and language proficiency
 
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+- **English L1 vs L2 speakers**
+
+  - Does speaking English as your first or later-acquired language modulates the Stroop effect?
+  
+- **English language proficiency**
+
+  - Does the level of English language proficiency modulates the Stroop effect?
+]
+
 ---
 
 <iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/6554f9e630f3da97e1e0db33" width="100%"></iframe>
@@ -100,6 +110,17 @@ set.seed(my_seed)
 
 ## Literature review
 
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+**ACTIVITY**
+
+- **Form small groups** and do a quick literature search on the Stroop effect and language acquisition.
+
+- **Fill in the shared document** with what you find (link to be sent via Learn Announcement).
+]
+
+<br>
+
+<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/7Z71Z76pCC8Za" width="100%" height="25%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/hamster-jar-seeds-7Z71Z76pCC8Za">via GIPHY</a></p>
 
 ---
 
