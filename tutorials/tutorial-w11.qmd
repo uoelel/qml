@@ -1,0 +1,372 @@
+---
+title: "QML tutorial – Week 11"
+execute: 
+  freeze: auto
+---
+
+```{r setup}
+#| label: setup
+#| message: false
+#| echo: false
+
+library(tidyverse)
+theme_set(theme_light())
+
+options(ggplot2.discrete.fill = RColorBrewer::brewer.pal(8, "Dark2"))
+options(ggplot2.discrete.colour = RColorBrewer::brewer.pal(8, "Dark2"))
+
+options(dplyr.summarise.inform = FALSE)
+
+my_seed <- 8878
+
+# library(lme4)
+# library(lmerTest)
+```
+
+## Introduction
+
+::: callout-warning
+#### Important
+
+When working through these tutorials, always **make sure you are in the course RStudio Project** you created.
+
+You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
+
+If you see `Project (none)` in the top-right corner, that means **you are not** in an RStudio Project.
+
+To make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
+:::
+
+In this optional tutorial, you'll run two linear models in the frequentist style. 
+Both of the models will use data that we've encountered in previous weeks. 
+This means that if you're curious, you can go back to the original Bayesian analyses to see how they compare to the frequentist ones we'll run today.
+
+But, first things first: set up the Rmd file you'll use for this tutorial.
+
+1.  Create a new `.Rmd` file, save it in `code/`, and name it `tutorial-w11`.
+
+2.  In the `setup` chunk, include the line `knitr::opts_knit$set(root.dir = here::here())`.
+
+3.  Also in the `setup` chunk, include code to attach the libraries we'll use in this tutorial: `tidyverse`, `lme4`, and `lmerTest` (**NOTE: Two of these are new!**).
+
+If you don't already have the packages `lme4` and `lmerTest` installed, then install them now.
+
+::: callout-tip
+#### Review: Choosing what kind of model to run
+
+In previous weeks of this course, you've encountered different model families. Sometimes the model family is Gaussian (like in Weeks 4 and 5), and sometimes it is Bernoulli (like in Weeks 7 and 8).
+In this tutorial, we'll be using the frequentist equivalents of these two model families. 
+
+For both Bayesian and frequentist statistics, **the choice of model is determined by what kind of variable the outcome (i.e., the dependent variable) is.**
+
+If your outcome variable is **continuous** (potentially after transformation):
+
+- To fit a Bayesian model, use the Gaussian family.
+- To fit a frequentist model, use the function `lm()`, which stands for **"linear model"**.
+
+If your outcome variable is **binary** (e.g., 0/1, correct/incorrect, English/Scots):
+
+- To fit a Bayesian model, use the Bernoulli family.
+- To fit a frequentist model, use the function `glm()`, which stands for **"generalised linear model"**.
+
+:::
+
+
+## Modelling continuous outcomes with `lm()`
+
+For the first part of this tutorial, we'll be using data we encountered [back in Week 5](https://uoelel.github.io/qml/tutorials/tutorial-w05.html).
+This is the emotional valence data from [Winter (2016)](https://doi.org/10.1080/23273798.2016.1193619).
+With this data, we'll look at whether there's a difference in emotional valence between smell words and taste words.
+
+If you need to download the data again, right-click on the following link: [senses_valence.csv](../data/senses_valence.csv) (the file is also linked in [Course content](../content.qmd)) and save the file in `data/`.
+
+Now we are going to fit a model that will tell us **whether we can reject the null hypothesis that smell words and taste words have the same emotional valence.**
+
+
+### Prepare data for analysis
+
+Preparing the data is the same, whether we are fitting a Bayesian model or a frequentist one.
+
+Like we did in Week 5, we'll read in this data and filter it so that we're only looking at words with modalities of Smell or Taste.
+We'll also use `mutate()` to convert this column into a factor.
+
+```{r}
+#| label: senses-valence
+#| message: false
+
+senses_valence <- read_csv("data/senses_valence.csv") %>%
+  filter(Modality %in% c("Smell", "Taste")) %>% 
+  mutate(Modality = factor(Modality))
+```
+
+Here's a visualisation of the valence of each Smell and Taste word.
+
+```{r}
+#| label: val-mod-violin
+#| echo: false
+
+senses_valence %>% 
+  ggplot(aes(x = Modality, y = Val, fill = Modality, colour = Modality)) +
+  geom_violin(alpha = 0.5) +
+  geom_jitter(alpha = 0.5, width = 0.2) +
+  theme(legend.position = 'none') +
+  labs(
+    y     = 'Emotional valence',
+    title = 'Emotional valence of smell words and taste words'
+  )
+```
+
+We see that, on the whole, Taste words appear to have slightly higher emotional valence scores than Smell words, but there's also a fair amount of overlap.
+
+
+
+::: callout-tip
+#### Optional activity
+
+Once you've finished working through the rest of the tutorial, why not come back to this point and practice your ggplot skills by recreating the plot above?
+
+:::
+
+Before we fit the model, we should identify which level of our predictor `Modality` is the reference level.
+(This is true for both Bayesian and frequentist modelling.)
+
+Because `Modality` is a factor, we can use the `contrasts()` function on it.
+This function will tell us how each level of `Modality` is coded—in other words, what numeric representation it receives.
+
+```{r}
+#| label: val-mod-contrasts
+
+contrasts(senses_valence$Modality)
+```
+
+So `Smell` is the reference level (the first level, the level coded as 0), and `Taste` is the non-reference level (the second level, the level coded as 1).
+
+This information is all you need in order to tell what the numbers in the model summary are going to mean.
+What is the meaning of the Intercept going to be?
+What about the estimate of the slope coefficient, the effect of `Modality`?
+
+
+### Fit the model
+
+**Here is where things start to get different from what we're used to.**
+
+To fit a Bayesian model, we used the function `brm()` from the library `brms`.
+Now, to fit a frequentist model to continuous outcome data, we use the function `lm()` from the library `lme4`.
+
+The notation for the model formula is the same: `Valence ~ Modality`.
+
+The only other information that `lm()` needs is the `data=` argument: the name of the data frame that contains the data we will analyse.
+
+Copy and run the following code that fits the model.
+
+```{r}
+#| label: val-lm
+#| eval: false
+
+val_lm <- lm(Val ~ Modality,
+             data = senses_valence)
+```
+
+If you were reporting this model in a paper, you might write something like this.
+
+> We fitted a frequentist linear model with emotional valence as the outcome variable and modality (smell vs. taste) as the only predictor. The modality predictor was coded with the default treatment contrasts (with "smell" as the reference level.)
+
+
+::: {.callout-important collapse="true"}
+#### Extra: Do I need to write "frequentist" in my report?
+
+If you've read academic papers that include a statistical analysis, chances are good that they are using frequentist statistics.
+So most of the time, authors will simply write "We fitted a linear model...", and it is just assumed that the model is frequentist.
+
+Generally, though, we'd encourage you to **be specific about the kind of analysis you've done.**
+And that includes mentioning what framework you're using for your statistical analysis—whether frequentist or Bayesian.
+:::
+
+
+### Interpret the model output
+
+Let's have a look at the model's estimates.
+Like in previous weeks, we can use the `summary()` function.
+
+```{r}
+#| label: val-lm-summary
+#| eval: false
+ 
+summary(val_lm)
+```
+
+Some of this model summary may look familiar; some of it will look different.
+
+- TODO: How to report model results
+
+
+
+## Modelling binary outcomes with `glm()`
+
+For the second half of our exploration of frequentist modelling, we'll reuse data from [Week 9](https://uoelel.github.io/qml/tutorials/tutorial-w09.html) that originally comes from [Pankratz and van Tiel (2021)](https://www.doi.org/10.1017/langcog.2021.13).
+With this data, we'll model the effects of log frequency, semantic distance, and their interaction on whether or not participants in an experiment drew a scalar inference. 
+**Can we reject the null hypotheses that each of these predictors has no effect on the outcome?**
+
+If you need to download the data again, right-click on the following link: [si.csv](../data/si.csv) (the file is also linked in [Course content](../content.qmd)) and save the file in `data/`.
+
+### Prepare the data for analysis
+
+We'll transform the data the same way we did back in Week 9.
+The following code shows a more streamlined way to do the same four steps that we did last time.
+
+```{r}
+#| label: si
+#| message: false
+
+si <- read_csv("data/si.csv") %>%
+  mutate(
+    SI = factor(SI, levels = c("no_scalar", "scalar")),  # make into a factor
+    logfreq = log(freq),                                 # log the frequency
+    logfreq_c = logfreq - mean(logfreq),                 # centre logfreq
+    semdist_c = semdist - mean(semdist)                  # centre semdist
+  )
+```
+
+Within one single instance of `mutate()`, we can create and modify several columns.
+Notice that we have created a brand new column `logfreq`, and in the very next line, we have centred it to create `logfreq_c`!
+So if you ever have multiple operations that all use `mutate()`, you can bundle them all together like this.
+
+The last step before running the model:  we want to know which level of `SI` is going to be coded as 1.
+We can find this out with `contrasts()`, but I want you to think it through for yourself first.
+
+**Before running any code or opening the following drop-down box,** decide whether you expect `no_scalar` or `scalar` to be coded as 1.
+
+
+::: {.callout-important collapse="true"}
+#### Coding of `SI` and why it matters
+
+```{r}
+#| label: si-contrasts
+
+contrasts(si$SI)
+```
+
+Was your expectation correct?
+
+**Why does it matter how `SI` is coded?**
+
+The model will estimate the log-odds of observing whichever level is coded as 1.
+So, because `scalar` is coded as 1, the model will estimate the log-odds of getting a `scalar` response (that is, the log-odds of that experimental participant drawing a scalar inference).
+We need to know which level is coded as 1 so that we know what the model's estimates mean.
+
+:::
+
+
+### Fit the model
+
+To analyse this binary outcome data, we can't just use any old linear model.
+We're going to need a **generalised** linear model.
+
+A generalised linear model (often abbreviated as GLM) is what frequentists use whenever the outcome is not Gaussian.
+Binary data is just one situation where we would need a GLM.
+Other non-Gaussian outcomes might include count data, proportions between 0 and 1, and so on.
+
+To fit a GLM, we will use the function `glm()`.
+It needs the following information:
+
+- The usual kind of model formula that specifies what the outcome and predictors are.
+- In `data=`, we write the name of the data frame that contains our data.
+- In `family=`, we specify what *kind* of GLM to fit. But beware, here we write `binomial(link = "logit")` instead of `bernoulli()`.
+
+Copy and run the following code that fits the model.
+
+```{r}
+#| label: si-glm
+#| eval: false
+
+si_glm <- glm(SI ~ logfreq_c + semdist_c + logfreq_c:semdist_c,
+              data = si,
+              family = binomial(link = "logit"))
+```
+
+<!-- POSSIBLE TODO: "Extra" box on relationship between Bernoulli and binomial -->
+
+If you were reporting this model in a paper, you might write something like this.
+
+> We fitted a frequentist binomial generalised linear model to estimate scalar inferencing as a function of logged word frequency, semantic distance, and their interaction. Both predictors were centred.
+
+Another very common way to refer to this kind of model is to call it a "logistic regression model".
+If you prefer that terminology, you could begin your report with:
+
+> We fitted a frequentist logistic regression model to estimate...
+
+(Don't you just *love* how every concept in statistics has ten different names?)
+
+
+### Interpret the model output
+
+To see the model output, we can run the following:
+
+```{r}
+#| label: si-glm-summary
+#| eval: false
+
+summary(si_glm)
+```
+
+
+- How to report model results
+
+- We therefore reject the null hypothesis that X.
+- We therefore fail to reject the null hypothesis that X.
+
+::: {.callout-important}
+#### `glm()` and p-values
+
+To get p-values in from your GLM, make sure that you've attached the library `lmerTest` to your R markdown file.
+
+If you only attached the library `lme4` and not the library `lmerTest` to your R markdown file, your GLM would not give you any p-values.
+
+:::
+
+
+
+::: {.callout-important collapse="true"}
+#### Extra, FYI: Functions for fitting multilevel/hierarchical models
+
+In your future work, it is likely that you'll need to run an analysis that involves so-called "random effects" (the frequentist term) or "group-level effects" (the term used in `brms`).
+
+Random effects/group-level effects let you tell your model that **observations in your data set are not independent.**
+One common situation is when your data contains multiple observations that come from the same person (e.g., if you've run an experiment or conducted a survey).
+
+**To fit a frequentist model that includes random effects, you'll need to know about two *more* functions:**
+
+- `lmer()`, which stands for "Linear Mixed Effects Regression", which you use if you have a continuous outcome.
+- `glmer()`, which stands for "Generalised Linear Mixed Effects Regression", which you use if you have a non-continuous outcome (e.g., a binary outcome).
+
+**To include group-level effects in a Bayesian model, you can still use Old Faithful, `brm()`.**
+
+Stefano will hold a workshop in Semester 2 on how to include group-level effects in your models.
+Details TBD!
+:::
+
+
+
+## Summary
+
+::: {.callout-note appearance="minimal"}
+
+**What's the same between Bayesian and frequentist data analysis?**
+
+- We prepare data in the same way (including transforming and contrast-coding the variables we'll use).
+- In both cases, we choose the appropriate model based on what kind of data the outcome variable is.
+- The model formula uses the same syntax in `brm()`, `lm()`, and `glm()`: in all cases, we write `outcome ~ predictor1 + predictor2`.
+- The numbers in the model summary have the same meaning:
+  - The **intercept** is still the estimated outcome when all predictors are zero.
+  - The **effect of each predictor** is still the difference in the outcome for one unit change in that predictor (with all other predictors equal to zero).
+  - The **interaction term** is still an adjustment to the effect of one predictor for a unit increase in the value of the other predictor.
+  
+
+**What's different between Bayesian and frequentist data analysis?**
+
+- The conclusions that we are permitted to draw from a model are different.
+  - In Bayesian models, we focus mostly on the range of values contained in the 95% CrI. These are the values that the model considers plausible. **To what extent are these values consistent with our hypotheses?**
+  - In frequentist models, we focus mostly on the point value of the estimate, and on whether or not $p < 0.05$. **Can we reject the null hypothesis that there is no difference between levels of our predictor?**
+- Notice that the conclusions from a Bayesian model (**"to what extent"**) can give a lot more nuance than the conclusions from a frequentist model (**"yes, reject"** or **"no, do not reject"**).
+
+:::

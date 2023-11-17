@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>QML - QML tutorial – Week 11</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">QML</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../content.html">
+ <span class="menu-text">Course content</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assessments.html">
+ <span class="menu-text">Assessment</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">1</span>  Introduction</a></li>
+  <li><a href="#modelling-continuous-outcomes-with-lm" id="toc-modelling-continuous-outcomes-with-lm" class="nav-link" data-scroll-target="#modelling-continuous-outcomes-with-lm"><span class="toc-section-number">2</span>  Modelling continuous outcomes with <code>lm()</code></a>
+  <ul class="collapse">
+  <li><a href="#prepare-data-for-analysis" id="toc-prepare-data-for-analysis" class="nav-link" data-scroll-target="#prepare-data-for-analysis"><span class="toc-section-number">2.1</span>  Prepare data for analysis</a></li>
+  <li><a href="#fit-the-model" id="toc-fit-the-model" class="nav-link" data-scroll-target="#fit-the-model"><span class="toc-section-number">2.2</span>  Fit the model</a></li>
+  <li><a href="#interpret-the-model-output" id="toc-interpret-the-model-output" class="nav-link" data-scroll-target="#interpret-the-model-output"><span class="toc-section-number">2.3</span>  Interpret the model output</a></li>
+  </ul></li>
+  <li><a href="#modelling-binary-outcomes-with-glm" id="toc-modelling-binary-outcomes-with-glm" class="nav-link" data-scroll-target="#modelling-binary-outcomes-with-glm"><span class="toc-section-number">3</span>  Modelling binary outcomes with <code>glm()</code></a>
+  <ul class="collapse">
+  <li><a href="#prepare-the-data-for-analysis" id="toc-prepare-the-data-for-analysis" class="nav-link" data-scroll-target="#prepare-the-data-for-analysis"><span class="toc-section-number">3.1</span>  Prepare the data for analysis</a></li>
+  <li><a href="#fit-the-model-1" id="toc-fit-the-model-1" class="nav-link" data-scroll-target="#fit-the-model-1"><span class="toc-section-number">3.2</span>  Fit the model</a></li>
+  <li><a href="#interpret-the-model-output-1" id="toc-interpret-the-model-output-1" class="nav-link" data-scroll-target="#interpret-the-model-output-1"><span class="toc-section-number">3.3</span>  Interpret the model output</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="toc-section-number">4</span>  Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">QML tutorial – Week 11</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When working through these tutorials, always <strong>make sure you are in the course RStudio Project</strong> you created.</p>
+<p>You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.</p>
+<p>If you see <code>Project (none)</code> in the top-right corner, that means <strong>you are not</strong> in an RStudio Project.</p>
+<p>To make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the <code>.Rproj</code> file.</p>
+</div>
+</div>
+<p>In this optional tutorial, you’ll run two linear models in the frequentist style. Both of the models will use data that we’ve encountered in previous weeks. This means that if you’re curious, you can go back to the original Bayesian analyses to see how they compare to the frequentist ones we’ll run today.</p>
+<p>But, first things first: set up the Rmd file you’ll use for this tutorial.</p>
+<ol type="1">
+<li><p>Create a new <code>.Rmd</code> file, save it in <code>code/</code>, and name it <code>tutorial-w11</code>.</p></li>
+<li><p>In the <code>setup</code> chunk, include the line <code>knitr::opts_knit$set(root.dir = here::here())</code>.</p></li>
+<li><p>Also in the <code>setup</code> chunk, include code to attach the libraries we’ll use in this tutorial: <code>tidyverse</code>, <code>lme4</code>, and <code>lmerTest</code> (<strong>NOTE: Two of these are new!</strong>).</p></li>
+</ol>
+<p>If you don’t already have the packages <code>lme4</code> and <code>lmerTest</code> installed, then install them now.</p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Review: Choosing what kind of model to run
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In previous weeks of this course, you’ve encountered different model families. Sometimes the model family is Gaussian (like in Weeks 4 and 5), and sometimes it is Bernoulli (like in Weeks 7 and 8). In this tutorial, we’ll be using the frequentist equivalents of these two model families.</p>
+<p>For both Bayesian and frequentist statistics, <strong>the choice of model is determined by what kind of variable the outcome (i.e., the dependent variable) is.</strong></p>
+<p>If your outcome variable is <strong>continuous</strong> (potentially after transformation):</p>
+<ul>
+<li>To fit a Bayesian model, use the Gaussian family.</li>
+<li>To fit a frequentist model, use the function <code>lm()</code>, which stands for <strong>“linear model”</strong>.</li>
+</ul>
+<p>If your outcome variable is <strong>binary</strong> (e.g., 0/1, correct/incorrect, English/Scots):</p>
+<ul>
+<li>To fit a Bayesian model, use the Bernoulli family.</li>
+<li>To fit a frequentist model, use the function <code>glm()</code>, which stands for <strong>“generalised linear model”</strong>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="modelling-continuous-outcomes-with-lm" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="modelling-continuous-outcomes-with-lm"><span class="header-section-number">2</span> Modelling continuous outcomes with <code>lm()</code></h2>
+<p>For the first part of this tutorial, we’ll be using data we encountered <a href="https://uoelel.github.io/qml/tutorials/tutorial-w05.html">back in Week 5</a>. This is the emotional valence data from <a href="https://doi.org/10.1080/23273798.2016.1193619">Winter (2016)</a>. With this data, we’ll look at whether there’s a difference in emotional valence between smell words and taste words.</p>
+<p>If you need to download the data again, right-click on the following link: <a href="../data/senses_valence.csv">senses_valence.csv</a> (the file is also linked in <a href="../content.html">Course content</a>) and save the file in <code>data/</code>.</p>
+<p>Now we are going to fit a model that will tell us <strong>whether we can reject the null hypothesis that smell words and taste words have the same emotional valence.</strong></p>
+<section id="prepare-data-for-analysis" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="prepare-data-for-analysis"><span class="header-section-number">2.1</span> Prepare data for analysis</h3>
+<p>Preparing the data is the same, whether we are fitting a Bayesian model or a frequentist one.</p>
+<p>Like we did in Week 5, we’ll read in this data and filter it so that we’re only looking at words with modalities of Smell or Taste. We’ll also use <code>mutate()</code> to convert this column into a factor.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>senses_valence <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/senses_valence.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Modality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Smell"</span>, <span class="st">"Taste"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Modality =</span> <span class="fu">factor</span>(Modality))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here’s a visualisation of the valence of each Smell and Taste word.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="tutorial-w11_files/figure-html/val-mod-violin-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We see that, on the whole, Taste words appear to have slightly higher emotional valence scores than Smell words, but there’s also a fair amount of overlap.</p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Optional activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Once you’ve finished working through the rest of the tutorial, why not come back to this point and practice your ggplot skills by recreating the plot above?</p>
+</div>
+</div>
+<p>Before we fit the model, we should identify which level of our predictor <code>Modality</code> is the reference level. (This is true for both Bayesian and frequentist modelling.)</p>
+<p>Because <code>Modality</code> is a factor, we can use the <code>contrasts()</code> function on it. This function will tell us how each level of <code>Modality</code> is coded—in other words, what numeric representation it receives.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(senses_valence<span class="sc">$</span>Modality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Taste
+Smell     0
+Taste     1</code></pre>
+</div>
+</div>
+<p>So <code>Smell</code> is the reference level (the first level, the level coded as 0), and <code>Taste</code> is the non-reference level (the second level, the level coded as 1).</p>
+<p>This information is all you need in order to tell what the numbers in the model summary are going to mean. What is the meaning of the Intercept going to be? What about the estimate of the slope coefficient, the effect of <code>Modality</code>?</p>
+</section>
+<section id="fit-the-model" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="fit-the-model"><span class="header-section-number">2.2</span> Fit the model</h3>
+<p><strong>Here is where things start to get different from what we’re used to.</strong></p>
+<p>To fit a Bayesian model, we used the function <code>brm()</code> from the library <code>brms</code>. Now, to fit a frequentist model to continuous outcome data, we use the function <code>lm()</code> from the library <code>lme4</code>.</p>
+<p>The notation for the model formula is the same: <code>Valence ~ Modality</code>.</p>
+<p>The only other information that <code>lm()</code> needs is the <code>data=</code> argument: the name of the data frame that contains the data we will analyse.</p>
+<p>Copy and run the following code that fits the model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>val_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Val <span class="sc">~</span> Modality,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> senses_valence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you were reporting this model in a paper, you might write something like this.</p>
+<blockquote class="blockquote">
+<p>We fitted a frequentist linear model with emotional valence as the outcome variable and modality (smell vs.&nbsp;taste) as the only predictor. The modality predictor was coded with the default treatment contrasts (with “smell” as the reference level.)</p>
+</blockquote>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Extra: Do I need to write “frequentist” in my report?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you’ve read academic papers that include a statistical analysis, chances are good that they are using frequentist statistics. So most of the time, authors will simply write “We fitted a linear model…”, and it is just assumed that the model is frequentist.</p>
+<p>Generally, though, we’d encourage you to <strong>be specific about the kind of analysis you’ve done.</strong> And that includes mentioning what framework you’re using for your statistical analysis—whether frequentist or Bayesian.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="interpret-the-model-output" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="interpret-the-model-output"><span class="header-section-number">2.3</span> Interpret the model output</h3>
+<p>Let’s have a look at the model’s estimates. Like in previous weeks, we can use the <code>summary()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(val_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Some of this model summary may look familiar; some of it will look different.</p>
+<ul>
+<li>TODO: How to report model results</li>
+</ul>
+</section>
+</section>
+<section id="modelling-binary-outcomes-with-glm" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="modelling-binary-outcomes-with-glm"><span class="header-section-number">3</span> Modelling binary outcomes with <code>glm()</code></h2>
+<p>For the second half of our exploration of frequentist modelling, we’ll reuse data from <a href="https://uoelel.github.io/qml/tutorials/tutorial-w09.html">Week 9</a> that originally comes from <a href="https://www.doi.org/10.1017/langcog.2021.13">Pankratz and van Tiel (2021)</a>. With this data, we’ll model the effects of log frequency, semantic distance, and their interaction on whether or not participants in an experiment drew a scalar inference. <strong>Can we reject the null hypotheses that each of these predictors has no effect on the outcome?</strong></p>
+<p>If you need to download the data again, right-click on the following link: <a href="../data/si.csv">si.csv</a> (the file is also linked in <a href="../content.html">Course content</a>) and save the file in <code>data/</code>.</p>
+<section id="prepare-the-data-for-analysis" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="prepare-the-data-for-analysis"><span class="header-section-number">3.1</span> Prepare the data for analysis</h3>
+<p>We’ll transform the data the same way we did back in Week 9. The following code shows a more streamlined way to do the same four steps that we did last time.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>si <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/si.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">SI =</span> <span class="fu">factor</span>(SI, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"no_scalar"</span>, <span class="st">"scalar"</span>)),  <span class="co"># make into a factor</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">logfreq =</span> <span class="fu">log</span>(freq),                                 <span class="co"># log the frequency</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">logfreq_c =</span> logfreq <span class="sc">-</span> <span class="fu">mean</span>(logfreq),                 <span class="co"># centre logfreq</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">semdist_c =</span> semdist <span class="sc">-</span> <span class="fu">mean</span>(semdist)                  <span class="co"># centre semdist</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Within one single instance of <code>mutate()</code>, we can create and modify several columns. Notice that we have created a brand new column <code>logfreq</code>, and in the very next line, we have centred it to create <code>logfreq_c</code>! So if you ever have multiple operations that all use <code>mutate()</code>, you can bundle them all together like this.</p>
+<p>The last step before running the model: we want to know which level of <code>SI</code> is going to be coded as 1. We can find this out with <code>contrasts()</code>, but I want you to think it through for yourself first.</p>
+<p><strong>Before running any code or opening the following drop-down box,</strong> decide whether you expect <code>no_scalar</code> or <code>scalar</code> to be coded as 1.</p>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Coding of <code>SI</code> and why it matters
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(si<span class="sc">$</span>SI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          scalar
+no_scalar      0
+scalar         1</code></pre>
+</div>
+</div>
+<p>Was your expectation correct?</p>
+<p><strong>Why does it matter how <code>SI</code> is coded?</strong></p>
+<p>The model will estimate the log-odds of observing whichever level is coded as 1. So, because <code>scalar</code> is coded as 1, the model will estimate the log-odds of getting a <code>scalar</code> response (that is, the log-odds of that experimental participant drawing a scalar inference). We need to know which level is coded as 1 so that we know what the model’s estimates mean.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="fit-the-model-1" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="fit-the-model-1"><span class="header-section-number">3.2</span> Fit the model</h3>
+<p>To analyse this binary outcome data, we can’t just use any old linear model. We’re going to need a <strong>generalised</strong> linear model.</p>
+<p>A generalised linear model (often abbreviated as GLM) is what frequentists use whenever the outcome is not Gaussian. Binary data is just one situation where we would need a GLM. Other non-Gaussian outcomes might include count data, proportions between 0 and 1, and so on.</p>
+<p>To fit a GLM, we will use the function <code>glm()</code>. It needs the following information:</p>
+<ul>
+<li>The usual kind of model formula that specifies what the outcome and predictors are.</li>
+<li>In <code>data=</code>, we write the name of the data frame that contains our data.</li>
+<li>In <code>family=</code>, we specify what <em>kind</em> of GLM to fit. But beware, here we write <code>binomial(link = "logit")</code> instead of <code>bernoulli()</code>.</li>
+</ul>
+<p>Copy and run the following code that fits the model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>si_glm <span class="ot">&lt;-</span> <span class="fu">glm</span>(SI <span class="sc">~</span> logfreq_c <span class="sc">+</span> semdist_c <span class="sc">+</span> logfreq_c<span class="sc">:</span>semdist_c,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> si,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- POSSIBLE TODO: "Extra" box on relationship between Bernoulli and binomial -->
+<p>If you were reporting this model in a paper, you might write something like this.</p>
+<blockquote class="blockquote">
+<p>We fitted a frequentist binomial generalised linear model to estimate scalar inferencing as a function of logged word frequency, semantic distance, and their interaction. Both predictors were centred.</p>
+</blockquote>
+<p>Another very common way to refer to this kind of model is to call it a “logistic regression model”. If you prefer that terminology, you could begin your report with:</p>
+<blockquote class="blockquote">
+<p>We fitted a frequentist logistic regression model to estimate…</p>
+</blockquote>
+<p>(Don’t you just <em>love</em> how every concept in statistics has ten different names?)</p>
+</section>
+<section id="interpret-the-model-output-1" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="interpret-the-model-output-1"><span class="header-section-number">3.3</span> Interpret the model output</h3>
+<p>To see the model output, we can run the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(si_glm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>How to report model results</p></li>
+<li><p>We therefore reject the null hypothesis that X.</p></li>
+<li><p>We therefore fail to reject the null hypothesis that X.</p></li>
+</ul>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<code>glm()</code> and p-values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To get p-values in from your GLM, make sure that you’ve attached the library <code>lmerTest</code> to your R markdown file.</p>
+<p>If you only attached the library <code>lme4</code> and not the library <code>lmerTest</code> to your R markdown file, your GLM would not give you any p-values.</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Extra, FYI: Functions for fitting multilevel/hierarchical models
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In your future work, it is likely that you’ll need to run an analysis that involves so-called “random effects” (the frequentist term) or “group-level effects” (the term used in <code>brms</code>).</p>
+<p>Random effects/group-level effects let you tell your model that <strong>observations in your data set are not independent.</strong> One common situation is when your data contains multiple observations that come from the same person (e.g., if you’ve run an experiment or conducted a survey).</p>
+<p><strong>To fit a frequentist model that includes random effects, you’ll need to know about two <em>more</em> functions:</strong></p>
+<ul>
+<li><code>lmer()</code>, which stands for “Linear Mixed Effects Regression”, which you use if you have a continuous outcome.</li>
+<li><code>glmer()</code>, which stands for “Generalised Linear Mixed Effects Regression”, which you use if you have a non-continuous outcome (e.g., a binary outcome).</li>
+</ul>
+<p><strong>To include group-level effects in a Bayesian model, you can still use Old Faithful, <code>brm()</code>.</strong></p>
+<p>Stefano will hold a workshop in Semester 2 on how to include group-level effects in your models. Details TBD!</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="summary" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="summary"><span class="header-section-number">4</span> Summary</h2>
+<div class="callout-note callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>What’s the same between Bayesian and frequentist data analysis?</strong></p>
+<ul>
+<li>We prepare data in the same way (including transforming and contrast-coding the variables we’ll use).</li>
+<li>In both cases, we choose the appropriate model based on what kind of data the outcome variable is.</li>
+<li>The model formula uses the same syntax in <code>brm()</code>, <code>lm()</code>, and <code>glm()</code>: in all cases, we write <code>outcome ~ predictor1 + predictor2</code>.</li>
+<li>The numbers in the model summary have the same meaning:
+<ul>
+<li>The <strong>intercept</strong> is still the estimated outcome when all predictors are zero.</li>
+<li>The <strong>effect of each predictor</strong> is still the difference in the outcome for one unit change in that predictor (with all other predictors equal to zero).</li>
+<li>The <strong>interaction term</strong> is still an adjustment to the effect of one predictor for a unit increase in the value of the other predictor.</li>
+</ul></li>
+</ul>
+<p><strong>What’s different between Bayesian and frequentist data analysis?</strong></p>
+<ul>
+<li>The conclusions that we are permitted to draw from a model are different.
+<ul>
+<li>In Bayesian models, we focus mostly on the range of values contained in the 95% CrI. These are the values that the model considers plausible. <strong>To what extent are these values consistent with our hypotheses?</strong></li>
+<li>In frequentist models, we focus mostly on the point value of the estimate, and on whether or not <span class="math inline">\(p &lt; 0.05\)</span>. <strong>Can we reject the null hypothesis that there is no difference between levels of our predictor?</strong></li>
+</ul></li>
+<li>Notice that the conclusions from a Bayesian model (<strong>“to what extent”</strong>) can give a lot more nuance than the conclusions from a frequentist model (<strong>“yes, reject”</strong> or <strong>“no, do not reject”</strong>).</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
