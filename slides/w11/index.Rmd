@@ -56,4 +56,114 @@ set.seed(my_seed)
 
 hello
 
+---
 
+layout: false
+layout: true
+
+## Do participants in an experiment speed up as the experiment goes on?
+
+---
+
+```{r}
+sl_dat <- read_csv('data/sl_2afc_rts.csv')
+
+set.seed(5)
+(p_idx_rt <- sl_dat %>% 
+    ggplot(aes(x = idx_c, y = logRT)) +
+    geom_jitter(alpha = 0.15, width = 0.2) +
+    labs(
+      x = 'Trial number (centred)',
+      y = 'Logged reaction times',
+      caption = 'N = 150 participants'
+    )
+)
+```
+
+
+---
+
+
+```{r}
+set.seed(5)
+(p_idx_rt <- p_idx_rt +
+  geom_smooth(method = 'lm'))
+```
+
+
+---
+
+layout: false
+
+# Lorem ipsum
+
+abc
+
+---
+
+# Return to the reaction time data
+
+```{r}
+set.seed(5)
+p_idx_rt
+```
+
+---
+
+layout: false
+layout: true
+
+# Fit a frequentist linear model using `lm()`
+
+---
+
+```{r echo = TRUE}
+rt_lm <- lm(
+  logRT ~ idx_c,  # model formula (like we're used to!)
+  data = sl_dat   # name the dataset
+)
+```
+
+--
+
+```{r echo = TRUE}
+summary(rt_lm)
+```
+
+---
+
+```{r}
+cat(capture.output(summary(rt_lm))[9:12], sep = "\n")
+```
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+.center[
+`Pr(>|t|) <2e-16 `
+
+means that
+
+$p$ < 0.0000000000000002 
+]
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**`(Intercept)`:**
+
+- The logged RT at the mean trial index (i.e., halfway through the experiment) is 7.03 (SD = 0.01).
+- H0: `(Intercept)` is equal to 0.
+  - $p$ < 0.0000000000000002 
+  - Can we reject this null hypothesis?
+  - Is it *interesting* to reject this null hypothesis?
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**`idx_c`:**
+
+- For one unit change in speech rate, logged vowel duration changes by –0.22 to -0.26 log-ms, at 95% probability.
+
+]
+
+---
