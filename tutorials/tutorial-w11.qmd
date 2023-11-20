@@ -23,6 +23,8 @@ my_seed <- 8878
 # library(lmerTest)
 ```
 
+<!-- - Extra box: Gaussian = standardised version of t-distrib mean 0 SD 1 df infinity. df changes kurtosis fatness of distrib. -->
+
 ## Introduction
 
 ::: callout-warning

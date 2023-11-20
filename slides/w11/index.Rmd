@@ -52,16 +52,66 @@ set.seed(my_seed)
 ```
 
 
-## Hello world
+## Why do we do statistical analysis?
 
-hello
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**To answer the questions:**
+
+- Is there a difference between groups?
+
+- How big is that difference?
+
+- Does the difference accord with our theory?
+
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+
+There are two major schools of statistical analysis in use today: **Bayesian** and **frequentist**.
+
+]
+
+---
+
+## Differences between Bayesian and frequentist statistics
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**Bayesian:**
+
+- Aim: Quantify uncertainty (e.g., "How certain are we that an effect is positive?").
+- All parameters in a model are thought of as probability distributions.
+
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**Frequentist:**
+
+- Aim: Reject the null hypothesis (often written as H0).
+- Parameters in a model are just the single number that the model considers most likely.
+
+]
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**In the linguistics literature, frequentist analyses are by far the most common.**
+
+This week walks through how they work.
+
+]
 
 ---
 
 layout: false
 layout: true
 
-## Do participants in an experiment speed up as the experiment goes on?
+## Example: Do participants in an experiment speed up as the experiment goes on?
 
 ---
 
@@ -94,14 +144,259 @@ set.seed(5)
 ---
 
 layout: false
+layout: true
 
-# Lorem ipsum
-
-abc
+## Frequentist inference: A world in which there's no effect
 
 ---
 
-# Return to the reaction time data
+--
+
+.pull-left[
+
+```{r out.width = "100%"}
+h0_simdat <- tibble(
+  idx_c = rep(-10:10, 150),
+  logRT = rnorm(150 * 21, mean = 7, sd = 0.7)
+)
+
+h0_simdat %>% 
+  ggplot(aes(x = idx_c, y = logRT)) +
+  geom_jitter(alpha = 0.15, width = 0.2) +
+  labs(
+    x = 'Trial number (centred)',
+    y = 'Logged reaction times',
+    title = 'In a world in which there truly is no relationship\nbetween trial number and logged RT...'
+  ) +
+  scale_y_continuous(breaks = c(6, 8, 10)) +
+  ylim(5, 11) +
+  geom_smooth()
+```
+
+]
+
+--
+
+.pull-right[
+
+```{r out.width = "100%"}
+p_idx_rt +
+  labs(
+    caption = element_blank(),
+    title = '... how probable is it to observe data like this?\n'
+  ) +
+  ylim(5, 11)
+```
+
+
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+.center[
+**That probability is the p-value.**
+]
+]
+
+---
+
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+Imagine how likely it is to observe different kinds of data in this world:
+
+- with **no difference** between groups?
+- with a **big difference** between groups?
+
+]
+
+--
+
+```{r null-probs, fig.width=13, fig.height=7, dpi=600, fig.retina=TRUE}
+x <- seq(-4, 4, by = 0.01)
+y <- dnorm(x)
+labels <- tibble(
+  x = c(0, 2.5, -2.5, -2.5, 3),
+  y = c(-0.025, -0.025, -0.025, 0.36, 0.14),
+  labs = c("0", "Positive diff. between groups", "Negative diff. between groups", "No difference:\nlarge probability,\nlarge p-value", "Big difference:\nsmall probability,\nsmall p-value")
+)
+arrows <- tibble(
+  x1 = c(-1.5, 3),
+  y1 = c(0.4 - 0.025, 0.1 - 0.025),
+  x2 = c(-0.4, 3),
+  y2 = c(0.4 - 0.015, 0.025)
+)
+ggplot() +
+  aes(x, y) +
+  geom_ribbon(aes(ymin = 0, ymax = y), fill = "#7570b3", alpha = 0.4) +
+  geom_segment(aes(x = 0, y = 0, xend = 0, yend = max(y)), colour = "#1b9e77", linewidth = 3) +
+  geom_text(data = labels, aes(x, y, label = labs), size = 10) +
+  geom_curve(
+    data = arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
+    arrow = arrow(length = unit(0.3, "inch"), type = "closed"), linewidth = 1,
+    color = "gray20", curvature = -0.3
+  ) +
+  theme_void() + 
+  # labs(x = "Difference between groups") + 
+  labs(x = element_blank()) +
+  theme(axis.title.x = element_text(size = 18))
+```
+
+???
+
+Tell me about the probability of observing a big negative difference.
+
+---
+
+layout:false
+
+## We want p-values to be small
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+A small p-value means that, **assuming that we're in a world with no difference between groups**,
+observing results like ours is very unlikely.
+
+]
+
+--
+
+.pull-left[
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+If observing results like ours is unlikely *enough*, we are allowed to say
+
+**"We do not live in that world in which there's no difference between groups."**
+
+]
+]
+
+--
+
+.pull-right[
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+The conventionally accepted p-value threshold in linguistics is *0.05.*
+
+If p < 0.05, we are allowed to **reject the null hypothesis.**
+
+]
+]
+
+--
+
+<br>
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+.center[
+**But what exactly counts as "results like ours"?**
+]
+]
+
+---
+
+## Enter: Test statistics
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**We're already familiar with summary statistics** (e.g., mean, median, standard deviation, range...)
+
+**Summary statistics** are measures whose purpose is for **summarising.**
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+Similarly, **test statistics** are measures whose purpose is for **testing**.
+
+The test statistic that frequentist linear models use is the **Student's t-statistic**, also known as the **t-value.**
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+Why the t-value?
+
+1. It is a **standardised measure of the difference** between two means.
+2. We know which t-values are **common vs. rare in the world of the null hypothesis**.
+
+Important so that we can **compare** the t-value for our data to the plausible t-values in that world.
+]
+
+???
+
+A difference on a standardised scale.
+A scale of km is very different than a scale of mm, so a t-value is a useful way of abstracting away from the original scales and talking about differences between means in a standardised way.
+
+---
+
+## Student's t-distribution under the null hypothesis
+
+```{r plot tdistrib}
+x <- seq(-4, 4, by = 0.005)
+y <- dt(x, 149)
+
+p_t <- ggplot() +
+  aes(x, y) +
+  geom_vline(xintercept = 0, colour = "gray", linewidth = 1) +
+  geom_hline(yintercept = 0, colour = "gray", linewidth = 1) +
+  geom_path() +
+  labs(
+    x = 't-value',
+    y = 'Probability density'
+  )
+
+p_t
+```
+
+???
+
+- What is the most common t-value?
+- How common is a t-value of -1?
+- How common is a t-value of 3?
+
+Gaussian = standardised version of t-distrib with mean 0, SD 1, df infinity.
+
+---
+
+## What t-values are different *enough* at p < 0.05?
+
+TODO: Annotate "this red bit is 2.5% of the area under the curve" x2
+
+```{r plot tdistrib 2}
+lower95 <- qt(0.025, 149)
+upper95 <- qt(0.975, 149)
+
+p_t_ribbon <- p_t +
+  geom_ribbon(
+    aes(x = ifelse(x >= upper95, x, NA), ymin = 0, ymax = y),
+    fill = "#E84646",
+    alpha = 0.4
+  ) +
+  geom_ribbon(
+    aes(x = ifelse(x <= lower95, x, NA), ymin = 0, ymax = y),
+    fill = "#E84646",
+    alpha = 0.4
+  )
+p_t_ribbon
+```
+
+TODO: Add in some vlines and get ppl to tell me with thumbs up or down whether significant or not
+
+---
+
+## The frequentist reasoning process
+
+
+
+---
+
+.
+
+---
+
+## Return to the reaction time data
 
 ```{r}
 set.seed(5)
@@ -113,13 +408,13 @@ p_idx_rt
 layout: false
 layout: true
 
-# Fit a frequentist linear model using `lm()`
+## Fit a frequentist linear model using `lm()`
 
 ---
 
 ```{r echo = TRUE}
 rt_lm <- lm(
-  logRT ~ idx_c,  # model formula (like we're used to!)
+  logRT ~ idx_c,  # model formula – same format as in brm()!
   data = sl_dat   # name the dataset
 )
 ```
@@ -147,23 +442,59 @@ $p$ < 0.0000000000000002
 ]
 ]
 
+---
+
+
+```{r}
+cat(capture.output(summary(rt_lm))[9:12], sep = "\n")
+```
+
+--
+
+
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
 **`(Intercept)`:**
 
-- The logged RT at the mean trial index (i.e., halfway through the experiment) is 7.03 (SD = 0.01).
-- H0: `(Intercept)` is equal to 0.
-  - $p$ < 0.0000000000000002 
+- The logged RT at the mean trial index (i.e., halfway through the experiment) is 7.03 (SD = 0.01), equivalent to ~1130 ms.
+- **H0: `(Intercept)` is equal to 0.**
   - Can we reject this null hypothesis?
-  - Is it *interesting* to reject this null hypothesis?
 ]
+
+--
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
 **`idx_c`:**
 
-- For one unit change in speech rate, logged vowel duration changes by –0.22 to -0.26 log-ms, at 95% probability.
+- For an increase of one trial (moving from the middle trial to middle + 1), logged RT changes by –0.02 (SD = 0.002).
+- **H0: `idx_c` is equal to 0.**
+  - Can we reject this null hypothesis?
 
 ]
 
+
+
 ---
+
+layout: false
+
+## How do we get the 95% confidence intervals?
+
+
+---
+
+count:false
+
+## The formula for Student's t
+
+$$t = \frac{\mu_b - \mu_a}{\sqrt{\frac{\sigma^2_a}{n_a} + \frac{\sigma^2_b}{n_b}}} = \frac{\text{diff. between means}}{\text{standard error of diff. between means}}$$
+
+where:
+
+- $\mu_a$ and $\mu_b$ are the means of groups A and B.
+
+- $\sigma^2_a$ and $\sigma^2_b$ are the squared standard deviations (i.e., the variances) of groups A and B.
+
+- $n_a$ and $n_b$ are the sample sizes of groups A and B.
+

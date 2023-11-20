@@ -40,16 +40,66 @@ class: center, middle, inverse, title-slide
 
 
 
-## Hello world
+## Why do we do statistical analysis?
 
-hello
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**To answer the questions:**
+
+- Is there a difference between groups?
+
+- How big is that difference?
+
+- Does the difference accord with our theory?
+
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+
+There are two major schools of statistical analysis in use today: **Bayesian** and **frequentist**.
+
+]
+
+---
+
+## Differences between Bayesian and frequentist statistics
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**Bayesian:**
+
+- Aim: Quantify uncertainty (e.g., "How certain are we that an effect is positive?").
+- All parameters in a model are thought of as probability distributions.
+
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**Frequentist:**
+
+- Aim: Reject the null hypothesis (often written as H0).
+- Parameters in a model are just the single number that the model considers most likely.
+
+]
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**In the linguistics literature, frequentist analyses are by far the most common.**
+
+This week walks through how they work.
+
+]
 
 ---
 
 layout: false
 layout: true
 
-## Do participants in an experiment speed up as the experiment goes on?
+## Example: Do participants in an experiment speed up as the experiment goes on?
 
 ---
 
@@ -65,30 +115,192 @@ layout: true
 ---
 
 layout: false
+layout: true
 
-# Lorem ipsum
-
-abc
+## Frequentist inference: A world in which there's no effect
 
 ---
 
-# Return to the reaction time data
+--
 
-&lt;img src="index_files/figure-html/unnamed-chunk-3-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+.pull-left[
+
+&lt;img src="index_files/figure-html/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="index_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+.center[
+**That probability is the p-value.**
+]
+]
+
+---
+
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+Imagine how likely it is to observe different kinds of data in this world:
+
+- with **no difference** between groups?
+- with a **big difference** between groups?
+
+]
+
+--
+
+&lt;img src="index_files/figure-html/null-probs-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+???
+
+Tell me about the probability of observing a big negative difference.
+
+---
+
+layout:false
+
+## We want p-values to be small
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+A small p-value means that, **assuming that we're in a world with no difference between groups**,
+observing results like ours is very unlikely.
+
+]
+
+--
+
+.pull-left[
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+If observing results like ours is unlikely *enough*, we are allowed to say
+
+**"We do not live in that world in which there's no difference between groups."**
+
+]
+]
+
+--
+
+.pull-right[
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+The conventionally accepted p-value threshold in linguistics is *0.05.*
+
+If p &lt; 0.05, we are allowed to **reject the null hypothesis.**
+
+]
+]
+
+--
+
+&lt;br&gt;
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+.center[
+**But what exactly counts as "results like ours"?**
+]
+]
+
+---
+
+## Enter: Test statistics
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**We're already familiar with summary statistics** (e.g., mean, median, standard deviation, range...)
+
+**Summary statistics** are measures whose purpose is for **summarising.**
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+Similarly, **test statistics** are measures whose purpose is for **testing**.
+
+The test statistic that frequentist linear models use is the **Student's t-statistic**, also known as the **t-value.**
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+Why the t-value?
+
+1. It is a **standardised measure of the difference** between two means.
+2. We know which t-values are **common vs. rare in the world of the null hypothesis**.
+
+Important so that we can **compare** the t-value for our data to the plausible t-values in that world.
+]
+
+???
+
+A difference on a standardised scale.
+A scale of km is very different than a scale of mm, so a t-value is a useful way of abstracting away from the original scales and talking about differences between means in a standardised way.
+
+---
+
+## Student's t-distribution under the null hypothesis
+
+&lt;img src="index_files/figure-html/plot tdistrib-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+???
+
+- What is the most common t-value?
+- How common is a t-value of -1?
+- How common is a t-value of 3?
+
+Gaussian = standardised version of t-distrib with mean 0, SD 1, df infinity.
+
+---
+
+## What t-values are different *enough* at p &lt; 0.05?
+
+TODO: Annotate "this red bit is 2.5% of the area under the curve" x2
+
+&lt;img src="index_files/figure-html/plot tdistrib 2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+TODO: Add in some vlines and get ppl to tell me with thumbs up or down whether significant or not
+
+---
+
+## The frequentist reasoning process
+
+
+
+---
+
+.
+
+---
+
+## Return to the reaction time data
+
+&lt;img src="index_files/figure-html/unnamed-chunk-5-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 layout: false
 layout: true
 
-# Fit a frequentist linear model using `lm()`
+## Fit a frequentist linear model using `lm()`
 
 ---
 
 
 ```r
 rt_lm &lt;- lm(
-  logRT ~ idx_c,  # model formula (like we're used to!)
+  logRT ~ idx_c,  # model formula – same format as in brm()!
   data = sl_dat   # name the dataset
 )
 ```
@@ -140,26 +352,66 @@ means that
 ]
 ]
 
+---
+
+
+
+```
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  7.026282   0.012356 568.652   &lt;2e-16
+## idx_c       -0.017557   0.002041  -8.604   &lt;2e-16
+```
+
+--
+
+
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
 **`(Intercept)`:**
 
-- The logged RT at the mean trial index (i.e., halfway through the experiment) is 7.03 (SD = 0.01).
-- H0: `(Intercept)` is equal to 0.
-  - `\(p\)` &lt; 0.0000000000000002 
+- The logged RT at the mean trial index (i.e., halfway through the experiment) is 7.03 (SD = 0.01), equivalent to ~1130 ms.
+- **H0: `(Intercept)` is equal to 0.**
   - Can we reject this null hypothesis?
-  - Is it *interesting* to reject this null hypothesis?
 ]
+
+--
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
 
 **`idx_c`:**
 
-- For one unit change in speech rate, logged vowel duration changes by –0.22 to -0.26 log-ms, at 95% probability.
+- For an increase of one trial (moving from the middle trial to middle + 1), logged RT changes by –0.02 (SD = 0.002).
+- **H0: `idx_c` is equal to 0.**
+  - Can we reject this null hypothesis?
 
 ]
 
+
+
 ---
+
+layout: false
+
+## How do we get the 95% confidence intervals?
+
+
+---
+
+count:false
+
+## The formula for Student's t
+
+`$$t = \frac{\mu_b - \mu_a}{\sqrt{\frac{\sigma^2_a}{n_a} + \frac{\sigma^2_b}{n_b}}} = \frac{\text{diff. between means}}{\text{standard error of diff. between means}}$$`
+
+where:
+
+- `\(\mu_a\)` and `\(\mu_b\)` are the means of groups A and B.
+
+- `\(\sigma^2_a\)` and `\(\sigma^2_b\)` are the squared standard deviations (i.e., the variances) of groups A and B.
+
+- `\(n_a\)` and `\(n_b\)` are the sample sizes of groups A and B.
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
