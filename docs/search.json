@@ -4,14 +4,21 @@
     "href": "tutorials/tutorial-w10.html",
     "title": "QML tutorial – Week 10",
     "section": "",
-    "text": "This week’s tutorial will be completely self guided.\nTo begin, download the qml-stroop repository from GitHub here: https://github.com/uoelel/qml-stroop:\n\nClick on the green button Code.\nThen Download zip.\nRemember to unzip the downloaded zip archive.\nDouble click on qml-stroop.Rproj to open the RStudio project in RStudio.\n\n\n\n\n\n\n\nImportant\n\n\n\nWhen working through this tutorial, always make sure you are in the qml-stroop RStudio Project you downloaded.\n\n\n\nWhen modelling the data, you can pick either reaction times or accuracy as the outcome variables.\nAs predictors include condition (congruent, incongruent, double incongruent).\nYou can choose to also include L1/L2 and/or languaguage proficiency as predictors.\nRemember to include interactions."
+    "text": "This week’s tutorial will be completely self guided.\nTo begin, download the qml-stroop repository from GitHub here: https://github.com/uoelel/qml-stroop:\n\nClick on the green button Code.\nThen Download zip.\nRemember to unzip the downloaded zip archive.\nDouble click on qml-stroop.Rproj to open the RStudio project in RStudio.\n\n\n\n\n\n\n\nImportant\n\n\n\nWhen working through this tutorial, always make sure you are in the qml-stroop RStudio Project you downloaded."
   },
   {
     "objectID": "tutorials/tutorial-w10.html#introduction",
     "href": "tutorials/tutorial-w10.html#introduction",
     "title": "QML tutorial – Week 10",
     "section": "",
-    "text": "This week’s tutorial will be completely self guided.\nTo begin, download the qml-stroop repository from GitHub here: https://github.com/uoelel/qml-stroop:\n\nClick on the green button Code.\nThen Download zip.\nRemember to unzip the downloaded zip archive.\nDouble click on qml-stroop.Rproj to open the RStudio project in RStudio.\n\n\n\n\n\n\n\nImportant\n\n\n\nWhen working through this tutorial, always make sure you are in the qml-stroop RStudio Project you downloaded.\n\n\n\nWhen modelling the data, you can pick either reaction times or accuracy as the outcome variables.\nAs predictors include condition (congruent, incongruent, double incongruent).\nYou can choose to also include L1/L2 and/or languaguage proficiency as predictors.\nRemember to include interactions."
+    "text": "This week’s tutorial will be completely self guided.\nTo begin, download the qml-stroop repository from GitHub here: https://github.com/uoelel/qml-stroop:\n\nClick on the green button Code.\nThen Download zip.\nRemember to unzip the downloaded zip archive.\nDouble click on qml-stroop.Rproj to open the RStudio project in RStudio.\n\n\n\n\n\n\n\nImportant\n\n\n\nWhen working through this tutorial, always make sure you are in the qml-stroop RStudio Project you downloaded."
+  },
+  {
+    "objectID": "tutorials/tutorial-w10.html#modeling",
+    "href": "tutorials/tutorial-w10.html#modeling",
+    "title": "QML tutorial – Week 10",
+    "section": "2 Modeling",
+    "text": "2 Modeling\n\nWhen modelling the data, you can pick either reaction times or accuracy as the outcome variables.\nAs predictors include condition (congruent, incongruent, double incongruent).\nYou can choose to also include L1/L2 and/or languaguage proficiency as predictors.\nRemember to include interactions.\nAnd of course feel free to fit models to both outcome variables!"
   },
   {
     "objectID": "tutorials/tutorial-w08.html",

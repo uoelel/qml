@@ -1,8 +1,10 @@
 {
-  "hash": "8ed4276e8fef1feb4bcdbbc736460e8b",
+  "hash": "38913cacadbbf11b97f3cf95985aabe0",
   "result": {
-    "markdown": "---\ntitle: \"QML tutorial – Week 10\"\nexecute: \n  freeze: auto\n---\n\n::: {.cell}\n\n:::\n\n\n## Introduction\n\nThis week's tutorial will be completely self guided.\n\nTo begin, download the `qml-stroop` repository from GitHub here: <https://github.com/uoelel/qml-stroop>:\n\n- Click on the green button `Code`.\n- Then `Download zip`.\n- **Remember to unzip the downloaded zip archive**.\n- Double click on `qml-stroop.Rproj` to open the RStudio project in RStudio.\n\n::: callout-warning\n#### Important\n\nWhen working through this tutorial, always **make sure you are in the `qml-stroop` RStudio Project** you downloaded.\n\n:::\n\n- When modelling the data, you can pick either reaction times or accuracy as the outcome variables.\n- As predictors include condition (congruent, incongruent, double incongruent).\n- You can choose to also include L1/L2 and/or languaguage proficiency as predictors.\n- Remember to include interactions.\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"QML tutorial – Week 10\"\nexecute: \n  freeze: auto\n---\n\n::: {.cell}\n\n:::\n\n\n## Introduction\n\nThis week's tutorial will be completely self guided.\n\nTo begin, download the `qml-stroop` repository from GitHub here: <https://github.com/uoelel/qml-stroop>:\n\n- Click on the green button `Code`.\n- Then `Download zip`.\n- **Remember to unzip the downloaded zip archive**.\n- Double click on `qml-stroop.Rproj` to open the RStudio project in RStudio.\n\n::: callout-warning\n#### Important\n\nWhen working through this tutorial, always **make sure you are in the `qml-stroop` RStudio Project** you downloaded.\n\n:::\n\n## Modeling\n\n- When modelling the data, you can pick **either reaction times or accuracy** as the outcome variables.\n- As predictors include **condition** (congruent, incongruent, double incongruent).\n- You can choose to also include **L1/L2 and/or languaguage proficiency** as predictors.\n- Remember to include **interactions**.\n- And of course feel free to fit models to both outcome variables!\n",
+    "supporting": [
+      "tutorial-w10_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

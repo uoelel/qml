@@ -42,7 +42,10 @@ When working through this tutorial, always **make sure you are in the `qml-stroo
 
 :::
 
-- When modelling the data, you can pick either reaction times or accuracy as the outcome variables.
-- As predictors include condition (congruent, incongruent, double incongruent).
-- You can choose to also include L1/L2 and/or languaguage proficiency as predictors.
-- Remember to include interactions.
+## Modeling
+
+- When modelling the data, you can pick **either reaction times or accuracy** as the outcome variables.
+- As predictors include **condition** (congruent, incongruent, double incongruent).
+- You can choose to also include **L1/L2 and/or languaguage proficiency** as predictors.
+- Remember to include **interactions**.
+- And of course feel free to fit models to both outcome variables!
