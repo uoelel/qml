@@ -22,7 +22,7 @@ class: center, middle, inverse, title-slide
 # Quantitative Methods for LEL
 ]
 .subtitle[
-## Week 11 - p-values
+## Week 11 - Frequentist methods and p-values
 ]
 .author[
 ### Elizabeth Pankratz
@@ -40,10 +40,727 @@ class: center, middle, inverse, title-slide
 
 
 
-## Hello world
+## Why do we do statistical analysis?
 
-hello
+--
 
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**To answer the questions:**
+
+- Is there a difference between groups?
+
+- How big is that difference?
+
+- Does the difference accord with our theory?
+
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+
+There are two major schools of statistical analysis in use today: **Bayesian** and **frequentist**.
+
+]
+
+---
+
+## Differences between Bayesian and frequentist statistics
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**Bayesian:**
+
+- Aim: Quantify uncertainty (e.g., "How certain are we that an effect is positive?").
+- All parameters in a model are thought of as probability distributions.
+
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**Frequentist:**
+
+- Aim: Reject the null hypothesis (often written as H0).
+- Parameters in a model are just the single number that the model considers most likely.
+
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**In the linguistics literature, frequentist analyses are by far the most common.**
+
+This week walks through how they work.
+
+]
+
+---
+
+layout: false
+layout: true
+
+## Example: Do participants in an experiment speed up as the experiment goes on?
+
+---
+
+&lt;img src="index_files/figure-html/rt-plot-jitter-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+
+&lt;img src="index_files/figure-html/rt-plot-smooth-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+layout: false
+layout: true
+
+## Frequentist inference: A world in which there's no effect
+
+---
+
+--
+
+.pull-left[
+
+&lt;img src="index_files/figure-html/rt-plot-h0-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.pull-right[
+
+&lt;img src="index_files/figure-html/rt-plot-smooth2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+.center[
+**That probability is the p-value.**
+]
+]
+
+---
+
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+Imagine how likely it is to observe different kinds of data in this world:
+
+- with **no difference** between groups?
+- with a **big difference** between groups?
+
+]
+
+--
+
+&lt;img src="index_files/figure-html/null-probs-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+???
+
+Tell me about the probability of observing a big negative difference.
+
+---
+
+layout:false
+
+## We want p-values to be small
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+A small p-value means that, **assuming that we're in a world with no difference between groups**,
+observing results like ours is **very unlikely.**
+
+]
+
+--
+
+.pull-left[
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+If observing results like ours is unlikely *enough*, we are allowed to say
+
+**"We do not live in that world in which there's no difference between groups."**
+
+]
+]
+
+--
+
+.pull-right[
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+The conventionally accepted p-value threshold in linguistics is *0.05.*
+
+If p &lt; 0.05, we are allowed to take the risk of **rejecting the null hypothesis.**
+
+]
+]
+
+--
+
+&lt;br&gt;
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+.center[
+**But what exactly counts as "results like ours"?**
+]
+]
+
+---
+
+## Enter: Test statistics
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**We're already familiar with summary statistics** (e.g., mean, median, standard deviation, range...)
+
+**Summary statistics** are measures whose purpose is to **summarise.**
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+Similarly, **test statistics** are measures whose purpose is to **test**.
+
+The test statistic that frequentist linear models use is the **Student's t-statistic**, also known as the **t-value.**
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+Why the t-value?
+
+1. It is a **standardised measure of the difference** between two means.
+2. We know which t-values are **common vs. rare in the world of the null hypothesis**.
+
+Important so that we can **compare** the t-value for our data to the plausible t-values in that world.
+]
+
+???
+
+A difference on a standardised scale.
+A scale of km is very different than a scale of mm, so a t-value is a useful way of abstracting away from the original scales and talking about differences between means in a standardised way.
+
+---
+
+## Student's t-distribution under the null hypothesis
+
+&lt;img src="index_files/figure-html/t-plot-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+???
+
+- What is the most common t-value?
+- How common is a t-value of -1?
+- How common is a t-value of 3?
+
+Gaussian = standardised version of t-distrib with mean 0, SD 1, df infinity.
+
+---
+
+layout: false
+layout: true
+
+## What t-values are different *enough* at p &lt; 0.05?
+
+---
+
+&lt;img src="index_files/figure-html/t-plot2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="index_files/figure-html/t-plot-tails-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="index_files/figure-html/t-plot-tails-0.3-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="index_files/figure-html/t-plot-tails-2.75-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="index_files/figure-html/t-plot-tails-1.9-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+layout: false
+
+## Recap: The frequentist reasoning process
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**(1)** We assume we live in a world in which there truly is no difference between groups (i.e., no effect).
+  - In other words, the null hypothesis that there is no difference (aka the H0) is true.
+
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**(2)** We fit a linear model to our data. For every parameter in the model, we get a t-value.
+
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**(3)** The t-value is compared to the distribution of all t-values under H0. 
+  - If it is in the 2.5% in each tail, then p &lt; 0.05. **We can reject the null hypothesis!**
+  - If it is *not* in the 2.5% in each tail, then p &gt; 0.05. **We cannot reject the null hypothesis.**
+
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+These are the only two possible outcomes of a frequentist analysis.
+- **It is never possible to *accept* the null hypothesis.** 
+- **It is never possible to *accept* the alternative hypothesis that there is a difference.**
+]
+
+???
+
+Is this telling us anything that we actually want to know?
+This method doesn't allow us to say anything about our actual hypothesis of interest.
+
+(Pause here and take questions.)
+
+Possible stopping point.
+
+---
+
+## Return to the reaction time data
+
+&lt;img src="index_files/figure-html/rt-plot-smooth3-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+layout: false
+layout: true
+
+## Fit a frequentist linear model using `lm()` from `lme4`
+
+---
+
+
+```r
+library(lme4)
+rt_lm &lt;- lm(
+  logRT ~ idx_c,  # model formula – same format as in brm()!
+  data = sl_dat   # name the dataset
+)
+```
+
+--
+
+
+```r
+summary(rt_lm)
+```
+
+```
+## 
+## Call:
+## lm(formula = logRT ~ idx_c, data = sl_dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.1763 -0.5072 -0.0866  0.4141  4.0174 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  7.026282   0.012356 568.652   &lt;2e-16
+## idx_c       -0.017557   0.002041  -8.604   &lt;2e-16
+## 
+## Residual standard error: 0.6935 on 3148 degrees of freedom
+## Multiple R-squared:  0.02298,	Adjusted R-squared:  0.02267 
+## F-statistic: 74.03 on 1 and 3148 DF,  p-value: &lt; 2.2e-16
+```
+
+---
+
+
+```
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  7.026282   0.012356 568.652   &lt;2e-16
+## idx_c       -0.017557   0.002041  -8.604   &lt;2e-16
+```
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+.center[
+`Pr(&gt;|t|) &lt;2e-16 `
+
+means that
+
+`\(p\)` &lt; 0.0000000000000002 
+]
+]
+
+---
+
+
+
+```
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  7.026282   0.012356 568.652   &lt;2e-16
+## idx_c       -0.017557   0.002041  -8.604   &lt;2e-16
+```
+
+--
+
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**`(Intercept)`:**
+
+- The logged RT at the mean trial index (i.e., halfway through the experiment) is 7.03 (SE = 0.01), equivalent to ~1130 ms.
+- **H0: `(Intercept)` is equal to 0.**
+  - Can we reject this null hypothesis?
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+**`idx_c`:**
+
+- For an increase of one trial (moving from the middle trial to middle + 1), logged RT changes by –0.02 (SE = 0.002).
+- **H0: `idx_c` is equal to 0.**
+  - Can we reject this null hypothesis?
+
+]
+
+???
+
+Also a good stopping point.
+
+---
+
+layout: false
+class: center middle reverse
+
+# Questions so far?
+
+---
+
+## What can make a p-value small?
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+- The p-value depends on the **t-value.**
+- The t-value depends (among other things) on the **size of the dataset.**
+
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+
+The bigger the dataset, the smaller the p-value.
+
+In fact: **The p-value can *always* be brought below 0.05 by adding more data.**
+
+]
+
+---
+
+layout: false
+layout: true
+
+## Simulate several datasets from *slightly* different populations
+
+---
+
+&lt;img src="index_files/figure-html/sim-pop-normdists-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+
+.pull-left[
+.pull-left[
+
+N = 100 per group
+  
+&lt;img src="index_files/figure-html/simdat-n100-1.png" width="100%" height="50%" style="display: block; margin: auto;" /&gt;
+
+
+  
+.center[ p = 0.548 ]
+  
+]
+.pull-right[
+
+N = 200 per group
+    
+&lt;img src="index_files/figure-html/simdat-n200-1.png" width="100%" height="50%" style="display: block; margin: auto;" /&gt;
+
+
+  
+.center[ p = 0.28 ]
+  
+]
+]
+
+.pull-right[
+.pull-left[
+
+N = 500 per group
+    
+&lt;img src="index_files/figure-html/simdat-n500-1.png" width="100%" height="50%" style="display: block; margin: auto;" /&gt;
+
+
+  
+.center[ p = 0.023 ]
+
+]
+.pull-right[
+
+N = 1000 per group
+  
+&lt;img src="index_files/figure-html/simdat-n1000-1.png" width="100%" height="50%" style="display: block; margin: auto;" /&gt;
+
+
+  
+.center[ p = 0.001 ]
+  
+]
+]
+
+---
+
+layout: false
+
+&lt;img src="index_files/figure-html/p-n-plot-1.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+???
+
+One more stopping point before the final beat.
+
+---
+
+## What are 95% confidence intervals?
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**Backstory:**  Frequentist modelling is based around the idea of **hypothetical repeated sampling**. 
+- If you did the same experiment over and over, what results would you get?
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+What makes the frequentist approach possible is that **there are mathematical ways to estimate what those results would be like,** after only doing **a single experiment.**
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+If we did the same experiment 100 times, in 95 of those times, the estimated 95% CI would contain the true value in the population.
+]
+
+--
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+`\(\rightarrow\)` **It does not mean that the probability of the true value lying within this range is 95%.**
+ 
+`\(\rightarrow\)` **It is not a statement about certainty.**
+]
+
+
+---
+
+## How do we get the 95% confidence intervals?
+
+--
+
+
+```
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  7.026282   0.012356 568.652   &lt;2e-16
+## idx_c       -0.017557   0.002041  -8.604   &lt;2e-16
+```
+--
+
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt2[
+.center[
+**Lower bound:** `Estimate` – 1.96 `\(\times\)` `Std. Error`
+
+**Upper bound:** `Estimate` + 1.96 `\(\times\)` `Std. Error`
+]
+]
+
+--
+
+.pull-left[
+
+For `Intercept`:
+
+
+```r
+# 95% CI lower bound
+round(7.02 - (1.96 * 0.01), 2)
+```
+
+```
+## [1] 7
+```
+
+```r
+# 95% CI upper bound
+round(7.02 + (1.96 * 0.01), 2)
+```
+
+```
+## [1] 7.04
+```
+
+]
+
+--
+
+.pull-right[
+
+For `idx_c`:
+
+
+```r
+# 95% CI lower bound
+round(-0.02 - (1.96 * 0.002), 3)
+```
+
+```
+## [1] -0.024
+```
+
+```r
+# 95% CI upper bound
+round(-0.02 + (1.96 * 0.002), 3)
+```
+
+```
+## [1] -0.016
+```
+]
+
+---
+
+## Reporting a frequentist model
+
+&gt; We fitted a frequentist linear model with a Gaussian distribution that predicted logged reaction times as a function of trial number. This predictor was centred.
+
+&gt; According to the model, the logged reaction time halfway through the experiment was 7.02 (95% CI: [7, 7.04]).
+Moving forward one trial decreases the logged reaction time by 0.02 (95% CI: [–0.023, –0.016], p &lt; 0.001).
+
+&gt; We therefore reject the null hypothesis that there is no association between trial index and logged reaction times; the increase in speed is statistically significant.
+
+
+---
+
+## Take-aways: Bayesian vs. frequentist modelling
+
+.pull-left[
+.center[**Bayesian**]
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**The main question:** How certain are we that the data is in line with our hypotheses?
+]
+]
+
+.pull-right[
+.center[**Frequentist**]
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**The main question:** Can we reject the null hypothesis that there is no relationship between the variables we're analysing?
+]
+]
+
+--
+
+.pull-left[
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**If the 95% CrI contains zero,** we can still make inferences (e.g., about how much of the posterior  is positive vs. negative).
+]
+]
+
+.pull-right[
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**If the 95% CI contains zero,** then p &gt; 0.05, so we fail to reject the null hypothesis. No inferences are possible.
+]
+]
+
+--
+
+.pull-left[
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**More intuitive** way of making inferences.
+]
+]
+
+.pull-right[
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**Counterintuitive** way of reasoning.
+]
+]
+
+--
+
+.pull-left[
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+**Increasing** in popularity.
+]
+]
+
+.pull-right[
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt2[
+The current **"industry standard".**
+]
+]
+
+---
+
+&lt;br&gt;
+
+.center[
+![:scale 100%](../../img/data-quant.png)
+]
+
+---
+
+count:false
+
+## The formula for Student's t
+
+&lt;br&gt;
+
+`$$t = \frac{\mu_b - \mu_a}{\sqrt{\frac{\sigma^2_a}{n_a} + \frac{\sigma^2_b}{n_b}}} = \frac{\text{diff. between means}}{\text{standard error of diff. between means}}$$`
+
+where:
+
+- `\(\mu_a\)` and `\(\mu_b\)` are the means of Groups A and B
+
+- `\(\sigma^2_a\)` and `\(\sigma^2_b\)` are the squared standard deviations (i.e., the variances) of Groups A and B
+
+- `\(n_a\)` and `\(n_b\)` are the sample sizes of Groups A and B
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
