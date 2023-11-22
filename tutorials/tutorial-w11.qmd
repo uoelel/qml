@@ -11,6 +11,8 @@ execute:
 
 library(tidyverse)
 theme_set(theme_light())
+library(lme4)
+library(lmerTest)
 
 options(ggplot2.discrete.fill = RColorBrewer::brewer.pal(8, "Dark2"))
 options(ggplot2.discrete.colour = RColorBrewer::brewer.pal(8, "Dark2"))
@@ -18,12 +20,8 @@ options(ggplot2.discrete.colour = RColorBrewer::brewer.pal(8, "Dark2"))
 options(dplyr.summarise.inform = FALSE)
 
 my_seed <- 8878
-
-# library(lme4)
-# library(lmerTest)
 ```
 
-<!-- - Extra box: Gaussian = standardised version of t-distrib mean 0 SD 1 df infinity. df changes kurtosis fatness of distrib. -->
 
 ## Introduction
 
@@ -49,9 +47,10 @@ But, first things first: set up the Rmd file you'll use for this tutorial.
 
 2.  In the `setup` chunk, include the line `knitr::opts_knit$set(root.dir = here::here())`.
 
-3.  Also in the `setup` chunk, include code to attach the libraries we'll use in this tutorial: `tidyverse`, `lme4`, and `lmerTest` (**NOTE: Two of these are new!**).
+3.  Also in the `setup` chunk, include code to attach the libraries we'll use in this tutorial: `tidyverse` as usual, but now **two new packages:** `lme4` and `lmerTest`.
 
 If you don't already have the packages `lme4` and `lmerTest` installed, then install them now.
+
 
 ::: callout-tip
 #### Review: Choosing what kind of model to run
@@ -65,11 +64,13 @@ If your outcome variable is **continuous** (potentially after transformation):
 
 - To fit a Bayesian model, use the Gaussian family.
 - To fit a frequentist model, use the function `lm()`, which stands for **"linear model"**.
+  - The model summary will automatically include p-values.
 
 If your outcome variable is **binary** (e.g., 0/1, correct/incorrect, English/Scots):
 
 - To fit a Bayesian model, use the Bernoulli family.
 - To fit a frequentist model, use the function `glm()`, which stands for **"generalised linear model"**.
+  - The model summary will only include p-values if the `lmerTest` library is attached.
 
 :::
 
@@ -163,22 +164,25 @@ Copy and run the following code that fits the model.
 
 ```{r}
 #| label: val-lm
-#| eval: false
 
 val_lm <- lm(Val ~ Modality,
              data = senses_valence)
 ```
 
+Notice how fast it is to fit a frequentist model!
+
 If you were reporting this model in a paper, you might write something like this.
 
-> We fitted a frequentist linear model with emotional valence as the outcome variable and modality (smell vs. taste) as the only predictor. The modality predictor was coded with the default treatment contrasts (with "smell" as the reference level.)
+> We fitted a frequentist linear model with a Gaussian distribution.
+Emotional valence was the outcome variable and modality (smell vs. taste) was the only predictor. 
+Modality was coded with the default treatment contrasts, with "smell" as the reference level.
 
 
 ::: {.callout-important collapse="true"}
 #### Extra: Do I need to write "frequentist" in my report?
 
-If you've read academic papers that include a statistical analysis, chances are good that they are using frequentist statistics.
-So most of the time, authors will simply write "We fitted a linear model...", and it is just assumed that the model is frequentist.
+If you've read academic papers that include a statistical analysis, then chances are good that the authors simply write "We fitted a linear model...".
+It is just assumed that the model is frequentist, because that is the traditional way of doing data analysis.
 
 Generally, though, we'd encourage you to **be specific about the kind of analysis you've done.**
 And that includes mentioning what framework you're using for your statistical analysis—whether frequentist or Bayesian.
@@ -192,15 +196,68 @@ Like in previous weeks, we can use the `summary()` function.
 
 ```{r}
 #| label: val-lm-summary
-#| eval: false
  
 summary(val_lm)
 ```
 
-Some of this model summary may look familiar; some of it will look different.
+Let's focus first on the table under `Coefficients:`, where there is one row per parameter. 
+What does each column mean?
 
-- TODO: How to report model results
+- `Estimate`: This is the value that the model considers to be the **most likely** for that parameter.
+  - This is different from a Bayesian model summary. There, this estimate was the **posterior mean**, and the range of values that the model considered plausible was given by the 95% CrI.
+- `Std. Error`: The **standard error** is how much the `Estimate` would vary under hypothetical repeated sampling (i.e., if the exact same experiment were repeated a huge number of times, this is the standard deviation of all of those estimates). The standard error is computed based on the sample size and the standard deviation of the data we've observed, and we use it to compute the 95% confidence interval (CI).
+  - This is also different from a Bayesian model summary. There, the second column contained the **standard deviation of the posterior distribution.** No need to worry about hypothetical repeated sampling.
+- `t value`: Student's t, a measure of how different this estimate is from the null hypothesis. Generally, t-values between –2 and 2 are "close enough" to the null hypothesis, but **t-values that are more negative than –2 or more positive than 2 are "unlikely enough" that we are allowed to reject the null hypothesis.**
+- `Pr(>|t|)`: The probability of observing a t value more extreme than the one in the previous column. The number of `*` symbols tells us *how* statistically significant this p-value is.
 
+
+Now let's interpret these results for each parameter.
+I'll include the `Coefficients:` table here again for convenience.
+
+```{r}
+#| label: val-lm-summary-coefs
+#| echo: false
+ 
+cat(capture.output(summary(val_lm))[9:12], sep = "\n")
+```
+
+**Intercept**:
+
+- When `Modality` = Smell (the reference level), the model estimates that `Valence` is 5.47 (SE = 0.06).
+- The 95% CI can be computed by adding and subtracting 1.96 $\times$ SE from the estimate, so:
+  - Lower bound: 5.47 – (1.96 $\times$ 0.06) = 5.35
+  - Upper bound: 5.47 + (1.96 $\times$ 0.06) = 5.59
+- The null hypothesis (H0) that is tested here is that **the Intercept is different from 0.**
+  - The t-value of 86.89 is *very* big.
+  - And the probability of observing a t-value this extreme or more extreme is miniscule (`2e-16` is the smallest number R can handle!).
+  - We therefore reject the null hypothesis that `Valence` for smell words is zero.
+  - **Is this an interesting hypothesis to test? Not really... it's going to be true for most datasets.**
+  
+**ModalityTaste**:
+
+- The model estimates that the difference between `Modality` = Smell and `Modality` = Taste is 0.34 (SE = 0.08, 95% CI: [0.18, 0.49]).
+- The null hypothesis (H0) that is tested here is that **this difference is not 0.**
+  - The t-value of 4.33 is pretty big.
+  - And the probability of observing a t-value this extreme or more extreme is `4.95e-05`, that is, 0.0000495. Definitely below 0.05!
+  - We therefore reject the null hypothesis that the difference between smell and taste words is zero.
+  - **This is a more interesting hypothesis test, but it doesn't actually tell us if the difference between smell and taste words is different in the way we'd expect.** The effect might be totally backwards from what we hypothesised, but we'd still have to reject the null hypothesis.
+
+Notice that the meanings of the coefficients are still the same.
+The intercept is still the estimated outcome for the reference level.
+And the predictor is still the estimated difference between the reference level and the non-reference level.
+
+
+### The full report
+
+> We fitted a frequentist linear model with a Gaussian distribution.
+Emotional valence was the outcome variable and modality (smell vs. taste) was the only predictor. 
+Modality was coded with the default treatment contrasts, with "smell" as the reference level.
+
+> According to the model, smell words have an emotional valence of 5.47 (SE = 0.06, 95% CI: [5.35, 5.59]). 
+The difference between smell words and taste words is 0.34 (SE = 0.08, 95% CI: [0.18, 0.49], p < 0.001).
+
+The intercept being different from zero is such a boring null hypothesis that there's no need to include the corresponding p-value in the report.
+But it is typical to report the p-values for the other effects.
 
 
 ## Modelling binary outcomes with `glm()`
@@ -222,7 +279,7 @@ The following code shows a more streamlined way to do the same four steps that w
 
 si <- read_csv("data/si.csv") %>%
   mutate(
-    SI = factor(SI, levels = c("no_scalar", "scalar")),  # make into a factor
+    SI = factor(SI, levels = c("no_scalar", "scalar")),  # make SI into a factor
     logfreq = log(freq),                                 # log the frequency
     logfreq_c = logfreq - mean(logfreq),                 # centre logfreq
     semdist_c = semdist - mean(semdist)                  # centre semdist
@@ -234,13 +291,13 @@ Notice that we have created a brand new column `logfreq`, and in the very next l
 So if you ever have multiple operations that all use `mutate()`, you can bundle them all together like this.
 
 The last step before running the model:  we want to know which level of `SI` is going to be coded as 1.
-We can find this out with `contrasts()`, but I want you to think it through for yourself first.
+We can find this out with `contrasts()`, but for review, I want you to think it through for yourself first.
 
 **Before running any code or opening the following drop-down box,** decide whether you expect `no_scalar` or `scalar` to be coded as 1.
 
 
 ::: {.callout-important collapse="true"}
-#### Coding of `SI` and why it matters
+#### Review: Coding of `SI` and why it matters
 
 ```{r}
 #| label: si-contrasts
@@ -257,6 +314,29 @@ So, because `scalar` is coded as 1, the model will estimate the log-odds of gett
 We need to know which level is coded as 1 so that we know what the model's estimates mean.
 
 :::
+
+Here's a plot of this data from Week 9, showing that drawing a scalar inference is mostly associated with high values of both semantic distance and log frequency.
+
+```{r}
+#| label: si-plot
+
+si %>%
+  group_by(weak_adj) %>%
+  summarise(
+    prop_si = mean(as.numeric(SI) - 1),
+    logfreq_c = mean(logfreq_c),
+    semdist_c = mean(semdist_c)
+  ) %>%
+  ggplot(aes(logfreq_c, semdist_c, fill = prop_si)) +
+  geom_point(size = 3, pch = 21) +
+  scale_fill_distiller(type = "div") +
+  labs(
+    x = 'Logged frequency (centred)',
+    y = 'Semantic distance (centred)',
+    fill = 'Proportion\nof scalar\ninferences'
+  )
+```
+
 
 
 ### Fit the model
@@ -279,7 +359,6 @@ Copy and run the following code that fits the model.
 
 ```{r}
 #| label: si-glm
-#| eval: false
 
 si_glm <- glm(SI ~ logfreq_c + semdist_c + logfreq_c:semdist_c,
               data = si,
@@ -306,26 +385,51 @@ To see the model output, we can run the following:
 
 ```{r}
 #| label: si-glm-summary
-#| eval: false
 
 summary(si_glm)
 ```
 
+Notice that here we have a column called `z value` instead of `t value`.
+For present purposes, the difference is not important and does not affect how we interpret these results.
 
-- How to report model results
+Let's break down the interpretation of each coefficient.
 
-- We therefore reject the null hypothesis that X.
-- We therefore fail to reject the null hypothesis that X.
+- **Intercept:** When centred log frequency and centred semantic distance are 0 (or in other words, when log frequency and semantic distance are at their means), the log-odds of making a scalar inference are –0.7 (SE = 0.05, 95% CI: [–0.8, –0.6]). 
+  - Note that we again have a very small p-value, so we can reject the null hypothesis that the intercept is zero. But that's not really an interesting thing to do.
+  - Like before, we can use `plogis()` to back-transform this estimate into a probability: `plogis(-0.7)` is about 0.33.
+  
+- **logfreq_c:** When centred semantic distance is 0 (i.e., when semantic distance is at its mean), for a unit change in centred log frequency, the log-odds of making a scalar inference changes by 0.52 (SE = 0.05, 95% CI: [0.42, 0.62], p < 0.001).
+  - We reject the null hypothesis that there is no association between the log-odds of making a scalar inference and the log frequency of the words involved.
+  
+- **semdist_c:** When centred log frequency is 0 (i.e., when log frequency is at its mean), for a unit change in centred semantic distance, the log-odds of making a scalar inference changes by 0.08 (SE = 0.01, 95% CI: [0.06, 0.11], p < 0.001).
+  - We reject the null hypothesis that there is no association between the log-odds of making a scalar inference and the semantic distance between the words involved.
+  
+- **logfreq_c:semdist_c:**
+  - Two interpretations, as usual.
+    - A unit change in centred log frequency is associated with a positive adjustment to the effect of centred semantic distance of 0.05 (SE = 0.01, 95% CI: [0.03, 0.07], p < 0.001).
+    - A unit change in centred semantic distance is associated with a positive adjustment to the effect of centred log frequency of 0.05 (SE = 0.01, 95% CI: [0.03, 0.07], p < 0.001).
+  - The null hypothesis thus also has two interpretations.
+    - We reject the null hypothesis that centred log frequency has no influence on the effect of centred semantic distance.
+    - Equivalently, we reject the null hypothesis that centred semantic distance has no influence on the effect of centred log frequency.
+
 
 ::: {.callout-important}
 #### `glm()` and p-values
 
 To get p-values in from your GLM, make sure that you've attached the library `lmerTest` to your R markdown file.
 
-If you only attached the library `lme4` and not the library `lmerTest` to your R markdown file, your GLM would not give you any p-values.
+If you only attached the library `lme4` and not the library `lmerTest` to your R markdown file, your GLM will not give you any p-values.
 
 :::
 
+### The full report
+
+> We fitted a frequentist binomial generalised linear model to estimate scalar inferencing as a function of logged word frequency, semantic distance, and their interaction. Both predictors were centred.
+
+> According to the model, when logged frequency and semantic distance are at their means, the probability of drawing a scalar inference is 33% ($\beta$ = –0.69, SE = 0.05, 95% CI: [–0.8, –0.6]).
+For each unit increase of logged frequency, when semantic distance is at its mean, the log-odds of drawing a scalar inference increases by 0.52 (SE = 0.05, 95% CI: [0.42, 0.62], p < 0.001).
+For each unit increase of semantic distance, when logged frequency is at its mean, the log-odds of drawing a scalar inference increases by 0.08 (SE = 0.01, 95% CI: [0.06, 0.11], p < 0.001).
+The positive effect of logged word frequency increases with increasing semantic distance by 0.05 (SE = 0.01, 95% CI: [0.03, 0.07], p < 0.001).
 
 
 ::: {.callout-important collapse="true"}

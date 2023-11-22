@@ -179,12 +179,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#prepare-data-for-analysis" id="toc-prepare-data-for-analysis" class="nav-link" data-scroll-target="#prepare-data-for-analysis"><span class="toc-section-number">2.1</span>  Prepare data for analysis</a></li>
   <li><a href="#fit-the-model" id="toc-fit-the-model" class="nav-link" data-scroll-target="#fit-the-model"><span class="toc-section-number">2.2</span>  Fit the model</a></li>
   <li><a href="#interpret-the-model-output" id="toc-interpret-the-model-output" class="nav-link" data-scroll-target="#interpret-the-model-output"><span class="toc-section-number">2.3</span>  Interpret the model output</a></li>
+  <li><a href="#the-full-report" id="toc-the-full-report" class="nav-link" data-scroll-target="#the-full-report"><span class="toc-section-number">2.4</span>  The full report</a></li>
   </ul></li>
   <li><a href="#modelling-binary-outcomes-with-glm" id="toc-modelling-binary-outcomes-with-glm" class="nav-link" data-scroll-target="#modelling-binary-outcomes-with-glm"><span class="toc-section-number">3</span>  Modelling binary outcomes with <code>glm()</code></a>
   <ul class="collapse">
   <li><a href="#prepare-the-data-for-analysis" id="toc-prepare-the-data-for-analysis" class="nav-link" data-scroll-target="#prepare-the-data-for-analysis"><span class="toc-section-number">3.1</span>  Prepare the data for analysis</a></li>
   <li><a href="#fit-the-model-1" id="toc-fit-the-model-1" class="nav-link" data-scroll-target="#fit-the-model-1"><span class="toc-section-number">3.2</span>  Fit the model</a></li>
   <li><a href="#interpret-the-model-output-1" id="toc-interpret-the-model-output-1" class="nav-link" data-scroll-target="#interpret-the-model-output-1"><span class="toc-section-number">3.3</span>  Interpret the model output</a></li>
+  <li><a href="#the-full-report-1" id="toc-the-full-report-1" class="nav-link" data-scroll-target="#the-full-report-1"><span class="toc-section-number">3.4</span>  The full report</a></li>
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="toc-section-number">4</span>  Summary</a></li>
   </ul>
@@ -236,7 +238,7 @@ Important
 <ol type="1">
 <li><p>Create a new <code>.Rmd</code> file, save it in <code>code/</code>, and name it <code>tutorial-w11</code>.</p></li>
 <li><p>In the <code>setup</code> chunk, include the line <code>knitr::opts_knit$set(root.dir = here::here())</code>.</p></li>
-<li><p>Also in the <code>setup</code> chunk, include code to attach the libraries we’ll use in this tutorial: <code>tidyverse</code>, <code>lme4</code>, and <code>lmerTest</code> (<strong>NOTE: Two of these are new!</strong>).</p></li>
+<li><p>Also in the <code>setup</code> chunk, include code to attach the libraries we’ll use in this tutorial: <code>tidyverse</code> as usual, but now <strong>two new packages:</strong> <code>lme4</code> and <code>lmerTest</code>.</p></li>
 </ol>
 <p>If you don’t already have the packages <code>lme4</code> and <code>lmerTest</code> installed, then install them now.</p>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
@@ -254,12 +256,18 @@ Review: Choosing what kind of model to run
 <p>If your outcome variable is <strong>continuous</strong> (potentially after transformation):</p>
 <ul>
 <li>To fit a Bayesian model, use the Gaussian family.</li>
-<li>To fit a frequentist model, use the function <code>lm()</code>, which stands for <strong>“linear model”</strong>.</li>
+<li>To fit a frequentist model, use the function <code>lm()</code>, which stands for <strong>“linear model”</strong>.
+<ul>
+<li>The model summary will automatically include p-values.</li>
+</ul></li>
 </ul>
 <p>If your outcome variable is <strong>binary</strong> (e.g., 0/1, correct/incorrect, English/Scots):</p>
 <ul>
 <li>To fit a Bayesian model, use the Bernoulli family.</li>
-<li>To fit a frequentist model, use the function <code>glm()</code>, which stands for <strong>“generalised linear model”</strong>.</li>
+<li>To fit a frequentist model, use the function <code>glm()</code>, which stands for <strong>“generalised linear model”</strong>.
+<ul>
+<li>The model summary will only include p-values if the <code>lmerTest</code> library is attached.</li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -322,9 +330,10 @@ Taste     1</code></pre>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>val_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Val <span class="sc">~</span> Modality,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> senses_valence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Notice how fast it is to fit a frequentist model!</p>
 <p>If you were reporting this model in a paper, you might write something like this.</p>
 <blockquote class="blockquote">
-<p>We fitted a frequentist linear model with emotional valence as the outcome variable and modality (smell vs.&nbsp;taste) as the only predictor. The modality predictor was coded with the default treatment contrasts (with “smell” as the reference level.)</p>
+<p>We fitted a frequentist linear model with a Gaussian distribution. Emotional valence was the outcome variable and modality (smell vs.&nbsp;taste) was the only predictor. Modality was coded with the default treatment contrasts, with “smell” as the reference level.</p>
 </blockquote>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -338,7 +347,7 @@ Extra: Do I need to write “frequentist” in my report?
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you’ve read academic papers that include a statistical analysis, chances are good that they are using frequentist statistics. So most of the time, authors will simply write “We fitted a linear model…”, and it is just assumed that the model is frequentist.</p>
+<p>If you’ve read academic papers that include a statistical analysis, then chances are good that the authors simply write “We fitted a linear model…”. It is just assumed that the model is frequentist, because that is the traditional way of doing data analysis.</p>
 <p>Generally, though, we’d encourage you to <strong>be specific about the kind of analysis you’ve done.</strong> And that includes mentioning what framework you’re using for your statistical analysis—whether frequentist or Bayesian.</p>
 </div>
 </div>
@@ -349,11 +358,87 @@ Extra: Do I need to write “frequentist” in my report?
 <p>Let’s have a look at the model’s estimates. Like in previous weeks, we can use the <code>summary()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(val_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Val ~ Modality, data = senses_valence)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.99315 -0.20870  0.04343  0.19115  0.62788 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    5.47101    0.06297  86.889  &lt; 2e-16 ***
+ModalityTaste  0.33711    0.07793   4.326 4.95e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.3148 on 70 degrees of freedom
+Multiple R-squared:  0.2109,    Adjusted R-squared:  0.1997 
+F-statistic: 18.71 on 1 and 70 DF,  p-value: 4.951e-05</code></pre>
 </div>
-<p>Some of this model summary may look familiar; some of it will look different.</p>
+</div>
+<p>Let’s focus first on the table under <code>Coefficients:</code>, where there is one row per parameter. What does each column mean?</p>
 <ul>
-<li>TODO: How to report model results</li>
+<li><code>Estimate</code>: This is the value that the model considers to be the <strong>most likely</strong> for that parameter.
+<ul>
+<li>This is different from a Bayesian model summary. There, this estimate was the <strong>posterior mean</strong>, and the range of values that the model considered plausible was given by the 95% CrI.</li>
+</ul></li>
+<li><code>Std. Error</code>: The <strong>standard error</strong> is how much the <code>Estimate</code> would vary under hypothetical repeated sampling (i.e., if the exact same experiment were repeated a huge number of times, this is the standard deviation of all of those estimates). The standard error is computed based on the sample size and the standard deviation of the data we’ve observed, and we use it to compute the 95% confidence interval (CI).
+<ul>
+<li>This is also different from a Bayesian model summary. There, the second column contained the <strong>standard deviation of the posterior distribution.</strong> No need to worry about hypothetical repeated sampling.</li>
+</ul></li>
+<li><code>t value</code>: Student’s t, a measure of how different this estimate is from the null hypothesis. Generally, t-values between –2 and 2 are “close enough” to the null hypothesis, but <strong>t-values that are more negative than –2 or more positive than 2 are “unlikely enough” that we are allowed to reject the null hypothesis.</strong></li>
+<li><code>Pr(&gt;|t|)</code>: The probability of observing a t value more extreme than the one in the previous column. The number of <code>*</code> symbols tells us <em>how</em> statistically significant this p-value is.</li>
 </ul>
+<p>Now let’s interpret these results for each parameter. I’ll include the <code>Coefficients:</code> table here again for convenience.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    5.47101    0.06297  86.889  &lt; 2e-16 ***
+ModalityTaste  0.33711    0.07793   4.326 4.95e-05 ***</code></pre>
+</div>
+</div>
+<p><strong>Intercept</strong>:</p>
+<ul>
+<li>When <code>Modality</code> = Smell (the reference level), the model estimates that <code>Valence</code> is 5.47 (SE = 0.06).</li>
+<li>The 95% CI can be computed by adding and subtracting 1.96 <span class="math inline">\(\times\)</span> SE from the estimate, so:
+<ul>
+<li>Lower bound: 5.47 – (1.96 <span class="math inline">\(\times\)</span> 0.06) = 5.35</li>
+<li>Upper bound: 5.47 + (1.96 <span class="math inline">\(\times\)</span> 0.06) = 5.59</li>
+</ul></li>
+<li>The null hypothesis (H0) that is tested here is that <strong>the Intercept is different from 0.</strong>
+<ul>
+<li>The t-value of 86.89 is <em>very</em> big.</li>
+<li>And the probability of observing a t-value this extreme or more extreme is miniscule (<code>2e-16</code> is the smallest number R can handle!).</li>
+<li>We therefore reject the null hypothesis that <code>Valence</code> for smell words is zero.</li>
+<li><strong>Is this an interesting hypothesis to test? Not really… it’s going to be true for most datasets.</strong></li>
+</ul></li>
+</ul>
+<p><strong>ModalityTaste</strong>:</p>
+<ul>
+<li>The model estimates that the difference between <code>Modality</code> = Smell and <code>Modality</code> = Taste is 0.34 (SE = 0.08, 95% CI: [0.18, 0.49]).</li>
+<li>The null hypothesis (H0) that is tested here is that <strong>this difference is not 0.</strong>
+<ul>
+<li>The t-value of 4.33 is pretty big.</li>
+<li>And the probability of observing a t-value this extreme or more extreme is <code>4.95e-05</code>, that is, 0.0000495. Definitely below 0.05!</li>
+<li>We therefore reject the null hypothesis that the difference between smell and taste words is zero.</li>
+<li><strong>This is a more interesting hypothesis test, but it doesn’t actually tell us if the difference between smell and taste words is different in the way we’d expect.</strong> The effect might be totally backwards from what we hypothesised, but we’d still have to reject the null hypothesis.</li>
+</ul></li>
+</ul>
+<p>Notice that the meanings of the coefficients are still the same. The intercept is still the estimated outcome for the reference level. And the predictor is still the estimated difference between the reference level and the non-reference level.</p>
+</section>
+<section id="the-full-report" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="the-full-report"><span class="header-section-number">2.4</span> The full report</h3>
+<blockquote class="blockquote">
+<p>We fitted a frequentist linear model with a Gaussian distribution. Emotional valence was the outcome variable and modality (smell vs.&nbsp;taste) was the only predictor. Modality was coded with the default treatment contrasts, with “smell” as the reference level.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>According to the model, smell words have an emotional valence of 5.47 (SE = 0.06, 95% CI: [5.35, 5.59]). The difference between smell words and taste words is 0.34 (SE = 0.08, 95% CI: [0.18, 0.49], p &lt; 0.001).</p>
+</blockquote>
+<p>The intercept being different from zero is such a boring null hypothesis that there’s no need to include the corresponding p-value in the report. But it is typical to report the p-values for the other effects.</p>
 </section>
 </section>
 <section id="modelling-binary-outcomes-with-glm" class="level2" data-number="3">
@@ -364,16 +449,16 @@ Extra: Do I need to write “frequentist” in my report?
 <h3 data-number="3.1" class="anchored" data-anchor-id="prepare-the-data-for-analysis"><span class="header-section-number">3.1</span> Prepare the data for analysis</h3>
 <p>We’ll transform the data the same way we did back in Week 9. The following code shows a more streamlined way to do the same four steps that we did last time.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>si <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/si.csv"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">SI =</span> <span class="fu">factor</span>(SI, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"no_scalar"</span>, <span class="st">"scalar"</span>)),  <span class="co"># make into a factor</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">logfreq =</span> <span class="fu">log</span>(freq),                                 <span class="co"># log the frequency</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">logfreq_c =</span> logfreq <span class="sc">-</span> <span class="fu">mean</span>(logfreq),                 <span class="co"># centre logfreq</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">semdist_c =</span> semdist <span class="sc">-</span> <span class="fu">mean</span>(semdist)                  <span class="co"># centre semdist</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>si <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/si.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">SI =</span> <span class="fu">factor</span>(SI, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"no_scalar"</span>, <span class="st">"scalar"</span>)),  <span class="co"># make SI into a factor</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">logfreq =</span> <span class="fu">log</span>(freq),                                 <span class="co"># log the frequency</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">logfreq_c =</span> logfreq <span class="sc">-</span> <span class="fu">mean</span>(logfreq),                 <span class="co"># centre logfreq</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">semdist_c =</span> semdist <span class="sc">-</span> <span class="fu">mean</span>(semdist)                  <span class="co"># centre semdist</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Within one single instance of <code>mutate()</code>, we can create and modify several columns. Notice that we have created a brand new column <code>logfreq</code>, and in the very next line, we have centred it to create <code>logfreq_c</code>! So if you ever have multiple operations that all use <code>mutate()</code>, you can bundle them all together like this.</p>
-<p>The last step before running the model: we want to know which level of <code>SI</code> is going to be coded as 1. We can find this out with <code>contrasts()</code>, but I want you to think it through for yourself first.</p>
+<p>The last step before running the model: we want to know which level of <code>SI</code> is going to be coded as 1. We can find this out with <code>contrasts()</code>, but for review, I want you to think it through for yourself first.</p>
 <p><strong>Before running any code or opening the following drop-down box,</strong> decide whether you expect <code>no_scalar</code> or <code>scalar</code> to be coded as 1.</p>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -381,14 +466,14 @@ Extra: Do I need to write “frequentist” in my report?
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Coding of <code>SI</code> and why it matters
+Review: Coding of <code>SI</code> and why it matters
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(si<span class="sc">$</span>SI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(si<span class="sc">$</span>SI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          scalar
 no_scalar      0
@@ -399,6 +484,27 @@ scalar         1</code></pre>
 <p><strong>Why does it matter how <code>SI</code> is coded?</strong></p>
 <p>The model will estimate the log-odds of observing whichever level is coded as 1. So, because <code>scalar</code> is coded as 1, the model will estimate the log-odds of getting a <code>scalar</code> response (that is, the log-odds of that experimental participant drawing a scalar inference). We need to know which level is coded as 1 so that we know what the model’s estimates mean.</p>
 </div>
+</div>
+</div>
+<p>Here’s a plot of this data from Week 9, showing that drawing a scalar inference is mostly associated with high values of both semantic distance and log frequency.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>si <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(weak_adj) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">prop_si =</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(SI) <span class="sc">-</span> <span class="dv">1</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">logfreq_c =</span> <span class="fu">mean</span>(logfreq_c),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">semdist_c =</span> <span class="fu">mean</span>(semdist_c)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(logfreq_c, semdist_c, <span class="at">fill =</span> prop_si)) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">pch =</span> <span class="dv">21</span>) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">type =</span> <span class="st">"div"</span>) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">'Logged frequency (centred)'</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">'Semantic distance (centred)'</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">'Proportion</span><span class="sc">\n</span><span class="st">of scalar</span><span class="sc">\n</span><span class="st">inferences'</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tutorial-w11_files/figure-html/si-plot-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -414,9 +520,9 @@ scalar         1</code></pre>
 </ul>
 <p>Copy and run the following code that fits the model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>si_glm <span class="ot">&lt;-</span> <span class="fu">glm</span>(SI <span class="sc">~</span> logfreq_c <span class="sc">+</span> semdist_c <span class="sc">+</span> logfreq_c<span class="sc">:</span>semdist_c,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> si,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>si_glm <span class="ot">&lt;-</span> <span class="fu">glm</span>(SI <span class="sc">~</span> logfreq_c <span class="sc">+</span> semdist_c <span class="sc">+</span> logfreq_c<span class="sc">:</span>semdist_c,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> si,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!-- POSSIBLE TODO: "Extra" box on relationship between Bernoulli and binomial -->
 <p>If you were reporting this model in a paper, you might write something like this.</p>
@@ -433,12 +539,60 @@ scalar         1</code></pre>
 <h3 data-number="3.3" class="anchored" data-anchor-id="interpret-the-model-output-1"><span class="header-section-number">3.3</span> Interpret the model output</h3>
 <p>To see the model output, we can run the following:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(si_glm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(si_glm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = SI ~ logfreq_c + semdist_c + logfreq_c:semdist_c, 
+    family = binomial(link = "logit"), data = si)
+
+Coefficients:
+                    Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)         -0.69694    0.05131 -13.583  &lt; 2e-16 ***
+logfreq_c            0.52306    0.05083  10.290  &lt; 2e-16 ***
+semdist_c            0.08407    0.01248   6.734 1.66e-11 ***
+logfreq_c:semdist_c  0.04987    0.01252   3.984 6.77e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2548.6  on 2005  degrees of freedom
+Residual deviance: 2398.2  on 2002  degrees of freedom
+AIC: 2406.2
+
+Number of Fisher Scoring iterations: 4</code></pre>
 </div>
+</div>
+<p>Notice that here we have a column called <code>z value</code> instead of <code>t value</code>. For present purposes, the difference is not important and does not affect how we interpret these results.</p>
+<p>Let’s break down the interpretation of each coefficient.</p>
 <ul>
-<li><p>How to report model results</p></li>
-<li><p>We therefore reject the null hypothesis that X.</p></li>
-<li><p>We therefore fail to reject the null hypothesis that X.</p></li>
+<li><strong>Intercept:</strong> When centred log frequency and centred semantic distance are 0 (or in other words, when log frequency and semantic distance are at their means), the log-odds of making a scalar inference are –0.7 (SE = 0.05, 95% CI: [–0.8, –0.6]).
+<ul>
+<li>Note that we again have a very small p-value, so we can reject the null hypothesis that the intercept is zero. But that’s not really an interesting thing to do.</li>
+<li>Like before, we can use <code>plogis()</code> to back-transform this estimate into a probability: <code>plogis(-0.7)</code> is about 0.33.</li>
+</ul></li>
+<li><strong>logfreq_c:</strong> When centred semantic distance is 0 (i.e., when semantic distance is at its mean), for a unit change in centred log frequency, the log-odds of making a scalar inference changes by 0.52 (SE = 0.05, 95% CI: [0.42, 0.62], p &lt; 0.001).
+<ul>
+<li>We reject the null hypothesis that there is no association between the log-odds of making a scalar inference and the log frequency of the words involved.</li>
+</ul></li>
+<li><strong>semdist_c:</strong> When centred log frequency is 0 (i.e., when log frequency is at its mean), for a unit change in centred semantic distance, the log-odds of making a scalar inference changes by 0.08 (SE = 0.01, 95% CI: [0.06, 0.11], p &lt; 0.001).
+<ul>
+<li>We reject the null hypothesis that there is no association between the log-odds of making a scalar inference and the semantic distance between the words involved.</li>
+</ul></li>
+<li><strong>logfreq_c:semdist_c:</strong>
+<ul>
+<li>Two interpretations, as usual.
+<ul>
+<li>A unit change in centred log frequency is associated with a positive adjustment to the effect of centred semantic distance of 0.05 (SE = 0.01, 95% CI: [0.03, 0.07], p &lt; 0.001).</li>
+<li>A unit change in centred semantic distance is associated with a positive adjustment to the effect of centred log frequency of 0.05 (SE = 0.01, 95% CI: [0.03, 0.07], p &lt; 0.001).</li>
+</ul></li>
+<li>The null hypothesis thus also has two interpretations.
+<ul>
+<li>We reject the null hypothesis that centred log frequency has no influence on the effect of centred semantic distance.</li>
+<li>Equivalently, we reject the null hypothesis that centred semantic distance has no influence on the effect of centred log frequency.</li>
+</ul></li>
+</ul></li>
 </ul>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -451,9 +605,18 @@ scalar         1</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <p>To get p-values in from your GLM, make sure that you’ve attached the library <code>lmerTest</code> to your R markdown file.</p>
-<p>If you only attached the library <code>lme4</code> and not the library <code>lmerTest</code> to your R markdown file, your GLM would not give you any p-values.</p>
+<p>If you only attached the library <code>lme4</code> and not the library <code>lmerTest</code> to your R markdown file, your GLM will not give you any p-values.</p>
 </div>
 </div>
+</section>
+<section id="the-full-report-1" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="the-full-report-1"><span class="header-section-number">3.4</span> The full report</h3>
+<blockquote class="blockquote">
+<p>We fitted a frequentist binomial generalised linear model to estimate scalar inferencing as a function of logged word frequency, semantic distance, and their interaction. Both predictors were centred.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>According to the model, when logged frequency and semantic distance are at their means, the probability of drawing a scalar inference is 33% (<span class="math inline">\(\beta\)</span> = –0.69, SE = 0.05, 95% CI: [–0.8, –0.6]). For each unit increase of logged frequency, when semantic distance is at its mean, the log-odds of drawing a scalar inference increases by 0.52 (SE = 0.05, 95% CI: [0.42, 0.62], p &lt; 0.001). For each unit increase of semantic distance, when logged frequency is at its mean, the log-odds of drawing a scalar inference increases by 0.08 (SE = 0.01, 95% CI: [0.06, 0.11], p &lt; 0.001). The positive effect of logged word frequency increases with increasing semantic distance by 0.05 (SE = 0.01, 95% CI: [0.03, 0.07], p &lt; 0.001).</p>
+</blockquote>
 <div class="callout-important callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
