@@ -53,8 +53,6 @@ set.seed(my_seed)
 
 
 
----
-
 ## The Stroop effect
 
 > The Stroop effect [is] a **slowing of reaction times when asked to name the color of a word that denotes a different color** (e.g., the word “red” written in green letters) as compared to when the color and denotation of a word are the same (e.g., the word “red” written in red letters), [and] reflects behavioral inhibition.
