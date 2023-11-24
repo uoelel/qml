@@ -65,4 +65,6 @@ In the second summative assessment, you will:
 -   Select a dataset from a list and its associated research questions.
 -   Analyse the data using one linear model.
 -   Write a report about the data, the model, and your findings.
+
+You can find the instructions and data for the first summative here: <https://github.com/uoelel/qml-s2/>.
 :::
