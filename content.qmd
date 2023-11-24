@@ -485,7 +485,7 @@ You can find more information about the assessment on GitHub here: <https://gith
 -->
 ```
 
-## Week 12
+### Week 12
 
 ::: {.callout-warning}
 #### Summative 2: Week 12 (Thu 7 December at noon)
