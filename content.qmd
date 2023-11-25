@@ -426,7 +426,7 @@ You can find the instructions and data for the first summative here: <https://gi
 
 ### Week 10: Research process - An overview
 
-::: {.callout-warning collapse="false"}
+::: {.callout-warning collapse="true"}
 #### Formative assessment 2
 
 -   **DUE on Thursday 23 November at noon**.
@@ -434,7 +434,7 @@ You can find the instructions and data for the first summative here: <https://gi
 -   F2 requires you to read, plot and model data. Summative 2 will have the same format.
 :::
 
-::: {.callout-note collapse="false"}
+::: {.callout-note collapse="true"}
 #### Homework
 
 Please, read the following before coming to class on Wednesday (there will be no lecture on Tuesday).
@@ -443,7 +443,7 @@ Please, read the following before coming to class on Wednesday (there will be no
 - [Half a Century of Research on the Stroop Effect: An Integrative Review](http://www.ezproxy.is.ed.ac.uk/login?url=http://ovidsp.ovid.com.ezproxy.is.ed.ac.uk/ovidweb.cgi?T=JS&CSC=Y&NEWS=N&PAGE=fulltext&AN=00006823-199103000-00001&D=ovft), pp 163--165 plus one extra section of your choice.
 :::
 
-::: {.callout-tip collapse="false"}
+::: {.callout-tip collapse="true"}
 #### Materials
 
 -   [Lecture slides](slides/w10/).
@@ -451,39 +451,32 @@ Please, read the following before coming to class on Wednesday (there will be no
 -   Workshop files: <https://github.com/uoelel/qml-stroop>.
 :::
 
+::: {.callout-tip collapse="true"}
+#### Useful resources
+
+The following resources are a useful summaries of conceptual, practical and terminological aspects of linear models in general.
+
+- [Linear Models Illustrated](https://stefanocoretta.shinyapps.io/lines/): a Shiny web app that illustrates linear models. Especially helpful to understand interactions.
+- [One Thousand and One names](https://stefanocoretta.github.io/post/2022-07-22-one-thousand-and-one-names/): table with naming conventions for different types of linear models.
+- [Linear Models: A cheat-sheet](https://stefanocoretta.github.io/post/2021-08-21-regression-models-a-cheat-sheet/): use this to find out which building blocks you need for your linear model.
+:::
+
+
 ### Week 11: Obtaining *p*-values (Optional)
 
-```{=html}
-<!--
-### Thursday 30 March
+::: {.callout-tip collapse="false"}
+#### Materials
 
-::: {.callout-warning collapse="true"}
-#### Summative assessment 1
-
-**Due on Thursday 30 March at noon**
-
-The first summative contains a series of guided exercises. You can find the summative materials and exercises here: <https://github.com/uoelel/qml-s1>.
-
-You may find helpful information in the FAQ post on Piazza [here](https://piazza.com/class/lcns7m75s8pdw/post/63).
+-   [Lecture slides](slides/w11/).
+-   [Workshop tutorial](tutorials/tutorial-w11.qmd).
 :::
 
-### Thursday 27 April
+::: {.callout-tip collapse="false"}
+#### Suggested readings
 
-::: {.callout-warning collapse="true"}
-#### Summative assessment 2
-
-**Due on Thursday 27 April at noon**
-
-In the second summative assessment, you will:
-
--   select a dataset and its associated research questions,
--   analyse the data using one linear model, and
--   write a report about the data, the model, and your findings.
-
-You can find more information about the assessment on GitHub here: <https://github.com/uoelel/qml-s2>
+- [Gigerenzer 2004](https://doi.org/10.1016/j.socec.2004.09.033), *Mindless statistics*.
+- [Interpreting (frequentist) Confidence Intervals](https://rpsychologist.com/d3/ci/).
 :::
--->
-```
 
 ### Week 12
 
