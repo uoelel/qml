@@ -126,7 +126,7 @@ set.seed(5)
     ggplot(aes(x = idx_c, y = logRT)) +
     geom_jitter(alpha = 0.15, width = 0.2) +
     labs(
-      x = 'Trial number (centred)',
+      x = 'Trial index (centred)',
       y = 'Logged reaction times',
       caption = 'N = 150 participants'
     )
@@ -166,9 +166,9 @@ h0_simdat <- tibble(
 h0_simdat %>% 
   ggplot(aes(x = idx_c, y = logRT)) +
   labs(
-    x = 'Trial number (centred)',
+    x = 'Trial index (centred)',
     y = 'Logged reaction times',
-    title = 'In a world in which there truly is no relationship\nbetween trial number and logged RT...'
+    title = 'In a world in which there truly is no relationship\nbetween trial index and logged RT...'
   ) +
   scale_y_continuous(breaks = c(6, 8, 10)) +
   ylim(5, 11) +
@@ -874,7 +874,7 @@ round(-0.02 + (1.96 * 0.002), 3)
 
 ## Reporting a frequentist model
 
-> We fitted a frequentist linear model with a Gaussian distribution that predicted logged reaction times as a function of trial number. This predictor was centred.
+> We fitted a frequentist linear model with a Gaussian distribution that predicted logged reaction times as a function of trial index. This predictor was centred.
 
 > According to the model, the logged reaction time halfway through the experiment was 7.03 (95% CI: [7.01, 7.05]).
 Moving forward one trial decreases logged reaction time by 0.02 (95% CI: [–0.023, –0.016], p < 0.001).
