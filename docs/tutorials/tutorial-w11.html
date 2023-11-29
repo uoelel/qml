@@ -362,7 +362,7 @@ F-statistic: 18.71 on 1 and 70 DF,  p-value: 4.951e-05</code></pre>
 <li>This is also different from a Bayesian model summary. There, the second column contained the <strong>standard deviation of the posterior distribution.</strong> No need to worry about hypothetical repeated sampling.</li>
 </ul></li>
 <li><code>t value</code>: Student’s t, a measure of how different this estimate is from the null hypothesis. Generally, t-values between –2 and 2 are “close enough” to the null hypothesis, but <strong>t-values that are more negative than –2 or more positive than 2 are “unlikely enough” that we are allowed to reject the null hypothesis.</strong></li>
-<li><code>Pr(&gt;|t|)</code>: The probability of observing a t value more extreme than the one in the previous column. The number of <code>*</code> symbols tells us <em>how</em> statistically significant this p-value is.</li>
+<li><code>Pr(&gt;|t|)</code>: The probability of observing a t value more extreme than the one in the previous column. The number of <code>*</code> symbols tells us how unlikely the t-value is, under the null hypothesis (in other words, assuming that the parameter’s true value is 0).</li>
 </ul>
 <p>Now let’s interpret these results for each parameter. I’ll include the <code>Coefficients:</code> table here again for convenience.</p>
 <div class="cell">
@@ -381,7 +381,7 @@ ModalityTaste  0.33711    0.07793   4.326 4.95e-05 ***</code></pre>
 <li>Lower bound: 5.47 – (1.96 <span class="math inline">\(\times\)</span> 0.06) = 5.35</li>
 <li>Upper bound: 5.47 + (1.96 <span class="math inline">\(\times\)</span> 0.06) = 5.59</li>
 </ul></li>
-<li>The null hypothesis (H0) that is tested here is that <strong>the Intercept is different from 0.</strong>
+<li>The null hypothesis (H0) that is tested here is that <strong>the Intercept is equal to 0.</strong>
 <ul>
 <li>The t-value of 86.89 is <em>very</em> big.</li>
 <li>And the probability of observing a t-value this extreme or more extreme is miniscule (<code>2e-16</code> is the smallest number R can handle!).</li>
@@ -392,7 +392,7 @@ ModalityTaste  0.33711    0.07793   4.326 4.95e-05 ***</code></pre>
 <p><strong>ModalityTaste</strong>:</p>
 <ul>
 <li>The model estimates that the difference between <code>Modality</code> = Smell and <code>Modality</code> = Taste is 0.34 (SE = 0.08, 95% CI: [0.18, 0.49]).</li>
-<li>The null hypothesis (H0) that is tested here is that <strong>this difference is not 0.</strong>
+<li>The null hypothesis (H0) that is tested here is that <strong>this difference is 0.</strong>
 <ul>
 <li>The t-value of 4.33 is pretty big.</li>
 <li>And the probability of observing a t-value this extreme or more extreme is <code>4.95e-05</code>, that is, 0.0000495. Definitely below 0.05!</li>
@@ -410,7 +410,7 @@ ModalityTaste  0.33711    0.07793   4.326 4.95e-05 ***</code></pre>
 <blockquote class="blockquote">
 <p>According to the model, smell words have an emotional valence of 5.47 (SE = 0.06, 95% CI: [5.35, 5.59]). The difference between smell words and taste words is 0.34 (SE = 0.08, 95% CI: [0.18, 0.49], p &lt; 0.001).</p>
 </blockquote>
-<p>The intercept being different from zero is such a boring null hypothesis that there’s no need to include the corresponding p-value in the report. But it is typical to report the p-values for the other effects.</p>
+<p>The intercept being equal to zero is typically such a boring null hypothesis that there’s no need to include the corresponding p-value in the report. But it is typical to report the p-values for the other effects, where being equal to zero means that there is no difference between groups—and that’s usually what we care about.</p>
 </section>
 </section>
 <section id="modelling-binary-outcomes-with-glm" class="level2" data-number="3">
