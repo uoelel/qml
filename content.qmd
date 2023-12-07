@@ -478,6 +478,7 @@ The following resources are a useful summaries of conceptual, practical and term
 - [Tressoldi et al 2015](https://doi.org/10.2139/ssrn.2579268), *The pervasive avoidance of prospective statistical power: Major consequences and practical solutions*.
 - [Cassidy et al 2019](https://doi.org/10.1177/2515245919858072), *Failing grade: 89 per-cent of introduction to psychology textbooks that define/explain statistical significance do so incorrectly*.
 - [Gigerenzer 2004](https://doi.org/10.1016/j.socec.2004.09.033), *Mindless statistics*.
+- [Wagenmakers 2007](https://doi.org/10.3758/BF03194105). *A practical solution to the pervasive problems of p-values*.
 - [Interpreting (frequentist) Confidence Intervals](https://rpsychologist.com/d3/ci/).
 :::
 
