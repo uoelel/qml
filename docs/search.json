@@ -333,21 +333,21 @@
     "href": "assessments.html",
     "title": "QML",
     "section": "",
-    "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
+    "text": "This course will be self-assessed on the basis of a portfolio consisting of weekly-self reflections and a group project."
   },
   {
     "objectID": "assessments.html#assessment-overview",
     "href": "assessments.html#assessment-overview",
     "title": "QML",
     "section": "",
-    "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
+    "text": "This course will be self-assessed on the basis of a portfolio consisting of weekly-self reflections and a group project."
   },
   {
     "objectID": "assessments.html#feedback-and-marking",
     "href": "assessments.html#feedback-and-marking",
     "title": "QML",
-    "section": "2 Feedback and marking",
-    "text": "2 Feedback and marking\nYou will receive individual feedback for the summative assessments, as comments on the submitted file in Turnitin.\nThe comments will be categorised according the the Feedback Categorisation Rubric used for this course, which you can see here. The rubric is based on the learning outcomes of the course. For each criterion in the rubric there are three possible outcomes: insufficient, developing, proficient. This should help you identify areas of strength and those that can be improved.\nNote that the Feedback Categorisation Form is not used to calculate a numeric mark. Marking will follow the PPLS MSc Common Marking Scheme, which you can find here (login required).\nMore specifically, we will use a “step marking” procedure, where, within each mark band, you can get a 2, 5 or 8 (for example, 62, 65 or 68). We will not use other numbers within the scale. These are the criteria for getting 2, 5, or 8:\n\n2: The criteria for the mark band have been achieved, but there might be minor issues.\n5: The criteria for the mark band have been achieved fully.\n8: The criteria for the mark band have been achieved fully and in a particularly remarkable way, but not in such a way to grant a higher mark band.\n\nFinally, please note that marking does not follow a point-based system, i.e. different exercises are not assigned a specific amount of points you can obtain and we will instead adopt an “impression-based” marking system, based on the descriptors of the PPLS MSC Common Marking Scheme."
+    "section": "4 Feedback and marking",
+    "text": "4 Feedback and marking\nFeedback will be provided to you (1) during class, (2) as comments on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me and/or the tutors).\nThis course is self-assessed with co-moderation, which means that at the end of the course you will assign yourself a mark and the mark will be moderated in conversation between you and the Course Organiser.\n\n\n\n\n\n\nSelf-assessment with co-moderation\n\n\n\n\nBased on your learning, you assign yourself a mark (see section on impression-based step marking.\nThe Course Organiser will moderate the self-assigned mark as part of a dialogue with you.\n\n\n\n\n4.1 Impression-based step marking\nTo help you thinking about which mark to assign yourself, we will use an “impression-based step marking” procedure. The procedure works as follows:\n\nFirst, think about the mark band you think you deserve.\nThen, choose a step within the band (see below for an explanation).\n\nOnce you pick a mark band, you need to pick a step within that band. Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:\n\n\n\n\n\n\n\nStep\nCriteria\n\n\n\n\n2\nThe criteria for the mark band have been achieved, but there might be minor issues.\n\n\n5\nThe criteria for the mark band have been achieved satisfactorily.\n\n\n8\nThe criteria for the mark band have been achieved fully."
   },
   {
     "objectID": "assessments.html#formative-assessments",
@@ -565,5 +565,19 @@
     "title": "QML tutorial – Week 10",
     "section": "2 Modeling",
     "text": "2 Modeling\n\nWhen modelling the data, you can pick either reaction times or accuracy as the outcome variables.\nAs predictors include condition (congruent, incongruent, double incongruent).\nYou can choose to also include L1/L2 and/or languaguage proficiency as predictors.\nRemember to include interactions.\nAnd of course feel free to fit models to both outcome variables!"
+  },
+  {
+    "objectID": "assessments.html#weekly-self-reflections",
+    "href": "assessments.html#weekly-self-reflections",
+    "title": "QML",
+    "section": "2 Weekly self-reflections",
+    "text": "2 Weekly self-reflections"
+  },
+  {
+    "objectID": "assessments.html#group-project",
+    "href": "assessments.html#group-project",
+    "title": "QML",
+    "section": "3 Group project",
+    "text": "3 Group project"
   }
 ]
