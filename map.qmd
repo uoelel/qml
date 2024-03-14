@@ -1,0 +1,4 @@
+---
+title: "The Adventurer's Map"
+editor: visual
+---

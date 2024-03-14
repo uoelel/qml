@@ -17,8 +17,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: content.qmd
-        text: Course content
+      - href: schedule.qmd
+        text: Course schedule
+      - href: map.qmd
+        text: Map
       - href: assessments.qmd
         text: Assessment
 
