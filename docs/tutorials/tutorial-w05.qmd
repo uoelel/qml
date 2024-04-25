@@ -1,0 +1,924 @@
+---
+title: "QML tutorial - Week 5"
+editor: visual
+execute: 
+  freeze: auto
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+    embed-resources: true 
+---
+
+```{r}
+#| label: setup
+#| message: false
+#| echo: false
+
+library(tidyverse)
+theme_set(theme_light())
+
+library(brms)
+library(broom.mixed)
+
+library(webexercises)
+```
+
+## Emotional valence of sense words
+
+::: callout-warning
+#### Important
+
+When working through these tutorials, always **make sure you are in the course RStudio Project** you just created.
+
+You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
+
+If you see `Project (none)` in the top-right corner, that means **you are not** in an RStudio Project.
+
+To make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
+:::
+
+We will model data from Winter, 2016. *Taste and smell words form an affectively loaded part of the English lexicon*. DOI: [10.1080/23273798.2016.1193619](https://doi.org/10.1080/23273798.2016.1193619). The study looked at the emotional valence of sense words in English, in the domains of taste and smell.
+
+To download the file with the data right-click on the following link and download the file: [senses_valence.csv](../data/senses_valence.csv). (Note that tutorial files are also linked in [Course content](../content.qmd)). Remember to save the file in `data/` in the course project folder.
+
+Create a new `.Rmd` file first, save it in `code/` and name it `tutorial-w05` (the extension `.Rmd` is added automatically!).
+
+I leave to you creating title headings in your file as you please. Remember to to add `knitr::opts_knit$set(root.dir = here::here())` in the `setup` chunk and to attach the tidyverse.
+
+Let's read the data. The original data also include words from other senses, so for this tutorial we will filter the data to include only the following `Modality`: `Smell` and `Taste` words. Complete the code below to filter the data.
+
+```{r}
+#| label: senses-ex
+#| eval: false
+
+senses_valence <- read_csv("data/senses_valence.csv") %>%
+  filter(
+    ...
+  )
+```
+
+```{r}
+#| label: senses
+#| echo: false
+#| message: false
+
+senses_valence <- read_csv("data/senses_valence.csv") %>%
+  filter(
+    Modality %in% c("Smell", "Taste")
+  )
+```
+
+This is what the data frame looks like.
+
+```{r}
+#| label: senses-valence
+
+senses_valence
+
+```
+
+There are three columns:
+
+-   `Word`: the English word \[categorical\].
+
+-   `Modality`: `Taste` or `Smell` \[categorical\].
+
+-   `Val`: emotional valence \[numeric, continuous\]. The higher the number the more positive the valence.
+
+Let's quickly check the minimum and maximum values in `Val`. Do you remember which function returns those two?
+
+```{r}
+#| label: val-range-ex
+#| eval: false
+
+...(senses_valence$Val)
+
+```
+
+```{r}
+#| label: val-range
+#| echo: false
+
+range(senses_valence$Val)
+```
+
+This is what the density plot of `Val` looks like.
+
+```{r}
+#| label: val-dens
+
+senses_valence %>%
+  ggplot(aes(Val)) +
+  geom_density(fill = "gray", alpha = 0.5) +
+  geom_rug()
+
+```
+
+And if we separate by `Modality`, we can see that the density of taste words is shifted towards higher values than that of smell words. Try to reproduce the following plot in your code.
+
+```{r}
+#| label: val-dens-mod
+#| echo: false
+
+senses_valence %>%
+  ggplot(aes(Val, fill = Modality, colour = Modality)) +
+  geom_density(alpha = 0.5) +
+  geom_rug()
+
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Make sure that `fill` and `colour` are within `aes()`.
+:::
+
+If you were asked to write a description of the data, you could write the following:
+
+> The data contains 72 observations of the emotional valence of taste (N = 47) and smell (N = 25) words. The range of emotional valence is 1.8 (min = 4.6, max = 6.4). The median valence for taste words is 5.9 (SD = 0.3) while the median valence for smell words is 5.5 (SD = 0.3). As shown in the plot, in this sample of 72 words, taste words are generally associated with a somewhat higher emotional valence than smell words.
+
+### Modelling emotional valence
+
+Now that we got an overview of what the data looks like, let's move onto modelling it with `brm()`!
+
+Let's assume, as we did with the VOT values, that the emotional valence values come from a Gaussian distribution.[^1] In notation:
+
+[^1]: Note that, in real-life research contexts, you should decide which distribution to use for different outcome variables by drawing on previous research that has assessed the possible distribution families for those variables, on domain-specific expertise or common-sense. You will see that in most cases with linguistic phenomena we know very little about the nature of the variables we work with, hence it can be difficult to know which family of distributions to use.
+
+$$
+\text{val} \sim Gaussian(\mu, \sigma)
+$$
+
+Now, we want to estimate $\mu$ so that we take into consideration whether the modality is "smell" or "taste". In other words, we want to model valence as a function of modality, in R code `Val ~ Modality`.
+
+`Modality` is a categorical variable (a `chr` character column in `sense_valence`) so it is coded using the default treatment coding system (this is done under the hood by R for you!). Since `Modality` has 2 levels, R will create for us a N-1 = 1 dummy variable (for illustration, we can imagine that it's called `modality_taste`).
+
+This is what the coding would look like:
+
+|                  | modality_taste |
+|------------------|----------------|
+| modality = smell | 0              |
+| modality = taste | 1              |
+
+::: callout-warning
+R assigns the reference level, i.e., 0, to "smell", because "s" comes before "t" in the alphabet.
+:::
+
+Now we allow $\mu$ to vary depending on modality.
+
+$$
+\mu = \beta_0 + \beta_1 \cdot modality_{Taste}
+$$
+
+::: callout-tip
+#### Formula of a line
+
+You might recognise the form of this equation from school, where you probably saw the formula for a line:
+
+$$
+y = b + m \cdot x
+$$
+
+where $b$ is the **intercept**, and $m$ is the **slope**. Exact same thing here! That's why it's called a *linear* model or *linear* regression).
+
+You can play with this web app to learn what the intercept and slope do: <https://stefanocoretta.shinyapps.io/lines/>
+:::
+
+Let's unpack the equation. There's a bit of algebra in what follows, so take your time if this is a bit out of your comfort zone. But it's worth it---familiarity with basic algebra will also help you become more comfortable working with linear models.
+
+-   $\beta_0$ is the **mean valence** $\mu$ when \[modality = smell\]. That's because the variable $modality_{Taste}$ takes on the value 0 when \[modality = smell\] (as we can see from the table above). Multiplying by 0 means that $\beta_1$ vanishes from the equation, and all that's left is $\beta_0$.
+
+$$
+\begin{aligned}
+\mu &= \beta_0 + \beta_1 \cdot modality_{Taste}\\
+\mu_{mod = smell} &= \beta_0 + \beta_1 \cdot 0 \\
+\mu_{mod = smell} &= \beta_0 \\
+\end{aligned}
+$$
+
+-   $\beta_1$ is the **difference in mean valence** $\mu$ between the mean valence when \[modality = taste\] and the mean valence when \[modality = smell\]. That's because $modality_{Taste}$ takes on the value 1 when \[modality = taste\], and multiplying $\beta_1$ by 1 leaves it unchanged in the equation.
+
+$$
+\begin{aligned}
+\mu &= \beta_0 + \beta_1 \cdot modality_{Taste}\\
+\mu_{mod = taste} &= \beta_0 + \beta_1 \cdot 1 \\
+\mu_{mod = taste} &= \beta_0 + \beta_1 \\
+\end{aligned}
+$$
+
+-   How do we know that $\beta_1$ really represents the difference between the mean valence when \[modality = smell\] and the mean valence when \[modality = taste\]? Remember that $\mu_{mod = smell} = \beta_0$, as we said in the first point above. We can substitute this into the equation from the last point, and then isolate $\beta_1$ step by step as follows:
+
+$$
+\begin{aligned}
+\beta_0 & = \mu_{mod=smell} \\
+\mu_{mod = taste} &= \beta_0 + \beta_1 \\
+\mu_{mod = taste} &= \mu_{mod=smell} + \beta_1 \\
+\mu_{mod = taste} - \mu_{mod=smell} &= \mu_{mod=smell} + \beta_1 - \mu_{mod=smell} \\
+\mu_{mod = taste} - \mu_{mod=smell} &= \beta_1
+\end{aligned}
+$$
+
+So, $\beta_1$ really is the difference between the means of these two levels of `Modality`.
+
+Now we can define the probability distributions of $\beta_0$ and $\beta_1$.
+
+$$
+\begin{align}
+\beta_0 & \sim Gaussian(\mu_0, \sigma_0) \\
+\beta_1 & \sim Gaussian(\mu_1, \sigma_1)
+\end{align}
+$$
+
+And the usual for $\sigma$.
+
+$$
+\sigma \sim TruncGaussian(\mu_2, \sigma_2)
+$$
+
+Here's the full mathematical specification of the model.
+
+$$
+\begin{align}
+\text{val} & \sim Gaussian(\mu, \sigma) \\
+\mu        & = \beta_0 + \beta_1 \cdot modality_{Taste} \\
+\beta_0    & \sim Gaussian(\mu_0, \sigma_0) \\
+\beta_1    & \sim Gaussian(\mu_1, \sigma_1) \\
+\sigma     & \sim TruncGaussian(\mu_2, \sigma_2)
+\end{align}
+$$
+
+All together, we need to estimate the following parameters: $\mu_0, \sigma_0, \mu_1, \sigma_1, \mu_2, \sigma_2$.
+
+::: callout-note
+#### Quiz 1
+
+```{r}
+#| label: quiz-1
+#| results: asis
+#| echo: false
+
+opts_1 <- c(
+  answer = "Positive.",
+  "0.",
+  "Negative."
+)
+
+cat("Since smell words have a lower emotional valence than taste words, will $\\beta_1$ be:", longmcq(opts_1))
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Be careful: $\beta_1$ is the difference between taste and smell words (`taste - smell`), rather than the difference between smell and taste words (`smell - taste`).
+:::
+:::
+
+### Run the model
+
+Now we know what the model will do, we can run it.
+
+Before that though, create a folder called `cache/` in the `data/` folder of the RStudio project of the course. We will use this folder to save the output of model fitting so that you don't have to refit the model every time. (This is useful because as models get more and more complex, they can take quite a while to fit.)
+
+After you have created the folder, run the following code.
+
+```{r}
+#| label: val-bm
+
+val_bm <- brm(
+  Val ~ Modality,
+  family = gaussian(),
+  data = senses_valence,
+  backend = "cmdstanr",
+  # Save model output to file
+  file = "data/cache/val_bm"
+)
+
+```
+
+The model will be fitted and saved in `data/cache/` with the file name `val_bm.rds`. If you now re-run the same code again, you will notice that `brm()` does not fit the model again, but rather reads it from the file (no output is shown, but trust me, it works! Check the contents of `data/cache/` to see for yourself.).
+
+::: callout-warning
+When you save the model fit to a file, R does not keep track of changes in the model specification, so if you make changes to the formula or data, you need to **delete the saved model file** before re-running the code for the changes to have effect!
+:::
+
+When reporting the model specification, you can write the following:
+
+> We fitted a Bayesian model with emotional valency as the outcome variable and modality (smell vs taste) as the only predictor. A Gaussian family was used as the outcome distribution family. The modality predictor was coded with the default treatment contrasts (with "smell" as the reference level).
+
+### Interpret the model output
+
+Let's inspect the model summary.
+
+```{r}
+#| label: val-bm-summ
+
+summary(val_bm)
+
+```
+
+Model summaries have three main parts:
+
+-   Information on the model, like family, formula and data.
+
+-   Population-level effects, with estimates of the intercept and any predictor's coefficient.
+
+-   Family specific parameters, with `sigma` when using a Gaussian family.
+
+Look at the `Population-Level Effects` part of the summary.
+
+```{r}
+#| label: val-bm-summ-1
+#| echo: false
+
+cat(capture.output(summary(val_bm))[8:11], sep = "\n")
+
+```
+
+We get two **coefficients**:
+
+-   `Intercept`: this is our $\beta_0$.
+
+-   `ModalityTaste`: this is our $\beta_1$.
+
+Each coefficient has an `Estimate` and an `Est.Error` (estimate error). As we have seen last week, these are the **mean and SD of the probability distribution** of the coefficients.
+
+In notation:
+
+$$
+\begin{align}
+\mu     & = \beta_0 + \beta_1 \cdot modality_{Taste} \\
+\beta_0 & \sim Gaussian(5.47, 0.06) \\
+\beta_1 & \sim Gaussian(0.34, 0.08)
+\end{align}
+$$
+
+This means that:
+
+-   The **probability distribution of the mean valence when \[modality = smell\]** is a Gaussian distribution with mean = 5.47 and SD = 0.06.
+
+-   The **probability distribution of the difference** between the mean valence of \[modality = taste\] and that of \[modality = smell\] is a Gaussian distribution with mean = 0.34 and SD = 0.08.
+
+::: callout-note
+#### Quiz 2
+
+**What is the mean valency for taste words?**
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Just use the formula of $\mu$ and replace the $\beta$ coefficients with the mean of the respective distributions.
+:::
+:::
+
+Now let's look at the **Credible Intervals** (CrIs, or CI in the model summary) of the coefficients. Based on the reported 95% CrIs, we can say that:
+
+-   We can be 95% confident that (you can also say, "there is a 95% probability that"), based on the data and the model, the mean emotional valence of smell words is between 5.35 and 5.59.
+
+-   There is a 95% probability that the difference in mean emotional valence between taste and smell words is between 0.18 and 0.5. In other words, the emotional valence increases by 0.18 to 0.5 in taste words relative to smell words.
+
+You could report these results in the following way:
+
+> According to the model, the mean valency of smell words is 5.47 (SD = 0.06), with a 95% probability that it is between 5.35 and 5.59. At 95% confidence, the difference in valency between taste and smell words is between 0.18 and 0.5 ($\beta$ = 0.34, SD = 0.08).
+
+**But what about the probability distribution of the valence of taste words?**
+
+For that we need to do a bit of data wrangling, but before we get there we need to talk about posterior probability distributions and posterior draws.
+
+## Posteriors
+
+::: {.callout-tip icon="false"}
+#### Posterior probability distribution
+
+The probability distributions of model coefficients obtained through model fitting with `brm()` are called **posterior probability distributions**.
+:::
+
+Note that you can abbreviate the phrase "posterior probability distribution" to *posterior probability* or just *posterior*, but remember we are talking about probability distributions.
+
+They are called **posterior** probabilities because they are the product of the evidence from the data and any *prior* probability distribution. A prior probability distribution is a probability distribution that conveys the prior beliefs of the researcher in regards to the model coefficients.
+
+We will not further talk about priors in this course, but for now, just know that we are using the default priors used by `brm()`: these priors are basically equivalent to saying "I have no prior beliefs about the model coefficients, so I will let the data speak for themselves".
+
+If you are interested in learning a bit more about priors, check the "Extra" box below.
+
+**But how are these posterior probabilities constructed, you might ask?**
+
+The answer is: through the MCMC algorithm! (If you need a refresher on what MCMC is, check the tutorial from Week 4).
+
+::: {.callout-important collapse="true"}
+#### Extra: Priors
+
+Bayes' theorem states that the posterior $P(\theta|d)$ is proportional to the product of the prior $P(\theta)$ and the evidence of the data $P(d|\theta)$:
+
+$$
+\begin{aligned}
+P(\theta|d) & \sim P(\theta) \times P(d|\theta)
+\end{aligned}
+$$
+
+where you can think of $\theta$ as the theory and $d$ as the data.
+
+In other words, the probability of a theory $\theta$ given the data $d$ ($P(\theta|d)$) is proportional to the product of the prior probability of $\theta$ ($P(\theta)$) and the probability of the data $d$ given theory $\theta$ ($P(d|\theta)$).
+
+You see that a prior is a *probability*, more specifically a probability distribution expressing the prior beliefs or expectations of the researcher concerning a particular "theory", explanation, etc...
+
+The **prior probability distribution** is *updated* by multiplying it with the evidence of the data (also called the likelihood).
+
+This updating process is called **Bayesian belief update**, because you update your prior beliefs based on the evidence.
+
+In a Bayesian linear model, you can specify priors as probability distributions of the different parameters, based on previous work, specific frameworks, common sense, domain expertise, etc.
+:::
+
+### Posterior draws
+
+In order to estimate the coefficients, `brm()` runs a number of MCMC iterations and at each iteration a value for each coefficient in the model is proposed (this is a simplification, if you want to know more about the inner working of MCMCs, check the *Statistical (Re)Thinking* book).
+
+At the end, what you get is a list of values for each coefficient in the model. These are called the **posterior draws**. The probability distribution of the posterior draws of a coefficient is the posterior probability distribution of that coefficient.
+
+::: callout-tip
+#### Posterior draws
+
+The **posterior draws** are the list of coefficient values returned by the MCMC sampling procedure.
+:::
+
+If you take the mean and standard deviation of the posterior draws of a coefficient, you get the `Estimate` and `Est.Error` values in the model output! Let's try this.
+
+You can easily extract the posterior draws of all the model's coefficients with the `as_draws_df()` function from the brms package.
+
+```{r}
+#| label: int-draws
+
+val_bm_draws <- as_draws_df(val_bm)
+val_bm_draws
+```
+
+Check the first three columns of the tibble (don't worry about the other columns---those are technical things that are important for brms, but not so important for us). The first three columns are our $\beta_0$, $\beta_1$ and $\sigma$ from the model formulae above!
+
+-   `b_Intercept`: $\beta_0$.
+
+-   `b_ModalityTaste`: $\beta_1$.
+
+-   `sigma`: $\sigma$.
+
+(Why is there a `b` at the beginning of `b_Intercept` and `b_ModalityTaste`? Well, "b" is for "beta", and it's brms's way of telling us what kind of coefficient we're working with.)
+
+Now go ahead and use `summarise()` (careful, not the `summary()` function) to get the mean and standard deviation of the posteriors of the three coefficients.
+
+```{r}
+#| label: post-mean
+#| eval: false
+
+val_bm_draws %>%
+  summarise(
+    ...
+  )
+
+```
+
+::: {.callout-important collapse="true"}
+#### Extra: Summarise with `across()`
+
+To get the mean and SD of the three coefficients, you probably added individual lines of code for each coefficient and summary measure inside `summarise()`.
+
+That is perfectly valid, but there is also an advanced, more succinct way of achieving the same result. Open the this Code box to reveal it!
+
+::: {.callout-important collapse="true"}
+#### Code
+
+```{r}
+#| label: across
+#| warning: false
+
+val_bm_draws %>%
+  select(b_Intercept:sigma) %>%
+  summarise(
+    across(everything(), list("mean" = mean, "sd" = sd))
+  )
+```
+:::
+:::
+
+Now that we have the posterior draws in `val_bm_draws`, we can simply use ggplot2 to plot the probability density of the draws, a.k.a., the posterior probability distribution, for each coefficient.
+
+### Plotting probability distributions
+
+They say a plot is better than a thousand words, so why don't we plot the probability distributions of the `Intercept` ($\beta_0$) and `ModalityTaste` ($\beta_1$) coefficients?
+
+There are different methods for plotting these, each of which has its own advantages and disadvantages. Some methods require extra packages, while others work with the packages you already know of.
+
+To simplify things, we will use a method that works out of the box using just ggplot2.
+
+Let's start with the posterior probability, or *posterior* for short, of `b_Intercept`.
+
+```{r}
+#| label: int-dens
+
+val_bm_draws %>%
+  ggplot(aes(b_Intercept)) +
+  geom_density(fill = "gray", alpha = 0.5) +
+  labs(
+    title = "Posterior probability distribution of Intercept"
+  )
+
+```
+
+Nice, huh?
+
+Now with `b_ModalityTaste`. We can add a vertical line that shows the mean using `geom_vline()`.
+
+```{r}
+#| label: modtaste-dens
+
+taste_mean <- mean(val_bm_draws$b_ModalityTaste)
+
+val_bm_draws %>%
+  ggplot(aes(b_ModalityTaste)) +
+  geom_density(fill = "gray", alpha = 0.5) +
+  geom_vline(xintercept = taste_mean, linetype = "dashed", colour = "purple") +
+  labs(
+    title = "Posterior probability distribution of ModalityTaste"
+  )
+```
+
+Now recreate the following plot, which shows the posterior distribution of `sigma`.
+
+```{r}
+#| label: sigma-dens
+#| echo: false
+
+sigma_mean <- mean(val_bm_draws$sigma)
+
+val_bm_draws %>%
+  ggplot(aes(sigma)) +
+  geom_density(fill = "gray", alpha = 0.5) +
+  geom_vline(xintercept = sigma_mean, linetype = "dashed", colour = "purple") +
+  labs(
+    title = "Posterior probability distribution of sigma"
+  )
+```
+
+### Conditional probability distributions
+
+This is all great, but as we asked ourselves above, **what if you wanted to know the probability distribution of mean emotional valence in either smell or taste words?**
+
+So far, we only know the probability distribution of mean valence for smell words ($\beta_0$), and *how that valence is changed* for taste words ($\beta_1$) relative to smell words. We don't yet know the probability distribution of mean emotional valence for taste words. How do we find that distribution?
+
+This is where **conditional posterior probability distributions** (or conditional probabilities for short) come in!
+
+::: callout-tip
+#### Conditional posterior probability distributions
+
+A **conditional posterior probability distribution** is a posterior probability distribution which is *conditional* on specific values of each predictor in the model.
+:::
+
+In the `val_bm` model we had only included one predictor (we will see how to include more in the coming weeks): `Modality`, which has two levels `Smell` and `Taste`.
+
+How do we obtain the conditional probabilities of emotional valence for smell and taste words respectively?
+
+The formula of $\mu$ above can help us solve the mystery.
+
+$$
+\mu = \beta_0 + \beta_1 \cdot modality_{Taste}
+$$
+
+The conditional probability of mean emotional valence in smell words is just $\beta_0$. Why? Remember that when \[modality = smell\], $modality_{Taste}$ is 0, so:
+
+$$
+\beta_0 + \beta_1 \cdot 0 = \beta_0
+$$
+
+In other words, the conditional probability of mean emotional valence in smell words is equal to the posterior probability of `b_Intercept`. This is so because `Modality` is coded using the treatment coding system and `Smell` is the reference level (nothing mysterious here).
+
+But what about taste words? Here's where we need to do some more maths/data processing.
+
+When \[modality = taste\], $modality_{Taste}$ is 1, so:
+
+$$
+\beta_0 + \beta_1 \cdot 1 = \beta_0 + \beta_1
+$$
+
+So to get the *conditional posterior probability* of mean emotional valence for taste words, we need to **sum the posterior draws** of `b_Intercept` ($\beta_0$) and `b_ModalityTaste` ($\beta_1$): $\beta_0 + \beta_1$.
+
+It couldn't be easier than using the `mutate()` function from dplyr. Remember that `mutate()` creates a new column (here, called `taste`) based on the values of other columns. Here, we're just adding together the values in `b_Intercept` and those in `b_ModalityTaste` (a.k.a., the posterior draws for each of those coefficients).
+
+```{r}
+#| label: taste-draws
+
+val_bm_draws <- val_bm_draws %>%
+  mutate(
+    taste = b_Intercept + b_ModalityTaste
+  )
+
+```
+
+**Now, we can just plot the probability density of `taste` to get the conditional posterior probability distribution of mean emotional valence for taste words.**
+
+```{r}
+#| label: taste-dens
+
+val_bm_draws %>%
+  ggplot(aes(taste)) +
+  geom_density(fill = "gray", alpha = 0.5) +
+  labs(
+    title = "Conditional distribution of emotional valence in taste words"
+  )
+
+```
+
+What if you want to show both the conditional probability of emotional valence in smell and taste words? Easy![^2]
+
+[^2]: The following code is a bit of a hack. There is a better way to do this using `pivot_longer()` from the [tidyr](https://tidyr.tidyverse.org) package. We will learn how to use this and other functions from that package later in the course.
+
+```{r}
+#| label: mod-dens
+
+val_bm_draws %>%
+  ggplot() +
+  geom_density(aes(b_Intercept), fill = "red", alpha = 0.5) +
+  geom_density(aes(taste), fill = "blue", alpha = 0.5) +
+  labs(
+    title = "Conditional distributions of mean emotional valence in smell vs taste words"
+  )
+```
+
+Based on this plot, we can say that the model suggests a different mean emotional valence for smell vs. taste words, and that taste words (blue) have a more positive emotional valence than smell words (red).
+
+To reiterate from above, based on the 95% CrI of `b_ModalityTaste`, there is a 95% probability that the mean emotional valence of taste words is 0.18 to 0.5 greater than that of smell words.
+
+You might ask now: *Is this difference relevant?* Unfortunately, statistics cannot help you to answer that question (remember, *we* imbue numbers with meaning). Only conceptual theories of lexical emotional valence can (or cannot)!
+
+### Reporting
+
+You could report this model like so (text copied from above):
+
+> We fitted a Bayesian model with emotional valency as the outcome variable and modality (smell vs taste) as the only predictor. A Gaussian family was used as the outcome distribution family. The modality predictor was coded with the default treatment contrasts (with "smell" as the reference level).
+>
+> According to the model, the mean valency of smell words is 5.47 (SD = 0.06), with a 95% probability that it is between 5.35 and 5.59. At 95% confidence, the difference in valency between taste and smell words is between 0.18 and 0.5 ($\beta$ = 0.34, SD = 0.08).
+
+The only thing that is missing is information on the conditional probability of emotional valency in taste words: you could already calculate the mean and SD of this conditional probability using the conditional posterior draws for smell words (with the `summary()` function, just like you would with any other data frame) and add it in the report, but we have not yet seen how to obtain Credible Intervals of conditional distributions. You will learn this in Week 7!
+
+If you are curious about how the write-up would look like with the information on smell words, check the box below.
+
+::: {.callout-important collapse="true"}
+#### Extra: Full report
+
+We fitted a Bayesian model with emotional valency as the outcome variable and modality (smell vs taste) as the only predictor. A Gaussian family was used as the outcome distribution family. The modality predictor was coded with the default treatment contrasts (with "smell" as the reference level).
+
+According to the model, the mean valency of smell words is 5.47 (SD = 0.06), with a 95% probability that it is between 5.35 and 5.59; the mean valency of taste words is 5.8 (SD = 0.05) and we can be 95% confident that the value is between 5.73 and 5.89. At 95% confidence, the difference in valency between taste and smell words is between 0.18 and 0.5 ($\beta$ = 0.34, SD = 0.08).
+:::
+
+## Morphological processing and reaction times
+
+So far, we've seen how to work with treatment-coded variables with only two levels. In this last section, we'll take a look at how to use dummy coding for a variable with three levels.
+
+You might remember the `shallow.csv` data we used in Week 2, from Song et al. 2020. *Second language users exhibit shallow morphological processing*. DOI: [10.1017/S0272263120000170](https://doi.org/10.1017/S0272263120000170).
+
+The study compared results of English L1 vs L2 participants and of left- vs right-branching words, but for this tutorial we will only be looking at the L1 and left-branching data.
+
+The data file also contains data from the filler items, which we filter out.
+
+Write the code to:
+
+-   Read the `shallow.csv` data.
+-   Filter the data so that:
+    -   You include only `L1` from `Group`.
+    -   You include only `Left` from `Branching`.
+    -   You include only `Critical` from `Critical_Filler`.
+    -   You include only RTs that are greater than 0.
+
+```{r}
+#| label: shallow-read
+#| echo: false
+#| message: false
+
+shallow <- read_csv("data/shallow.csv")
+shallow
+
+shallow_filt <- shallow %>%
+  filter(
+    Group == "L1",
+    Branching == "Left",
+    Critical_Filler == "Critical",
+    RT > 0
+  )
+```
+
+```{r}
+#| label: shallow-filt
+
+shallow_filt
+```
+
+The study consisted of a lexical decision task in which participants where first shown a prime, followed by a target word for which they had to indicate whether it was a real word or a nonce word.
+
+The prime word belonged to one of three possible groups (`Releation_type` in the data) each of which refers to the morphological relation of the prime and the target word:
+
+-   `Unrelated`: for example, *prolong* (assuming *unkindness* as target, \[\[un-kind\]-ness\]).
+
+-   `Constituent`: *unkind*.
+
+-   `NonConstituent`: *kindness*.
+
+The expectation is that lexical decision for native English participants should be facilitated in the `Constituent` condition, but not in the `Unrelated` and `NonConstituent` conditions (if you are curious as to why that is the expectation, I refer you to the paper).
+
+Let's interpret that as:
+
+> The `Constituent` condition should elicit shorter reaction times than the other two conditions.
+
+Before moving on, let's visualise the reaction times (`RT`) values, which are recorded in milliseconds (reproduce the plot by writing the code yourself).
+
+```{r}
+#| label: rt-dens
+#| echo: false
+
+shallow_filt %>%
+  ggplot(aes(RT)) +
+  geom_density() +
+  geom_rug()
+```
+
+You will notice that reaction times can only be *positive*: reaction time is a numeric continuous variable, bounded to positive numbers only!
+
+Remember how we talked above about choosing an appropriate distribution to model your data? **Variables that are bounded to positive numbers are known not to be distributed according to a Gaussian distribution**. Each case might be a bit different, but when a variable is bounded (e.g., by zero), it is very safe to assume that the values of the variable do not follow a Gaussian distribution.[^3]
+
+[^3]: In fact, we have assumed above that emotional valence is distributed according to a Gaussian distribution, and we got lucky that this assumption in principle holds for the values in the data sample, because emotional valence as measured in the study is actually bounded between 1 and 8. In most cases you won't be lucky, so always carefully think about the nature of your variables. Again, only conceptual theories of the phenomena you are investigating will be able to help.
+
+### Log-transformation
+
+But we have a trick in our pocket: just calculate the **logarithm** of the values and they will conform to a Gaussian distribution! This is a common trick in psycholinguistics for modelling reaction time data.
+
+You can calculate the logarithm (or log) of a number in R using the `log()` function. Calculating the logs of a variable is known as a **log-transformation**.
+
+::: callout-tip
+#### Log-transformation
+
+You **log-transform** values by taking the logarithm (or log) of the values with the `log()` function.
+:::
+
+I will illustrate what this looks like with the first five values of `RT` in `shallow`.
+
+```{r}
+#| label: log
+
+RT <- c(603, 739, 370, 821, 1035)
+RT
+
+log(RT)
+
+```
+
+So the log of 603 is `6.4`, the log of `739` is `6.6` and so on.
+
+The `shallow_filt` data table already has a column with the log-transformed RTs: `logRT`. So let's plot that now.
+
+```{r}
+#| label: rt-log-dens
+#| echo: false
+#| message: false
+
+shallow_filt %>%
+  ggplot(aes(logRT)) +
+  geom_density() +
+  geom_rug()
+```
+
+::: callout-warning
+It is usually not possible to rely on the shape of the probability density to determine if the probability is Gaussian or not!
+
+Rather, ask yourself the following question: are the values bounded to positive numbers only? If the answer is "yes", then the variable is **not** Gaussian and you know you can log-transform it.
+:::
+
+If a variable becomes Gaussian when log-transformed, the variable follows a **log-normal** distribution.
+
+::: callout-tip
+#### Log-normal distribution
+
+Variables that are Gaussian (normal) when they are log-transformed follow the **log-normal** distribution.
+:::
+
+Now let's look at a violin and strip plot with `Relation_type` on the *x*-axis and `logRT` on the *y*-axis.
+
+```{r}
+#| label: rt-rel-type
+#| warning: false
+
+shallow_filt %>%
+  ggplot(aes(Relation_type, logRT, fill = Relation_type)) +
+  geom_violin() +
+  geom_jitter(width = 0.1, alpha = 0.2)
+
+```
+
+Based on this, we can see that the bulk of the distribution (the place where the violin is wider) falls somewhat lower on the log-RT scale for the `Constituent` condition relative to the other conditions.
+
+Why don't we add the median RT in the plot? We can do so with `stat_summary()` (let's also play with colour).
+
+```{r}
+#| label: rt-rel-type-2
+#| warning: false
+
+shallow_filt %>%
+  ggplot(aes(Relation_type, logRT, fill = Relation_type)) +
+  geom_violin() +
+  geom_jitter(width = 0.1, alpha = 0.2) +
+  stat_summary(fun = "median", colour = "#ffff99", size = 4, geom = "point") +
+  scale_fill_brewer(type = "qual") +
+  theme_black()
+```
+
+Check the documentation of `?stat_summary` (especially the examples) if you want to learn more about it.
+
+For the Brewer colours, see [Scale brewer](https://ggplot2.tidyverse.org/reference/scale_brewer.html) and for ggplot2 themes, see [Complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+
+### Ordering levels of a categorical predictor
+
+By default, the levels in `Relation_type` follow the order: `Constituent`, `NonConstituent`, `Unrelated` (this is the default alphabetical order).
+
+There is nothing bad with this *per se*, but maybe we can reorder them so that they are in this order: `Unrelated`, `NonConstituent`, `Constituent`.
+
+This might make a bit more sense from a conceptual point of view (you can think of the unrelated condition as the "baseline" condition).
+
+To order levels in R, we can use a **factor** variable/column. We can transform the `Relation_type` column to a factor column with `factor()`.
+
+The function `factor()` takes the following arguments:
+
+-   The variable/column to change into a factor (here `Relation_type`).
+-   The levels in the wanted order as a string vector (here `c("Unrelated", "NonConstituent", "Constituent")`), as the `levels` argument.
+
+```{r}
+#| label: factor
+
+shallow_filt <- shallow_filt %>%
+  mutate(
+    Relation_type = factor(Relation_type, levels = c("Unrelated", "NonConstituent", "Constituent"))
+  )
+```
+
+This overwrites the `Relation_type` column so that the levels are in the specified order. You can check this in the Environment tab: click on the blue arrow next to `shallow` to see the column list and now `Relation_type` is a `Factor` column with 3 levels.
+
+### Model RTs by relation type
+
+Now it's your turn! With the following guidance, run a model with `brm()` to investigate the effect of relation type on log-RT. Inspect the model summary and plot the posterior probabilities and conditional posterior probabilities.
+
+`Relation_type` is a categorical variable with three levels, so here's what treatment coding looks like (there will be N-1 = 3-1 = 2 dummy variables).
+
+|                            | relation_ncons | relation_cons |
+|----------------------------|----------------|---------------|
+| relation = unrelated       | 0              | 0             |
+| relation = non-constituent | 1              | 0             |
+| relation = constituent     | 0              | 1             |
+
+Here are a few formulae that describe in mathematical notation the model that we'll need to fit. Try to go through them and unpack them based on what you've learned above and in the lecture.
+
+$$
+\begin{aligned}
+\text{logRT} &\sim Gaussian(\mu, \sigma) \\
+\mu &= \beta_0 + \beta_1 \cdot relation_{ncons} + \beta_2 \cdot relation_{cons} \\
+\beta_0 &\sim Gaussian(\mu_0, \sigma_0)\\
+\beta_1 &\sim Gaussian(\mu_1, \sigma_1)\\
+\beta_2 &\sim Gaussian(\mu_2, \sigma_2)\\
+\sigma &\sim TruncGaussian(\mu_3, \sigma_3)
+\end{aligned}
+$$
+
+Focus especially on $\beta_0$, $\beta_1$ and $\beta_2$. What do they correspond to?
+
+Fit the model with `brm()`. What does the R formula for this model look like?
+
+Check the model summary. What can you say based on the estimates and the CrIs?
+
+Plot the *posterior probability distributions* of $\beta_0$, $\beta_1$ and $\beta_2$ and the *conditional probability distributions* of mean log-RTs for each relation type.
+
+Write a report like the one above in your `.Rmd` file. Ask the tutors or feel free to post it on Piazza for feedback!
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+For the conditional probability distributions, you need to *sum* the posterior draws of the beta coefficients depending on the level of relation type. Use the formula of $\mu$ to guide you: the process is the same as with the emotional valence data above, but now there are 3 levels instead of two.
+:::
+
+## Summary
+
+::: {.callout-note appearance="minimal"}
+**Treatment coding**
+
+-   Categorical predictors need to be coded as numbers.
+-   N-1 **dummy variables**, where N is number of levels in the predictor.
+-   Level ordering is *alphabetical* but you can specify your own.
+-   **NOTE**: you don't have to apply treatment coding yourself! It's done under the hood by R.
+
+**Interpreting coefficients**
+
+-   The **Intercept** $\beta_0$ is the mean of the reference level.
+-   The other $\beta$'s are the **difference** of the other levels relative to the reference level.
+
+**Conditional posterior probability distributions**
+
+-   To calculate the conditional posterior probability distributions (conditional probabilities for short) you need to extract the **draws** of the model with `as_draws_df()`.
+
+**Log-normal distribution**
+
+-   Continuous variables that are Gaussian when transformed to logs follow the **log-normal** distribution.
+
+-   You can fit a Gaussian model to log-transformed values if the variable is log-normal.
+:::

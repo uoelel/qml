@@ -23,6 +23,8 @@ website:
         text: Course schedule
       - href: map.qmd
         text: Map
+      - href: notebook.qmd
+        text: Notebook
       - href: assessments.qmd
         text: Assessment
 
@@ -36,3 +38,5 @@ format:
 
 callout-icon: false
 
+execute:
+  freeze: true

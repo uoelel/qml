@@ -1,0 +1,31 @@
+---
+title: "Research Methods"
+description: "Research Methods are about the theory, methods and practice of conducting research"
+author: "Stefano Coretta"
+---
+
+## Research methods
+
+[Research Methods]{.smallcaps} are about the theory, methods and practice of conducting research. I like to call the discipline that deals with research methods [Hodotics]{.smallcaps}.
+
+One way of categorising different aspects of research methods is represented in the following figure.
+
+![](/img/res-methods-2.png){fig-align="center"}
+
+You can think of **research methods** as the combination of:
+
+-   The **research process**: the process of conducting a research project, from determining the research context to communicating results.
+
+-   **Project management**: the process of managing a research project, from project planning to writing-up.
+
+-   **Digital skills**: all research involves using computers (at least at some point if not throughout) so that computer literacy and digital skills are nowadays a fundamental aspect of research.
+
+-   **Philosophy**: all research is not performed in a vacuum and a lot of philosophical questions shape the entire research process.
+
+-   **Ethics**: all research is not performed in a social vacuum and ethical considerations are a fundamental aspect of research.
+
+## The research process
+
+Let's zoom in on the [research process]{.smallcaps}.
+
+![](/img/res-process.png){fig-align="center"}
