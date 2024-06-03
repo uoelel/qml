@@ -2,7 +2,8 @@
   {
     "listing": "/notebook.html",
     "items": [
-      "/posts/hodotics.html"
+      "/posts/hodotics.html",
+      "/posts/r-basics.html"
     ]
   }
 ]

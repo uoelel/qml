@@ -2,6 +2,7 @@
 title: "Research Methods"
 description: "Research Methods are about the theory, methods and practice of conducting research"
 author: "Stefano Coretta"
+date: 2024-06-03
 ---
 
 ## Research methods
@@ -29,3 +30,11 @@ You can think of **research methods** as the combination of:
 Let's zoom in on the [research process]{.smallcaps}.
 
 ![](/img/res-process.png){fig-align="center"}
+
+-   **Context**: the research context includes several aspects of the research process, including the background (i.e. the previous literature and current knowledge) and the rational of the study (from the general topic to specific research questions/hypotheses).
+
+-   **Data acquisition**: this is the process of gathering data to be used in the study. Data acquisition covers many different types of processes, from experimental set-ups to corpus queries.
+
+-   **Data analysis** is the process of analysing the acquired data using qualitative, quantitative or a mixed methods. This part of the research process also include interpreting the output of such analysis.
+
+-   **Communication**: finally, the last step in a research process cycle is to communicate what was done and what was learned, both to the research community and to the wider public.
