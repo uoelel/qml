@@ -5,12 +5,12 @@ author: "Stefano Coretta"
 date: 2024-06-03
 ---
 
+## Regression (to the mean)
+
 ```{r}
 #| label: setup
 
 ```
-
-## Regression to the mean
 
 **Regression models** (also called linear models or linear regression models) are a type of statistical model.
 
@@ -36,37 +36,43 @@ $$
 
 ## Simulating Gaussian data
 
-Let's move onto an example of how we can use regression models to estimate the mean and standard deviation of data that is distributed according to a Gaussian probability.
+Let's move onto an example of how we can use regression models to estimate the mean and standard deviation of data that is distributed according to a Gaussian probability distribution.
 
 Alas, it is very difficult to find in nature data that is truly Gaussian, so we will simulate some.
 
 To make things a little bit more worldly, we will simulate data of human adult height.
 
 ```{r}
+#| label: height
+library(tidyverse)
+
 set.seed(62854)
+
 height <- tibble(
   h = round(rnorm(200, 165, 8))
 )
 ```
 
-```{r}
-library(tidyverse)
-theme_set(theme_light())
-```
+
 
 ```{r}
+#| label: height-plot
 height |> 
   ggplot(aes(h)) +
   geom_density(fill = "darkgreen", alpha = 0.2) +
   geom_rug() +
-  geom_vline(aes(xintercept = mean(h)), colour = "purple", size = 1)
+  geom_vline(aes(xintercept = mean(h)), colour = "purple", linewidth = 1)
 ```
 
+## Fitting a Bayesian regression model
+
 ```{r}
+#| label: brms
 library(brms)
 ```
 
 ```{r}
+#| label: h-1
 h_1 <- brm(
   h ~ 1,
   data = height,
@@ -74,8 +80,73 @@ h_1 <- brm(
 )
 ```
 
+## Model summary
+
 We can now inspect the summary of the model.
 
 ```{r}
+#| label: h-1-summary
 summary(h_1)
 ```
+
+Let's break that down bit by bit:
+
+-   The first few lines are a reminder of the model we fitted:
+
+    -   `Family` is the chosen distribution for the outcome variable, a Gaussian distribution.
+
+    -   `Links` lists the link functions.
+
+    -   `Formula` is the model formula.
+
+    -   `Data` reports the name of the data and the number of observations.
+
+    -   Finally, `Draws` has information about the MCMC draws.
+
+-   Then, the `Regression Coefficients` are listed as a table. In this model we only have one regression coefficient, `Intercept` which corresponds to $\mu$ from the formula above. The table has 7 named columns:
+
+    -   `Estimate`, the mean estimate of the coefficient (i.e. the mean of the posterior distribution of the coefficient).
+
+    -   `Est.error`, the error of the mean estimate (i.e. the standard deviation of the posterior distribution of the coefficient).
+
+    -   `l-95% CI` and `u-95% CI`, the lower and upper limits of the 95% Bayesian Credible Interval.
+
+    -   `Rhat`, `Bulk_ESS`, `Tail_ESS` are diagnostics of the MCMC chains.
+
+-   Then `Further distributional parameters` are tabled. Here we only have `sigma` which is $\sigma$ from the formula above. The table has the same columns as the `Regression Coefficients` table.
+
+## Plot the posterior distributions of the coefficients
+
+```{r}
+#| label: h-1-plot
+plot(h_1, combo = c("dens", "trace"))
+```
+
+The plot above shows the posterior distribution of the estimated coefficient `b_Intercept` and `sigma`, which correspond to the $\mu$ and $\sigma$ of the formula above, respectively.
+
+For the `b_Intercept` coefficient, the posterior probability encompasses values between 163 and 167 cm, approximately. But some values are more probable then others: the values in the centre of the distribution have a higher probability density then the values on the sides. In other words, values around 165 cm are more probable than values below 164 and above 166, for example.
+
+However, looking at a full probability distribution like that is not super straightforward. Credible Intervals (CrIs) can help summarise the posterior distributions.
+
+## Interpreting Credible Intervals
+
+Another way of obtaining summaries of the coefficients is to use the `posterior_summary()` function. Ignore the last three lines.
+
+```{r}
+#| label: h1-post-summary
+posterior_summary(h_1)
+```
+
+The 95% CrI of the `Intercept` is between `{r} round(fixef(h_1)[3])` and `{r} round(fixef(h_1)[4])`. This means there is a 95% probability, or that we can be 95% confident, that the `Intercept` value is within that range.
+
+For `sigma`, the 95% CrI is between `{r} round(posterior_summary(h_1)["sigma", "Q2.5"], 1)` and `{r} round(posterior_summary(h_1)["sigma", "Q97.5"], 1)`. So, again, there is a 95% probability that the `sigma` value is between those values.
+
+## Reporting
+
+We could report the model and the results like this.
+
+::: callout-tip
+We fitted a Bayesian regression using the brms package [XXX] in R [XXX]. The outcome variable was height and we did not include any predictor, to estimate the overall mean and standard deviation of height.
+
+Based on the model results, there is a 95% probability that the mean is between `{r} round(fixef(h_1)[3])` and `{r} round(fixef(h_1)[4])` cm and that the standard deviation is between `{r} round(posterior_summary(h_1)["sigma", "Q2.5"], 1)` and `{r} round(posterior_summary(h_1)["sigma", "Q97.5"], 1)` cm.
+:::
