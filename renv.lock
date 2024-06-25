@@ -461,6 +461,18 @@
       ],
       "Hash": "bb097fccb22d156624fd07cd2894ddb6"
     },
+    "coretta2018itapol": {
+      "Package": "coretta2018itapol",
+      "Version": "1.0.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "stefanocoretta",
+      "RemoteRepo": "coretta2018itapol",
+      "RemoteRef": "main",
+      "RemoteSha": "595ab46b35cedb6cc2514b9b6b6b95e4a685e2e9",
+      "Hash": "ae943e2b7309dad0765deb1cee78d274"
+    },
     "cpp11": {
       "Package": "cpp11",
       "Version": "0.4.7",
