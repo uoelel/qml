@@ -40,6 +40,7 @@ Here's a preview of the data.
 
 ```{r}
 # Let's remove NAs from the v1_duration column
+library(tidyverse)
 token_measures <- token_measures |> 
   drop_na(v1_duration)
 
@@ -50,6 +51,7 @@ token_measures
 ## Treatment contrasts
 
 ```{r}
+library(brms)
 get_prior(
   v1_duration ~ c2_phonation,
   family = lognormal,
@@ -91,5 +93,36 @@ get_prior(
 )
 ```
 
+You can see that there is no `class = Intercept` in the output of `get_prior()` because we "suppressed" the intercept of the model.
 
+Now, `c2_phonationvoiced` is the mean vowel duration when the following consonant is voiced and `c2_phonationvoiceless` is the mean vowel duration when the following consonant is voiceless.
 
+## Fitting a model with indexing
+
+```{r}
+m_i <- brm(
+  v1_duration ~ 0 + c2_phonation,
+  family = lognormal,
+  data = token_measures,
+  seed = 1425,
+  file = "data/cache/regression-indexing-m_i"
+)
+```
+
+```{r}
+summary(m_i)
+```
+
+## Get the difference between levels
+
+We can now quickly calculate the difference between `c2_phonationvoiced` and `c2_phonationvoiceless` with the `avg_comparisons()` function from the [marginaleffects](https://marginaleffects.com) package.
+
+```{r}
+#| label: m-i-diff
+library(marginaleffects)
+# you will also have to install the collapse package
+
+avg_comparisons(m_i, variables = "c2_phonation")
+```
+
+So based on the model and data, vowels followed by voiceless consonants are 7-14.5 ms shorter than vowels followed by voiced stops, at 95% probability.
