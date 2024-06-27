@@ -31,8 +31,6 @@ polite <- read_csv("data/winter2012/polite.csv")
 
 ## Quarto
 
-Last week, you learnt how to use R scripts to save your code.
-
 Keeping track of the code you use for data analysis is a very important aspect of research project managing: not only the code is there if you need to rerun it later, but it allows your data analysis to be **reproducible** (i.e., it can be reproduced by you or other people in such a way that starting with the same data and code you get to the same results).
 
 ::: callout-tip
