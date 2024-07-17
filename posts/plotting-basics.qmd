@@ -21,8 +21,6 @@ library(tidyverse)
 library(webexercises)
 ```
 
-
-
 ## Plotting basics
 
 Plotting data in R is easy once you understand the basics.
@@ -83,7 +81,6 @@ library(tidyverse)
 
 polite <- read_csv("data/winter2012/polite.csv")
 ```
-
 
 In this tutorial we will use the following columns:
 
@@ -404,7 +401,6 @@ For example, `labs(title = "...", ...)`.
 That's all for this week!
 
 ::: {.callout-note appearance="minimal"}
-
 -   **ggplot2** is a plotting package from the tidyverse.
 
 -   To create a basic plot, you use the `ggplot()` function and specify `data` and `mapping`.

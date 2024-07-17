@@ -639,4 +639,3 @@ If you are interested in learning about programming in R, I recommend you go thr
 
 Note that these topics are not covered in the course, nor will be assessed.
 :::
-
