@@ -22,7 +22,7 @@ library(webexercises)
 ::: callout-warning
 #### Pre-requisites
 
-- [posts/intro-quarto.qmd](posts/intro-quarto.qmd)
+-   [posts/intro-quarto.qmd](posts/intro-quarto.qmd)
 :::
 
 ## Tabular data
@@ -282,9 +282,9 @@ The easiest way is to click on the name of the data listed in the `Environment` 
 
 You will see a nicely formatted table, as you would in a programme like Excel.
 
-Data tables in R (i.e. tabular, spread-sheet like data) are called **data frames** or **tibbles**.[^2]
+Data tables in R (i.e. tabular, spread-sheet like data) are called **data frames** or **tibbles**.[^1]
 
-[^2]: A **tibble** is a special data frame. We will learn more about tibbles in the following weeks.
+[^1]: A **tibble** is a special data frame. We will learn more about tibbles in the following weeks.
 
 The `shallow` data frame contains 11 columns (called variables in the `Environment` tab). The 11 columns are the following:
 
