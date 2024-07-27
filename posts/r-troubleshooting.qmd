@@ -8,6 +8,8 @@ format:
     include-after-body: [webex.js]
 execute: 
   eval: false
+date: 2024-06-10
+author: Stefano Coretta
 ---
 
 ## Troubleshooting

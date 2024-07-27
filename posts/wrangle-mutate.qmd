@@ -2,10 +2,12 @@
 title: "Mutate data"
 description: "Learn about mutating data using the tidyverse"
 editor: visual
+author: "Stefano Coretta"
 format: 
   html:
     css: [webex.css]
     include-after-body: [webex.js]
+date: 2024-07-15
 ---
 
 ```{r}
@@ -18,6 +20,12 @@ library(webexercises)
 ```
 
 ## Mutate
+
+```{r}
+library(tidyverse)
+
+glot_status <- readRDS("data/coretta2022/glot_status.rds")
+```
 
 To change existing columns or create new columns, we can use the `mutate()` function from the [dplyr](https://dplyr.tidyverse.org) package.
 
@@ -118,3 +126,4 @@ glot_status |>
   ggplot(aes(x = Status)) +
   geom_bar()
 ```
+

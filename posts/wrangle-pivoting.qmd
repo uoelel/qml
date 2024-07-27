@@ -1,11 +1,13 @@
 ---
 title: "Pivoting"
 description: "Learn how to change the format of data tables from long to wide and viceversa using the pivot functions from tidyr"
+author: "Stefano Coretta"
 editor: visual
 format: 
   html:
     css: [webex.css]
     include-after-body: [webex.js]
+date: 2024-07-15
 ---
 
 ```{r}
@@ -128,3 +130,4 @@ tongue |>
 ```
 :::
 :::
+

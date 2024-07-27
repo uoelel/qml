@@ -6,6 +6,7 @@ format:
   html:
     css: [webex.css]
     include-after-body: [webex.js]
+date: 2024-07-15
 ---
 
 ```{r}
@@ -50,6 +51,21 @@ This quirk is something that confuses many new learners, so make sure you intern
 :::
 
 Go ahead and complete the following code to create a bar chart.
+
+```{r}
+#| label: global-south
+#| echo: false
+
+library(tidyverse)
+
+glot_status <- readRDS("data/coretta2022/glot_status.rds")
+
+global_south <- glot_status |>
+  filter(
+    Macroarea %in% c("Africa", "Australia", "Papunesia", "South America"),
+    status %in% c("threatened", "shifting", "moribund", "nearly_extinct")
+  )
+```
 
 ```{r}
 #| label: status-bar-ex

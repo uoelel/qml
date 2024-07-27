@@ -2,10 +2,12 @@
 title: "Filter data"
 subtitle: "Learn how to filter data with the tidyverse"
 editor: visual
+author: "Stefano Coretta"
 format: 
   html:
     css: [webex.css]
     include-after-body: [webex.js]
+date: 2024-07-15
 ---
 
 ```{r}
@@ -267,3 +269,4 @@ global_south <- glot_status |>
     status %in% c("threatened", "shifting", "moribund", "nearly_extinct")
   )
 ```
+
