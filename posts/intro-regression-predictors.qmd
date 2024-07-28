@@ -3,12 +3,14 @@ title: "Introduction to regression models (Part II): include numeric predictors"
 description: "Learn how to include numeric predictors in your regression models"
 author: "Stefano Coretta"
 date: 2024-07-26
+execute: 
+  freeze: auto
 ---
 
 ::: callout-warning
 ## Prerequisites
 
-- [Introduction to regression models](posts/intro-regression.qmd).
+- [Introduction to regression models](intro-regression.qmd).
 :::
 
 ## A straight line
@@ -218,10 +220,11 @@ We will use `ita_egg_clean` for the rest of the tutorial.
 $$
 \begin{align}
 \text{v1_duration} & \sim Gaussian(\mu, \sigma)\\
-\mu & = \beta_0 + \beta_1 * \text{speech_rate}\\
+\mu & = \beta_0 + \beta_1 * \text{speech\_rate}\\
 \end{align}
 $$
 
+Before that though, create a folder called `cache/` in the `data/` folder of the RStudio project of the course. We will use this folder to save the output of model fitting so that you don't have to refit the model every time. This is useful because as models get more and more complex, they can take quite a while to fit.
 
 ```{r}
 #| label: vow-bm
@@ -235,6 +238,12 @@ vow_bm <- brm(
   file = "data/cache/vow_bm"
 )
 ```
+
+The model will be fitted and saved in `data/cache/` with the file name `vow_bm.rds`. If you now re-run the same code again, you will notice that `brm()` does not fit the model again, but rather reads it from the file (no output is shown, but trust me, it works! Check the contents of `data/cache/` to see for yourself.).
+
+::: callout-warning
+When you save the model fit to a file, R does not keep track of changes in the model specification, so if you make changes to the formula or data, you need to **delete the saved model file** before re-running the code for the changes to have effect!
+:::
 
 ## Interpret the model summary
 
@@ -294,7 +303,7 @@ conditional_effects(vow_bm, effects = "speech_rate")
 If you wish to include the raw data in the plot, you can wrap `conditional_effects()` in `plot()` and specify `points = TRUE`. Any argument that needs to be passed to `geom_point()` (these are all ggplot2 plots!) can be specified in a list as the argument `point_args`. Here we are making the points transparent.
 
 ```{r}
-#| label: vow-bm-cond
+#| label: vow-bm-cond-1
 
 plot(conditional_effects(vow_bm, effects = "speech_rate"), points = TRUE, point_args = list(alpha = 0.1))
 ```
