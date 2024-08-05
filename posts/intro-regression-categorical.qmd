@@ -266,5 +266,5 @@ You could report these results in the following way:
 
 **But what about the probability distribution of the HNR of polite speech?** This information is not in the summary *per se*.
 
-To obtain that, we need to do a bit of data wrangling with the model draws. You can learn about it in XXX.
+To obtain that, we need to do a bit of data wrangling with the model draws. You can learn about it in [Working with MCMC draws](regression-draws.qmd).
 

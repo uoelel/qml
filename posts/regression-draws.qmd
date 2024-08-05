@@ -1,0 +1,68 @@
+---
+title: "Regression models: working with MCMC draws"
+description: "Learn how extract, wrangle and plot MCMC posterior draws"
+author: "Stefano Coretta"
+date: 2024-08-05
+execute: 
+  freeze: auto
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+    embed-resources: true 
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(webexercises)
+library(tidyverse)
+library(brms)
+```
+
+
+::: callout-warning
+## Prerequisites
+
+- [Introduction to regression models (Part II)](intro-regression-categorical.qmd).
+:::
+
+## MCMC what?
+
+XXX
+
+## Extract MCMC posterior draws
+
+```{r}
+#| label: polite
+
+library(tidyverse)
+
+polite <- read_csv("data/winter2012/polite.csv")
+
+polite
+```
+
+
+```{r}
+#| label: hnr-bm
+
+library(brms)
+
+hnr_bm <- brm(
+  HNRmn ~ attitude,
+  family = gaussian(),
+  data = polite,
+  cores = 4,
+  file = "data/cache/hnr_bm",
+  seed = 2913
+)
+```
+
+```{r}
+#| label: hnr-bm-draws
+
+hnr_bm_draws <- as_draws_df(hnr_bm)
+hnr_bm_draws
+```
+
