@@ -33,6 +33,8 @@ XXX
 
 ## Extract MCMC posterior draws
 
+Let's read the `winter2012/polite.csv` data again first.
+
 ```{r}
 #| label: polite
 
@@ -43,6 +45,7 @@ polite <- read_csv("data/winter2012/polite.csv")
 polite
 ```
 
+Now we can reload the Bayesian regression model from [Introduction to regression models (Part II)](intro-regression-categorical.qmd). We simply use the same code: but now, instead of the model being fit again, the code will just read the file `data/cache/hnr_bm.rds`.
 
 ```{r}
 #| label: hnr-bm
@@ -59,6 +62,21 @@ hnr_bm <- brm(
 )
 ```
 
+It's always good to inspect the summary to make sure the model is the correct one.
+
+```{r}
+#| label: hnr-bm-summ
+
+summary(hnr_bm, prob = 0.8)
+```
+
+The `Regression Coefficients` table includes `Intercept` and `attitudepolite` which is what we expect from the model formula and data. We are good to go!
+
+Now we can extract the MCMC draws from the model using the `as_draws_df()` function.
+
+This function returns a tibble with values obtained at each draw of the MCMC draws. Since we fitted the model with 4 chains and 1000 sampling draws per chain, there is a total of 4000 drawn values (i.e. 4000 rows).
+
+
 ```{r}
 #| label: hnr-bm-draws
 
@@ -66,3 +84,111 @@ hnr_bm_draws <- as_draws_df(hnr_bm)
 hnr_bm_draws
 ```
 
+Don't worry about the `lprior` and `lp__` columns. The columns `.chain`, `.iteration` and `.draw` indicate:
+
+- The chain number (1 to 4).
+- The iteration number within chain (1 to 1000).
+- The draw number across all chains (1 to 4000).
+
+The following columns contain the drawn values at each draw for three parameters of the model: `b_Intercept`, `b_attitude` and `sigma`. To remind yourself what these mean, let's have a look at the mathematical formula of the model.
+
+$$
+\begin{align}
+\text{HNRmn} & \sim Gaussian(\mu, \sigma) \\
+\mu        & = \beta_0 + \beta_1 \cdot \text{is\_polite} \\
+\end{align}
+$$
+
+So:
+
+- `b_Intercept` is $\beta_0$. This is the mean HNR when the attitude is informal.
+- `b_attitudepolite` is $\beta_1$. This is the *difference* in HNR between polite and informal attitude.
+- `sigma` is $\sigma$. This is the overall standard deviation.
+
+## Summaries and plotting of posterior draws
+
+The `Regression Coefficients` table reports summaries of the distribution of the drawn values of `b_Intercept` and `b_attitudepolite`. These summary measures are the mean (`Estimate`), the standard deviation (`Est.error`) and the lower and upper limits of the credible interval.
+
+We can of course obtain those same measures ourselves from the draws tibble!
+
+```{r}
+#| label: hnr-bm-draws-summ
+
+library(posterior)
+
+hnr_bm_draws |> 
+  select(-sigma) |> 
+  pivot_longer(b_Intercept:b_attitudepolite) |> 
+  group_by(name) |> 
+  summarise(
+    mean = mean(value), sd = sd(value),
+    lo_80 = quantile2(value, 0.1), up_80 = quantile2(value, 0.9)
+  ) |> 
+  # fancy way of mutating multiple columns
+  mutate(
+    across(mean:up_80, ~round(., 2))
+  )
+```
+
+Hopefully now it is clear where the values in the `Regression Coefficient` table come from and how these are related to the MCMC draws.
+
+Next we can plot the (posterior) probability distribution of the draws for any parameter. Let's plot `b_attitudepolite`. This will be the posterior probability density of the difference in HNR between the polite and informal attitude.
+
+```{r}
+#| label: hnr-bm-draws-plot
+
+hnr_bm_draws |>
+  ggplot(aes(b_attitudepolite)) +
+  geom_density() +
+  geom_rug(alpha = 0.2)
+```
+
+## Calculate predictions based on the draws
+
+```{r}
+#| label: hnr-bm-draws-pred
+
+hnr_bm_draws_pred <- hnr_bm_draws |> 
+  mutate(
+    informal = b_Intercept,
+    polite = b_Intercept + b_attitudepolite
+  )
+
+hnr_bm_draws_pred
+```
+
+```{r}
+#| label: hnr-bm-draws-pred-long
+
+hnr_bm_draws_pred_long <- hnr_bm_draws_pred |> 
+  select(.chain, .iteration, .draw, informal, polite) |> 
+  pivot_longer(informal:polite, names_to = "attitude", values_to = "pred")
+
+hnr_bm_draws_pred_long
+```
+
+```{r}
+#| label: hnr-bm-draws-pred-long-violin
+
+hnr_bm_draws_pred_long |> 
+  ggplot(aes(attitude, pred)) +
+  geom_violin(width = 0.2)
+```
+
+```{r}
+#| label: hnr-bm-draws-pred-long-halfeye
+
+library(ggdist)
+
+hnr_bm_draws_pred_long |> 
+  ggplot(aes(pred, attitude)) +
+  stat_halfeye()
+```
+
+```{r}
+#| label: hnr-bm-draws-pred-long-interval
+
+hnr_bm_draws_pred_long |> 
+  ggplot(aes(pred, attitude)) +
+  stat_interval()
+```
