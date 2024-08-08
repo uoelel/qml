@@ -1,0 +1,66 @@
+---
+title: "Regression models: interactions"
+description: "Add and interpret interactions in regression models"
+author: "Stefano Coretta"
+date: 2024-08-08
+execute: 
+  freeze: auto
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+    embed-resources: true 
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(webexercises)
+library(tidyverse)
+library(brms)
+```
+
+```{r}
+mald <- readRDS("data/tucker2019/mald_1_1.rds")
+
+mald <- mald |> 
+  mutate(
+    PhonLev_c = PhonLev - mean(PhonLev)
+  )
+```
+
+```{r}
+mald_rt_bm_noint <- brm(
+  RT_log ~ 0 + IsWord + PhonLev_c,
+  family = gaussian,
+  data = mald,
+  seed = 9284,
+  cores = 4,
+  file = "data/cache/mald_rt_bm_noint"
+)
+```
+
+```{r}
+conditional_effects(mald_rt_bm_noint, "PhonLev_c:IsWord")
+```
+
+
+```{r}
+mald_rt_bm <- brm(
+  RT_log ~ 0 + IsWord + IsWord:PhonLev_c,
+  family = gaussian,
+  data = mald,
+  seed = 9284,
+  cores = 4,
+  file = "data/cache/mald_rt_bm"
+)
+```
+
+```{r}
+summary(mald_rt_bm, prob = 0.8)
+```
+
+```{r}
+conditional_effects(mald_rt_bm, "PhonLev_c:IsWord")
+```
+
