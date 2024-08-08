@@ -64,3 +64,41 @@ summary(mald_rt_bm, prob = 0.8)
 conditional_effects(mald_rt_bm, "PhonLev_c:IsWord")
 ```
 
+```{r}
+mald_rt_draws <- as_draws_df(mald_rt_bm)
+
+mald_rt_draws
+```
+
+```{r}
+mald_rt_preds_5 <- mald_rt_draws |> 
+  mutate(
+    word_5 = b_IsWordTRUE + (5 * `b_IsWordTRUE:PhonLev_c`),
+    non_word_5 = b_IsWordFALSE + (5 * `b_IsWordFALSE:PhonLev_c`),
+  )
+
+mald_rt_preds_5 |> 
+  select(word_5:non_word_5)
+```
+
+```{r}
+mald_rt_preds_5 |> 
+  mutate(
+    word_nonword_5 = exp(non_word_5) - exp(word_5)
+  ) |> 
+  summarise(
+    lo_80 = quantile2(word_nonword_5, 0.1),
+    hi_80 = quantile2(word_nonword_5, 0.9),
+  )
+```
+
+```{r}
+library(ggdist)
+
+mald_rt_preds_5 |> 
+  mutate(
+    word_nonword_5 = exp(non_word_5) - exp(word_5)
+  ) |> 
+  ggplot(aes(word_nonword_5)) +
+  stat_halfeye()
+```
