@@ -107,7 +107,7 @@ So:
 
 ## Summaries and plotting of posterior draws
 
-The `Regression Coefficients` table reports summaries of the distribution of the drawn values of `b_Intercept` and `b_attitudepolite`. These summary measures are the mean (`Estimate`), the standard deviation (`Est.error`) and the lower and upper limits of the credible interval.
+The `Regression Coefficients` table reports summaries of the distribution of the drawn values of `b_Intercept` and `b_attitudepol`. These summary measures are the mean (`Estimate`), the standard deviation (`Est.error`) and the lower and upper limits of the credible interval.
 
 We can of course obtain those same measures ourselves from the draws tibble!
 
@@ -118,7 +118,7 @@ library(posterior)
 
 hnr_bm_draws |> 
   select(-sigma) |> 
-  pivot_longer(b_Intercept:b_attitudepolite) |> 
+  pivot_longer(b_Intercept:b_attitudepol) |> 
   group_by(name) |> 
   summarise(
     mean = mean(value), sd = sd(value),
@@ -132,30 +132,52 @@ hnr_bm_draws |>
 
 Hopefully now it is clear where the values in the `Regression Coefficient` table come from and how these are related to the MCMC draws.
 
-Next we can plot the (posterior) probability distribution of the draws for any parameter. Let's plot `b_attitudepolite`. This will be the posterior probability density of the difference in HNR between the polite and informal attitude.
+Next we can plot the (posterior) probability distribution of the draws for any parameter. Let's plot `b_attitudepol`. This will be the posterior probability density of the difference in HNR between the polite and informal attitude.
 
 ```{r}
 #| label: hnr-bm-draws-plot
 
 hnr_bm_draws |>
-  ggplot(aes(b_attitudepolite)) +
+  ggplot(aes(b_attitudepol)) +
   geom_density() +
   geom_rug(alpha = 0.2)
 ```
 
 ## Calculate predictions based on the draws
 
+The question we ended up with in [Introduction to regression models (Part II)](intro-regression-categorical.qmd) was: what about the posterior probability of the predicted HNR *when the attitude is polite?*.
+
+So far, we have seen the predicted HNR when attitude is informal and the mean *difference* between polite and informal.
+
+To calculate the predicted HNR when attitude is polite, we should look back at the equation of $\mu$ from the model mathematical formulae.
+
+$$
+\begin{align}
+\mu        & = \beta_0 + \beta_1 \cdot \text{is\_polite} \\
+\end{align}
+$$
+
+When `is_polite` is 0, attitude is informal and we have $\mu = \beta_0$. When `is_polite` is 1, attitude is polite and we have $\mu = \beta_0 + \beta_1$.
+
+So, to get the predicted HNR when attitude is polite, we just need to sum `b_Intercept` ($\beta_0$) and `b_attitudepol` ($\beta_1$).
+
 ```{r}
 #| label: hnr-bm-draws-pred
 
 hnr_bm_draws_pred <- hnr_bm_draws |> 
   mutate(
+    # predicted HNR for informal attitude
     informal = b_Intercept,
-    polite = b_Intercept + b_attitudepolite
+    # predicted HNR for polite attitude
+    polite = b_Intercept + b_attitudepol
   )
 
 hnr_bm_draws_pred
 ```
+
+The sum operation is applied row-wise, to each draw. So, for `polite`, the value of `b_Intercept` at draw 1 is added to the value of `b_attitudepol` at draw 1, and so on. You end up with a list of sums that has the same length as the initial draws (here, 4000, i.e. 1000 per chain!). Then you can summarise and plot this new list as you did with the `b_` coefficients.
+
+To make that easier, let's pivot longer.
 
 ```{r}
 #| label: hnr-bm-draws-pred-long
@@ -167,13 +189,22 @@ hnr_bm_draws_pred_long <- hnr_bm_draws_pred |>
 hnr_bm_draws_pred_long
 ```
 
+## Plot and summarise posterior predictions
+
+Now let's make a violin plot of the predicted HNR in informal and polite attitude!
+
 ```{r}
 #| label: hnr-bm-draws-pred-long-violin
 
 hnr_bm_draws_pred_long |> 
   ggplot(aes(attitude, pred)) +
-  geom_violin(width = 0.2)
+  geom_violin(width = 0.2) +
+  labs(
+    x = "Attitude", y = "Predicted HNR"
+  )
 ```
+
+We can use the ggdist package to plot something a bit fancier, like a half eye. Check the `?stat_halfeye` documentation to learn what those lines are.
 
 ```{r}
 #| label: hnr-bm-draws-pred-long-halfeye
@@ -182,13 +213,39 @@ library(ggdist)
 
 hnr_bm_draws_pred_long |> 
   ggplot(aes(pred, attitude)) +
-  stat_halfeye()
+  stat_halfeye() +
+  labs(x = "Predicted HNR", y = "Attitude")
 ```
+
+Another useful stat is `stat_interval()`.
 
 ```{r}
 #| label: hnr-bm-draws-pred-long-interval
 
 hnr_bm_draws_pred_long |> 
-  ggplot(aes(pred, attitude)) +
-  stat_interval()
+  ggplot(aes(attitude, pred)) +
+  stat_interval() +
+  labs(
+    x = "Attitude", y = "Predicted HNR"
+  )
 ```
+And finally, let's summarise the predictions.
+
+```{r}
+#| label: hnr-bm-draws-pred-long-summ
+
+hnr_bm_draws_pred_long |> 
+  group_by(attitude) |> 
+  summarise(
+    mean = mean(pred), sd = sd(pred),
+    lo_80 = quantile2(pred, 0.1), up_80 = quantile2(pred, 0.9)
+  ) |> 
+  # fancy way of mutating multiple columns
+  mutate(
+    across(mean:up_80, ~round(., 2))
+  )
+```
+
+You could report the summary like so:
+
+> According to the model, the predicted HNR when attitude is informal is between 16 and 16.48 at 80% confidence ($\beta$ = 16.27, SD = 0.16). When attitude is polite, the predicted HNR is between 17.31 and 17.73 ($\beta$ = 17.53, SD = 0.16).
