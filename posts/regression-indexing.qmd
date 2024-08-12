@@ -1,6 +1,6 @@
 ---
-title: "Regression: Categorical predictors"
-description: "Learn about categorical predictors in regression models"
+title: "Regression: Indexing of categorical predictors"
+description: "Learn about indexing of categorical predictors in regression models"
 author: "Stefano Coretta"
 date: 2024-06-25
 ---
@@ -81,7 +81,7 @@ It is much easier to set priors on the mean value duration when C2 is voiced and
 
 ## Indexing
 
-With **indexing**, each level in a categorical predictor get's it's own coefficient and the model estimates the predicted value of the outcome at each level.
+With **indexing**, each level in a categorical predictor gets it's own coefficient and the model estimates the predicted value of the outcome at each level.
 
 Differently from setting contrasts with `contrasts()<-`, indexing is applied by *suppressing the intercept* of the model with `0 +`.
 

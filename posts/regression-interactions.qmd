@@ -20,9 +20,78 @@ library(tidyverse)
 library(brms)
 ```
 
-```{r}
-mald <- readRDS("data/tucker2019/mald_1_1.rds")
+::: callout-warning
+## Prerequisites
 
+- [Regression: Indexing of categorical predictors](regression-indexing.qmd).
+:::
+
+## Introduction
+
+Regression models can include both numeric and categorical predictors. Numeric predictors can be included in regression models directly, while categorical predictors have to be coded numerically (regression models can only work with numeric stuff). Coding of categorical predictors is done automatically by R when you include categorical predictors. There are two main type of coding approaches: contrasts (the default) and indexing.
+
+Indexing of categorical predictors is helpful when including multiple predictors in a regression model. So far, we only had one predictor per model. In this tutorial you will learn how to include and interpret regression models with multiple predictors.
+
+We will also explore the concept of predictor **interactions**. In brief, an interaction between two predictors allows the model to adjust the effect of one predictor depending on the value/level of another, and vice versa. To illustrate interactions, we will use the Massive Auditory Lexical Decision data, MALD.
+
+## The data: Massive Auditory Lexical Decision (MALD)
+
+Let's read the data. They are in an `.rds` file, so we need `readRDS()`.
+
+```{r}
+#| label: mald
+
+mald <- readRDS("data/tucker2019/mald_1_1.rds")
+```
+
+We will focus on reaction times (RT) and the phonetic Levinstein distance (`PhonLev`). Specifically, we will investigate the effect of the phonetic distance on RTs depending on the lexical status of the the word heard by participants (i.e. where the word was a real word or a nonce word, `IsWord`).
+
+```{r}
+#| label: mald-plot
+mald |> 
+  ggplot(aes(PhonLev, RT)) +
+  geom_point(alpha = 0.1) +
+  geom_smooth(aes(colour = IsWord, fill = IsWord), method = "lm", formula = "y ~ x")
+```
+
+The scatter plot above includes two regression lines: one for real words (`IsWord` = `TRUE`) and one for nonce words (`IsWord` = `FALSE`). Generally, increasing phonetic distance corresponds to increasing RTs (i.e. slower responses). This positive relationship also differs somewhat depending on the word lexical status. Try and find more patterns in the plot and make a mental record. You will be able to compare your intuitions with the regression results later.
+
+## Regression with two predictors: `IsWord` and `PhoneLev`
+
+We start by fitting a regression model with logged RTs as the outcome variable and a Gaussian distribution as the probability distribution of RTs. We include `IsWord` and `PhonLev`. `IsWord` will be coded with indexing (rather than the default contrasts).
+
+$$
+\begin{align}
+log(RT)_i & \sim Gaussian(\mu_i, \sigma)\\
+\mu_i & = \alpha_{\text{W}[i]} + \beta \cdot \text{PL}_i
+\end{align}
+$$
+
+- $\alpha_{\text{W}[i]}$ is the mean RT value depending on `IsWord`.
+- $\beta$ is the change in RT for each unit increase of phonetic distance (`PhonLev`).
+
+The mathematical formula corresponds to the R formula `RT_log ~ 0 + IsWord + PhonLev`.
+
+```{r}
+#| label: mald-bm-1
+
+mald_bm_1 <- brm(
+  RT_log ~ 0 + IsWord + PhonLev,
+  family = gaussian,
+  data = mald,
+  seed = 9284,
+  cores = 4,
+  file = "data/cache/regression-interactions_mald_bm_1"
+)
+```
+
+```{r}
+#| label: mald-bm-1-summ
+summary(mald_bm_1, prob = 0.8)
+```
+
+
+```{r}
 mald <- mald |> 
   mutate(
     PhonLev_c = PhonLev - mean(PhonLev)
