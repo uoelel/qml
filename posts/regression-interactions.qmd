@@ -106,7 +106,14 @@ Let's focus on the *when `PhonLev` is 0* part. In some cases, 0 for numeric pred
 
 In those cases where 0 is not meaningful for a numeric predictor, a typical approach is to **centre** that predictor.
 
-Centring is a transformation by which you subtract the mean value from all of the observations of the numeric predictor. Check the code below if it's not immediately clear how it works. The mean RT value in the data is about `r round(mean(mald$PhonLev))`.
+Centring is a transformation by which you subtract the mean value from all of the observations of the numeric predictor. Check the code below if it's not immediately clear how it works. The mean RT value in the data is about `r round(mean(mald$PhonLev))`. Mathematically, the model is:
+
+$$
+\begin{align}
+log(RT)_i & \sim Gaussian(\mu_i, \sigma)\\
+\mu_i & = \alpha_{\text{W}[i]} + \beta \cdot (\text{PL}_i - \bar{\text{PL}})
+\end{align}
+$$
 
 ```{r}
 #| label: phonlev-c
@@ -174,44 +181,113 @@ This doesn't seem to be right when comparing this with the plot we made above, u
 
 ## Interactions: categorical * numeric
 
+The model `mald_bm_2` estimates the same effect of `PhonLev_c` in both `IsWord` conditions because we didn't include an interaction term: interaction terms allow the model to adjust the effects of each of the predictors in the interaction based on the value of the other predictors in the interaction.
+
+Let's look at the mathematical specification of a model with an interaction.
+
+$$
+\begin{align}
+log(RT)_i & \sim Gaussian(\mu_i, \sigma)\\
+\mu_i & = \alpha_{\text{W}[i]} + \beta_{\text{W}[i]} \cdot (\text{PL}_i - \bar{\text{PL}})
+\end{align}
+$$
+
+The new part is the interaction term: $\beta_{\text{W}[i]} \cdot (\text{PL}_i - \bar{\text{PL}})$: now $\beta$ is estimated for `IsWord` = `TRUE` and `IsWord` = `FALSE`.
+
+Interaction terms in R are specified by using a colon: `:`: `IsWord:PhonLev_c`. See the following code.
+
 ```{r}
-mald_rt_bm <- brm(
+#| label: mald-bm-3
+
+mald_bm_3 <- brm(
   RT_log ~ 0 + IsWord + IsWord:PhonLev_c,
   family = gaussian,
   data = mald,
   seed = 9284,
   cores = 4,
-  file = "data/cache/mald_rt_bm"
+  file = "data/cache/regression-interactions_mald_bm_3"
 )
 ```
 
+- `0 +` suppresses the intercept (we need this to use to indexing approach instead of the default contrasts approach).
+- `IsWord` corresponds to $\alpha_{\text{W}[i]}$ above.
+- `IsWord:PhonLev_c` corresponds to $\beta_{\text{W}[i]} \cdot (\text{PL}_i - \bar{\text{PL}})$.
+
 ```{r}
-summary(mald_rt_bm, prob = 0.8)
+#| label: mald-bm-3-summ
+summary(mald_bm_3, prob = 0.8)
 ```
 
+- `IsWordTRUE`: the estimated logged RT when `IsWord` is `TRUE` and `PhonLev_c` is 0.
+- `IsWordFALSE`: the estimated logged RT when `IsWord` is `FALSE` and `PhonLev_c` is 0.
+- `IsWordTRUE:PhonLev_c`: the estimated change in RT for each unit increase of `PhonLev_c` when `IsWord` is `TRUE`.
+- `IsWordFALSE:PhonLev_c`: the estimated change in RT for each unit increase of `PhonLev_c` when `IsWord` is `FALSE`.
+
+You can report the results of this model like so:
+
+> 
+
+And now, the visual proof that including an interaction allows the model to adjust the effect of phonetic distance.
+
 ```{r}
-conditional_effects(mald_rt_bm, "PhonLev_c:IsWord")
+#| label: mald-bm-3-cond
+conditional_effects(mald_bm_3, "PhonLev_c:IsWord")
 ```
 
-```{r}
-mald_rt_draws <- as_draws_df(mald_rt_bm)
+Note that including an interaction term is important whenever you want to know if indeed the effect of a predictor depends on the value of other predictors. Furthermore, including an interaction term when the effect does *not* differ between values of other predictors is *not an issue* for model fitting: you will just get similar estimated effects for all the values of the other predictors.
 
-mald_rt_draws
+::: callout-note
+The very common but dangerous practice of dropping interaction terms when the estimated difference is negligible should be avoided.
+
+Think about it: you don't know if predictors "interact" so you include the interaction term. You discover that probably the predictors don't really interact so you remove the interaction term and refit the model. You report the results of the model without the interaction term.
+
+This model will be biased because it is never the case that estimates are exactly the same across values of other predictors. In fact, they are very much always somewhat different and inclusion of predictors in a model should be driven by conceptual theory and not by the results.
+
+This practice (of dropping terms based on results) is even more dangerous when adopting a frequentist approach with *p*-values because a non-significant *p*-value does not mean there is no interaction (it could just be a matter of low statistical power).
+:::
+
+## Wrangling draws of numeric predictors
+
+Let's inspect the MCMC draws.
+
+```{r}
+#| label: mald-bm-3-draws
+mald_3_draws <- as_draws_df(mald_bm_3)
+
+mald_3_draws
 ```
 
+Nothing out of the ordinary: the drawn values for our regression coefficients are in the columns that start with `b_` (and there is also `sigma` of course).
+
+Most times it is helpful to get estimates not only when you increase your numeric predictor by 1, but also when you increase it further. For example, in our data we see that at lower phonetic distance values, the estimated RTs are quite different depending on `IsWord`. But with increasing phonetic distance, the difference in RTs between the two `IsWord` conditions becomes smaller and smaller.
+
+So now we can ask the question: what is the estimated difference in RTs between `IsWord` = `TRUE` and `IsWord` = `FALSE` **when phonetic distance is 12**?
+
+Since `PhoneLev_c` is centred, if we want to get phonetic distance 12 we need to find the corresponding `PhonLev_c` values. Since the mean of `PhonLev` is about 7, then 12 corresponds to 5 in `PhonLev_c` (7 + 5 = 12).
+
+To get the estimated RT value in real and nonce words when the phonetic distance is 12, we just add the coefficient of `PhonLev_c` multiplied by 5. This is because the estimate is for each unit increase of phonetic distance, but we want to get the estimated RT when phonetic distance increases by 5 from the mean (i.e. when it is 12). Look at the code below.
+
+Since the interaction terms have `:` in their names and `:` is a special symbol in R, you need to "protect" the name by surrounding it between back ticks `` ` ``.
+
 ```{r}
-mald_rt_preds_5 <- mald_rt_draws |> 
+#| label: mald-bm-3-preds-5
+mald_3_preds_5 <- mald_3_draws |> 
   mutate(
     word_5 = b_IsWordTRUE + (5 * `b_IsWordTRUE:PhonLev_c`),
     non_word_5 = b_IsWordFALSE + (5 * `b_IsWordFALSE:PhonLev_c`),
   )
 
-mald_rt_preds_5 |> 
+mald_3_preds_5 |> 
   select(word_5:non_word_5)
 ```
 
+Now that we have the draws of logged RT values for real and nonce words when phonetic distance is 12, we can take the **difference** between the two and calculate the 80% CrI of that difference. We want the difference in milliseconds, rather than logged milliseconds, so we exponentiate the logged values before taking the difference.
+
 ```{r}
-mald_rt_preds_5 |> 
+#| label: mald-bm-3-preds-5-quant
+library(posterior)
+
+mald_3_preds_5 |> 
   mutate(
     word_nonword_5 = exp(non_word_5) - exp(word_5)
   ) |> 
@@ -221,10 +297,13 @@ mald_rt_preds_5 |>
   )
 ```
 
+At 80% confidence, when the phonetic distance is 12, RTs when the word is a nonce word are -17 ms shorter to 74 ms longer than when the word is a real word. We can also plot the posterior draws of the difference as we would with any posterior draws.
+
 ```{r}
+#| label: mald-bm-3-preds-5-plot
 library(ggdist)
 
-mald_rt_preds_5 |> 
+mald_3_preds_5 |> 
   mutate(
     word_nonword_5 = exp(non_word_5) - exp(word_5)
   ) |> 
