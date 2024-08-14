@@ -70,7 +70,7 @@ $$
 - $\alpha_{\text{W}[i]}$ is the mean RT value depending on `IsWord`.
 - $\beta$ is the change in RT for each unit increase of phonetic distance (`PhonLev`).
 
-The mathematical formula corresponds to the R formula `RT_log ~ 0 + IsWord + PhonLev`.
+The mathematical formula corresponds to the R formula `RT_log ~ 0 + IsWord + PhonLev`. Let's fit the regression model with this formula now.
 
 ```{r}
 #| label: mald-bm-1
@@ -85,34 +85,94 @@ mald_bm_1 <- brm(
 )
 ```
 
+Let's check the summary.
+
 ```{r}
 #| label: mald-bm-1-summ
 summary(mald_bm_1, prob = 0.8)
 ```
 
+- `IsWordTRUE` is the estimated logged RT when `IsWord` is `TRUE`: at 80% probability, it is between 6.55 and 6.61 logged milliseconds, i.e. 699 and 742 ms (`exp(6.55)` and `exp(6.61)`).
+- `IsWordFALSE` is the estimated logged RT when `IsWord` is `FALSE`: at 80% probability, it is between 6.66 and 6.72 logged milliseconds, i.e. 781 and 829 ms (`exp(6.66)` and `exp(6.72)`).
+- `PhonLev` is the estimated *change* in logged RTs for each *unit increase* of `PhonLev`: at 80% probability, when `PhonLev` increases by 1, logged RTs increase by 0.03 to 0.04 logged ms.
+
+Make sure you understand how to interpret the coefficients! A lot of learners of statistics get easily confused by this and when model start to become more complex, things will be even more difficult to disentangle.
+
+## Centring numeric predictors
+
+In `mald_bm_1`, the coefficients for `IsWord` are the estimated logged RT **when `PhonLev` is 0** and the coefficient for `PhonLev` is approximately the average change in logged RTs **across the two `IsWord` conditions**! This is a very important aspect of regression models with multiple predictors.
+
+Let's focus on the *when `PhonLev` is 0* part. In some cases, 0 for numeric predictors is meaningful (for example, if you are counting hand gestures of infants, a count of 0 makes sense, it just means that the infant did not produce any gesture), but in other cases 0 does not make sense: a typical example is duration or length, like segment duration. A segment, like a vowel, can't be 0 ms long: that would mean there is no vowel!
+
+In those cases where 0 is not meaningful for a numeric predictor, a typical approach is to **centre** that predictor.
+
+Centring is a transformation by which you subtract the mean value from all of the observations of the numeric predictor. Check the code below if it's not immediately clear how it works. The mean RT value in the data is about `r round(mean(mald$PhonLev))`.
 
 ```{r}
+#| label: phonlev-c
+
 mald <- mald |> 
   mutate(
+    # centre variable
     PhonLev_c = PhonLev - mean(PhonLev)
   )
 ```
 
+Let's plot both `PhonLev` and `PhonLev_c` to see what happened.
+
 ```{r}
-mald_rt_bm_noint <- brm(
+#| label: phonlev-plot
+#| layout-ncol: 2
+mald |> 
+  ggplot(aes(PhonLev)) +
+  geom_density() +
+  geom_rug(alpha = 0.1)
+
+mald |> 
+  ggplot(aes(PhonLev_c)) +
+  geom_density() +
+  geom_rug(alpha = 0.1)
+```
+
+You will see that the shape of the density distribution is unchanged, but the values on the *x*-axis are now different. If you compare the two plots, you will notice that in the centred version `0` lies at about the same spot that corresponds to `7` in the non-centred version. This makes sense, since centring transforms the data so that the mean (here, 7) becomes 0. The other values can be thought of as differences from the mean.
+
+If you include the centred `PhonLev_c` in the model, now the estimated logged RT for `IsWord` will be **when `PhonLev` is at its mean**. Why? Because they will be the estimates when `PhonLev_c` is 0, which corresponds to the mean `PhonLev` because of the centring transformation!
+
+Let's fit the model and check the summary.
+
+```{r}
+#| label: mald-bm-2
+#| 
+mald_bm_2 <- brm(
   RT_log ~ 0 + IsWord + PhonLev_c,
   family = gaussian,
   data = mald,
   seed = 9284,
   cores = 4,
-  file = "data/cache/mald_rt_bm_noint"
+  file = "data/cache/regression-interactions_mald_bm_2"
 )
+
+summary(mald_bm_2, prob = 0.8)
 ```
+
+The estimates of the coefficients `IsWordTRUE` and `IsWordFALSE` have changed: they are now somewhat higher than the estimates in `mald_bm_1`. This is because increasing phonetic distance increases RTs too: this means that estimated RTs when `PhonLev` is 0 will be lower than estimated RTs when `PhonLev` is at the mean of 7 (i.e. when `PhonLev_c` is at 0).
+
+You will also notice, however, that the estimated effect of `PhonLev_c` is the same as the estimated effect of `PhonLev`. This is because centring is a **linear** transformation: all values are changed in the same way and this does not affect the change in RTs for each unit increase of phonetic distance.
+
+Let's plot the predictions from this model with `conditional_effects()`.
 
 ```{r}
-conditional_effects(mald_rt_bm_noint, "PhonLev_c:IsWord")
+#| label: mald-bm-2-cond
+conditional_effects(mald_bm_2, "PhonLev_c:IsWord")
 ```
 
+We can tell that on average the RT for nonce words (`IsWord` = `FALSE`) are longer than those for real words (`IsWord` = `TRUE`). Moreover, increasing phonetic distance corresponds to increasing RT values: the more unique a word is, the longer it takes to make a lexical decision.
+
+But you will also notice something: the estimated regression lines in the two `IsWord` conditions have exactly the same slope, meaning that the effect of phonetic distance is the same in both conditions.
+
+This doesn't seem to be right when comparing this with the plot we made above, using the raw data. While comparing raw and estimated data is not always straightforward, here we are missing an important tool in our model that creates the discrepancy: **predictor interactions** (or simply, interactions).
+
+## Interactions: categorical * numeric
 
 ```{r}
 mald_rt_bm <- brm(
