@@ -1,0 +1,99 @@
+---
+title: "Regression models: interactions between categorical predictors"
+description: "Add and interpret interactions of two categorical predictors"
+author: "Stefano Coretta"
+date: 2024-08-015
+execute: 
+  freeze: auto
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+    embed-resources: true 
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(webexercises)
+library(tidyverse)
+library(brms)
+```
+
+::: callout-warning
+## Prerequisites
+
+- [Regression models: interactions](regression-interactions.qmd).
+:::
+
+## Introduction
+
+Here you will learn how to include interactions between categorical predictors and how to interpret the output. Relative to categorical-numeric interactions, categorical-categorical interactions are easier to interpret: you basically just get a coefficient for each combination of each level in the two categorical predictors and all of these coefficients can be though of as intercepts.
+
+## The data: Song 2020
+
+Let's read the data.
+
+```{r}
+#| label: shallow
+
+library(tidyverse)
+
+shallow <- read_csv("data/song2020/shallow.csv") |> 
+  filter(Critical_Filler == "Critical", RT > 0)
+```
+
+```{r}
+shallow |> 
+  ggplot(aes(Relation_type, RT)) +
+  geom_jitter(width = 0.2, alpha = 0.3) +
+  stat_summary(fun.data = "mean_cl_boot", aes(colour = Relation_type)) +
+  facet_grid(cols = vars(Group)) +
+  theme(legend.position = "none")
+```
+
+```{r}
+shallow_bm <- brm(
+  logRT ~ 0 + Relation_type:Group,
+  family = gaussian,
+  data = shallow,
+  file = "data/cache/regression-interactions-catcat_shallow_bm",
+  cores = 4,
+  seed = 6237
+)
+```
+
+```{r}
+summary(shallow_bm, prob = 0.8)
+```
+
+```{r}
+conditional_effects(shallow_bm, "Group:Relation_type")
+```
+
+```{r}
+shallow_bm_draws <- as_draws_df(shallow_bm)
+```
+
+```{r}
+shallow_bm_diff <- shallow_bm_draws |> 
+  mutate(
+    L1_NCU = mean(c(`b_Relation_typeNonConstituent:GroupL1`, `b_Relation_typeUnrelated:GroupL1`)),
+    L2_NCU = mean(c(`b_Relation_typeNonConstituent:GroupL2`, `b_Relation_typeUnrelated:GroupL2`)),
+    L1_diff = L1_NCU - `b_Relation_typeConstituent:GroupL1`,
+    L2_diff = L2_NCU - `b_Relation_typeConstituent:GroupL2`,
+    L2_L1_diff = L2_diff - L1_diff
+  )
+```
+
+```{r}
+library(posterior)
+
+shallow_bm_diff |> 
+  summarise(
+    lo_80 = exp(quantile2(L2_L1_diff, prob = 0.1)),
+    hi_80 = exp(quantile2(L2_L1_diff, prob = 0.9)),
+    lo_80 = round(lo_80, 2), hi_80 = round(hi_80, 2),
+  )
+```
+
