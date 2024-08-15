@@ -223,9 +223,22 @@ summary(mald_bm_3, prob = 0.8)
 - `IsWordTRUE:PhonLev_c`: the estimated change in RT for each unit increase of `PhonLev_c` when `IsWord` is `TRUE`.
 - `IsWordFALSE:PhonLev_c`: the estimated change in RT for each unit increase of `PhonLev_c` when `IsWord` is `FALSE`.
 
+Let's transform the estimates to milliseconds (for `IsWord`) and percentage change (for the interaction with `PhoneLev_c`).
+
+```{r}
+#| label: mald-bm-3-trans
+
+round(exp(c(6.82, 6.83)))
+round(exp(c(6.93, 6.94)))
+round(exp(c(0.04, 0.05)), 2)
+round(exp(c(0.02, 0.03)), 2)
+```
+
 You can report the results of this model like so:
 
-> 
+> We fitted a Bayesian regression with logged reaction times (RTs) as the outcome variable and a Gaussian distribution as the distribution of the outcome. As predictors, we included lexical status (`IsWord`, categorical, coded as `TRUE` for real words and `FALSE` for nonce words) and an interaction between lexical status and phonetic distance (`PhonLev_c`, numeric centred). The categorical predictor of lexical status was coded using indexing by suppressing the model intercept with the `0 +` syntax. See @tab-bm-3 for the coefficient estimates.
+>
+> Based on the model, at mean phonetic distance, RTs are between 916 and 925 ms when the word is a real word and between 1022 and 1033 ms when the word is a nonce word, at 80% confidence. For each unit increase of phonetic distance, RTs increase by 4-5% with real words and by 2-3% with nonce words, at 80% probability.
 
 And now, the visual proof that including an interaction allows the model to adjust the effect of phonetic distance.
 
@@ -297,7 +310,11 @@ mald_3_preds_5 |>
   )
 ```
 
-At 80% confidence, when the phonetic distance is 12, RTs when the word is a nonce word are -17 ms shorter to 74 ms longer than when the word is a real word. We can also plot the posterior draws of the difference as we would with any posterior draws.
+You could add the report above:
+
+> At 80% confidence, when the phonetic distance is 12, RTs when the word is a nonce word are -17 ms shorter to 74 ms longer than when the word is a real word. 
+
+We can also plot the posterior draws of the difference as we would with any posterior draws.
 
 ```{r}
 #| label: mald-bm-3-preds-5-plot
