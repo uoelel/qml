@@ -43,7 +43,10 @@ shallow <- read_csv("data/song2020/shallow.csv") |>
   filter(Critical_Filler == "Critical", RT > 0)
 ```
 
+We will be looking at RTs and relation type in L1 and L2 participants. Let's plot the RTs.
+
 ```{r}
+#| label: shallow-plot
 shallow |> 
   ggplot(aes(Relation_type, RT)) +
   geom_jitter(width = 0.2, alpha = 0.3) +
@@ -52,7 +55,19 @@ shallow |>
   theme(legend.position = "none")
 ```
 
+The means marked by coloured points in the plot suggest there might be a smaller difference in RTs between constituent and non-constituent/unrelated in the L2 than in the L1 group.
+
+An interesting question we can ask is how much smaller is the difference in the L1 group compared to the L2 group. We can fit a regression model and wrangle the posterior draws to answer that question.
+
+## The model
+
+We want to allow the model to estimate mean RTs for each combination of relation type (`Relation_type`) and group (`Group`). Both predictors are categorical. We can achieve this by including an interaction term between the two categorical predictors: `Relation_type:Group`.
+
+When both predictors are categorical, you only need the interaction term when suppressing the intercept with `0 +`. The model will estimate a coefficient for each combination of levels in the two predictors.
+
 ```{r}
+#| label: shallow-bm
+
 shallow_bm <- brm(
   logRT ~ 0 + Relation_type:Group,
   family = gaussian,
@@ -63,37 +78,70 @@ shallow_bm <- brm(
 )
 ```
 
+Check out the summary of the model. You will find 6 regression coefficients: 3 relation types (Constituent, Non-constituent, Unrelated) * 2 groups (L1 and L2).
+
 ```{r}
+#| label: shallow-bm-summ
 summary(shallow_bm, prob = 0.8)
 ```
 
+We can easily plot this with `conditional_effects()`, like so.
+
 ```{r}
+#| label: shallow-bm-cond
 conditional_effects(shallow_bm, "Group:Relation_type")
 ```
 
+Inspection of the estimated RTs for each relation type in the two groups suggests the difference between constituent and non-constituent/unrelated is larger in L1 than in L2 participants. Let's calculate the difference in the two groups and then the difference between these differences.
+
+## Get the difference of differences
+
+As usual, we need to obtain the posterior draws.
+
 ```{r}
+#| label: shallo-bm-draws
 shallow_bm_draws <- as_draws_df(shallow_bm)
 ```
 
-```{r}
-shallow_bm_diff <- shallow_bm_draws |> 
-  mutate(
-    L1_NCU = mean(c(`b_Relation_typeNonConstituent:GroupL1`, `b_Relation_typeUnrelated:GroupL1`)),
-    L2_NCU = mean(c(`b_Relation_typeNonConstituent:GroupL2`, `b_Relation_typeUnrelated:GroupL2`)),
-    L1_diff = L1_NCU - `b_Relation_typeConstituent:GroupL1`,
-    L2_diff = L2_NCU - `b_Relation_typeConstituent:GroupL2`,
-    L2_L1_diff = L2_diff - L1_diff
-  )
-```
+Now, to get the difference between constituent and non-constituent/unrelated:
+
+1. We must first get the mean of the non-constituent and unrelated relation types.
+2. Then we can take the difference between the exponentiated posterior draws of the constituent type and the exponentiated posterior draws of the mean non-constituent/unrelated type. The exponentiation transforms the draws from logged ms to ms and then we take the difference.
+3. Finally, we take the difference between the calculated differences in ms.
+
+Run the code and inspect the `shallow_bm_diff` tibble to understand what is going on.
 
 ```{r}
+#| label: shallow-bm-diff
+shallow_bm_diff <- shallow_bm_draws |> 
+  mutate(
+    # 1. Mean non-constituent/unrelated for L1 and L2
+    L1_NCU = mean(c(`b_Relation_typeNonConstituent:GroupL1`, `b_Relation_typeUnrelated:GroupL1`)),
+    L2_NCU = mean(c(`b_Relation_typeNonConstituent:GroupL2`, `b_Relation_typeUnrelated:GroupL2`)),
+    
+    # 2. Difference between non-constituent/unrelated and constituent
+    L1_diff = exp(L1_NCU) - exp(`b_Relation_typeConstituent:GroupL1`),
+    L2_diff = exp(L2_NCU) - exp(`b_Relation_typeConstituent:GroupL2`),
+    
+    # 3. Difference of difference
+    L2_L1_diff = L2_diff - L1_diff
+  )
+shallow_bm_diff |> 
+  select(L1_NCU:L2_L1_diff)
+```
+
+The column `L2_L1_diff` contains the posterior draws of the difference between the constituent and non-constituent/unrelated type in the two groups. We can proceed as usual, like with any other posterior, and calculate the CrI of this difference of differences.
+
+```{r}
+#| label: shallow-bm-diff-post
 library(posterior)
 
 shallow_bm_diff |> 
   summarise(
-    lo_80 = exp(quantile2(L2_L1_diff, prob = 0.1)),
-    hi_80 = exp(quantile2(L2_L1_diff, prob = 0.9)),
-    lo_80 = round(lo_80, 2), hi_80 = round(hi_80, 2),
+    lo_80 = quantile2(L2_L1_diff, prob = 0.1),
+    hi_80 = quantile2(L2_L1_diff, prob = 0.9),
+    lo_80 = round(lo_80), hi_80 = round(hi_80),
   )
 ```
 
+Here, at 80% confidence, the difference between constituent and non-constituent/unrelated types in the L2 group is 6 to 53 ms smaller than the difference in the L1 group.
