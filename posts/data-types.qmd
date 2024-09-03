@@ -22,7 +22,7 @@ library(webexercises)
 ::: callout-warning
 #### Pre-requisites
 
--   [posts/intro-quarto.qmd](posts/intro-quarto.qmd)
+-   [Introduction to Quarto](intro-quarto.qmd)
 :::
 
 ## Tabular data

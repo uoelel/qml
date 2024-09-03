@@ -70,7 +70,7 @@ It's always good to inspect the summary to make sure the model is the correct on
 summary(hnr_bm, prob = 0.8)
 ```
 
-The `Regression Coefficients` table includes `Intercept` and `attitudepolite` which is what we expect from the model formula and data. We are good to go!
+The `Regression Coefficients` table includes `Intercept` and `attitudepoliteite` which is what we expect from the model formula and data. We are good to go!
 
 Now we can extract the MCMC draws from the model using the `as_draws_df()` function.
 
@@ -107,7 +107,7 @@ So:
 
 ## Summaries and plotting of posterior draws
 
-The `Regression Coefficients` table reports summaries of the distribution of the drawn values of `b_Intercept` and `b_attitudepol`. These summary measures are the mean (`Estimate`), the standard deviation (`Est.error`) and the lower and upper limits of the credible interval.
+The `Regression Coefficients` table reports summaries of the distribution of the drawn values of `b_Intercept` and `b_attitudepolite`. These summary measures are the mean (`Estimate`), the standard deviation (`Est.error`) and the lower and upper limits of the credible interval.
 
 We can of course obtain those same measures ourselves from the draws tibble!
 
@@ -118,7 +118,7 @@ library(posterior)
 
 hnr_bm_draws |> 
   select(-sigma) |> 
-  pivot_longer(b_Intercept:b_attitudepol) |> 
+  pivot_longer(b_Intercept:b_attitudepolite) |> 
   group_by(name) |> 
   summarise(
     mean = mean(value), sd = sd(value),
@@ -132,13 +132,13 @@ hnr_bm_draws |>
 
 Hopefully now it is clear where the values in the `Regression Coefficient` table come from and how these are related to the MCMC draws.
 
-Next we can plot the (posterior) probability distribution of the draws for any parameter. Let's plot `b_attitudepol`. This will be the posterior probability density of the difference in HNR between the polite and informal attitude.
+Next we can plot the (posterior) probability distribution of the draws for any parameter. Let's plot `b_attitudepolite`. This will be the posterior probability density of the difference in HNR between the polite and informal attitude.
 
 ```{r}
 #| label: hnr-bm-draws-plot
 
 hnr_bm_draws |>
-  ggplot(aes(b_attitudepol)) +
+  ggplot(aes(b_attitudepolite)) +
   geom_density() +
   geom_rug(alpha = 0.2)
 ```
@@ -159,7 +159,7 @@ $$
 
 When `is_polite` is 0, attitude is informal and we have $\mu = \beta_0$. When `is_polite` is 1, attitude is polite and we have $\mu = \beta_0 + \beta_1$.
 
-So, to get the predicted HNR when attitude is polite, we just need to sum `b_Intercept` ($\beta_0$) and `b_attitudepol` ($\beta_1$).
+So, to get the predicted HNR when attitude is polite, we just need to sum `b_Intercept` ($\beta_0$) and `b_attitudepolite` ($\beta_1$).
 
 ```{r}
 #| label: hnr-bm-draws-pred
@@ -169,13 +169,13 @@ hnr_bm_draws_pred <- hnr_bm_draws |>
     # predicted HNR for informal attitude
     informal = b_Intercept,
     # predicted HNR for polite attitude
-    polite = b_Intercept + b_attitudepol
+    polite = b_Intercept + b_attitudepolite
   )
 
 hnr_bm_draws_pred
 ```
 
-The sum operation is applied row-wise, to each draw. So, for `polite`, the value of `b_Intercept` at draw 1 is added to the value of `b_attitudepol` at draw 1, and so on. You end up with a list of sums that has the same length as the initial draws (here, 4000, i.e. 1000 per chain!). Then you can summarise and plot this new list as you did with the `b_` coefficients.
+The sum operation is applied row-wise, to each draw. So, for `polite`, the value of `b_Intercept` at draw 1 is added to the value of `b_attitudepolite` at draw 1, and so on. You end up with a list of sums that has the same length as the initial draws (here, 4000, i.e. 1000 per chain!). Then you can summarise and plot this new list as you did with the `b_` coefficients.
 
 To make that easier, let's pivot longer.
 

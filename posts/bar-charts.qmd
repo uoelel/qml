@@ -1,7 +1,6 @@
 ---
 title: "Bar charts"
 subtitle: "Learn how to plot bar charts with ggplot2"
-editor: visual
 format: 
   html:
     css: [webex.css]

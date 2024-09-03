@@ -9,7 +9,7 @@ date: 2024-06-03
 
 ```{r}
 #| label: setup
-
+library(brms)
 ```
 
 **Regression models** (also called linear models or linear regression models) are a type of statistical model.
