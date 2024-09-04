@@ -12,7 +12,7 @@ However, the seminars will have a different major theme each week, which you wil
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences.
 
 | Week | Seminar                                                           | Lab                       |
-|----------------|----------------------------|----------------------------|
+|------|-------------------------------------------------------------------|---------------------------|
 | 1    | Welcome and practicalities                                        | Learn the basics          |
 | 2    | More than numbers: quantitative methods and uncertainty           | Challenge 1               |
 | 3    | The research process: research ethics and questionable practices  | Challenge 2               |

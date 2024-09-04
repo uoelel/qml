@@ -1,12 +1,14 @@
 ## Assessment overview
 
-This course will be **self-assessed on the basis of a portfolio** consisting of weekly-self reflections and a group project.
+This course will be **self-assessed on the basis of a portfolio** consisting of weekly-self reflections and a group project.[^assessments-1]
+
+[^assessments-1]: Some of the text on this page is from Itamar Kastner's [Morphology course site](https://itamarkast.github.io/UoEmorphology/assessment.html).
 
 ## Portfolio
 
 Learning is an active process: it happens best when we're all engaged. Learning is also something that we can learn how to do better. Think of a hobby you might have or a skill you've learned: you've probably perfected it for a while, paying close attention to what did or didn't work.
 
-That's why both students and the instructor will reflect on how the course is going and what they've learned. After each class we'll all write short self-reflections. I'll also comment on yours and you'll be able to comment on mine. Together, these will form our **Portfolios**. At the mid-term point and at the end of the semester, we'll take stock of what we've learned, as documented in the Portfolio.
+That's why both students and the instructor (Stefano) will reflect on how the course is going and what they've learned. After each class we'll all write short self-reflections. I'll also comment on yours and you'll be able to comment on mine. Together, these will form our **Portfolios**. At the mid-term point and at the end of the semester, we'll take stock of what we've learned, as documented in the Portfolio.
 
 Each of us will have our own Portfolio on Learn. The tutors and I will be able to see your Portfolio, but you won't be able to see other students' Portfolios. My Portfolio (the instructor's) will be visible to all and you will also be able to comment on it.
 
@@ -18,15 +20,27 @@ After every class you'll need to write one self-reflection in the Portfolio on L
 
 What happens is:
 
-1. We have class.
-2. We reflect on what we've learned and what our expectations are for next class.
-3. We write down brief reflections (1-paragraph) in one entry in the Portfolio on Learn, e.g. one titled "Week 1 Seminar", "Week 1 Lab", and so on.
-4. I comment on your reflections, and you might comment on mine.
-6. I might also give general feedback in a collaborative discussion in class or via Learn announcements.
+1.  We have class.
+2.  We reflect on what we've learned and what our expectations are for next class.
+3.  We write down brief reflections (1-paragraph) in one entry in the Portfolio on Learn, e.g. one titled "Week 1 Seminar", "Week 1 Lab", and so on.
+4.  I comment on your reflections, and you might comment on mine.
+5.  I might also give general feedback in a collaborative discussion in class or via Learn announcements.
 
 In sum: after any given class, you'll write a short self-reflection. Within a reasonable amount of time, I'll react to these.
 
 ### Group project
+
+As part of the assessment you will have to work on a **group project**.
+
+This project can be anything (some ideas below) so there isn't a "submission" as such. Rather, you will have to reflect on your experience with your group project. The reflection should also contain the "product" of your group project, either as an attachment or as a link (since the group project can be anything).
+
+Some ideas for group projects:
+
+-   Pick a linguistic question that interests you and run a mini quantitative study (this could well be a study where you also act as participants).
+
+-   Find a linguistic topic and collect published effects from the relevant literature (the first step towards a full meta-analysis).
+
+-   Design exercises and/or tutorials for the course using linguistic data.
 
 ## Feedback and marking
 
@@ -52,7 +66,7 @@ To help you thinking about which mark to assign yourself, we will use an "impres
 Once you pick a mark band, you need to pick a step within that band. Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:
 
 | Step | Criteria                                                                            |
-|:-------:|---------------------------------------------------------------|
+|:------------:|---------------------------------------------------------|
 |  2   | The criteria for the mark band have been achieved, but there might be minor issues. |
 |  5   | The criteria for the mark band have been achieved satisfactorily.                   |
 |  8   | The criteria for the mark band have been achieved fully.                            |
