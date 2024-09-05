@@ -1,40 +1,54 @@
 ## Assessment overview
 
-This course will be **self-assessed on the basis of a portfolio** consisting of weekly-self reflections and a group project.[^assessments-1]
+This course will be **self-assessed on the basis of a portfolio** consisting of a Reflective Journal and a Group Project (including a Final Reflection).[^assessments-1]
 
 [^assessments-1]: Some of the text on this page is from Itamar Kastner's [Morphology course site](https://itamarkast.github.io/UoEmorphology/assessment.html).
 
-## Portfolio
+## Reflective Journal
+
+::: callout-important
+### Deadlines
+
+-   You should post your self-reflection **each week after you have attended** your classes.
+
+-   There isn't a hard deadline and if necessary you can skip a week and post two reflections the week after.
+:::
 
 Learning is an active process: it happens best when we're all engaged. Learning is also something that we can learn how to do better. Think of a hobby you might have or a skill you've learned: you've probably perfected it for a while, paying close attention to what did or didn't work.
 
-That's why both students and the instructor (Stefano) will reflect on how the course is going and what they've learned. After each class we'll all write short self-reflections. I'll also comment on yours and you'll be able to comment on mine. Together, these will form our **Portfolios**. At the mid-term point and at the end of the semester, we'll take stock of what we've learned, as documented in the Portfolio.
+That's why both students and the lecturer (Stefano) will reflect on how the course is going and what they've learned. After each class we'll all write short self-reflections in the **Reflective Journal**. I'll also comment on yours and you'll be able to comment on mine.
 
-Each of us will have our own Portfolio on Learn. The tutors and I will be able to see your Portfolio, but you won't be able to see other students' Portfolios. My Portfolio (the instructor's) will be visible to all and you will also be able to comment on it.
-
-Your Portfolio will have a list of entries which will be your **weekly self-reflections** and the **group project reflection**.
+Each of us will have our own Reflective Journal on Learn. The tutors and I will be able to see your Reflective Journal, but you won't be able to see other students' Journals. My Journal (the lecturer's) will be visible to all and you will also be able to comment on it.
 
 ### Weekly self-reflections
 
-After every class you'll need to write one self-reflection in the Portfolio on Learn. Afterwards you need to read my feedback on your entries.
+After every class you'll need to write one self-reflection in the Reflective Journal on Learn. Afterwards you need to read my feedback on your entries.
 
 What happens is:
 
 1.  We have class.
 2.  We reflect on what we've learned and what our expectations are for next class.
-3.  We write down brief reflections (1-paragraph) in one entry in the Portfolio on Learn, e.g. one titled "Week 1 Seminar", "Week 1 Lab", and so on.
+3.  We write down brief reflections (1-paragraph) in one entry in the Reflective Journal on Learn, e.g. one titled "Week 1 Seminar", "Week 1 Lab", and so on.
 4.  I comment on your reflections, and you might comment on mine.
 5.  I might also give general feedback in a collaborative discussion in class or via Learn announcements.
 
 In sum: after any given class, you'll write a short self-reflection. Within a reasonable amount of time, I'll react to these.
 
-### Group project
+## Group project and Final Reflection
 
-As part of the assessment you will have to work on a **group project**.
+::: callout-important
+### Deadline
 
-This project can be anything (some ideas below) so there isn't a "submission" as such. Rather, you will have to reflect on your experience with your group project. The reflection should also contain the "product" of your group project, either as an attachment or as a link (since the group project can be anything).
+-   You must submit your Final Reflection, including the product of your Group Project (see details below) by **Thursday 12 December at noon** on Learn \> Assessment.
+:::
 
-Some ideas for group projects:
+As part of the assessment you will have to work on a **Group Project**.
+
+This project can be anything (some ideas below) so the structure of what you will have to submit differs depending on what you end up doing.
+
+Independent of the type of project, you will have to write a **Final Reflection** on your experience with the course and with working on you Group Project. This reflection is what you submit to Learn by the deadline. The reflection should contain the "product" of your Group Project, either as text following the reflection or as a link (since the Group Project can be anything).
+
+Some ideas for Group Projects:
 
 -   Pick a linguistic question that interests you and run a mini quantitative study (this could well be a study where you also act as participants).
 
@@ -46,24 +60,28 @@ Some ideas for group projects:
 
 **Feedback** will be provided to you (1) during class, (2) as comments on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me and/or the tutors).
 
-This course is **self-assessed with co-moderation,** which means that at the end of the course you will assign yourself a mark and the mark will be moderated in conversation between you and the Course Organiser.
+This course is **self-assessed with co-moderation,** which means that at the end of the course you will assign yourself a mark and the mark will be moderated in conversation between you and the Lecturer (Stefano)/Tutors. The conversation will happen either in a meeting or via email:
+
+-   **If you would like to have a conversation**, I will arrange 15-minute meetings the week of December 16.
+
+-   **If you don't want to have a conversation**, me or the Tutors will get in touch with you via email *only in the case that adjustments* to the mark have to be made (which in the experience of other colleagues using this approach happens quite rarely!).
 
 ::: callout-note
 ### Self-assessment with co-moderation
 
--   Based on your learning, you assign yourself a mark (see section on impression-based step marking.
+-   Based on your learning, you assign yourself a mark (see section on impression-based step marking) when submitting the Final Reflection (by December 12).
 
--   The Course Organiser will moderate the self-assigned mark as part of a dialogue with you.
+-   The Course Organiser/Tutors will moderate the self-assigned mark as part of a dialogue with you.
 :::
 
-### Impression-based step marking
+### Impression-based step-marking
 
-To help you thinking about which mark to assign yourself, we will use an "impression-based step marking" procedure. The procedure works as follows:
+To help you thinking about which mark to assign yourself, we will use an "impression-based step-marking" procedure. The procedure works as follows:
 
 -   First, think about the mark band you think you deserve.
 -   Then, choose a step within the band (see below for an explanation).
 
-Once you pick a mark band, you need to pick a step within that band. Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:
+Once you pick a mark band, you need to pick a step within that band. You can find a description of the bands here: [Extended Common Marking Scheme](https://registryservices.ed.ac.uk/timetabling-examinations/exams/regulations/common-marking-scheme). Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:
 
 | Step | Criteria                                                                            |
 |:------------:|---------------------------------------------------------|
