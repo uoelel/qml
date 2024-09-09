@@ -16,6 +16,12 @@ date: 2024-07-10
 library(tidyverse)
 ```
 
+::: callout-warning
+#### Prerequisites
+
+-   [Data types](data-types.qmd)
+:::
+
 ## Reading multiple files at once
 
 An important skill to learn is how to read multiple files at once and save the output into a single tibble/data frame.
@@ -92,3 +98,4 @@ tongue
 If you are wondering what `na = "*"` does, it just tells R that cells with `*` in them should be treated as NAs.
 
 Fab! Now you have a single tibble, `tongue` with data from all the files!
+

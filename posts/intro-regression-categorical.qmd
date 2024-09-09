@@ -9,7 +9,7 @@ format:
   html:
     css: [webex.css]
     include-after-body: [webex.js]
-    embed-resources: true 
+    embed-resources: false
 ---
 
 ```{r}
@@ -268,3 +268,10 @@ You could report these results in the following way:
 
 To obtain that, we need to do a bit of data wrangling with the model draws. You can learn about it in [Working with MCMC draws](regression-draws.qmd).
 
+::: callout-note
+#### Next
+
+- [Regression models: working with MCMC draws](regression-draws.qmd)
+- [Regression: Indexing of categorical predictors](regression-indexing.qmd)
+
+:::

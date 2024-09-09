@@ -157,3 +157,9 @@ opts_1 <- c(
 cat("Which of the following is an absolute path?", longmcq(opts_1))
 ```
 :::
+
+::: callout-note
+## Next
+
+-   [R basics](r-basics.qmd)
+:::

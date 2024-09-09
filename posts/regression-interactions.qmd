@@ -9,7 +9,7 @@ format:
   html:
     css: [webex.css]
     include-after-body: [webex.js]
-    embed-resources: true 
+    embed-resources: false
 ---
 
 ```{r}

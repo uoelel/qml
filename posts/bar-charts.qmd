@@ -17,6 +17,12 @@ library(tidyverse)
 library(webexercises)
 ```
 
+::: callout-warning
+#### Prerequisites
+
+- [Plotting basics in R](plotting-basics.qmd)
+:::
+
 ## Bar charts
 
 ::: callout-tip

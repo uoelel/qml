@@ -21,6 +21,12 @@ library(tidyverse)
 library(webexercises)
 ```
 
+::: callout-warning
+#### Prerequisites
+
+-   [Introduction to plotting](intro-plotting.qmd)
+:::
+
 ## Plotting basics
 
 Plotting data in R is easy once you understand the basics.
@@ -410,4 +416,10 @@ That's all for this week!
     -   Geometries map data values onto shapes in the plot. All geometry functions are of the type `geom_*()`.
 
 -   **Scatter plots** are created with `geom_point()` and can be used with two numeric variables.
+:::
+
+::: callout-note
+## Next
+
+-   [Bar charts](bar-charts.qmd)
 :::

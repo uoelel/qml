@@ -126,3 +126,9 @@ avg_comparisons(m_i, variables = "c2_phonation")
 ```
 
 So based on the model and data, vowels followed by voiceless consonants are 7-14.5 ms shorter than vowels followed by voiced stops, at 95% probability.
+
+::: callout-note
+#### Next
+
+- [Regression models: interactions](regression-interactions.qmd)
+:::

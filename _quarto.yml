@@ -35,6 +35,7 @@ format:
     toc: true
     df-print: paged
     number-sections: true
+    embed-resources: false
 
 callout-icon: false
 

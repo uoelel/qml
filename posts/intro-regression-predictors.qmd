@@ -307,3 +307,9 @@ If you wish to include the raw data in the plot, you can wrap `conditional_effec
 
 plot(conditional_effects(vow_bm, effects = "speech_rate"), points = TRUE, point_args = list(alpha = 0.1))
 ```
+
+::: callout-note
+#### Next
+
+- [Introduction to regression models (Part III): include categorical predictors](intro-regression-categorical)
+:::

@@ -9,7 +9,7 @@ format:
   html:
     css: [webex.css]
     include-after-body: [webex.js]
-    embed-resources: true 
+    embed-resources: false
 ---
 
 ```{r}
@@ -18,6 +18,12 @@ format:
 
 library(webexercises)
 ```
+
+::: callout-warning
+#### Prerequisites
+
+- [Computer basics](computer-basics.qmd)
+:::
 
 ## Why R?
 
@@ -638,4 +644,11 @@ Here's a summary of what you learnt.
 If you are interested in learning about programming in R, I recommend you go through Chapters 26-28 of the [R4DS](https://r4ds.hadley.nz/functions) book and the [Advanced R](https://adv-r.hadley.nz) book.
 
 Note that these topics are not covered in the course, nor will be assessed.
+:::
+
+::: callout-note
+#### Next
+
+- [Introduction to Quarto](intro-quarto.qmd)
+- [Troubleshooting](r-troubleshooting.qmd)
 :::

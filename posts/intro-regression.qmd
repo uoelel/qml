@@ -5,6 +5,12 @@ author: "Stefano Coretta"
 date: 2024-06-03
 ---
 
+::: callout-warning
+#### Prerequisites
+
+- [Data types](data-types.qmd)
+:::
+
 ## Regression (to the mean)
 
 ```{r}
@@ -149,4 +155,11 @@ We could report the model and the results like this.
 We fitted a Bayesian regression using the brms package [XXX] in R [XXX]. The outcome variable was height and we did not include any predictor, to estimate the overall mean and standard deviation of height.
 
 Based on the model results, there is a 95% probability that the mean is between `{r} round(fixef(h_1)[3])` and `{r} round(fixef(h_1)[4])` cm and that the standard deviation is between `{r} round(posterior_summary(h_1)["sigma", "Q2.5"], 1)` and `{r} round(posterior_summary(h_1)["sigma", "Q97.5"], 1)` cm.
+:::
+
+::: callout-note
+#### Next
+
+- [Introduction to regression models (Part II): include numeric predictors](intro-regression-predictors.qmd)
+
 :::
