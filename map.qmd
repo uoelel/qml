@@ -2,3 +2,7 @@
 title: "The Adventurer's Map"
 editor: visual
 ---
+
+Here you can find the "Adventurer's Map" to the course. The Map shows the pathways you can take among the [Notebook](notebook.qmd) entries. This Map will grow throughout the semester as new entries are added to the Notebook.
+
+{{< pdf posts/map.pdf width=100% height=600 >}}
