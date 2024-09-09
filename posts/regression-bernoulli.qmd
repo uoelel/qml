@@ -1,0 +1,105 @@
+---
+title: "Regression: binary outcome variables"
+description: "Learn how to fit regression models with binary outcome variable using the Bernoulli/binomial distribution"
+author: ["Stefano Coretta", "Elizabeth Pankratz"]
+date: 2024-09-09
+execute: 
+  freeze: auto
+draft: true
+---
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+theme_set(theme_light())
+library(brms)
+```
+
+
+::: callout-warning
+## Prerequisites
+
+- [Regression: Indexing of categorical predictors](regression-indexing.qmd).
+:::
+
+## Binary outcomes and the Bernoulli family
+
+$$
+\begin{align}
+\text{Num_Preds} & \sim Bernoulli(p) \\
+logit(p) & = \beta_0 + \beta_1 \cdot \text{Stim} \\
+\beta_0 & \sim Gaussian(\mu_0, \sigma_0) \\
+\beta_1 & \sim Gaussian(\mu_1, \sigma_1)
+\end{align}
+$$
+
+## Probability and log-odds
+
+![](../img/numberline_odds.png)
+
+![](img/numberline_logodds.png)
+
+```{r p-log-odds}
+dots <- tibble(
+  p = seq(0.1, 0.9, by = 0.1),
+  log_odds = qlogis(p)
+)
+
+p_log_odds <- tibble(
+  p = seq(0, 1, by = 0.001),
+  log_odds = qlogis(p)
+) %>%
+  ggplot(aes(log_odds, p)) +
+  geom_hline(yintercept = 0.5, linetype = "dashed") +
+  geom_hline(yintercept = 0, colour = "#8856a7", linewidth = 1) +
+  geom_hline(yintercept = 1, colour = "#8856a7", linewidth = 1) +
+  geom_vline(xintercept = 0, alpha = 0.5) +
+  geom_line(size = 2) +
+  # geom_point(data = dots, size = 4) +
+  geom_point(x = 0, y = 0.5, colour = "#8856a7", size = 4) +
+  annotate("text", x = -4, y = 0.8, label = "p = logit(log-odds)") +
+  scale_x_continuous(breaks = seq(-6, 6, by = 1), minor_breaks = NULL, limits = c(-6, 6)) +
+  scale_y_continuous(breaks = seq(0, 1, by = 0.1), minor_breaks = NULL) +
+  labs(
+    title = "Correspondence between log-odds and probabilities",
+    x = "Log-odds",
+    y = "Probability"
+  )
+p_log_odds
+```
+
+## Fitting a Bernoulli model
+
+```{r}
+verb_org <- read_csv("data/brentari2024/verb_org.csv") |> 
+  mutate(
+    Num_Predicates = factor(Num_Predicates, levels = c("single", "multiple"))
+  )
+```
+
+```{r}
+verb_org |> 
+  ggplot(aes(Group, fill = Num_Predicates)) +
+  geom_bar(position = "fill")
+```
+
+```{r}
+mvp_bm <- brm(
+  Num_Predicates ~ 0 + Group,
+  family = bernoulli,
+  data = verb_org,
+  cores = 4,
+  seed = 1329,
+  file = "data/cache/regression-bernoulli_mvp_bm"
+)
+```
+
+```{r}
+summary(mvp_bm, prob = 0.8)
+```
+
+
+```{r}
+conditional_effects(mvp_bm)
+```

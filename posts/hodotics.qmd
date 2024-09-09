@@ -1,5 +1,5 @@
 ---
-title: "Research Methods"
+title: "Research Methods and Hodotics"
 description: "Research Methods are about the theory, methods and practice of conducting research"
 author: "Stefano Coretta"
 date: 2024-06-03
