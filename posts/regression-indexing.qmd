@@ -99,6 +99,13 @@ Now, `c2_phonationvoiced` is the mean vowel duration when the following consonan
 
 ## Fitting a model with indexing
 
+$$
+\begin{align}
+vdur_i & \sim LogNormal(\mu_i, \sigma) \\
+\mu_i & = \alpha_{\text{Phon}[i]} \\
+\end{align}
+$$
+
 ```{r}
 m_i <- brm(
   v1_duration ~ 0 + c2_phonation,
