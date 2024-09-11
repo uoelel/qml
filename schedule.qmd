@@ -5,14 +5,26 @@ editor: visual
 
 ## Schedule overview
 
-The course is structured in a "choose your own adventure" format, so there isn't a set content for each week.
+The course is structured in a "**choose your own adventure**" format, so there isn't a set content for each week.
 
-However, the seminars will have a different major theme each week, which you will have to research and discuss in groups in class.
+**Each week**, you will attend two classes:
+
+-   A **one-hour seminar**.
+
+-   A **two-hour lab**.
+
+(Note that you are divided in two groups, so that the seminar and lab run twice each week, you just need to attend one of the seminars and one of the labs each week).
+
+The **seminars** will have a different major theme each week, which you will have to research before class and discuss in groups in class.
+
+The **labs** will create the opportunity for you to practice quantitative data analysis with R. Each week you will pick a "challenge" from a list or come up with your own challenge and work towards solving it using R. More details will be shared soon.
+
+As part of the [Assessment](assessment.qmd), you will have to complete a **group project**. You can start working on the project any time during the course, but the last two labs will be dedicated to working on your project while being able to get help from the instructor (Stefano) and the Tutors.
 
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences.
 
 | Week | Seminar                                                           | Lab                       |
-|------|-------------------------------------------------------------------|---------------------------|
+|--------------|-------------------------------------------|---------------|
 | 1    | Welcome and practicalities                                        | Learn the basics          |
 | 2    | More than numbers: quantitative methods and uncertainty           | Challenge 1               |
 | 3    | The research process: research ethics and questionable practices  | Challenge 2               |
