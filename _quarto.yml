@@ -25,6 +25,8 @@ website:
         text: Map
       - href: notebook.qmd
         text: Notebook
+      - href: challenges.qmd
+        text: Challenges
       - href: assessments.qmd
         text: Assessment
 

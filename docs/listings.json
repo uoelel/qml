@@ -1,26 +1,32 @@
 [
   {
+    "listing": "/challenges.html",
+    "items": [
+      "/challenges/gay-speech.html"
+    ]
+  },
+  {
     "listing": "/notebook.html",
     "items": [
-      "/posts/regression-interactions-catcat.html",
-      "/posts/regression-interactions.html",
-      "/posts/regression-draws.html",
-      "/posts/intro-regression-categorical.html",
-      "/posts/intro-regression-predictors.html",
+      "/posts/computer-basics.html",
+      "/posts/data-types.html",
+      "/posts/hodotics.html",
+      "/posts/intro-regression.html",
+      "/posts/r-basics.html",
+      "/posts/r-troubleshooting.html",
+      "/posts/regression-indexing.html",
+      "/posts/intro-quarto.html",
+      "/posts/plotting-basics.html",
+      "/posts/import-multiple.html",
       "/posts/wrangle-pivoting.html",
       "/posts/wrangle-mutate.html",
       "/posts/bar-charts.html",
       "/posts/wrangle-filter.html",
-      "/posts/import-multiple.html",
-      "/posts/intro-quarto.html",
-      "/posts/plotting-basics.html",
-      "/posts/regression-indexing.html",
-      "/posts/r-troubleshooting.html",
-      "/posts/hodotics.html",
-      "/posts/intro-regression.html",
-      "/posts/r-basics.html",
-      "/posts/computer-basics.html",
-      "/posts/data-types.html"
+      "/posts/intro-regression-predictors.html",
+      "/posts/intro-regression-categorical.html",
+      "/posts/regression-draws.html",
+      "/posts/regression-interactions.html",
+      "/posts/regression-interactions-catcat.html"
     ]
   }
 ]

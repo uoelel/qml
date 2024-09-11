@@ -1,0 +1,12 @@
+---
+title: "Is 'gay speech' a thing?"
+author: "Stefano Coretta"
+---
+
+[![](/img/Schulman-Gay-Voice.jpg){fig-alt="Documentarian David Thorpe digs surprisingly deep, asking questions about stereotypes and self-loathing that are seldom asked." width="200"}](https://www.newyorker.com/culture/culture-desk/is-there-a-gay-voice)
+
+A topic of debate, but still perhaps an understudied topic, is whether it exists a type of speech that specifically indexes sexuality and if so what its features are.
+
+A classic study is *Sounding Gay: Pitch Properties in the Speech of Gay and Straight Men* by Rudolf Gaudio (<https://doi.org/10.2307/455948>). There are many more studies that looked at the subject, spanning several features from sibilants to prosody to lexical choices.
+
+For this challenge, you can scout the literature for quantitative results and maybe try and replicate the analysis of an existing study.
