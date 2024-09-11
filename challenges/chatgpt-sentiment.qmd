@@ -1,0 +1,12 @@
+---
+title: "Sentiment analysis of Tweets on ChatGPT"
+author: "Stefano Coretta"
+---
+
+![](https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-96.png-7511536/dataset-cover.png)
+
+[Kaggle](https://www.kaggle.com) is a great resource for finding data sets that can be useful in Natural Language Processing.
+
+The [ChatGPT sentiment analysis](https://www.kaggle.com/datasets/charunisa/chatgpt-sentiment-analysis) data set contains Tweets about ChatGPT, coded by a sentiment analysis.
+
+How does ChatGPT fare in these Tweets?

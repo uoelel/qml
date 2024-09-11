@@ -2,7 +2,9 @@
   {
     "listing": "/challenges.html",
     "items": [
-      "/challenges/gay-speech.html"
+      "/challenges/chatgpt-sentiment.html",
+      "/challenges/gay-speech.html",
+      "/challenges/morpho-gaelic.html"
     ]
   },
   {

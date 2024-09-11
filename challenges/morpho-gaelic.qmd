@@ -1,0 +1,11 @@
+---
+title: "Morphology in Scottish Gaelic"
+author: "Stefano Coretta"
+---
+
+![](https://www.amc.lel.ed.ac.uk/wp-content/uploads/2015/04/highline-line1.png){width="200"}
+
+This [data set on the morphology of Scottish Gaelic](https://osf.io/4bp2y/) contains data from a linguistic questionnaire on Scottish Gaelic morphology, from several locations.
+
+Can you find a pattern in morphological variation based on geographic areas?
+
