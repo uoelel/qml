@@ -5,11 +5,11 @@ author: ["Stefano Coretta", "Elizabeth Pankratz"]
 date: 2024-09-09
 execute: 
   freeze: auto
-draft: true
 ---
 
 ```{r}
 #| label: setup
+#| include: false
 
 library(tidyverse)
 theme_set(theme_light())
@@ -49,7 +49,7 @@ With out lexical decision task example, we can write:
 
 $$
 \begin{align}
-\text{resp}_{correct} & \sim Bernoulli(p)\\
+\text{resp}_{correct} & \sim Bernoulli(p) \\
 p & = 0.8
 \end{align}
 $$
@@ -75,6 +75,8 @@ The plot below shows the correspondence of probabilities (on the *y*-axis) and l
 ```{r}
 #| label: p-log-odds
 #| warning: false
+#| echo: false
+
 dots <- tibble(
   p = seq(0.1, 0.9, by = 0.1),
   log_odds = qlogis(p)
@@ -180,7 +182,7 @@ Now we can move on onto modelling.
 
 $$
 \begin{align}
-\text{Num_Preds}_{MVP} & \sim Bernoulli(p_i) \\
+\text{Num\_Preds}_{MVP} & \sim Bernoulli(p_i) \\
 logit(p_i) & = \alpha_{\text{Group}[i]} \\
 \end{align}
 $$
@@ -211,6 +213,29 @@ Let's inspect the model summary (we will get 80% CrIs).
 
 summary(mvp_bm, prob = 0.8)
 ```
+
+Based on the model, there is an 80% probability that the log-odds of a MVP are between -0.76 and -0.38 in home-signers, between -1.68 and -1.24 in NSL1 signers and between -0.21 and 0.16 in NSL2 signers.
+
+It's easier to understand the results if we convert the log-odds to probabilities. The quickest way to do this is to get the `Regression Coefficients` table from the summary with `fixef()` and mutate the `Q` columns with `plogis()`.
+
+```{r}
+#| label: mvp-bm-p
+
+fixef(mvp_bm, prob = c(0.1, 0.9)) |>
+  # we need to convert the output of fixef() to a tibble to use mutate()
+  as_tibble() |>
+  # we plogis() the Q columns and round to the second digit
+  mutate(
+    Q10 = round(plogis(Q10), 2),
+    Q90 = round(plogis(Q90), 2)
+  )
+```
+
+Based on the model, there is an 80% probability that the probability of using an MVP is between 32-41% in home-signers, between 16-22% in NSL1 signers and between 45-54% in NSL2 signers.
+
+We can now see more clearly that the hypothesis of the study is not fully borne out by the data: while NSL2 signers are more likely to use an MVP than home-signers and NSL1 signers, it is not the case that NSL1 signers are more likely to use MVPs than home-signers.
+
+To conclude this introduction to Bernoulli models (aka binomial/logistic regressions) we can get the predicted probabilities of use of MVPs in the three groups with `conditional_effects()`.
 
 ```{r}
 #| label: mvp-bm-cond

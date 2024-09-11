@@ -28,7 +28,8 @@
       "/posts/intro-regression-categorical.html",
       "/posts/regression-draws.html",
       "/posts/regression-interactions.html",
-      "/posts/regression-interactions-catcat.html"
+      "/posts/regression-interactions-catcat.html",
+      "/posts/regression-bernoulli.html"
     ]
   }
 ]
