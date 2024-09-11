@@ -24,15 +24,15 @@ As part of the [Assessment](assessment.qmd), you will have to complete a **group
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences.
 
 | Week | Seminar                                                           | Lab                       |
-|--------------|-------------------------------------------|---------------|
+|----------------|----------------------------------------|----------------|
 | 1    | Welcome and practicalities                                        | Learn the basics          |
-| 2    | More than numbers: quantitative methods and uncertainty           | Challenge 1               |
-| 3    | The research process: research ethics and questionable practices  | Challenge 2               |
-| 4    | Language endangerment and small numbers                           | Challenge 3               |
+| 2    | More than numbers: quantitative methods and uncertainty           | Challenge                 |
+| 3    | The research process: research ethics and questionable practices  | Challenge                 |
+| 4    | Language endangerment and small numbers                           | Challenge                 |
 | 5    | Language technology and machine learning                          | Statistical modelling     |
-| 6    | The language of the climate crisis                                | Challenge 4               |
-| 7    | Equality, diversity and inclusiveness in quantitative linguistics | Challenge 5               |
-| 8    | Qualitative vs quantitative: a real dichotomy?                    | Challenge 6               |
+| 6    | The language of the climate crisis                                | Challenge                 |
+| 7    | Equality, diversity and inclusiveness in quantitative linguistics | Challenge                 |
+| 8    | Qualitative vs quantitative: a real dichotomy?                    | Challenge                 |
 | 9    | Open research and scholarship                                     | Communicate your research |
 | 10   | What's next?                                                      | Group project             |
 | 11   | Bonus topic                                                       | Group project             |
