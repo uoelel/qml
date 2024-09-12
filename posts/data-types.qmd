@@ -92,13 +92,13 @@ In the following sections you will learn how to import (aka read) three types of
 
 ## Download the data files
 
-Throughout the course we will be using data files that come from linguistic research. You should download now the data files according to the following instructions
+Throughout the course we will be using data files that come from linguistic research. You should download now the data files from the [QML Data](https://uoelel.github.io/qml-data/) website according to the following instructions.
 
 **Please, follow these instructions carefully.**
 
-1.  Download the zip archive with all the data by right-clicking on the following link and download the file: [data.zip](https://uoelel.github.io/qm-data/data.zip).
+1.  Download the zip archive with all the data by right-clicking on the following link and download the file: [data.zip](https://uoelel.github.io/qml-data/data.zip).
 
-2.  Unzip the zip file to extract the contents. (If you don't know how to do this, ask one of the tutors to help you!)
+2.  Unzip the zip file to extract the contents. (If you don't know how to do this, search for it online for your operating system!)
 
 3.  Create a folder called `data/` (the slash is there just to remind you that it's a folder, but you don't have to include it in the name) in the Quarto project you are using for the course.
 
