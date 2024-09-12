@@ -25,6 +25,8 @@ library(webexercises)
 -   [Introduction to Quarto](intro-quarto.qmd)
 :::
 
+![](/img/what-r-for.png){fig-align="center" width="500"}
+
 ## Tabular data
 
 ::: callout-tip

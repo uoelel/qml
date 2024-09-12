@@ -12,6 +12,8 @@ date: 2024-06-10
 author: Stefano Coretta
 ---
 
+[![](/img/troubleshooting.png){fig-align="center" width="250"}](https://www.flaticon.com/free-icons/troubleshooting)
+
 ## Troubleshooting
 
 Go to <https://bookdown.org/yih_huynh/Guide-to-R-Book/trouble.html> and read about common errors and how to fix them.

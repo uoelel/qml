@@ -17,6 +17,8 @@ date: 2024-07-15
 library(tidyverse)
 ```
 
+[![](/img/original-dfs-tidy.png){fig-align="center" width="400"}](https://www.garrickadenbuie.com/project/tidyexplain/#tidy-data)
+
 ## Pivoting
 
 Pivoting is the process of changing the shape of the data from a long format to a wide format and vice versa. You can find nice animations on [Garrick's website](https://www.garrickadenbuie.com/project/tidyexplain/#tidy-data) that illustrate the process.
@@ -130,4 +132,3 @@ tongue |>
 ```
 :::
 :::
-

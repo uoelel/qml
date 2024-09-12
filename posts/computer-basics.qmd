@@ -19,6 +19,8 @@ library(tidyverse)
 library(webexercises)
 ```
 
+![](/img/61-programmer-female-african-american.png){fig-align="center" width="300"}
+
 ## Some computer basics
 
 In the tutorial last week you've been playing around with R, RStudio and R scripts.
