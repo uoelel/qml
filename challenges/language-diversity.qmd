@@ -1,0 +1,14 @@
+---
+title: "Language endangerment and linguistic diversity"
+author: "Stefano Coretta"
+---
+
+![](../img/Primary_Human_Languages_Improved_Version.png)
+
+Linguistic diversity is a feature of specific geographic areas which tries to quantify how "diverse" that particular area is linguistically. You can think of linguistic diversity as "linguistic density".
+
+The majority of the world's languages are endangered, which means that they will disappear while being replaced by other languages (usually, historically colonising languages).
+
+An interesting question is whether areas that are more diverse are also those areas with the greatest proportion of endangered languages.
+
+You can try and answer that question using the Glottolog data: `coretta2022/glot_status.rds`.
