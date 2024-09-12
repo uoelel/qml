@@ -5,4 +5,80 @@ editor: visual
 
 Here you can find the "Adventurer's Map" to the course. The Map shows the pathways you can take among the [Notebook](notebook.qmd) entries. This Map will grow throughout the semester as new entries are added to the Notebook.
 
-{{< pdf posts/map.pdf width=100% height=600 >}}
+<!-- {{< pdf posts/map.pdf width=100% height=600 >}} -->
+
+```{mermaid}
+graph TD
+  A[Start here]
+  B[Hodotics]
+  C[Computer basics]
+  D[R basics]
+  E[Statistical variables]
+  F[Intro to Quarto]
+  H[Data types]
+  I[Read multiple files]
+  G[R Troubleshooting]
+  J[Introduction to regression]
+  K[Introduction to plotting]
+  L[Wrangling data]
+  M[Plotting basics]
+  N[Bar charts]
+  O[Filtering]
+  P[Mutating]
+  Q[Pivoting]
+  
+  click B href "posts/hodotics.html" "Go to page"
+  click C href "posts/computer-basics.html" "Go to page"
+  click D href "posts/r-basics.html" "Go to page"
+  click E href "posts/stat-variables.html" "Go to page"
+  click F href "posts/intro-quarto.html" "Go to page"
+  click G href "posts/r-troubleshooting.html" "Go to page"
+  click H href "posts/data-types.html" "Go to page"
+  click I href "posts/import-multiple.html" "Go to page"
+  click J href "posts/intro-regression.html" "Go to page"
+  click K href "posts/intro-plot.html" "Go to page"
+  click L href "posts/wrangling.html" "Go to page"
+  click M href "posts/plotting-basics.html" "Go to page"
+  click N href "posts/bar-charts.html" "Go to page"
+  click O href "posts/wrangle-filter.html" "Go to page"
+  click P href "posts/wrangle-mutate.html" "Go to page"
+  click Q href "posts/wrangle-pivoting.html" "Go to page"
+  
+  R[Regression: predictors]
+  S[Regression: categorical predictors]
+  T[MCMC draws]
+  U[Indexing predictors]
+  V[Interactions]
+  W[Categorical-categorical interactions]
+  X[Bernoulli regression]
+  click R href "posts/intro-regression-predictors.html" "Go to page"
+  click S href "posts/intro-regression-categorical.html" "Go to page"
+  click T href "posts/regression-draws.html" "Go to page"
+  click U href "posts/regression-indexing.html" "Go to page"
+  click V href "posts/regression-interactions.html" "Go to page"
+  click W href "posts/regression-interactions-catcat.html" "Go to page"
+  click X href "posts/regression-bernoulli.html" "Go to page"
+  
+  A --> B & C
+  C --> D
+  
+  D --> E & F & G
+  
+  F --> H
+  H --> I & E
+  I --> Q
+  
+  E --> J & K & L
+  
+  K --> M
+  M --> N
+
+  L --> O & P & Q
+  P --> N
+  
+  %% Regression
+  J --> R --> S --> T & U
+  U --> V & X
+  V --> W
+  
+```
