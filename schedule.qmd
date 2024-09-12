@@ -23,16 +23,16 @@ As part of the [Assessments](assessments.qmd), you will have to complete a **gro
 
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences.
 
-| Week | Seminar                                                           | Lab                                  |
-|-----------------|--------------------------------------|-----------------|
-| 1    | Welcome and practicalities                                        | Challenge: Learn the basics          |
-| 2    | More than numbers: quantitative methods and uncertainty           | [Challenge](challenges.qmd)          |
-| 3    | The research process: research ethics and questionable practices  | [Challenge](challenges.qmd)          |
-| 4    | Language endangerment and small numbers                           | [Challenge](challenges.qmd)          |
-| 5    | Language technology and machine learning                          | Challenge: Statistical modelling     |
-| 6    | The language of the climate crisis                                | [Challenge](challenges.qmd)          |
-| 7    | Equality, diversity and inclusiveness in quantitative linguistics | [Challenge](challenges.qmd)          |
-| 8    | Qualitative vs quantitative: a real dichotomy?                    | [Challenge](challenges.qmd)          |
-| 9    | Open research and scholarship                                     | Challenge: Communicate your research |
-| 10   | What's next?                                                      | Group project                        |
-| 11   | Bonus topic                                                       | Group project                        |
+| Week | Seminar                                                           | Lab                                                    |
+|------------------|-------------------------------------|------------------|
+| 1    | Welcome and practicalities                                        | Challenge: [Learn the basics of R](posts/r-basics.qmd) |
+| 2    | More than numbers: quantitative methods and uncertainty           | [Challenge](challenges.qmd)                            |
+| 3    | The research process: research ethics and questionable practices  | [Challenge](challenges.qmd)                            |
+| 4    | Language endangerment and small numbers                           | [Challenge](challenges.qmd)                            |
+| 5    | Language technology and machine learning                          | Challenge: Statistical modelling                       |
+| 6    | The language of the climate crisis                                | [Challenge](challenges.qmd)                            |
+| 7    | Equality, diversity and inclusiveness in quantitative linguistics | [Challenge](challenges.qmd)                            |
+| 8    | Qualitative vs quantitative: a real dichotomy?                    | [Challenge](challenges.qmd)                            |
+| 9    | Open research and scholarship                                     | Challenge: Communicate your research                   |
+| 10   | What's next?                                                      | Group project                                          |
+| 11   | Bonus topic                                                       | Group project                                          |

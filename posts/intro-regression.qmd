@@ -8,7 +8,7 @@ date: 2024-06-03
 ::: callout-warning
 #### Prerequisites
 
-- [Data types](data-types.qmd)
+- [Statistical variables](stat-variables.qmd)
 :::
 
 ## Regression (to the mean)
@@ -143,9 +143,9 @@ Another way of obtaining summaries of the coefficients is to use the `posterior_
 posterior_summary(h_1)
 ```
 
-The 95% CrI of the `Intercept` is between `{r} round(fixef(h_1)[3])` and `{r} round(fixef(h_1)[4])`. This means there is a 95% probability, or that we can be 95% confident, that the `Intercept` value is within that range.
+The 95% CrI of the `Intercept` is between `{r} round(brms::fixef(h_1)[3])` and `{r} round(brms::fixef(h_1)[4])`. This means there is a 95% probability, or that we can be 95% confident, that the `Intercept` value is within that range.
 
-For `sigma`, the 95% CrI is between `{r} round(posterior_summary(h_1)["sigma", "Q2.5"], 1)` and `{r} round(posterior_summary(h_1)["sigma", "Q97.5"], 1)`. So, again, there is a 95% probability that the `sigma` value is between those values.
+For `sigma`, the 95% CrI is between `{r} round(brms::posterior_summary(h_1)["sigma", "Q2.5"], 1)` and `{r} round(brms::posterior_summary(h_1)["sigma", "Q97.5"], 1)`. So, again, there is a 95% probability that the `sigma` value is between those values.
 
 ## Reporting
 
@@ -154,7 +154,7 @@ We could report the model and the results like this.
 ::: callout-tip
 We fitted a Bayesian regression using the brms package [XXX] in R [XXX]. The outcome variable was height and we did not include any predictor, to estimate the overall mean and standard deviation of height.
 
-Based on the model results, there is a 95% probability that the mean is between `{r} round(fixef(h_1)[3])` and `{r} round(fixef(h_1)[4])` cm and that the standard deviation is between `{r} round(posterior_summary(h_1)["sigma", "Q2.5"], 1)` and `{r} round(posterior_summary(h_1)["sigma", "Q97.5"], 1)` cm.
+Based on the model results, there is a 95% probability that the mean is between `{r} round(brms::fixef(h_1)[3])` and `{r} round(brms::fixef(h_1)[4])` cm and that the standard deviation is between `{r} round(brms::posterior_summary(h_1)["sigma", "Q2.5"], 1)` and `{r} round(brms::posterior_summary(h_1)["sigma", "Q97.5"], 1)` cm.
 :::
 
 ::: callout-note

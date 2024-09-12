@@ -25,7 +25,7 @@ library(webexercises)
 ::: callout-warning
 #### Prerequisites
 
--   [Data types](data-types.qmd)
+-   [Statistical variables](stat-variables.qmd)
 :::
 
 ## Good data visualisation

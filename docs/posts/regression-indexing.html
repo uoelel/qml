@@ -183,6 +183,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://github.com/uoelel/qml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -378,6 +379,12 @@ vdur &amp; \sim LogNormal(\mu, \sigma) \\
 </section>
 <section id="fitting-a-model-with-indexing" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="fitting-a-model-with-indexing"><span class="header-section-number">5</span> Fitting a model with indexing</h2>
+<p><span class="math display">\[
+\begin{align}
+vdur_i &amp; \sim LogNormal(\mu_i, \sigma) \\
+\mu_i &amp; = \alpha_{\text{Phon}[i]} \\
+\end{align}
+\]</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>m_i <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  v1_duration <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> c2_phonation,</span>

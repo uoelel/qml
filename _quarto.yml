@@ -16,6 +16,9 @@ website:
   title: "QML"
   navbar:
     background: dark
+    tools:
+      - icon: github
+        href: "https://github.com/uoelel/qml"
     left:
       - href: index.qmd
         text: Home
@@ -38,6 +41,7 @@ format:
     df-print: paged
     number-sections: true
     embed-resources: false
+    fig-align: center
 
 callout-icon: false
 

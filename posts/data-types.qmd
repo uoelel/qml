@@ -416,8 +416,6 @@ Read the following files in R, making sure you use the right `read_*()` function
 ::: callout-note
 ## Next
 
--   [Wrangling data](wrangling.qmd)
 -   [Import multiple files](import-multiple.qmd)
--   [Introduction to plotting](intro-plotting.qmd)
--   [Introduction to regression modelling](intro-regression.qmd)
+-   [Statistical variables](stat-variables.qmd)
 :::
