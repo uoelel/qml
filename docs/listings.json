@@ -1,19 +1,11 @@
 [
   {
-    "listing": "/challenges.html",
-    "items": [
-      "/challenges/chatgpt-sentiment.html",
-      "/challenges/gay-speech.html",
-      "/challenges/language-diversity.html",
-      "/challenges/morpho-gaelic.html"
-    ]
-  },
-  {
     "listing": "/notebook.html",
     "items": [
       "/posts/computer-basics.html",
       "/posts/data-types.html",
       "/posts/stat-variables.html",
+      "/posts/summaries.html",
       "/posts/hodotics.html",
       "/posts/intro-regression.html",
       "/posts/r-basics.html",
@@ -36,6 +28,15 @@
       "/posts/plot-faceting.html",
       "/posts/plot-density.html",
       "/posts/plot-advanced.html"
+    ]
+  },
+  {
+    "listing": "/challenges.html",
+    "items": [
+      "/challenges/chatgpt-sentiment.html",
+      "/challenges/gay-speech.html",
+      "/challenges/language-diversity.html",
+      "/challenges/morpho-gaelic.html"
     ]
   }
 ]

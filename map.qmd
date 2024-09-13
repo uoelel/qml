@@ -48,6 +48,8 @@ graph TD
   click AA href "posts/plot-density.html" "Go to page"
   AB[Advanced plotting]
   click AB href "posts/plot-advanced.html" "Go to page"
+  AC[Summary measures]
+  click AC href "posts/summaries.html" "Go to page"
   
   R[Regression: predictors]
   click R href "posts/intro-regression-predictors.html" "Go to page"
@@ -73,7 +75,7 @@ graph TD
   H --> I & E
   I --> Q
   
-  E --> J & K & L
+  E --> J & K & L & AC
   
   K --> M
   M --> N & Z & AA
