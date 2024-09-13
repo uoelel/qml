@@ -43,26 +43,24 @@ You will find that some statistics textbooks overcomplicate things when it come 
 
 This distinction is quite self-explanatory:
 
-- **Numeric variables** are variables that are numbers.
+-   **Numeric variables** are variables that are numbers.
 
-- **Categorical variables** are variables that correspond to categories, groups or levels on a scale.
+-   **Categorical variables** are variables that correspond to categories, groups or levels on a scale.
 
 ::: callout-note
 #### Examples
 
 **Numeric variables**
 
-- Number of multi-verb predicates in a book.
-- Duration of stressed vowels.
-- Rating score between 0-100.
+-   Number of multi-verb predicates in a book.
+-   Duration of stressed vowels.
+-   Rating score between 0-100.
 
 **Categorical variables**
 
-- Gender (non-binary, female, male, ...).
-- First vs second language users.
-- Ejective vs non-ejective consonant.
-
-
+-   Gender (non-binary, female, male, ...).
+-   First vs second language users.
+-   Ejective vs non-ejective consonant.
 :::
 
 Learning how to recognise variables is a fundamental skill in quantitative data analysis, since the type of variables determines the type of analyses you can carry out.
@@ -75,12 +73,11 @@ Orthogonal to the numeric/categorical distinction, there is the **continuous vs 
 
 This one can be at times less straightforward.
 
-- A **continuous variable** is a variable that can take on any value between any two numbers.
+-   A **continuous variable** is a variable that can take on any value between any two numbers.
 
-- A **discrete variable** is a variable that can only take on a set of values, and no value in between.
+-   A **discrete variable** is a variable that can only take on a set of values, and no value in between.
 
 Numeric variables can be either be continuous or discrete, while categorical variables can only be discrete.
-
 
 ::: callout-note
 **Numeric continuous variable**: *between any two values there is an infinite number of values*.
@@ -104,7 +101,6 @@ Numeric variables can be either be continuous or discrete, while categorical var
 -   **Ordinal**: The variable can take any of three of more values and the values have a natural order.
 :::
 
-
 ## Operationalisation
 
 The action of **operationalisation** consists in choosing how to measure something: as a numeric or as a categorical variable.
@@ -124,6 +120,6 @@ Think of ways to operationalise the following variables:
 
 -   [Wrangling data](wrangling.qmd)
 -   [Import multiple files](import-multiple.qmd)
--   [Introduction to plotting](intro-plotting.qmd)
+-   [Introduction to plotting](intro-plot.qmd)
 -   [Introduction to regression modelling](intro-regression.qmd)
 :::

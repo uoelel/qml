@@ -173,11 +173,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#stacked-bar-charts" id="toc-stacked-bar-charts" class="nav-link" data-scroll-target="#stacked-bar-charts"><span class="header-section-number">2</span> Stacked bar charts</a></li>
   <li><a href="#filled-stacked-bar-charts" id="toc-filled-stacked-bar-charts" class="nav-link" data-scroll-target="#filled-stacked-bar-charts"><span class="header-section-number">3</span> Filled stacked bar charts</a></li>
-  <li><a href="#faceting-and-panels" id="toc-faceting-and-panels" class="nav-link" data-scroll-target="#faceting-and-panels"><span class="header-section-number">4</span> Faceting and panels</a>
-  <ul class="collapse">
-  <li><a href="#polite-again" id="toc-polite-again" class="nav-link" data-scroll-target="#polite-again"><span class="header-section-number">4.1</span> Polite again</a></li>
-  <li><a href="#does-being-a-music-student-matter" id="toc-does-being-a-music-student-matter" class="nav-link" data-scroll-target="#does-being-a-music-student-matter"><span class="header-section-number">4.2</span> Does being a music student matter?</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -430,86 +425,24 @@ Figure&nbsp;4: Proportion of languages by macro-area and endangerment status.
 <blockquote class="blockquote">
 <p><a href="#fig-status-stacked-3" class="quarto-xref">Figure&nbsp;4</a> shows proportions of languages by endangerment status for each macro-area. Australia, South and North America have a substantially higher proportion of extinct languages than the other areas. These areas also have a higher proportion of near extinct languages. On the other hand, Africa has the greatest proportion of non-endangered languages followed by Papunesia and Eurasia, while North and South America are among the areas with the lower proportion, together with Australia which has the lowest.</p>
 </blockquote>
-</section>
-<section id="faceting-and-panels" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="faceting-and-panels"><span class="header-section-number">4</span> Faceting and panels</h2>
-<p>Sometimes we might want to separate the data into separate panels within the same plot.</p>
-<p>We can achieve that easily using <strong>faceting</strong>.</p>
-<section id="polite-again" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="polite-again"><span class="header-section-number">4.1</span> Polite again</h3>
-<p>Let’s reproduce <a href="tutorial-w04.qmd#lets-add-geometries">this plot</a> from Week 4, but this time let’s spice things up.</p>
-<p>This is the plot you made in Week 4. Try and reproduce it by writing the code yourself (you also have to read in the data!).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-polite" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-polite-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="bar-charts_files/figure-html/fig-polite-1.png" class="img-fluid figure-img" width="672">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-polite-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Scatter plot of mean f0 and H1-H2 difference.
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Next
 </div>
 </div>
-</div>
-</section>
-<section id="does-being-a-music-student-matter" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="does-being-a-music-student-matter"><span class="header-section-number">4.2</span> Does being a music student matter?</h3>
-<p>That looks great, but we want to know if being a music student has an effect on the relationship of <code>f0mn</code> and <code>H1H2</code>.</p>
-<p>In the plot above, the aesthetics mappings are the following:</p>
+<div class="callout-body-container callout-body">
 <ul>
-<li><code>f0mn</code> on the <em>x</em>-axis.</li>
-<li><code>H1H2</code> on the <em>y</em>-axis.</li>
-<li><code>gender</code> as colour.</li>
+<li><a href="../posts/plot-faceting.html">Faceting plots</a></li>
+<li><a href="../posts/plot-advanced.html">Advanced plotting</a></li>
 </ul>
-<p>How can we separate data further depending on whether the participant is a music student or not (<code>musicstudent</code>)?</p>
-<p>We can create panels using <code>facet_grid()</code>. This function takes lists of variables to specify panels in rows and/or columns.</p>
-<section id="faceting" class="level4" data-number="4.2.1">
-<h4 data-number="4.2.1" class="anchored" data-anchor-id="faceting"><span class="header-section-number">4.2.1</span> Faceting</h4>
-<p><strong>Faceting</strong> a plot allows to split the plot into multiple panels, arranged in rows and columns, based on one or more variables.</p>
-<p>To facet a plot, use the <code>facet_grid()</code> function.</p>
-<p>The syntax is a bit strange. You can specify rows of panels with the <code>rows</code> argument and columns of panels with <code>cols</code> argument, but you have to include column names inside <code>vars()</code>, like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">cols =</span> <span class="fu">vars</span>(musicstudent)) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mean f0 (Hz)"</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"H1-H2 difference (dB)"</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"Gender"</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="fig-polite-facet" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-polite-facet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="bar-charts_files/figure-html/fig-polite-facet-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-polite-facet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: Scatter plot of mean f0 and H1-H2 difference in non-music students (left) vs music students (right).
-</figcaption>
-</figure>
 </div>
 </div>
-</div>
-<p>You could write a description of this plot like this:</p>
-<blockquote class="blockquote">
-<p><a href="#fig-polite-facet" class="quarto-xref">Figure&nbsp;6</a> shows mean f0 and H1-H2 difference as a scatter plot. The two panels indicate whether the participant was a student of music. Within each panel, the participant’s gender is represented by colour (red for female and blue for male). Male participants tend to have higher H1-H2 differences and lower mean f0 than females. From the plot it can also be seen that there is greater variability in H1-H2 difference in female music students compared to female non-music participants. Within each group of gender by music student there does not seem to be any specific relation between mean f0 and H1-H2 difference.</p>
-</blockquote>
-<p>The <code>polite</code> data also has a column <code>attitude</code> with values <code>inf</code> for informal and <code>pol</code> for polite. Subjects were asked to speak either as if they were talking to a friend (<code>inf</code> attitude) or to someone with a higher status (<code>pol</code> attitude).</p>
-<p>Recreate the last plot, this time faceting also by <code>attitude</code>. Use the <code>rows</code> column to create two separate rows for each value of <code>attitude</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">cols =</span> <span class="fu">vars</span>(musicstudent), <span class="at">rows =</span> ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now write a description of the plot.</p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

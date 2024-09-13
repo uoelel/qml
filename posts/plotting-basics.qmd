@@ -24,7 +24,7 @@ library(webexercises)
 ::: callout-warning
 #### Prerequisites
 
--   [Introduction to plotting](intro-plotting.qmd)
+-   [Introduction to plotting](intro-plot.qmd)
 :::
 
 ## Plotting basics
