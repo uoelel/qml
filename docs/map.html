@@ -162,52 +162,57 @@ ul.task-list li input[type="checkbox"] {
 <pre class="mermaid mermaid-js">graph TD
   A[Start here]
   B[Hodotics]
-  C[Computer basics]
-  D[R basics]
-  E[Statistical variables]
-  F[Intro to Quarto]
-  H[Data types]
-  I[Read multiple files]
-  G[R Troubleshooting]
-  J[Introduction to regression]
-  K[Introduction to plotting]
-  L[Wrangling data]
-  M[Plotting basics]
-  N[Bar charts]
-  O[Filtering]
-  P[Mutating]
-  Q[Pivoting]
-  
   click B href "posts/hodotics.html" "Go to page"
+  C[Computer basics]
   click C href "posts/computer-basics.html" "Go to page"
+  D[R basics]
   click D href "posts/r-basics.html" "Go to page"
+  E[Statistical variables]
   click E href "posts/stat-variables.html" "Go to page"
+  F[Intro to Quarto]
   click F href "posts/intro-quarto.html" "Go to page"
+  G[R Troubleshooting]
   click G href "posts/r-troubleshooting.html" "Go to page"
+  H[Data types]
   click H href "posts/data-types.html" "Go to page"
+  I[Read multiple files]
   click I href "posts/import-multiple.html" "Go to page"
+  J[Introduction to regression]
   click J href "posts/intro-regression.html" "Go to page"
+  K[Introduction to plotting]
   click K href "posts/intro-plot.html" "Go to page"
+  L[Wrangling data]
   click L href "posts/wrangling.html" "Go to page"
+  M[Plotting basics]
   click M href "posts/plotting-basics.html" "Go to page"
+  N[Bar charts]
   click N href "posts/bar-charts.html" "Go to page"
+  O[Filtering]
   click O href "posts/wrangle-filter.html" "Go to page"
+  P[Mutating]
   click P href "posts/wrangle-mutate.html" "Go to page"
+  Q[Pivoting]
   click Q href "posts/wrangle-pivoting.html" "Go to page"
+  Z[Faceting plots]
+  click Z href "posts/plot-faceting.html" "Go to page"
+  AA[Density plots]
+  click AA href "posts/plot-density.html" "Go to page"
+  AB[Advanced plotting]
+  click AB href "posts/plot-advanced.html" "Go to page"
   
   R[Regression: predictors]
-  S[Regression: categorical predictors]
-  T[MCMC draws]
-  U[Indexing predictors]
-  V[Interactions]
-  W[Categorical-categorical interactions]
-  X[Bernoulli regression]
   click R href "posts/intro-regression-predictors.html" "Go to page"
+  S[Regression: categorical predictors]
   click S href "posts/intro-regression-categorical.html" "Go to page"
+  T[MCMC draws]
   click T href "posts/regression-draws.html" "Go to page"
+  U[Indexing predictors]
   click U href "posts/regression-indexing.html" "Go to page"
+  V[Interactions]
   click V href "posts/regression-interactions.html" "Go to page"
+  W[Categorical-categorical interactions]
   click W href "posts/regression-interactions-catcat.html" "Go to page"
+  X[Bernoulli regression]
   click X href "posts/regression-bernoulli.html" "Go to page"
   
   A --&gt; B &amp; C
@@ -222,10 +227,12 @@ ul.task-list li input[type="checkbox"] {
   E --&gt; J &amp; K &amp; L
   
   K --&gt; M
-  M --&gt; N
+  M --&gt; N &amp; Z &amp; AA
+  N --&gt; AB
+  AA --&gt; AB
 
   L --&gt; O &amp; P &amp; Q
-  P --&gt; N
+  P --&gt; N &amp; AA
   
   %% Regression
   J --&gt; R --&gt; S --&gt; T &amp; U

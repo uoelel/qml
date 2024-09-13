@@ -29,7 +29,7 @@ library(brms)
 -   yes / no
 -   grammatical / ungrammatical
 -   Spanish / English
--   indirect object (*gave the girl the book*) / to-PP (*gave the book to the girl*)
+-   direct object (*gave the girl the book*) / prepositional phrase (*gave the book to the girl*)
 -   correct / incorrect
 
 So far you have been fitting regression models in which the outcome variable was numeric and continuous. However, a lot of studies use binary outcome variables and it thus important to learn how to deal with those. This is what this post is about.
@@ -242,3 +242,10 @@ To conclude this introduction to Bernoulli models (aka binomial/logistic regress
 
 conditional_effects(mvp_bm)
 ```
+
+::: callout-note
+#### Next
+
+- [Poisson regression: count data](regression-poisson.qmd)
+
+:::
