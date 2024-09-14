@@ -38,3 +38,10 @@ Let's zoom in on the [research process]{.smallcaps}.
 -   **Data analysis** is the process of analysing the acquired data using qualitative, quantitative or a mixed methods. This part of the research process also include interpreting the output of such analysis.
 
 -   **Communication**: finally, the last step in a research process cycle is to communicate what was done and what was learned, both to the research community and to the wider public.
+
+::: callout-note
+#### Next
+
+- [Empirical research](research-context.qmd)
+
+:::

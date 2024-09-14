@@ -1,5 +1,14 @@
 [
   {
+    "listing": "/challenges.html",
+    "items": [
+      "/challenges/chatgpt-sentiment.html",
+      "/challenges/gay-speech.html",
+      "/challenges/language-diversity.html",
+      "/challenges/morpho-gaelic.html"
+    ]
+  },
+  {
     "listing": "/notebook.html",
     "items": [
       "/posts/computer-basics.html",
@@ -27,16 +36,10 @@
       "/posts/intro-plot.html",
       "/posts/plot-faceting.html",
       "/posts/plot-density.html",
-      "/posts/plot-advanced.html"
-    ]
-  },
-  {
-    "listing": "/challenges.html",
-    "items": [
-      "/challenges/chatgpt-sentiment.html",
-      "/challenges/gay-speech.html",
-      "/challenges/language-diversity.html",
-      "/challenges/morpho-gaelic.html"
+      "/posts/plot-advanced.html",
+      "/posts/research-context.html",
+      "/posts/research-inference.html",
+      "/posts/research-qh.html"
     ]
   }
 ]

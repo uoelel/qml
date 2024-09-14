@@ -51,6 +51,11 @@ graph TD
   AC[Summary measures]
   click AC href "posts/summaries.html" "Go to page"
   
+  AD[Empirical research]
+  click AD href "posts/research-context.html" "Go to page"
+  AE[Research Qs and Hs]
+  click AE href "posts/research-qh.html" "Go to page"
+  
   R[Regression: predictors]
   click R href "posts/intro-regression-predictors.html" "Go to page"
   S[Regression: categorical predictors]
@@ -67,6 +72,10 @@ graph TD
   click X href "posts/regression-bernoulli.html" "Go to page"
   
   A --> B & C
+  
+  B --> AD
+  AD --> AE
+  
   C --> D
   
   D --> E & F & G

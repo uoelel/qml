@@ -1,0 +1,65 @@
+---
+title: "Research questions and hypotheses"
+description: "Learn more about research questions, hypotheses and how to formulate them"
+author: "Stefano Coretta"
+date: 2024-09-14
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+execute: 
+  warning: false
+---
+
+::: callout-warning
+#### Prerequisites
+
+-   [Empirical research](research-context.qmd)
+:::
+
+[![](/img/hypothesis.png){fig-align="center" width="250"}](https://www.flaticon.com/free-icons/hypothesis)
+
+## Research questions
+
+Research questions are **testable questions** whose answers directly address the problem.
+
+They take the form of actual *questions*:
+
+-   What is the average speech rate of adolescents vs that of older adults?
+-   What happens to infants syntactic processing when they move from a monolingual to a multilingual environment?
+-   Is the morphological complexity of languages spoken by larger populations different from that of languages spoken by smaller populations?
+
+Research questions are always necessary, independent of the type and objective of the research.
+
+While there is an undue pressure on researcher to come up with "novel" research questions all the time, it is perfectly fine to ask the same question multiple times.
+
+<!-- TODO: Add link to repro/repli -->
+
+## Research hypotheses
+
+Research hypotheses are **statements** (not questions) about the research problem.
+
+Hypotheses must be **falsifiable** (there can be in principle an outcome that shows them to be false). See below.
+
+Hypotheses **are never true nor confirmed**. We can only **corroborate** hypothesis, and it's a long term process. The same hypothesis has to be tested again and again, but multiple researchers in multiple contexts.
+
+Research is not a one-off matter: knowledge can only be acquired slowly and with a lot of effort.
+
+It is however perfectly fine to run a study with only research questions, without a research hypothesis. As long as you clearly state whether you are talking about research *questions* or research *hypotheses*, you are fine.
+
+### Falsifiability
+
+You might be wondering what it is meant by "falsifiable" statements. From [Seven examples of falsifiability](https://simplicable.com/new/falsifiability) by John Spacey:
+
+> A statement is falsifiable if it can be contradicted by an observation. If such observation is impossible to make with current technology, falsifiability is not achieved.
+
+Some examples of falsifiable hypotheses:
+
+-   "Life only exists on Earth." (it would be falsified by the observation of life somewhere else).
+-   "If there is a 1st person exclusive dual, then there is also a 1st person inclusive dual." [\[Universal 1871\]](https://typo.uni-konstanz.de/rara/universals-archive/1876/) (it would be falsified by the observation of languages with a 1st person exclusive dual but without the incluve alternative).
+-   "Infants start uttering full sentences only after their 12th month of life." (it would be falsified by the observation of infants uttering full sentences before their 12th month of life).
+
+And some examples of non-falsifiable hypotheses.
+
+-   "Life might exist outside of the Solar system." (if we observe life outside the Solar system or we don't, the statement is still true).
+-   "Languages with a 1st person inclusive dual can have a 1st person exclusive dual." (whether we observe a language with both 1st inclusive and exclusive dual or not, the statement is still true.)
