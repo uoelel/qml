@@ -55,6 +55,12 @@ graph TD
   click AD href "posts/research-context.html" "Go to page"
   AE[Research Qs and Hs]
   click AE href "posts/research-qh.html" "Go to page"
+  AF[Data analysis]
+  click AF href "posts/data-analysis.html" "Go to page"
+  AG[Inference]
+  click AG href "posts/inference.html" "Go to page"
+  AH[Statistics]
+  click AH href "posts/statistics.html" "Go to page"
   
   R[Regression: predictors]
   click R href "posts/intro-regression-predictors.html" "Go to page"
@@ -73,8 +79,9 @@ graph TD
   
   A --> B & C
   
-  B --> AD
+  B --> AD & AF
   AD --> AE
+  AF --> AG & AH
   
   C --> D
   

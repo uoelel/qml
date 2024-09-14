@@ -42,6 +42,6 @@ Let's zoom in on the [research process]{.smallcaps}.
 ::: callout-note
 #### Next
 
-- [Empirical research](research-context.qmd)
+- [Empirical research and research context](research-context.qmd)
 
 :::

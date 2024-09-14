@@ -1,5 +1,5 @@
 ---
-title: "Empirical research"
+title: "Empirical research and research context"
 description: "Learn more about empirical research and the research context"
 author: "Stefano Coretta"
 date: 2024-09-14

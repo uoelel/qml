@@ -56,6 +56,10 @@ Some ideas for Group Projects:
 
 -   Design exercises and/or tutorials for the course using linguistic data.
 
+-   Write a collection of sonnets on the replicability crisis.
+
+-   Choreograph an interpretative dance that illustrates that Markov Chain Monte Carlo algorithm.
+
 ## Feedback and marking
 
 **Feedback** will be provided to you (1) during class, (2) as comments on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me and/or the tutors).
@@ -84,7 +88,7 @@ To help you thinking about which mark to assign yourself, we will use an "impres
 Once you pick a mark band, you need to pick a step within that band. You can find a description of the bands here: [Extended Common Marking Scheme](https://registryservices.ed.ac.uk/timetabling-examinations/exams/regulations/common-marking-scheme). Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:
 
 | Step | Criteria                                                                            |
-|:------------:|---------------------------------------------------------|
+|:---------------:|-------------------------------------------------------|
 |  2   | The criteria for the mark band have been achieved, but there might be minor issues. |
 |  5   | The criteria for the mark band have been achieved satisfactorily.                   |
 |  8   | The criteria for the mark band have been achieved fully.                            |
