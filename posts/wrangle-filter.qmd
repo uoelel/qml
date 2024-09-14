@@ -269,4 +269,3 @@ global_south <- glot_status |>
     status %in% c("threatened", "shifting", "moribund", "nearly_extinct")
   )
 ```
-

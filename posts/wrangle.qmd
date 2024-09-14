@@ -1,0 +1,78 @@
+---
+title: "Wrangling data with R"
+description: "Learn the basics of wrangling data with R"
+editor: visual
+author: "Stefano Coretta"
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+date: 2024-07-15
+---
+
+```{r}
+#| label: packages
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(webexercises)
+```
+
+[![](/img/whole-game.png){fig-align="center"}](https://r4ds.hadley.nz/whole-game#fig-ds-whole-game)
+
+::: callout-warning
+## Prerequisites
+
+-   [Statistical variables](stat-variables.qmd)
+:::
+
+## Data wrangling
+
+Data wrangling encompasses three main steps in the R pipeline:
+
+-   [Importing data](data-types.qmd).
+
+-   Tidying data.
+
+-   Transforming data.
+
+## Tidying data
+
+Data tidying is about reshaping the data so that they are in a **tidy format**.
+
+The concept of tidy data was introduced by [Wickham 2014](https://doi.org/10.18637/jss.v059.i10). The following illustrations by Allison Horst explain what it is meant with tidy data.
+
+[![](../img/tidydata_1.jpg){fig-align="center" width="500"}](https://github.com/allisonhorst/stats-illustrations)
+
+[![](../img/tidydata_2.jpg){fig-align="center" width="500"}](https://github.com/allisonhorst/stats-illustrations)
+
+I recommend that if you have control over the layout of tabular data you use a tidy format (columns are variables and rows are observations). However, we sometimes have to use pre-existing data which might be messy or we need to modify our own tidy data for specific purposes (like making a plot that requires a different layout).
+
+The nice thing about tidy data is that once they are tidy you can reshape them easily in whichever way you want.
+
+The tidyverse package [tidyr](https://tidyr.tidyverse.org) allows users to tidy up messy data with several functions. (It's called the "tidyverse" because all packages are designed to work with tidy data!).
+
+The most important procedure for tidying up data is **pivoting**. You can learn more about pivoting in [Pivoting](wrangle-pivoting.qmd).
+
+## Transforming data
+
+Transforming data encompasses several operations, each of which can be achieved with specific tidyverse functions.
+
+-   You can [filter](wrangle-filter.qmd) data based on specific columns and criteria with `filter()`.
+
+-   [Mutate](wrangle-mutate.qmd) columns or create new ones based on existing columns with `mutate()`.
+
+-   To [summarise](summaries.qmd) data use the `summarise()` function.
+
+-   It is also possible to join data using the mutating join functions. See [Joins](https://r4ds.hadley.nz/joins) of the R for Data Science book.
+
+::: callout-note
+## Next
+
+-   [Filter data](wrangle-filter.qmd)
+
+-   [Mutate data](wrangle-mutate.qmd)
+
+-   [Summary measures](summaries.qmd).
+:::
