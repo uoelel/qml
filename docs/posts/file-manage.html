@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stefano Coretta">
+<meta name="dcterms.date" content="2024-09-15">
 
-<title>The Adventurer’s Map – QML</title>
+<title>File management – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,12 +68,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="webex.css">
 </head>
 
 <body class="nav-fixed">
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
   </div>
@@ -92,27 +92,27 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Course schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./map.html" aria-current="page"> 
+    <a class="nav-link" href="../map.html"> 
 <span class="menu-text">Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebook.html"> 
+    <a class="nav-link" href="../notebook.html"> 
 <span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./challenges.html"> 
+    <a class="nav-link" href="../challenges.html"> 
 <span class="menu-text">Challenges</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html"> 
+    <a class="nav-link" href="../assessments.html"> 
 <span class="menu-text">Assessment</span></a>
   </li>  
 </ul>
@@ -127,22 +127,45 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-management-plan-dmp" id="toc-data-management-plan-dmp" class="nav-link active" data-scroll-target="#data-management-plan-dmp"><span class="header-section-number">1</span> Data Management Plan (DMP)</a></li>
+  <li><a href="#research-compendium" id="toc-research-compendium" class="nav-link" data-scroll-target="#research-compendium"><span class="header-section-number">2</span> Research Compendium</a></li>
+  <li><a href="#organising-and-naming-files" id="toc-organising-and-naming-files" class="nav-link" data-scroll-target="#organising-and-naming-files"><span class="header-section-number">3</span> Organising and naming files</a></li>
+  <li><a href="#back-up" id="toc-back-up" class="nav-link" data-scroll-target="#back-up"><span class="header-section-number">4</span> Back up</a></li>
+  <li><a href="#research-projects-are-dynamic" id="toc-research-projects-are-dynamic" class="nav-link" data-scroll-target="#research-projects-are-dynamic"><span class="header-section-number">5</span> Research projects are dynamic</a></li>
+  <li><a href="#licensing" id="toc-licensing" class="nav-link" data-scroll-target="#licensing"><span class="header-section-number">6</span> Licensing</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Adventurer’s Map</h1>
+<h1 class="title">File management</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stefano Coretta </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 15, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -152,129 +175,327 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the <a href="./notebook.html">Notebook</a> entries. This Map will grow throughout the semester as new entries are added to the Notebook.</p>
-<!--  -->
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
-  A[Start here]
-  B[Hodotics]
-  click B href "posts/hodotics.html" "Go to page"
-  C[Computer basics]
-  click C href "posts/computer-basics.html" "Go to page"
-  D[R basics]
-  click D href "posts/r-basics.html" "Go to page"
-  E[Statistical variables]
-  click E href "posts/stat-variables.html" "Go to page"
-  F[Intro to Quarto]
-  click F href "posts/intro-quarto.html" "Go to page"
-  G[R Troubleshooting]
-  click G href "posts/r-troubleshooting.html" "Go to page"
-  H[Data types]
-  click H href "posts/data-types.html" "Go to page"
-  I[Read multiple files]
-  click I href "posts/import-multiple.html" "Go to page"
-  J[Introduction to regression]
-  click J href "posts/intro-regression.html" "Go to page"
-  K[Introduction to plotting]
-  click K href "posts/intro-plot.html" "Go to page"
-  L[Wrangling data]
-  click L href "posts/wrangling.html" "Go to page"
-  M[Plotting basics]
-  click M href "posts/plotting-basics.html" "Go to page"
-  N[Bar charts]
-  click N href "posts/bar-charts.html" "Go to page"
-  O[Filtering]
-  click O href "posts/wrangle-filter.html" "Go to page"
-  P[Mutating]
-  click P href "posts/wrangle-mutate.html" "Go to page"
-  Q[Pivoting]
-  click Q href "posts/wrangle-pivoting.html" "Go to page"
-  Z[Faceting plots]
-  click Z href "posts/plot-faceting.html" "Go to page"
-  AA[Density plots]
-  click AA href "posts/plot-density.html" "Go to page"
-  AB[Advanced plotting]
-  click AB href "posts/plot-advanced.html" "Go to page"
-  AC[Summary measures]
-  click AC href "posts/summaries.html" "Go to page"
-  
-  AD[Empirical research]
-  click AD href "posts/research-context.html" "Go to page"
-  AE[Research Qs and Hs]
-  click AE href "posts/research-qh.html" "Go to page"
-  AF[Data analysis]
-  click AF href "posts/data-analysis.html" "Go to page"
-  AG[Inference]
-  click AG href "posts/inference.html" "Go to page"
-  AH[Statistics]
-  click AH href "posts/statistics.html" "Go to page"
-  AI[Repro/repli]
-  click AI href "posts/repro-repli.html" "Go to page"
-  AJ[Proj Management]
-  click AJ href "posts/management.html" "Go to page"
-  AK[File management]
-  click AK href "posts/file-manage.html" "Go to page"
-  
-  R[Regression: predictors]
-  click R href "posts/intro-regression-predictors.html" "Go to page"
-  S[Regression: categorical predictors]
-  click S href "posts/intro-regression-categorical.html" "Go to page"
-  T[MCMC draws]
-  click T href "posts/regression-draws.html" "Go to page"
-  U[Indexing predictors]
-  click U href "posts/regression-indexing.html" "Go to page"
-  V[Interactions]
-  click V href "posts/regression-interactions.html" "Go to page"
-  W[Categorical-categorical interactions]
-  click W href "posts/regression-interactions-catcat.html" "Go to page"
-  X[Bernoulli regression]
-  click X href "posts/regression-bernoulli.html" "Go to page"
-  
-  A --&gt; B &amp; C
-  
-  B --&gt; AD &amp; AF &amp; AJ
-  AD --&gt; AE
-  AE --&gt; AI
-  AF --&gt; AG &amp; AH
-  AJ --&gt; AK
-  
-  C --&gt; D
-  
-  D --&gt; E &amp; F &amp; G
-  
-  F --&gt; H
-  H --&gt; I &amp; E
-  I --&gt; Q
-  
-  E --&gt; J &amp; K &amp; L &amp; AC
-  
-  K --&gt; M
-  M --&gt; N &amp; Z &amp; AA
-  N --&gt; AB
-  AA --&gt; AB
-
-  L --&gt; O &amp; P &amp; Q
-  P --&gt; N &amp; AA
-  
-  %% Regression
-  J --&gt; R --&gt; S --&gt; T &amp; U
-  U --&gt; V &amp; X
-  V --&gt; W
-  
-</pre>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<p></p></figure><p></p>
+<div class="callout-title-container flex-fill">
+Prerequisites
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="../posts/management.html">Research project management</a></li>
+</ul>
 </div>
+</div>
+<section id="data-management-plan-dmp" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data-management-plan-dmp"><span class="header-section-number">1</span> Data Management Plan (DMP)</h2>
+<p>A <strong>Data Management Plan</strong> (DMP) covers anything related to data types, their volume (size), how you will acquire or collect them, where and how you will store them, and aspects about data integrity, confidentiality, retention and destruction, sharing and deposit.</p>
+<p>The University of Edinburgh has two important resources:</p>
+<ul>
+<li><a href="https://www.ed.ac.uk/information-services/about/policies-and-regulations/research-data-policy">UoE Research Data Management policy</a>.</li>
+<li><a href="https://dmponline.ed.ac.uk">UoE DMP Online</a>.</li>
+</ul>
+<p>Here is what a DMP project looks like in the UoE DMP Online tool.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/dmp-example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="300"></p>
+</figure>
+</div>
+</section>
+<section id="research-compendium" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="research-compendium"><span class="header-section-number">2</span> Research Compendium</h2>
+<p>Research compendia are all the data, files, publications related to a research project. Here some definitions:</p>
+<blockquote class="blockquote">
+<p>A <strong>research compendium</strong> accompanies, enhances, or is a scientific publication providing data, code, and documentation for reproducing a scientific workflow.</p>
+</blockquote>
+<p>—<a href="https://research-compendium.science">Research Compendium</a></p>
+<blockquote class="blockquote">
+<p>A <strong>research compendium</strong> is a collection of all digital parts of a research project including data, code, texts (protocols, reports, questionnaires, meta data). The collection is created in such a way that reproducing all results is straightforward.</p>
+</blockquote>
+<p>—<a href="https://the-turing-way.netlify.app/reproducible-research/compendia.html">The Turing Way: Research Compendia</a></p>
+<p>It is important to think about how you will structure and keep up your research compendium, from the initial stages throughout the project and after completion.</p>
+<p>It is usually helpful to have a single folder on a computer which contains everything. The following sections give you some tips on how to organise the folder.</p>
+</section>
+<section id="organising-and-naming-files" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="organising-and-naming-files"><span class="header-section-number">3</span> Organising and naming files</h2>
+<p>Some of the following suggestions come from <a href="https://help.osf.io/article/147-organizing-files">Organising files</a> and <a href="https://help.osf.io/article/146-file-naming">File naming</a> which are part of the Open Science Framework (OSF) Support pages.</p>
+<p>To organise your files:</p>
+<ul>
+<li><p>Create one folder and make that the folder for your research project folder.</p></li>
+<li><p>In that folder, create folders for <code>data/</code> and for <code>scripts/</code> (and <code>plots/</code>, <code>dissertation/</code>, etc).</p></li>
+<li><p>In <code>data/</code> have a <code>raw/</code> and <code>derived/</code> folder:</p></li>
+<li><p>Raw data (data that, if lost, it is very unfortunate; for example, experiment data, data which was manually annotated, etc) should be saved in <code>data/raw/</code>.</p></li>
+<li><p>Derived data (data that is derived with scripts) should be saved in <code>data/derived/</code>.</p></li>
+</ul>
+<p>The figure below shows an example of an MSc research project.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/organise-files.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
+<p>You also want to carefully think about file naming. Check the <a href="https://help.osf.io/article/146-file-naming">File naming</a> for tips.</p>
+<p>Avoid common pitfalls in naming your files, like the ones in the following example.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/folder-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
+</section>
+<section id="back-up" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="back-up"><span class="header-section-number">4</span> Back up</h2>
+<p><strong>Make sure you have a backup system in place.</strong></p>
+<ul>
+<li><p>Save copies of the entire folder in an external hard drive.</p></li>
+<li><p>Saving copies of the entire folder in an online storage service (iCloud Drive, One Drive, DropBox, Google Drive, …).</p>
+<ul>
+<li>But if you are working on that copy via syncing, make sure you have a second independent place you back up to, like a hard drive.</li>
+</ul></li>
+<li><p>Using a versioning system like <a href="https://www.atlassian.com/git">git</a>.</p></li>
+</ul>
+</section>
+<section id="research-projects-are-dynamic" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="research-projects-are-dynamic"><span class="header-section-number">5</span> Research projects are dynamic</h2>
+<ul>
+<li><p>Be <strong>prepared to change</strong> how files and folders are organised after you start.</p></li>
+<li><p>Projects evolve over time and sometimes you need to <strong>clean things up</strong>.</p></li>
+<li><p>Use a good system to <strong>mark versions</strong> in your files.</p></li>
+</ul>
+<p>Two simple systems to mark file versions:</p>
+<ul>
+<li>Use full DATE in the file name
+<ul>
+<li><code>dissertation-2022-11-21</code>.</li>
+<li><code>dissertation-2023-03-01</code>.</li>
+</ul></li>
+<li>Or use version number
+<ul>
+<li>Inspired by <a href="https://www.geeksforgeeks.org/introduction-semantic-versioning/">Semantic versioning</a> from programming but can be helpful with research files too!</li>
+<li><code>dissertation-v1.0</code>.</li>
+<li><code>dissertation-v1.1</code>.</li>
+<li><code>dissertation-v2.0</code>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="licensing" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="licensing"><span class="header-section-number">6</span> Licensing</h2>
+<p>A <strong>license</strong> gives someone official permission to reuse something while protecting the intellectual property of the original creator.</p>
+<p><strong>Use open licenses</strong> to ensure the data/code can be used by other researchers.</p>
+<p>The <a href="https://creativecommons.org/share-your-work/">Creative Commons licenses</a> are now common in research.</p>
 
 
+</section>
 
 </main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+  PagedTableDoc.initAll();
+}
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -448,137 +448,130 @@
     "text": "1 Some computer basics\nIn the tutorial last week you’ve been playing around with R, RStudio and R scripts.\nBut what if you want to import data in R?\nEasy! You can use the read_*() functions (* is just a place holder for specific types of files to read, like read_csv() or read_excel()) to read your files into R. But before we dive in, let’s first talk about some computer basics. (You can skip this section if it’s too basic for you.)\n\n\n\n\n\n\nEnable all extensions\n\n\n\nBefore moving on, we recommend you enable the option to show all file extensions in the File Explorer/Finder.\nFollow the instructions here:\n\nWindows: https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01\nmacOS (For all files): https://support.apple.com/en-gb/guide/mac-help/mchlp2304/mac#:~:text=In%20the%20Finder%20on%20your,“Show%20all%20filename%20extensions”.\n\n\n\n\n1.1 Files, folder and file extensions\nFiles saved on your computer live in a specific place. For example, if you download a file from a browser (like Google Chrome, Safari or Firefox), the file is normally saved in the Download folder.\nBut where does the Download folder live? Usually, in your user folder! The user folder normally is the name of your account or a name you picked when you created your computer account. In my case, my user folder is simply called ste.\n\n\n\n\n\n\nUser folder\n\n\n\nThe user folder is the folder with the name of your account.\n\n\n\n\n\n\n\n\nHow to find your user folder name\n\n\n\n\n\nOn macOS\n\nGo to Finder &gt; Preferences/Settings.\nGo to Sidebar.\nThe name next to the house icon is the name of your home folder.\n\nOn Windows\n\nRight-click an empty area on the navigation panel in File Explorer.\nFrom the context menu, select the ‘Show all folders’ and your user profile will be added as a location in the navigation bar.\n\n\n\n\nSo, let’s assume I download a file, let’s say big_data.csv, in the Download folder of my user folder.\nNow we can represent the location of the big_data.csv file like so:\nste/\n└── Downloads/\n    └── big_data.csv\nTo mark that ste and Downloads are folders, we add a final forward slash /. That simply means “hey! I am a folder!”. big_data.csv is a file, so it doesn’t have a final /.\nInstead, the file name big_data.csv has a file extension. The file extension is .csv. A file extension marks the type of file: in this the big_data file is a .csv file, a comma separated value file (we will see an example of what that looks like later).\nDifferent file type have different file extensions:\n\nExcel files: .xlsx.\nPlain text files: .txt.\nImages: .png, .jpg, .gif.\nAudio: .mp3, .wav.\nVideo: .mp4, .mov, .avi.\nEtc…\n\n\n\n\n\n\n\nFile extension\n\n\n\nA file extension is a sequence of letters that indicates the type of a file and it’s separated with a . from the file name.\n\n\n\n\n1.2 File paths\nNow, we can use an alternative, more succinct way, to represent the location of the big_data.csv:\nste/Downloads/big_data.csv\nThis is called a file path! It’s the path through folders that lead you to the file. Folders are separated by / and the file is marked with the extension .csv.\n\n\n\n\n\n\nFile path\n\n\n\nA file path indicates the location of a file on a computer as a path through folders that lead you to the file.\n\n\nNow the million pound question: where does ste/ live on my computer???\nUser folders are located in different places depending on the operating system you are using:\n\nOn macOS: the user folder is in /Users/.\n\nYou will notice that there is a forward slash also before the name of the folder. That is because the /Users/ folder is a top folder, i.e. there are no folders further up in the hierarchy of folders.\nThis means that the full path for the big_data.csv file on a computer running macOS would be: /Users/ste/Downloads/big_data.csv.\n\nOn Windows: the user folder is in C:/Users/\n\nYou will notice that C is followed by a colon :. That is because C is a drive, which contains files and folders. C: is not contained by any other folder, i.e. there are no other folders above C: in the hierarchy of folders.\nThis means that the full path for the big_data.csv file on a Windows computer would be: C:/Users/ste/Downloads/big_data.csv.\n\n\nWhen a file path starts from a top-most folder, we call that path the absolute file path.\n\n\n\n\n\n\nAbsolute path\n\n\n\nAn absolute path is a file path that starts with a top-most folder.\n\n\nThere is another type of file paths, called relative paths. A relative path is a partial file path, relative to a specific folder. You will learn how to use relative paths below, when we will go through importing files in R using R scripts below.\nImporting files in R is very easy with the tidyverse packages. You just need to know the file type (very often the file extension helps) and the location of the file (i.e. the file path).\nThe next sections will teach you how to import data in R!\n\n\n\n\n\n\nQuiz 1\n\n\n\nWhich of the following is an absolute path?\n\n Downloads/courses/dal/data/ /Users/smruti/Downloads/data/files/ sascha/Documents/files_pdf/paper.pdf\n\n\n\n\n\n\n\n\n\nNext\n\n\n\n\nR basics"
   },
   {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "Pre-workshop set-up",
+    "objectID": "map.html",
+    "href": "map.html",
+    "title": "The Adventurer’s Map",
     "section": "",
-    "text": "Please, follow these instructions carefully to get ready at least one day before the workshop."
+    "text": "Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the Notebook entries. This Map will grow throughout the semester as new entries are added to the Notebook.\n\n\n\n\n\n\ngraph TD\n  A[Start here]\n  B[Hodotics]\n  click B href \"posts/hodotics.html\" \"Go to page\"\n  C[Computer basics]\n  click C href \"posts/computer-basics.html\" \"Go to page\"\n  D[R basics]\n  click D href \"posts/r-basics.html\" \"Go to page\"\n  E[Statistical variables]\n  click E href \"posts/stat-variables.html\" \"Go to page\"\n  F[Intro to Quarto]\n  click F href \"posts/intro-quarto.html\" \"Go to page\"\n  G[R Troubleshooting]\n  click G href \"posts/r-troubleshooting.html\" \"Go to page\"\n  H[Data types]\n  click H href \"posts/data-types.html\" \"Go to page\"\n  I[Read multiple files]\n  click I href \"posts/import-multiple.html\" \"Go to page\"\n  J[Introduction to regression]\n  click J href \"posts/intro-regression.html\" \"Go to page\"\n  K[Introduction to plotting]\n  click K href \"posts/intro-plot.html\" \"Go to page\"\n  L[Wrangling data]\n  click L href \"posts/wrangling.html\" \"Go to page\"\n  M[Plotting basics]\n  click M href \"posts/plotting-basics.html\" \"Go to page\"\n  N[Bar charts]\n  click N href \"posts/bar-charts.html\" \"Go to page\"\n  O[Filtering]\n  click O href \"posts/wrangle-filter.html\" \"Go to page\"\n  P[Mutating]\n  click P href \"posts/wrangle-mutate.html\" \"Go to page\"\n  Q[Pivoting]\n  click Q href \"posts/wrangle-pivoting.html\" \"Go to page\"\n  Z[Faceting plots]\n  click Z href \"posts/plot-faceting.html\" \"Go to page\"\n  AA[Density plots]\n  click AA href \"posts/plot-density.html\" \"Go to page\"\n  AB[Advanced plotting]\n  click AB href \"posts/plot-advanced.html\" \"Go to page\"\n  AC[Summary measures]\n  click AC href \"posts/summaries.html\" \"Go to page\"\n  \n  AD[Empirical research]\n  click AD href \"posts/research-context.html\" \"Go to page\"\n  AE[Research Qs and Hs]\n  click AE href \"posts/research-qh.html\" \"Go to page\"\n  AF[Data analysis]\n  click AF href \"posts/data-analysis.html\" \"Go to page\"\n  AG[Inference]\n  click AG href \"posts/inference.html\" \"Go to page\"\n  AH[Statistics]\n  click AH href \"posts/statistics.html\" \"Go to page\"\n  AI[Repro/repli]\n  click AI href \"posts/repro-repli.html\" \"Go to page\"\n  AJ[Proj Management]\n  click AJ href \"posts/management.html\" \"Go to page\"\n  AK[File management]\n  click AK href \"posts/file-manage.html\" \"Go to page\"\n  \n  R[Regression: predictors]\n  click R href \"posts/intro-regression-predictors.html\" \"Go to page\"\n  S[Regression: categorical predictors]\n  click S href \"posts/intro-regression-categorical.html\" \"Go to page\"\n  T[MCMC draws]\n  click T href \"posts/regression-draws.html\" \"Go to page\"\n  U[Indexing predictors]\n  click U href \"posts/regression-indexing.html\" \"Go to page\"\n  V[Interactions]\n  click V href \"posts/regression-interactions.html\" \"Go to page\"\n  W[Categorical-categorical interactions]\n  click W href \"posts/regression-interactions-catcat.html\" \"Go to page\"\n  X[Bernoulli regression]\n  click X href \"posts/regression-bernoulli.html\" \"Go to page\"\n  \n  A --&gt; B & C\n  \n  B --&gt; AD & AF & AJ\n  AD --&gt; AE\n  AE --&gt; AI\n  AF --&gt; AG & AH\n  AJ --&gt; AK\n  \n  C --&gt; D\n  \n  D --&gt; E & F & G\n  \n  F --&gt; H\n  H --&gt; I & E\n  I --&gt; Q\n  \n  E --&gt; J & K & L & AC\n  \n  K --&gt; M\n  M --&gt; N & Z & AA\n  N --&gt; AB\n  AA --&gt; AB\n\n  L --&gt; O & P & Q\n  P --&gt; N & AA\n  \n  %% Regression\n  J --&gt; R --&gt; S --&gt; T & U\n  U --&gt; V & X\n  V --&gt; W"
   },
   {
-    "objectID": "setup.html#pre-requisites",
-    "href": "setup.html#pre-requisites",
-    "title": "Pre-workshop set-up",
-    "section": "1 Pre-requisites",
-    "text": "1 Pre-requisites\nBefore installing the necessary software, make sure you have installed or updated the following software.\n\nThe latest version of R (https://cloud.r-project.org).\nThe latest version of RStudio (https://www.rstudio.com/products/rstudio/download/#download).\nYour operating system is up-to-date."
-  },
-  {
-    "objectID": "setup.html#installation",
-    "href": "setup.html#installation",
-    "title": "Pre-workshop set-up",
-    "section": "2 Installation",
-    "text": "2 Installation\n\n\n\n\n\n\nImportant\n\n\n\nIf you have previously installed the C++ toolkit or if you have recently updated your OS, please follow these instructions to reinstall them.\n\n\nNow you will need to install a few packages and extra software.\nHere is an overview of what you will install:\n\nC++ toolchain.\nR packages: tidyverse, brms, tidybayes, extraDistr.\n\n\n2.1 1. Install the C++ toolchain\nThe package brms used in the workshop requires a working C++ toolchain to compile models.\n\n2.1.1 Windows\nFor Windows, follow the instructions here: https://cran.r-project.org/bin/windows/Rtools/rtools43/rtools.html\n\n\n2.1.2 macOS\nFor macOS, open the Terminal and write the following line then press enter/return:\nxcode-select --install\nYou’ll see a panel that asks you to install the Xcode Command Line Tools. Install them. Downloading and installation will take 30 to 60 minutes.\n\n\n2.1.3 Linux\nFor Linux, follow the instructions here: https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux\n\n\n\n2.2 2. Install the R packages\nYou need to install the following packages:\ninstall.packages(c(\"tidyverse\", \"brms\", \"tidybayes\", \"extraDistr\"))\nIt will take several minutes to install the packages, depending on your system and configuration.\nIf after opening the workshop project in RStudio you get asked to install extra packages or software, please do so.\n\n\n2.3 Check your installation\nRun the following in the RStudio Console:\nexample(stan_model, package = \"rstan\", run.dontrun = TRUE)\nIf you see some strange looking text printed in the Console and then fit and fit2 in the Environment, then you are sorted!"
-  },
-  {
-    "objectID": "setup.html#troubleshooting",
-    "href": "setup.html#troubleshooting",
-    "title": "Pre-workshop set-up",
-    "section": "3 Troubleshooting",
-    "text": "3 Troubleshooting\nIf you are having issues with installation, post a question on Piazza. Note that we won’t reply to questions sent via emails, unless they are related to personal matters."
-  },
-  {
-    "objectID": "posts/statistics.html",
-    "href": "posts/statistics.html",
-    "title": "What is statistics?",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "The Schedule",
     "section": "",
-    "text": "Prerequisites\n\n\n\n\nQuantitative data analysis"
+    "text": "The course is structured in a “choose your own adventure” format, so there isn’t a set content for each week.\n\n\n\n\n\n\nImportant\n\n\n\nEach week, you will attend two classes:\n\nA one-hour seminar.\nA two-hour lab.\n\nNote that you are divided in two groups, so that the seminar and lab run twice each week, you just need to attend one of the seminars and one of the labs each week.\n\n\nThe seminars will have a different major theme each week, which you will have to research before class and discuss in groups in class.\nYou are also expected to learn quantitative methods outside of class, at your own time (as in a flipped classroom). This website has a list of entries in the Adventurer’s Notebook. You are not restricted to those posts, and you can learn from other resources, however if this is the very first time you are learning quantitative methods I recommend you stick to those since they have been curated for beginners. You can find a map of how the different posts build on each other in the Adventurer’s Map.\nThe labs will create the opportunity for you to practice quantitative data analysis with R. Each week you will pick a “challenge” from a list or come up with your own challenge and work towards solving it using R. More details will be shared soon.\nAs part of the Assessments, you will have to complete a group project. You can start working on the project any time during the course, but the last two labs will be dedicated to working on your project while being able to get help from the instructor (Stefano) and the Tutors."
   },
   {
-    "objectID": "posts/statistics.html#what-is-statistics",
-    "href": "posts/statistics.html#what-is-statistics",
-    "title": "What is statistics?",
-    "section": "1 What is statistics?",
-    "text": "1 What is statistics?\nStatistics is a tool. But what does it do? There are at least four ways of looking at statistics as a tool.\n\nStatistics is the science concerned with developing and studying methods for collecting, analyzing, interpreting and presenting empirical data. (From UCI Department of Statistics)\nStatistics is the technology of extracting information, illumination and understanding from data, often in the face of uncertainty. (From the British Academy)\nStatistics is a mathematical and conceptual discipline that focuses on the relation between data and hypotheses. (From the Standford Encyclopedia of Philosophy)\nStatistics as the art of applying the science of scientific methods. (From ORI Results, Nature)\n\nTo quote a statistician:\n\n\n\n\n\n\nNote\n\n\n\nStatistic is both a science and an art.\nIt is a science in that its methods are basically systematic and have general application and an art in that their successful application depends, to a considerable degree, on the skill and special experience of the statistician, and on his knowledge of the field of application.\n—L. H. C. Tippett\n\n\n\n\n\n\n\n\nExtra\n\n\n\n\n\nCheck out the etymology of statistics here: https://en.wiktionary.org/wiki/statistics#Etymology_1."
-  },
-  {
-    "objectID": "posts/statistics.html#what-statistics-is-not",
-    "href": "posts/statistics.html#what-statistics-is-not",
-    "title": "What is statistics?",
-    "section": "2 What statistics is NOT",
-    "text": "2 What statistics is NOT\nStatistics is a lot of things, but it is also not a lot of things.\n\nStatistics is not maths, but it is informed by maths.\nStatistics is not about hard truths not how to seek the truth (see Inference and uncertainty).\nStatistics is not a purely objective endeavour. In fact there are a lot of subjective aspects to statistics (see below).\nStatistics is not a substitute of common sense and expert knowledge.\nStatistics is not just about \\(p\\)-values and significance testing.\n\nAs Gollum would put it, all that glisters is not gold."
-  },
-  {
-    "objectID": "posts/statistics.html#many-analysts-one-data-set-subjectivity-exposed",
-    "href": "posts/statistics.html#many-analysts-one-data-set-subjectivity-exposed",
-    "title": "What is statistics?",
-    "section": "3 Many Analysts, One Data Set: subjectivity exposed",
-    "text": "3 Many Analysts, One Data Set: subjectivity exposed\n\n\n\n\n\nIn Silberzahn et al 2018, a group of researchers asked 29 independent analysis teams to answer the following question based on provided data: Is there a link between player skin tone and number of red cards in soccer?\nCrucially,\n\n69% of the teams reported an effect of player skin tone, and 31% did not.\nIn total, the 29 teams came up with 21 unique types of statistical analysis.\n\nThese results clearly show how subjective statistics is and how even a straightforward question can lead to a multitude of answers.\nTo put it in Silberzah et al’s words:\n\nThe observed results from analyzing a complex data set can be highly contingent on justifiable, but subjective, analytic decisions.\n\nThis is why you should always be somewhat sceptical of the results of any single study: you never know what results might have been found if another research team did the study. This is a reason for why replicating research is very important.\n\nCoretta et al 2023 tried something similar, but in the context of the speech sciences: they asked 30 independent analysis teams (84 signed up, 46 submitted an analysis, 30 submitted usable analyses) to answer the question Do speakers acoustically modify utterances to signal atypical word combinations?\nIncredibly, the 30 teams submitted:\n\n109 individual analyses. A bit more than 3 analyses per team!\n52 unique measurement specifications and 47 unique model specifications.\n\n\nNine teams out of the thirty (30%) reported to have found at least one statistically reliable effect (based on the inferential criteria they specified). Of the 170 critical model coefficients, 37 were claimed to show a statistically reliable effect (21.8%).\n\n—Coretta et al, 2023"
-  },
-  {
-    "objectID": "posts/statistics.html#the-new-statistics",
-    "href": "posts/statistics.html#the-new-statistics",
-    "title": "What is statistics?",
-    "section": "4 The “New Statistics”",
-    "text": "4 The “New Statistics”\nThe Silberzahn et al and Coretta et al studies are just the tip of the iceberg. We are currently facing a “research crisis”.\n\nCumming 2014 proposes a new approach to statistics, which he calls the “New Statistics”, in response to the research crisis.\nThe New Statistics mainly addresses three problems:\n\nPublished research is a biased selection of all (existing and possible) research.\nData analysis and reporting are often selective and biased.\nIn many research fields, studies are rarely replicated, so false conclusions persist.\n\nTo help solve those problems, it proposes these solutions (among others):\n\nPromoting research integrity.\nShifting away from statistical significance to estimation.\nBuilding a cumulative quantitative discipline."
-  },
-  {
-    "objectID": "posts/statistics.html#the-bayesian-new-statistics",
-    "href": "posts/statistics.html#the-bayesian-new-statistics",
-    "title": "What is statistics?",
-    "section": "5 The Bayesian New Statistics",
-    "text": "5 The Bayesian New Statistics\nKurschke and Liddell 2018 revisit the New Statistics and make a further proposal: to adopt the historically older but only recently popularised approach of Bayesian statistics. They call this the Bayesian New Statistics.\nThe classical approach to statistics is the frequentist method, based on work by Fisher, and Neyman and Pearson. Frequentist statistics is based on rejecting the “null hypothesis” (i.e. the hypothesis that there is no difference between groups) using p-values.\nBayesian statistics provides researchers with more appropriate and more robust ways to answer research questions, by reallocation of belief/credibility across possibilities.\nYou can learn more about the frequentist and the Bayesian approach here (TBA!!!)."
-  },
-  {
-    "objectID": "posts/research-qh.html",
-    "href": "posts/research-qh.html",
-    "title": "Research questions and hypotheses",
+    "objectID": "schedule.html#choose-your-own-adventure",
+    "href": "schedule.html#choose-your-own-adventure",
+    "title": "The Schedule",
     "section": "",
-    "text": "Prerequisites\n\n\n\n\nEmpirical research"
+    "text": "The course is structured in a “choose your own adventure” format, so there isn’t a set content for each week.\n\n\n\n\n\n\nImportant\n\n\n\nEach week, you will attend two classes:\n\nA one-hour seminar.\nA two-hour lab.\n\nNote that you are divided in two groups, so that the seminar and lab run twice each week, you just need to attend one of the seminars and one of the labs each week.\n\n\nThe seminars will have a different major theme each week, which you will have to research before class and discuss in groups in class.\nYou are also expected to learn quantitative methods outside of class, at your own time (as in a flipped classroom). This website has a list of entries in the Adventurer’s Notebook. You are not restricted to those posts, and you can learn from other resources, however if this is the very first time you are learning quantitative methods I recommend you stick to those since they have been curated for beginners. You can find a map of how the different posts build on each other in the Adventurer’s Map.\nThe labs will create the opportunity for you to practice quantitative data analysis with R. Each week you will pick a “challenge” from a list or come up with your own challenge and work towards solving it using R. More details will be shared soon.\nAs part of the Assessments, you will have to complete a group project. You can start working on the project any time during the course, but the last two labs will be dedicated to working on your project while being able to get help from the instructor (Stefano) and the Tutors."
   },
   {
-    "objectID": "posts/research-qh.html#research-questions",
-    "href": "posts/research-qh.html#research-questions",
-    "title": "Research questions and hypotheses",
-    "section": "1 Research questions",
-    "text": "1 Research questions\nResearch questions are testable questions whose answers directly address the problem.\nThey take the form of actual questions:\n\nWhat is the average speech rate of adolescents vs that of older adults?\nWhat happens to infants syntactic processing when they move from a monolingual to a multilingual environment?\nIs the morphological complexity of languages spoken by larger populations different from that of languages spoken by smaller populations?\n\nResearch questions are always necessary, independent of the type and objective of the research.\nWhile there is an undue pressure on researcher to come up with “novel” research questions all the time, it is perfectly fine to ask the same question multiple times."
+    "objectID": "schedule.html#schedule-overview",
+    "href": "schedule.html#schedule-overview",
+    "title": "The Schedule",
+    "section": "2 Schedule overview",
+    "text": "2 Schedule overview\nThe following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences. Check the week-by-week boxes below for a more detailed description of what you should be doing each week.\n\n\n\nWeek\nSeminar\nLab\n\n\n\n\n1\nWelcome and practicalities\nChallenge: Learn the basics of R\n\n\n2\nMore than numbers: quantitative methods and uncertainty\nChallenge\n\n\n3\nThe research process: research ethics and questionable practices\nChallenge\n\n\n4\nLanguage endangerment and small numbers\nChallenge\n\n\n5\nLanguage technology and machine learning\nChallenge: Statistical modelling\n\n\n6\nThe language of the climate crisis\nChallenge\n\n\n7\nEquality, diversity and inclusiveness in quantitative linguistics\nChallenge\n\n\n8\nQualitative vs quantitative: a real dichotomy?\nChallenge\n\n\n9\nOpen research and scholarship\nChallenge: Communicate your research\n\n\n10\nWhat’s next?\nGroup project\n\n\n11\nBonus topic\nGroup project"
   },
   {
-    "objectID": "posts/research-qh.html#research-hypotheses",
-    "href": "posts/research-qh.html#research-hypotheses",
-    "title": "Research questions and hypotheses",
-    "section": "2 Research hypotheses",
-    "text": "2 Research hypotheses\nResearch hypotheses are statements (not questions) about the research problem.\nHypotheses must be falsifiable (there can be in principle an outcome that shows them to be false). See below.\nHypotheses are never true nor confirmed. We can only corroborate hypothesis, and it’s a long term process. The same hypothesis has to be tested again and again, but multiple researchers in multiple contexts.\nResearch is not a one-off matter: knowledge can only be acquired slowly and with a lot of effort.\nIt is however perfectly fine to run a study with only research questions, without a research hypothesis. As long as you clearly state whether you are talking about research questions or research hypotheses, you are fine.\n\n2.1 Falsifiability\nYou might be wondering what it is meant by “falsifiable” statements. From Seven examples of falsifiability by John Spacey:\n\nA statement is falsifiable if it can be contradicted by an observation. If such observation is impossible to make with current technology, falsifiability is not achieved.\n\nSome examples of falsifiable hypotheses:\n\n“Life only exists on Earth.” (it would be falsified by the observation of life somewhere else).\n“If there is a 1st person exclusive dual, then there is also a 1st person inclusive dual.” [Universal 1871] (it would be falsified by the observation of languages with a 1st person exclusive dual but without the incluve alternative).\n“Infants start uttering full sentences only after their 12th month of life.” (it would be falsified by the observation of infants uttering full sentences before their 12th month of life).\n\nAnd some examples of non-falsifiable hypotheses.\n\n“Life might exist outside of the Solar system.” (if we observe life outside the Solar system or we don’t, the statement is still true).\n“Languages with a 1st person inclusive dual can have a 1st person exclusive dual.” (whether we observe a language with both 1st inclusive and exclusive dual or not, the statement is still true.)"
+    "objectID": "schedule.html#weekly-breakdown",
+    "href": "schedule.html#weekly-breakdown",
+    "title": "The Schedule",
+    "section": "3 Weekly breakdown",
+    "text": "3 Weekly breakdown\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\nIn the seminar\n\nCome to the seminar class. We will go through the course format, assessment and other practicalities.\n\nIn your own time\n\nCarefully read the homepage of the Course website.\nComplete the Intake Form (the link to the form can be found on the Learn website).\nInstall R, RStudio and Quarto: please, follow the instructions in the Setup page. You should do this before the first lab class.\n\nIn the lab\n\nCome to the lab class. Learn about the basics of R. Optionally, if you need to freshen up your computer basics, you can check Basic computer literacy.\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\nIn your own time\n\nRead Research methods and hodotics.\nWatch The Golem of Prague. And/or read the related chapter of Statistical Rethinking, The Golem of Prague.\nPick and read any entry/ies from the Notebook.\n\nIn the seminar\n\nGroup discussion: quantitative methods and uncertainty.\n\nIn the lab\n\nGroup activity: pick a Challenge."
   },
   {
-    "objectID": "posts/inference.html",
-    "href": "posts/inference.html",
-    "title": "Inference and uncertainty",
+    "objectID": "posts/stat-variables.html",
+    "href": "posts/stat-variables.html",
+    "title": "Statistical variables",
     "section": "",
-    "text": "Prerequisites\n\n\n\n\nQuantitative data analysis"
+    "text": "Pre-requisites\n\n\n\n\nR basics"
   },
   {
-    "objectID": "posts/inference.html#inference-process",
-    "href": "posts/inference.html#inference-process",
-    "title": "Inference and uncertainty",
-    "section": "1 Inference process",
-    "text": "1 Inference process\n\n\n\n\n\nImbuing numbers with meaning (see this section) is a good characterisation of the inference process.\nHere is how it works. We have a question about something. Let’s imagine that this something is the population of British Sign Language signers.\nWe want to know whether the cultural background of the BSL signers is linked to different pragmatic uses of the sign for BROTHER.\nBut we can’t survey the entire population of BSL signers.1\nSo instead of surveying all BSL users, we take a sample from the BSL population.\nThe sample is our empirical data (the product of our study or observation).\nNow, how do we go from data/observation to answering our question about the use of BROTHER? We can use the inference process!\n\n\n\n\n\n\nInference process\n\n\n\nInference is the process of understanding something about a population based on the sample (aka the data) taken from that population.\n\n\nThe figure below is a schematic representation of the inference process."
+    "objectID": "posts/stat-variables.html#statistical-variables",
+    "href": "posts/stat-variables.html#statistical-variables",
+    "title": "Statistical variables",
+    "section": "1 Statistical variables",
+    "text": "1 Statistical variables\nA (statistical) variable is any characteristics, number, or quantity that can be measured or counted.\n\nWhen you observe or measure something, you are taking note of the values generated by the variable.\nIt’s called variable because it varies (ha!).\nThe opposite of a variable is a constant.\n\nSome examples:\n\nToken number of telic verbs and atelic verbs in written Sanskrit.\nVoice Onset Time of stops in Mapudungun.\nFriendliness ratings of synthetic speech.\n…\n\nTry and think of more!"
   },
   {
-    "objectID": "posts/inference.html#inference-is-not-infallible",
-    "href": "posts/inference.html#inference-is-not-infallible",
-    "title": "Inference and uncertainty",
-    "section": "2 Inference is not infallible",
-    "text": "2 Inference is not infallible\nHowever, inference, despite being based on data, does not guarantee that the answers to our questions are right or even that they are true.\nIn fact, any observation we make comes with a certain degree of uncertainty and variability.\n\n\n\n\n\n\nExtra\n\n\n\n\n\n\nCheck out this article: https://www.scientificamerican.com/article/if-you-say-science-is-right-youre-wrong/.\nFind out about Popper’s view of falsification and fallibilism.\nLearn more about uncertainty and subjectivity in research: Vasishth and Gelman 2021, Gelman and Hennig 2017."
+    "objectID": "posts/stat-variables.html#types-of-variables",
+    "href": "posts/stat-variables.html#types-of-variables",
+    "title": "Statistical variables",
+    "section": "2 Types of variables",
+    "text": "2 Types of variables\nYou will find that some statistics textbooks overcomplicate things when it come to types of variables. From an applied statistics perspective you only need to be able to identify numeric vs categorical variables and continuous vs discrete variables.\n\n2.1 Numeric vs categorical variables\n\nThis distinction is quite self-explanatory:\n\nNumeric variables are variables that are numbers.\nCategorical variables are variables that correspond to categories, groups or levels on a scale.\n\n\n\n\n\n\n\nExamples\n\n\n\nNumeric variables\n\nNumber of multi-verb predicates in a book.\nDuration of stressed vowels.\nRating score between 0-100.\n\nCategorical variables\n\nGender (non-binary, female, male, …).\nFirst vs second language users.\nEjective vs non-ejective consonant.\n\n\n\nLearning how to recognise variables is a fundamental skill in quantitative data analysis, since the type of variables determines the type of analyses you can carry out.\n\n\n2.2 Continuous vs discrete variables\n\nOrthogonal to the numeric/categorical distinction, there is the continuous vs discrete distinction.\nThis one can be at times less straightforward.\n\nA continuous variable is a variable that can take on any value between any two numbers.\nA discrete variable is a variable that can only take on a set of values, and no value in between.\n\nNumeric variables can be either be continuous or discrete, while categorical variables can only be discrete.\n\n\n\n\n\n\nNote\n\n\n\nNumeric continuous variable: between any two values there is an infinite number of values.\n\nThe variable can take on any positive and negative number, including 0.\nThe variable can take on any positive number only.\nProportions and percentages: The variable can take on any number between 0 and 1.\n\nNumeric discrete variable: between any two consecutive values there are no other values.\n\nCounts: The variable can take only on any positive integer number.\n\nCategorical (discrete) variable. There are three main subtypes.\n\nBinary or dichotomous: The variable can take only one of two values.\nThe variable can take any of three of more values (sometimes called a multinomial variable).\nOrdinal: The variable can take any of three of more values and the values have a natural order."
   },
   {
-    "objectID": "posts/inference.html#uncertainty-and-variability",
-    "href": "posts/inference.html#uncertainty-and-variability",
-    "title": "Inference and uncertainty",
-    "section": "3 Uncertainty and variability",
-    "text": "3 Uncertainty and variability\n\nPliny the Elder was a Roman philosopher who died in the Vesuvius eruption in 79 CE. The only second certain thing must have been death.\nMoving away from dark irony, as researchers we have to deal with:\n\nUncertainty in any observation of a phenomenon due to measurement error or because we can directly measure what we want to measure.\nVariability among different observations of the same phenomenon due to natural and inevitable variability and measurement error.\n\nThe following picture is a reconstruction of what Galileo Galilei saw when he pointed one of his first telescopes towards Saturn, based on his 1610 sketch: a blurry circle flanked by two smaller blurry circles.\n\nOnly six years later, telescopes were much better and Galileo could correctly identify that the flaking circles were not spheres orbiting around Saturn, but rings.\nThe moral of the story is that at any point in history we are like Galileo in at least some of our research: we might be close to understanding something but not quite there yet."
+    "objectID": "posts/stat-variables.html#operationalisation",
+    "href": "posts/stat-variables.html#operationalisation",
+    "title": "Statistical variables",
+    "section": "3 Operationalisation",
+    "text": "3 Operationalisation\nThe action of operationalisation consists in choosing how to measure something: as a numeric or as a categorical variable.\nIn some cases, the choice is obvious, but in most cases something could be operationalised either way and it will be a matter of study design that helps you choose.\nFor example, age can be operationalised as years (numeric) or as age groups, like young vs old (categorical).\nThink of ways to operationalise the following variables:\n\nVoice Onset Time.\nFriendliness of speech.\nLexical frequency.\n\n\n\n\n\n\n\nNext\n\n\n\n\nWrangling data\nImport multiple files\nStatistical summaries\nIntroduction to plotting\nIntroduction to regression modelling"
   },
   {
-    "objectID": "posts/inference.html#statistics-as-a-tool",
-    "href": "posts/inference.html#statistics-as-a-tool",
-    "title": "Inference and uncertainty",
-    "section": "4 Statistics as a tool",
-    "text": "4 Statistics as a tool\nSo what do we do with such uncertainty and variability? We can use statistics to quantify them!\nStatistics is a tool that helps us quantifying uncertainty and controlling for variability.\nBut what is exactly statistics? Check What is statistics? to find out.\n\n\n\n\n\n\nNext\n\n\n\n\nWhat is statistics?"
+    "objectID": "posts/research-context.html#empirical-research",
+    "href": "posts/research-context.html#empirical-research",
+    "title": "Empirical research and research context",
+    "section": "1 Empirical research",
+    "text": "1 Empirical research\nEmpirical research is one approach to research. This type of research focusses on learning about the Universe through data and observation.\n\n\n\n\n\n\nEmpirical research\n\n\n\nThe word empirical is related to experience, and in the context of research it basically means “based on experience (i.e. data and observation)”.\nLear more about the etymology of empirical here."
   },
   {
-    "objectID": "posts/inference.html#footnotes",
-    "href": "posts/inference.html#footnotes",
-    "title": "Inference and uncertainty",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nNOTE: Population can be a set of anything, not just a specific group of people. For example, the words in a dictionary can be a “population”; or the antipassive constructions of Austronesian languages…↩︎"
+    "objectID": "posts/research-context.html#axes-of-research",
+    "href": "posts/research-context.html#axes-of-research",
+    "title": "Empirical research and research context",
+    "section": "2 Axes of research",
+    "text": "2 Axes of research\n\nThere are two main “axes” of empirical research types:\n\nExploratory vs corroboratory.\nDescriptive vs explanatory.\n\n\n\n\n\n\n\nExploratory vs corroboratory research\n\n\n\n\nExploratory research is about exploring the data looking for patterns, associations, features and so on. This type of research is also known as “hypothesis generating” because exploration can lead to the formulation of new hypotheses.\nCorroboratory research (aka as confirmatory research) is about checking expectations against data. It is also known as “hypothesis testing” because it is about testing hypotheses using data.\n\n\n\nWhile there is still a lot of prejudice against exploratory research (typical sentiments are “it doesn’t have theory”) it is an important way of doing research, as recognised by important scholars like Tukey. In We need both Exploratory and Confirmatory, Tukey stressed the importance of both approaches to research.\n\n\n\n\n\n\nDescriptive vs explanatory research\n\n\n\n\nDescriptive research is about describing facts through observation and collection of data. In other words, descriptive research is about the what.\nExplanatory research is about explaining facts, i.e. understanding why they are the way they are. In other words, explanatory research is about the why."
+  },
+  {
+    "objectID": "posts/research-context.html#research-objectives",
+    "href": "posts/research-context.html#research-objectives",
+    "title": "Empirical research and research context",
+    "section": "3 Research objectives",
+    "text": "3 Research objectives\nThere can be three types of research objectives. Each has its merits and to improve our understanding of the Universe we need all three, although there is nothing wrong for any one study to focus just on one or two!\n\n\n\n\n\n\nEstablish facts\n\n\n\nResearch can establish facts and fill a gap in the knowledge of one or more phenomena.\nThe aim of establishing facts is to accumulate evidence of particular events, features, associations.\nExamples:\n\nWhat are the uses of the Sanskrit verb gam ‘to go’?\nWhat is the duration of vowels in Mawayana (Arawakan)?\nDo people interact with AI as with other people?\n\n\n\n\n\n\n\n\n\nImprove fit of framework to facts\n\n\n\nResearch can improve the fit of a specific framework to established facts. Usually this is done to fine-tune a framework in light of new evidence but it also just works when you want to test new expectations/hypotheses. When the facts do not match the expectations, researchers modify the framework to accommodate the results.\nIn some cases, a framework can be totally abandoned in light of the facts, or a new one could be developed.\nExamples:\n\nStrong exemplar-based models preclude the possibility of abstract representations, but certain categorisation tasks seem to involve abstract representations so these must be included in exemplar-based models.\n\n\n\n\n\n\n\n\n\nCompare fit of different frameworks to facts\n\n\n\nThis objective allows researcher two compare two or more frameworks in light of empirical results. The main prerequisite for this approach is that each framework must have different expectations in relation to the phenomenon at hand.\nWhen different frameworks entail different and exclusive hypotheses, one can test the hypotheses with data: the results might help excluding certain hypotheses and keep others. The frameworks that generate the excluded hypotheses have to be abandoned (unless they can be modified to fit the new results, see above, while still be different enough from other frameworks).\nExamples:\n\nThere are two possible models for the bilingual lexicon: Word association and concept mediation. Which one better describes and explains the data?\nA strict feed-forward architecture of grammar does not allow phonetic details to be sensitive to morphological structure, while some exemplar-based models allow that.\n\n\n\nEach of the three objectives are important in research, but note that in order to really advance our understanding of things the third objective is fundamental: it is only by directly comparing different frameworks that we can accumulate knowledge and weed out inaccurate explanations."
+  },
+  {
+    "objectID": "posts/research-context.html#research-context",
+    "href": "posts/research-context.html#research-context",
+    "title": "Empirical research and research context",
+    "section": "4 Research context",
+    "text": "4 Research context\nEllis and Levy (2008) introduce a nice break-down of the concept of “research context”.\nThe image below is a schematic representation of different aspects of the research context, from the most general to the most specific. An example of each is also provided."
+  },
+  {
+    "objectID": "posts/management.html",
+    "href": "posts/management.html",
+    "title": "Research project management",
+    "section": "",
+    "text": "Prerequisites\n\n\n\n\nResearch Methods and Hodotics"
+  },
+  {
+    "objectID": "posts/management.html#managing-your-research",
+    "href": "posts/management.html#managing-your-research",
+    "title": "Research project management",
+    "section": "1 Managing your research",
+    "text": "1 Managing your research\n\n\n\n\n\nManaging a research project, whether it’s a solo project like a dissertation or it’s a large-scale project with many people, involves a lot of project management skills.\nThe three most important aspects of research project managements are:\n\nProject planning: anything related to planning and executing your research project, including managing other team members.\nResearch management: managing references, papers, research notes and more.\nFile management: probably the most neglected aspect of research project management, managing your files, from collected data to images to written work.\n\nTo learn more about the three aspects of research project management, check the “Next” box below.\n\n\n\n\n\n\nNext\n\n\n\n\nFile management"
+  },
+  {
+    "objectID": "posts/hodotics.html",
+    "href": "posts/hodotics.html",
+    "title": "Research Methods and Hodotics",
+    "section": "",
+    "text": "Research Methods are about the theory, methods and practice of conducting research. I like to call the discipline that deals with research methods Hodotics.\nOne way of categorising different aspects of research methods is represented in the following figure.\n\n\n\n\n\nYou can think of research methods as the combination of:\n\nThe research process: the process of conducting a research project, from determining the research context to communicating results.\nProject management: the process of managing a research project, from project planning to writing-up.\nDigital skills: all research involves using computers (at least at some point if not throughout) so that computer literacy and digital skills are nowadays a fundamental aspect of research.\nPhilosophy: all research is not performed in a vacuum and a lot of philosophical questions shape the entire research process.\nEthics: all research is not performed in a social vacuum and ethical considerations are a fundamental aspect of research."
+  },
+  {
+    "objectID": "posts/hodotics.html#research-methods",
+    "href": "posts/hodotics.html#research-methods",
+    "title": "Research Methods and Hodotics",
+    "section": "",
+    "text": "Research Methods are about the theory, methods and practice of conducting research. I like to call the discipline that deals with research methods Hodotics.\nOne way of categorising different aspects of research methods is represented in the following figure.\n\n\n\n\n\nYou can think of research methods as the combination of:\n\nThe research process: the process of conducting a research project, from determining the research context to communicating results.\nProject management: the process of managing a research project, from project planning to writing-up.\nDigital skills: all research involves using computers (at least at some point if not throughout) so that computer literacy and digital skills are nowadays a fundamental aspect of research.\nPhilosophy: all research is not performed in a vacuum and a lot of philosophical questions shape the entire research process.\nEthics: all research is not performed in a social vacuum and ethical considerations are a fundamental aspect of research."
+  },
+  {
+    "objectID": "posts/hodotics.html#the-research-process",
+    "href": "posts/hodotics.html#the-research-process",
+    "title": "Research Methods and Hodotics",
+    "section": "2 The research process",
+    "text": "2 The research process\nLet’s zoom in on the research process.\n\n\n\n\n\n\nContext: the research context includes several aspects of the research process, including the background (i.e. the previous literature and current knowledge) and the rational of the study (from the general topic to specific research questions/hypotheses).\nData acquisition: this is the process of gathering data to be used in the study. Data acquisition covers many different types of processes, from experimental set-ups to corpus queries.\nData analysis is the process of analysing the acquired data using qualitative, quantitative or a mixed methods. This part of the research process also include interpreting the output of such analysis.\nCommunication: finally, the last step in a research process cycle is to communicate what was done and what was learned, both to the research community and to the wider public.\n\n\n\n\n\n\n\nNext\n\n\n\n\nEmpirical research and research context\nQuantitative data analysis\nResearch project management"
   },
   {
     "objectID": "posts/data-analysis.html",
@@ -746,119 +739,224 @@
     "href": "notebook.html",
     "title": "The Adventurer’s Notebook",
     "section": "",
-    "text": "Basic computer literacy\n\n\n\n\n\n\nStefano Coretta\n\n\nJun 28, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nData types\n\n\nLearn about types of data and how to import data in R\n\n\n\nStefano Coretta\n\n\nJun 28, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical variables\n\n\nLearn about the type of statistical variables\n\n\n\nStefano Coretta\n\n\nSep 12, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical summaries\n\n\nLearn about descriptive summary measures\n\n\n\nStefano Coretta\n\n\nSep 13, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nResearch Methods and Hodotics\n\n\nResearch Methods are about the theory, methods and practice of conducting research\n\n\n\nStefano Coretta\n\n\nJun 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to regression models\n\n\nLearn the basics of regression models, a powerful and flexible, yet simple, way of modelling data\n\n\n\nStefano Coretta\n\n\nJun 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nR basics\n\n\nLearn the basics of R, a statistical programming language.\n\n\n\nStefano Coretta\n\n\nJun 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nR Troubleshooting\n\n\nLearn about common R mistakes and where to find help\n\n\n\nStefano Coretta\n\n\nJun 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRegression: Indexing of categorical predictors\n\n\nLearn about indexing of categorical predictors in regression models\n\n\n\nStefano Coretta\n\n\nJun 25, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to Quarto\n\n\nLearn how to write dynamic documents with both text and code using Quarto\n\n\n\nStefano Coretta\n\n\nJun 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nPlotting basics\n\n\nLearn the basics of plotting in R with ggplot2\n\n\n\nStefano Coretta\n\n\nJun 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nReading multiple data files\n\n\n\n\n\n\n\n\n\nJul 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWrangling data with R\n\n\nLearn the basics of wrangling data with R\n\n\n\nStefano Coretta\n\n\nJul 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nPivoting\n\n\nLearn how to change the format of data tables from long to wide and viceversa using the pivot functions from tidyr\n\n\n\nStefano Coretta\n\n\nJul 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nMutate data\n\n\nLearn about mutating data using the tidyverse\n\n\n\nStefano Coretta\n\n\nJul 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nBar charts\n\n\n\n\n\n\n\n\n\nJul 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFilter data\n\n\n\n\n\n\nStefano Coretta\n\n\nJul 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to regression models (Part II): include numeric predictors\n\n\nLearn how to include numeric predictors in your regression models\n\n\n\nStefano Coretta\n\n\nJul 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to regression models (Part III): include categorical predictors\n\n\nLearn how to include categorical predictors in your regression models\n\n\n\nStefano Coretta\n\n\nJul 28, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRegression models: working with MCMC draws\n\n\nLearn how extract, wrangle and plot MCMC posterior draws\n\n\n\nStefano Coretta\n\n\nAug 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRegression models: interactions\n\n\nAdd and interpret interactions in regression models\n\n\n\nStefano Coretta\n\n\nAug 8, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRegression models: interactions between categorical predictors\n\n\nAdd and interpret interactions of two categorical predictors\n\n\n\nStefano Coretta\n\n\nAug 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRegression: binary outcome variables\n\n\nLearn how to fit regression models with binary outcome variable using the Bernoulli/binomial distribution\n\n\n\nStefano Coretta, Elizabeth Pankratz\n\n\nSep 9, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to plotting\n\n\nLearn about basic principles of good graphs\n\n\n\nStefano Coretta\n\n\nSep 12, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFaceting plots\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nDensity plots\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAdvanced plotting\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nQuantitative data analysis\n\n\nLearn more about quantitative data analysis\n\n\n\nStefano Coretta\n\n\nSep 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nInference and uncertainty\n\n\nLearn about the inference process and the uncertainty that comes with it\n\n\n\nStefano Coretta\n\n\nSep 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nEmpirical research and research context\n\n\nLearn more about empirical research and the research context\n\n\n\nStefano Coretta\n\n\nSep 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nResearch questions and hypotheses\n\n\nLearn more about research questions, hypotheses and how to formulate them\n\n\n\nStefano Coretta\n\n\nSep 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWhat is statistics?\n\n\nLearn about the inference process and the uncertainty that comes with it\n\n\n\nStefano Coretta\n\n\nSep 14, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Basic computer literacy\n\n\n\n\n\n\nStefano Coretta\n\n\nJun 28, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nData types\n\n\nLearn about types of data and how to import data in R\n\n\n\nStefano Coretta\n\n\nJun 28, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical variables\n\n\nLearn about the type of statistical variables\n\n\n\nStefano Coretta\n\n\nSep 12, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical summaries\n\n\nLearn about descriptive summary measures\n\n\n\nStefano Coretta\n\n\nSep 13, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nResearch Methods and Hodotics\n\n\nResearch Methods are about the theory, methods and practice of conducting research\n\n\n\nStefano Coretta\n\n\nJun 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to regression models\n\n\nLearn the basics of regression models, a powerful and flexible, yet simple, way of modelling data\n\n\n\nStefano Coretta\n\n\nJun 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nR basics\n\n\nLearn the basics of R, a statistical programming language.\n\n\n\nStefano Coretta\n\n\nJun 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nR Troubleshooting\n\n\nLearn about common R mistakes and where to find help\n\n\n\nStefano Coretta\n\n\nJun 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRegression: Indexing of categorical predictors\n\n\nLearn about indexing of categorical predictors in regression models\n\n\n\nStefano Coretta\n\n\nJun 25, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to Quarto\n\n\nLearn how to write dynamic documents with both text and code using Quarto\n\n\n\nStefano Coretta\n\n\nJun 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nPlotting basics\n\n\nLearn the basics of plotting in R with ggplot2\n\n\n\nStefano Coretta\n\n\nJun 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nReading multiple data files\n\n\n\n\n\n\n\n\n\nJul 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWrangling data with R\n\n\nLearn the basics of wrangling data with R\n\n\n\nStefano Coretta\n\n\nJul 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nPivoting\n\n\nLearn how to change the format of data tables from long to wide and viceversa using the pivot functions from tidyr\n\n\n\nStefano Coretta\n\n\nJul 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nMutate data\n\n\nLearn about mutating data using the tidyverse\n\n\n\nStefano Coretta\n\n\nJul 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nBar charts\n\n\n\n\n\n\n\n\n\nJul 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFilter data\n\n\n\n\n\n\nStefano Coretta\n\n\nJul 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to regression models (Part II): include numeric predictors\n\n\nLearn how to include numeric predictors in your regression models\n\n\n\nStefano Coretta\n\n\nJul 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to regression models (Part III): include categorical predictors\n\n\nLearn how to include categorical predictors in your regression models\n\n\n\nStefano Coretta\n\n\nJul 28, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRegression models: working with MCMC draws\n\n\nLearn how extract, wrangle and plot MCMC posterior draws\n\n\n\nStefano Coretta\n\n\nAug 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRegression models: interactions\n\n\nAdd and interpret interactions in regression models\n\n\n\nStefano Coretta\n\n\nAug 8, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRegression models: interactions between categorical predictors\n\n\nAdd and interpret interactions of two categorical predictors\n\n\n\nStefano Coretta\n\n\nAug 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRegression: binary outcome variables\n\n\nLearn how to fit regression models with binary outcome variable using the Bernoulli/binomial distribution\n\n\n\nStefano Coretta, Elizabeth Pankratz\n\n\nSep 9, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to plotting\n\n\nLearn about basic principles of good graphs\n\n\n\nStefano Coretta\n\n\nSep 12, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFaceting plots\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nDensity plots\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAdvanced plotting\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nQuantitative data analysis\n\n\nLearn more about quantitative data analysis\n\n\n\nStefano Coretta\n\n\nSep 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nInference and uncertainty\n\n\nLearn about the inference process and the uncertainty that comes with it\n\n\n\nStefano Coretta\n\n\nSep 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nEmpirical research and research context\n\n\nLearn more about empirical research and the research context\n\n\n\nStefano Coretta\n\n\nSep 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nResearch questions and hypotheses\n\n\nLearn more about research questions, hypotheses and how to formulate them\n\n\n\nStefano Coretta\n\n\nSep 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWhat is statistics?\n\n\nLearn about the inference process and the uncertainty that comes with it\n\n\n\nStefano Coretta\n\n\nSep 14, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFile management\n\n\n\n\n\n\nStefano Coretta\n\n\nSep 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nResearch project management\n\n\n\n\n\n\nStefano Coretta\n\n\nSep 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nReproducibility and replicability\n\n\nLearn about the meaning of reproducible, replicable, robust and generalisable research\n\n\n\nStefano Coretta\n\n\nSep 15, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/hodotics.html",
-    "href": "posts/hodotics.html",
-    "title": "Research Methods and Hodotics",
+    "objectID": "posts/file-manage.html",
+    "href": "posts/file-manage.html",
+    "title": "File management",
     "section": "",
-    "text": "Research Methods are about the theory, methods and practice of conducting research. I like to call the discipline that deals with research methods Hodotics.\nOne way of categorising different aspects of research methods is represented in the following figure.\n\n\n\n\n\nYou can think of research methods as the combination of:\n\nThe research process: the process of conducting a research project, from determining the research context to communicating results.\nProject management: the process of managing a research project, from project planning to writing-up.\nDigital skills: all research involves using computers (at least at some point if not throughout) so that computer literacy and digital skills are nowadays a fundamental aspect of research.\nPhilosophy: all research is not performed in a vacuum and a lot of philosophical questions shape the entire research process.\nEthics: all research is not performed in a social vacuum and ethical considerations are a fundamental aspect of research."
+    "text": "Prerequisites\n\n\n\n\nResearch project management"
   },
   {
-    "objectID": "posts/hodotics.html#research-methods",
-    "href": "posts/hodotics.html#research-methods",
-    "title": "Research Methods and Hodotics",
+    "objectID": "posts/file-manage.html#data-management-plan-dmp",
+    "href": "posts/file-manage.html#data-management-plan-dmp",
+    "title": "File management",
+    "section": "1 Data Management Plan (DMP)",
+    "text": "1 Data Management Plan (DMP)\nA Data Management Plan (DMP) covers anything related to data types, their volume (size), how you will acquire or collect them, where and how you will store them, and aspects about data integrity, confidentiality, retention and destruction, sharing and deposit.\nThe University of Edinburgh has two important resources:\n\nUoE Research Data Management policy.\nUoE DMP Online.\n\nHere is what a DMP project looks like in the UoE DMP Online tool."
+  },
+  {
+    "objectID": "posts/file-manage.html#research-compendium",
+    "href": "posts/file-manage.html#research-compendium",
+    "title": "File management",
+    "section": "2 Research Compendium",
+    "text": "2 Research Compendium\nResearch compendia are all the data, files, publications related to a research project. Here some definitions:\n\nA research compendium accompanies, enhances, or is a scientific publication providing data, code, and documentation for reproducing a scientific workflow.\n\n—Research Compendium\n\nA research compendium is a collection of all digital parts of a research project including data, code, texts (protocols, reports, questionnaires, meta data). The collection is created in such a way that reproducing all results is straightforward.\n\n—The Turing Way: Research Compendia\nIt is important to think about how you will structure and keep up your research compendium, from the initial stages throughout the project and after completion.\nIt is usually helpful to have a single folder on a computer which contains everything. The following sections give you some tips on how to organise the folder."
+  },
+  {
+    "objectID": "posts/file-manage.html#organising-and-naming-files",
+    "href": "posts/file-manage.html#organising-and-naming-files",
+    "title": "File management",
+    "section": "3 Organising and naming files",
+    "text": "3 Organising and naming files\nSome of the following suggestions come from Organising files and File naming which are part of the Open Science Framework (OSF) Support pages.\nTo organise your files:\n\nCreate one folder and make that the folder for your research project folder.\nIn that folder, create folders for data/ and for scripts/ (and plots/, dissertation/, etc).\nIn data/ have a raw/ and derived/ folder:\nRaw data (data that, if lost, it is very unfortunate; for example, experiment data, data which was manually annotated, etc) should be saved in data/raw/.\nDerived data (data that is derived with scripts) should be saved in data/derived/.\n\nThe figure below shows an example of an MSc research project.\n\n\n\n\n\nYou also want to carefully think about file naming. Check the File naming for tips.\nAvoid common pitfalls in naming your files, like the ones in the following example."
+  },
+  {
+    "objectID": "posts/file-manage.html#back-up",
+    "href": "posts/file-manage.html#back-up",
+    "title": "File management",
+    "section": "4 Back up",
+    "text": "4 Back up\nMake sure you have a backup system in place.\n\nSave copies of the entire folder in an external hard drive.\nSaving copies of the entire folder in an online storage service (iCloud Drive, One Drive, DropBox, Google Drive, …).\n\nBut if you are working on that copy via syncing, make sure you have a second independent place you back up to, like a hard drive.\n\nUsing a versioning system like git."
+  },
+  {
+    "objectID": "posts/file-manage.html#research-projects-are-dynamic",
+    "href": "posts/file-manage.html#research-projects-are-dynamic",
+    "title": "File management",
+    "section": "5 Research projects are dynamic",
+    "text": "5 Research projects are dynamic\n\nBe prepared to change how files and folders are organised after you start.\nProjects evolve over time and sometimes you need to clean things up.\nUse a good system to mark versions in your files.\n\nTwo simple systems to mark file versions:\n\nUse full DATE in the file name\n\ndissertation-2022-11-21.\ndissertation-2023-03-01.\n\nOr use version number\n\nInspired by Semantic versioning from programming but can be helpful with research files too!\ndissertation-v1.0.\ndissertation-v1.1.\ndissertation-v2.0."
+  },
+  {
+    "objectID": "posts/file-manage.html#licensing",
+    "href": "posts/file-manage.html#licensing",
+    "title": "File management",
+    "section": "6 Licensing",
+    "text": "6 Licensing\nA license gives someone official permission to reuse something while protecting the intellectual property of the original creator.\nUse open licenses to ensure the data/code can be used by other researchers.\nThe Creative Commons licenses are now common in research."
+  },
+  {
+    "objectID": "posts/inference.html",
+    "href": "posts/inference.html",
+    "title": "Inference and uncertainty",
     "section": "",
-    "text": "Research Methods are about the theory, methods and practice of conducting research. I like to call the discipline that deals with research methods Hodotics.\nOne way of categorising different aspects of research methods is represented in the following figure.\n\n\n\n\n\nYou can think of research methods as the combination of:\n\nThe research process: the process of conducting a research project, from determining the research context to communicating results.\nProject management: the process of managing a research project, from project planning to writing-up.\nDigital skills: all research involves using computers (at least at some point if not throughout) so that computer literacy and digital skills are nowadays a fundamental aspect of research.\nPhilosophy: all research is not performed in a vacuum and a lot of philosophical questions shape the entire research process.\nEthics: all research is not performed in a social vacuum and ethical considerations are a fundamental aspect of research."
+    "text": "Prerequisites\n\n\n\n\nQuantitative data analysis"
   },
   {
-    "objectID": "posts/hodotics.html#the-research-process",
-    "href": "posts/hodotics.html#the-research-process",
-    "title": "Research Methods and Hodotics",
-    "section": "2 The research process",
-    "text": "2 The research process\nLet’s zoom in on the research process.\n\n\n\n\n\n\nContext: the research context includes several aspects of the research process, including the background (i.e. the previous literature and current knowledge) and the rational of the study (from the general topic to specific research questions/hypotheses).\nData acquisition: this is the process of gathering data to be used in the study. Data acquisition covers many different types of processes, from experimental set-ups to corpus queries.\nData analysis is the process of analysing the acquired data using qualitative, quantitative or a mixed methods. This part of the research process also include interpreting the output of such analysis.\nCommunication: finally, the last step in a research process cycle is to communicate what was done and what was learned, both to the research community and to the wider public.\n\n\n\n\n\n\n\nNext\n\n\n\n\nEmpirical research and research context"
+    "objectID": "posts/inference.html#inference-process",
+    "href": "posts/inference.html#inference-process",
+    "title": "Inference and uncertainty",
+    "section": "1 Inference process",
+    "text": "1 Inference process\n\n\n\n\n\nImbuing numbers with meaning (see this section) is a good characterisation of the inference process.\nHere is how it works. We have a question about something. Let’s imagine that this something is the population of British Sign Language signers.\nWe want to know whether the cultural background of the BSL signers is linked to different pragmatic uses of the sign for BROTHER.\nBut we can’t survey the entire population of BSL signers.1\nSo instead of surveying all BSL users, we take a sample from the BSL population.\nThe sample is our empirical data (the product of our study or observation).\nNow, how do we go from data/observation to answering our question about the use of BROTHER? We can use the inference process!\n\n\n\n\n\n\nInference process\n\n\n\nInference is the process of understanding something about a population based on the sample (aka the data) taken from that population.\n\n\nThe figure below is a schematic representation of the inference process."
   },
   {
-    "objectID": "posts/research-context.html#empirical-research",
-    "href": "posts/research-context.html#empirical-research",
-    "title": "Empirical research and research context",
-    "section": "1 Empirical research",
-    "text": "1 Empirical research\nEmpirical research is one approach to research. This type of research focusses on learning about the Universe through data and observation.\n\n\n\n\n\n\nEmpirical research\n\n\n\nThe word empirical is related to experience, and in the context of research it basically means “based on experience (i.e. data and observation)”.\nLear more about the etymology of empirical here."
+    "objectID": "posts/inference.html#inference-is-not-infallible",
+    "href": "posts/inference.html#inference-is-not-infallible",
+    "title": "Inference and uncertainty",
+    "section": "2 Inference is not infallible",
+    "text": "2 Inference is not infallible\nHowever, inference, despite being based on data, does not guarantee that the answers to our questions are right or even that they are true.\nIn fact, any observation we make comes with a certain degree of uncertainty and variability.\n\n\n\n\n\n\nExtra\n\n\n\n\n\n\nCheck out this article: https://www.scientificamerican.com/article/if-you-say-science-is-right-youre-wrong/.\nFind out about Popper’s view of falsification and fallibilism.\nLearn more about uncertainty and subjectivity in research: Vasishth and Gelman 2021, Gelman and Hennig 2017."
   },
   {
-    "objectID": "posts/research-context.html#axes-of-research",
-    "href": "posts/research-context.html#axes-of-research",
-    "title": "Empirical research and research context",
-    "section": "2 Axes of research",
-    "text": "2 Axes of research\n\nThere are two main “axes” of empirical research types:\n\nExploratory vs corroboratory.\nDescriptive vs explanatory.\n\n\n\n\n\n\n\nExploratory vs corroboratory research\n\n\n\n\nExploratory research is about exploring the data looking for patterns, associations, features and so on. This type of research is also known as “hypothesis generating” because exploration can lead to the formulation of new hypotheses.\nCorroboratory research (aka as confirmatory research) is about checking expectations against data. It is also known as “hypothesis testing” because it is about testing hypotheses using data.\n\n\n\nWhile there is still a lot of prejudice against exploratory research (typical sentiments are “it doesn’t have theory”) it is an important way of doing research, as recognised by important scholars like Tukey. In We need both Exploratory and Confirmatory, Tukey stressed the importance of both approaches to research.\n\n\n\n\n\n\nDescriptive vs explanatory research\n\n\n\n\nDescriptive research is about describing facts through observation and collection of data. In other words, descriptive research is about the what.\nExplanatory research is about explaining facts, i.e. understanding why they are the way they are. In other words, explanatory research is about the why."
+    "objectID": "posts/inference.html#uncertainty-and-variability",
+    "href": "posts/inference.html#uncertainty-and-variability",
+    "title": "Inference and uncertainty",
+    "section": "3 Uncertainty and variability",
+    "text": "3 Uncertainty and variability\n\nPliny the Elder was a Roman philosopher who died in the Vesuvius eruption in 79 CE. The only second certain thing must have been death.\nMoving away from dark irony, as researchers we have to deal with:\n\nUncertainty in any observation of a phenomenon due to measurement error or because we can directly measure what we want to measure.\nVariability among different observations of the same phenomenon due to natural and inevitable variability and measurement error.\n\nThe following picture is a reconstruction of what Galileo Galilei saw when he pointed one of his first telescopes towards Saturn, based on his 1610 sketch: a blurry circle flanked by two smaller blurry circles.\n\nOnly six years later, telescopes were much better and Galileo could correctly identify that the flaking circles were not spheres orbiting around Saturn, but rings.\nThe moral of the story is that at any point in history we are like Galileo in at least some of our research: we might be close to understanding something but not quite there yet."
   },
   {
-    "objectID": "posts/research-context.html#research-objectives",
-    "href": "posts/research-context.html#research-objectives",
-    "title": "Empirical research and research context",
-    "section": "3 Research objectives",
-    "text": "3 Research objectives\nThere can be three types of research objectives. Each has its merits and to improve our understanding of the Universe we need all three, although there is nothing wrong for any one study to focus just on one or two!\n\n\n\n\n\n\nEstablish facts\n\n\n\nResearch can establish facts and fill a gap in the knowledge of one or more phenomena.\nThe aim of establishing facts is to accumulate evidence of particular events, features, associations.\nExamples:\n\nWhat are the uses of the Sanskrit verb gam ‘to go’?\nWhat is the duration of vowels in Mawayana (Arawakan)?\nDo people interact with AI as with other people?\n\n\n\n\n\n\n\n\n\nImprove fit of framework to facts\n\n\n\nResearch can improve the fit of a specific framework to established facts. Usually this is done to fine-tune a framework in light of new evidence but it also just works when you want to test new expectations/hypotheses. When the facts do not match the expectations, researchers modify the framework to accommodate the results.\nIn some cases, a framework can be totally abandoned in light of the facts, or a new one could be developed.\nExamples:\n\nStrong exemplar-based models preclude the possibility of abstract representations, but certain categorisation tasks seem to involve abstract representations so these must be included in exemplar-based models.\n\n\n\n\n\n\n\n\n\nCompare fit of different frameworks to facts\n\n\n\nThis objective allows researcher two compare two or more frameworks in light of empirical results. The main prerequisite for this approach is that each framework must have different expectations in relation to the phenomenon at hand.\nWhen different frameworks entail different and exclusive hypotheses, one can test the hypotheses with data: the results might help excluding certain hypotheses and keep others. The frameworks that generate the excluded hypotheses have to be abandoned (unless they can be modified to fit the new results, see above, while still be different enough from other frameworks).\nExamples:\n\nThere are two possible models for the bilingual lexicon: Word association and concept mediation. Which one better describes and explains the data?\nA strict feed-forward architecture of grammar does not allow phonetic details to be sensitive to morphological structure, while some exemplar-based models allow that.\n\n\n\nEach of the three objectives are important in research, but note that in order to really advance our understanding of things the third objective is fundamental: it is only by directly comparing different frameworks that we can accumulate knowledge and weed out inaccurate explanations."
+    "objectID": "posts/inference.html#statistics-as-a-tool",
+    "href": "posts/inference.html#statistics-as-a-tool",
+    "title": "Inference and uncertainty",
+    "section": "4 Statistics as a tool",
+    "text": "4 Statistics as a tool\nSo what do we do with such uncertainty and variability? We can use statistics to quantify them!\nStatistics is a tool that helps us quantifying uncertainty and controlling for variability.\nBut what is exactly statistics? Check What is statistics? to find out.\n\n\n\n\n\n\nNext\n\n\n\n\nWhat is statistics?"
   },
   {
-    "objectID": "posts/research-context.html#research-context",
-    "href": "posts/research-context.html#research-context",
-    "title": "Empirical research and research context",
-    "section": "4 Research context",
-    "text": "4 Research context\nEllis and Levy (2008) introduce a nice break-down of the concept of “research context”.\nThe image below is a schematic representation of different aspects of the research context, from the most general to the most specific. An example of each is also provided."
+    "objectID": "posts/inference.html#footnotes",
+    "href": "posts/inference.html#footnotes",
+    "title": "Inference and uncertainty",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nNOTE: Population can be a set of anything, not just a specific group of people. For example, the words in a dictionary can be a “population”; or the antipassive constructions of Austronesian languages…↩︎"
   },
   {
-    "objectID": "posts/stat-variables.html",
-    "href": "posts/stat-variables.html",
-    "title": "Statistical variables",
+    "objectID": "posts/repro-repli.html",
+    "href": "posts/repro-repli.html",
+    "title": "Reproducibility and replicability",
     "section": "",
-    "text": "Pre-requisites\n\n\n\n\nR basics"
+    "text": "Prerequisites\n\n\n\n\nResearch questions and hypotheses"
   },
   {
-    "objectID": "posts/stat-variables.html#statistical-variables",
-    "href": "posts/stat-variables.html#statistical-variables",
-    "title": "Statistical variables",
-    "section": "1 Statistical variables",
-    "text": "1 Statistical variables\nA (statistical) variable is any characteristics, number, or quantity that can be measured or counted.\n\nWhen you observe or measure something, you are taking note of the values generated by the variable.\nIt’s called variable because it varies (ha!).\nThe opposite of a variable is a constant.\n\nSome examples:\n\nToken number of telic verbs and atelic verbs in written Sanskrit.\nVoice Onset Time of stops in Mapudungun.\nFriendliness ratings of synthetic speech.\n…\n\nTry and think of more!"
+    "objectID": "posts/repro-repli.html#definitions",
+    "href": "posts/repro-repli.html#definitions",
+    "title": "Reproducibility and replicability",
+    "section": "1 Definitions",
+    "text": "1 Definitions\nThe terms reproducible and replicable are often used interchangeably but The Turning Way has proposed a semantic scheme which introduces two more terms: robust and generalisable.\nCheck out the section Table of Definitions for Reproducibility from The Turing Way book, which defines the four terms."
   },
   {
-    "objectID": "posts/stat-variables.html#types-of-variables",
-    "href": "posts/stat-variables.html#types-of-variables",
-    "title": "Statistical variables",
-    "section": "2 Types of variables",
-    "text": "2 Types of variables\nYou will find that some statistics textbooks overcomplicate things when it come to types of variables. From an applied statistics perspective you only need to be able to identify numeric vs categorical variables and continuous vs discrete variables.\n\n2.1 Numeric vs categorical variables\n\nThis distinction is quite self-explanatory:\n\nNumeric variables are variables that are numbers.\nCategorical variables are variables that correspond to categories, groups or levels on a scale.\n\n\n\n\n\n\n\nExamples\n\n\n\nNumeric variables\n\nNumber of multi-verb predicates in a book.\nDuration of stressed vowels.\nRating score between 0-100.\n\nCategorical variables\n\nGender (non-binary, female, male, …).\nFirst vs second language users.\nEjective vs non-ejective consonant.\n\n\n\nLearning how to recognise variables is a fundamental skill in quantitative data analysis, since the type of variables determines the type of analyses you can carry out.\n\n\n2.2 Continuous vs discrete variables\n\nOrthogonal to the numeric/categorical distinction, there is the continuous vs discrete distinction.\nThis one can be at times less straightforward.\n\nA continuous variable is a variable that can take on any value between any two numbers.\nA discrete variable is a variable that can only take on a set of values, and no value in between.\n\nNumeric variables can be either be continuous or discrete, while categorical variables can only be discrete.\n\n\n\n\n\n\nNote\n\n\n\nNumeric continuous variable: between any two values there is an infinite number of values.\n\nThe variable can take on any positive and negative number, including 0.\nThe variable can take on any positive number only.\nProportions and percentages: The variable can take on any number between 0 and 1.\n\nNumeric discrete variable: between any two consecutive values there are no other values.\n\nCounts: The variable can take only on any positive integer number.\n\nCategorical (discrete) variable. There are three main subtypes.\n\nBinary or dichotomous: The variable can take only one of two values.\nThe variable can take any of three of more values (sometimes called a multinomial variable).\nOrdinal: The variable can take any of three of more values and the values have a natural order."
-  },
-  {
-    "objectID": "posts/stat-variables.html#operationalisation",
-    "href": "posts/stat-variables.html#operationalisation",
-    "title": "Statistical variables",
-    "section": "3 Operationalisation",
-    "text": "3 Operationalisation\nThe action of operationalisation consists in choosing how to measure something: as a numeric or as a categorical variable.\nIn some cases, the choice is obvious, but in most cases something could be operationalised either way and it will be a matter of study design that helps you choose.\nFor example, age can be operationalised as years (numeric) or as age groups, like young vs old (categorical).\nThink of ways to operationalise the following variables:\n\nVoice Onset Time.\nFriendliness of speech.\nLexical frequency.\n\n\n\n\n\n\n\nNext\n\n\n\n\nWrangling data\nImport multiple files\nStatistical summaries\nIntroduction to plotting\nIntroduction to regression modelling"
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "The Schedule",
+    "objectID": "posts/research-qh.html",
+    "href": "posts/research-qh.html",
+    "title": "Research questions and hypotheses",
     "section": "",
-    "text": "The course is structured in a “choose your own adventure” format, so there isn’t a set content for each week.\n\n\n\n\n\n\nImportant\n\n\n\nEach week, you will attend two classes:\n\nA one-hour seminar.\nA two-hour lab.\n\nNote that you are divided in two groups, so that the seminar and lab run twice each week, you just need to attend one of the seminars and one of the labs each week.\n\n\nThe seminars will have a different major theme each week, which you will have to research before class and discuss in groups in class.\nYou are also expected to learn quantitative methods outside of class, at your own time (as in a flipped classroom). This website has a list of entries in the Adventurer’s Notebook. You are not restricted to those posts, and you can learn from other resources, however if this is the very first time you are learning quantitative methods I recommend you stick to those since they have been curated for beginners. You can find a map of how the different posts build on each other in the Adventurer’s Map.\nThe labs will create the opportunity for you to practice quantitative data analysis with R. Each week you will pick a “challenge” from a list or come up with your own challenge and work towards solving it using R. More details will be shared soon.\nAs part of the Assessments, you will have to complete a group project. You can start working on the project any time during the course, but the last two labs will be dedicated to working on your project while being able to get help from the instructor (Stefano) and the Tutors."
+    "text": "Prerequisites\n\n\n\n\nEmpirical research"
   },
   {
-    "objectID": "schedule.html#choose-your-own-adventure",
-    "href": "schedule.html#choose-your-own-adventure",
-    "title": "The Schedule",
+    "objectID": "posts/research-qh.html#research-questions",
+    "href": "posts/research-qh.html#research-questions",
+    "title": "Research questions and hypotheses",
+    "section": "1 Research questions",
+    "text": "1 Research questions\nResearch questions are testable questions whose answers directly address the problem.\nThey take the form of actual questions:\n\nWhat is the average speech rate of adolescents vs that of older adults?\nWhat happens to infants syntactic processing when they move from a monolingual to a multilingual environment?\nIs the morphological complexity of languages spoken by larger populations different from that of languages spoken by smaller populations?\n\nResearch questions are always necessary, independent of the type and objective of the research.\nWhile there is an undue pressure on researcher to come up with “novel” research questions all the time, it is perfectly fine to ask the same question multiple times."
+  },
+  {
+    "objectID": "posts/research-qh.html#research-hypotheses",
+    "href": "posts/research-qh.html#research-hypotheses",
+    "title": "Research questions and hypotheses",
+    "section": "2 Research hypotheses",
+    "text": "2 Research hypotheses\nResearch hypotheses are statements (not questions) about the research problem.\nHypotheses must be falsifiable (there can be in principle an outcome that shows them to be false). See below.\nHypotheses are never true nor confirmed. We can only corroborate hypothesis, and it’s a long term process. The same hypothesis has to be tested again and again, but multiple researchers in multiple contexts.\nResearch is not a one-off matter: knowledge can only be acquired slowly and with a lot of effort.\nIt is however perfectly fine to run a study with only research questions, without a research hypothesis. As long as you clearly state whether you are talking about research questions or research hypotheses, you are fine.\n\n2.1 Falsifiability\nYou might be wondering what it is meant by “falsifiable” statements. From Seven examples of falsifiability by John Spacey:\n\nA statement is falsifiable if it can be contradicted by an observation. If such observation is impossible to make with current technology, falsifiability is not achieved.\n\nSome examples of falsifiable hypotheses:\n\n“Life only exists on Earth.” (it would be falsified by the observation of life somewhere else).\n“If there is a 1st person exclusive dual, then there is also a 1st person inclusive dual.” [Universal 1871] (it would be falsified by the observation of languages with a 1st person exclusive dual but without the incluve alternative).\n“Infants start uttering full sentences only after their 12th month of life.” (it would be falsified by the observation of infants uttering full sentences before their 12th month of life).\n\nAnd some examples of non-falsifiable hypotheses.\n\n“Life might exist outside of the Solar system.” (if we observe life outside the Solar system or we don’t, the statement is still true).\n“Languages with a 1st person inclusive dual can have a 1st person exclusive dual.” (whether we observe a language with both 1st inclusive and exclusive dual or not, the statement is still true.)\n\n\n\n\n\n\n\nNext\n\n\n\n\nReproducibility and replicability"
+  },
+  {
+    "objectID": "posts/statistics.html",
+    "href": "posts/statistics.html",
+    "title": "What is statistics?",
     "section": "",
-    "text": "The course is structured in a “choose your own adventure” format, so there isn’t a set content for each week.\n\n\n\n\n\n\nImportant\n\n\n\nEach week, you will attend two classes:\n\nA one-hour seminar.\nA two-hour lab.\n\nNote that you are divided in two groups, so that the seminar and lab run twice each week, you just need to attend one of the seminars and one of the labs each week.\n\n\nThe seminars will have a different major theme each week, which you will have to research before class and discuss in groups in class.\nYou are also expected to learn quantitative methods outside of class, at your own time (as in a flipped classroom). This website has a list of entries in the Adventurer’s Notebook. You are not restricted to those posts, and you can learn from other resources, however if this is the very first time you are learning quantitative methods I recommend you stick to those since they have been curated for beginners. You can find a map of how the different posts build on each other in the Adventurer’s Map.\nThe labs will create the opportunity for you to practice quantitative data analysis with R. Each week you will pick a “challenge” from a list or come up with your own challenge and work towards solving it using R. More details will be shared soon.\nAs part of the Assessments, you will have to complete a group project. You can start working on the project any time during the course, but the last two labs will be dedicated to working on your project while being able to get help from the instructor (Stefano) and the Tutors."
+    "text": "Prerequisites\n\n\n\n\nQuantitative data analysis"
   },
   {
-    "objectID": "schedule.html#schedule-overview",
-    "href": "schedule.html#schedule-overview",
-    "title": "The Schedule",
-    "section": "2 Schedule overview",
-    "text": "2 Schedule overview\nThe following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences. Check the week-by-week boxes below for a more detailed description of what you should be doing each week.\n\n\n\nWeek\nSeminar\nLab\n\n\n\n\n1\nWelcome and practicalities\nChallenge: Learn the basics of R\n\n\n2\nMore than numbers: quantitative methods and uncertainty\nChallenge\n\n\n3\nThe research process: research ethics and questionable practices\nChallenge\n\n\n4\nLanguage endangerment and small numbers\nChallenge\n\n\n5\nLanguage technology and machine learning\nChallenge: Statistical modelling\n\n\n6\nThe language of the climate crisis\nChallenge\n\n\n7\nEquality, diversity and inclusiveness in quantitative linguistics\nChallenge\n\n\n8\nQualitative vs quantitative: a real dichotomy?\nChallenge\n\n\n9\nOpen research and scholarship\nChallenge: Communicate your research\n\n\n10\nWhat’s next?\nGroup project\n\n\n11\nBonus topic\nGroup project"
+    "objectID": "posts/statistics.html#what-is-statistics",
+    "href": "posts/statistics.html#what-is-statistics",
+    "title": "What is statistics?",
+    "section": "1 What is statistics?",
+    "text": "1 What is statistics?\nStatistics is a tool. But what does it do? There are at least four ways of looking at statistics as a tool.\n\nStatistics is the science concerned with developing and studying methods for collecting, analyzing, interpreting and presenting empirical data. (From UCI Department of Statistics)\nStatistics is the technology of extracting information, illumination and understanding from data, often in the face of uncertainty. (From the British Academy)\nStatistics is a mathematical and conceptual discipline that focuses on the relation between data and hypotheses. (From the Standford Encyclopedia of Philosophy)\nStatistics as the art of applying the science of scientific methods. (From ORI Results, Nature)\n\nTo quote a statistician:\n\n\n\n\n\n\nNote\n\n\n\nStatistic is both a science and an art.\nIt is a science in that its methods are basically systematic and have general application and an art in that their successful application depends, to a considerable degree, on the skill and special experience of the statistician, and on his knowledge of the field of application.\n—L. H. C. Tippett\n\n\n\n\n\n\n\n\nExtra\n\n\n\n\n\nCheck out the etymology of statistics here: https://en.wiktionary.org/wiki/statistics#Etymology_1."
   },
   {
-    "objectID": "schedule.html#weekly-breakdown",
-    "href": "schedule.html#weekly-breakdown",
-    "title": "The Schedule",
-    "section": "3 Weekly breakdown",
-    "text": "3 Weekly breakdown\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\nIn the seminar\n\nCome to the seminar class. We will go through the course format, assessment and other practicalities.\n\nIn your own time\n\nCarefully read the homepage of the Course website.\nComplete the Intake Form (the link to the form can be found on the Learn website).\nInstall R, RStudio and Quarto: please, follow the instructions in the Setup page. You should do this before the first lab class.\n\nIn the lab\n\nCome to the lab class. Learn about the basics of R. Optionally, if you need to freshen up your computer basics, you can check Basic computer literacy.\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\nIn your own time\n\nRead Research methods and hodotics.\nWatch The Golem of Prague. And/or read the related chapter of Statistical Rethinking, The Golem of Prague.\nPick and read any entry/ies from the Notebook.\n\nIn the seminar\n\nGroup discussion: quantitative methods and uncertainty.\n\nIn the lab\n\nGroup activity: pick a Challenge."
+    "objectID": "posts/statistics.html#what-statistics-is-not",
+    "href": "posts/statistics.html#what-statistics-is-not",
+    "title": "What is statistics?",
+    "section": "2 What statistics is NOT",
+    "text": "2 What statistics is NOT\nStatistics is a lot of things, but it is also not a lot of things.\n\nStatistics is not maths, but it is informed by maths.\nStatistics is not about hard truths not how to seek the truth (see Inference and uncertainty).\nStatistics is not a purely objective endeavour. In fact there are a lot of subjective aspects to statistics (see below).\nStatistics is not a substitute of common sense and expert knowledge.\nStatistics is not just about \\(p\\)-values and significance testing.\n\nAs Gollum would put it, all that glisters is not gold."
   },
   {
-    "objectID": "map.html",
-    "href": "map.html",
-    "title": "The Adventurer’s Map",
+    "objectID": "posts/statistics.html#many-analysts-one-data-set-subjectivity-exposed",
+    "href": "posts/statistics.html#many-analysts-one-data-set-subjectivity-exposed",
+    "title": "What is statistics?",
+    "section": "3 Many Analysts, One Data Set: subjectivity exposed",
+    "text": "3 Many Analysts, One Data Set: subjectivity exposed\n\n\n\n\n\nIn Silberzahn et al 2018, a group of researchers asked 29 independent analysis teams to answer the following question based on provided data: Is there a link between player skin tone and number of red cards in soccer?\nCrucially,\n\n69% of the teams reported an effect of player skin tone, and 31% did not.\nIn total, the 29 teams came up with 21 unique types of statistical analysis.\n\nThese results clearly show how subjective statistics is and how even a straightforward question can lead to a multitude of answers.\nTo put it in Silberzah et al’s words:\n\nThe observed results from analyzing a complex data set can be highly contingent on justifiable, but subjective, analytic decisions.\n\nThis is why you should always be somewhat sceptical of the results of any single study: you never know what results might have been found if another research team did the study. This is a reason for why replicating research is very important.\n\nCoretta et al 2023 tried something similar, but in the context of the speech sciences: they asked 30 independent analysis teams (84 signed up, 46 submitted an analysis, 30 submitted usable analyses) to answer the question Do speakers acoustically modify utterances to signal atypical word combinations?\nIncredibly, the 30 teams submitted:\n\n109 individual analyses. A bit more than 3 analyses per team!\n52 unique measurement specifications and 47 unique model specifications.\n\n\nNine teams out of the thirty (30%) reported to have found at least one statistically reliable effect (based on the inferential criteria they specified). Of the 170 critical model coefficients, 37 were claimed to show a statistically reliable effect (21.8%).\n\n—Coretta et al, 2023"
+  },
+  {
+    "objectID": "posts/statistics.html#the-new-statistics",
+    "href": "posts/statistics.html#the-new-statistics",
+    "title": "What is statistics?",
+    "section": "4 The “New Statistics”",
+    "text": "4 The “New Statistics”\nThe Silberzahn et al and Coretta et al studies are just the tip of the iceberg. We are currently facing a “research crisis”.\n\nCumming 2014 proposes a new approach to statistics, which he calls the “New Statistics”, in response to the research crisis.\nThe New Statistics mainly addresses three problems:\n\nPublished research is a biased selection of all (existing and possible) research.\nData analysis and reporting are often selective and biased.\nIn many research fields, studies are rarely replicated, so false conclusions persist.\n\nTo help solve those problems, it proposes these solutions (among others):\n\nPromoting research integrity.\nShifting away from statistical significance to estimation.\nBuilding a cumulative quantitative discipline."
+  },
+  {
+    "objectID": "posts/statistics.html#the-bayesian-new-statistics",
+    "href": "posts/statistics.html#the-bayesian-new-statistics",
+    "title": "What is statistics?",
+    "section": "5 The Bayesian New Statistics",
+    "text": "5 The Bayesian New Statistics\nKurschke and Liddell 2018 revisit the New Statistics and make a further proposal: to adopt the historically older but only recently popularised approach of Bayesian statistics. They call this the Bayesian New Statistics.\nThe classical approach to statistics is the frequentist method, based on work by Fisher, and Neyman and Pearson. Frequentist statistics is based on rejecting the “null hypothesis” (i.e. the hypothesis that there is no difference between groups) using p-values.\nBayesian statistics provides researchers with more appropriate and more robust ways to answer research questions, by reallocation of belief/credibility across possibilities.\nYou can learn more about the frequentist and the Bayesian approach here (TBA!!!)."
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Pre-workshop set-up",
     "section": "",
-    "text": "Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the Notebook entries. This Map will grow throughout the semester as new entries are added to the Notebook.\n\n\n\n\n\n\ngraph TD\n  A[Start here]\n  B[Hodotics]\n  click B href \"posts/hodotics.html\" \"Go to page\"\n  C[Computer basics]\n  click C href \"posts/computer-basics.html\" \"Go to page\"\n  D[R basics]\n  click D href \"posts/r-basics.html\" \"Go to page\"\n  E[Statistical variables]\n  click E href \"posts/stat-variables.html\" \"Go to page\"\n  F[Intro to Quarto]\n  click F href \"posts/intro-quarto.html\" \"Go to page\"\n  G[R Troubleshooting]\n  click G href \"posts/r-troubleshooting.html\" \"Go to page\"\n  H[Data types]\n  click H href \"posts/data-types.html\" \"Go to page\"\n  I[Read multiple files]\n  click I href \"posts/import-multiple.html\" \"Go to page\"\n  J[Introduction to regression]\n  click J href \"posts/intro-regression.html\" \"Go to page\"\n  K[Introduction to plotting]\n  click K href \"posts/intro-plot.html\" \"Go to page\"\n  L[Wrangling data]\n  click L href \"posts/wrangling.html\" \"Go to page\"\n  M[Plotting basics]\n  click M href \"posts/plotting-basics.html\" \"Go to page\"\n  N[Bar charts]\n  click N href \"posts/bar-charts.html\" \"Go to page\"\n  O[Filtering]\n  click O href \"posts/wrangle-filter.html\" \"Go to page\"\n  P[Mutating]\n  click P href \"posts/wrangle-mutate.html\" \"Go to page\"\n  Q[Pivoting]\n  click Q href \"posts/wrangle-pivoting.html\" \"Go to page\"\n  Z[Faceting plots]\n  click Z href \"posts/plot-faceting.html\" \"Go to page\"\n  AA[Density plots]\n  click AA href \"posts/plot-density.html\" \"Go to page\"\n  AB[Advanced plotting]\n  click AB href \"posts/plot-advanced.html\" \"Go to page\"\n  AC[Summary measures]\n  click AC href \"posts/summaries.html\" \"Go to page\"\n  \n  AD[Empirical research]\n  click AD href \"posts/research-context.html\" \"Go to page\"\n  AE[Research Qs and Hs]\n  click AE href \"posts/research-qh.html\" \"Go to page\"\n  AF[Data analysis]\n  click AF href \"posts/data-analysis.html\" \"Go to page\"\n  AG[Inference]\n  click AG href \"posts/inference.html\" \"Go to page\"\n  AH[Statistics]\n  click AH href \"posts/statistics.html\" \"Go to page\"\n  \n  R[Regression: predictors]\n  click R href \"posts/intro-regression-predictors.html\" \"Go to page\"\n  S[Regression: categorical predictors]\n  click S href \"posts/intro-regression-categorical.html\" \"Go to page\"\n  T[MCMC draws]\n  click T href \"posts/regression-draws.html\" \"Go to page\"\n  U[Indexing predictors]\n  click U href \"posts/regression-indexing.html\" \"Go to page\"\n  V[Interactions]\n  click V href \"posts/regression-interactions.html\" \"Go to page\"\n  W[Categorical-categorical interactions]\n  click W href \"posts/regression-interactions-catcat.html\" \"Go to page\"\n  X[Bernoulli regression]\n  click X href \"posts/regression-bernoulli.html\" \"Go to page\"\n  \n  A --&gt; B & C\n  \n  B --&gt; AD & AF\n  AD --&gt; AE\n  AF --&gt; AG & AH\n  \n  C --&gt; D\n  \n  D --&gt; E & F & G\n  \n  F --&gt; H\n  H --&gt; I & E\n  I --&gt; Q\n  \n  E --&gt; J & K & L & AC\n  \n  K --&gt; M\n  M --&gt; N & Z & AA\n  N --&gt; AB\n  AA --&gt; AB\n\n  L --&gt; O & P & Q\n  P --&gt; N & AA\n  \n  %% Regression\n  J --&gt; R --&gt; S --&gt; T & U\n  U --&gt; V & X\n  V --&gt; W"
+    "text": "Please, follow these instructions carefully to get ready at least one day before the workshop."
+  },
+  {
+    "objectID": "setup.html#pre-requisites",
+    "href": "setup.html#pre-requisites",
+    "title": "Pre-workshop set-up",
+    "section": "1 Pre-requisites",
+    "text": "1 Pre-requisites\nBefore installing the necessary software, make sure you have installed or updated the following software.\n\nThe latest version of R (https://cloud.r-project.org).\nThe latest version of RStudio (https://www.rstudio.com/products/rstudio/download/#download).\nYour operating system is up-to-date."
+  },
+  {
+    "objectID": "setup.html#installation",
+    "href": "setup.html#installation",
+    "title": "Pre-workshop set-up",
+    "section": "2 Installation",
+    "text": "2 Installation\n\n\n\n\n\n\nImportant\n\n\n\nIf you have previously installed the C++ toolkit or if you have recently updated your OS, please follow these instructions to reinstall them.\n\n\nNow you will need to install a few packages and extra software.\nHere is an overview of what you will install:\n\nC++ toolchain.\nR packages: tidyverse, brms, tidybayes, extraDistr.\n\n\n2.1 1. Install the C++ toolchain\nThe package brms used in the workshop requires a working C++ toolchain to compile models.\n\n2.1.1 Windows\nFor Windows, follow the instructions here: https://cran.r-project.org/bin/windows/Rtools/rtools43/rtools.html\n\n\n2.1.2 macOS\nFor macOS, open the Terminal and write the following line then press enter/return:\nxcode-select --install\nYou’ll see a panel that asks you to install the Xcode Command Line Tools. Install them. Downloading and installation will take 30 to 60 minutes.\n\n\n2.1.3 Linux\nFor Linux, follow the instructions here: https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux\n\n\n\n2.2 2. Install the R packages\nYou need to install the following packages:\ninstall.packages(c(\"tidyverse\", \"brms\", \"tidybayes\", \"extraDistr\"))\nIt will take several minutes to install the packages, depending on your system and configuration.\nIf after opening the workshop project in RStudio you get asked to install extra packages or software, please do so.\n\n\n2.3 Check your installation\nRun the following in the RStudio Console:\nexample(stan_model, package = \"rstan\", run.dontrun = TRUE)\nIf you see some strange looking text printed in the Console and then fit and fit2 in the Environment, then you are sorted!"
+  },
+  {
+    "objectID": "setup.html#troubleshooting",
+    "href": "setup.html#troubleshooting",
+    "title": "Pre-workshop set-up",
+    "section": "3 Troubleshooting",
+    "text": "3 Troubleshooting\nIf you are having issues with installation, post a question on Piazza. Note that we won’t reply to questions sent via emails, unless they are related to personal matters."
+  },
+  {
+    "objectID": "posts/wrangle.html#data-wrangling",
+    "href": "posts/wrangle.html#data-wrangling",
+    "title": "Wrangling data with R",
+    "section": "1 Data wrangling",
+    "text": "1 Data wrangling\nData wrangling encompasses three main steps in the R pipeline:\n\nImporting data.\nTidying data.\nTransforming data."
+  },
+  {
+    "objectID": "posts/wrangle.html#tidying-data",
+    "href": "posts/wrangle.html#tidying-data",
+    "title": "Wrangling data with R",
+    "section": "2 Tidying data",
+    "text": "2 Tidying data\nData tidying is about reshaping the data so that they are in a tidy format.\nThe concept of tidy data was introduced by Wickham 2014. The following illustrations by Allison Horst explain what it is meant with tidy data.\n\n\n\n\n\n\n\n\n\n\nI recommend that if you have control over the layout of tabular data you use a tidy format (columns are variables and rows are observations). However, we sometimes have to use pre-existing data which might be messy or we need to modify our own tidy data for specific purposes (like making a plot that requires a different layout).\nThe nice thing about tidy data is that once they are tidy you can reshape them easily in whichever way you want.\nThe tidyverse package tidyr allows users to tidy up messy data with several functions. (It’s called the “tidyverse” because all packages are designed to work with tidy data!).\nThe most important procedure for tidying up data is pivoting. You can learn more about pivoting in Pivoting."
+  },
+  {
+    "objectID": "posts/wrangle.html#transforming-data",
+    "href": "posts/wrangle.html#transforming-data",
+    "title": "Wrangling data with R",
+    "section": "3 Transforming data",
+    "text": "3 Transforming data\nTransforming data encompasses several operations, each of which can be achieved with specific tidyverse functions.\n\nYou can filter data based on specific columns and criteria with filter().\nMutate columns or create new ones based on existing columns with mutate().\nTo summarise data use the summarise() function.\nIt is also possible to join data using the mutating join functions. See Joins of the R for Data Science book.\n\n\n\n\n\n\n\nNext\n\n\n\n\nFilter data\nMutate data\nSummary measures."
   },
   {
     "objectID": "posts/intro-quarto.html",
@@ -1237,26 +1335,5 @@
     "title": "R basics",
     "section": "5 Summary",
     "text": "5 Summary\nYou made it! You completed this week’s tutorial.\nHere’s a summary of what you learnt.\n\n\n\n\n\n\n\nR is a programming language while RStudio is an IDE.\nRStudio projects are folders with an .Rproj file (you can see the name of the project you are currently in in the top-right corner of RStudio).\nYou can perform mathematical operations with +, -, *, /.\nYou can store values in variables.\nA typical object to be stored in a variable is a vector: there are different type of vectors, like numeric, character and logical.\nFunctions are used to perform an operation on its arguments: sum() sums it’s arguments, mean() calculates the mean and cat() prints the arguments.\n\n\n\n\n\n\n\n\n\n\nExtra: Programming in R\n\n\n\n\n\nIf you are interested in learning about programming in R, I recommend you go through Chapters 26-28 of the R4DS book and the Advanced R book.\nNote that these topics are not covered in the course, nor will be assessed.\n\n\n\n\n\n\n\n\n\nNext\n\n\n\n\nIntroduction to Quarto\nTroubleshooting"
-  },
-  {
-    "objectID": "posts/wrangle.html#data-wrangling",
-    "href": "posts/wrangle.html#data-wrangling",
-    "title": "Wrangling data with R",
-    "section": "1 Data wrangling",
-    "text": "1 Data wrangling\nData wrangling encompasses three main steps in the R pipeline:\n\nImporting data.\nTidying data.\nTransforming data."
-  },
-  {
-    "objectID": "posts/wrangle.html#tidying-data",
-    "href": "posts/wrangle.html#tidying-data",
-    "title": "Wrangling data with R",
-    "section": "2 Tidying data",
-    "text": "2 Tidying data\nData tidying is about reshaping the data so that they are in a tidy format.\nThe concept of tidy data was introduced by Wickham 2014. The following illustrations by Allison Horst explain what it is meant with tidy data.\n\n\n\n\n\n\n\n\n\n\nI recommend that if you have control over the layout of tabular data you use a tidy format (columns are variables and rows are observations). However, we sometimes have to use pre-existing data which might be messy or we need to modify our own tidy data for specific purposes (like making a plot that requires a different layout).\nThe nice thing about tidy data is that once they are tidy you can reshape them easily in whichever way you want.\nThe tidyverse package tidyr allows users to tidy up messy data with several functions. (It’s called the “tidyverse” because all packages are designed to work with tidy data!).\nThe most important procedure for tidying up data is pivoting. You can learn more about pivoting in Pivoting."
-  },
-  {
-    "objectID": "posts/wrangle.html#transforming-data",
-    "href": "posts/wrangle.html#transforming-data",
-    "title": "Wrangling data with R",
-    "section": "3 Transforming data",
-    "text": "3 Transforming data\nTransforming data encompasses several operations, each of which can be achieved with specific tidyverse functions.\n\nYou can filter data based on specific columns and criteria with filter().\nMutate columns or create new ones based on existing columns with mutate().\nTo summarise data use the summarise() function.\nIt is also possible to join data using the mutating join functions. See Joins of the R for Data Science book.\n\n\n\n\n\n\n\nNext\n\n\n\n\nFilter data\nMutate data\nSummary measures."
   }
 ]

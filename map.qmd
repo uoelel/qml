@@ -61,6 +61,12 @@ graph TD
   click AG href "posts/inference.html" "Go to page"
   AH[Statistics]
   click AH href "posts/statistics.html" "Go to page"
+  AI[Repro/repli]
+  click AI href "posts/repro-repli.html" "Go to page"
+  AJ[Proj Management]
+  click AJ href "posts/management.html" "Go to page"
+  AK[File management]
+  click AK href "posts/file-manage.html" "Go to page"
   
   R[Regression: predictors]
   click R href "posts/intro-regression-predictors.html" "Go to page"
@@ -79,9 +85,11 @@ graph TD
   
   A --> B & C
   
-  B --> AD & AF
+  B --> AD & AF & AJ
   AD --> AE
+  AE --> AI
   AF --> AG & AH
+  AJ --> AK
   
   C --> D
   
@@ -107,3 +115,4 @@ graph TD
   V --> W
   
 ```
+

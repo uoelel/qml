@@ -42,7 +42,10 @@
       "/posts/inference.html",
       "/posts/research-context.html",
       "/posts/research-qh.html",
-      "/posts/statistics.html"
+      "/posts/statistics.html",
+      "/posts/file-manage.html",
+      "/posts/management.html",
+      "/posts/repro-repli.html"
     ]
   }
 ]

@@ -118,9 +118,9 @@ Think of ways to operationalise the following variables:
 ::: callout-note
 ## Next
 
--   [Wrangling data](wrangling.qmd)
+-   [Wrangling data](wrangle.qmd)
 -   [Import multiple files](import-multiple.qmd)
-- [Statistical summaries](summaries.qmd)
+-   [Statistical summaries](summaries.qmd)
 -   [Introduction to plotting](intro-plot.qmd)
 -   [Introduction to regression modelling](intro-regression.qmd)
 :::

@@ -63,3 +63,9 @@ And some examples of non-falsifiable hypotheses.
 
 -   "Life might exist outside of the Solar system." (if we observe life outside the Solar system or we don't, the statement is still true).
 -   "Languages with a 1st person inclusive dual can have a 1st person exclusive dual." (whether we observe a language with both 1st inclusive and exclusive dual or not, the statement is still true.)
+
+::: callout-note
+## Next
+
+-   [Reproducibility and replicability](repro-repli.qmd)
+:::

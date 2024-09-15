@@ -1,0 +1,26 @@
+---
+title: "Reproducibility and replicability"
+description: "Learn about the meaning of reproducible, replicable, robust and generalisable research"
+author: "Stefano Coretta"
+date: 2024-09-15
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+execute: 
+  warning: false
+---
+
+::: callout-warning
+#### Prerequisites
+
+-   [Research questions and hypotheses](research-qh.qmd)
+:::
+
+[![](../img/reproducible-definition-grid.svg){fig-align="center" width="550"}](https://doi.org/10.5281/zenodo.3332807)
+
+## Definitions
+
+The terms *reproducible* and *replicable* are often used interchangeably but The Turning Way has proposed a semantic scheme which introduces two more terms: *robust* and *generalisable*.
+
+Check out the section [Table of Definitions for Reproducibility](https://book.the-turing-way.org/reproducible-research/overview/overview-definitions#table-of-definitions-for-reproducibility) from [The Turing Way book](https://book.the-turing-way.org), which defines the four terms.

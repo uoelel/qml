@@ -43,5 +43,7 @@ Let's zoom in on the [research process]{.smallcaps}.
 #### Next
 
 - [Empirical research and research context](research-context.qmd)
+- [Quantitative data analysis](data-analysis.qmd)
+- [Research project management](management.qmd)
 
 :::
