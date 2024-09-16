@@ -616,6 +616,8 @@ for (fruit in fruits) {
   }
 }
 ```
+
+For more, check the [For loops](https://r4ds.hadley.nz/base-r#for-loops) section of the R4DS book and the [R if else statement](https://www.datamentor.io/r-programming/if-else-statement) post from DataMentor.
 :::
 
 ## Summary

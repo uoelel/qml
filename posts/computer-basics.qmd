@@ -83,7 +83,7 @@ ste/
 
 To mark that `ste` and `Downloads` are folders, we add a final forward slash `/`. That simply means "hey! I am a folder!". `big_data.csv` is a file, so it doesn't have a final `/`.
 
-Instead, the file name `big_data.csv` has a **file extension**. The file extension is `.csv`. A file extension marks the type of file: in this the `big_data` file is a `.csv` file, a comma separated value file (we will see an example of what that looks like later).
+Instead, the file name `big_data.csv` has a **file extension**. The file extension is `.csv`. A file extension marks the type of file: in this the `big_data` file is a `.csv` file, a comma separated value file (we will see an example of what that looks like later). The name of the file is of course up to the user, but if you change the file extension you might have trouble later reading the file, so don't change the file extension part yourself!
 
 Different file type have different file extensions:
 
@@ -123,7 +123,7 @@ User folders are located in different places depending on the operating system y
     -   You will notice that there is a forward slash also before the name of the folder. That is because the `/Users/` folder is a top folder, i.e. there are no folders further up in the hierarchy of folders.
     -   This means that the full path for the `big_data.csv` file on a computer running macOS would be: `/Users/ste/Downloads/big_data.csv`.
 
--   On **Windows**: the user folder is in `C:/Users/`
+-   On **Windows**: the user folder is in usually `C:/Users/`, but the drive letter might not be `C`. We will use `C` for convenience here.
 
     -   You will notice that `C` is followed by a colon `:`. That is because `C` is a drive, which contains files and folders. `C:` is not contained by any other folder, i.e. there are no other folders above `C:` in the hierarchy of folders.
     -   This means that the full path for the `big_data.csv` file on a Windows computer would be: `C:/Users/ste/Downloads/big_data.csv`.
