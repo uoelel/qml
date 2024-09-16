@@ -479,8 +479,8 @@
     "objectID": "schedule.html#weekly-breakdown",
     "href": "schedule.html#weekly-breakdown",
     "title": "The Schedule",
-    "section": "3 Weekly breakdown",
-    "text": "3 Weekly breakdown\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\nIn the seminar\n\nCome to the seminar class. We will go through the course format, assessment and other practicalities.\n\nIn your own time\n\nCarefully read the homepage of the Course website.\nComplete the Intake Form (the link to the form can be found on the Learn website).\nInstall R, RStudio and Quarto: please, follow the instructions in the Setup page. You should do this before the first lab class.\n\nIn the lab\n\nCome to the lab class. Learn about the basics of R. Optionally, if you need to freshen up your computer basics, you can check Basic computer literacy.\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\nIn your own time\n\nRead Research methods and hodotics.\nWatch The Golem of Prague. And/or read the related chapter of Statistical Rethinking, The Golem of Prague.\nPick and read any entry/ies from the Notebook.\n\nIn the seminar\n\nGroup discussion: quantitative methods and uncertainty.\n\nIn the lab\n\nGroup activity: pick a Challenge."
+    "section": "4 Weekly breakdown",
+    "text": "4 Weekly breakdown\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\nIn the seminar\n\nCome to the seminar class. We will go through the course format, assessment and other practicalities.\n\nIn your own time\n\nCarefully read the homepage of the Course website.\nComplete the Intake Form (the link to the form can be found on the Learn website).\nInstall R, RStudio and Quarto: please, follow the instructions in the Setup page. You should do this before the first lab class.\n\nIn the lab\n\nCome to the lab class. Learn about the basics of R. Optionally, if you need to freshen up your computer basics, you can check Basic computer literacy.\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\nIn your own time\n\nRead Research methods and hodotics.\nWatch The Golem of Prague. And/or read the related chapter of Statistical Rethinking, The Golem of Prague.\nPick and read any entry/ies from the Notebook.\n\nIn the seminar\n\nGroup discussion: quantitative methods and uncertainty.\n\nIn the lab\n\nGroup activity: pick a Challenge.\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\n\nIn your own time\n\nPick and read any entry/ies from the Notebook.\nFeel free to read from any other source, including the recommended textbooks.\n\nIn the seminar\n\nGroup discussion: research ethics and questionable practices.\n\nIn the lab\n\nGroup activity: pick a Challenge."
   },
   {
     "objectID": "posts/stat-variables.html",
@@ -1370,5 +1370,12 @@
     "title": "Introduction to regression models",
     "section": "10 What’s next",
     "text": "10 What’s next\nIn this post you have learnt the very basics of Bayesian regression models. As mentioned above, regression models with brms are very flexible and you can easily fit very complex models with a variety of distribution families (for a list, see ?brmsfamily; you can even define your own distributions!).\nThe perk of using brms is that you can just learn the basics of one package and one approach and use it to fit a large variety of regression models.\nThis is different from the standard frequentis approach, where different models require different packages or functions, with their different syntax and quirks.\nIn the folllowing posts, you will build your understanding of Bayesian regression models, which will enable you to approach even the most complex models! However, due to time limits you won’t learn everything there is to learn.\nDeveloping conceptual and practical skills in quantitative methods is a long-term process and unfortunately one semester will not be enough. So be prepared to continue your learning journey for years to come!\n\n\n\n\n\n\nNext\n\n\n\n\nIntroduction to regression models (Part II): include numeric predictors"
+  },
+  {
+    "objectID": "schedule.html#recommended-textbooks",
+    "href": "schedule.html#recommended-textbooks",
+    "title": "The Schedule",
+    "section": "3 Recommended textbooks",
+    "text": "3 Recommended textbooks\nThere isn’t a required course textbook as such, but the majority of the course content are covered in the following textbooks:\n\nR for Data Science[R4DS]. This is an introduction to R.\nStatistical (Re)thinking. This is a textbook that teaches statistics in R with a focus on Bayesian regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters."
   }
 ]

@@ -30,7 +30,7 @@ As part of the [Assessments](assessments.qmd), you will have to complete a **gro
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences. Check the week-by-week boxes below for a more detailed description of what you should be doing each week.
 
 | Week | Seminar                                                           | Lab                                                    |
-|-------------------|------------------------------------|-------------------|
+|-------------------|-----------------------------------|-------------------|
 | 1    | Welcome and practicalities                                        | Challenge: [Learn the basics of R](posts/r-basics.qmd) |
 | 2    | More than numbers: quantitative methods and uncertainty           | [Challenge](challenges.qmd)                            |
 | 3    | The research process: research ethics and questionable practices  | [Challenge](challenges.qmd)                            |
@@ -42,6 +42,14 @@ The following tables gives you an approximate schedule of the weekly themes, alt
 | 9    | Open research and scholarship                                     | Challenge: Communicate your research                   |
 | 10   | What's next?                                                      | Group project                                          |
 | 11   | Bonus topic                                                       | Group project                                          |
+
+## Recommended textbooks
+
+There isn't a required course textbook as such, but the majority of the course content are covered in the following textbooks:
+
+-   [R for Data Science](https://r4ds.hadley.nz)\[R4DS\]. This is an introduction to R.
+
+-   [Statistical (Re)thinking](https://discovered.ed.ac.uk/permalink/44UOE_INST/110jsec/alma9924745740602466). This is a textbook that teaches statistics in R with a focus on Bayesian regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters.
 
 ## Weekly breakdown
 
@@ -70,13 +78,31 @@ The following tables gives you an approximate schedule of the weekly themes, alt
 
 **In your own time**
 
-- Read [Research methods and hodotics](posts/hodotics.qmd).
-- Watch [The Golem of Prague](https://youtu.be/FdnMWdICdRs?si=BLyz4G19T5elt_ho). And/or read the related chapter of *Statistical Rethinking*, [The Golem of Prague](https://discovered.ed.ac.uk/permalink/44UOE_INST/19s2m21/cdi_proquest_ebookcentralchapters_6133700_13_20).
-- Pick and read any entry/ies from the [Notebook](notebook.qmd).
+-   Read [Research methods and hodotics](posts/hodotics.qmd).
+-   Watch [The Golem of Prague](https://youtu.be/FdnMWdICdRs?si=BLyz4G19T5elt_ho). And/or read the related chapter of *Statistical Rethinking*, [The Golem of Prague](https://discovered.ed.ac.uk/permalink/44UOE_INST/19s2m21/cdi_proquest_ebookcentralchapters_6133700_13_20).
+-   Pick and read any entry/ies from the [Notebook](notebook.qmd).
 
 **In the seminar**
 
 -   Group discussion: quantitative methods and uncertainty.
+
+**In the lab**
+
+-   Group activity: pick a [Challenge](challenges.qmd).
+:::
+
+::: {.callout-note collapse="true"}
+#### Week 3
+
+**In your own time**
+
+-   Pick and read any entry/ies from the [Notebook](notebook.qmd).
+
+-   Feel free to read from any other source, including the recommended textbooks.
+
+**In the seminar**
+
+-   Group discussion: research ethics and questionable practices.
 
 **In the lab**
 
