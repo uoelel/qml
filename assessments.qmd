@@ -58,6 +58,8 @@ Some ideas for Group Projects:
 
 -   Write a collection of sonnets on the replicability crisis.
 
+- Write an essay on minoritised statisticians.
+
 -   Choreograph an interpretative dance that illustrates that Markov Chain Monte Carlo algorithm.
 
 ## Feedback and marking
