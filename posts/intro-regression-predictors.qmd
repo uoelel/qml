@@ -219,7 +219,7 @@ We will use `ita_egg_clean` for the rest of the tutorial.
 
 $$
 \begin{align}
-\text{v1_duration} & \sim Gaussian(\mu, \sigma)\\
+\text{v1\_duration} & \sim Gaussian(\mu, \sigma)\\
 \mu & = \beta_0 + \beta_1 * \text{speech\_rate}\\
 \end{align}
 $$

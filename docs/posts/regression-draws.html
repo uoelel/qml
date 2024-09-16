@@ -262,7 +262,12 @@ Prerequisites
 </div>
 <section id="mcmc-what" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="mcmc-what"><span class="header-section-number">1</span> MCMC what?</h2>
-<p>XXX</p>
+<p>Bayesian regression models fitted with brms/Stan use the Markov Chain Monte Carlo (MCMC) sampling algorithm to estimate the probability distributions of the model’s coefficient.</p>
+<p>You have encountered MCMC algorithm in <a href="../posts/intro-regression.html">Introduction to regression</a>. What the MCMC algorithm does is to sample values (draws) from the posterior distribution to reconstruct it (to learn more about this, see <a href="https://elizabethpankratz.github.io/bayes_stat/day1/mcmc.html">Finding posteriors through sampling</a> by Elizabeth Pankratz and resources therein).</p>
+<p>When you run a model with brms, those sampled values (draws) are stored in the model object. Virtually all operations on model are actually done with those draws.</p>
+<p>We normally fit BRMs with four MCMC chain. The sampling algorithm within each chain runs for 2000 iterations by default. The first half (1000 iterations) are used to “warm up” the algorithm (i.e.&nbsp;optimise a few parameters of the algorithm) while the second half (1000 iterations) are the ones to reconstruct the posterior distribution.</p>
+<p>For four chains ran with 2000 iterations of which 1000 for warm up, we end up with 4000 iterations we can use to learn details about the posteriors.</p>
+<p>The rest of the post will teach you how to extract and manipulate the model’s draws.</p>
 </section>
 <section id="extract-mcmc-posterior-draws" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="extract-mcmc-posterior-draws"><span class="header-section-number">2</span> Extract MCMC posterior draws</h2>

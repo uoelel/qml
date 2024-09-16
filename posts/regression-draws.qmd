@@ -29,7 +29,17 @@ library(brms)
 
 ## MCMC what?
 
-XXX
+Bayesian regression models fitted with brms/Stan use the Markov Chain Monte Carlo (MCMC) sampling algorithm to estimate the probability distributions of the model's coefficient.
+
+You have encountered MCMC algorithm in [Introduction to regression](intro-regression.qmd). What the MCMC algorithm does is to sample values (draws) from the posterior distribution to reconstruct it (to learn more about this, see [Finding posteriors through sampling](https://elizabethpankratz.github.io/bayes_stat/day1/mcmc.html) by Elizabeth Pankratz and resources therein).
+
+When you run a model with brms, those sampled values (draws) are stored in the model object. Virtually all operations on model are actually done with those draws.
+
+We normally fit BRMs with four MCMC chain. The sampling algorithm within each chain runs for 2000 iterations by default. The first half (1000 iterations) are used to "warm up" the algorithm (i.e. optimise a few parameters of the algorithm) while the second half (1000 iterations) are the ones to reconstruct the posterior distribution.
+
+For four chains ran with 2000 iterations of which 1000 for warm up, we end up with 4000 iterations we can use to learn details about the posteriors.
+
+The rest of the post will teach you how to extract and manipulate the model's draws.
 
 ## Extract MCMC posterior draws
 
