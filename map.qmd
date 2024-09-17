@@ -72,6 +72,9 @@ graph TD
   AK[File management]
   click AK href "posts/file-manage.html" "Go to page"
   
+  AL[Machine Learning]
+  click AL href "posts/machine-learning.html" "Go to page"
+  
   R[Regression: predictors]
   click R href "posts/intro-regression-predictors.html" "Go to page"
   S[Regression: categorical predictors]
@@ -106,7 +109,7 @@ graph TD
   E --> J & K & L & AC
   
   K --> M
-  M --> N & Z & AA
+  M --> N & Z & AA & AL
   N --> AB
   AA --> AB
 
@@ -114,7 +117,7 @@ graph TD
   P --> N & AA
   
   %% Regression
-  J --> R --> S --> T & U
+  J --> R & AL --> S --> T & U
   U --> V & X
   V --> W
   

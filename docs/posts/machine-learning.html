@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stefano Coretta">
+<meta name="dcterms.date" content="2024-09-17">
+<meta name="description" content="An introduction to Machine Learning and where to learn abou it">
 
-<title>The Adventurer’s Map – QML</title>
+<title>Machine Learning – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,12 +69,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
   </div>
@@ -92,27 +92,27 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Course schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./map.html" aria-current="page"> 
+    <a class="nav-link" href="../map.html"> 
 <span class="menu-text">Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebook.html"> 
+    <a class="nav-link" href="../notebook.html"> 
 <span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./challenges.html"> 
+    <a class="nav-link" href="../challenges.html"> 
 <span class="menu-text">Challenges</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html"> 
+    <a class="nav-link" href="../assessments.html"> 
 <span class="menu-text">Assessment</span></a>
   </li>  
 </ul>
@@ -127,22 +127,45 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning"><span class="header-section-number">1</span> Machine Learning</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Adventurer’s Map</h1>
+<h1 class="title">Machine Learning</h1>
 </div>
 
+<div>
+  <div class="description">
+    An introduction to Machine Learning and where to learn abou it
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stefano Coretta </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 17, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -152,143 +175,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the <a href="./notebook.html">Notebook</a> entries. This Map will grow throughout the semester as new entries are added to the Notebook.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Prerequisites
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can click on the name in the nodes and you will be taken to the entry in the Notebook.</p>
+<ul>
+<li><a href="../posts/intro-regression.html">Introduction to regression models</a>.</li>
+<li><a href="../posts/plotting-basics.html">Plotting basics</a></li>
+</ul>
 </div>
 </div>
-<!--  -->
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
-  A[Start here]
-  B[Hodotics]
-  click B href "posts/hodotics.html" "Go to page"
-  C[Computer basics]
-  click C href "posts/computer-basics.html" "Go to page"
-  D[R basics]
-  click D href "posts/r-basics.html" "Go to page"
-  E[Statistical variables]
-  click E href "posts/stat-variables.html" "Go to page"
-  F[Intro to Quarto]
-  click F href "posts/intro-quarto.html" "Go to page"
-  G[R Troubleshooting]
-  click G href "posts/r-troubleshooting.html" "Go to page"
-  H[Data types]
-  click H href "posts/data-types.html" "Go to page"
-  I[Read multiple files]
-  click I href "posts/import-multiple.html" "Go to page"
-  J[Introduction to regression]
-  click J href "posts/intro-regression.html" "Go to page"
-  K[Introduction to plotting]
-  click K href "posts/intro-plot.html" "Go to page"
-  L[Wrangling data]
-  click L href "posts/wrangling.html" "Go to page"
-  M[Plotting basics]
-  click M href "posts/plotting-basics.html" "Go to page"
-  N[Bar charts]
-  click N href "posts/bar-charts.html" "Go to page"
-  O[Filtering]
-  click O href "posts/wrangle-filter.html" "Go to page"
-  P[Mutating]
-  click P href "posts/wrangle-mutate.html" "Go to page"
-  Q[Pivoting]
-  click Q href "posts/wrangle-pivoting.html" "Go to page"
-  Z[Faceting plots]
-  click Z href "posts/plot-faceting.html" "Go to page"
-  AA[Density plots]
-  click AA href "posts/plot-density.html" "Go to page"
-  AB[Advanced plotting]
-  click AB href "posts/plot-advanced.html" "Go to page"
-  AC[Summary measures]
-  click AC href "posts/summaries.html" "Go to page"
-  
-  AD[Empirical research]
-  click AD href "posts/research-context.html" "Go to page"
-  AE[Research Qs and Hs]
-  click AE href "posts/research-qh.html" "Go to page"
-  AF[Data analysis]
-  click AF href "posts/data-analysis.html" "Go to page"
-  AG[Inference]
-  click AG href "posts/inference.html" "Go to page"
-  AH[Statistics]
-  click AH href "posts/statistics.html" "Go to page"
-  AI[Repro/repli]
-  click AI href "posts/repro-repli.html" "Go to page"
-  AJ[Proj Management]
-  click AJ href "posts/management.html" "Go to page"
-  AK[File management]
-  click AK href "posts/file-manage.html" "Go to page"
-  
-  AL[Machine Learning]
-  click AL href "posts/machine-learning.html" "Go to page"
-  
-  R[Regression: predictors]
-  click R href "posts/intro-regression-predictors.html" "Go to page"
-  S[Regression: categorical predictors]
-  click S href "posts/intro-regression-categorical.html" "Go to page"
-  T[MCMC draws]
-  click T href "posts/regression-draws.html" "Go to page"
-  U[Indexing predictors]
-  click U href "posts/regression-indexing.html" "Go to page"
-  V[Interactions]
-  click V href "posts/regression-interactions.html" "Go to page"
-  W[Categorical-categorical interactions]
-  click W href "posts/regression-interactions-catcat.html" "Go to page"
-  X[Bernoulli regression]
-  click X href "posts/regression-bernoulli.html" "Go to page"
-  
-  A --&gt; B &amp; C
-  
-  B --&gt; AD &amp; AF &amp; AJ
-  AD --&gt; AE
-  AE --&gt; AI
-  AF --&gt; AG &amp; AH
-  AJ --&gt; AK
-  
-  C --&gt; D
-  
-  D --&gt; E &amp; F &amp; G
-  
-  F --&gt; H
-  H --&gt; I &amp; E
-  I --&gt; Q
-  
-  E --&gt; J &amp; K &amp; L &amp; AC
-  
-  K --&gt; M
-  M --&gt; N &amp; Z &amp; AA &amp; AL
-  N --&gt; AB
-  AA --&gt; AB
-
-  L --&gt; O &amp; P &amp; Q
-  P --&gt; N &amp; AA
-  
-  %% Regression
-  J --&gt; R &amp; AL --&gt; S --&gt; T &amp; U
-  U --&gt; V &amp; X
-  V --&gt; W
-  
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<p><img src="../img/ml-e1610553826718.jpg" class="img-fluid" width="500"></p>
+<section id="machine-learning" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">1</span> Machine Learning</h2>
+<p><strong>Machine Learning</strong> is an approach to learning from data using a variety of statistical tools. These are the same tools that you would use in the context of a research study, but their are used with the aim of creating statistical models that can automatise processes and task.</p>
+<p>Machine Learning is possible the most applied approach to quantitative methods and statistics.</p>
+<p>If you are interested in focussing on Machine Learning, I can recommend either of the following books:</p>
+<ul>
+<li><p><a href="https://bradleyboehmke.github.io/HOML/">Hands-on Machine Learning with R</a>.</p></li>
+<li><p><a href="https://discovered.ed.ac.uk/permalink/44UOE_INST/7g3mt6/alma9925334736002466">Introduction to Machine Learning with R</a>.</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
