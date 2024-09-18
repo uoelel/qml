@@ -32,7 +32,7 @@ polite <- read_csv("data/winter2012/polite.csv")
 ::: callout-warning
 ## Prerequisites
 
--   [R basics](r-basics.qmd)
+-   [Data types](data-types.qmd)
 :::
 
 ## Quarto
@@ -328,5 +328,5 @@ That's all for this week!
 ::: callout-note
 ## Next
 
--   [Data types](data-types.qmd)
+-   [Statistical variables](stat-variables.qmd)
 :::

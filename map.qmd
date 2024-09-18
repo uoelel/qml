@@ -100,12 +100,12 @@ graph TD
   
   C --> D
   
-  D --> E & F & G
+  D --> E & H & G
   
-  F --> H
-  H --> I & E
+  H --> I & E & F
   I --> Q
   
+  F --> E
   E --> J & K & L & AC
   
   K --> M
