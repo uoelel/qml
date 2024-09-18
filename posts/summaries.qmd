@@ -46,7 +46,7 @@ $$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} = \frac{x_1 + ... + x_n}{n}$$
 
 $$\text{if } n \text{ is odd, } x_\frac{n+1}{2}$$
 
-$$\text{if } n \text{ is even,  } \frac{x_\frac{n}{2} + x_\frac{n}{2}}{2}$$
+$$\text{if } n \text{ is even,  } \frac{x_\frac{n}{2} + x_{\frac{n}{2}+1}}{2}$$
 
 **Mode**
 
@@ -96,14 +96,14 @@ Better to calculate the proportion/percentage across the entire data, rather tha
 Use the median with **numeric (continuous and discrete) variables**.
 
 ```{r median-1}
-# even N
+# odd N
 median(c(-1.12, 0.95, 0.41, -2.1, 0.09))
 
-# odd N
-odd <- c(4, 6, 3, 9, 7, 15)
-median(odd)
+# even N
+even <- c(4, 6, 3, 9, 7, 15)
+median(even)
 # the median is the mean of the two "central" number
-sort(odd)
+sort(even)
 mean(c(6, 7))
 ```
 
