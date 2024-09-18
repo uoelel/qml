@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#r-vs-rstudio" id="toc-r-vs-rstudio" class="nav-link" data-scroll-target="#r-vs-rstudio"><span class="header-section-number">2</span> R vs RStudio</a></li>
   <li><a href="#rstudio-1" id="toc-rstudio-1" class="nav-link" data-scroll-target="#rstudio-1"><span class="header-section-number">3</span> RStudio</a>
   <ul class="collapse">
-  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects"><span class="header-section-number">3.1</span> RStudio projects</a></li>
+  <li><a href="#rstudio-and-quarto-projects" id="toc-rstudio-and-quarto-projects" class="nav-link" data-scroll-target="#rstudio-and-quarto-projects"><span class="header-section-number">3.1</span> RStudio and Quarto projects</a></li>
   <li><a href="#a-few-important-settings" id="toc-a-few-important-settings" class="nav-link" data-scroll-target="#a-few-important-settings"><span class="header-section-number">3.2</span> A few important settings</a></li>
   </ul></li>
   <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics"><span class="header-section-number">4</span> R basics</a>
@@ -304,37 +304,38 @@ RStudio
 <p><img src="../img/rstudio-1-2.png" class="img-fluid"></p>
 <p>The <strong>Console</strong> is where R commands can be executed. Think of this as the interface to R.</p>
 <p>The <strong>Environment tab</strong> lists the objects created with R, while in the <strong>Files tab</strong> you can navigate folders on your computer to get to files and open them in the file Editor.</p>
-<section id="rstudio-projects" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="rstudio-projects"><span class="header-section-number">3.1</span> RStudio projects</h3>
+<section id="rstudio-and-quarto-projects" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="rstudio-and-quarto-projects"><span class="header-section-number">3.1</span> RStudio and Quarto projects</h3>
 <p>RStudio is an IDE (see above) which allows you to work efficiently with R, all in one place.</p>
 <p><strong>Note</strong> that files and data live in folders on your computer, outside of RStudio: do not think of RStudio as an app where you can save files in.</p>
 <p>All the files that you see in the Files tab are files on your computer and you can access them from the Finder or File Explorer as you would with any other file.</p>
 <p>In principle, you can open RStudio and then navigate to any folder or file on your computer.</p>
-<p>However, there is a more efficient way of working with RStudio: <strong>RStudio Projects</strong>.</p>
+<p>However, there is a more efficient way of working with RStudio: <strong>RStudio and Quarto Projects</strong>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-RStudio Projects
+Projects
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>An <strong>RStudio Project</strong> is a folder on your computer that has an <code>.Rproj</code> file.</p>
+<p>A <strong>Quarto Project</strong> is an RStudio Project with a <code>_quarto.yml</code> file.</p>
 </div>
 </div>
-<p>You can create as many RStudio Projects as you wish, and I recommend to create one per project (your dissertation, a research project, a course, etc…).</p>
-<p>We will create an RStudio Project for this course (meaning, you will create a folder for the course which will be the RStudio Project). You will have to use this project/folder throughout the semester.</p>
-<p>To create a new RStudio Project, click on the button that looks like a transparent light blue box with a plus, in the top-left corner of RStudio. A window like the one below will pop up.</p>
+<p>You can create as many Quarto Projects as you wish, and I recommend to create one per project (your dissertation, a research project, a course, etc…).</p>
+<p>We will create a Quarto Project for this course (meaning, you will create a folder for the course which will be the Quarto Project). You will have to use this project/folder throughout the semester.</p>
+<p>To create a new Quarto Project, click on the button that looks like a transparent light blue box with a plus, in the top-left corner of RStudio. A window like the one below will pop up.</p>
 <p><img src="../img/rstudio-3.png" class="img-fluid"></p>
-<p>Click on <code>New Directory</code> then <code>New Project</code>.</p>
-<p><img src="../img/rstudio-4.png" class="img-fluid"></p>
-<p>Now, this will create a new folder (aka directory) on your computer and will make that an RStudio Project (meaning, it will add a file with the <code>.Rproj</code> extension to the folder; the name of the file will be the name of the project/folder).</p>
-<p>Give a name to your new project, something like the name of the course and year (e.g.&nbsp;<code>qml-2023</code>).</p>
-<p>Then you need to specify where to create this new folder/Project. Click on <code>Browse…</code> and navigate to the folder you want to create the new folder/Project in.</p>
+<p>Click on <code>New Directory</code> then <code>Quarto Project</code>.</p>
+<p><img src="../img/rstudio-new-project-wizard.png" class="img-fluid"></p>
+<p>Now, this will create a new folder (aka directory) on your computer and will make that a Quarto Project (meaning, it will add a file with the <code>.Rproj</code> extension and a file called <code>_quarto.yml</code> to the folder; the name of the <code>.Rproj</code> file will be the name of the project/folder).</p>
+<p>Give a name to your new project, something like the name of the course and year (e.g.&nbsp;<code>qml-2024</code>).</p>
+<p>Then you need to specify where to create this new folder/Project. Click on <code>Browse…</code> and navigate to the folder you want to create the new folder/Project in. This could be your Documents folder, or the Desktop (we had issues with OneDrive in the past, so we recommend you save the project outside of OneDrive if you can).</p>
 <p>When done, click on <code>Create Project</code>. RStudio will automatically open your new project.</p>
-<p><img src="../img/rstudio-5.png" class="img-fluid"></p>
+<p><img src="../img/rstudio-quarto-project.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -345,15 +346,15 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When working through these tutorials, always make sure you are in the course RStudio Project you just created.</p>
-<p>You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light blue cube icon.</p>
-<p>If you see <code>Project (none)</code> in the top-right corner, that means your <strong>are not</strong> in an RStudio Project.</p>
-<p>To make sure you are in the RStudio project, go to the project folder in File Explorer or Finder and double click on the <code>.Rproj</code> file.</p>
+<p>When working through the Notebook entries, always make sure you are in the course Quarto Project you just created.</p>
+<p>You know you are in an RStudio/Quarto Project because you can see the name of the Project in the top-right corner of RStudio, next to the light blue cube icon.</p>
+<p>If you see <code>Project (none)</code> in the top-right corner, that means your <strong>are not</strong> in a Quarto Project.</p>
+<p>To make sure you are in the Quarto project, go to the project folder in File Explorer or Finder and double click on the <code>.Rproj</code> file.</p>
 </div>
 </div>
-<p>There are several ways of opening an RStudio Project:</p>
+<p>There are several ways of opening a Quarto Project:</p>
 <ul>
-<li><p>You can go to the RStudio Project folder in Finder or File Explorer and double click on the <code>.Rproj</code> file.</p></li>
+<li><p>You can go to the Quarto Project folder in Finder or File Explorer and double click on the <code>.Rproj</code> file.</p></li>
 <li><p>You can click on <code>File &gt; Open Project</code> in the RStudio menu.</p></li>
 <li><p>You can click on the project name in the top-right corner of RStudio, which will bring up a list of projects. Click on the desired project to open it.</p></li>
 </ul>
@@ -390,6 +391,7 @@ Quiz 1
 <li><p>R is a programming language. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
 <li><p>An IDE is necessary to run R. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
 <li><p>RStudio projects are folders with an <code>.Rproj</code> file. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+<li><p>Quarto projects can’t be RStudio projects <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
 <li><p>The project name is shown in the top-right corner of RStudio. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
 </ol>
 </div>
@@ -401,7 +403,7 @@ Quiz 1
 <p>In this part of the tutorial you will learn the very basics of R.</p>
 <p>If you have prior experience with programming, you should find all this familiar. If not, not to worry! Make sure you understand the concept highlighted in the green boxes and practice the related skills.</p>
 <p>For this tutorial, you will just run code directly in the R Console in RStudio, i.e.&nbsp;you will type code in the Console and press <code>ENTER</code> to run it.</p>
-<p>In future tutorials, you will learn how to save your code in a script file, so that you can keep track of which code you have run and make your work reproducible.</p>
+<p>In future tutorials, you will learn how to save your code in a <a href="../posts/scripts.html">script</a> file or in <a href="../posts/intro-quarto.html">Quarto documents</a>, so that you can keep track of which code you have run and make your work reproducible.</p>
 <section id="r-as-a-calculator" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="r-as-a-calculator"><span class="header-section-number">4.1</span> R as a calculator</h3>
 <p>Write this code <code>1 + 2</code> in the <code>Console</code>, then press <code>ENTER/RETURN</code> to run the code.</p>

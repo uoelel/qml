@@ -11,6 +11,15 @@ execute:
   warning: false
 ---
 
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(webexercises)
+```
+
 ::: callout-warning
 #### Prerequisites
 
@@ -24,3 +33,31 @@ execute:
 The terms *reproducible* and *replicable* are often used interchangeably but The Turning Way has proposed a semantic scheme which introduces two more terms: *robust* and *generalisable*.
 
 Check out the section [Table of Definitions for Reproducibility](https://book.the-turing-way.org/reproducible-research/overview/overview-definitions#table-of-definitions-for-reproducibility) from [The Turing Way book](https://book.the-turing-way.org), which defines the four terms.
+
+::: callout-note
+#### Quiz 1
+
+```{r}
+#| label: quiz-1
+#| results: asis
+#| echo: false
+
+opts_1 <- c(
+  "a. When the results do not match the researcher's expectations.",
+  answer = "b. When the the same data and code as in the original study do not produce the published results.",
+  "c. When research conducted by a different research team with new data does not produce the results as published in the original study. "
+)
+
+cat("**When is research not reproducible?**", longmcq(opts_1))
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Research is **reproducible** when you can produce the same results using the original data and code/methods.
+
+Research is **replicable** when you can produce the same results using new data and the original code/methods.
+
+See <https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html#table-of-definitions-for-reproducibility>.
+:::
+:::

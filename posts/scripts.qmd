@@ -28,12 +28,6 @@ library(tidyverse)
 library(webexercises)
 ```
 
-::: callout-warning
-#### Pre-requisites
-
--   [Data types](data-types.qmd)
-:::
-
 So far, you've been writing R code in the **Console** and run it there.
 
 But this is not very efficient. Every time, you need to write the code and execute it in the right order and it quickly becomes very difficult to keep track of everything when things start getting more involved.
@@ -50,7 +44,7 @@ For the rest of this tutorial, you will write all code in an R script.
 
 ## Create an R script
 
-First, create a folder called `code` in your RStudio project folder. This will be the folder where you will save all of your R scripts and other documents.
+First, create a folder called `code` in your Quarto project folder. This will be the folder where you will save all of your R scripts and other documents.
 
 Now, to create a new R script, look at the top-left corner of RStudio: the first button to the left looks like a white sheet with a green plus sign. This is the `New file` button. Click on that and you will see a few options to create a new file.
 
@@ -69,7 +63,7 @@ Remember that all the files of your RStudio project don't live inside RStudio bu
 
 So you can always access them from the Finder or File Explorer! **However**, do not open a file by double clicking on it from the Finder/File Explorer.
 
-Rather, **open the RStudio project by double clicking on the `.Rproj` file** and then open files from RStudio to ensure you are working within the RStudio project and the working directory is set correctly. (See the tutorial from Week 1).
+Rather, **open the Quarto project by double clicking on the `.Rproj` file** and then open files from RStudio to ensure you are working within the RStudio project and the working directory is set correctly.
 :::
 
 ### Write code
@@ -90,7 +84,9 @@ library(tidyverse)
 shallow <- read_csv("./data/song2020/shallow.csv")
 ```
 
-Wait, what is that `"./data/shallow.csv"`? That's a [**relative path**](data-types.qmd#relative-paths)!
+Wait, what is that `"./data/shallow.csv"`? That's a [**relative path**](data-types.qmd#relative-paths), remember?
+
+When you are using R scripts in Quarto projects, the `./` folder paths are relative to is the project folder! This is true whichever the name of the folder/project and whichever it's location on your computer.
 
 ::: callout-warning
 Please, don't include `install.packages()` in your R scripts!

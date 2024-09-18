@@ -29,6 +29,18 @@ library(webexercises)
 
 ## Tabular data
 
+::: callout-warning
+#### Important
+
+When working through the Notebook entries, always **make sure you are in the course Quarto Project** you [created earlier](r-basics#r-studio-and-quarto-projects).
+
+You know you are in a Quarto Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
+
+If you see `Project (none)` in the top-right corner, that means **you are not** in a Quarto Project.
+
+To make sure you are in the right Quarto project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
+:::
+
 ::: callout-tip
 #### Tabular data
 
@@ -176,39 +188,25 @@ Importing `.csv` files is very easy. You can use the `read_csv()` function from 
 
 To import data in R we will use the `read_csv()` function from the [readr](https://readr.tidyverse.org) package, one of the tidyverse packages.
 
-Installing the tidyverse packages is easy: you just need to install the tidyverse package and that will take care of installing the most important packages in the collection (called the ["core" tidyverse packages](https://www.tidyverse.org/packages/)).
+If you followed the [Setup](setup.qmd) instructions at the beginning of the course, you are all set. The tidyverse packages should already be installed. You can check in the `Packages` tab in the bottom right panel of RStudio: if tidyverse is listed in there, then all the tidyverse packages are installed
 
-Go ahead and install the tidyverse from the Packages tab.
+If not, installing the tidyverse packages is easy: you just need to \[install\](packages.qmd#install-packages) the tidyverse package and that will take care of installing the most important packages in the collection (called the ["core" tidyverse packages](https://www.tidyverse.org/packages/)).
 
 ### `read_csv()`
 
 ::: callout-warning
-#### Did you open the RStudio Quarto project?
+#### Did you open the Quarto project?
 
-Before moving on, make sure that you have opened the RStudio Quarto project correctly (see warning at the top of the tutorial)
+Before moving on, make sure that you have opened the RStudio Quarto project correctly (see warning at the top of the tutorial).
 :::
 
-The `read_csv()` function from the readr package only requires you to specify the file path as a string (remember, strings are quoted between `" "`, for example `"year_data.txt"`). On my computer, the file path of `song2020/shallow.csv` is `/Users/ste/dal/data/song2020/shallow.csv`, but on your computer the file path will be different, of course.
+The `read_csv()` function from the readr package only requires you to specify the file path as a string (remember, strings are quoted between `" "`, for example `"year_data.txt"`). On my computer, the file path of `song2020/shallow.csv` is `/Users/ste/qml/data/song2020/shallow.csv`, but on your computer the file path will be different, of course.
 
 Also, note that it is not enough to use the `read_csv()` function. You also must assign the output of the `read_csv()` function (i.e. the data we are reading) to a variable, using the assignment arrow `<-`, just like we were assigning values to variables in the previous weeks.
 
 And since the `read_csv()` is a function from the tidyverse, you first need to attach the tidyverse packages with `library(tidyverse)` (remember, you need to attach packages **only once** per session). This will attach the core tidyverse packages, including readr. Of course, you can also attach the individual packages directly: `library(readr)`. If you use `library(tidyverse)` there is no need to attach individual tidyverse packages.
 
-**Before reading the data, create a new R script named `tutorial_w03.R` and save it in the `code/` folder of your Quarto project.**
-
-Generally, you start the script with calls to `library()` to load all the packages you need for the script.
-
-Now we only need one package, tidyverse, but in most cases you will need more than one! The best practice is to attach all of packages first, in the top of your script. Please, get in the habit of doing this from now, so that you can keep your scripts tidy and pretty!
-
-::: callout-warning
-Please, don't include `install.packages()` in your R scripts!
-
-Remember, you only have to install a package once, and you can just type it in the Console.
-
-But **DO** include `library()` in your scripts.
-:::
-
-At the top of `tutorial_w03.R`, write the following lines of code. Then run the code.
+Run the following lines in the `Console`.
 
 ```{r}
 #| label: read-shallow
@@ -230,7 +228,7 @@ In R, a data table is called a **data frame**.
 In this course's tutorials, "data frame" and "tibble" will be used interchangeably (since we are using the read functions from the tidyverse, all resulting data frames will be tibbles).
 :::
 
-But wait, what is that `"./data/song2020/shallow.csv"`? That's a **relative path**. We briefly mentioned relative paths above, but let's understand the details now. You will be able to view the data soon.
+But wait, what is that `"./data/song2020/shallow.csv"`? That's a **relative path**. Let's understand the concept of relative paths now. You will be able to view the data soon.
 
 ### Relative paths
 
@@ -240,7 +238,7 @@ But wait, what is that `"./data/song2020/shallow.csv"`? That's a **relative path
 A **relative path** is a file path that is relative to a folder. The folder the path starts at is represented by `./`.
 :::
 
-When you are using R scripts in Quarto projects, the `./` folder paths are relative to is the project folder! This is true whichever the name of the folder/project and whichever it's location on your computer.
+When you are using Quarto projects, the `./` folder paths are relative to the project folder! This is true whichever the name of the folder/project and whichever it's location on your computer.
 
 For example, if your project it's called `awesome_proj` and it's in `Downloads/stuff/`, then if you write `./data/results.csv` you really mean `Downloads/stuff/awesome_proj/data/results.csv`!
 
@@ -260,9 +258,9 @@ When using Quarto projects, the working directory is the project folder.
 
 The code `read_csv("./data/song2020/shallow.csv")` above will work because you are using a Quarto project and inside the project folder there is a folder called `data/` and in it there's the `song2020/shallow.csv` file.
 
-So from now on I encourage you to use Quarto projects, R scripts and relative paths always!
+So from now on I encourage you to use Quarto projects and relative paths always! You will also learn about \[R scripts\](scripts.qmd) and \[Quarto documents\](intro-quarto.qmd) later, which will make things even easier.
 
-The benefit of doing so is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!
+The benefit of Quarto projects and relative paths is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!
 
 ::: callout-tip
 #### Get the working directory
@@ -416,5 +414,5 @@ Read the following files in R, making sure you use the right `read_*()` function
 ::: callout-note
 ## Next
 
--   [R scripts](r-scripts.qmd)
+-   [R scripts](scripts.qmd)
 :::

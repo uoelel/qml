@@ -44,7 +44,7 @@ Keeping track of the code you use for data analysis is a very important aspect o
 
 Research is **reproducible** when the same data and same code return the same results.
 
-See the [Definitions](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions) page of The Turing Way for definitions of *reproducible*, *replicable*, *robust* and *generalisable* research.
+Check out [Reproducibility and replicability](repro-repli.qmd) for details.
 :::
 
 R scripts are great for writing code, and you can even document the code (add explanations or notes) with comments (i.e. lines that start with `#`).
@@ -52,34 +52,6 @@ R scripts are great for writing code, and you can even document the code (add ex
 But for longer text or complex data analysis reports, R scripts can be a bit cumbersome.
 
 A solution to this is using Quarto files (they have the `.qmd` extension).
-
-::: callout-note
-#### Quiz 1
-
-```{r}
-#| label: quiz-1
-#| results: asis
-#| echo: false
-
-opts_1 <- c(
-  "a. When the results do not match the researcher's expectations.",
-  answer = "b. When the the same data and code as in the original study do not produce the published results.",
-  "c. When research conducted by a different research team with new data does not produce the results as published in the original study. "
-)
-
-cat("**When is research not reproducible?**", longmcq(opts_1))
-```
-
-::: {.callout-tip collapse="true"}
-#### Hint
-
-Research is **reproducible** when you can produce the same results using the original data and code/methods.
-
-Research is **replicable** when you can produce the same results using new data and the original code/methods.
-
-See <https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html#table-of-definitions-for-reproducibility>.
-:::
-:::
 
 ### Code... and text!
 
@@ -201,7 +173,7 @@ Open the `_quarto.yml` file in RStudio (you can simply click on the file in the 
 
 ``` yaml
 project:
-  title: "dal"
+  title: "qml-2024"
   execute-dir: project
 ```
 
@@ -299,11 +271,7 @@ This is very handy when you are writing an analysis report you need to share wit
 Quarto files can be **rendered** into other formats, like HTML, PDF and Word documents.
 :::
 
-The assessments of this course will require you to write text and code in a Quarto file and render it to HTML.
-
 You could even write your dissertation in Quarto!
-
-The following sections will introduce you to the basics of plotting data. You will keep learning how to create plots throughout the course.
 
 ## Render your Quarto file!
 

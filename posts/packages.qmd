@@ -29,6 +29,18 @@ library(webexercises)
 
 ## R packages
 
+::: callout-warning
+#### Important
+
+When working through the Notebook entries, always **make sure you are in the course Quarto Project** you [created earlier](r-basics#r-studio-and-quarto-projects).
+
+You know you are in a Quarto Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
+
+If you see `Project (none)` in the top-right corner, that means **you are not** in a Quarto Project.
+
+To make sure you are in the right Quarto project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
+:::
+
 When you install R, a **library** of packages is also installed. **Packages** provide R with extra functionalities, usually by making extra functions available for use. You can think of packages as "plug-ins" that you install once and then you can "activate" them when you need them. The library installed with R contains a set of packages that are collectively known as the **base R packages**, but you can install more any time!
 
 Note that the R library is a folder on your computer. Packages are *not* installed inside RStudio. Remember that RStudio is just an interface.
@@ -56,7 +68,7 @@ You can install extra packages in the R library in two ways:
 1.  You can use the `install.packages()` function. This function takes the name of the package you want to install as a string, for example `install.packages("cowsay")`.
 
 ::: callout-warning
-If you install a package with the function `install.packages()`, do so in the Console! Do not include this function in your scripts (this is because you install packages only once, see below)).
+If you install a package with the function `install.packages()`, do so in the Console! Do not include this function in your scripts (this is because you install packages only once, see below).
 :::
 
 2.  Or you can go the `Packages` tab in the bottom-right panel of RStudio and click on `Install`. A small window will pop up. See the screenshot below.
@@ -74,7 +86,7 @@ In the "Install packages" window, list the package names and then click `Install
 :::
 
 ::: callout-warning
-**You need to install a package ONLY ONCE!** Once installed, it's there for ever, saved in the R library. You will be able to use all of your installed packages in any RStudio project you create.
+**You need to install a package ONLY ONCE!** Once installed, it's there for ever, saved in the R library. You will be able to use all of your installed packages in any RStudio/Quarto project you create.
 :::
 
 #### Attach packages

@@ -232,6 +232,22 @@ Pre-requisites
 </div>
 <section id="r-packages" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">1</span> R packages</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When working through the Notebook entries, always <strong>make sure you are in the course Quarto Project</strong> you <a href="r-basics#r-studio-and-quarto-projects">created earlier</a>.</p>
+<p>You know you are in a Quarto Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.</p>
+<p>If you see <code>Project (none)</code> in the top-right corner, that means <strong>you are not</strong> in a Quarto Project.</p>
+<p>To make sure you are in the right Quarto project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the <code>.Rproj</code> file.</p>
+</div>
+</div>
 <p>When you install R, a <strong>library</strong> of packages is also installed. <strong>Packages</strong> provide R with extra functionalities, usually by making extra functions available for use. You can think of packages as “plug-ins” that you install once and then you can “activate” them when you need them. The library installed with R contains a set of packages that are collectively known as the <strong>base R packages</strong>, but you can install more any time!</p>
 <p>Note that the R library is a folder on your computer. Packages are <em>not</em> installed inside RStudio. Remember that RStudio is just an interface.</p>
 <p>You can check all of the currently installed packages in the bottom-right panel of RStudio, in the <strong>Packages</strong> tab. There you can also install new packages.</p>
@@ -280,7 +296,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you install a package with the function <code>install.packages()</code>, do so in the Console! Do not include this function in your scripts (this is because you install packages only once, see below)).</p>
+<p>If you install a package with the function <code>install.packages()</code>, do so in the Console! Do not include this function in your scripts (this is because you install packages only once, see below).</p>
 </div>
 </div>
 <ol start="2" type="1">
@@ -316,7 +332,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>You need to install a package ONLY ONCE!</strong> Once installed, it’s there for ever, saved in the R library. You will be able to use all of your installed packages in any RStudio project you create.</p>
+<p><strong>You need to install a package ONLY ONCE!</strong> Once installed, it’s there for ever, saved in the R library. You will be able to use all of your installed packages in any RStudio/Quarto project you create.</p>
 </div>
 </div>
 </section>
@@ -410,7 +426,7 @@ Which of the following statements is wrong?
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -419,7 +435,7 @@ Explanation
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This was a question about terminology. In R, you attach packages from the library using (confusingly) the <code>library()</code> function.</p>
 </div>
