@@ -74,6 +74,10 @@ graph TD
   
   AL[Machine Learning]
   click AL href "posts/machine-learning.html" "Go to page"
+  AM[R scripts]
+  click AM href "posts/scripts.html" "Go to page"
+  AN[R packages]
+  click AN href "posts/packages.html" "Go to page"
   
   R[Regression: predictors]
   click R href "posts/intro-regression-predictors.html" "Go to page"
@@ -100,9 +104,11 @@ graph TD
   
   C --> D
   
-  D --> E & H & G
+  D --> AN & G
+  AN --> H
   
-  H --> I & E & F
+  H --> AM
+  AM --> F & I
   I --> Q
   
   F --> E

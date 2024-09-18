@@ -12,6 +12,7 @@
       "/posts/r-troubleshooting.html",
       "/posts/regression-indexing.html",
       "/posts/intro-quarto.html",
+      "/posts/packages.html",
       "/posts/plotting-basics.html",
       "/posts/import-multiple.html",
       "/posts/wrangle.html",
@@ -37,7 +38,8 @@
       "/posts/file-manage.html",
       "/posts/management.html",
       "/posts/repro-repli.html",
-      "/posts/machine-learning.html"
+      "/posts/machine-learning.html",
+      "/posts/scripts.html"
     ]
   },
   {

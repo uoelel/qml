@@ -582,6 +582,18 @@
       "RemoteSha": "595ab46b35cedb6cc2514b9b6b6b95e4a685e2e9",
       "Hash": "ae943e2b7309dad0765deb1cee78d274"
     },
+    "cowsay": {
+      "Package": "cowsay",
+      "Version": "0.9.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "crayon",
+        "fortunes",
+        "rmsfact"
+      ],
+      "Hash": "4e3813de2df6391b7add61c63631262c"
+    },
     "cpp11": {
       "Package": "cpp11",
       "Version": "0.5.0",
@@ -824,6 +836,16 @@
         "utils"
       ],
       "Hash": "81fc09bdeab0077a73927ed1243404b6"
+    },
+    "fortunes": {
+      "Package": "fortunes",
+      "Version": "1.5-4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "d031a520bc2c989180c772dbc6851088"
     },
     "fs": {
       "Package": "fs",
@@ -1958,6 +1980,13 @@
         "yaml"
       ],
       "Hash": "062470668513dcda416927085ee9bdc7"
+    },
+    "rmsfact": {
+      "Package": "rmsfact",
+      "Version": "0.0.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "9e53733ec853fb8e5f2c74420c66e10b"
     },
     "rpart": {
       "Package": "rpart",

@@ -19,7 +19,7 @@ library(tidyverse)
 ::: callout-warning
 #### Prerequisites
 
--   [Data types](data-types.qmd)
+-   [R scripts](scripts.qmd)
 :::
 
 [![](/img/multiple.png){fig-align="center" width="250"}](https://www.flaticon.com/free-icons/choice)

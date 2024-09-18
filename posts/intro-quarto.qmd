@@ -32,7 +32,7 @@ polite <- read_csv("data/winter2012/polite.csv")
 ::: callout-warning
 ## Prerequisites
 
--   [Data types](data-types.qmd)
+-   [R scripts](scripts.qmd)
 :::
 
 ## Quarto
@@ -101,7 +101,7 @@ R comments in R scripts cannot be formatted (for example, you can't make text bo
 
 Text in Quarto files can be fully formatted using a simple but powerful **mark-up language** called [markdown](https://www.markdownguide.org).
 
-You don't have to learn markdown all in one go, so I encourage you to just learn it bit by bit, at your pace. You can look at the the [Markdown Guide]() for an in-depth intro and/or dive in the [Markdown Tutorial](https://www.markdowntutorial.com) for a hands-on approach.
+You don't have to learn markdown all in one go, so I encourage you to just learn it bit by bit, at your pace. You can look at the the [Markdown Guide](https://www.markdownguide.org/getting-started/) for an in-depth intro and/or dive in the [Markdown Tutorial](https://www.markdowntutorial.com) for a hands-on approach.
 
 A few quick pointers (you can test them in the [Markdown Live Preview](https://markdownlivepreview.com)):
 

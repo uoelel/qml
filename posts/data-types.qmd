@@ -22,7 +22,7 @@ library(webexercises)
 ::: callout-warning
 #### Pre-requisites
 
--   [Introduction to Quarto](intro-quarto.qmd)
+-   [R packages](packages.qmd)
 :::
 
 ![](/img/what-r-for.png){fig-align="center" width="500"}
@@ -416,6 +416,5 @@ Read the following files in R, making sure you use the right `read_*()` function
 ::: callout-note
 ## Next
 
--   [Import multiple files](import-multiple.qmd)
--   [Statistical variables](stat-variables.qmd)
+-   [R scripts](r-scripts.qmd)
 :::
