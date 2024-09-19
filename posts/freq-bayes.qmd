@@ -1,0 +1,50 @@
+---
+title: "Two statistical approaches to inference: Frequentist and Bayesian statistics"
+description: "A conceptual introduction to the frequentist and Bayesian approaches to statistical inference"
+author: "Stefano Coretta"
+date: 2024-09-19
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+execute: 
+  warning: false
+draft: true
+---
+
+::: callout-warning
+#### Prerequisites
+
+-   [Inference and uncertainty](inference.qmd)
+-   [What is statistics?](statistics.qmd)
+:::
+
+::: {layout-ncol=2}
+
+[![](../img/volcano.png)](https://www.flaticon.com/free-icons/volcano)
+
+[![](../img/raining.png)](https://www.flaticon.com/free-icons/rain)
+:::
+
+## Frequentist vs Bayesian probability
+
+The two major approaches to statistical inference are the frequentist and the Bayesian approaches. The difference between these approaches is how probabilities are conceived, from a philosophical perspective if you will.
+
+Probabilities in a **frequentist framework** are about average occurrences of events in a hypothetical series of repetitions of those events. Imagine you observe a volcano for a long period of time. The number of times the volcano erupts within that time tells us the **frequency** of occurrence of the event of volcanic eruption. In other words, it tells us its (frequentist) probability.
+
+In the **Bayesian framework**, probabilities are about the **level of (un)certainty** that an event will occur at any specific time. This is probably the way we normally think about probabilities: like in the weather forecast, if somebody tells you tomorrow it will rain with a probability of 85%, you intuitively know that it is very likely that it will rain tomorrow although not certain.
+
+In the context of research, a frequentist probability tells you the probability of obtaining the same result again given an imaginary series of replications of the study that generated that probability. On the other hand, a Bayesian probability tells you the probability that the result of the study is the actual result you should have gotten.
+
+## Frequentist inference
+
+Most of current research is carried out with frequentist methods. This is a historical accident, based on both a misunderstanding of Bayesian statistics (which is, by the way, older than frequentist statistics) and the fact that frequentist maths was much easier (and personal computers did not exist).
+
+The commonly accepted approach to frequentist inference is the so-called **Null Hypothesis Significance Testing**, or NHST. As practised by researchers, the NHST approach is a (sometimes incoherent) mix of the frequentist work of Fisher on one hand, and Neyman and Pearson on the other.
+
+The main tenet of NHST is that you set a **null hypothesis** and you try to **reject** it. A null hypothesis is, in practice, a *nil* hypothesis: in other words, it is the hypothesis that there is *no* difference between two values (these usually being means of two or more groups of interest). Using a variety of techniques, one obtains a **p-value**, i.e. a frequentist probability. *p*-values are very commonly mistaken for Bayesian probabilities ([Cassidy et al 2019](https://www.doi.org/10.1177/2515245919858072)) and this results in various misinterpretations of reported results. To learn the meaning (and dangers) of *p*-values, check this post (**TBA!!!**).
+
+The NHST framework is been criticised because of its incoherence (both by frequentist and non-frequentist folk). A must-read is [*Mindless statistics*](https://www.doi.org/10.1016/j.socec.2004.09.033) by Gigerenzer and Gerd.
+
+## Bayesian inference
+
