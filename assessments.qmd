@@ -20,6 +20,26 @@ That's why both students and the lecturer (Stefano) will reflect on how the cour
 
 Each of us will have our own Reflective Journal on Learn. The tutors and I will be able to see your Reflective Journal, but you won't be able to see other students' Journals. My Journal (the lecturer's) will be visible to all and you will also be able to comment on it.
 
+Here are some example prompts to get you started, but you can really write what you want!
+
+::: callout-tip
+## Example prompts
+
+1.  Which Notebook entries/other materials did I go through this week?
+
+2.  How did I approach this week's Challenge?
+
+3.  What has changed in my thinking about quantitative methods so far (if at all)?
+
+4.  How would I describe my participation in class activities? Am I happy with it?
+
+5.  In what ways have I grown intellectually so far, if at all?
+
+6.  Is there anything I'm particularly proud of?
+
+7.  Did I struggle with anything? If so, did I ask for help?
+:::
+
 ### Weekly self-reflections
 
 After every class you'll need to write one self-reflection in the Reflective Journal on Learn. Afterwards you need to read my feedback on your entries.
@@ -58,7 +78,7 @@ Some ideas for Group Projects:
 
 -   Write a collection of sonnets on the replicability crisis.
 
-- Write an essay on minoritised statisticians.
+-   Write an essay on minoritised statisticians.
 
 -   Choreograph an interpretative dance that illustrates that Markov Chain Monte Carlo algorithm.
 
@@ -90,7 +110,7 @@ To help you thinking about which mark to assign yourself, we will use an "impres
 Once you pick a mark band, you need to pick a step within that band. You can find a description of the bands here: [Extended Common Marking Scheme](https://registryservices.ed.ac.uk/timetabling-examinations/exams/regulations/common-marking-scheme). Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:
 
 | Step | Criteria                                                                            |
-|:---------------:|-------------------------------------------------------|
+|:----------------:|------------------------------------------------------|
 |  2   | The criteria for the mark band have been achieved, but there might be minor issues. |
 |  5   | The criteria for the mark band have been achieved satisfactorily.                   |
 |  8   | The criteria for the mark band have been achieved fully.                            |
