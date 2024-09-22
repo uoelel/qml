@@ -2,7 +2,7 @@
 title: "The Adventurer's Notebook"
 listing:
   contents: challenges
-  sort: "date desc"
+  sort: "title asc"
   type: grid
   categories: true
 ---
