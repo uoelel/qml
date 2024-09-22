@@ -1,0 +1,13 @@
+---
+title: "Analysis of Yoda speech in conversation"
+author: "Stefano Coretta"
+---
+
+![](../img/yoda-cover.jpg)
+
+
+The [Yoda Speech Corpus](https://www.kaggle.com/datasets/stefanocoretta/yoda-speech-corpus/data) on Kaggle has dialogues from the Star Wars movies with Yoda as an interlocutor.
+
+The dialogues are taken from the Star Wars movies 1-6, and they contain not only the lines spoken by Yoda, but also the lines from other characters that are involved in the particular dialogue.
+
+Use this corpus to analyse the linguistic features of Yoda's speech.
