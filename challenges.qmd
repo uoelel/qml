@@ -1,5 +1,5 @@
 ---
-title: "The Adventurer's Notebook"
+title: "Challenges"
 listing:
   contents: challenges
   sort: "title asc"
