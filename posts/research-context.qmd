@@ -11,13 +11,13 @@ execute:
   warning: false
 ---
 
-![](../img/res-process-context.png){width="450"}
-
 ::: callout-warning
 #### Prerequisites
 
 - [Research Methods and Hodotics](hodotics.qmd)
 :::
+
+![](../img/res-process-context.png){width="450"}
 
 ## Empirical research
 
@@ -112,3 +112,8 @@ The image below is a schematic representation of different aspects of the resear
 
 ![](../img/research-topic.png)
 
+::: callout-note
+#### Next
+
+- [Research questions and hypotheses](research-qh.qmd)
+:::

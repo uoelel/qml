@@ -234,21 +234,6 @@ Pre-requisites
 </div>
 <section id="r-scripts" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="r-scripts"><span class="header-section-number">1</span> R scripts</h2>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pre-requisites
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><a href="../posts/data-types.html">Data types</a></li>
-</ul>
-</div>
-</div>
 <p>So far, you’ve been writing R code in the <strong>Console</strong> and run it there.</p>
 <p>But this is not very efficient. Every time, you need to write the code and execute it in the right order and it quickly becomes very difficult to keep track of everything when things start getting more involved.</p>
 <p>A solution is to use <strong>R scripts</strong>.</p>
@@ -269,7 +254,7 @@ R script
 </section>
 <section id="create-an-r-script" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="create-an-r-script"><span class="header-section-number">2</span> Create an R script</h2>
-<p>First, create a folder called <code>code</code> in your RStudio project folder. This will be the folder where you will save all of your R scripts and other documents.</p>
+<p>First, create a folder called <code>code</code> in your Quarto project folder. This will be the folder where you will save all of your R scripts and other documents.</p>
 <p>Now, to create a new R script, look at the top-left corner of RStudio: the first button to the left looks like a white sheet with a green plus sign. This is the <code>New file</code> button. Click on that and you will see a few options to create a new file.</p>
 <p>Click on <code>R Script</code>. A new empty R script will be created and will open in the File Editor window of RStudio.</p>
 <p><img src="../img/new-script-button.png" class="img-fluid"></p>
@@ -288,7 +273,7 @@ Warning
 <div class="callout-body-container callout-body">
 <p>Remember that all the files of your RStudio project don’t live inside RStudio but on your computer.</p>
 <p>So you can always access them from the Finder or File Explorer! <strong>However</strong>, do not open a file by double clicking on it from the Finder/File Explorer.</p>
-<p>Rather, <strong>open the RStudio project by double clicking on the <code>.Rproj</code> file</strong> and then open files from RStudio to ensure you are working within the RStudio project and the working directory is set correctly. (See the tutorial from Week 1).</p>
+<p>Rather, <strong>open the Quarto project by double clicking on the <code>.Rproj</code> file</strong> and then open files from RStudio to ensure you are working within the RStudio project and the working directory is set correctly.</p>
 </div>
 </div>
 <section id="write-code" class="level3" data-number="2.1">
@@ -302,7 +287,8 @@ Warning
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>shallow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/song2020/shallow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Wait, what is that <code>"./data/shallow.csv"</code>? That’s a <a href="../posts/data-types.html#relative-paths"><strong>relative path</strong></a>!</p>
+<p>Wait, what is that <code>"./data/shallow.csv"</code>? That’s a <a href="../posts/data-types.html#relative-paths"><strong>relative path</strong></a>, remember?</p>
+<p>When you are using R scripts in Quarto projects, the <code>./</code> folder paths are relative to is the project folder! This is true whichever the name of the folder/project and whichever it’s location on your computer.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -353,7 +339,7 @@ Quiz 1
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -362,7 +348,7 @@ Explanation
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>It is a valid line of R code, but if you got an error it is probably because the variable <code>x</code> does not exist (yet). If you add the line <code>x &lt;- 4</code> before <code>sum(x + 2) # x = 4</code>, the latter will work just fine.</p>
 <p>So you see there is a difference between <em>valid</em> code and <em>working</em> code.</p>
