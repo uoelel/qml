@@ -739,7 +739,7 @@
     "href": "challenges.html",
     "title": "The Adventurer’s Notebook",
     "section": "",
-    "text": "Analysis of Yoda speech in conversation\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nIs ‘gay speech’ a thing?\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage endangerment and linguistic diversity\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nMorphology in Scottish Gaelic\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nPHOIBLE: cross-linguistic phonological inventory data\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nSentiment analysis of Tweets on ChatGPT\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nWALS - World Atlas of Language Structures\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Analysis of Yoda speech in conversation\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nGlottobank\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nIs ‘gay speech’ a thing?\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage endangerment and linguistic diversity\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nMorphology in Scottish Gaelic\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nPHOIBLE: cross-linguistic phonological inventory data\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nSentiment analysis of Tweets on ChatGPT\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nWALS - World Atlas of Language Structures\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "assessments.html",
@@ -1447,5 +1447,12 @@
     "title": "PHOIBLE: cross-linguistic phonological inventory data",
     "section": "",
     "text": "PHOIBLE is a repository of cross-linguistic phonological inventory data, which have been extracted from source documents and tertiary databases and compiled into a single searchable convenience sample..\n\nThe data from PHOIBLE are available in R through the lingtypology package.\nUse the PHOIBLE data to explore patterns in the phonological inventories, areal features or anything else you like!"
+  },
+  {
+    "objectID": "challenges/glottobank.html",
+    "href": "challenges/glottobank.html",
+    "title": "Glottobank",
+    "section": "",
+    "text": "Glottobank is an international research consortium established to document and understand the world’s linguistic diversity. [… W]e seek to develop new methods in language documentation, compile data on the world’s languages and make this data accessible and useful.\n\nGlottobank currently has five databases of typological data:\n\nGrambank\nLexibank\nParabank\nNumeralbank\nPhonobank\n\nUse any of these databases to investigate typological patterns."
   }
 ]
