@@ -1,6 +1,10 @@
 ## Assessment overview
 
-This course will be **self-assessed on the basis of a portfolio** consisting of a Reflective Journal and a Group Project (including a Final Reflection).[^assessments-1]
+This course will be **self-assessed on the basis of a Portfolio** consisting of a Reflective Journal and a Group Project.[^assessments-1]
+
+The **Portfolio** is the sum of weekly self-reflections in the Reflective Journal, the feedback you will receive on your reflections, the Group Project and the Final Self-reflection. The course is assessed based on all of these components. There are no weights for the different components, so it is important you engage with all of them.
+
+The following sections give more details on the Relfective Journal and the Group Project.
 
 [^assessments-1]: Some of the text on this page is from Itamar Kastner's [Morphology course site](https://itamarkast.github.io/UoEmorphology/assessment.html).
 
@@ -42,7 +46,7 @@ Here are some example prompts to get you started, but you can really write what 
 
 ### Weekly self-reflections
 
-After every class you'll need to write one self-reflection in the Reflective Journal on Learn. Afterwards you need to read my feedback on your entries.
+After every class you'll need to write one self-reflection in the Reflective Journal on Learn. Afterwards you need to read our feedback on your entries.
 
 What happens is:
 
@@ -95,7 +99,7 @@ This course is **self-assessed with co-moderation,** which means that at the end
 ::: callout-note
 ### Self-assessment with co-moderation
 
--   Based on your learning, you assign yourself a mark (see section on impression-based step marking) when submitting the Final Reflection (by December 12).
+-   Based on your learning as evidenced by the Portfolio, you assign yourself a mark (see section on impression-based step marking) when submitting the Final Reflection with the Group Project (by December 12).
 
 -   The Course Organiser/Tutors will moderate the self-assigned mark as part of a dialogue with you.
 :::
