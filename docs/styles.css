@@ -1,1 +1,5 @@
 /* css styles */
+
+main a:visited {
+  color: blue; /* Replace #yourcolorcode with the desired color */
+}
