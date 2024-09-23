@@ -739,7 +739,7 @@
     "href": "challenges.html",
     "title": "The Adventurer’s Notebook",
     "section": "",
-    "text": "Analysis of Yoda speech in conversation\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nIs ‘gay speech’ a thing?\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage endangerment and linguistic diversity\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nMorphology in Scottish Gaelic\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nSentiment analysis of Tweets on ChatGPT\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nWALS - World Atlas of Language Structures\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Analysis of Yoda speech in conversation\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nIs ‘gay speech’ a thing?\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage endangerment and linguistic diversity\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nMorphology in Scottish Gaelic\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nPHOIBLE: cross-linguistic phonological inventory data\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nSentiment analysis of Tweets on ChatGPT\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nWALS - World Atlas of Language Structures\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "assessments.html",
@@ -1440,5 +1440,12 @@
     "title": "R basics",
     "section": "5 Summary",
     "text": "5 Summary\nYou made it! You completed this week’s tutorial.\nHere’s a summary of what you learnt.\n\n\n\n\n\n\n\nR is a programming language while RStudio is an IDE.\nRStudio projects are folders with an .Rproj file (you can see the name of the project you are currently in in the top-right corner of RStudio).\nYou can perform mathematical operations with +, -, *, /.\nYou can store values in variables.\nA typical object to be stored in a variable is a vector: there are different type of vectors, like numeric, character and logical.\nFunctions are used to perform an operation on its arguments: sum() sums it’s arguments, mean() calculates the mean and cat() prints the arguments.\n\n\n\n\n\n\n\n\n\n\nExtra: Programming in R\n\n\n\n\n\nIf you are interested in learning about programming in R, I recommend you go through Chapters 26-28 of the R4DS book and the Advanced R book.\n\n\n\n\n\n\n\n\n\nNext\n\n\n\n\nR packages\nTroubleshooting"
+  },
+  {
+    "objectID": "challenges/phoible.html",
+    "href": "challenges/phoible.html",
+    "title": "PHOIBLE: cross-linguistic phonological inventory data",
+    "section": "",
+    "text": "PHOIBLE is a repository of cross-linguistic phonological inventory data, which have been extracted from source documents and tertiary databases and compiled into a single searchable convenience sample..\n\nThe data from PHOIBLE are available in R through the lingtypology package.\nUse the PHOIBLE data to explore patterns in the phonological inventories, areal features or anything else you like!"
   }
 ]
