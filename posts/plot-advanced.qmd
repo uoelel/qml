@@ -233,9 +233,9 @@ Alas, this piece of information is not coded in a column in the data, but we can
 
 -   When the stimulus is `Takete` and the answer is `WRONG` then the participant's response was `flowing`.
 
--   When the stimulus is `Maluma` and the answer is `CORRECT` then the participant's response was `shaking`.
+-   When the stimulus is `Maluma` and the answer is `CORRECT` then the participant's response was `flowing`.
 
--   When the stimulus is `Maluma` and the answer is `WRONG` then the participant's response was `flowing`.
+-   When the stimulus is `Maluma` and the answer is `WRONG` then the participant's response was `shaking`.
 
 Now, go ahead and create a new column called `Response` using the `mutate()` and the `case_when()` function.
 

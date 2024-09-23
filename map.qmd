@@ -35,7 +35,7 @@ graph TD
   K[Introduction to plotting]
   click K href "posts/intro-plot.html" "Go to page"
   L[Wrangling data]
-  click L href "posts/wrangling.html" "Go to page"
+  click L href "posts/wrangle.html" "Go to page"
   M[Plotting basics]
   click M href "posts/plotting-basics.html" "Go to page"
   N[Bar charts]
