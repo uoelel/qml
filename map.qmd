@@ -59,7 +59,7 @@ graph TD
   click AD href "posts/research-context.html" "Go to page"
   AE[Research Qs and Hs]
   click AE href "posts/research-qh.html" "Go to page"
-  AF[Data analysis]
+  AF[Quantitative analysis]
   click AF href "posts/data-analysis.html" "Go to page"
   AG[Inference]
   click AG href "posts/inference.html" "Go to page"

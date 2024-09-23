@@ -30,12 +30,12 @@ As part of the [Assessments](assessments.qmd), you will have to complete a **gro
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences. Check the week-by-week boxes below for a more detailed description of what you should be doing each week.
 
 | Week | Seminar                                                                                  | Lab                                                    |
-|-------------------|----------------------------------|-------------------|
+|-------|----------------------------------------------|-------------------|
 | 1    | Welcome and practicalities                                                               | Challenge: [Learn the basics of R](posts/r-basics.qmd) |
 | 2    | [More than numbers: quantitative methods and uncertainty](discussions/discussion-02.qmd) | [Challenge](challenges.qmd)                            |
 | 3    | [Language endangerment and small numbers](discussions/discussion-03.qmd)                 | [Challenge](challenges.qmd)                            |
-| 4    | The research process: research ethics and questionable practices                         | [Challenge](challenges.qmd)                            |
-| 5    | Language technology and machine learning                                                 | Challenge: Statistical modelling                       |
+| 4    | [Language technology and big data](discussions/discussion-04.qmd)                        | [Challenge](challenges.qmd)                            |
+| 5    | The research process: research ethics and questionable practices                         | Challenge: Statistical modelling                       |
 | 6    | The language of the climate crisis                                                       | [Challenge](challenges.qmd)                            |
 | 7    | Equality, diversity and inclusiveness in quantitative linguistics                        | [Challenge](challenges.qmd)                            |
 | 8    | Qualitative vs quantitative: a real dichotomy?                                           | [Challenge](challenges.qmd)                            |
@@ -98,9 +98,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 -   Read [Research questions and hypotheses](posts/research-qh.qmd) (make sure you read the pre-requisites too!).
 
--   Pick and read any entry/ies from the [Notebook](notebook.qmd).
-
--   Feel free to read from any other source, including the recommended textbooks.
+-   vv
 
 **In the seminar**
 
@@ -110,3 +108,24 @@ There isn't a required course textbook as such, but the majority of the course c
 
 -   Group activity: pick a [Challenge](challenges.qmd).
 :::
+
+::: {.callout-note collapse="true"}
+#### Week 4
+
+**In your own time**
+
+-   Read [Inference and uncertainty](posts/inference.qmd) (make sure you read the pre-requisites too!).
+
+-   Pick and read any entry/ies from the [Notebook](notebook.qmd).
+
+-   Feel free to read from any other source, including the recommended textbooks.
+
+**In the seminar**
+
+-   Group discussion: [Language technology and big data](discussions/discussion-04.qmd)
+
+**In the lab**
+
+-   Group activity: pick a [Challenge](challenges.qmd).
+:::
+
