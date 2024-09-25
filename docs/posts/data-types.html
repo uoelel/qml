@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2023-06-28">
 <meta name="description" content="Learn about types of data and how to import data in R">
 
-<title>Data types – QML</title>
+<title>Data types and reading data in R – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -194,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data types</h1>
+<h1 class="title">Data types and reading data in R</h1>
 </div>
 
 <div>
@@ -250,6 +250,22 @@ Pre-requisites
 </div>
 <section id="tabular-data" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="tabular-data"><span class="header-section-number">1</span> Tabular data</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When working through the Notebook entries, always <strong>make sure you are in the course Quarto Project</strong> you <a href="r-basics#r-studio-and-quarto-projects">created earlier</a>.</p>
+<p>You know you are in a Quarto Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.</p>
+<p>If you see <code>Project (none)</code> in the top-right corner, that means <strong>you are not</strong> in a Quarto Project.</p>
+<p>To make sure you are in the right Quarto project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the <code>.Rproj</code> file.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -328,7 +344,7 @@ Tabular data
 └── ...</code></pre>
 <p>I recommend that you start being very organised with your files in other projects from now on, whether it’s for this course or your dissertation or else. I also suggest to avoid overly nested structures (for example, avoid having one folder for each week for this course. Rather, save all data files in the <code>data/</code> folder).</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -337,7 +353,7 @@ Organising your files
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The Open Science Framework has the following recommendations that apply very well to any type of research project.</p>
 <ul>
@@ -368,8 +384,8 @@ Organising your files
 <h3 data-number="3.1" class="anchored" data-anchor-id="the-tidyverse-packages"><span class="header-section-number">3.1</span> The tidyverse packages</h3>
 <p>Importing <code>.csv</code> files is very easy. You can use the <code>read_csv()</code> function from a collection of R packages known as the <a href="https://www.tidyverse.org">tidyverse</a>.</p>
 <p>To import data in R we will use the <code>read_csv()</code> function from the <a href="https://readr.tidyverse.org">readr</a> package, one of the tidyverse packages.</p>
-<p>Installing the tidyverse packages is easy: you just need to install the tidyverse package and that will take care of installing the most important packages in the collection (called the <a href="https://www.tidyverse.org/packages/">“core” tidyverse packages</a>).</p>
-<p>Go ahead and install the tidyverse from the Packages tab.</p>
+<p>If you followed the <a href="../setup.html">Setup</a> instructions at the beginning of the course, you are all set. The tidyverse packages should already be installed. You can check in the <code>Packages</code> tab in the bottom right panel of RStudio: if tidyverse is listed in there, then all the tidyverse packages are installed</p>
+<p>If not, installing the tidyverse packages is easy: you just need to [install](packages.qmd#install-packages) the tidyverse package and that will take care of installing the most important packages in the collection (called the <a href="https://www.tidyverse.org/packages/">“core” tidyverse packages</a>).</p>
 </section>
 <section id="read_csv" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="read_csv"><span class="header-section-number">3.2</span> <code>read_csv()</code></h3>
@@ -379,35 +395,17 @@ Organising your files
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Did you open the RStudio Quarto project?
+Did you open the Quarto project?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Before moving on, make sure that you have opened the RStudio Quarto project correctly (see warning at the top of the tutorial)</p>
+<p>Before moving on, make sure that you have opened the RStudio Quarto project correctly (see warning at the top of the tutorial).</p>
 </div>
 </div>
-<p>The <code>read_csv()</code> function from the readr package only requires you to specify the file path as a string (remember, strings are quoted between <code>" "</code>, for example <code>"year_data.txt"</code>). On my computer, the file path of <code>song2020/shallow.csv</code> is <code>/Users/ste/dal/data/song2020/shallow.csv</code>, but on your computer the file path will be different, of course.</p>
+<p>The <code>read_csv()</code> function from the readr package only requires you to specify the file path as a string (remember, strings are quoted between <code>" "</code>, for example <code>"year_data.txt"</code>). On my computer, the file path of <code>song2020/shallow.csv</code> is <code>/Users/ste/qml/data/song2020/shallow.csv</code>, but on your computer the file path will be different, of course.</p>
 <p>Also, note that it is not enough to use the <code>read_csv()</code> function. You also must assign the output of the <code>read_csv()</code> function (i.e.&nbsp;the data we are reading) to a variable, using the assignment arrow <code>&lt;-</code>, just like we were assigning values to variables in the previous weeks.</p>
 <p>And since the <code>read_csv()</code> is a function from the tidyverse, you first need to attach the tidyverse packages with <code>library(tidyverse)</code> (remember, you need to attach packages <strong>only once</strong> per session). This will attach the core tidyverse packages, including readr. Of course, you can also attach the individual packages directly: <code>library(readr)</code>. If you use <code>library(tidyverse)</code> there is no need to attach individual tidyverse packages.</p>
-<p><strong>Before reading the data, create a new R script named <code>tutorial_w03.R</code> and save it in the <code>code/</code> folder of your Quarto project.</strong></p>
-<p>Generally, you start the script with calls to <code>library()</code> to load all the packages you need for the script.</p>
-<p>Now we only need one package, tidyverse, but in most cases you will need more than one! The best practice is to attach all of packages first, in the top of your script. Please, get in the habit of doing this from now, so that you can keep your scripts tidy and pretty!</p>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Please, don’t include <code>install.packages()</code> in your R scripts!</p>
-<p>Remember, you only have to install a package once, and you can just type it in the Console.</p>
-<p>But <strong>DO</strong> include <code>library()</code> in your scripts.</p>
-</div>
-</div>
-<p>At the top of <code>tutorial_w03.R</code>, write the following lines of code. Then run the code.</p>
+<p>Run the following lines in the <code>Console</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -439,7 +437,7 @@ Data frames and tibbles
 <p>In this course’s tutorials, “data frame” and “tibble” will be used interchangeably (since we are using the read functions from the tidyverse, all resulting data frames will be tibbles).</p>
 </div>
 </div>
-<p>But wait, what is that <code>"./data/song2020/shallow.csv"</code>? That’s a <strong>relative path</strong>. We briefly mentioned relative paths above, but let’s understand the details now. You will be able to view the data soon.</p>
+<p>But wait, what is that <code>"./data/song2020/shallow.csv"</code>? That’s a <strong>relative path</strong>. Let’s understand the concept of relative paths now. You will be able to view the data soon.</p>
 </section>
 <section id="relative-paths" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="relative-paths"><span class="header-section-number">3.3</span> Relative paths</h3>
@@ -456,7 +454,7 @@ Relative path
 <p>A <strong>relative path</strong> is a file path that is relative to a folder. The folder the path starts at is represented by <code>./</code>.</p>
 </div>
 </div>
-<p>When you are using R scripts in Quarto projects, the <code>./</code> folder paths are relative to is the project folder! This is true whichever the name of the folder/project and whichever it’s location on your computer.</p>
+<p>When you are using Quarto projects, the <code>./</code> folder paths are relative to the project folder! This is true whichever the name of the folder/project and whichever it’s location on your computer.</p>
 <p>For example, if your project it’s called <code>awesome_proj</code> and it’s in <code>Downloads/stuff/</code>, then if you write <code>./data/results.csv</code> you really mean <code>Downloads/stuff/awesome_proj/data/results.csv</code>!</p>
 <p><strong>How does R know the path is relative to the project folder?</strong></p>
 <p>That is because when working with Quarto projects, all relative paths are relative to the project folder (i.e.&nbsp;the folder with the <code>.Rproj</code> file)!</p>
@@ -476,8 +474,8 @@ Working directory
 </div>
 </div>
 <p>The code <code>read_csv("./data/song2020/shallow.csv")</code> above will work because you are using a Quarto project and inside the project folder there is a folder called <code>data/</code> and in it there’s the <code>song2020/shallow.csv</code> file.</p>
-<p>So from now on I encourage you to use Quarto projects, R scripts and relative paths always!</p>
-<p>The benefit of doing so is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!</p>
+<p>So from now on I encourage you to use Quarto projects and relative paths always! You will also learn about [R scripts](scripts.qmd) and [Quarto documents](intro-quarto.qmd) later, which will make things even easier.</p>
+<p>The benefit of Quarto projects and relative paths is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

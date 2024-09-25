@@ -188,7 +188,7 @@ Importing `.csv` files is very easy. You can use the `read_csv()` function from 
 
 To import data in R we will use the `read_csv()` function from the [readr](https://readr.tidyverse.org) package, one of the tidyverse packages.
 
-If you followed the [Setup](setup.qmd) instructions at the beginning of the course, you are all set. The tidyverse packages should already be installed. You can check in the `Packages` tab in the bottom right panel of RStudio: if tidyverse is listed in there, then all the tidyverse packages are installed
+If you followed the [Setup](../setup.qmd) instructions at the beginning of the course, you are all set. The tidyverse packages should already be installed. You can check in the `Packages` tab in the bottom right panel of RStudio: if tidyverse is listed in there, then all the tidyverse packages are installed
 
 If not, installing the tidyverse packages is easy: you just need to \[install\](packages.qmd#install-packages) the tidyverse package and that will take care of installing the most important packages in the collection (called the ["core" tidyverse packages](https://www.tidyverse.org/packages/)).
 
