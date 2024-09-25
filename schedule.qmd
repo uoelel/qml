@@ -30,7 +30,7 @@ As part of the [Assessments](assessments.qmd), you will have to complete a **gro
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences. Check the week-by-week boxes below for a more detailed description of what you should be doing each week.
 
 | Week | Seminar                                                                                  | Lab                                                    |
-|-------|----------------------------------------------|-------------------|
+|-----------|-------------------------------------|------------------|
 | 1    | Welcome and practicalities                                                               | Challenge: [Learn the basics of R](posts/r-basics.qmd) |
 | 2    | [More than numbers: quantitative methods and uncertainty](discussions/discussion-02.qmd) | [Challenge](challenges.qmd)                            |
 | 3    | [Language endangerment and small numbers](discussions/discussion-03.qmd)                 | [Challenge](challenges.qmd)                            |
@@ -47,9 +47,11 @@ The following tables gives you an approximate schedule of the weekly themes, alt
 
 There isn't a required course textbook as such, but the majority of the course content are covered in the following textbooks:
 
--   [R for Data Science](https://r4ds.hadley.nz)\[R4DS\]. This is an introduction to R.
+-   [R for Data Science](https://r4ds.hadley.nz) \[R4DS\]. This is an introduction to R.
 
 -   [Statistical (Re)thinking](https://discovered.ed.ac.uk/permalink/44UOE_INST/110jsec/alma9924745740602466). This is a textbook that teaches statistics in R with a focus on Bayesian regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters.
+
+-   [Statistics for Linguists](https://discovered.ed.ac.uk/permalink/44UOE_INST/7g3mt6/alma9924344853202466). This is a textbook that teaches statistics in R with a focus on frequentist regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters.
 
 ## Weekly breakdown
 
@@ -78,13 +80,13 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In your own time**
 
--   Read [Research methods and hodotics](posts/hodotics.qmd).
+-   Read [Research methods and hodotics](posts/hodotics.qmd), [Read data in R](posts/data-types.qmd) (make sure you read the pre-requisites too!).
 -   Watch [The Golem of Prague](https://youtu.be/FdnMWdICdRs?si=BLyz4G19T5elt_ho). And/or read the related chapter of *Statistical Rethinking*, [The Golem of Prague](https://discovered.ed.ac.uk/permalink/44UOE_INST/19s2m21/cdi_proquest_ebookcentralchapters_6133700_13_20).
--   Pick and read any entry/ies from the [Notebook](notebook.qmd).
+-   Pick and read any other entry/ies from the [Notebook](notebook.qmd).
 
 **In the seminar**
 
--   Group discussion: [quantitative methods and uncertainty](discussions/discussion-02.qmd).
+-   Group discussion - [Quantitative methods and uncertainty](discussions/discussion-02.qmd).
 
 **In the lab**
 
@@ -96,17 +98,17 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In your own time**
 
--   Read [Research questions and hypotheses](posts/research-qh.qmd) (make sure you read the pre-requisites too!).
+-   Read [Research questions and hypotheses](posts/research-qh.qmd), [Summary measures](posts/summaries.qmd) and [Wrangling data with R](posts/wrangle.qmd) (make sure you read the pre-requisites too!).
 
--   vv
+-   Pick and read any other entry/ies from the [Notebook](notebook.qmd).
 
 **In the seminar**
 
--   Group discussion: [Language endangerment and small numbers](discussions/discussion-03.qmd).
+-   Group discussion - [Language endangerment and small numbers](discussions/discussion-03.qmd).
 
 **In the lab**
 
--   Group activity: pick a [Challenge](challenges.qmd).
+-   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
 :::
 
 ::: {.callout-note collapse="true"}
@@ -114,11 +116,27 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In your own time**
 
--   Read [Inference and uncertainty](posts/inference.qmd) (make sure you read the pre-requisites too!).
+-   Read [Inference and uncertainty](posts/inference.qmd) and [Plotting basics](posts/plotting-basics.qmd) (make sure you read the pre-requisites too!).
 
--   Pick and read any entry/ies from the [Notebook](notebook.qmd).
+-   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
 
--   Feel free to read from any other source, including the recommended textbooks.
+**In the seminar**
+
+-   Group discussion - The research process: research ethics and questionable practices
+
+**In the lab**
+
+-   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
+:::
+
+::: {.callout-note collapse="true"}
+#### Week 5
+
+**In your own time**
+
+-   Read [What is statistics?](posts/statistics.qmd) and [Introduction to regression models (Part II)](posts/intro-regression-predictors.qmd) (make sure you read the pre-requisites too!).
+
+-   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
 
 **In the seminar**
 
@@ -126,6 +144,5 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In the lab**
 
--   Group activity: pick a [Challenge](challenges.qmd).
+-   Group activity: Statistical modelling (TBA)
 :::
-

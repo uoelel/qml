@@ -1,5 +1,5 @@
 ---
-title: "Data types"
+title: "Data types and reading data in R"
 description: "Learn about types of data and how to import data in R"
 author: "Stefano Coretta"
 date: 2023-06-28

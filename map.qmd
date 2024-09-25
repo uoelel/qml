@@ -1,5 +1,5 @@
 ---
-title: "The Adventurer's Map"
+title: "The Adventurer's Map to the Notebook"
 editor: visual
 ---
 
@@ -26,7 +26,7 @@ graph TD
   click F href "posts/intro-quarto.html" "Go to page"
   G[R Troubleshooting]
   click G href "posts/r-troubleshooting.html" "Go to page"
-  H[Data types]
+  H[Read data in R]
   click H href "posts/data-types.html" "Go to page"
   I[Read multiple files]
   click I href "posts/import-multiple.html" "Go to page"

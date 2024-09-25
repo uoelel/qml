@@ -20,7 +20,7 @@ library(webexercises)
 ::: callout-warning
 #### Pre-requisites
 
--   [R basics](r-basics.qmd)
+-   [Statistical variables](stat-variables.qmd)
 :::
 
 ## Summary measures: overview
