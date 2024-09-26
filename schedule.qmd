@@ -126,7 +126,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In the seminar**
 
--   Group discussion - The research process: research ethics and questionable practices
+-   Group discussion - [Language technology and big data](discussions/discussion-04.qmd)
 
 **In the lab**
 
@@ -146,7 +146,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In the seminar**
 
--   Group discussion: [Language technology and big data](discussions/discussion-04.qmd)
+-   Group discussion - The research process: research ethics and questionable practices
 
 **In the lab**
 
