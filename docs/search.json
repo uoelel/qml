@@ -1040,14 +1040,14 @@
     "href": "schedule.html#recommended-textbooks",
     "title": "The Schedule",
     "section": "3 Recommended textbooks",
-    "text": "3 Recommended textbooks\nThere isn’t a required course textbook as such, but the majority of the course content are covered in the following textbooks:\n\nR for Data Science [R4DS]. This is an introduction to R.\nStatistical (Re)thinking. This is a textbook that teaches statistics in R with a focus on Bayesian regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters.\nStatistics for Linguists. This is a textbook that teaches statistics in R with a focus on frequentist regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters."
+    "text": "3 Recommended textbooks\nThere isn’t a required course textbook as such, but the majority of the course content are covered in the recommended textbooks."
   },
   {
     "objectID": "schedule.html#weekly-breakdown",
     "href": "schedule.html#weekly-breakdown",
     "title": "The Schedule",
     "section": "4 Weekly breakdown",
-    "text": "4 Weekly breakdown\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\nIn the seminar\n\nCome to the seminar class. We will go through the course format, assessment and other practicalities.\n\nIn your own time\n\nCarefully read the homepage of the Course website.\nComplete the Intake Form (the link to the form can be found on the Learn website).\nInstall R, RStudio and Quarto: please, follow the instructions in the Setup page. You should do this before the first lab class.\n\nIn the lab\n\nCome to the lab class. Learn about the basics of R. Optionally, if you need to freshen up your computer basics, you can check Basic computer literacy.\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\nIn your own time\n\nRead Research methods and hodotics, Read data in R (make sure you read the pre-requisites too!).\nWatch The Golem of Prague. And/or read the related chapter of Statistical Rethinking, The Golem of Prague.\nPick and read any other entry/ies from the Notebook.\n\nIn the seminar\n\nGroup discussion - Quantitative methods and uncertainty.\n\nIn the lab\n\nGroup activity: pick a Challenge.\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\n\nIn your own time\n\nRead Research questions and hypotheses, Summary measures and Wrangling data with R (make sure you read the pre-requisites too!).\nPick and read any other entry/ies from the Notebook.\n\nIn the seminar\n\nGroup discussion - Language endangerment and small numbers.\n\nIn the lab\n\nGroup activity: pick a Challenge or continue working on one.\n\n\n\n\n\n\n\n\n\n\nWeek 4\n\n\n\n\n\nIn your own time\n\nRead Inference and uncertainty and Plotting basics (make sure you read the pre-requisites too!).\nPick and read any other entry/ies from the Notebook. Feel free to read from any other source, including the recommended textbooks.\n\nIn the seminar\n\nGroup discussion - The research process: research ethics and questionable practices\n\nIn the lab\n\nGroup activity: pick a Challenge or continue working on one.\n\n\n\n\n\n\n\n\n\n\nWeek 5\n\n\n\n\n\nIn your own time\n\nRead What is statistics? and Introduction to regression models (Part II) (make sure you read the pre-requisites too!).\nPick and read any other entry/ies from the Notebook. Feel free to read from any other source, including the recommended textbooks.\n\nIn the seminar\n\nGroup discussion: Language technology and big data\n\nIn the lab\n\nGroup activity: Statistical modelling (TBA)"
+    "text": "4 Weekly breakdown\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\nIn the seminar\n\nCome to the seminar class. We will go through the course format, assessment and other practicalities.\n\nIn your own time\n\nCarefully read the homepage of the Course website.\nComplete the Intake Form (the link to the form can be found on the Learn website).\nInstall R, RStudio and Quarto: please, follow the instructions in the Setup page. You should do this before the first lab class.\nWrite your weekly self-reflection.\n\nIn the lab\n\nCome to the lab class. Learn about the basics of R. Optionally, if you need to freshen up your computer basics, you can check Basic computer literacy.\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\nIn your own time\n\nRead Research methods and hodotics, Read data in R (make sure you read the pre-requisites too!).\nWatch The Golem of Prague. And/or read the related chapter of Statistical Rethinking, The Golem of Prague.\nPick and read any other entry/ies from the Notebook.\nWrite your weekly self-reflection.\n\nIn the seminar\n\nGroup discussion - Quantitative methods and uncertainty.\n\nIn the lab\n\nGroup activity: pick a Challenge.\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\n\nIn your own time\n\nRead Research questions and hypotheses, Summary measures and Wrangling data with R (make sure you read the pre-requisites too!).\nPick and read any other entry/ies from the Notebook.\nWrite your weekly self-reflection.\n\nIn the seminar\n\nGroup discussion - Language endangerment and small numbers.\n\nIn the lab\n\nGroup activity: pick a Challenge or continue working on one.\n\n\n\n\n\n\n\n\n\n\nWeek 4\n\n\n\n\n\nIn your own time\n\nRead Inference and uncertainty and Plotting basics (make sure you read the pre-requisites too!).\nPick and read any other entry/ies from the Notebook. Feel free to read from any other source, including the recommended textbooks.\nWrite your weekly self-reflection.\n\nIn the seminar\n\nGroup discussion - The research process: research ethics and questionable practices\n\nIn the lab\n\nGroup activity: pick a Challenge or continue working on one.\n\n\n\n\n\n\n\n\n\n\nWeek 5\n\n\n\n\n\nIn your own time\n\nRead What is statistics? and Introduction to regression models (Part II) (make sure you read the pre-requisites too!).\nPick and read any other entry/ies from the Notebook. Feel free to read from any other source, including the recommended textbooks.\nWrite your weekly self-reflection.\n\nIn the seminar\n\nGroup discussion: Language technology and big data\n\nIn the lab\n\nGroup activity: Statistical modelling (TBA)"
   },
   {
     "objectID": "map.html",
@@ -1475,5 +1475,54 @@
     "title": "R basics",
     "section": "5 Summary",
     "text": "5 Summary\nYou made it! You completed this week’s tutorial.\nHere’s a summary of what you learnt.\n\n\n\n\n\n\n\nR is a programming language while RStudio is an IDE.\nRStudio projects are folders with an .Rproj file (you can see the name of the project you are currently in in the top-right corner of RStudio).\nYou can perform mathematical operations with +, -, *, /.\nYou can store values in variables.\nA typical object to be stored in a variable is a vector: there are different type of vectors, like numeric, character and logical.\nFunctions are used to perform an operation on its arguments: sum() sums it’s arguments, mean() calculates the mean and cat() prints the arguments.\n\n\n\n\n\n\n\n\n\n\nExtra: Programming in R\n\n\n\n\n\nIf you are interested in learning about programming in R, I recommend you go through Chapters 26-28 of the R4DS book and the Advanced R book.\n\n\n\n\n\n\n\n\n\nNext\n\n\n\n\nR packages\nTroubleshooting"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Other resources",
+    "section": "",
+    "text": "This page lists vetted resources for learning statistics with R if you would like to learn more about certain topics (or also as alternative materials to the Notebook)."
+  },
+  {
+    "objectID": "resources.html#recommended-textbooks-for-beginners",
+    "href": "resources.html#recommended-textbooks-for-beginners",
+    "title": "Other resources",
+    "section": "1 Recommended textbooks for beginners",
+    "text": "1 Recommended textbooks for beginners\n\nR for Data Science [R4DS]. This is an introduction to R.\nStatistical (Re)thinking. This is a textbook that teaches statistics in R with a focus on Bayesian regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters.\nStatistics for Linguists. This is a textbook that teaches statistics in R with a focus on frequentist regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters."
+  },
+  {
+    "objectID": "extra.html",
+    "href": "extra.html",
+    "title": "Extra resources",
+    "section": "",
+    "text": "This page lists vetted resources for learning statistics with R if you would like to learn more about certain topics (or also as alternative materials to the Notebook)."
+  },
+  {
+    "objectID": "extra.html#recommended-textbooks",
+    "href": "extra.html#recommended-textbooks",
+    "title": "Extra resources",
+    "section": "1 Recommended textbooks",
+    "text": "1 Recommended textbooks\nThese are recommended textbooks for beginners. The topics covered in this course are based on these textbooks.\n\nR for Data Science [R4DS]. This is an introduction to R and the tidyverse packages.\nStatistical (Re)thinking. This is a textbook that teaches statistics in R with a focus on Bayesian regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters.\nStatistics for Linguists. This is a textbook that teaches statistics in R with a focus on frequentist regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters."
+  },
+  {
+    "objectID": "extra.html#learning-r",
+    "href": "extra.html#learning-r",
+    "title": "Extra resources",
+    "section": "2 Learning R",
+    "text": "2 Learning R\n\nText mining with R. It introduces readers to text mining in R using the tidytext package which works well with tidyverse packages.\nHands-on Machine Learning with R and Introduction to Machine Learning with R."
+  },
+  {
+    "objectID": "extra.html#philosophy-of-science",
+    "href": "extra.html#philosophy-of-science",
+    "title": "Extra resources",
+    "section": "3 Philosophy of science",
+    "text": "3 Philosophy of science\n\nPhilosophy of science: very short introduction.\nUnderstanding psychology as a science.\nModeling Mindsets. A book on “world-views behind various statistical modeling and machine learning mindsets.”"
+  },
+  {
+    "objectID": "extra.html#r-skills",
+    "href": "extra.html#r-skills",
+    "title": "Extra resources",
+    "section": "2 R skills",
+    "text": "2 R skills\n\nThe Data analysis page of the Data Analysis @ UoE LEL website contains an extended list of books and papers on different statistical topics in R. Also check the Research Skills page and the Software for non-strictly R stuff.\nText mining with R. It introduces readers to text mining in R using the tidytext package which works well with tidyverse packages.\nHands-on Machine Learning with R and Introduction to Machine Learning with R."
   }
 ]
