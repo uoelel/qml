@@ -32,6 +32,8 @@ website:
         text: Challenges
       - href: assessments.qmd
         text: Assessment
+      - href: extra.qmd
+        text: Extra
 
 format:
   html:
