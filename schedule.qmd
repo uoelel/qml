@@ -30,7 +30,7 @@ As part of the [Assessments](assessments.qmd), you will have to complete a **gro
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences. Check the week-by-week boxes below for a more detailed description of what you should be doing each week.
 
 | Week | Seminar | Lab |
-|-----------------|--------------------------------------|------------------|
+|----|----|----|
 | 1 | Welcome and practicalities | Challenge: [Learn the basics of R](posts/r-basics.qmd) |
 | 2 | [More than numbers: quantitative methods and uncertainty](discussions/discussion-02.qmd) | [Challenge](challenges.qmd) |
 | 3 | [Language endangerment and small numbers](discussions/discussion-03.qmd) | [Challenge](challenges.qmd) |
@@ -64,7 +64,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 -   **Install R, RStudio and Quarto:** please, follow the instructions in the [Setup](setup.qmd) page. You should do this *before the first lab class*.
 
-- Write your weekly self-reflection.
+-   Write your weekly self-reflection.
 
 **In the lab**
 
@@ -77,10 +77,12 @@ There isn't a required course textbook as such, but the majority of the course c
 **In your own time**
 
 -   Read [Research methods and hodotics](posts/hodotics.qmd), [Read data in R](posts/data-types.qmd) (make sure you read the pre-requisites too!).
+
 -   Watch [The Golem of Prague](https://youtu.be/FdnMWdICdRs?si=BLyz4G19T5elt_ho). And/or read the related chapter of *Statistical Rethinking*, [The Golem of Prague](https://discovered.ed.ac.uk/permalink/44UOE_INST/19s2m21/cdi_proquest_ebookcentralchapters_6133700_13_20).
+
 -   Pick and read any other entry/ies from the [Notebook](notebook.qmd).
 
-- Write your weekly self-reflection.
+-   Write your weekly self-reflection.
 
 **In the seminar**
 
@@ -100,7 +102,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 -   Pick and read any other entry/ies from the [Notebook](notebook.qmd).
 
-- Write your weekly self-reflection.
+-   Write your weekly self-reflection.
 
 **In the seminar**
 
@@ -120,7 +122,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 -   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
 
-- Write your weekly self-reflection.
+-   Write your weekly self-reflection.
 
 **In the seminar**
 
@@ -140,7 +142,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 -   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
 
-- Write your weekly self-reflection.
+-   Write your weekly self-reflection.
 
 **In the seminar**
 

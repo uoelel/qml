@@ -33,7 +33,7 @@ The tutors will be able to help you choose sections that might be useful based o
 
 In this tutorial, there will be less explicit instructions or explanations. Before starting, make sure you attach the necessary packages (like tidyverse).
 
-You can find information on the data in the [QM data](https://uoelel.github.io/qm-data/) website or by clicking the "Description" button in each section.
+You can find information on the data in the [QM data](https://uoelel.github.io/qml-data/) website or by clicking the "Description" button in each section.
 
 ```{r}
 #| label: setup
@@ -46,7 +46,7 @@ library(tidyverse)
 ## Formant data
 
 ```{=html}
-<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/coretta2018a/formants.html" role="button">Description</a>
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/coretta2018a/formants.html" role="button">Description</a>
 <br>
 <br>
 ```
@@ -161,7 +161,7 @@ The result won't look different when you just run the code chunk, but when you r
 ## Reaction times
 
 ```{=html}
-<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/song2020/shallow.html" role="button">Description</a>
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/song2020/shallow.html" role="button">Description</a>
 <br>
 <br>
 ```
@@ -212,7 +212,7 @@ Can you tell if there are differences in RTs between the different groups and re
 ## Accuracy and computing proportions {#sec-accuracy}
 
 ```{=html}
-<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a>
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a>
 <br>
 <br>
 ```
@@ -370,7 +370,7 @@ In `stat_summary()`, the `fun.data` argument lets you specify the function you w
 ## Fundamental frequency (f0) and normalisation {#sec-f0}
 
 ```{=html}
-<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/coretta2018a/formants.html" role="button">Description</a>
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/coretta2018a/formants.html" role="button">Description</a>
 <br>
 <br>
 ```
@@ -435,7 +435,7 @@ If you want to colour the areas of the violins instead, you can use the `fill` a
 ## Rating (Likert) scales
 
 ```{=html}
-<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/hampton2023/emilianto_attitude.html" role="button">Description</a>
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/hampton2023/emilianto_attitude.html" role="button">Description</a>
 <br>
 <br>
 ```

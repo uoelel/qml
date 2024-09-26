@@ -259,11 +259,11 @@ Prerequisites
 <p>In this tutorial, you can go through the different sections in any order you like and you can pick and choose which sections you want to work on. <strong>Note that you should complete <a href="#sec-accuracy" class="quarto-xref">Section&nbsp;4</a> because it covers <code>stat_summary()</code> which you need for Exercise 1 of the first summative</strong>.</p>
 <p>The tutors will be able to help you choose sections that might be useful based on your interests or your dissertation projects (whether you are working on it now or you will next year!).</p>
 <p>In this tutorial, there will be less explicit instructions or explanations. Before starting, make sure you attach the necessary packages (like tidyverse).</p>
-<p>You can find information on the data in the <a href="https://uoelel.github.io/qm-data/">QM data</a> website or by clicking the “Description” button in each section.</p>
+<p>You can find information on the data in the <a href="https://uoelel.github.io/qml-data/">QM data</a> website or by clicking the “Description” button in each section.</p>
 </section>
 <section id="formant-data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="formant-data"><span class="header-section-number">2</span> Formant data</h2>
-<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/coretta2018a/formants.html" role="button">Description</a>
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/coretta2018a/formants.html" role="button">Description</a>
 <br>
 <br>
 <p>In this section we will plot formant data from Italian.</p>
@@ -368,7 +368,7 @@ Extra: Setting the figure aspect ratio
 </section>
 <section id="reaction-times" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="reaction-times"><span class="header-section-number">3</span> Reaction times</h2>
-<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/song2020/shallow.html" role="button">Description</a>
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/song2020/shallow.html" role="button">Description</a>
 <br>
 <br>
 <p>You have learnt how to use density plots, but an alternative way of plotting continuous data by categorical groups is to use strip charts and violin plots, alone or in combination!</p>
@@ -426,7 +426,7 @@ dbl (3): ACC, RT, logRT
 </section>
 <section id="sec-accuracy" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="sec-accuracy"><span class="header-section-number">4</span> Accuracy and computing proportions</h2>
-<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a>
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a>
 <br>
 <br>
 <p>Let’s look at data from Koppensteiner et al, 2016. The study looked at the relationship between sound iconicity and body motion.</p>
@@ -448,8 +448,8 @@ dbl (2): Corr_1_Wrong_0, Female_0
 <ul>
 <li><p>When the stimulus is <code>Takete</code> and the answer is <code>CORRECT</code> then the participant’s response was <code>shaking</code>.</p></li>
 <li><p>When the stimulus is <code>Takete</code> and the answer is <code>WRONG</code> then the participant’s response was <code>flowing</code>.</p></li>
-<li><p>When the stimulus is <code>Maluma</code> and the answer is <code>CORRECT</code> then the participant’s response was <code>shaking</code>.</p></li>
-<li><p>When the stimulus is <code>Maluma</code> and the answer is <code>WRONG</code> then the participant’s response was <code>flowing</code>.</p></li>
+<li><p>When the stimulus is <code>Maluma</code> and the answer is <code>CORRECT</code> then the participant’s response was <code>flowing</code>.</p></li>
+<li><p>When the stimulus is <code>Maluma</code> and the answer is <code>WRONG</code> then the participant’s response was <code>shaking</code>.</p></li>
 </ul>
 <p>Now, go ahead and create a new column called <code>Response</code> using the <code>mutate()</code> and the <code>case_when()</code> function.</p>
 <p>We have not encountered this function yet, so here’s a challenge for you: check out <a href="https://dplyr.tidyverse.org/reference/case_when.html">its documentation</a> to learn how it works. You will also need to use the AND operator <code>&amp;</code>: this allows you to put two statements together, like <code>Tak_Mal_Stim == "Takete" &amp; Answer == "CORRECT"</code> for “if stimulus is Takete AND answer is CORRECT”.</p>
@@ -581,7 +581,7 @@ Solution
 </section>
 <section id="sec-f0" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="sec-f0"><span class="header-section-number">5</span> Fundamental frequency (f0) and normalisation</h2>
-<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/coretta2018a/formants.html" role="button">Description</a>
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/coretta2018a/formants.html" role="button">Description</a>
 <br>
 <br>
 <div class="cell">
@@ -641,7 +641,7 @@ Solution
 </section>
 <section id="rating-likert-scales" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="rating-likert-scales"><span class="header-section-number">6</span> Rating (Likert) scales</h2>
-<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/hampton2023/emilianto_attitude.html" role="button">Description</a>
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/hampton2023/emilianto_attitude.html" role="button">Description</a>
 <br>
 <br>
 <p>Likert scales are a kind of rating scales (see <a href="https://resources.pollfish.com/market-research/rating-scales-and-likert-scales/">here</a> for more on the relationship between them). Such scales produce very strange variables. They are categorical and ordinal.</p>
