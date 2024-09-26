@@ -1,5 +1,5 @@
 ---
-title: "Introduction to regression models"
+title: "Introduction to regression models (Part I)"
 description: "Learn the basics of regression models, a powerful and flexible, yet simple, way of modelling data"
 author: "Stefano Coretta"
 date: 2024-06-03
@@ -9,6 +9,7 @@ date: 2024-06-03
 #### Prerequisites
 
 - [Statistical variables](stat-variables.qmd)
+- [Frequentist vs Bayesian inference](freq-bayes.qmd)
 :::
 
 ## Regression (to the mean)

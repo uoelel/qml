@@ -14,7 +14,7 @@ You can click on the name in the nodes and you will be taken to the entry in the
 ```{mermaid}
 graph TD
   A[Start here]
-  B[Hodotics]
+  B[Research methods]
   click B href "posts/hodotics.html" "Go to page"
   C[Computer basics]
   click C href "posts/computer-basics.html" "Go to page"
@@ -110,16 +110,17 @@ graph TD
   D --> AN & G
   AN --> H
   AH --> AO
+  AO --> J
   
   H --> AM
   AM --> F & I
   I --> Q
   
   F --> E
-  E --> J & K & L & AC
+  E --> J & K & L & AC & AL
   
   K --> M
-  M --> N & Z & AA & AL
+  M --> N & Z & AA
   N --> AB
   AA --> AB
 
@@ -127,7 +128,7 @@ graph TD
   P --> N & AA
   
   %% Regression
-  J --> R & AL --> S --> T & U
+  J --> R --> S --> T & U
   U --> V & X
   V --> W
   

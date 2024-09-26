@@ -10,8 +10,7 @@ execute:
 ::: callout-warning
 ## Prerequisites
 
--   [Introduction to regression models](intro-regression.qmd).
--   [Plotting basics](plotting-basics.qmd)
+-   [Statistical variables](stat-variables.qmd.qmd).
 :::
 
 ![](../img/ml-e1610553826718.jpg){fig-align="center" width="500"}
