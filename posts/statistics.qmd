@@ -130,6 +130,10 @@ The classical approach to statistics is the **frequentist method**, based on wor
 
 **Bayesian statistics** provides researchers with more appropriate and more robust ways to answer research questions, by reallocation of belief/credibility across possibilities.
 
-You can learn more about the frequentist and the Bayesian approach here (**TBA!!!**).
+You can learn more about the frequentist and the Bayesian approach [here](freq-bayes.qmd).
 
-<!-- Add link to inference approaches -->
+::: callout-note
+### Next
+
+- [Frequentist and Bayesian statistics](freq-bayes.qmd)
+:::

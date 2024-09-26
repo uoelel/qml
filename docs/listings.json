@@ -53,7 +53,8 @@
       "/posts/management.html",
       "/posts/repro-repli.html",
       "/posts/machine-learning.html",
-      "/posts/scripts.html"
+      "/posts/scripts.html",
+      "/posts/freq-bayes.html"
     ]
   }
 ]

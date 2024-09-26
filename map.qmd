@@ -79,6 +79,9 @@ graph TD
   AN[R packages]
   click AN href "posts/packages.html" "Go to page"
   
+  AO[Frequentist vs Bayesian]
+  click AO href "posts/freq-bayes.html" "Go to page"
+  
   R[Regression: predictors]
   click R href "posts/intro-regression-predictors.html" "Go to page"
   S[Regression: categorical predictors]
@@ -106,6 +109,7 @@ graph TD
   
   D --> AN & G
   AN --> H
+  AH --> AO
   
   H --> AM
   AM --> F & I
