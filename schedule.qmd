@@ -30,12 +30,12 @@ As part of the [Assessments](assessments.qmd), you will have to complete a **gro
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences. Check the week-by-week boxes below for a more detailed description of what you should be doing each week.
 
 | Week | Seminar | Lab |
-|----|----|----|
-| 1 | Welcome and practicalities | Challenge: [Learn the basics of R](posts/r-basics.qmd) |
+|------------------------|------------------------|------------------------|
+| 1 | Welcome and practicalities | Notebook: [Learn the basics of R](posts/r-basics.qmd) |
 | 2 | [More than numbers: quantitative methods and uncertainty](discussions/discussion-02.qmd) | [Challenge](challenges.qmd) |
 | 3 | [Language endangerment and small numbers](discussions/discussion-03.qmd) | [Challenge](challenges.qmd) |
 | 4 | [Language technology and big data](discussions/discussion-04.qmd) | [Challenge](challenges.qmd) |
-| 5 | The research process: research ethics and questionable practices | Challenge: Statistical modelling |
+| 5 | The research process: research ethics and questionable practices | Challenge: [Statistical modelling](challenges/regression.qmd) |
 | 6 | The language of the climate crisis | [Challenge](challenges.qmd) |
 | 7 | Equality, diversity and inclusiveness in quantitative linguistics | [Challenge](challenges.qmd) |
 | 8 | Qualitative vs quantitative: a real dichotomy? | [Challenge](challenges.qmd) |
@@ -150,5 +150,5 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In the lab**
 
--   Group activity: Statistical modelling (TBA)
+-   Group activity: [Statistical modelling](challenges/regression.qmd)
 :::
