@@ -6,6 +6,8 @@ Welcome to the main site of the course *Quantitative Methods for Linguistics and
 
 This website is your go-to place throughout the semester for any info related to the course.
 
+You can find the data for the course in the [QML Data](https://uoelel.github.io/qml-data/) website.
+
 ## Course description
 
 ::: {.callout-note appearance="simple" icon="false"}
