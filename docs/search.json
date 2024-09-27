@@ -1222,7 +1222,7 @@
     "href": "challenges/regression.html",
     "title": "Statistical modelling with regression",
     "section": "",
-    "text": "Important\n\n\n\nWhen working on this challenge, make sure you are in the course Quarto Project you created earlier.\nYou know you are in a Quarto Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.\nIf you see Project (none) in the top-right corner, that means you are not in a Quarto Project.\nTo make sure you are in the right Quarto project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the .Rproj file."
+    "text": "Prerequisites\n\n\n\n\nIntroduction to regression models (Part II)"
   },
   {
     "objectID": "challenges/regression.html#instructions",

@@ -5,6 +5,13 @@ execute:
   echo: false
 ---
 
+::: callout-important
+## Prerequisites
+
+- [Introduction to regression models (Part II)](../posts/intro-regression-predictors.qmd)
+:::
+
+
 ::: callout-warning
 ## Important
 
