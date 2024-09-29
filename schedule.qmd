@@ -71,7 +71,7 @@ There isn't a required course textbook as such, but the majority of the course c
 -   Come to the lab class. Learn about the [basics of R](posts/r-basics.qmd). Optionally, if you need to freshen up your computer basics, you can check [Basic computer literacy](posts/computer-basics.qmd).
 :::
 
-::: {.callout-note collapse="false"}
+::: {.callout-note collapse="true"}
 #### Week 2
 
 **In your own time**
@@ -93,7 +93,7 @@ There isn't a required course textbook as such, but the majority of the course c
 -   Group activity: pick a [Challenge](challenges.qmd).
 :::
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="false"}
 #### Week 3
 
 **In your own time**
