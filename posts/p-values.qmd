@@ -10,7 +10,7 @@ format:
     css: [webex.css]
     include-after-body: [webex.js]
     embed-resources: false
-draft: true
+bibliography: "../linguistics.bib"
 ---
 
 ```{r}
@@ -20,27 +20,28 @@ draft: true
 library(webexercises)
 ```
 
-
 ::: callout-warning
 ## Prerequisites
 
-- [Frequentist and Bayesian statistics](freq-bayes.qmd).
+-   [Frequentist and Bayesian statistics](freq-bayes.qmd).
 :::
 
 ## Introduction
 
-The frequentist approach to probabilities has dominated the field of applied statistics for a bit less than a century. Researchers are usually taught frequentist statistics and the majority of studies employs frequentist statistics. This is the framework that generates *p*-values.
+The frequentist approach to probabilities has dominated the field of applied statistics for about a century. Researchers are usually taught frequentist statistics and the majority of studies employs frequentist statistics. This is the framework that generates *p*-values.
 
-Alas, it is now known that there is a lot of misunderstanding around the real meaning of *p*-values and around what frequentist statistics can do for researchers. This post tries to shed light on these issues and prepare you so that you can read the literature that uses frequentist statistics without been led astray by the common misinterpretations.
+Alas, it is now known that there is a lot of misunderstanding around the real meaning of *p*-values and around what frequentist statistics can do for researchers [@cassidy2019; @gigerenzer2004; @john2012; @flake2020; @bochynska2023]. This post tries to shed light on these issues and prepare you so that you can read the literature that uses frequentist statistics without been led astray by the common misinterpretations.
 
 ## What is a *p*-value?
+
+![](/img/biling-accuracy.png){fig-align="center" width="400"}
 
 Let's imagine we are interested in knowing if being a bilingual speaker has a facilitating effect in a memory task. We run a study with monolingual and bilingual participants in which they have to perform a memory task and we note their accuracy in recall. 0% accuracy means they got all the trials wrong and 100% accuracy means they got all trials right.
 
 We want to compare the average accuracy of the monolingual and bilingual group of participants. Specifically, our (quite vague) hypothesis is that the accuracy of the monolingual group should be lower than that of the bilingual group. We decide to take a frequentist approach to assess this hypothesis.
 
 ::: callout-warning
-Be ready for a wild ride! Frequentist inference is just very counterintuitive and our brains try to make it intuitive, by distorting the correct interpretation.
+**Get ready for a wild ride!** Frequentist inference is just very counter-intuitive and our brains try to make it intuitive, by distorting the interpretation.
 :::
 
 First we assume that the following hypothesis, called the **null hypothesis**, is **true**.
@@ -51,21 +52,21 @@ First we assume that the following hypothesis, called the **null hypothesis**, i
 The average accuracy of monolingual participants is the same as that of bilingual participants.
 :::
 
-Let's say we found that the average accuracy of monolinguals is 80% and that of bilinguals is 85%. The difference in accuracy between the two groups is 5 percent points.
+Let's say we found that the average accuracy of monolinguals is 80% and that of bilinguals is 85%. **The difference in accuracy between the two groups is 5 percent points**.
 
-Now we calculate the probability of finding a difference that is 5 percent points (i.e. the difference we found) or larger, given that the null hypothesis is true (i.e. given that in the real world there is no difference in accuracy between the two groups).
+Now we need to calculate the probability of finding a difference that is 5 percent points (i.e. the difference we found) or larger, given that the null hypothesis is true (i.e. given that in the real world there is no difference in accuracy between the two groups).
 
-We run a significance test and that gives us a *p*-value of 0.025.
+To calculate that probability, **we run a statistical significance test and that gives us a *p*-value of 0.025**.
 
-This means there is a 2.5% probability that, even if in the real world there is no difference in accuracy between the two groups, we would find a difference of 5 percentage points or bigger.
+This means there is a 2.5% probability that, even if in the real world there is no difference in accuracy between the two groups, we could find a difference of 5 percentage points or bigger.
 
-This means that in the world in which there is no difference between groups, there is a quite low probability (2.5%) of finding a difference that is that big or bigged. Usually, we set a threshold below which take the risk of rejecting the null hypothesis: in social sciences, this is usually 0.05 (i.e. 5%). Results that are below the threshold are said to be "statistically significant results". Those who are not below the threshold are said to be "non-significant" (please, don't say "insignificant").
+So in the world in which there is no difference between groups, there is a quite low probability (2.5%) of finding a difference that is that big or bigger. Usually, **we set a threshold below which we decide to take the risk of rejecting the null hypothesis**: in social sciences, this is usually 0.05 (i.e. 5%). *p*-values that are below the threshold are said to be *statistically significant*. Those who are not below the threshold are said to be *non-significant* (please, don't say "insignificant").
 
-Since the *p*-value we got, 0.025 is below the threashold of 0.05, we take the risk of rejecting the null hypothesis and we declare the results as statistically significant.
+Since the *p*-value we got, 0.025, is below the threshold of 0.05, we take the risk of rejecting the null hypothesis and we declare that the results are statistically significant.
 
-Note that rejecting the null hypothesis does not mean we can accept the alternative hypothesis that there is a difference between the two groups. We did find a difference between the two groups, that's 5 percentage points. But the only thing that frequentist statistics can tell us is whether we can take the risk or not of rejecting the null hypothesis.
+**Note that rejecting the null hypothesis does not mean we can accept the alternative hypothesis** that there is a difference between the two groups. We did find a difference between the two groups, that's 5 percentage points. But the only thing that frequentist statistics can tell us is whether we can take the risk or not of rejecting the null hypothesis.
 
-Frequentist statistics cannot corroborate the null hypothesis nor the alternative hypothesis. It only tells us if we can risk rejecting the null or not. Even if a result is significant, that does not mean we have evidence for a difference. The only evidence we can get from frequentist statistics is for rejecting the null hypothesis.
+(Classical) frequentist statistics, the **Null Hypothesis Significance Testing** approach, cannot corroborate the null hypothesis nor the alternative hypothesis. It only tells us if we can risk rejecting the null or not. Even if a difference between two groups is significant, that does not mean we have evidence for a difference. The only evidence we can get from frequentist statistics is for rejecting the null hypothesis (not even accepting it).
 
 ## Statistical significance is not theoretically significant
 
@@ -87,7 +88,6 @@ Frequently, researchers interpret a significant result as evidence for the exist
 
 Statistical significance is not theoretically meaningful because of the real nature of *p*-values. Moreover, statistical significance is binary: a result either is significant or not. There are no "almost significant" results or results "approaching significance". Yet, these and similar wordings are very common in the literature.
 
-
 ::: callout-note
 #### Quiz 1
 
@@ -105,3 +105,21 @@ cat("f. The smaller the p-value the stronger the effect.", torf(FALSE), "\n\n")
 cat("g. The p-value is the probability of finding an effect equal to or greater than the one found.", torf(FALSE))
 ```
 :::
+
+::: {.callout-important collapse="true"}
+## Explanation
+
+a.  The probability that the null hypothesis $h$ is true would be $P(h)$, but we have seen that a *p-*value is $P(d|h)$.
+
+b.  The probability of the alternative hypothesis $q$ is independent from the *p*-value $P(d|h)$.
+
+c.  The probability that the result is due to chance is another way of saying the probability of the null hypothesis $P(h)$, but we have seen that that is not what the *p*-value is. In other words, a *p*-value is *not* the probability of the null hypothesis.
+
+d.  The probability of wrongly rejecting the null hypothesis is the threshold we set for significance. It is also known as the alpha level (usually 0.05 in social sciences).
+
+e.  The magnitude of the difference (aka effect size) and the *p*-value are independent. You can get bigger differences with large *p*-values and smaller difference with smaller *p*-values.
+
+f.  That is almost correct. What is missing is the conditional part of the probability: *given that the null hypothesis is true.*
+:::
+
+## References

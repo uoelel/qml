@@ -81,6 +81,8 @@ graph TD
   
   AO[Frequentist vs Bayesian]
   click AO href "posts/freq-bayes.html" "Go to page"
+  AP[P-values]
+  click AP href "posts/p-values.html" "Go to page"
   
   R[Regression: predictors]
   click R href "posts/intro-regression-predictors.html" "Go to page"
@@ -110,7 +112,7 @@ graph TD
   D --> AN & G
   AN --> H
   AH --> AO
-  AO --> J
+  AO --> J & AP
   
   H --> AM
   AM --> F & I
