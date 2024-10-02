@@ -30,7 +30,7 @@ graph TD
   click H href "posts/data-types.html" "Go to page"
   I[Read multiple files]
   click I href "posts/import-multiple.html" "Go to page"
-  J[Introduction to regression]
+  J[Intro regression I]
   click J href "posts/intro-regression.html" "Go to page"
   K[Introduction to plotting]
   click K href "posts/intro-plot.html" "Go to page"
@@ -84,7 +84,7 @@ graph TD
   AP[P-values]
   click AP href "posts/p-values.html" "Go to page"
   
-  R[Regression: predictors]
+  R[Intro regression II]
   click R href "posts/intro-regression-predictors.html" "Go to page"
   S[Regression: categorical predictors]
   click S href "posts/intro-regression-categorical.html" "Go to page"

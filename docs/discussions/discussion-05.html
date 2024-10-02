@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stefano Coretta">
 
-<title>The Schedule – QML</title>
+<title>Language and big data – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
   </div>
@@ -89,31 +90,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./schedule.html" aria-current="page"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Course schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./map.html"> 
+    <a class="nav-link" href="../map.html"> 
 <span class="menu-text">Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebook.html"> 
+    <a class="nav-link" href="../notebook.html"> 
 <span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./challenges.html"> 
+    <a class="nav-link" href="../challenges.html"> 
 <span class="menu-text">Challenges</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html"> 
+    <a class="nav-link" href="../assessments.html"> 
 <span class="menu-text">Assessment</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./extra.html"> 
+    <a class="nav-link" href="../extra.html"> 
 <span class="menu-text">Extra</span></a>
   </li>  
 </ul>
@@ -128,30 +129,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#choose-your-own-adventure" id="toc-choose-your-own-adventure" class="nav-link active" data-scroll-target="#choose-your-own-adventure"><span class="header-section-number">1</span> Choose your own adventure</a></li>
-  <li><a href="#schedule-overview" id="toc-schedule-overview" class="nav-link" data-scroll-target="#schedule-overview"><span class="header-section-number">2</span> Schedule overview</a></li>
-  <li><a href="#recommended-textbooks" id="toc-recommended-textbooks" class="nav-link" data-scroll-target="#recommended-textbooks"><span class="header-section-number">3</span> Recommended textbooks</a></li>
-  <li><a href="#weekly-breakdown" id="toc-weekly-breakdown" class="nav-link" data-scroll-target="#weekly-breakdown"><span class="header-section-number">4</span> Weekly breakdown</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Schedule</h1>
+<h1 class="title">Language and big data</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stefano Coretta </p>
+          </div>
+  </div>
     
   
     
@@ -162,291 +160,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="choose-your-own-adventure" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="choose-your-own-adventure"><span class="header-section-number">1</span> Choose your own adventure</h2>
-<p>The course is structured in a “<strong>choose your own adventure</strong>” format, so there isn’t a set content for each week.</p>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<p>In Week 3 we discussed about minoritised and endangered languages and how small data has important consequences on how we approach quantitative methods.</p>
+<p>This week’s discussion is still on sample size: the use of big data for language technology.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Prompts
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Each week</strong>, you will attend two classes:</p>
 <ul>
-<li><p>A <strong>one-hour seminar</strong>.</p></li>
-<li><p>A <strong>two-hour lab</strong>.</p></li>
+<li><p>What are the ethical considerations when working in language technology?</p></li>
+<li><p>What limitations does big data have?</p></li>
+<li><p>Is it possible to develop language technology without a deep descriptive understanding of the language and language community?</p></li>
+<li><p>Which role does uncertainty play in the context of developing language technology?</p></li>
 </ul>
-<p>Note that you are <em>divided in two groups</em>, so that the seminar and lab run twice each week, you just need to attend one of the seminars and one of the labs each week.</p>
-</div>
-</div>
-<p>The <strong>seminars</strong> will have a different major theme each week, which you will have to research before class and discuss in groups in class.</p>
-<p><strong>You are also expected to learn quantitative methods outside of class</strong>, at your own time (as in a flipped classroom). This website has a list of entries in the Adventurer’s <a href="./notebook.html">Notebook</a>. You are not restricted to those posts, and you can learn from other resources, however if this is the very first time you are learning quantitative methods I recommend you stick to those since they have been curated for beginners. You can find a map of how the different posts build on each other in the Adventurer’s <a href="./map.html">Map</a>.</p>
-<p>The <strong>labs</strong> will create the opportunity for you to practice quantitative data analysis with R. Each week you will pick a “challenge” from a list or come up with your own challenge and work towards solving it using R. More details will be shared soon.</p>
-<p>As part of the <a href="./assessments.html">Assessments</a>, you will have to complete a <strong>group project</strong>. You can start working on the project any time during the course, but the last two labs will be dedicated to working on your project while being able to get help from the instructor (Stefano) and the Tutors.</p>
-</section>
-<section id="schedule-overview" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="schedule-overview"><span class="header-section-number">2</span> Schedule overview</h2>
-<p>The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences. Check the week-by-week boxes below for a more detailed description of what you should be doing each week.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Seminar</th>
-<th>Lab</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Welcome and practicalities</td>
-<td>Notebook: <a href="./posts/r-basics.html">Learn the basics of R</a></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td><a href="./discussions/discussion-02.html">More than numbers: quantitative methods and uncertainty</a></td>
-<td><a href="./challenges.html">Challenge</a></td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td><a href="./discussions/discussion-03.html">Language endangerment and small numbers</a></td>
-<td><a href="./challenges.html">Challenge</a></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td><a href="./discussions/discussion-04.html">Language technology and big data</a></td>
-<td><a href="./challenges.html">Challenge</a></td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>The research process: research ethics and questionable practices</td>
-<td>Challenge: <a href="./challenges/regression.html">Statistical modelling</a></td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td><a href="./discussions/discussion-06.html">The language of the climate crisis</a></td>
-<td><a href="./challenges.html">Challenge</a></td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>Equality, diversity and inclusiveness in quantitative linguistics</td>
-<td><a href="./challenges.html">Challenge</a></td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>Qualitative vs quantitative: a real dichotomy?</td>
-<td><a href="./challenges.html">Challenge</a></td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>Open research and scholarship</td>
-<td>Challenge: Communicate your research</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>What’s next?</td>
-<td>Group project</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td>Bonus topic</td>
-<td>Group project</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="recommended-textbooks" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="recommended-textbooks"><span class="header-section-number">3</span> Recommended textbooks</h2>
-<p>There isn’t a required course textbook as such, but the majority of the course content are covered in the <a href="./extra.html#recommended-textbooks">recommended textbooks</a>.</p>
-</section>
-<section id="weekly-breakdown" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="weekly-breakdown"><span class="header-section-number">4</span> Weekly breakdown</h2>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Week 1
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>In the seminar</strong></p>
-<ul>
-<li>Come to the seminar class. We will go through the course format, assessment and other practicalities.</li>
-</ul>
-<p><strong>In your own time</strong></p>
-<ul>
-<li><p>Carefully read the <a href="./index.html">homepage</a> of the Course website.</p></li>
-<li><p>Complete the Intake Form (the link to the form can be found on the Learn website).</p></li>
-<li><p><strong>Install R, RStudio and Quarto:</strong> please, follow the instructions in the <a href="./setup.html">Setup</a> page. You should do this <em>before the first lab class</em>.</p></li>
-<li><p>Write your weekly self-reflection.</p></li>
-</ul>
-<p><strong>In the lab</strong></p>
-<ul>
-<li>Come to the lab class. Learn about the <a href="./posts/r-basics.html">basics of R</a>. Optionally, if you need to freshen up your computer basics, you can check <a href="./posts/computer-basics.html">Basic computer literacy</a>.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Week 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>In your own time</strong></p>
-<ul>
-<li><p>Read <a href="./posts/hodotics.html">Research methods and hodotics</a>, <a href="./posts/data-types.html">Read data in R</a> (make sure you read the pre-requisites too!).</p></li>
-<li><p>Watch <a href="https://youtu.be/FdnMWdICdRs?si=BLyz4G19T5elt_ho">The Golem of Prague</a>. And/or read the related chapter of <em>Statistical Rethinking</em>, <a href="https://discovered.ed.ac.uk/permalink/44UOE_INST/19s2m21/cdi_proquest_ebookcentralchapters_6133700_13_20">The Golem of Prague</a>.</p></li>
-<li><p>Pick and read any other entry/ies from the <a href="./notebook.html">Notebook</a>.</p></li>
-<li><p>Write your weekly self-reflection.</p></li>
-</ul>
-<p><strong>In the seminar</strong></p>
-<ul>
-<li>Group discussion - <a href="./discussions/discussion-02.html">Quantitative methods and uncertainty</a>.</li>
-</ul>
-<p><strong>In the lab</strong></p>
-<ul>
-<li>Group activity: pick a <a href="./challenges.html">Challenge</a>.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Week 3
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p><strong>In your own time</strong></p>
-<ul>
-<li><p>Read <a href="./posts/research-qh.html">Research questions and hypotheses</a>, <a href="./posts/summaries.html">Summary measures</a> and <a href="./posts/wrangle.html">Wrangling data with R</a> (make sure you read the pre-requisites too!).</p></li>
-<li><p>Pick and read any other entry/ies from the <a href="./notebook.html">Notebook</a>.</p></li>
-<li><p>Write your weekly self-reflection.</p></li>
-</ul>
-<p><strong>In the seminar</strong></p>
-<ul>
-<li>Group discussion - <a href="./discussions/discussion-03.html">Language endangerment and small numbers</a>.</li>
-</ul>
-<p><strong>In the lab</strong></p>
-<ul>
-<li>Group activity: pick a <a href="./challenges.html">Challenge</a> or continue working on one.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Week 4
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>In your own time</strong></p>
-<ul>
-<li><p>Read <a href="./posts/inference.html">Inference and uncertainty</a> and <a href="./posts/plotting-basics.html">Plotting basics</a> (make sure you read the pre-requisites too!).</p></li>
-<li><p>Pick and read any other entry/ies from the <a href="./notebook.html">Notebook</a>. Feel free to read from any other source, including the recommended textbooks.</p></li>
-<li><p>Write your weekly self-reflection.</p></li>
-</ul>
-<p><strong>In the seminar</strong></p>
-<ul>
-<li>Group discussion - <a href="./discussions/discussion-04.html">Language technology and big data</a></li>
-</ul>
-<p><strong>In the lab</strong></p>
-<ul>
-<li>Group activity: pick a <a href="./challenges.html">Challenge</a> or continue working on one.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Week 5
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>BEFORE THE SEMINAR</strong></p>
-<ul>
-<li>Read <a href="https://doi.org/10.1177/0956797611430953">Measuring the Prevalence of Questionable Research Practices With Incentives for Truth Telling</a>.</li>
-</ul>
-<p><strong>In your own time</strong></p>
-<ul>
-<li><p>Read <a href="./posts/intro-regression.html">Introduction to regression models (Part I)</a> (make sure you read the pre-requisites too!).</p></li>
-<li><p>Pick and read any other entry/ies from the <a href="./notebook.html">Notebook</a>. Feel free to read from any other source, including the recommended textbooks.</p></li>
-<li><p>Write your weekly self-reflection.</p></li>
-</ul>
-<p><strong>In the seminar</strong></p>
-<ul>
-<li>Group discussion - The research process: research ethics and questionable practices</li>
-</ul>
-<p><strong>In the lab</strong></p>
-<ul>
-<li>Group activity: <a href="./challenges/regression.html">Statistical modelling</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Week 6
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>In your own time</strong></p>
-<ul>
-<li><p>Read <a href="./posts/intro-regression-categorical.html">Regression: categorical predictors</a> (make sure you read the pre-requisites too!).</p></li>
-<li><p>Pick and read any other entry/ies from the <a href="./notebook.html">Notebook</a>. Feel free to read from any other source, including the recommended textbooks.</p></li>
-<li><p>Write your weekly self-reflection.</p></li>
-</ul>
-<p><strong>In the seminar</strong></p>
-<ul>
-<li>Group discussion - <a href="./discussions/discussion-05.html">The language of the climate crisis</a></li>
-</ul>
-<p><strong>In the lab</strong></p>
-<ul>
-<li>Group activity: pick a <a href="./challenges.html">Challenge</a> or continue working on one.</li>
-</ul>
-</div>
 </div>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -36,7 +36,7 @@ The following tables gives you an approximate schedule of the weekly themes, alt
 | 3 | [Language endangerment and small numbers](discussions/discussion-03.qmd) | [Challenge](challenges.qmd) |
 | 4 | [Language technology and big data](discussions/discussion-04.qmd) | [Challenge](challenges.qmd) |
 | 5 | The research process: research ethics and questionable practices | Challenge: [Statistical modelling](challenges/regression.qmd) |
-| 6 | The language of the climate crisis | [Challenge](challenges.qmd) |
+| 6 | [The language of the climate crisis](discussions/discussion-06.qmd) | [Challenge](challenges.qmd) |
 | 7 | Equality, diversity and inclusiveness in quantitative linguistics | [Challenge](challenges.qmd) |
 | 8 | Qualitative vs quantitative: a real dichotomy? | [Challenge](challenges.qmd) |
 | 9 | Open research and scholarship | Challenge: Communicate your research |
@@ -136,9 +136,13 @@ There isn't a required course textbook as such, but the majority of the course c
 ::: {.callout-note collapse="true"}
 #### Week 5
 
+**BEFORE THE SEMINAR**
+
+- Read [Measuring the Prevalence of Questionable Research Practices With Incentives for Truth Telling](https://doi.org/10.1177/0956797611430953).
+
 **In your own time**
 
--   Read [What is statistics?](posts/statistics.qmd) and [Introduction to regression models (Part II)](posts/intro-regression-predictors.qmd) (make sure you read the pre-requisites too!).
+-   Read [Introduction to regression models (Part I)](posts/intro-regression.qmd) (make sure you read the pre-requisites too!).
 
 -   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
 
@@ -151,4 +155,24 @@ There isn't a required course textbook as such, but the majority of the course c
 **In the lab**
 
 -   Group activity: [Statistical modelling](challenges/regression.qmd)
+:::
+
+::: {.callout-note collapse="true"}
+#### Week 6
+
+**In your own time**
+
+-   Read [Regression: categorical predictors](posts/intro-regression-categorical.qmd) (make sure you read the pre-requisites too!).
+
+-   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
+
+-   Write your weekly self-reflection.
+
+**In the seminar**
+
+-   Group discussion - [The language of the climate crisis](discussions/discussion-05.qmd)
+
+**In the lab**
+
+-   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
 :::
