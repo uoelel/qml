@@ -18,6 +18,7 @@ format:
 library(webexercises)
 library(tidyverse)
 library(brms)
+library(posterior)
 ```
 
 ::: callout-warning

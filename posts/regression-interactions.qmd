@@ -327,3 +327,9 @@ mald_3_preds_5 |>
   ggplot(aes(word_nonword_5)) +
   stat_halfeye()
 ```
+
+::: callout-note
+## Next
+
+- [Regression models: interactions between categorical predictors](regression-interactions-catcat.qmd)
+:::
