@@ -35,7 +35,7 @@ The following tables gives you an approximate schedule of the weekly themes, alt
 | 2 | [More than numbers: quantitative methods and uncertainty](discussions/discussion-02.qmd) | [Challenge](challenges.qmd) |
 | 3 | [Language endangerment and small numbers](discussions/discussion-03.qmd) | [Challenge](challenges.qmd) |
 | 4 | [Language technology and big data](discussions/discussion-04.qmd) | [Challenge](challenges.qmd) |
-| 5 | The research process: research ethics and questionable practices | Challenge: [Statistical modelling](challenges/regression.qmd) |
+| 5 | [The research process: research ethics and questionable practices](discussions/discussion-05.qmd) | Challenge: [Statistical modelling](challenges/regression.qmd) |
 | 6 | [The language of the climate crisis](discussions/discussion-06.qmd) | [Challenge](challenges.qmd) |
 | 7 | Equality, diversity and inclusiveness in quantitative linguistics | [Challenge](challenges.qmd) |
 | 8 | Qualitative vs quantitative: a real dichotomy? | [Challenge](challenges.qmd) |
@@ -140,6 +140,8 @@ There isn't a required course textbook as such, but the majority of the course c
 
 - Read [Measuring the Prevalence of Questionable Research Practices With Incentives for Truth Telling](https://doi.org/10.1177/0956797611430953).
 
+- Read [Reproducibility and replicability](../posts/repro-repli.qmd)
+
 **In your own time**
 
 -   Read [Introduction to regression models (Part I)](posts/intro-regression.qmd) (make sure you read the pre-requisites too!).
@@ -150,7 +152,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In the seminar**
 
--   Group discussion - The research process: research ethics and questionable practices
+-   Group discussion - [The research process: research ethics and questionable practices](discussions/discussion-05.qmd)
 
 **In the lab**
 

@@ -10,7 +10,7 @@ execute:
 ::: callout-warning
 ## Prerequisites
 
--   [Statistical variables](stat-variables.qmd.qmd).
+-   [Statistical variables](stat-variables.qmd).
 :::
 
 ![](../img/ml-e1610553826718.jpg){fig-align="center" width="500"}

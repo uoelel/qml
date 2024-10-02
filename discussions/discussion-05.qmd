@@ -1,20 +1,28 @@
 ---
-title: "Language and big data"
+title: "The research process: research ethics and questionable practices"
 author: "Stefano Coretta"
 ---
 
-In Week 3 we discussed about minoritised and endangered languages and how small data has important consequences on how we approach quantitative methods.
+For this discussion you were required to read [Measuring the Prevalence of Questionable Research Practices With Incentives for Truth Telling](https://doi.org/10.1177/0956797611430953) and [Reproducibility and replicability](../posts/repro-repli.qmd).
 
-This week's discussion is still on sample size: the use of big data for language technology.
+Use the following image for inspiration and check the prompts below. Ask us if you have any questions and/or search online!
+
+![](../img/res-process-cycle-qrps.png)
+
 
 ::: callout-note
 #### Prompts
 
-- What are the ethical considerations when working in language technology?
-
-- What limitations does big data have?
-
-- Is it possible to develop language technology without a deep descriptive understanding of the language and language community?
-
-- Which role does uncertainty play in the context of developing language technology?
+- Which part of a research study do you believe should be beyond the control of the researcher?
+  1. Research questions/hypotheses.
+  2. Study design.
+  3. Results
+  
+- Which part of a research study do you believe is most important for advancing a researcher's career?
+  1. Research questions/hypotheses.
+  2. Study design.
+  3. Results
+  
+  
+- What can be done to de-incentivise questionable research practices (QRPs)?
 :::
