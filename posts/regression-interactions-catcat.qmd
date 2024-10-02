@@ -146,3 +146,9 @@ shallow_bm_diff |>
 ```
 
 Here, at 80% confidence, the difference between constituent and non-constituent/unrelated types in the L2 group is 6 to 53 ms smaller than the difference in the L1 group.
+
+::: callout-note
+### Next
+
+- [Regression models: interactions between numeric predictors](regression-interactions-numnum.qmd)
+:::
