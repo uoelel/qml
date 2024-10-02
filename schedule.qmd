@@ -138,9 +138,9 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **BEFORE THE SEMINAR**
 
-- Read [Measuring the Prevalence of Questionable Research Practices With Incentives for Truth Telling](https://doi.org/10.1177/0956797611430953).
+-   Read [Measuring the Prevalence of Questionable Research Practices With Incentives for Truth Telling](https://doi.org/10.1177/0956797611430953).
 
-- Read [Reproducibility and replicability](../posts/repro-repli.qmd)
+-   Read [Reproducibility and replicability](../posts/repro-repli.qmd)
 
 **In your own time**
 
@@ -172,7 +172,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In the seminar**
 
--   Group discussion - [The language of the climate crisis](discussions/discussion-05.qmd)
+-   Group discussion - [The language of the climate crisis](discussions/discussion-06.qmd)
 
 **In the lab**
 
