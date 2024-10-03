@@ -18,7 +18,7 @@ library(webexercises)
 ```
 
 ::: callout-warning
-#### Prerequisites
+## Prerequisites
 
 - [Bar charts](bar-charts.qmd)
 - [Density plots](plot-density.qmd)
@@ -211,6 +211,8 @@ Can you tell if there are differences in RTs between the different groups and re
 
 ## Accuracy and computing proportions {#sec-accuracy}
 
+### Koppensteiner 2016
+
 ```{=html}
 <a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a>
 <br>
@@ -366,6 +368,115 @@ You will notice something new in the code: we have specified the data inside `ge
 We are also specifying the aesthetics within each geom/stat function, because while `x` is the same, the `y` differs!
 
 In `stat_summary()`, the `fun.data` argument lets you specify the function you want to use for the summary statistics to be added. Here we are using the `mean_cl_boot` function, which returns the mean proportion of `Response_num` and the 95% Confidence Intervals (CIs, there are [*frequentist* confidence intervals](https://rpsychologist.com/d3/ci/)) of that mean. The CIs are calculated using a bootstrapping procedure (if you are interested in learning what that is, check the documentation of `smean.sd` from the Hmisc package).
+
+### Pankratz 2021
+
+```{=html}
+<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/pankratz2021/si.html" role="button">Description</a>
+<br>
+<br>
+```
+
+Now let's move onto data from Pankratz 2021. Since we will need it for the plot, let's convert `SI` into a factor and let's log `freq` (check [Regression models: interactions between numeric predictors](regression-interactions-numnum.qmd) for more details).
+
+```{r}
+#| label: si
+#| message: false
+
+si <- read_csv("data/pankratz2021/si.csv") |> 
+  mutate(
+    SI = factor(SI, levels = c("no_scalar", "scalar")),
+    logfreq = log(freq)
+  )
+si
+```
+
+Let's plot the proportion of scalar inferences as a function of log frequency and as a function of semantic distance.
+
+The variable `SI` is binary: `no_scalar` if a scalar inference was not made, `scalar` if it was. We like to visualise binary outcomes as proportions on the *y*-axis and centred log frequency on the *x*-axis.
+
+We need to apply the same trick as we did with the Koppensteiner 2016 data.
+`SI` is categorical, but we want to show the **proportion** of `scalar` vs `no_scalar` across values of centred log frequency. We can achieve this by temporarily converting `SI` to a *numeric* variable and subtract `1`, and then using `geom_smooth()` with a binomial family (which will indicate the proportion of `scalar` responses), like so:
+
+```{r}
+#| label: si-freq
+#| message: false
+#| warning: false
+
+si %>%
+  mutate(SI = as.numeric(SI) - 1) %>%
+  ggplot(aes(log(freq), SI)) +
+  geom_point() +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"))
+```
+
+The function `as.numeric()` works with factors by converting each level into a number: try `as.numeric(si$SI)` to see what it does. Then, we subtract `1` so that `1` becomes `0` and `2` becomes `1`.
+
+The plot suggests that there is a somewhat positive relationship between centred log frequency and probability of the participant making a scalar implication. In other words, the higher the log frequency, the higher the probability of a scalar implication.
+
+::: {.callout-important collapse="true"}
+#### Extra: Adding text geometries
+
+Let's add `geom_text()` to show the corresponding `weak_adj on the plot`.
+
+To achieve this, we need to calculate the proportion of `SI` ourselves, to use as the *y*-axis. See the following code.
+
+```{r}
+#| label: si-freq-scatter
+
+si %>%
+  group_by(weak_adj) %>%
+  summarise(
+    prop_si = mean(as.numeric(SI) - 1),
+    logfreq = mean(logfreq)
+  ) %>%
+  ggplot(aes(x = logfreq, y = prop_si)) +
+  geom_text(aes(label = weak_adj)) +
+  labs(
+    x = 'Log co-occurrence frequency (centred)',
+    y = 'Proportion of scalar inferences'
+  ) +
+  ylim(0, 1)
+```
+
+Note that we only created `prop_si` for visualisation! We won't use this variable in our modelling; instead, we'll be using the 0/1-coded variable `SI`.
+:::
+
+Now it's your turn! Reproduce the following plot.
+
+```{r}
+#| label: si-semd
+#| message: false
+#| warning: false
+#| echo: false
+
+si %>%
+  mutate(SI = as.numeric(SI) - 1) %>%
+  ggplot(aes(semdist, SI)) +
+  geom_point() +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"))
+```
+
+::: {.callout-important collapse="true"}
+#### Extra: Frequency and semantic distance together
+
+It is possible to plot frequency and semantic distance together like so:
+
+```{r}
+#| label: si-freq-semd
+
+si %>%
+  group_by(weak_adj) %>%
+  summarise(
+    prop_si = mean(as.numeric(SI) - 1),
+    logfreq = mean(logfreq),
+    semdist = mean(semdist)
+  ) %>%
+  ggplot(aes(logfreq, semdist, fill = prop_si)) +
+  geom_point(size = 3, pch = 21) +
+  scale_fill_distiller(type = "div")
+```
+:::
 
 ## Fundamental frequency (f0) and normalisation {#sec-f0}
 

@@ -98,6 +98,8 @@ graph TD
   click W href "posts/regression-interactions-catcat.html" "Go to page"
   X[Bernoulli regression]
   click X href "posts/regression-bernoulli.html" "Go to page"
+  AQ[Numeric-numeric interactions]
+  click AQ href "posts/regression-interactions-numnum.html" "Go to page"
   
   A --> B & C
   
@@ -133,5 +135,8 @@ graph TD
   J --> R --> S --> T & U
   U --> V & X
   V --> W
+  W --> AQ
+  X --> AQ
   
 ```
+

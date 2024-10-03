@@ -62,18 +62,7 @@ Now `SI` is coded with `no_scalar` for "participant did not make a scalar infere
 Let's convert `SI` into a factor with levels in the order `c("no_scalar", "scalar")` (note that this is the same order as the default alphabetical order, but it does not hurt to specify it ourselves).
 
 ```{r}
-#| label: si-recode-ex
-#| eval: false
-
-si <- si %>%
-  mutate(
-    SI = ...
-  )
-```
-
-```{r}
 #| label: si-recode
-#| echo: false
 
 si <- si %>%
   mutate(
@@ -97,21 +86,10 @@ si %>%
   geom_rug()
 ```
 
-Log-transforming the frequencies helps to reduce the skewness. Use `mutate()` to take the log of `freq` and store the result in a new column called `logfreq`:
-
-```{r}
-#| label: logfreq-ex
-#| eval: false
-
-si <- si %>% 
-  mutate(
-    ...
-  )
-```
+Log-transforming the frequencies helps to reduce the skewness. Use `mutate()` to take the log of `freq` and store the result in a new column called `logfreq`.
 
 ```{r}
 #| label: logfreq
-#| echo: false
 #| message: false
 
 si <- si %>% 
@@ -120,7 +98,7 @@ si <- si %>%
   )
 ```
 
-The result should look like this:
+This is how the distribution of logged frequency looks like:
 
 ```{r}
 #| label: logfreq-plot
@@ -137,7 +115,7 @@ When we're interpreting the model estimates below, we'll be talking about the ef
 ::: {.callout-important collapse="true"}
 #### Extra: Unit changes and non-linear transformations
 
-We've been talking a lot in recent weeks about transforming and back-transforming, so you might be asking yourself: what do unit changes on the log scale equate to on the original frequency scale?
+When working with logged-transformed variables, you should keep in mind that a unit change on the logged scale does not corresponds to a unit change on the original scale.
 
 Because the log transformation is **non-linear**, a unit change on the log frequency scale (e.g., going from 0 to 1, or going from 2 to 3) corresponds to different changes on the frequency scale, **depending on which unit change on the log scale we evaluate.**
 
@@ -183,7 +161,7 @@ We won't be back-transforming log frequencies into plain old frequencies in this
 A good rule of thumb is to compute and report the change in the original scale that is associated with **a unit change from the mean on the transformed scale to one unit above or below the mean.**
 :::
 
-We're nearly done with `logfreq`---all that's left is to centre it. As we saw in the lecture, to centre a variable, we compute its mean and subtract that from every observation of the variable. The goal is to get a new version of variable that has a mean of zero.
+We're nearly done with `logfreq`---all that's left is to centre it. To centre a variable, we compute its mean and subtract that from every observation of the variable. The goal is to get a new version of variable that has a mean of zero.
 
 ```{r}
 #| label: logfreq-c
@@ -194,7 +172,7 @@ si <- si %>%
   )
 ```
 
-Run the following to verify that the mean is zero:
+Don't take our word! If you take the mean of the centred variable, it will be 0.
 
 ```{r}
 #| label: logfreq-c-mean
@@ -222,93 +200,8 @@ si <- si %>%
 
 ## Visualise the data
 
-The model we'll fit in this tutorial will be predicting `SI` as a function of `logfreq_c`, `semdist_c` and the interaction between the two. Before fitting the model, let's take a moment to plot the proportion of scalar inferences as a function of centred log frequency and as a function of semantic distance.
+Check [Advanced plotting](plot-advanced.qmd#pankratz-2021) for a tutorial on how to plot the data.
 
-The variable `SI` is binary: `no_scalar` if a scalar inference was not made, `scalar` if it was. We like to visualise binary outcomes as proportions on the *y*-axis and centred log frequency on the *x*-axis.
-
-This type of plot (proportion \~ continuous) requires a small trick.
-
-`SI` is categorical, but we want to show the **proportion** of `scalar` vs `no_scalar` across values of centred log frequency. We can achieve this by temporarily converting `SI` to a *numeric* variable and subtract `1`, and then using `geom_smooth()` with a binomial family (which will indicate the proportion of `scalar` responses), like so:
-
-```{r}
-#| label: si-freq
-#| message: false
-#| warning: false
-
-si %>%
-  mutate(SI = as.numeric(SI) - 1) %>%
-  ggplot(aes(logfreq_c, SI)) +
-  geom_point() +
-  geom_smooth(method = "glm", method.args = list(family = "binomial"))
-```
-
-The function `as.numeric()` works with factors by converting each level into a number: try `as.numeric(si$SI)` to see what it does. Then, we subtract `1` so that `1` becomes `0` and `2` becomes `1`.
-
-The plot suggests that there is a somewhat positive relationship between centred log frequency and probability of the participant making a scalar implication. In other words, the higher the log frequency, the higher the probability of a scalar implication.
-
-::: {.callout-important collapse="true"}
-#### Extra: Adding text geometries
-
-Let's add `geom_text()` to show the corresponding `weak_adj on the plot`.
-
-To achieve this, we need to calculate the proportion of `SI` ourselves, to use as the *y*-axis. See the following code.
-
-```{r}
-#| label: si-freq-scatter
-
-si %>%
-  group_by(weak_adj) %>%
-  summarise(
-    prop_si = mean(as.numeric(SI) - 1),
-    logfreq_c = mean(logfreq_c)
-  ) %>%
-  ggplot(aes(x = logfreq_c, y = prop_si)) +
-  geom_text(aes(label = weak_adj)) +
-  labs(
-    x = 'Log co-occurrence frequency (centred)',
-    y = 'Proportion of scalar inferences'
-  ) +
-  ylim(0, 1)
-```
-
-Note that we only created `prop_si` for visualisation! We won't use this variable in our modelling; instead, we'll be using the 0/1-coded variable `SI`.
-:::
-
-Now it's your turn! Reproduce the following plot.
-
-```{r}
-#| label: si-semd
-#| message: false
-#| warning: false
-#| echo: false
-
-si %>%
-  mutate(SI = as.numeric(SI) - 1) %>%
-  ggplot(aes(semdist, SI)) +
-  geom_point() +
-  geom_smooth(method = "glm", method.args = list(family = "binomial"))
-```
-
-::: {.callout-important collapse="true"}
-#### Extra: Frequency and semantic distance together
-
-It is possible to plot frequency and semantic distance together like so:
-
-```{r}
-#| label: si-freq-semd
-
-si %>%
-  group_by(weak_adj) %>%
-  summarise(
-    prop_si = mean(as.numeric(SI) - 1),
-    logfreq_c = mean(logfreq_c),
-    semdist = mean(semdist)
-  ) %>%
-  ggplot(aes(logfreq_c, semdist, fill = prop_si)) +
-  geom_point(size = 3, pch = 21) +
-  scale_fill_distiller(type = "div")
-```
-:::
 
 ## Fitting the model
 
@@ -318,10 +211,6 @@ $$
 \begin{aligned}
 \text{SI} & \sim Bernoulli(p) \\
 logit(p) & = \beta_0 + (\beta_1 \cdot logfreq\_c) + (\beta_2 \cdot semdist\_c) + (\beta_3 \cdot logfreq\_c \cdot semdist\_c)\\
-\beta_0 & \sim Gaussian(\mu_0, \sigma_0) \\
-\beta_1 & \sim Gaussian(\mu_1, \sigma_1) \\
-\beta_2 & \sim Gaussian(\mu_2, \sigma_2) \\
-\beta_3 & \sim Gaussian(\mu_3, \sigma_3) \\
 \end{aligned}
 $$
 
@@ -330,7 +219,6 @@ Write `brm()` code for this model, and name the variable you assign the model ou
 -   The model formula should specify that we are predicting `SI` as a function of `logfreq_c`, `semdist_c`, and their interaction.
 -   Use the appropriate model family.
 -   The data comes from `si`.
--   The backend is `cmdstanr`.
 -   Specify a seed for reproducibility.
 -   Specify a file path to save the model fit to a file.[^1]
 
@@ -368,7 +256,7 @@ summary(si_bm)
 Before we move to interpreting the estimate of this model, let's just clarify something about numeric predictors and centred numeric predictors.
 
 ::: {.callout-note appearance="minimal"}
-When a predictor is categorical, the intercept of the model indicates the mean outcome value at the reference level of that predictor, and the other coefficients estimate the difference in mean outcome value between the other levels of the predictor and the value at the reference.
+When a predictor is categorical and any contrast coding is used, the intercept of the model indicates the mean outcome value at the reference level of that predictor, and the other coefficients estimate the difference in mean outcome value between the other levels of the predictor and the value at the reference. If using indexing, rather than contrast coding, as we are in this course, then you get a coefficient for each level of the categorical predictor which is the estimate of the mean for that level.
 
 With **numeric predictors**, the **intercept indicates the mean outcome value when the numeric predictor is at 0**.
 :::
