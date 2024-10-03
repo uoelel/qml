@@ -837,7 +837,7 @@
     "href": "challenges.html",
     "title": "Challenges",
     "section": "",
-    "text": "Analysis of Yoda speech in conversation\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nGlottobank\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nIs ‘gay speech’ a thing?\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage endangerment and linguistic diversity\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nMorphology in Scottish Gaelic\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nPHOIBLE: cross-linguistic phonological inventory data\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nSentiment analysis of Tweets on ChatGPT\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical modelling with regression\n\n\n\n\n\n\nStefano Coretta, Elizabeth Pankratz\n\n\n\n\n\n\n\n\n\n\n\n\nWALS - World Atlas of Language Structures\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Analysis of Yoda speech in conversation\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nGlottobank\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nIs ‘gay speech’ a thing?\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage endangerment and linguistic diversity\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nLinguaMeta: Unified metadata for thousands of languages\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nMorphology in Scottish Gaelic\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nPHOIBLE: cross-linguistic phonological inventory data\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nSentiment analysis of Tweets on ChatGPT\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical modelling with regression\n\n\n\n\n\n\nStefano Coretta, Elizabeth Pankratz\n\n\n\n\n\n\n\n\n\n\n\n\nWALS - World Atlas of Language Structures\n\n\n\n\n\n\nStefano Coretta\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "assessments.html",
@@ -1664,5 +1664,12 @@
     "title": "R basics",
     "section": "5 Summary",
     "text": "5 Summary\nYou made it! You completed this week’s tutorial.\nHere’s a summary of what you learnt.\n\n\n\n\n\n\n\nR is a programming language while RStudio is an IDE.\nRStudio projects are folders with an .Rproj file (you can see the name of the project you are currently in in the top-right corner of RStudio).\nYou can perform mathematical operations with +, -, *, /.\nYou can store values in variables.\nA typical object to be stored in a variable is a vector: there are different type of vectors, like numeric, character and logical.\nFunctions are used to perform an operation on its arguments: sum() sums it’s arguments, mean() calculates the mean and cat() prints the arguments.\n\n\n\n\n\n\n\n\n\n\nExtra: Programming in R\n\n\n\n\n\nIf you are interested in learning about programming in R, I recommend you go through Chapters 26-28 of the R4DS book and the Advanced R book.\n\n\n\n\n\n\n\n\n\nNext\n\n\n\n\nR packages\nTroubleshooting"
+  },
+  {
+    "objectID": "challenges/linguameta.html",
+    "href": "challenges/linguameta.html",
+    "title": "LinguaMeta: Unified metadata for thousands of languages",
+    "section": "",
+    "text": "We introduce LinguaMeta, a unified resource for language metadata for thousands of languages, including language codes, names, number of speakers, writing systems, countries, official status, coordinates, and language varieties. The resources are drawn from various existing repositories and supplemented with our own research. Each data point is tagged for its origin, allowing us to easily trace back to and improve existing resources with more up-to-date and complete metadata. The resource is intended for use by researchers and organizations who aim to extend technology to thousands of languages."
   }
 ]
