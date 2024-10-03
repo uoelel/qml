@@ -44,6 +44,8 @@ format:
     number-sections: true
     embed-resources: false
     fig-align: center
+    link-external-icon: true
+    link-external-newwindow: true
 
 callout-icon: false
 
