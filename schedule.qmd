@@ -93,7 +93,7 @@ There isn't a required course textbook as such, but the majority of the course c
 -   Group activity: pick a [Challenge](challenges.qmd).
 :::
 
-::: {.callout-note collapse="false"}
+::: {.callout-note collapse="true"}
 #### Week 3
 
 **In your own time**
@@ -113,7 +113,7 @@ There isn't a required course textbook as such, but the majority of the course c
 -   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
 :::
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="false"}
 #### Week 4
 
 **In your own time**
@@ -177,4 +177,106 @@ There isn't a required course textbook as such, but the majority of the course c
 **In the lab**
 
 -   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
+:::
+
+::: {.callout-note collapse="true"}
+#### Week 7
+
+**In your own time**
+
+- I recommend LEL students doing a dissertation this year to continue reading the entries on regression modelling  for the rest of the course, because the vast majority of dissertation projects in linguistics entail statistical modelling using some type of regression. Feel free to book Stefano for a chat on specific topics depending on the area of research of your dissertation.
+
+- Read [Frequentist statistics and p-values](posts/p-values.qmd)
+
+-   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
+
+-   Write your weekly self-reflection.
+
+**In the seminar**
+
+-   Group discussion - Equality, diversity and inclusiveness in quantitative linguistics
+
+**In the lab**
+
+-   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
+:::
+
+::: {.callout-note collapse="true"}
+#### Week 8
+
+**In your own time**
+
+- Read [Mindless statistics](https://www.doi.org/10.1016/j.socec.2004.09.033).
+
+-   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
+
+-   Write your weekly self-reflection.
+
+**In the seminar**
+
+-   Group discussion - Qualitative vs quantitative: a real dichotomy?
+
+**In the lab**
+
+-   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
+:::
+
+::: {.callout-note collapse="true"}
+#### Week 9
+
+**BEFORE THE SEMINAR**
+
+- Read [Seven easy steps to open science: an annotated reading list](https://www.doi.org/10.1027/2151-2604/a000387).
+
+- Read [The benefits of an open-science approach in student research projects](https://www.doi.org/10.1042/bio_2021_198).
+
+**In your own time**
+
+-   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
+
+-   Write your weekly self-reflection.
+
+**In the seminar**
+
+-   Group discussion - Qualitative vs quantitative: a real dichotomy?
+
+**In the lab**
+
+-   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
+:::
+
+::: {.callout-note collapse="true"}
+#### Week 10
+
+**In your own time**
+
+-   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
+
+-   Write your weekly self-reflection.
+
+**In the seminar**
+
+-   Group discussion - What's next?
+
+**In the lab**
+
+-   Group activity: work on your Group Project.
+:::
+
+::: {.callout-note collapse="true"}
+#### Week 11
+
+**In your own time**
+
+-   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
+
+-   Write your weekly self-reflection.
+
+**In the seminar**
+
+-   Group discussion - Bonus topic.
+
+**In the lab**
+
+-   Group activity: work on your Group Project.
 :::
