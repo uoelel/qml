@@ -1,0 +1,27 @@
+---
+title: "Mindless statistics"
+author: "Stefano Coretta"
+---
+
+For this discussion you were required to read [Mindless statistics](https://www.doi.org/10.1016/j.socec.2004.09.033).
+
+It's quite a dense paper. Discuss with your peers what you understood and what is still unclear and ask us to clarify the less clear points!
+
+You can use the following prompts to check your understanding.
+
+::: callout-note
+#### Prompts
+
+1. What is the "null ritual"? How is it different from (proper) frequentist statistics and Bayesian statistics?
+
+2. What do the author mean with "the null ritual became institutionalized as statistics per se"?
+
+3. How do Fisherian and Neyman-Pearson's significance testing differ from each other?
+
+4. Why do you think researchers develop the "cognitive illusions" of Section 4?
+
+5. What are the main takeaways of Sections 6 to 8?
+
+6. What do we mean with "statistical (re)thinking?
+:::
+

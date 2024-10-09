@@ -1,0 +1,31 @@
+---
+title: "Open research and scholarship"
+author: "Stefano Coretta"
+---
+
+For this discussion you were required to read [Seven easy steps to open science: an annotated reading list](https://www.doi.org/10.1027/2151-2604/a000387) and [The benefits of an open-science approach in student research projects](https://www.doi.org/10.1042/bio_2021_198).
+
+Discuss with your peers what you understood and what is still unclear and ask us to clarify the less clear points!
+
+Note that the paper is a few years old and now we tend to talk about Open Research and Open Scholarship, rather than Open Science, to be more inclusive.
+
+You can use the following prompts to check your understanding.
+
+::: callout-note
+#### Prompts
+
+1. What has pushed the need for Open Research? Why do we need Open Research?
+
+2. Are Open Access and Open Research the same thing?
+
+3. A research compendium is the set of files, data, code, etc. of a study. In your opinion, in which cases should the research compendium be made openly available? Or, what could prevent researcher from sharing the research compendium?
+
+4. You have learnt about reproducibility and replicability earlier in the course. Which role do they play in making research "open"?
+
+5. What is a pre-registration? What is a Registered Report? How can they help making research more robust?
+
+6. Think about research papers you have read. Did they use Open Research practices? Were they pre-registered or Registered Reports? Did they share their data?
+
+7. How can we make Open Research practices more common?
+:::
+
