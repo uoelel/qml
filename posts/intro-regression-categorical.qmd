@@ -89,6 +89,7 @@ We will use `attitude` in the model.
 
 ### Modelling Harmonics-to-Noise Ratio (HNR) by attitude
 
+Harmonics-to-Noise Ratio (HNR) is an acoustic measurement that measures the ratio between the periodicity of a sound vs its noise level. Higher HNR indicates more modal types of voicing while lower HNR indicates more breathy or creaky voicing.
 Let's assume that the HNR values come from a Gaussian distribution.[^1] In notation:
 
 [^1]: Note that, in real-life research contexts, you should decide which distribution to use for different outcome variables by drawing on previous research that has assessed the possible distribution families for those variables, on domain-specific expertise or common-sense. You will see that in most cases with linguistic phenomena we know very little about the nature of the variables we work with, hence it can be difficult to know which family of distributions to use.
