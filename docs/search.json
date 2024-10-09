@@ -375,7 +375,7 @@
     "href": "posts/intro-regression.html#reporting",
     "title": "Introduction to regression models (Part I)",
     "section": "9 Reporting",
-    "text": "9 Reporting\nWhat about reporting the model in writing? We could report the model and the results like this.\n\n\n\n\n\n\nTip\n\n\n\nWe fitted a Bayesian regression using the brms package [XXX] in R [XXX]. The outcome variable was height and we did not include any predictor, to estimate the overall mean and standard deviation of height.\nBased on the model results, there is a 95% probability that the mean is between 164 and 166 cm and that the standard deviation is between 7.6 and 9.3 cm."
+    "text": "9 Reporting\nWhat about reporting the model in writing? We could report the model and the results like this.1\n\n\n\n\n\n\nTip\n\n\n\nWe fitted a Bayesian regression using the brms package (Bürkner 2017) in R (R Core Team 2024). The outcome variable was height and we did not include any predictor, to estimate the overall mean and standard deviation of height.\nBased on the model results, there is a 95% probability that the mean is between 164 and 166 cm and that the standard deviation is between 7.6 and 9.3 cm."
   },
   {
     "objectID": "posts/intro-regression.html#whats-next",
@@ -1692,5 +1692,12 @@
     "title": "R basics",
     "section": "5 Summary",
     "text": "5 Summary\nYou made it! You completed this week’s tutorial.\nHere’s a summary of what you learnt.\n\n\n\n\n\n\n\nR is a programming language while RStudio is an IDE.\nRStudio projects are folders with an .Rproj file (you can see the name of the project you are currently in in the top-right corner of RStudio).\nYou can perform mathematical operations with +, -, *, /.\nYou can store values in variables.\nA typical object to be stored in a variable is a vector: there are different type of vectors, like numeric, character and logical.\nFunctions are used to perform an operation on its arguments: sum() sums it’s arguments, mean() calculates the mean and cat() prints the arguments.\n\n\n\n\n\n\n\n\n\n\nExtra: Programming in R\n\n\n\n\n\nIf you are interested in learning about programming in R, I recommend you go through Chapters 26-28 of the R4DS book and the Advanced R book.\n\n\n\n\n\n\n\n\n\nNext\n\n\n\n\nR packages\nTroubleshooting"
+  },
+  {
+    "objectID": "posts/intro-regression.html#footnotes",
+    "href": "posts/intro-regression.html#footnotes",
+    "title": "Introduction to regression models (Part I)",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nTo know how to add a citation for any R package, simply run citation(\"package\") in the R Console, where \"package\" is the package name between double quotes.↩︎"
   }
 ]

@@ -240,10 +240,10 @@ Regression models work.
 
 ## Reporting
 
-What about reporting the model in writing? We could report the model and the results like this.
+What about reporting the model in writing? We could report the model and the results like this.^[To know how to add a citation for any R package, simply run `citation("package")` in the R Console, where `"package"` is the package name between double quotes.]
 
 ::: callout-tip
-We fitted a Bayesian regression using the brms package [XXX] in R [XXX]. The outcome variable was height and we did not include any predictor, to estimate the overall mean and standard deviation of height.
+We fitted a Bayesian regression using the brms package (Bürkner 2017) in R (R Core Team 2024). The outcome variable was height and we did not include any predictor, to estimate the overall mean and standard deviation of height.
 
 Based on the model results, there is a 95% probability that the mean is between `{r} round(brms::fixef(h_1)[3])` and `{r} round(brms::fixef(h_1)[4])` cm and that the standard deviation is between `{r} round(brms::posterior_summary(h_1)["sigma", "Q2.5"], 1)` and `{r} round(brms::posterior_summary(h_1)["sigma", "Q97.5"], 1)` cm.
 :::
