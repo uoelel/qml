@@ -6,7 +6,7 @@ This course will be **self-assessed on the basis of a Portfolio** consisting of 
 
 The **Portfolio** is the sum of weekly self-reflections in the Reflective Journal, the feedback you will receive on your reflections, the Group Project and the Final Self-reflection. The course is assessed based on all of these components. There are no weights for the different components, so it is important you engage with all of them.
 
-The following sections give more details on the Relfective Journal and the Group Project.
+The following sections give more details on the Reflective Journal and the Group Project.
 
 ## Reflective Journal
 
@@ -63,7 +63,7 @@ In sum: after any given class, you'll write a short self-reflection. Within a re
 ::: callout-important
 ### Deadline
 
--   You must submit a Project Proposal by **Thursday 7th November** (details below).
+-   You must submit a Project Proposal by **Thursday 7th November at noon** (details below).
 -   You must submit your Final Reflection, including the product of your Group Project (see details below) by **Thursday 12th December at noon** on Learn \> Assessment.
 :::
 
