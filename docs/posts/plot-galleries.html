@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-10-23">
 
-<title>The Adventurer’s Map to the Notebook – QML</title>
+<title>Catalogues and tips for R plots – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,12 +67,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="webex.css">
 </head>
 
 <body class="nav-fixed">
@@ -81,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
   </div>
@@ -92,31 +93,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Course schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./map.html" aria-current="page"> 
+    <a class="nav-link" href="../map.html"> 
 <span class="menu-text">Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebook.html"> 
+    <a class="nav-link" href="../notebook.html"> 
 <span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./challenges.html"> 
+    <a class="nav-link" href="../challenges.html"> 
 <span class="menu-text">Challenges</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html"> 
+    <a class="nav-link" href="../assessments.html"> 
 <span class="menu-text">Assessment</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./extra.html"> 
+    <a class="nav-link" href="../extra.html"> 
 <span class="menu-text">Extra</span></a>
   </li>  
 </ul>
@@ -131,15 +132,25 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-visualisation" id="toc-data-visualisation" class="nav-link active" data-scroll-target="#data-visualisation"><span class="header-section-number">1</span> Data Visualisation</a></li>
+  <li><a href="#catalogues" id="toc-catalogues" class="nav-link" data-scroll-target="#catalogues"><span class="header-section-number">2</span> Catalogues</a></li>
+  <li><a href="#colour" id="toc-colour" class="nav-link" data-scroll-target="#colour"><span class="header-section-number">3</span> Colour</a></li>
+  <li><a href="#specific-recommendations" id="toc-specific-recommendations" class="nav-link" data-scroll-target="#specific-recommendations"><span class="header-section-number">4</span> Specific recommendations</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Adventurer’s Map to the Notebook</h1>
+<h1 class="title">Catalogues and tips for R plots</h1>
+<p class="subtitle lead">A list of plot clatalogues and tips</p>
 </div>
 
 
@@ -147,6 +158,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 23, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -156,172 +173,288 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the <a href="./notebook.html">Notebook</a> entries. This Map will grow throughout the semester as new entries are added to the Notebook.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Prerequisites
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can click on the name in the nodes and you will be taken to the entry in the Notebook.</p>
+<ul>
+<li><a href="../posts/plotting-basics.html">Plotting basics</a></li>
+</ul>
 </div>
 </div>
-<!--  -->
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
-  A[Start here]
-  B[Research methods]
-  click B href "posts/hodotics.html" "Go to page"
-  C[Computer basics]
-  click C href "posts/computer-basics.html" "Go to page"
-  D[R basics]
-  click D href "posts/r-basics.html" "Go to page"
-  E[Statistical variables]
-  click E href "posts/stat-variables.html" "Go to page"
-  F[Intro to Quarto]
-  click F href "posts/intro-quarto.html" "Go to page"
-  G[R Troubleshooting]
-  click G href "posts/r-troubleshooting.html" "Go to page"
-  H[Read data in R]
-  click H href "posts/data-types.html" "Go to page"
-  I[Read multiple files]
-  click I href "posts/import-multiple.html" "Go to page"
-  J[Intro regression I]
-  click J href "posts/intro-regression.html" "Go to page"
-  K[Introduction to plotting]
-  click K href "posts/intro-plot.html" "Go to page"
-  L[Wrangling data]
-  click L href "posts/wrangle.html" "Go to page"
-  M[Plotting basics]
-  click M href "posts/plotting-basics.html" "Go to page"
-  N[Bar charts]
-  click N href "posts/bar-charts.html" "Go to page"
-  O[Filtering]
-  click O href "posts/wrangle-filter.html" "Go to page"
-  P[Mutating]
-  click P href "posts/wrangle-mutate.html" "Go to page"
-  Q[Pivoting]
-  click Q href "posts/wrangle-pivoting.html" "Go to page"
-  Z[Faceting plots]
-  click Z href "posts/plot-faceting.html" "Go to page"
-  AA[Density plots]
-  click AA href "posts/plot-density.html" "Go to page"
-  AB[Advanced plotting]
-  click AB href "posts/plot-advanced.html" "Go to page"
-  AC[Summary measures]
-  click AC href "posts/summaries.html" "Go to page"
-  
-  AD[Empirical research]
-  click AD href "posts/research-context.html" "Go to page"
-  AE[Research Qs and Hs]
-  click AE href "posts/research-qh.html" "Go to page"
-  AF[Quantitative analysis]
-  click AF href "posts/data-analysis.html" "Go to page"
-  AG[Inference]
-  click AG href "posts/inference.html" "Go to page"
-  AH[Statistics]
-  click AH href "posts/statistics.html" "Go to page"
-  AI[Repro/repli]
-  click AI href "posts/repro-repli.html" "Go to page"
-  AJ[Proj Management]
-  click AJ href "posts/management.html" "Go to page"
-  AK[File management]
-  click AK href "posts/file-manage.html" "Go to page"
-  
-  AL[Machine Learning]
-  click AL href "posts/machine-learning.html" "Go to page"
-  AM[R scripts]
-  click AM href "posts/scripts.html" "Go to page"
-  AN[R packages]
-  click AN href "posts/packages.html" "Go to page"
-  
-  AO[Frequentist vs Bayesian]
-  click AO href "posts/freq-bayes.html" "Go to page"
-  AP[P-values]
-  click AP href "posts/p-values.html" "Go to page"
-  
-  R[Intro regression II]
-  click R href "posts/intro-regression-predictors.html" "Go to page"
-  S[Regression: categorical predictors]
-  click S href "posts/intro-regression-categorical.html" "Go to page"
-  T[MCMC draws]
-  click T href "posts/regression-draws.html" "Go to page"
-  U[Indexing predictors]
-  click U href "posts/regression-indexing.html" "Go to page"
-  V[Interactions]
-  click V href "posts/regression-interactions.html" "Go to page"
-  W[Categorical-categorical interactions]
-  click W href "posts/regression-interactions-catcat.html" "Go to page"
-  X[Bernoulli regression]
-  click X href "posts/regression-bernoulli.html" "Go to page"
-  AQ[Numeric-numeric interactions]
-  click AQ href "posts/regression-interactions-numnum.html" "Go to page"
-  
-  AR[Interactive plots]
-  click AR href "posts/plot-plotly.html" "Go to page"
-  style AR fill:#00008B,color:#FFF,stroke-width:2px
-  AS[Plotting tips]
-  click AS href "posts/plot-galleries.html" "Go to page"
-  style AS fill:#00008B,color:#FFF,stroke-width:2px
-  
-  A --&gt; B &amp; C
-  
-  B --&gt; AD &amp; AF &amp; AJ
-  AD --&gt; AE
-  AE --&gt; AI
-  AF --&gt; AG &amp; AH
-  AJ --&gt; AK
-  
-  C --&gt; D
-  
-  D --&gt; AN &amp; G
-  AN --&gt; H
-  AH --&gt; AO
-  AO --&gt; J &amp; AP
-  
-  H --&gt; AM
-  AM --&gt; F &amp; I
-  I --&gt; Q
-  
-  F --&gt; E
-  E --&gt; J &amp; K &amp; L &amp; AC &amp; AL
-  
-  K --&gt; M
-  M --&gt; N &amp; Z &amp; AA &amp; AS
-  N --&gt; AB
-  AA --&gt; AB
-  AB --&gt; AR
-
-  L --&gt; O &amp; P &amp; Q
-  P --&gt; N &amp; AA
-  
-  %% Regression
-  J --&gt; R --&gt; S --&gt; T &amp; U
-  U --&gt; V &amp; X
-  V --&gt; W
-  W --&gt; AQ
-  X --&gt; AQ
-  
-  
-  
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="data-visualisation" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data-visualisation"><span class="header-section-number">1</span> Data Visualisation</h2>
+<p>The book <em>Fundamentals of Data Visualisation</em> by Wilke is a good introduction to data visualisation principles. You can find the book online here: <a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualisation</a>.</p>
+<p>You should also check <a href="https://www.cararthompson.com/talks/user2022/">Level Up Your Labels: Tips and Tricks for Annotating Plots</a> and <a href="https://rstudio-conf-2022.github.io/ggplot2-graphic-design/">Graphic design</a>.</p>
+</section>
+<section id="catalogues" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="catalogues"><span class="header-section-number">2</span> Catalogues</h2>
+<p>A list of plot catalogues. If you want to get inspired, follow these links!</p>
+<ul>
+<li><a href="https://clauswilke.com/dataviz/directory-of-visualizations.html">Directory of visualisations</a></li>
+<li><a href="https://datavizcatalogue.com/index.html">Data viz catalogue</a></li>
+<li><a href="https://datavizproject.com">Data Viz project</a></li>
+<li><a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html">Top 50</a></li>
+<li><a href="https://datavizm20.classes.andrewheiss.com/">Data Viz</a></li>
+<li><a href="https://wellcomeopenresearch.org/articles/4-63">Raincloud plots</a></li>
+<li><a href="https://upset.app">Upset graphs</a></li>
+</ul>
+</section>
+<section id="colour" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="colour"><span class="header-section-number">3</span> Colour</h2>
+<p>Colour tips and palettes:</p>
+<ul>
+<li><a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">ColorBrewer2</a>.</li>
+<li><a href="https://github.com/BlakeRMills/MetBrewer">MetBrewer</a></li>
+<li><a href="https://albert-rapp.de/post/2022-02-19-ggplot2-color-tips-from-datawrapper/">Use colour wisely</a>.</li>
+<li><a href="https://pmassicotte.github.io/paletteer_gallery/">paleteer gallery</a> and the <a href="https://emilhvitfeldt.github.io/paletteer/">paleteer</a> package.</li>
+<li><a href="https://carto.com/carto-colors/">Carto colors</a></li>
+</ul>
+</section>
+<section id="specific-recommendations" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="specific-recommendations"><span class="header-section-number">4</span> Specific recommendations</h2>
+<ul>
+<li><a href="https://www.research.autodesk.com/app/uploads/2023/03/same-stats-different-graphs.pdf_rec2hRjLLGgM7Cn2T.pdf">Same stats different data</a>.</li>
+<li><a href="https://stats.stackexchange.com/a/367889">Behind bars</a>.</li>
+<li><a href="https://nightingaledvs.com/ive-stopped-using-box-plots-should-you/">I stopped using box plots</a>.</li>
+<li><a href="https://www.data-to-viz.com/caveat/error_bar.html">Issues with error bars</a>.</li>
+<li><a href="https://link.springer.com/article/10.3758/s13423-022-02143-8">Visual Word Paradigm</a>.</li>
+<li><a href="https://github.com/cxli233/FriendsDontLetFriends">Friends Don’t Let Friends Make Bad Graphs</a>.</li>
+</ul>
+<p>Some recommendations from me:</p>
+<ul>
+<li><strong>Make sure you use the appropriate type of visualisation for different types of variables</strong>. If the variable is continuous then you can use a continuous axis, but if they are discrete (like categories or scales), you should make sure the axis is discrete and not treated as numeric (for example, you can convert a column to factor if it’s read as numeric). Some things that look numeric/continuous are in fact discrete, like scales or ratings.</li>
+<li><strong>DO NOT USE BOX PLOTS</strong>: they are REALLY bad for a bunch of reasons. For a visual example, see here: <a href="https://www.autodesk.com/research/publications/same-stats-different-graphs">https://www.autodesk.com/research/publications/same-stats-different-graphs</a>.</li>
+<li>Good alternatives to box plots are strip charts and violin plots (with <code>geom_jitter()</code> and <code>geom_violin()</code>).</li>
+<li><strong>ONLY USE BAR CHARTS FOR COUNTS</strong>. If you are dealing with counts of stuff (money, words, gestures, phones, etc) then you can use bar charts. You will never need error bars in this case (if you feel that you could add error bars, probably you should not use bar charts). Use stacked bar charts to show proportions.</li>
+<li>If you have collected counts from multiple participants (adults, children, learners, etc), then you can use a strip chart to show the counts or proportion of each participant as individual points on the graph. <strong>DO NOT USE BAR CHARTS TO SHOW MEAN PROPORTIONS</strong>, see <a href="../posts/plot-advanced.html#sec-accuracy">Accuracy and computing proportions</a>.</li>
+<li>Connected point plots also work with time series data when you want to show individual trajectories: <a href="https://srcd.onlinelibrary.wiley.com/cms/asset/202b12cd-28b1-4d17-8853-ceb8e55b4b1c/cdev13406-fig-0001-m.jpg">example</a></li>
+<li><strong>Use colour wisely.</strong> If you need more than 4/5 different colours then perhaps you might want to reconsider using colour at all. With a lot of colours you end up with very similar colours. Also, make sure the colours you pick are colour-blind safe (<a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3</a>).</li>
+<li>You can create <strong>interactive plots with plotly</strong>: for example, <a href="https://plotly.com/r/line-and-scatter/">https://plotly.com/r/line-and-scatter/</a> Even interactive 3D plots: <a href="https://stefanocoretta.github.io/post/rgb-space/">https://stefanocoretta.github.io/post/rgb-space/</a>. Do not make static 3D plots, they are difficult to read. See <a href="../posts/plot-plotly.html">Interactive plots</a>.</li>
+<li>Density plots and histograms with rugs are useful to visualise a continuous variable. Rain-cloud plots too. <a href="https://wellcomeopenresearch.org/articles/4-63">Examples</a></li>
+<li><strong>Make sure the plot is standalone</strong>: anybody looking at it should understand what it is about without having to read your paper/dissertation. Make clever use of axes labels, titles, subtitles, legends and so on. Enhance you plot without making it crowded.</li>
+<li>Check out this <strong>YT video for some data viz principles</strong>: <a href="https://youtu.be/8y9AIe-tBh4">https://youtu.be/8y9AIe-tBh4</a></li>
+<li>Check out the intRo workshop slides for some other types of plots: <a href="https://intro-rstats.github.io/intro-slides/">https://intro-rstats.github.io/intro-slides/</a>&nbsp;(more info on the workshop here <a href="https://intro-rstats.github.io/">https://intro-rstats.github.io).</a></li>
+<li><strong>DO NOT USE BOX PLOTS AND USE BAR CHARTS FOR COUNTS AND RAW PROPORTIONS ONLY. (It goes without saying that you shall NEVER use a pie chart).</strong></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+  PagedTableDoc.initAll();
+}
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -103,6 +103,10 @@ graph TD
   
   AR[Interactive plots]
   click AR href "posts/plot-plotly.html" "Go to page"
+  style AR fill:#00008B,color:#FFF,stroke-width:2px
+  AS[Plotting tips]
+  click AS href "posts/plot-galleries.html" "Go to page"
+  style AS fill:#00008B,color:#FFF,stroke-width:2px
   
   A --> B & C
   
@@ -127,7 +131,7 @@ graph TD
   E --> J & K & L & AC & AL
   
   K --> M
-  M --> N & Z & AA
+  M --> N & Z & AA & AS
   N --> AB
   AA --> AB
   AB --> AR
@@ -143,5 +147,5 @@ graph TD
   X --> AQ
   
   
-  style AR fill:#00008B,color:#FFF,stroke-width:2px
+  
 ```
