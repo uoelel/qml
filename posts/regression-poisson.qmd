@@ -38,100 +38,72 @@ The transformation used in Poisson models is the (natural) logarithm. The invers
 ```{r}
 #| label: log-exp
 
+log_15 <- log(15)
+log_15
 
+log_15_exp <- exp(log_15)
+log_15_exp
 ```
 
+For example, we might want to estimate the number of gestures infants produce in a laboratory session. See [Cameron 2020](https://uoelel.github.io/qml-data/data/cameron2020/gestures.html) for a description of the study and data variables.
 
-For example, we might want to estimate the number of direct vs indirect objects based on the counts found in a corpus of English.
+```{r}
+#| label: gestures
+gestures <- read_csv("data/cameron2020/gestures.csv")
+gestures
+```
+
+Let's estimate the number of gestures (`count`) depending on the cultural background (`background`). I recommend creating plots of the data before moving on.
+
+Here's the model mathematical formula.
 
 $$
 \begin{align}
 \text{N}_i & \sim Poisson(\lambda_i) \\
-\ln(\lambda_i) & = \alpha_{\text{O}_i}
+\ln(\lambda_i) & = \alpha_{\text{B}_i}
 \end{align}
 $$
 
-- $\text{N}_i$ is the number of objects.
-- $Poisson(\lambda_i)$ tells us that the number of objects follows a Poisson distribution.
+- $\text{N}_i$ is the number of gestures.
+- $Poisson(\lambda_i)$ tells us that the number of gestures follows a Poisson distribution.
 - $\ln()$ is simply the natural logarithm.
-- $\ln(\lambda_i)$ is equal to $\alpha$, which differs depending to the type of the object ($\alpha_{\text{O}_i}$), where $\text{O}_i$ is either "direct" or "indirect".
+- $\ln(\lambda_i)$ is equal to $\alpha$, which differs depending to the type of the gesture ($\alpha_{\text{B}_i}$), where $\text{G}_i$ is either "Cantonese", "Bengali" or "English".
 
-You can read it as:
+You can read it the first line as:
 
-> The probability of getting a correct response follows a Bernoulli distribution with $p$ = 0.8.
+> The number of gestures follows a Poisson distribution with rate $\lambda_i$.
 
-If you randomly sampled from $Bernoulli(0.8)$ you would get "correct" 80% of the times and "incorrect" 20% of the times.
+## Counts log-odds
 
-Now, what we are trying to do when modelling binary outcome variables is to estimate the probability $p$ from the data. But there is a catch: probabilities are bounded between 0 and 1 and regression models don't work with bounded variables out of the box!
+Counts are a discrete numeric variable, bounded to 0 and positive numbers only. As we have learnt with Bernoulli models, regression models don't work with bounded variables out of the box. We need to transform counts into a scale that is continuous and unbounded.
 
-Bounded probabilities are transformed into an unbounded numeric variable. The following section explains how.
+This is where the **logarithmic function** from the mathematical formula above comes in: the logarithmic function (from "*log*istic un*it*") is a mathematical function that logs numbers.
 
-## Probability and log-odds
-
-As we have just learnt probabilities are bounded between 0 and 1 but we need something that is not bounded because regression models don't work with bounded numeric variables.
-
-This is where the **logit function** comes in: the logit function (from "*log*istic un*it*") is a mathematical function that transforms probabilities into log-odds.
-
-The plot below shows the correspondence of probabilities (on the *y*-axis) and log-odds (on the *x*-axis), as marked by the black S-shaped line. Since probabilities can't be smaller than 0 and greater than 1, the black line slopes in either direction and it approaches 0 and 1 on the *y*-axis without ever reaching them (in mathematical terms, it's an *asymptotic* line). It is helpful to just memorise that probability 0.5 corresponds to log-odds 0.
+The plot below shows the correspondence of numbers (on the *y*-axis) and logged values (on the *x*-axis), as marked by the black dots. It is helpful to memorise that the log of 1 is 0.
 
 ```{r}
 #| label: p-log-odds
 #| warning: false
 #| echo: false
 
-dots <- tibble(
-  p = seq(0.1, 0.9, by = 0.1),
-  log_odds = qlogis(p)
-)
-
-p_log_odds <- tibble(
-  p = seq(0, 1, by = 0.001),
-  log_odds = qlogis(p)
+count_log <- tibble(
+  count = seq(1, 25),
+  log = log(count)
 ) %>%
-  ggplot(aes(log_odds, p)) +
-  geom_hline(yintercept = 0.5, linetype = "dashed") +
-  geom_hline(yintercept = 0, colour = "#8856a7", linewidth = 1) +
-  geom_hline(yintercept = 1, colour = "#8856a7", linewidth = 1) +
-  geom_vline(xintercept = 0, alpha = 0.5) +
-  geom_line(linewidth = 2) +
-  # geom_point(data = dots, size = 4) +
-  geom_point(x = 0, y = 0.5, colour = "#8856a7", size = 4) +
-  annotate("text", x = -4, y = 0.8, label = "logit(p) = log-odds") +
-  scale_x_continuous(breaks = seq(-6, 6, by = 1), minor_breaks = NULL, limits = c(-6, 6)) +
-  scale_y_continuous(breaks = seq(0, 1, by = 0.1), minor_breaks = NULL) +
+  ggplot(aes(count, log)) +
+  geom_point() +
+  scale_x_continuous(breaks = seq(1, 25), minor_breaks = NULL) +
   labs(
-    title = "Correspondence between log-odds and probabilities",
-    x = "Log-odds",
-    y = "Probability"
+    title = "Correspondence between counts and logged values",
+    x = "Counts",
+    y = "Logged counts"
   )
-p_log_odds
+count_log
 ```
 
-When you fit a regression model with a binary outcome and a Bernoulli family, the estimates are in log-odds. To transform log-odds back into probability, one uses the **inverse logit** (or logistic) **function**. The logit and inverse logit functions in R are applied with the `qlogis()` and `plogis()` functions respectively.
+When you fit a regression model with a Poisson distribution, the estimates are log-odds, on the log scale. When you exponentiate the estimates, you go back to the original scale, i.e. counts.
 
-```{r}
-#| label: pq-logis
-p <- 0.3
-
-# from probability to log-odds
-LO <- qlogis(p)
-LO
-
-# from log-odds to probability
-plogis(LO)
-```
-
-That is all you have to understand for now to be able to fit and interpret a Bernoulli regression!
-
-## Fitting a Bernoulli model
-
-::: {.callout-warning collapse="true"}
-#### Bernoulli, binomial and logistic regression
-
-A lot of researchers know Bernoulli models under the name "binomial" or "logistic" regression. Please, note that these are exactly equivalent: they refer to a model with a Bernoulli distribution for the outcome variable. It is just that different research traditions call them differently.
-
-So if somebody asks you to run a logistic regression, or if you read a paper that reports one, what they just mean is to run a regression with a binary outcome variable and a Bernoulli distribution!
-:::
+## Fitting a Poisson model
 
 ### The data
 
