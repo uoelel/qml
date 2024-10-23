@@ -101,6 +101,9 @@ graph TD
   AQ[Numeric-numeric interactions]
   click AQ href "posts/regression-interactions-numnum.html" "Go to page"
   
+  AR[Interactive plots]
+  click AR href "posts/plot-plotly.html" "Go to page"
+  
   A --> B & C
   
   B --> AD & AF & AJ
@@ -127,6 +130,7 @@ graph TD
   M --> N & Z & AA
   N --> AB
   AA --> AB
+  AB --> AR
 
   L --> O & P & Q
   P --> N & AA
@@ -138,5 +142,6 @@ graph TD
   W --> AQ
   X --> AQ
   
+  
+  style AR fill:#00008B,color:#FFF,stroke-width:2px
 ```
-

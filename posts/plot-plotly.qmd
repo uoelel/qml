@@ -1,0 +1,97 @@
+---
+title: "Interactive plotting with Plotly"
+subtitle: "Learn how to create interactive plots with Plotly"
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+date: 2024-10-23
+---
+
+```{r}
+#| label: packages
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(webexercises)
+library(plotly)
+```
+
+::: callout-warning
+## Prerequisites
+
+- [Advanced plotting](plot-advance.qmd)
+
+:::
+
+## Overview
+
+[Plotly](https://plotly.com) is an Open Source graphing system, with interfaces to major languages like Python and R.
+
+The [plotly](https://plotly.com/r/) R package allows you to make your ggplot2 plots interactive, or you can always create interactive plots with plotly directly.
+
+This tutorial will show a simple example of each approach, but we refer you to the R package documentation for a full tour.
+
+## Add interactivity to a ggplot2 plot
+
+Let's recreate the Aggregated Endangerment Status (AES) plot from [Bar charts](bar-charts.qmd).
+
+First let's read the data.
+
+```{r}
+#| label: glot-status
+library(tidyverse)
+
+glot_status <- readRDS("data/coretta2022/glot_status.rds")
+```
+
+Then let's create the plot. This time we will plot all macro-areas and we need to save the `ggplot()` outout to a variable.
+
+```{r}
+#| label: aes-plot
+
+aes_plot <- glot_status |>
+ggplot(aes(x = Macroarea, fill = status)) +
+  geom_bar(position = "fill") +
+  labs(
+    x = "Macro-area",
+    y = "Proportion",
+    fill = "Endangerment"
+  )
+```
+
+Finally, we can use the `ggplotly()` function from the plotly package to make our ggplot2 plot interactive!
+
+```{r}
+#| label: aes-plotly
+ggplotly(aes_plot)
+```
+
+## Use `plot_ly()` to create interactive plots
+
+The alternative approach is to use `plot_ly()` from plotly to create more complex graphs. A typical example of when you might want to use `plot_ly()` is when making 3D scatter plots.
+
+Let's make a 3D formant plot of the Albanian vowels. First, the data
+
+```{r}
+#| label: alb-formants
+alb_formants <- readRDS("data/coretta2021/alb_formants.rds")
+
+alb_formants
+```
+
+Here's the code to make a 3D scatter plot with plotly. For a detailed explanation, see the package documentation!
+
+```{r}
+#| label: alb-formants-3d
+#| message: false
+#| warning: false
+alb_formants |> 
+  plot_ly(
+    x = ~F1, y = ~F2, z = ~F3, color = ~vowel, text = ~vowel,
+    marker = list(size = 5, opacity = 0.7),
+    hovertemplate = paste("<b>%{text}</b>", "<br>F1: %{x:.1r}", "<br>F2: %{y:.1r}", "<br>F3: %{z:.1r}")
+  )
+```
+

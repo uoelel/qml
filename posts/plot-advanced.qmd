@@ -623,3 +623,8 @@ What is that `HH::likert()`? That's the R way of calling a function from a packa
 In most cases you won't have to worry, but if you ever think that function overwriting is causing issues, you know you can use the `package::function()` syntax.
 
 What can you tell about the attitude towards Emilian and Esperanto from the plot?
+
+::: callout-note
+### Next
+
+- [Interactive plotting with Plotly](plot-plotly.qmd)
