@@ -105,6 +105,74 @@ As explained above, you will have to **submit a Final Reflection including the p
 
 For any question about the Group Project, post your question on Piazza (unless it's of a sensitive nature, then get in touch with Stefano).
 
+::: callout-warning
+Each project will be different, so if you are unsure about how to approach your project idea or if you need help finding an idea in the first place, please get in touch with Stefano!
+
+Stefano does not have telepathic powers (yet) and the only way for him to help you is for you to reach out. :)
+:::
+
+The following boxes give you some examples of possible projects and project proposals, with an explanation on how you can go about completing these projects.
+
+::: {.callout-note collapse="true"}
+### Example project 1
+
+**Project proposal**
+
+> We want to replicate the study by [Keogh et al](https://www.research.ed.ac.uk/en/publications/predictability-and-variation-in-language-are-differentially-affec). The study use an artificial language learning paradigm to test the relationship between working memory and regularisation. We will run the exact same experiment with 5 participants and conduct the same analysis they did.
+
+**How to complete it**
+
+This is a **replication** project. You will need to understand the original study design, make sure you have the same materials and protocols and you will have to recruit 5 participants (these can be students from the QML course, including yourselves). After data collection, you should analyse the data as in the original study and write a short report focussing on the analysis approach and results. Specifically, you should discuss how the new results compare with the ones from the original study.
+:::
+
+::: {.callout-note collapse="true"}
+### Example project 2
+
+**Project proposal**
+
+> We want to collect recordings of ourselves reading a passage to illustrate different accents. We will include accents from: Scotland, England, India, Tanzania and Hungary. We will curate the data by formatting it so that it's [FAIR](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, Reusable) and we will make it available on the Open Science Framework with a CC-BY license. The data will be thoroughly documented.
+
+**How to complete it**
+
+This is a **data curation** project. You will collect, format, organise and document data which you will make available online. This requires learning about file data management, file formats, Open Research practices and principles.
+:::
+
+::: {.callout-note collapse="true"}
+### Example project 3
+
+**Project proposal**
+
+> We want to draw an abstract paining that represents the analysis approach used in [Coretta et al.](https://www.doi.org/10.1080/01434632.2024.2413933). The painting will be accompanied by a written piece with an explanation of the approach, our understanding and how this has shaped the painting.
+
+**How to complete it**
+
+This is **creative** project. You will have to carefully read a paper, understand the analysis, which will likely be of a more advanced level compared to what you have learnt so far, and use your creativity to create a painting (no need to be artists to make a painting!). The written piece will have to show that you have understood and internalised the analysis and that this understanding has driven the production of the painting. What you submit is the written piece and high resolution photo of the painting.
+:::
+
+::: {.callout-note collapse="true"}
+### Example project 4
+
+**Project proposal**
+
+> We are interested in the relationship between vowel height and vowel duration in Hungarian. We will run a small-scale study with recordings from 2 or 3 students who are speakers of Hungarian. We will analyse the vowel duration using Bayesian regression models.
+
+**How to complete it**
+
+This is **research** project. You will have to think of a research question/hypothesis (they do not have to be novel and you can reuse existing questions/hypotheses) and collect and analyse data. Note that we are restricted by ethics requirements so you can't record people that are not UoE students, unless you want to apply for ethics (which you can). The written report will have to focus on the data collection and analysis (you should put less focus on literature review and discussion).
+:::
+
+::: {.callout-note collapse="true"}
+### Example project 5
+
+**Project proposal**
+
+> We want to re-analyse the data from [Ota 2013]. The original study used frequentist regression models, but we will instead apply a Bayesian regression model.
+
+**How to complete it**
+
+This is **robustness assessment** project. You will have to get hold of the original data and re-analyse it using a different approach than that in the original study. The report will describe the original approach and your approach, report the results and assess how these are different (if at all) from the original study's results.
+:::
+
 ## Feedback and marking
 
 **Feedback** will be provided to you (1) during class, (2) as comments on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me and/or the tutors).
@@ -133,7 +201,7 @@ To help you thinking about which mark to assign yourself, we will use an "impres
 Once you pick a mark band, you need to pick a step within that band. You can find a description of the bands here: [Extended Common Marking Scheme](https://registryservices.ed.ac.uk/timetabling-examinations/exams/regulations/common-marking-scheme). Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:
 
 | Step | Criteria |
-|:-----------------:|-----------------------------------------------------|
+|:------------------:|----------------------------------------------------|
 | 2 | The criteria for the mark band have been achieved, but there might be minor issues. |
 | 5 | The criteria for the mark band have been achieved satisfactorily. |
 | 8 | The criteria for the mark band have been achieved fully. |
