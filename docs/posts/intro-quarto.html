@@ -256,46 +256,12 @@ Reproducible research
 </div>
 <div class="callout-body-container callout-body">
 <p>Research is <strong>reproducible</strong> when the same data and same code return the same results.</p>
-<p>See the <a href="https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions">Definitions</a> page of The Turing Way for definitions of <em>reproducible</em>, <em>replicable</em>, <em>robust</em> and <em>generalisable</em> research.</p>
+<p>Check out <a href="../posts/repro-repli.html">Reproducibility and replicability</a> for details.</p>
 </div>
 </div>
 <p>R scripts are great for writing code, and you can even document the code (add explanations or notes) with comments (i.e.&nbsp;lines that start with <code>#</code>).</p>
 <p>But for longer text or complex data analysis reports, R scripts can be a bit cumbersome.</p>
 <p>A solution to this is using Quarto files (they have the <code>.qmd</code> extension).</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quiz 1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<strong>When is research not reproducible?</strong>
-<div id="radio_GPPGTNLUOI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GPPGTNLUOI" value=""> <span>a. When the results do not match the researcher's expectations.</span></label><label><input type="radio" autocomplete="off" name="radio_GPPGTNLUOI" value="answer"> <span>b. When the the same data and code as in the original study do not produce the published results.</span></label><label><input type="radio" autocomplete="off" name="radio_GPPGTNLUOI" value=""> <span>c.&nbsp;When research conducted by a different research team with new data does not produce the results as published in the original study. </span></label>
-</div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Research is <strong>reproducible</strong> when you can produce the same results using the original data and code/methods.</p>
-<p>Research is <strong>replicable</strong> when you can produce the same results using new data and the original code/methods.</p>
-<p>See <a href="https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html#table-of-definitions-for-reproducibility" class="uri">https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html#table-of-definitions-for-reproducibility</a>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
 <section id="code-and-text" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="code-and-text"><span class="header-section-number">1.1</span> Code… and text!</h3>
 <p>Quarto is a file format that allows you to mix code and formatted text in the same file.</p>
@@ -435,7 +401,7 @@ Quarto: Code chunks
 <p>We can instruct R to <em>always</em> run code from the project folder (i.e.&nbsp;the working directory is the project folder). This is when the <code>_quarto.yml</code> file comes into play.</p>
 <p>Open the <code>_quarto.yml</code> file in RStudio (you can simply click on the file in the <code>Files</code> tab and that will open the file in the RStudio editor). Add the line <code>execute-dir: project</code> under the title. Note that indentation should be respected, so the line you write should align with <code>title:</code>, not with <code>project:</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"dal"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"qml-2024"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">execute-dir</span><span class="kw">:</span><span class="at"> project</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now, all code in Quarto files, no matter where they are saved, will be run with the project folder as the working directory.</p>
 </section>
@@ -551,9 +517,7 @@ Quarto: Rendering
 <p>Quarto files can be <strong>rendered</strong> into other formats, like HTML, PDF and Word documents.</p>
 </div>
 </div>
-<p>The assessments of this course will require you to write text and code in a Quarto file and render it to HTML.</p>
 <p>You could even write your dissertation in Quarto!</p>
-<p>The following sections will introduce you to the basics of plotting data. You will keep learning how to create plots throughout the course.</p>
 </section>
 </section>
 <section id="render-your-quarto-file" class="level2" data-number="2">

@@ -202,7 +202,7 @@ mvp_bm <- brm(
   data = verb_org,
   cores = 4,
   seed = 1329,
-  file = "data/cache/regression-bernoulli_mvp_bm"
+  file = "cache/regression-bernoulli_mvp_bm"
 )
 ```
 

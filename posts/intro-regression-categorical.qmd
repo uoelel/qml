@@ -197,7 +197,7 @@ hnr_bm <- brm(
   family = gaussian(),
   data = polite,
   cores = 4,
-  file = "data/cache/hnr_bm",
+  file = "cache/hnr_bm",
   seed = 2913
 )
 

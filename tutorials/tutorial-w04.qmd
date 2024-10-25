@@ -511,7 +511,7 @@ alb_vot_bm <- brm(
   family = gaussian(),
   data = alb_vot_vl,
   backend = "cmdstanr",
-  file = "data/cache/vot_bm.rds"
+  file = "cache/vot_bm.rds"
 )
 ```
 

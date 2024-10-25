@@ -112,7 +112,7 @@ m_i <- brm(
   family = lognormal,
   data = token_measures,
   seed = 1425,
-  file = "data/cache/regression-indexing-m_i"
+  file = "cache/regression-indexing-m_i"
 )
 ```
 

@@ -239,8 +239,7 @@ si_bm <- brm(
   SI ~ logfreq_c + semdist_c + logfreq_c:semdist_c,
   family = bernoulli(),
   data = si,
-  backend = 'cmdstanr',
-  file = 'data/cache/si_bm'
+  file = 'cache/si_bm'
 )
 ```
 

@@ -387,7 +387,7 @@ si_bm <- brm(
   family = bernoulli(),
   data = si,
   backend = 'cmdstanr',
-  file = 'data/cache/si_bm'
+  file = 'cache/si_bm'
 )
 ```
 

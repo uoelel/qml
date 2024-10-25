@@ -392,14 +392,32 @@ Note
 <pre><code>Compiling Stan program...</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Trying to compile a simple C file</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Running /opt/homebrew/Cellar/r/4.4.0_1/lib/R/bin/R CMD SHLIB foo.c
+using C compiler: ‘Apple clang version 16.0.0 (clang-1600.0.26.3)’
+using SDK: ‘MacOSX15.0.sdk’
+clang -I"/opt/homebrew/Cellar/r/4.4.0_1/lib/R/include" -DNDEBUG   -I"/Users/ste/Library/Caches/org.R-project.R/R/renv/cache/v5/macos/R-4.4/aarch64-apple-darwin23.4.0/Rcpp/1.0.13/f27411eb6d9c3dada5edd444b8416675/Rcpp/include/"  -I"/Users/ste/repos/qml/renv/library/macos/R-4.4/aarch64-apple-darwin23.4.0/RcppEigen/include/"  -I"/Users/ste/repos/qml/renv/library/macos/R-4.4/aarch64-apple-darwin23.4.0/RcppEigen/include/unsupported"  -I"/Users/ste/repos/qml/renv/library/macos/R-4.4/aarch64-apple-darwin23.4.0/BH/include" -I"/Users/ste/Library/Caches/org.R-project.R/R/renv/cache/v5/macos/R-4.4/aarch64-apple-darwin23.4.0/StanHeaders/2.32.10/c35dc5b81d7ffb1018aa090dff364ecb/StanHeaders/include/src/"  -I"/Users/ste/Library/Caches/org.R-project.R/R/renv/cache/v5/macos/R-4.4/aarch64-apple-darwin23.4.0/StanHeaders/2.32.10/c35dc5b81d7ffb1018aa090dff364ecb/StanHeaders/include/"  -I"/Users/ste/Library/Caches/org.R-project.R/R/renv/cache/v5/macos/R-4.4/aarch64-apple-darwin23.4.0/RcppParallel/5.1.9/f38a72a419b91faac0ce5d9eee04c120/RcppParallel/include/"  -I"/Users/ste/Library/Caches/org.R-project.R/R/renv/cache/v5/macos/R-4.4/aarch64-apple-darwin23.4.0/rstan/2.32.6/8a5b5978f888a3477c116e0395d006f8/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include '/Users/ste/Library/Caches/org.R-project.R/R/renv/cache/v5/macos/R-4.4/aarch64-apple-darwin23.4.0/StanHeaders/2.32.10/c35dc5b81d7ffb1018aa090dff364ecb/StanHeaders/include/stan/math/prim/fun/Eigen.hpp'  -D_REENTRANT -DRCPP_PARALLEL_USE_TBB=1   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include    -fPIC  -g -O2  -c foo.c -o foo.o
+In file included from &lt;built-in&gt;:1:
+In file included from /Users/ste/Library/Caches/org.R-project.R/R/renv/cache/v5/macos/R-4.4/aarch64-apple-darwin23.4.0/StanHeaders/2.32.10/c35dc5b81d7ffb1018aa090dff364ecb/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22:
+In file included from /Users/ste/repos/qml/renv/library/macos/R-4.4/aarch64-apple-darwin23.4.0/RcppEigen/include/Eigen/Dense:1:
+In file included from /Users/ste/repos/qml/renv/library/macos/R-4.4/aarch64-apple-darwin23.4.0/RcppEigen/include/Eigen/Core:19:
+/Users/ste/repos/qml/renv/library/macos/R-4.4/aarch64-apple-darwin23.4.0/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: 'cmath' file not found
+  679 | #include &lt;cmath&gt;
+      |          ^~~~~~~
+1 error generated.
+make: *** [foo.o] Error 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Start sampling</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
 Chain 1: 
-Chain 1: Gradient evaluation took 2.6e-05 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.26 seconds.
+Chain 1: Gradient evaluation took 2.2e-05 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.22 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
@@ -416,8 +434,8 @@ Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 0.023 seconds (Warm-up)
-Chain 1:                0.02 seconds (Sampling)
+Chain 1:  Elapsed Time: 0.024 seconds (Warm-up)
+Chain 1:                0.019 seconds (Sampling)
 Chain 1:                0.043 seconds (Total)
 Chain 1: </code></pre>
 </div>
@@ -429,7 +447,7 @@ Chain 1: </code></pre>
 <p>The natural way to inspect a model object like <code>h_1</code>, is to use the <code>summary()</code> function, which prints the model summary.</p>
 <p>Let’s inspect the summary of the model now.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(h_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(h_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: gaussian 
   Links: mu = identity; sigma = identity 
@@ -440,11 +458,11 @@ Formula: h ~ 1
 
 Regression Coefficients:
           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept   165.19      0.59   164.02   166.30 1.00      535      531
+Intercept   165.16      0.59   163.95   166.30 1.00      878      624
 
 Further Distributional Parameters:
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma     8.39      0.43     7.58     9.28 1.00      694      498
+sigma     8.38      0.42     7.58     9.26 1.00      780      636
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -483,7 +501,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <h2 data-number="7" class="anchored" data-anchor-id="plotting-the-posterior-distributions"><span class="header-section-number">7</span> Plotting the posterior distributions</h2>
 <p>While the model summary reports <em>summaries</em> of the posterior distributions, it is always helpful to <em>plot</em> the posteriors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h_1, <span class="at">combo =</span> <span class="fu">c</span>(<span class="st">"dens"</span>, <span class="st">"trace"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h_1, <span class="at">combo =</span> <span class="fu">c</span>(<span class="st">"dens"</span>, <span class="st">"trace"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -501,14 +519,14 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>The model summary reports the Bayesian Credible Intervals (CrIs) of the posterior distributions.</p>
 <p>Another way of obtaining summaries of the coefficients is to use the <code>posterior_summary()</code> function. Ignore the last three lines.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">posterior_summary</span>(h_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">posterior_summary</span>(h_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               Estimate  Est.Error        Q2.5       Q97.5
-b_Intercept  165.188975 0.58641126  164.023908  166.303072
-sigma          8.391712 0.42565293    7.584844    9.279723
-Intercept    165.188975 0.58641126  164.023908  166.303072
-lprior        -6.030282 0.06212402   -6.160126   -5.914505
-lp__        -712.569786 0.98626592 -715.219667 -711.585583</code></pre>
+b_Intercept  165.156753 0.58602651  163.951985  166.301666
+sigma          8.377245 0.41649870    7.575665    9.255368
+Intercept    165.156753 0.58602651  163.951985  166.301666
+lprior        -6.028051 0.06001757   -6.152499   -5.915154
+lp__        -712.556900 1.03790698 -715.185680 -711.591604</code></pre>
 </div>
 </div>
 <p>The 95% CrI of the <code>b_Intercept</code> is between 164 and 166. This means there is a 95% probability, or that we can be 95% confident, that the <code>Intercept</code> value is within that range.</p>

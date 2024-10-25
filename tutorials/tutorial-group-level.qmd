@@ -61,7 +61,7 @@ ota2009_bm <- brm(
   data = ota2009,
   cores = 4,
   seed = my_seed,
-  file = "data/cache/ota2009_bm"
+  file = "cache/ota2009_bm"
 )
 ```
 

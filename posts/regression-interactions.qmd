@@ -81,7 +81,7 @@ mald_bm_1 <- brm(
   data = mald,
   seed = 9284,
   cores = 4,
-  file = "data/cache/regression-interactions_mald_bm_1"
+  file = "cache/regression-interactions_mald_bm_1"
 )
 ```
 
@@ -156,7 +156,7 @@ mald_bm_2 <- brm(
   data = mald,
   seed = 9284,
   cores = 4,
-  file = "data/cache/regression-interactions_mald_bm_2"
+  file = "cache/regression-interactions_mald_bm_2"
 )
 
 summary(mald_bm_2, prob = 0.8)
@@ -205,7 +205,7 @@ mald_bm_3 <- brm(
   data = mald,
   seed = 9284,
   cores = 4,
-  file = "data/cache/regression-interactions_mald_bm_3"
+  file = "cache/regression-interactions_mald_bm_3"
 )
 ```
 

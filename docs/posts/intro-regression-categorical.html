@@ -455,8 +455,8 @@ Quiz 1
 </div>
 <div class="callout-body-container callout-body">
 Since informal speech in the data seem to have on average lower HNR than polite speech, will <span class="math inline">\(\beta_1\)</span> be:
-<div id="radio_DINVZZSEHM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DINVZZSEHM" value="answer"> <span>Positive.</span></label><label><input type="radio" autocomplete="off" name="radio_DINVZZSEHM" value=""> <span>0.</span></label><label><input type="radio" autocomplete="off" name="radio_DINVZZSEHM" value=""> <span>Negative.</span></label>
+<div id="radio_QSPTKJYLHE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QSPTKJYLHE" value="answer"> <span>Positive.</span></label><label><input type="radio" autocomplete="off" name="radio_QSPTKJYLHE" value=""> <span>0.</span></label><label><input type="radio" autocomplete="off" name="radio_QSPTKJYLHE" value=""> <span>Negative.</span></label>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -504,7 +504,7 @@ Attaching package: 'brms'</code></pre>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> polite,</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"data/cache/hnr_bm"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/hnr_bm"</span>,</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">seed =</span> <span class="dv">2913</span></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -527,15 +527,15 @@ Formula: HNRmn ~ attitude
          total post-warmup draws = 4000
 
 Regression Coefficients:
-               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept         16.27      0.16    15.97    16.59 1.00     4136     3237
-attitudepolite     1.25      0.23     0.80     1.70 1.00     4396     2937
+            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept      16.28      0.15    15.97    16.58 1.00     4239     2929
+attitudepol     1.25      0.22     0.80     1.69 1.00     3854     2983
 
 Further Distributional Parameters:
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma     1.69      0.08     1.54     1.86 1.00     4065     2979
+sigma     1.69      0.08     1.54     1.85 1.00     3898     2885
 
-Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
@@ -544,9 +544,9 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Regression Coefficients:
-               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept         16.27      0.16    15.97    16.59 1.00     4136     3237
-attitudepolite     1.25      0.23     0.80     1.70 1.00     4396     2937</code></pre>
+            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept      16.28      0.15    15.97    16.58 1.00     4239     2929
+attitudepol     1.25      0.22     0.80     1.69 1.00     3854     2983</code></pre>
 </div>
 </div>
 <p>We get two <strong>coefficients</strong>:</p>

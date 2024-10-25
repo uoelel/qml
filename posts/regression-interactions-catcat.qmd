@@ -73,7 +73,7 @@ shallow_bm <- brm(
   logRT ~ 0 + Relation_type:Group,
   family = gaussian,
   data = shallow,
-  file = "data/cache/regression-interactions-catcat_shallow_bm",
+  file = "cache/regression-interactions-catcat_shallow_bm",
   cores = 4,
   seed = 6237
 )

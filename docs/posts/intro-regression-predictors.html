@@ -474,10 +474,10 @@ Attaching package: 'brms'</code></pre>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> ita_egg_clean,</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">seed =</span> <span class="dv">20912</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"data/cache/vow_bm"</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"cache/vow_bm"</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The model will be fitted and saved in <code>data/cache/</code> with the file name <code>vow_bm.rds</code>. If you now re-run the same code again, you will notice that <code>brm()</code> does not fit the model again, but rather reads it from the file (no output is shown, but trust me, it works! Check the contents of <code>data/cache/</code> to see for yourself.).</p>
+<p>The model will be fitted and saved in <code>cache/</code> with the file name <code>vow_bm.rds</code>. If you now re-run the same code again, you will notice that <code>brm()</code> does not fit the model again, but rather reads it from the file (no output is shown, but trust me, it works! Check the contents of <code>cache/</code> to see for yourself.).</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -508,12 +508,12 @@ Formula: v1_duration ~ speech_rate
 
 Regression Coefficients:
             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept     198.48      3.34   191.84   204.98 1.00     4285     2913
-speech_rate   -21.73      0.62   -22.96   -20.51 1.00     4350     3040
+Intercept     198.47      3.33   191.76   204.97 1.00     3681     2274
+speech_rate   -21.73      0.62   -22.93   -20.49 1.00     3623     2421
 
 Further Distributional Parameters:
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma    21.66      0.27    21.14    22.17 1.00     3694     2919
+sigma    21.66      0.27    21.14    22.19 1.00     3855     2615
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential

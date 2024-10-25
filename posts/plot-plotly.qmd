@@ -21,7 +21,7 @@ library(plotly)
 ::: callout-warning
 ## Prerequisites
 
-- [Advanced plotting](plot-advance.qmd)
+- [Advanced plotting](plot-advanced.qmd)
 
 :::
 

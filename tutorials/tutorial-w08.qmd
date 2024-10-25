@@ -233,7 +233,7 @@ acc_inter_bm <- brm(
   family = bernoulli(),
   data   = shallow,
   backend = "cmdstanr",
-  file = "data/cache/acc_inter_bm"
+  file = "cache/acc_inter_bm"
 )
 ```
 
@@ -593,7 +593,7 @@ dur_bm <- brm(
   family = gaussian(),
   data   = dur_ita_pol,
   backend = "cmdstanr",
-  file = "data/cache/dur_bm"
+  file = "cache/dur_bm"
 )
 ```
 

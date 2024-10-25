@@ -73,7 +73,7 @@ You can read it the first line as:
 
 > The number of gestures follows a Poisson distribution with rate $\lambda_i$.
 
-## Counts log-odds
+## Counts and log-odds
 
 Counts are a discrete numeric variable, bounded to 0 and positive numbers only. As we have learnt with Bernoulli models, regression models don't work with bounded variables out of the box. We need to transform counts into a scale that is continuous and unbounded.
 
@@ -103,116 +103,71 @@ count_log
 
 When you fit a regression model with a Poisson distribution, the estimates are log-odds, on the log scale. When you exponentiate the estimates, you go back to the original scale, i.e. counts.
 
-## Fitting a Poisson model
+## The model
 
-### The data
-
-To illustrate how to fit a Bernoulli model, we will use data from [Brentari 2024](https://uoelel.github.io/qml-data/data/brentari2024/verb_org.html) on the emergent Nicaraguan Sign Language (*Lengua de Señas Nicaragüense*, NSL).
-
-```{r}
-#| label: verb-org
-
-verb_org <- read_csv("data/brentari2024/verb_org.csv")
-```
-
-`verb_org` contains information on predicates as signed by three groups (`Group`): home-signers (`homesign`), first generation NSL signers (`NSL1`) and second generation NSL signers (`NSL2`). Specifically, the data coded in `Num_Predicates` whether the predicates uttered by the signer were single-verb predicates (SVP, `single`) or a multi-verb predicates (MVP, `multiple`). The hypothesis of the study is that use of multi-verb predicates would increase with each generation, i.e. that NSL1 signers would use more MVPs than home-signers and that NSL2 signers would use more MVPs than home-signers and NSL1 signers. (For the linguistic reasons behind this hypothesis, check the paper linked above).
-
-Let's plot the data to learn a bit more about it.
-
-```{r}
-#| label: verb-org-plot
-
-verb_org |> 
-  ggplot(aes(Group, fill = Num_Predicates)) +
-  geom_bar(position = "fill")
-```
-
-What do you notice about the type of predicates in the three groups?
-
-To assess the study hypothesis, we can fit a Bernoulli model with `Num_Predicates` as the outcome variable and `Group` as the predictor.
-
-Before we move on onto fitting the model, it is useful to transform `Num_Predicates` into a factor and specify the order of the levels so that `single` is the first level and `multiple` is the second level.
-
-This is useful because Bernoulli models estimate the probability (the parameter $p$ in $Bernoulli(p)$ of getting the *second* level in the outcome variable.
-
-You can also think of this in terms of `0`s and `1`s: the first level is assigned to `0` and the second level is assigned to `1`. Then a Bernoulli distribution with probability $p$ tells you the probability of getting a `1`. It doesn't matter how you prefer to think about Bernoulli distributions, as long as you remember that the probability being estimated is the probability of the *second* level.
-
-Now let's mutate `verb_org`.
-
-```{r}
-#| label: num-preds-mutate
-
-verb_org <- verb_org |> 
-  mutate(
-    Num_Predicates = factor(Num_Predicates, levels = c("single", "multiple"))
-  )
-```
-
-If you reproduce the plot above you will see now that the order of `Num_Predicates` in the legend is "single" then "multiple" and that the order of the proportions in the bar chart have flipped.
-
-Now we can move on onto modelling.
-
-### The model
+Let's repeat the model's mathematical formula here:
 
 $$
 \begin{align}
-\text{Num\_Preds}_{MVP} & \sim Bernoulli(p_i) \\
-logit(p_i) & = \alpha_{\text{Group}[i]} \\
+\text{N}_i & \sim Poisson(\lambda_i) \\
+\ln(\lambda_i) & = \alpha_{\text{B}_i}
 \end{align}
 $$
 
--   The probability of using an MVP follows a Bernoulli distribution with probability $p$.
+-   The number of gestures follows a Poisson distribution with rate $\lambda$.
 
--   The log-odds of $p$ are equal to $\alpha$ for each Group.
+-   The log of $\lambda$ is equal to $\alpha$ for each `background`.
 
-In other words, the model estimates $p$ for each group. Here is the code. Remember that to use the indexing approach for categorical predictors (`Group`) we need to suppress the intercept with the `0 +` syntax.
+In other words, the model estimates $\lambda$ for each group in `background`. Here is the code. Remember that to use the indexing approach for categorical predictors (`Group`) we need to suppress the intercept with the `0 +` syntax.
 
 ```{r}
-#| label: mvp-bm
+#| label: gest-bm
 
-mvp_bm <- brm(
-  Num_Predicates ~ 0 + Group,
-  family = bernoulli,
-  data = verb_org,
+gest_bm <- brm(
+  count ~ 0 + background,
+  family = poisson,
+  data = gestures,
   cores = 4,
   seed = 1329,
-  file = "data/cache/regression-bernoulli_mvp_bm"
+  file = "cache/regression-poisson_gest-bm"
 )
 ```
 
 Let's inspect the model summary (we will get 80% CrIs).
 
 ```{r}
-#| label: mvp-bm-summ
+#| label: gest-bm-summ
 
-summary(mvp_bm, prob = 0.8)
+summary(gest_bm, prob = 0.8)
 ```
 
-Based on the model, there is an 80% probability that the log-odds of a MVP are between -0.76 and -0.38 in home-signers, between -1.68 and -1.24 in NSL1 signers and between -0.21 and 0.16 in NSL2 signers.
+Based on the model, there is an 80% probability that the logged gesture count is between 0.30 and 0.39 in Bengali infants, 0.27-0.36 in Chinese infants, and 0.04-0.15 in English infants.
 
-It's easier to understand the results if we convert the log-odds to probabilities. The quickest way to do this is to get the `Regression Coefficients` table from the summary with `fixef()` and mutate the `Q` columns with `plogis()`.
+It's easier to understand the results if we convert the logged counts back to counts The quickest way to do this is to get the `Regression Coefficients` table from the summary with `fixef()` and mutate the `Q` columns with `exp()`.
 
 ```{r}
-#| label: mvp-bm-p
+#| label: gest-bm-p
 
-fixef(mvp_bm, prob = c(0.1, 0.9)) |>
+fixef(gest_bm, prob = c(0.1, 0.9)) |>
   # we need to convert the output of fixef() to a tibble to use mutate()
-  as_tibble() |>
+  as_tibble(rownames = "background") |>
   # we plogis() the Q columns and round to the second digit
   mutate(
-    Q10 = round(plogis(Q10), 2),
-    Q90 = round(plogis(Q90), 2)
+    Q10 = round(exp(Q10), 2),
+    Q90 = round(exp(Q90), 2)
   )
 ```
 
-Based on the model, there is an 80% probability that the probability of using an MVP is between 32-41% in home-signers, between 16-22% in NSL1 signers and between 45-54% in NSL2 signers.
+Based on the model and data, there is an 80% probability that the counts of all backgrounds are between 1 and 1.5 gestures. English children do have a slightly lower count of gestures, between 1.05-1.16.
 
-We can now see more clearly that the hypothesis of the study is not fully borne out by the data: while NSL2 signers are more likely to use an MVP than home-signers and NSL1 signers, it is not the case that NSL1 signers are more likely to use MVPs than home-signers.
+However, a fraction of a gesture does not really make much sense and, linguistically, maybe even a 1 gesture difference will probably be not that relevant. Note that we get fractions of gestures even if we said above that counts are discrete (so there shouldn't be fractions) because we are converting a continuous scale (logs). This is a quirk of Poisson models and you need to be cautious when comparing estimated counts between groups, like we are doing here.
 
-To conclude this introduction to Bernoulli models (aka binomial/logistic regressions) we can get the predicted probabilities of use of MVPs in the three groups with `conditional_effects()`.
+In sum, we have some evidence that gesture frequency in the different language backgrounds is overall very similar, or that if there are any differences, English infants produce a fraction of a gesture less on average than the other infants.
+  
+To conclude this introduction to Poisson models, we can get the predicted counts in the three backgrounds with `conditional_effects()`.
 
 ```{r}
-#| label: mvp-bm-cond
+#| label: gest-bm-cond
 
-conditional_effects(mvp_bm)
+conditional_effects(gest_bm, prob = 0.8)
 ```

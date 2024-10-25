@@ -55,7 +55,7 @@ polite <- read_csv("data/winter2012/polite.csv")
 polite
 ```
 
-Now we can reload the Bayesian regression model from [Introduction to regression models (Part II)](intro-regression-categorical.qmd). We simply use the same code: but now, instead of the model being fit again, the code will just read the file `data/cache/hnr_bm.rds`.
+Now we can reload the Bayesian regression model from [Introduction to regression models (Part II)](intro-regression-categorical.qmd). We simply use the same code: but now, instead of the model being fit again, the code will just read the file `cache/hnr_bm.rds`.
 
 ```{r}
 #| label: hnr-bm
@@ -67,7 +67,7 @@ hnr_bm <- brm(
   family = gaussian(),
   data = polite,
   cores = 4,
-  file = "data/cache/hnr_bm",
+  file = "cache/hnr_bm",
   seed = 2913
 )
 ```
@@ -128,7 +128,7 @@ library(posterior)
 
 hnr_bm_draws |> 
   select(-sigma) |> 
-  pivot_longer(b_Intercept:b_attitudepolite) |> 
+  pivot_longer(b_Intercept:b_attitudepol) |> 
   group_by(name) |> 
   summarise(
     mean = mean(value), sd = sd(value),
@@ -148,7 +148,7 @@ Next we can plot the (posterior) probability distribution of the draws for any p
 #| label: hnr-bm-draws-plot
 
 hnr_bm_draws |>
-  ggplot(aes(b_attitudepolite)) +
+  ggplot(aes(b_attitudepol)) +
   geom_density() +
   geom_rug(alpha = 0.2)
 ```
@@ -179,7 +179,7 @@ hnr_bm_draws_pred <- hnr_bm_draws |>
     # predicted HNR for informal attitude
     informal = b_Intercept,
     # predicted HNR for polite attitude
-    polite = b_Intercept + b_attitudepolite
+    polite = b_Intercept + b_attitudepol
   )
 
 hnr_bm_draws_pred

@@ -219,7 +219,7 @@ resp_bm <- brm(
   family = bernoulli(),
   data = motion,
   backend = "cmdstanr",
-  file = "data/cache/resp_bm",
+  file = "cache/resp_bm",
   cores = 4
 )
 

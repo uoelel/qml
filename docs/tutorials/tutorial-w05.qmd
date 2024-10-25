@@ -291,12 +291,12 @@ val_bm <- brm(
   data = senses_valence,
   backend = "cmdstanr",
   # Save model output to file
-  file = "data/cache/val_bm"
+  file = "cache/val_bm"
 )
 
 ```
 
-The model will be fitted and saved in `data/cache/` with the file name `val_bm.rds`. If you now re-run the same code again, you will notice that `brm()` does not fit the model again, but rather reads it from the file (no output is shown, but trust me, it works! Check the contents of `data/cache/` to see for yourself.).
+The model will be fitted and saved in `cache/` with the file name `val_bm.rds`. If you now re-run the same code again, you will notice that `brm()` does not fit the model again, but rather reads it from the file (no output is shown, but trust me, it works! Check the contents of `cache/` to see for yourself.).
 
 ::: callout-warning
 When you save the model fit to a file, R does not keep track of changes in the model specification, so if you make changes to the formula or data, you need to **delete the saved model file** before re-running the code for the changes to have effect!
