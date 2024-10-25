@@ -3,6 +3,8 @@ title: "Language endangerment and linguistic diversity"
 author: "Stefano Coretta"
 ---
 
+![](https://img.shields.io/badge/difficulty-low-green)
+
 ![](../img/Primary_Human_Languages_Improved_Version.png)
 
 Linguistic diversity is a feature of specific geographic areas which tries to quantify how "diverse" that particular area is linguistically. You can think of linguistic diversity as "linguistic density".

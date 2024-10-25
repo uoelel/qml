@@ -3,6 +3,8 @@ title: "PHOIBLE: cross-linguistic phonological inventory data"
 author: "Stefano Coretta"
 ---
 
+![](https://img.shields.io/badge/difficulty-low-green)
+
 ![](../img/phoible.png)
 
 

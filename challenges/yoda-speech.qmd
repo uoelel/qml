@@ -3,6 +3,8 @@ title: "Analysis of Yoda speech in conversation"
 author: "Stefano Coretta"
 ---
 
+![](https://img.shields.io/badge/difficulty-medium-yellow)
+
 ![](../img/yoda-cover.jpg)
 
 

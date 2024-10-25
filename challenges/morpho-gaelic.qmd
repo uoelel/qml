@@ -3,6 +3,8 @@ title: "Morphology in Scottish Gaelic"
 author: "Stefano Coretta"
 ---
 
+![](https://img.shields.io/badge/difficulty-high-red)
+
 ![](../img/morpho-scottish.png){width="200" fig-align="center"}
 
 This [data set on the morphology of Scottish Gaelic](https://osf.io/4bp2y/) contains data from a linguistic questionnaire on Scottish Gaelic morphology, from several locations.

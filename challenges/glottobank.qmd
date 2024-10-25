@@ -3,6 +3,8 @@ title: "Glottobank"
 author: "Stefano Coretta"
 ---
 
+![](https://img.shields.io/badge/difficulty-medium-yellow)
+
 ![](../img/glottobank_all.jpg){width="350" fig-align="center"}
 
 

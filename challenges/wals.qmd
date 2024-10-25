@@ -3,6 +3,8 @@ title: "WALS - World Atlas of Language Structures"
 author: "Stefano Coretta"
 ---
 
+![](https://img.shields.io/badge/difficulty-low-green)
+
 ![](../img/wals.jpg)
 
 
