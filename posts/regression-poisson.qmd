@@ -5,7 +5,6 @@ author: ["Stefano Coretta"]
 date: 2024-09-12
 execute: 
   freeze: auto
-draft: true
 ---
 
 ```{r}
@@ -171,3 +170,9 @@ To conclude this introduction to Poisson models, we can get the predicted counts
 
 conditional_effects(gest_bm, prob = 0.8)
 ```
+
+::: callout-tip
+### Learn more
+
+- [Poisson regression for linguists: A tutorial introduction to modelling count data with brms](https://www.doi.org/10.31219/osf.io/93kaf) by Winter and Bürkner.
+:::
