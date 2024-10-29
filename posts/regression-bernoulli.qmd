@@ -247,5 +247,6 @@ conditional_effects(mvp_bm)
 #### Next
 
 - [Poisson regression: count data](regression-poisson.qmd)
+- [Ordinal regression:modelling rating/Likert scales](regression-ordinal.qmd)
 
 :::

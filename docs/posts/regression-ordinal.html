@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stefano Coretta">
+<meta name="dcterms.date" content="2024-09-29">
+<meta name="description" content="Learn how to fit ordinal regressions for rating data">
 
-<title>The Adventurer’s Map to the Notebook – QML</title>
+<title>Ordinal regression: modelling rating/Likert scales – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,12 +69,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -81,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
   </div>
@@ -92,31 +94,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Course schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./map.html" aria-current="page"> 
+    <a class="nav-link" href="../map.html"> 
 <span class="menu-text">Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebook.html"> 
+    <a class="nav-link" href="../notebook.html"> 
 <span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./challenges.html"> 
+    <a class="nav-link" href="../challenges.html"> 
 <span class="menu-text">Challenges</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html"> 
+    <a class="nav-link" href="../assessments.html"> 
 <span class="menu-text">Assessment</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./extra.html"> 
+    <a class="nav-link" href="../extra.html"> 
 <span class="menu-text">Extra</span></a>
   </li>  
 </ul>
@@ -131,22 +133,47 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#rating-data-and-ordinal-regression" id="toc-rating-data-and-ordinal-regression" class="nav-link active" data-scroll-target="#rating-data-and-ordinal-regression"><span class="header-section-number">1</span> Rating data and ordinal regression</a></li>
+  <li><a href="#plotting-ordinal-data" id="toc-plotting-ordinal-data" class="nav-link" data-scroll-target="#plotting-ordinal-data"><span class="header-section-number">2</span> Plotting ordinal data</a></li>
+  <li><a href="#ordinal-regression-models" id="toc-ordinal-regression-models" class="nav-link" data-scroll-target="#ordinal-regression-models"><span class="header-section-number">3</span> Ordinal regression models</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Adventurer’s Map to the Notebook</h1>
+<h1 class="title">Ordinal regression: modelling rating/Likert scales</h1>
 </div>
 
+<div>
+  <div class="description">
+    Learn how to fit ordinal regressions for rating data
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stefano Coretta </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 29, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -156,200 +183,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the <a href="./notebook.html">Notebook</a> entries. This Map will grow throughout the semester as new entries are added to the Notebook.</p>
-<p>In blue are entries that were recently added. In green are entries that you should have read by now, as per <a href="./schedule.html">Course schedule</a>.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Prerequisites
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can click on the name in the nodes and you will be taken to the entry in the Notebook.</p>
+<ul>
+<li><a href="../posts/regression-bernoulli.html">Regression: binary outcome variables</a>.</li>
+</ul>
 </div>
 </div>
-<!--  -->
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
-  A[Start here]
-  B[Research methods]
-  click B href "posts/hodotics.html" "Go to page"
-  style B fill:#008000,color:#FFF,stroke-width:2px
-  C[Computer basics]
-  click C href "posts/computer-basics.html" "Go to page"
-  style C fill:#008000,color:#FFF,stroke-width:2px
-  D[R basics]
-  click D href "posts/r-basics.html" "Go to page"
-  style D fill:#008000,color:#FFF,stroke-width:2px
-  E[Statistical variables]
-  click E href "posts/stat-variables.html" "Go to page"
-  style E fill:#008000,color:#FFF,stroke-width:2px
-  F[Intro to Quarto]
-  click F href "posts/intro-quarto.html" "Go to page"
-  style F fill:#008000,color:#FFF,stroke-width:2px
-  G[R Troubleshooting]
-  click G href "posts/r-troubleshooting.html" "Go to page"
-  H[Read data in R]
-  click H href "posts/data-types.html" "Go to page"
-  style H fill:#008000,color:#FFF,stroke-width:2px
-  I[Read multiple files]
-  click I href "posts/import-multiple.html" "Go to page"
-  J[Intro regression I]
-  click J href "posts/intro-regression.html" "Go to page"
-  style J fill:#008000,color:#FFF,stroke-width:2px
-  K[Introduction to plotting]
-  click K href "posts/intro-plot.html" "Go to page"
-  style K fill:#008000,color:#FFF,stroke-width:2px
-  L[Wrangling data]
-  click L href "posts/wrangle.html" "Go to page"
-  style L fill:#008000,color:#FFF,stroke-width:2px
-  M[Plotting basics]
-  click M href "posts/plotting-basics.html" "Go to page"
-  style M fill:#008000,color:#FFF,stroke-width:2px
-  N[Bar charts]
-  click N href "posts/bar-charts.html" "Go to page"
-  O[Filtering]
-  click O href "posts/wrangle-filter.html" "Go to page"
-  P[Mutating]
-  click P href "posts/wrangle-mutate.html" "Go to page"
-  Q[Pivoting]
-  click Q href "posts/wrangle-pivoting.html" "Go to page"
-  Z[Faceting plots]
-  click Z href "posts/plot-faceting.html" "Go to page"
-  AA[Density plots]
-  click AA href "posts/plot-density.html" "Go to page"
-  AB[Advanced plotting]
-  click AB href "posts/plot-advanced.html" "Go to page"
-  AC[Summary measures]
-  click AC href "posts/summaries.html" "Go to page"
-  style AC fill:#008000,color:#FFF,stroke-width:2px
-  
-  AD[Empirical research]
-  click AD href "posts/research-context.html" "Go to page"
-  style AD fill:#008000,color:#FFF,stroke-width:2px
-  AE[Research Qs and Hs]
-  click AE href "posts/research-qh.html" "Go to page"
-  style AE fill:#008000,color:#FFF,stroke-width:2px
-  AF[Quantitative analysis]
-  click AF href "posts/data-analysis.html" "Go to page"
-  style AF fill:#008000,color:#FFF,stroke-width:2px
-  AG[Inference]
-  click AG href "posts/inference.html" "Go to page"
-  style AG fill:#008000,color:#FFF,stroke-width:2px
-  AH[Statistics]
-  click AH href "posts/statistics.html" "Go to page"
-  style AH fill:#008000,color:#FFF,stroke-width:2px
-  AI[Repro/repli]
-  click AI href "posts/repro-repli.html" "Go to page"
-  style AI fill:#008000,color:#FFF,stroke-width:2px
-  AJ[Proj Management]
-  click AJ href "posts/management.html" "Go to page"
-  AK[File management]
-  click AK href "posts/file-manage.html" "Go to page"
-  
-  AL[Machine Learning]
-  click AL href "posts/machine-learning.html" "Go to page"
-  AM[R scripts]
-  click AM href "posts/scripts.html" "Go to page"
-  style AM fill:#008000,color:#FFF,stroke-width:2px
-  AN[R packages]
-  click AN href "posts/packages.html" "Go to page"
-  style AN fill:#008000,color:#FFF,stroke-width:2px
-  
-  AO[Frequentist vs Bayesian]
-  click AO href "posts/freq-bayes.html" "Go to page"
-  style AO fill:#008000,color:#FFF,stroke-width:2px
-  AP[P-values]
-  click AP href "posts/p-values.html" "Go to page"
-  style AP fill:#008000,color:#FFF,stroke-width:2px
-  
-  R[Intro regression II]
-  click R href "posts/intro-regression-predictors.html" "Go to page"
-  style R fill:#008000,color:#FFF,stroke-width:2px
-  S[Regression: categorical predictors]
-  click S href "posts/intro-regression-categorical.html" "Go to page"
-  style S fill:#008000,color:#FFF,stroke-width:2px
-  T[MCMC draws]
-  click T href "posts/regression-draws.html" "Go to page"
-  U[Indexing predictors]
-  click U href "posts/regression-indexing.html" "Go to page"
-  V[Interactions]
-  click V href "posts/regression-interactions.html" "Go to page"
-  W[Categorical-categorical interactions]
-  click W href "posts/regression-interactions-catcat.html" "Go to page"
-  X[Bernoulli regression]
-  click X href "posts/regression-bernoulli.html" "Go to page"
-  AQ[Numeric-numeric interactions]
-  click AQ href "posts/regression-interactions-numnum.html" "Go to page"
-  AT[Poisson regression]
-  click AT href "posts/regression-poisson.html" "Go to page"
-  style AT fill:#00008B,color:#FFF,stroke-width:2px
-  AU[Ordinal regression]
-  click AU href "posts/regression-ordinal.html" "Go to page"
-  style AU fill:#00008B,color:#FFF,stroke-width:2px
-  
-  AR[Interactive plots]
-  click AR href "posts/plot-plotly.html" "Go to page"
-  style AR fill:#00008B,color:#FFF,stroke-width:2px
-  AS[Plotting tips]
-  click AS href "posts/plot-galleries.html" "Go to page"
-  style AS fill:#00008B,color:#FFF,stroke-width:2px
-  
-  A --&gt; B &amp; C
-  
-  B --&gt; AD &amp; AF &amp; AJ
-  AD --&gt; AE
-  AE --&gt; AI
-  AF --&gt; AG &amp; AH
-  AJ --&gt; AK
-  
-  C --&gt; D
-  
-  D --&gt; AN &amp; G
-  AN --&gt; H
-  AH --&gt; AO
-  AO --&gt; J &amp; AP
-  
-  H --&gt; AM
-  AM --&gt; F &amp; I
-  I --&gt; Q
-  
-  F --&gt; E
-  E --&gt; J &amp; K &amp; L &amp; AC &amp; AL
-  
-  K --&gt; M
-  M --&gt; N &amp; Z &amp; AA &amp; AS
-  N --&gt; AB
-  AA --&gt; AB
-  AB --&gt; AR
-
-  L --&gt; O &amp; P &amp; Q
-  P --&gt; N &amp; AA
-  
-  %% Regression
-  J --&gt; R --&gt; S --&gt; T &amp; U
-  U --&gt; V &amp; X
-  V --&gt; W
-  W --&gt; AQ
-  X --&gt; AQ &amp; AT &amp; AU
-  
-  
-  
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="rating-data-and-ordinal-regression" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="rating-data-and-ordinal-regression"><span class="header-section-number">1</span> Rating data and ordinal regression</h2>
+<p><strong>Rating scale</strong> data, including Likert scales, is a common type of variable in linguistics. Any study using a questionnaire or linguistic judgements will very likely have at least some rating data.</p>
+<p>Likert scales are usually structured so that the two extremes are opposite values and then you move in steps from one extreme to the other through a neutral option (these are called bipolar scales): for example, strongly disagree, disagree, somewhat disagree, neither agree nor disagree, somewhat agree, agree and strongly agree. This is a 7-point Likert scale, although 5-point scales are also common.</p>
+<p>Rating scales can also just be monopolar scales: for example, from “none” to “a lot” on the scale of “excitement”.</p>
+<p><strong>Rating data is categorical and discrete</strong>! Alas, a lot of researcher have been taught to treat these as numeric (for example transforming the scales to numbers from 1 to 7 for a 7-point Likert scale) and apply numeric methods for analysis. This is conceptually mistaken, since these scales are not numeric and don’t have the same properties as numeric variables have.</p>
+</section>
+<section id="plotting-ordinal-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="plotting-ordinal-data"><span class="header-section-number">2</span> Plotting ordinal data</h2>
+<p>Given the common, but mistaken practice, to treat rating data as numeric, studies tend visualise the data using plot types meant for numeric data, like box plots (on why you shouldn’t use box plots ever, see <a href="../posts/plot-galleries.html">this entry</a>)</p>
+<p>A very useful type of plot for ordinal data are the so-called divergent stacked bar chart. You can learn how to create these in R <a href="../posts/plot-advanced.html#sec-rating">here</a>.</p>
+</section>
+<section id="ordinal-regression-models" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="ordinal-regression-models"><span class="header-section-number">3</span> Ordinal regression models</h2>
+<p>To learn how to fit ordinal regression models in R with brms, I refer you to this great (provocatively named) tutorial by João Verissimo: <a href="https://www.cambridge.org/core/journals/bilingualism-language-and-cognition/article/analysis-of-rating-scales-a-pervasive-problem-in-bilingualism-research-and-a-solution-with-bayesian-ordinal-models/4FC31D90EE220CBD488CB982D52B7D86">Analysis of rating scales: A pervasive problem in bilingualism research and a solution with Bayesian ordinal models</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

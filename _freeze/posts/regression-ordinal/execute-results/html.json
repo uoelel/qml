@@ -1,0 +1,19 @@
+{
+  "hash": "fa01c2daed6426d385574bd266f6e149",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Ordinal regression: modelling rating/Likert scales\"\ndescription: \"Learn how to fit ordinal regressions for rating data\"\nauthor: [\"Stefano Coretta\"]\ndate: 2024-09-29\nexecute: \n  freeze: auto\n---\n\n\n\n\n\n::: callout-warning\n## Prerequisites\n\n-   [Regression: binary outcome variables](regression-bernoulli.qmd).\n:::\n\n## Rating data and ordinal regression\n\n**Rating scale** data, including Likert scales, is a common type of variable in linguistics. Any study using a questionnaire or linguistic judgements will very likely have at least some rating data.\n\nLikert scales are usually structured so that the two extremes are opposite values and then you move in steps from one extreme to the other through a neutral option (these are called bipolar scales): for example, strongly disagree, disagree, somewhat disagree, neither agree nor disagree, somewhat agree, agree and strongly agree. This is a 7-point Likert scale, although 5-point scales are also common.\n\nRating scales can also just be monopolar scales: for example, from \"none\" to \"a lot\" on the scale of \"excitement\".\n\n**Rating data is categorical and discrete**! Alas, a lot of researcher have been taught to treat these as numeric (for example transforming the scales to numbers from 1 to 7 for a 7-point Likert scale) and apply numeric methods for analysis. This is conceptually mistaken, since these scales are not numeric and don't have the same properties as numeric variables have.\n\n## Plotting ordinal data\n\nGiven the common, but mistaken practice, to treat rating data as numeric, studies tend visualise the data using plot types meant for numeric data, like box plots (on why you shouldn't use box plots ever, see [this entry](plot-galleries.qmd))\n\nA very useful type of plot for ordinal data are the so-called divergent stacked bar chart. You can learn how to create these in R [here](plot-advanced.qmd#sec-rating).\n\n## Ordinal regression models\n\nTo learn how to fit ordinal regression models in R with brms, I refer you to this great (provocatively named) tutorial by João Verissimo: [Analysis of rating scales: A pervasive problem in bilingualism research and a solution with Bayesian ordinal models](https://www.cambridge.org/core/journals/bilingualism-language-and-cognition/article/analysis-of-rating-scales-a-pervasive-problem-in-bilingualism-research-and-a-solution-with-bayesian-ordinal-models/4FC31D90EE220CBD488CB982D52B7D86).\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../site_libs/pagedtable-1.1/css/pagedtable.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/pagedtable-1.1/js/pagedtable.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -32,7 +32,7 @@ The following code chunks have code that throws errors or generate mistakes (wit
 
 **Example 1:**
 
-```{r}
+```r
 a <- "2"
 a + 1
 ```
@@ -41,7 +41,7 @@ a + 1
 
 Note: The goal of the following code chunk is to produce a tibble/data frame.
 
-```{r}
+```r
 iris |>
   group_by(species) |>
   summary(
@@ -51,7 +51,7 @@ iris |>
 
 **Example 3:**
 
-```{r}
+```r
 library(dplyr)
 library(MASS)
 
@@ -61,7 +61,7 @@ iris |>
 
 **Example 4:**
 
-```{r}
+```r
 lirbary(tidyvrese)
 
 starwars
@@ -75,7 +75,7 @@ Do all of the levels of the variable `sex` show up in your tibble/data frame of 
 
 **Example 4:**
 
-```{r}
+```r
 iris |> 
   ggplot(x = Species, y = Petal.Length) |> 
   geom_jiter()
@@ -83,7 +83,7 @@ iris |>
 
 **Example 5:**
 
-```{r}
+```r
 bat <- tibble(
   id = c(A, B, C),
   response = rbinom(10, 1, 0.5)
@@ -94,7 +94,7 @@ cat(bat.response)
 
 **Example 6:**
 
-```{r}
+```r
 starwars %>% 
   filter(sex != is.na(sex)) %>% 
   ggplot(aes(x = mass, y = height, colour = sex, shape = sex) +
@@ -110,7 +110,7 @@ starwars %>%
 
 **Example 7:**
 
-```{r}
+```r
 tucker2019 <- read_csv("data/tucker2019/mald_1_1.rds")
 
 tucker2019 %>% 

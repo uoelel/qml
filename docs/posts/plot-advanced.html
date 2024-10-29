@@ -209,7 +209,7 @@ window.Quarto = {
   <li><a href="#pankratz-2021" id="toc-pankratz-2021" class="nav-link" data-scroll-target="#pankratz-2021"><span class="header-section-number">4.2</span> Pankratz 2021</a></li>
   </ul></li>
   <li><a href="#sec-f0" id="toc-sec-f0" class="nav-link" data-scroll-target="#sec-f0"><span class="header-section-number">5</span> Fundamental frequency (f0) and normalisation</a></li>
-  <li><a href="#rating-likert-scales" id="toc-rating-likert-scales" class="nav-link" data-scroll-target="#rating-likert-scales"><span class="header-section-number">6</span> Rating (Likert) scales</a></li>
+  <li><a href="#sec-rating" id="toc-sec-rating" class="nav-link" data-scroll-target="#sec-rating"><span class="header-section-number">6</span> Rating (Likert) scales</a></li>
   </ul>
 </nav>
     </div>
@@ -267,9 +267,7 @@ Prerequisites
 </section>
 <section id="formant-data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="formant-data"><span class="header-section-number">2</span> Formant data</h2>
-<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/coretta2018a/formants.html" role="button">Description</a>
-<br>
-<br>
+<p><a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/coretta2018a/formants.html" role="button">Description</a> <br> <br></p>
 <p>In this section we will plot formant data from Italian.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .rda are R data files and they can be read with `load()`</span></span>
@@ -372,9 +370,7 @@ Extra: Setting the figure aspect ratio
 </section>
 <section id="reaction-times" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="reaction-times"><span class="header-section-number">3</span> Reaction times</h2>
-<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/song2020/shallow.html" role="button">Description</a>
-<br>
-<br>
+<p><a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/song2020/shallow.html" role="button">Description</a> <br> <br></p>
 <p>You have learnt how to use density plots, but an alternative way of plotting continuous data by categorical groups is to use strip charts and violin plots, alone or in combination!</p>
 <p>Let’s plot reaction times from the <code>shallow</code> data.</p>
 <div class="cell">
@@ -432,9 +428,7 @@ dbl (3): ACC, RT, logRT
 <h2 data-number="4" class="anchored" data-anchor-id="sec-accuracy"><span class="header-section-number">4</span> Accuracy and computing proportions</h2>
 <section id="koppensteiner-2016" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="koppensteiner-2016"><span class="header-section-number">4.1</span> Koppensteiner 2016</h3>
-<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a>
-<br>
-<br>
+<p><a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a> <br> <br></p>
 <p>Let’s look at data from Koppensteiner et al, 2016. The study looked at the relationship between sound iconicity and body motion.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>takete_maluma <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"data/koppensteiner2016/takete_maluma.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -587,9 +581,7 @@ Solution
 </section>
 <section id="pankratz-2021" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="pankratz-2021"><span class="header-section-number">4.2</span> Pankratz 2021</h3>
-<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/pankratz2021/si.html" role="button">Description</a>
-<br>
-<br>
+<p><a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/pankratz2021/si.html" role="button">Description</a> <br> <br></p>
 <p>Now let’s move onto data from Pankratz 2021. Since we will need it for the plot, let’s convert <code>SI</code> into a factor and let’s log <code>freq</code> (check <a href="../posts/regression-interactions-numnum.html">Regression models: interactions between numeric predictors</a> for more details).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>si <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/pankratz2021/si.csv"</span>) <span class="sc">|&gt;</span> </span>
@@ -714,9 +706,7 @@ Extra: Frequency and semantic distance together
 </section>
 <section id="sec-f0" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="sec-f0"><span class="header-section-number">5</span> Fundamental frequency (f0) and normalisation</h2>
-<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/coretta2018a/formants.html" role="button">Description</a>
-<br>
-<br>
+<p><a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/coretta2018a/formants.html" role="button">Description</a> <br> <br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .rda are R data files and they can be read with `load()`</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/coretta2018a/formants.rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -772,11 +762,9 @@ Extra: Frequency and semantic distance together
 <p>Why is <code>colour = vowel</code> in <code>geom_jitter(aes(...))</code>? Because we want to colour only the jittered points. If we put <code>colour = vowel</code> in the main <code>ggplot(aes(...))</code> , then the violin <em>borders</em> would also be coloured.</p>
 <p>If you want to colour the areas of the violins instead, you can use the <code>fill</code> aesthetic. This will work both in the main <code>ggplot(aes(...))</code> or in <code>geom_violin(aes(...))</code> because the points of <code>geom_jitter()</code> can’t be given a colour fill, but only a colour.</p>
 </section>
-<section id="rating-likert-scales" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="rating-likert-scales"><span class="header-section-number">6</span> Rating (Likert) scales</h2>
-<a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/hampton2023/emilianto_attitude.html" role="button">Description</a>
-<br>
-<br>
+<section id="sec-rating" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="sec-rating"><span class="header-section-number">6</span> Rating (Likert) scales</h2>
+<p><a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/hampton2023/emilianto_attitude.html" role="button">Description</a> <br> <br></p>
 <p>Likert scales are a kind of rating scales (see <a href="https://resources.pollfish.com/market-research/rating-scales-and-likert-scales/">here</a> for more on the relationship between them). Such scales produce very strange variables. They are categorical and ordinal.</p>
 <p>Despite being very common, the practice of treating Likert scales as numeric is quite inappropriate. For an explanation, check the first two pages of <a href="https://doi.org/10.1017/S1366728921000316">Verissimo (2021)</a>.</p>
 <p>A very nice type of plot that is very useful for Likert scale data is a so-called <strong>divergent stacked bar chart</strong>.</p>
@@ -854,10 +842,10 @@ Next
 <ul>
 <li><a href="../posts/plot-plotly.html">Interactive plotting with Plotly</a></li>
 </ul>
-
-
 </div>
 </div>
+
+
 </section>
 
 </main> <!-- /main -->

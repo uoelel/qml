@@ -20,9 +20,8 @@ library(webexercises)
 ::: callout-warning
 ## Prerequisites
 
-- [Bar charts](bar-charts.qmd)
-- [Density plots](plot-density.qmd)
-
+-   [Bar charts](bar-charts.qmd)
+-   [Density plots](plot-density.qmd)
 :::
 
 ## Overview
@@ -45,11 +44,9 @@ library(tidyverse)
 
 ## Formant data
 
-```{=html}
 <a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/coretta2018a/formants.html" role="button">Description</a>
 <br>
 <br>
-```
 
 In this section we will plot formant data from Italian.
 
@@ -160,11 +157,9 @@ The result won't look different when you just run the code chunk, but when you r
 
 ## Reaction times
 
-```{=html}
 <a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/song2020/shallow.html" role="button">Description</a>
 <br>
 <br>
-```
 
 You have learnt how to use density plots, but an alternative way of plotting continuous data by categorical groups is to use strip charts and violin plots, alone or in combination!
 
@@ -213,11 +208,9 @@ Can you tell if there are differences in RTs between the different groups and re
 
 ### Koppensteiner 2016
 
-```{=html}
 <a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a>
 <br>
 <br>
-```
 
 Let's look at data from Koppensteiner et al, 2016. The study looked at the relationship between sound iconicity and body motion.
 
@@ -371,11 +364,9 @@ In `stat_summary()`, the `fun.data` argument lets you specify the function you w
 
 ### Pankratz 2021
 
-```{=html}
 <a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/pankratz2021/si.html" role="button">Description</a>
 <br>
 <br>
-```
 
 Now let's move onto data from Pankratz 2021. Since we will need it for the plot, let's convert `SI` into a factor and let's log `freq` (check [Regression models: interactions between numeric predictors](regression-interactions-numnum.qmd) for more details).
 
@@ -395,8 +386,7 @@ Let's plot the proportion of scalar inferences as a function of log frequency an
 
 The variable `SI` is binary: `no_scalar` if a scalar inference was not made, `scalar` if it was. We like to visualise binary outcomes as proportions on the *y*-axis and centred log frequency on the *x*-axis.
 
-We need to apply the same trick as we did with the Koppensteiner 2016 data.
-`SI` is categorical, but we want to show the **proportion** of `scalar` vs `no_scalar` across values of centred log frequency. We can achieve this by temporarily converting `SI` to a *numeric* variable and subtract `1`, and then using `geom_smooth()` with a binomial family (which will indicate the proportion of `scalar` responses), like so:
+We need to apply the same trick as we did with the Koppensteiner 2016 data. `SI` is categorical, but we want to show the **proportion** of `scalar` vs `no_scalar` across values of centred log frequency. We can achieve this by temporarily converting `SI` to a *numeric* variable and subtract `1`, and then using `geom_smooth()` with a binomial family (which will indicate the proportion of `scalar` responses), like so:
 
 ```{r}
 #| label: si-freq
@@ -480,11 +470,10 @@ si %>%
 
 ## Fundamental frequency (f0) and normalisation {#sec-f0}
 
-```{=html}
 <a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/coretta2018a/formants.html" role="button">Description</a>
 <br>
 <br>
-```
+
 ```{r}
 #| label: formants-2
 
@@ -543,13 +532,11 @@ Why is `colour = vowel` in `geom_jitter(aes(...))`? Because we want to colour on
 
 If you want to colour the areas of the violins instead, you can use the `fill` aesthetic. This will work both in the main `ggplot(aes(...))` or in `geom_violin(aes(...))` because the points of `geom_jitter()` can't be given a colour fill, but only a colour.
 
-## Rating (Likert) scales
+## Rating (Likert) scales {#sec-rating}
 
-```{=html}
 <a class="btn btn-primary" target="_blank" href="https://uoelel.github.io/qml-data/data/hampton2023/emilianto_attitude.html" role="button">Description</a>
 <br>
 <br>
-```
 
 Likert scales are a kind of rating scales (see [here](https://resources.pollfish.com/market-research/rating-scales-and-likert-scales/) for more on the relationship between them). Such scales produce very strange variables. They are categorical and ordinal.
 
@@ -627,4 +614,5 @@ What can you tell about the attitude towards Emilian and Esperanto from the plot
 ::: callout-note
 ### Next
 
-- [Interactive plotting with Plotly](plot-plotly.qmd)
+-   [Interactive plotting with Plotly](plot-plotly.qmd)
+:::
