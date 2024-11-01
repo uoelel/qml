@@ -560,8 +560,150 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">conditional_effects</span>(gestures_sim_bm, <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
+<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-sim-bm-cond-1.png" width="960" class="r-stretch"></section>
+<section id="british-infants-gestures-data-acquisition" class="slide level2">
+<h2>British infants’ gestures: Data acquisition</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>gestures <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cameron2020/gestures.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a></a>  <span class="fu">group_by</span>(background, dyad) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-4"><a></a>    <span class="at">count_sum =</span> <span class="fu">sum</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-5"><a></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb10-6"><a></a>  <span class="fu">drop_na</span>(count_sum)</span>
+<span id="cb10-7"><a></a>gestures</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 60 × 3
+# Groups:   background [3]
+   background dyad  count_sum
+   &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt;
+ 1 Bengali    b01          17
+ 2 Bengali    b02          36
+ 3 Bengali    b03          43
+ 4 Bengali    b04          50
+ 5 Bengali    b05          33
+ 6 Bengali    b06          24
+ 7 Bengali    b07          16
+ 8 Bengali    b08          37
+ 9 Bengali    b09          26
+10 Bengali    b10          13
+# ℹ 50 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="british-infants-gestures-summarise" class="slide level2">
+<h2>British infants’ gestures: Summarise</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>gestures <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a></a>  <span class="fu">group_by</span>(background) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">median</span>(count_sum), <span class="fu">min</span>(count_sum), <span class="fu">max</span>(count_sum))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  background `median(count_sum)` `min(count_sum)` `max(count_sum)`
+  &lt;chr&gt;                    &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+1 Bengali                   36.5                5               81
+2 Chinese                   32.5                1              108
+3 English                   20                  1              164</code></pre>
+</div>
+</div>
+</section>
+<section id="british-infants-gestures-plot" class="slide level2">
+<h2>British infants’ gestures: Plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>gestures <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(background, count_sum)) <span class="sc">+</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-sim-bm-cond-1.png" width="960" class="r-stretch"><div class="quarto-auto-generated-content">
+</div>
+<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-plot-1.png" width="960" class="r-stretch"></section>
+<section id="british-infants-gestures-model" class="slide level2">
+<h2>British infants’ gestures: Model</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>gestures_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb15-2"><a></a>  count_sum <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> background,</span>
+<span id="cb15-3"><a></a>  <span class="at">family =</span> poisson,</span>
+<span id="cb15-4"><a></a>  <span class="at">data =</span> gestures,</span>
+<span id="cb15-5"><a></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
+<span id="cb15-6"><a></a>  <span class="at">seed =</span> <span class="dv">9527</span>,</span>
+<span id="cb15-7"><a></a>  <span class="at">file =</span> <span class="st">"cache/gestures_bm"</span></span>
+<span id="cb15-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="british-infants-gestures-model-summary" class="slide level2">
+<h2>British infants’ gestures: Model summary</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">summary</span>(gestures_bm, <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: poisson 
+  Links: mu = log 
+Formula: count_sum ~ 0 + background 
+   Data: gestures (Number of observations: 60) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Regression Coefficients:
+                  Estimate Est.Error l-80% CI u-80% CI Rhat Bulk_ESS Tail_ESS
+backgroundBengali     3.63      0.04     3.58     3.68 1.00     4227     3072
+backgroundChinese     3.60      0.04     3.55     3.65 1.00     4388     3001
+backgroundEnglish     3.38      0.04     3.32     3.43 1.00     3644     2852
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+</section>
+<section id="british-infants-gestures-conditional-posteriors" class="slide level2">
+<h2>British infants’ gestures: Conditional posteriors</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">conditional_effects</span>(gestures_bm, <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-bm-cond-1.png" width="960" class="r-stretch"></section>
+<section id="british-infants-gestures-conditional-predictions" class="slide level2">
+<h2>British infants’ gestures: Conditional predictions</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">library</span>(marginaleffects)</span>
+<span id="cb19-2"><a></a></span>
+<span id="cb19-3"><a></a><span class="fu">avg_predictions</span>(gestures_bm, <span class="at">variables =</span> <span class="st">"background"</span>, <span class="at">conf_level =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ background Estimate 10.0 % 90.0 %
+    Bengali     37.7   36.0   39.5
+    Chinese     36.6   34.9   38.4
+    English     29.3   27.8   30.8
+
+Type:  response 
+Columns: background, estimate, conf.low, conf.high </code></pre>
+</div>
+</div>
+</section>
+<section id="british-infants-gestures-comparisons" class="slide level2">
+<h2>British infants’ gestures: Comparisons</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">avg_comparisons</span>(gestures_bm, <span class="at">variables =</span> <span class="fu">list</span>(<span class="at">background =</span> <span class="st">"pairwise"</span>), <span class="at">conf_level =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+                      Contrast Estimate 10.0 % 90.0 %
+ mean(Chinese) - mean(Bengali)    -1.07  -3.43   1.44
+ mean(English) - mean(Bengali)    -8.37 -10.78  -6.07
+ mean(English) - mean(Chinese)    -7.31  -9.72  -5.06
+
+Term: background
+Type:  response 
+Columns: term, contrast, estimate, conf.low, conf.high, predicted_lo, predicted_hi, predicted, tmp_idx </code></pre>
+</div>
+</div>
+</section>
+<section id="british-infants-gestures-interpretation" class="slide level2">
+<h2>British infants’ gestures: Interpretation</h2>
+</section>
+<section id="british-infants-gestures-reporting" class="slide level2">
+<h2>British infants’ gestures: Reporting</h2>
+</section>
+<section id="vowel-duration-research-hypotheses" class="slide level2">
+<h2>Vowel duration: Research hypotheses</h2>
+
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>

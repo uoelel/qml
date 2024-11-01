@@ -1916,5 +1916,82 @@
     "title": "Data analysis workflow",
     "section": "British infants’ gestures: Data simulation (model)",
     "text": "British infants’ gestures: Data simulation (model)\n\nconditional_effects(gestures_sim_bm, prob = 0.8)"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-acquisition",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-acquisition",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Data acquisition",
+    "text": "British infants’ gestures: Data acquisition\n\ngestures &lt;- read_csv(\"data/cameron2020/gestures.csv\") |&gt; \n  group_by(background, dyad) |&gt; \n  summarise(\n    count_sum = sum(count, na.rm = TRUE)\n  ) |&gt; \n  drop_na(count_sum)\ngestures\n\n# A tibble: 60 × 3\n# Groups:   background [3]\n   background dyad  count_sum\n   &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt;\n 1 Bengali    b01          17\n 2 Bengali    b02          36\n 3 Bengali    b03          43\n 4 Bengali    b04          50\n 5 Bengali    b05          33\n 6 Bengali    b06          24\n 7 Bengali    b07          16\n 8 Bengali    b08          37\n 9 Bengali    b09          26\n10 Bengali    b10          13\n# ℹ 50 more rows"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-summarise",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-summarise",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Summarise",
+    "text": "British infants’ gestures: Summarise\n\ngestures |&gt; \n  group_by(background) |&gt; \n  summarise(median(count_sum), min(count_sum), max(count_sum))\n\n# A tibble: 3 × 4\n  background `median(count_sum)` `min(count_sum)` `max(count_sum)`\n  &lt;chr&gt;                    &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;\n1 Bengali                   36.5                5               81\n2 Chinese                   32.5                1              108\n3 English                   20                  1              164"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-plot",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-plot",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Plot",
+    "text": "British infants’ gestures: Plot\n\ngestures |&gt; \n  ggplot(aes(background, count_sum)) +\n  geom_jitter(width = 0.1)"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-model",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-model",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Model",
+    "text": "British infants’ gestures: Model\n\ngestures_bm &lt;- brm(\n  count_sum ~ 0 + background,\n  family = poisson,\n  data = gestures,\n  cores = 4,\n  seed = 9527,\n  file = \"cache/gestures_bm\"\n)"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-model-summary",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-model-summary",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Model summary",
+    "text": "British infants’ gestures: Model summary\n\nsummary(gestures_bm, prob = 0.8)\n\n Family: poisson \n  Links: mu = log \nFormula: count_sum ~ 0 + background \n   Data: gestures (Number of observations: 60) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n                  Estimate Est.Error l-80% CI u-80% CI Rhat Bulk_ESS Tail_ESS\nbackgroundBengali     3.63      0.04     3.58     3.68 1.00     4227     3072\nbackgroundChinese     3.60      0.04     3.55     3.65 1.00     4388     3001\nbackgroundEnglish     3.38      0.04     3.32     3.43 1.00     3644     2852\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-conditional-posteriors",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-conditional-posteriors",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Conditional posteriors",
+    "text": "British infants’ gestures: Conditional posteriors\n\nconditional_effects(gestures_bm, prob = 0.8)"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-conditional-predictions",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-conditional-predictions",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Conditional predictions",
+    "text": "British infants’ gestures: Conditional predictions\n\nlibrary(marginaleffects)\n\navg_predictions(gestures_bm, variables = \"background\", conf_level = 0.8)\n\n\n background Estimate 10.0 % 90.0 %\n    Bengali     37.7   36.0   39.5\n    Chinese     36.6   34.9   38.4\n    English     29.3   27.8   30.8\n\nType:  response \nColumns: background, estimate, conf.low, conf.high"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-comparisons",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-comparisons",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Comparisons",
+    "text": "British infants’ gestures: Comparisons\n\navg_comparisons(gestures_bm, variables = list(background = \"pairwise\"), conf_level = 0.8)\n\n\n                      Contrast Estimate 10.0 % 90.0 %\n mean(Chinese) - mean(Bengali)    -1.07  -3.43   1.44\n mean(English) - mean(Bengali)    -8.37 -10.78  -6.07\n mean(English) - mean(Chinese)    -7.31  -9.72  -5.06\n\nTerm: background\nType:  response \nColumns: term, contrast, estimate, conf.low, conf.high, predicted_lo, predicted_hi, predicted, tmp_idx"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-interpretation",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-interpretation",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Interpretation",
+    "text": "British infants’ gestures: Interpretation"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-reporting",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-reporting",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Reporting",
+    "text": "British infants’ gestures: Reporting"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#vowel-duration-research-hypotheses",
+    "href": "lectures/data-analysis-workflow.html#vowel-duration-research-hypotheses",
+    "title": "Data analysis workflow",
+    "section": "Vowel duration: Research hypotheses",
+    "text": "Vowel duration: Research hypotheses"
   }
 ]

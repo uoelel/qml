@@ -15,7 +15,7 @@ execute:
 
 library(tidyverse)
 library(brms)
-
+library(marginaleffects)
 ```
 
 ## Research process cycle: Overview
@@ -147,3 +147,95 @@ summary(gestures_sim_bm, prob = 0.8)
 
 conditional_effects(gestures_sim_bm, prob = 0.8)
 ```
+
+## British infants' gestures: Data acquisition
+
+```{r}
+#| label: gestures
+
+gestures <- read_csv("data/cameron2020/gestures.csv") |> 
+  group_by(background, dyad) |> 
+  summarise(
+    count_sum = sum(count, na.rm = TRUE)
+  ) |> 
+  drop_na(count_sum)
+gestures
+```
+
+## British infants' gestures: Summarise
+
+```{r}
+#| label: gestures-summary
+
+gestures |> 
+  group_by(background) |> 
+  summarise(median(count_sum), min(count_sum), max(count_sum))
+```
+
+## British infants' gestures: Plot
+
+```{r}
+#| label: gestures-plot
+
+gestures |> 
+  ggplot(aes(background, count_sum)) +
+  geom_jitter(width = 0.1)
+
+```
+
+## British infants' gestures: Model
+
+```{r}
+#| label: gestures-bm
+
+gestures_bm <- brm(
+  count_sum ~ 0 + background,
+  family = poisson,
+  data = gestures,
+  cores = 4,
+  seed = 9527,
+  file = "cache/gestures_bm"
+)
+
+```
+
+## British infants' gestures: Model summary
+
+```{r}
+#| label: gestures-bm-summ
+
+summary(gestures_bm, prob = 0.8)
+```
+
+## British infants' gestures: Conditional posteriors
+
+```{r}
+#| label: gestures-bm-cond
+
+conditional_effects(gestures_bm, prob = 0.8)
+```
+
+## British infants' gestures: Conditional predictions
+
+```{r}
+#| label: gestures-bm-preds
+library(marginaleffects)
+
+avg_predictions(gestures_bm, variables = "background", conf_level = 0.8)
+```
+
+## British infants' gestures: Comparisons
+
+```{r}
+#| label: gestures-bm-avg-comp
+
+avg_comparisons(gestures_bm, variables = list(background = "pairwise"), conf_level = 0.8)
+```
+
+## British infants' gestures: Interpretation
+
+
+
+## British infants' gestures: Reporting
+
+## Vowel duration: Research hypotheses
