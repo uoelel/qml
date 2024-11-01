@@ -1,0 +1,149 @@
+---
+title: "Data analysis workflow"
+author: "Stefano Coretta"
+format: mono-light-revealjs
+editor: source
+filters:
+  - tachyonsextra
+execute: 
+  echo: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(brms)
+
+```
+
+## Research process cycle: Overview
+
+![](/img/res-process-cycle.png){fig-align="center"}
+
+## Research questions and hypothesis
+
+::: box-note
+-   Research **questions** are testable questions.
+
+-   Research **hypotheses** are falsifiable statements.
+
+-   Check again [this entry](../posts/research-qh.qmd).
+:::
+
+. . .
+
+::: box-tip
+Two case studies:
+
+-   **Descriptive and exploratory**: Do British infants use a different number of gestures depending on their cultural background?
+
+-   **Explanatory and corroboratory**: vowel duration and gesture distance.
+:::
+
+## British infants' gestures: Study design
+
+::: box-note
+-   Published paper: <https://www.doi.org/10.1111/cdev.13406>
+
+-   Three cultural backgrounds: English, Bangladeshi and Cantonese.
+
+-   At least 20 infants per background.
+
+-   Laboratory setting, three tasks.
+:::
+
+. . .
+
+::: box-note
+**Analysis plan** (gesture count by background)
+
+-   Summaries with median and range.
+
+-   Visualisation with strip charts.
+
+-   Regression models
+
+    -   Outcome variable: gesture count → [Poisson family](../posts/regression-poisson.qmd).
+
+    -   Predictors: cultural background.
+:::
+
+## British infants' gestures: Data simulation
+
+```{r}
+#| label: gestures-sim
+
+library(tidyverse)
+
+N <- 20
+background <- c("English", "Bangladeshi", "Cantonese")
+count_en <- rpois(N, 4)
+count_ba <- rpois(N, 1)
+count_ca <- rpois(N, 1.5)
+
+gestures_sim <- tibble(
+  background = rep(background, each = N),
+  count = c(count_en, count_ba, count_ca)
+)
+
+gestures_sim
+```
+
+## British infants' gestures: Data simulation (plotting)
+
+```{r}
+#| label: gestures-sim-summary
+
+gestures_sim |> 
+  group_by(background) |> 
+  summarise(median(count), min(count), max(count))
+
+```
+
+## British infants' gestures: Data simulation (plotting)
+
+```{r}
+#| label: gestures-sim-plot
+
+gestures_sim |> 
+  ggplot(aes(background, count)) +
+  geom_jitter(width = 0.1)
+
+```
+
+## British infants' gestures: Data simulation (model)
+
+```{r}
+#| label: gestures-sim-bm
+
+library(brms)
+
+gestures_sim_bm <- brm(
+  count ~ 0 + background,
+  family = poisson,
+  data = gestures_sim,
+  cores = 4,
+  seed = 9527,
+  file = "cache/gestures_sim_bm"
+)
+
+```
+
+## British infants' gestures: Data simulation (model)
+
+```{r}
+#| label: gestures-sim-bm-summ
+
+summary(gestures_sim_bm, prob = 0.8)
+
+```
+
+## British infants' gestures: Data simulation (model)
+
+```{r}
+#| label: gestures-sim-bm-cond
+
+conditional_effects(gestures_sim_bm, prob = 0.8)
+```
