@@ -453,7 +453,7 @@ Stefano Coretta
 </section>
 <section id="british-infants-gestures-data-simulation" class="slide level2">
 <h2>British infants’ gestures: Data simulation</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a>N <span class="ot">&lt;-</span> <span class="dv">20</span></span>
@@ -472,23 +472,23 @@ Stefano Coretta
 <pre><code># A tibble: 60 × 2
    background count
    &lt;chr&gt;      &lt;int&gt;
- 1 English        4
- 2 English        4
+ 1 English        2
+ 2 English        5
  3 English        4
- 4 English        1
- 5 English        0
- 6 English        3
+ 4 English        3
+ 5 English        3
+ 6 English        5
  7 English        3
- 8 English        4
- 9 English        4
-10 English        4
+ 8 English        6
+ 9 English        3
+10 English        5
 # ℹ 50 more rows</code></pre>
 </div>
 </div>
 </section>
-<section id="british-infants-gestures-data-simulation-plotting" class="slide level2">
-<h2>British infants’ gestures: Data simulation (plotting)</h2>
-<div class="cell">
+<section id="british-infants-gestures-data-simulation-summarise" class="slide level2">
+<h2>British infants’ gestures: Data simulation (summarise)</h2>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>gestures_sim <span class="sc">|&gt;</span> </span>
 <span id="cb3-2"><a></a>  <span class="fu">group_by</span>(background) <span class="sc">|&gt;</span> </span>
 <span id="cb3-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">median</span>(count), <span class="fu">min</span>(count), <span class="fu">max</span>(count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -497,23 +497,23 @@ Stefano Coretta
   background  `median(count)` `min(count)` `max(count)`
   &lt;chr&gt;                 &lt;dbl&gt;        &lt;int&gt;        &lt;int&gt;
 1 Bangladeshi               1            0            2
-2 Cantonese                 1            0            5
-3 English                   4            0            6</code></pre>
+2 Cantonese                 1            0            6
+3 English                   4            1            9</code></pre>
 </div>
 </div>
 </section>
-<section id="british-infants-gestures-data-simulation-plotting-1" class="slide level2">
+<section id="british-infants-gestures-data-simulation-plotting" class="slide level2">
 <h2>British infants’ gestures: Data simulation (plotting)</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>gestures_sim <span class="sc">|&gt;</span> </span>
 <span id="cb5-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(background, count)) <span class="sc">+</span></span>
 <span id="cb5-3"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-sim-plot-1.png" width="960" class="r-stretch"></section>
+<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-sim-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="british-infants-gestures-data-simulation-model" class="slide level2">
 <h2>British infants’ gestures: Data simulation (model)</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(brms)</span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a>gestures_sim_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
@@ -528,7 +528,7 @@ Stefano Coretta
 </section>
 <section id="british-infants-gestures-data-simulation-model-1" class="slide level2">
 <h2>British infants’ gestures: Data simulation (model)</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">summary</span>(gestures_sim_bm, <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: poisson 
@@ -556,14 +556,14 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </section>
 <section id="british-infants-gestures-data-simulation-model-2" class="slide level2">
 <h2>British infants’ gestures: Data simulation (model)</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">conditional_effects</span>(gestures_sim_bm, <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-sim-bm-cond-1.png" width="960" class="r-stretch"></section>
+<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-sim-bm-cond-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="british-infants-gestures-data-acquisition" class="slide level2">
 <h2>British infants’ gestures: Data acquisition</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>gestures <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cameron2020/gestures.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb10-2"><a></a>  <span class="fu">group_by</span>(background, dyad) <span class="sc">|&gt;</span> </span>
 <span id="cb10-3"><a></a>  <span class="fu">summarise</span>(</span>
@@ -592,7 +592,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </section>
 <section id="british-infants-gestures-summarise" class="slide level2">
 <h2>British infants’ gestures: Summarise</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>gestures <span class="sc">|&gt;</span> </span>
 <span id="cb12-2"><a></a>  <span class="fu">group_by</span>(background) <span class="sc">|&gt;</span> </span>
 <span id="cb12-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">median</span>(count_sum), <span class="fu">min</span>(count_sum), <span class="fu">max</span>(count_sum))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -608,16 +608,16 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </section>
 <section id="british-infants-gestures-plot" class="slide level2">
 <h2>British infants’ gestures: Plot</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>gestures <span class="sc">|&gt;</span> </span>
 <span id="cb14-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(background, count_sum)) <span class="sc">+</span></span>
 <span id="cb14-3"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-plot-1.png" width="960" class="r-stretch"></section>
+<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="british-infants-gestures-model" class="slide level2">
 <h2>British infants’ gestures: Model</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>gestures_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb15-2"><a></a>  count_sum <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> background,</span>
 <span id="cb15-3"><a></a>  <span class="at">family =</span> poisson,</span>
@@ -630,7 +630,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </section>
 <section id="british-infants-gestures-model-summary" class="slide level2">
 <h2>British infants’ gestures: Model summary</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">summary</span>(gestures_bm, <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: poisson 
@@ -654,14 +654,14 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </section>
 <section id="british-infants-gestures-conditional-posteriors" class="slide level2">
 <h2>British infants’ gestures: Conditional posteriors</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">conditional_effects</span>(gestures_bm, <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-bm-cond-1.png" width="960" class="r-stretch"></section>
+<img data-src="data-analysis-workflow_files/figure-revealjs/gestures-bm-cond-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="british-infants-gestures-conditional-predictions" class="slide level2">
 <h2>British infants’ gestures: Conditional predictions</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">library</span>(marginaleffects)</span>
 <span id="cb19-2"><a></a></span>
 <span id="cb19-3"><a></a><span class="fu">avg_predictions</span>(gestures_bm, <span class="at">variables =</span> <span class="st">"background"</span>, <span class="at">conf_level =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -679,7 +679,7 @@ Columns: background, estimate, conf.low, conf.high </code></pre>
 </section>
 <section id="british-infants-gestures-comparisons" class="slide level2">
 <h2>British infants’ gestures: Comparisons</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">avg_comparisons</span>(gestures_bm, <span class="at">variables =</span> <span class="fu">list</span>(<span class="at">background =</span> <span class="st">"pairwise"</span>), <span class="at">conf_level =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -696,14 +696,45 @@ Columns: term, contrast, estimate, conf.low, conf.high, predicted_lo, predicted_
 </section>
 <section id="british-infants-gestures-interpretation" class="slide level2">
 <h2>British infants’ gestures: Interpretation</h2>
+<div class="box-tip">
+<ul>
+<li><p>The 80% CrIs of the predicted number of gestures are:</p>
+<ul>
+<li><p>Bengali: 36–40.</p></li>
+<li><p>Chinese: 35–38.</p></li>
+<li><p>English: 28–31.</p></li>
+</ul></li>
+<li><p>English infants performed a lower number of gestures (5 to 11 gestures less than Chinese and Bengali infants at 80% confidence).</p></li>
+<li><p>Chinese and Bengali children have very similar predicted numbers of gestures. Their difference is between -3.5 to +1.5 gestures at 80% confidence.</p></li>
+</ul>
+</div>
 </section>
 <section id="british-infants-gestures-reporting" class="slide level2">
 <h2>British infants’ gestures: Reporting</h2>
+<blockquote>
+<p>We fitted a Bayesian regression model to the number of gestures produced by each infant, using a Poisson distribution. As the only predictor, we included cultural background (Bengali, Chinese, English). This predictor was coded using indexing (by suppressing the intercept with <code>0 +</code> in the model formula).</p>
+<p>Based on the model and data, the number of gestures by cultural background are 36–40 for Bengali infants, 35–38 for Chinese infants, and 28-31 for English infants, at 80% confidence. When comparing each cultural background, there is an 80% probability that the difference in gesture number is between -3.5 and 1.5 for Bengali vs Chinese, -11 and -6 for English vs Bengali, and -10 and -5 for English vs Chinese.</p>
+</blockquote>
 </section>
-<section id="vowel-duration-research-hypotheses" class="slide level2">
-<h2>Vowel duration: Research hypotheses</h2>
+<section id="british-infants-gestures-research-question" class="slide level2">
+<h2>British infants’ gestures: Research question</h2>
+<div class="box-tip">
+<p>Do British infants use a different number of gestures depending on their cultural background?</p>
+</div>
+<div class="fragment">
+<div class="box-note">
+<p>Based on the model and data, while Bengali and Chinese infants have a very similar number of gestures, English infants have a somewhat lower count relative to the other two groups.</p>
+</div>
+</div>
+</section>
+<section id="in-the-next-lecture" class="slide level2">
+<h2>In the next lecture…</h2>
+<div class="box-tip">
+<p>Does the distance the tongue has to travel to produce a vowel determines the duration of the vowel?</p>
+</div>
 
-<div class="quarto-auto-generated-content">
+
+<img data-src="../img/vdur-dags-3a.png" class="quarto-figure quarto-figure-center r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>

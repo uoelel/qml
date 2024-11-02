@@ -7,6 +7,10 @@ filters:
   - tachyonsextra
 execute: 
   echo: true
+knitr: 
+  opts_chunk: 
+    fig.width: 7
+    fig.align: center
 ---
 
 ```{r}
@@ -14,6 +18,7 @@ execute:
 #| include: false
 
 library(tidyverse)
+theme_set(theme_light())
 library(brms)
 library(marginaleffects)
 ```
@@ -91,7 +96,7 @@ gestures_sim <- tibble(
 gestures_sim
 ```
 
-## British infants' gestures: Data simulation (plotting)
+## British infants' gestures: Data simulation (summarise)
 
 ```{r}
 #| label: gestures-sim-summary
@@ -106,6 +111,7 @@ gestures_sim |>
 
 ```{r}
 #| label: gestures-sim-plot
+#| fig-width: 7
 
 gestures_sim |> 
   ggplot(aes(background, count)) +
@@ -234,8 +240,42 @@ avg_comparisons(gestures_bm, variables = list(background = "pairwise"), conf_lev
 
 ## British infants' gestures: Interpretation
 
+::: box-tip
+-   The 80% CrIs of the predicted number of gestures are:
 
+    -   Bengali: 36--40.
+
+    -   Chinese: 35--38.
+
+    -   English: 28--31.
+
+-   English infants performed a lower number of gestures (5 to 11 gestures less than Chinese and Bengali infants at 80% confidence).
+
+-   Chinese and Bengali children have very similar predicted numbers of gestures. Their difference is between -3.5 to +1.5 gestures at 80% confidence.
+:::
 
 ## British infants' gestures: Reporting
 
-## Vowel duration: Research hypotheses
+> We fitted a Bayesian regression model to the number of gestures produced by each infant, using a Poisson distribution. As the only predictor, we included cultural background (Bengali, Chinese, English). This predictor was coded using indexing (by suppressing the intercept with `0 +` in the model formula).
+>
+> Based on the model and data, the number of gestures by cultural background are 36--40 for Bengali infants, 35--38 for Chinese infants, and 28-31 for English infants, at 80% confidence. When comparing each cultural background, there is an 80% probability that the difference in gesture number is between -3.5 and 1.5 for Bengali vs Chinese, -11 and -6 for English vs Bengali, and -10 and -5 for English vs Chinese.
+
+## British infants' gestures: Research question
+
+::: box-tip
+Do British infants use a different number of gestures depending on their cultural background?
+:::
+
+. . .
+
+::: box-note
+Based on the model and data, while Bengali and Chinese infants have a very similar number of gestures, English infants have a somewhat lower count relative to the other two groups.
+:::
+
+## In the next lecture...
+
+::: box-tip
+Does the distance the tongue has to travel to produce a vowel determines the duration of the vowel?
+:::
+
+![](/img/vdur-dags-3a.png){fig-align="center"}

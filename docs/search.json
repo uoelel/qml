@@ -1880,14 +1880,14 @@
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation",
     "title": "Data analysis workflow",
     "section": "British infants’ gestures: Data simulation",
-    "text": "British infants’ gestures: Data simulation\n\nlibrary(tidyverse)\n\nN &lt;- 20\nbackground &lt;- c(\"English\", \"Bangladeshi\", \"Cantonese\")\ncount_en &lt;- rpois(N, 4)\ncount_ba &lt;- rpois(N, 1)\ncount_ca &lt;- rpois(N, 1.5)\n\ngestures_sim &lt;- tibble(\n  background = rep(background, each = N),\n  count = c(count_en, count_ba, count_ca)\n)\n\ngestures_sim\n\n# A tibble: 60 × 2\n   background count\n   &lt;chr&gt;      &lt;int&gt;\n 1 English        4\n 2 English        4\n 3 English        4\n 4 English        1\n 5 English        0\n 6 English        3\n 7 English        3\n 8 English        4\n 9 English        4\n10 English        4\n# ℹ 50 more rows"
+    "text": "British infants’ gestures: Data simulation\n\nlibrary(tidyverse)\n\nN &lt;- 20\nbackground &lt;- c(\"English\", \"Bangladeshi\", \"Cantonese\")\ncount_en &lt;- rpois(N, 4)\ncount_ba &lt;- rpois(N, 1)\ncount_ca &lt;- rpois(N, 1.5)\n\ngestures_sim &lt;- tibble(\n  background = rep(background, each = N),\n  count = c(count_en, count_ba, count_ca)\n)\n\ngestures_sim\n\n# A tibble: 60 × 2\n   background count\n   &lt;chr&gt;      &lt;int&gt;\n 1 English        2\n 2 English        5\n 3 English        4\n 4 English        3\n 5 English        3\n 6 English        5\n 7 English        3\n 8 English        6\n 9 English        3\n10 English        5\n# ℹ 50 more rows"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-plotting",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-plotting",
     "title": "Data analysis workflow",
     "section": "British infants’ gestures: Data simulation (plotting)",
-    "text": "British infants’ gestures: Data simulation (plotting)\n\ngestures_sim |&gt; \n  group_by(background) |&gt; \n  summarise(median(count), min(count), max(count))\n\n# A tibble: 3 × 4\n  background  `median(count)` `min(count)` `max(count)`\n  &lt;chr&gt;                 &lt;dbl&gt;        &lt;int&gt;        &lt;int&gt;\n1 Bangladeshi               1            0            2\n2 Cantonese                 1            0            5\n3 English                   4            0            6"
+    "text": "British infants’ gestures: Data simulation (plotting)\n\ngestures_sim |&gt; \n  ggplot(aes(background, count)) +\n  geom_jitter(width = 0.1)"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-plotting-1",
@@ -1978,14 +1978,14 @@
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-interpretation",
     "title": "Data analysis workflow",
     "section": "British infants’ gestures: Interpretation",
-    "text": "British infants’ gestures: Interpretation"
+    "text": "British infants’ gestures: Interpretation\n\n\nThe 80% CrIs of the predicted number of gestures are:\n\nBengali: 36–40.\nChinese: 35–38.\nEnglish: 28–31.\n\nEnglish infants performed a lower number of gestures (5 to 11 gestures less than Chinese and Bengali infants at 80% confidence).\nChinese and Bengali children have very similar predicted numbers of gestures. Their difference is between -3.5 to +1.5 gestures at 80% confidence."
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-reporting",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-reporting",
     "title": "Data analysis workflow",
     "section": "British infants’ gestures: Reporting",
-    "text": "British infants’ gestures: Reporting"
+    "text": "British infants’ gestures: Reporting\n\nWe fitted a Bayesian regression model to the number of gestures produced by each infant, using a Poisson distribution. As the only predictor, we included cultural background (Bengali, Chinese, English). This predictor was coded using indexing (by suppressing the intercept with 0 + in the model formula).\nBased on the model and data, the number of gestures by cultural background are 36–40 for Bengali infants, 35–38 for Chinese infants, and 28-31 for English infants, at 80% confidence. When comparing each cultural background, there is an 80% probability that the difference in gesture number is between -3.5 and 1.5 for Bengali vs Chinese, -11 and -6 for English vs Bengali, and -10 and -5 for English vs Chinese."
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#vowel-duration-research-hypotheses",
@@ -1993,5 +1993,26 @@
     "title": "Data analysis workflow",
     "section": "Vowel duration: Research hypotheses",
     "text": "Vowel duration: Research hypotheses"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-summarise",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-summarise",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Data simulation (summarise)",
+    "text": "British infants’ gestures: Data simulation (summarise)\n\ngestures_sim |&gt; \n  group_by(background) |&gt; \n  summarise(median(count), min(count), max(count))\n\n# A tibble: 3 × 4\n  background  `median(count)` `min(count)` `max(count)`\n  &lt;chr&gt;                 &lt;dbl&gt;        &lt;int&gt;        &lt;int&gt;\n1 Bangladeshi               1            0            2\n2 Cantonese                 1            0            6\n3 English                   4            1            9"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-research-question",
+    "href": "lectures/data-analysis-workflow.html#british-infants-gestures-research-question",
+    "title": "Data analysis workflow",
+    "section": "British infants’ gestures: Research question",
+    "text": "British infants’ gestures: Research question\n\nDo British infants use a different number of gestures depending on their cultural background?\n\n\n\nBased on the model and data, while Bengali and Chinese infants have a very similar number of gestures, English infants have a somewhat lower count relative to the other two groups."
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow.html#in-the-next-lecture",
+    "href": "lectures/data-analysis-workflow.html#in-the-next-lecture",
+    "title": "Data analysis workflow",
+    "section": "In the next lecture…",
+    "text": "In the next lecture…\n\nDoes the distance the tongue has to travel to produce a vowel determines the duration of the vowel?"
   }
 ]
