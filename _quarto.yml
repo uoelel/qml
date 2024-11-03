@@ -7,10 +7,12 @@ project:
     - "!slides/"
     - "!tutorials/"
     - "!data/"
+    - "!static/"
   resources:
     - "slides/"
     - "img/"
     - "data/"
+    - "static/"
 
 website:
   title: "QML"

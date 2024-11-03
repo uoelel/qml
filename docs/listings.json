@@ -1,20 +1,5 @@
 [
   {
-    "listing": "/challenges.html",
-    "items": [
-      "/challenges/yoda-speech.html",
-      "/challenges/glottobank.html",
-      "/challenges/gay-speech.html",
-      "/challenges/language-diversity.html",
-      "/challenges/linguameta.html",
-      "/challenges/morpho-gaelic.html",
-      "/challenges/phoible.html",
-      "/challenges/chatgpt-sentiment.html",
-      "/challenges/regression.html",
-      "/challenges/wals.html"
-    ]
-  },
-  {
     "listing": "/notebook.html",
     "items": [
       "/posts/computer-basics.html",
@@ -61,8 +46,22 @@
       "/posts/regression-ordinal.html",
       "/posts/regression-interactions-numnum.html",
       "/posts/plot-galleries.html",
-      "/posts/plot-plotly.html",
-      "/posts/data-analysis-workflow.html"
+      "/posts/plot-plotly.html"
+    ]
+  },
+  {
+    "listing": "/challenges.html",
+    "items": [
+      "/challenges/yoda-speech.html",
+      "/challenges/glottobank.html",
+      "/challenges/gay-speech.html",
+      "/challenges/language-diversity.html",
+      "/challenges/linguameta.html",
+      "/challenges/morpho-gaelic.html",
+      "/challenges/phoible.html",
+      "/challenges/chatgpt-sentiment.html",
+      "/challenges/regression.html",
+      "/challenges/wals.html"
     ]
   }
 ]
