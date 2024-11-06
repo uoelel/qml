@@ -127,17 +127,16 @@ graph TD
   click AQ href "posts/regression-interactions-numnum.html" "Go to page"
   AT[Poisson regression]
   click AT href "posts/regression-poisson.html" "Go to page"
-  style AT fill:#00008B,color:#FFF,stroke-width:2px
   AU[Ordinal regression]
   click AU href "posts/regression-ordinal.html" "Go to page"
-  style AU fill:#00008B,color:#FFF,stroke-width:2px
+  AV[Bayesian regression papers]
+  click AV href "posts/bayes-papers.html" "Go to page"
+  style AV fill:#00008B,color:#FFF,stroke-width:2px
   
   AR[Interactive plots]
   click AR href "posts/plot-plotly.html" "Go to page"
-  style AR fill:#00008B,color:#FFF,stroke-width:2px
   AS[Plotting tips]
   click AS href "posts/plot-galleries.html" "Go to page"
-  style AS fill:#00008B,color:#FFF,stroke-width:2px
   
   A --> B & C
   
@@ -152,7 +151,7 @@ graph TD
   D --> AN & G
   AN --> H
   AH --> AO
-  AO --> J & AP
+  AO --> J & AP & AV
   
   H --> AM
   AM --> F & I

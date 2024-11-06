@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stefano Coretta">
+<meta name="dcterms.date" content="2024-11-06">
+<meta name="description" content="A selection of papers in linguistics that use Bayesian methods with a focus on regression models as of 2024">
 
-<title>The Adventurer’s Map to the Notebook – QML</title>
+<title>Bayesian regression in linguistic research – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,12 +69,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="webex.css">
 </head>
 
 <body class="nav-fixed">
@@ -81,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
   </div>
@@ -92,31 +93,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Course schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./map.html" aria-current="page"> 
+    <a class="nav-link" href="../map.html"> 
 <span class="menu-text">Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebook.html"> 
+    <a class="nav-link" href="../notebook.html"> 
 <span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./challenges.html"> 
+    <a class="nav-link" href="../challenges.html"> 
 <span class="menu-text">Challenges</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html"> 
+    <a class="nav-link" href="../assessments.html"> 
 <span class="menu-text">Assessment</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./extra.html"> 
+    <a class="nav-link" href="../extra.html"> 
 <span class="menu-text">Extra</span></a>
   </li>  
 </ul>
@@ -139,14 +140,31 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Adventurer’s Map to the Notebook</h1>
+<h1 class="title">Bayesian regression in linguistic research</h1>
 </div>
 
+<div>
+  <div class="description">
+    A selection of papers in linguistics that use Bayesian methods with a focus on regression models as of 2024
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stefano Coretta </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 6, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -156,201 +174,259 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the <a href="./notebook.html">Notebook</a> entries. This Map will grow throughout the semester as new entries are added to the Notebook.</p>
-<p>In blue are entries that were recently added. In green are entries that you should have read by now, as per <a href="./schedule.html">Course schedule</a>.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Prerequisites
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can click on the name in the nodes and you will be taken to the entry in the Notebook.</p>
+<ul>
+<li><a href="../posts/freq-bayes.html">Two statistical approaches to inference: Frequentist and Bayesian statistics</a></li>
+</ul>
 </div>
 </div>
-<!--  -->
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
-  A[Start here]
-  B[Research methods]
-  click B href "posts/hodotics.html" "Go to page"
-  style B fill:#008000,color:#FFF,stroke-width:2px
-  C[Computer basics]
-  click C href "posts/computer-basics.html" "Go to page"
-  style C fill:#008000,color:#FFF,stroke-width:2px
-  D[R basics]
-  click D href "posts/r-basics.html" "Go to page"
-  style D fill:#008000,color:#FFF,stroke-width:2px
-  E[Statistical variables]
-  click E href "posts/stat-variables.html" "Go to page"
-  style E fill:#008000,color:#FFF,stroke-width:2px
-  F[Intro to Quarto]
-  click F href "posts/intro-quarto.html" "Go to page"
-  style F fill:#008000,color:#FFF,stroke-width:2px
-  G[R Troubleshooting]
-  click G href "posts/r-troubleshooting.html" "Go to page"
-  H[Read data in R]
-  click H href "posts/data-types.html" "Go to page"
-  style H fill:#008000,color:#FFF,stroke-width:2px
-  I[Read multiple files]
-  click I href "posts/import-multiple.html" "Go to page"
-  J[Intro regression I]
-  click J href "posts/intro-regression.html" "Go to page"
-  style J fill:#008000,color:#FFF,stroke-width:2px
-  K[Introduction to plotting]
-  click K href "posts/intro-plot.html" "Go to page"
-  style K fill:#008000,color:#FFF,stroke-width:2px
-  L[Wrangling data]
-  click L href "posts/wrangle.html" "Go to page"
-  style L fill:#008000,color:#FFF,stroke-width:2px
-  M[Plotting basics]
-  click M href "posts/plotting-basics.html" "Go to page"
-  style M fill:#008000,color:#FFF,stroke-width:2px
-  N[Bar charts]
-  click N href "posts/bar-charts.html" "Go to page"
-  O[Filtering]
-  click O href "posts/wrangle-filter.html" "Go to page"
-  P[Mutating]
-  click P href "posts/wrangle-mutate.html" "Go to page"
-  Q[Pivoting]
-  click Q href "posts/wrangle-pivoting.html" "Go to page"
-  Z[Faceting plots]
-  click Z href "posts/plot-faceting.html" "Go to page"
-  AA[Density plots]
-  click AA href "posts/plot-density.html" "Go to page"
-  AB[Advanced plotting]
-  click AB href "posts/plot-advanced.html" "Go to page"
-  AC[Summary measures]
-  click AC href "posts/summaries.html" "Go to page"
-  style AC fill:#008000,color:#FFF,stroke-width:2px
-  
-  AD[Empirical research]
-  click AD href "posts/research-context.html" "Go to page"
-  style AD fill:#008000,color:#FFF,stroke-width:2px
-  AE[Research Qs and Hs]
-  click AE href "posts/research-qh.html" "Go to page"
-  style AE fill:#008000,color:#FFF,stroke-width:2px
-  AF[Quantitative analysis]
-  click AF href "posts/data-analysis.html" "Go to page"
-  style AF fill:#008000,color:#FFF,stroke-width:2px
-  AG[Inference]
-  click AG href "posts/inference.html" "Go to page"
-  style AG fill:#008000,color:#FFF,stroke-width:2px
-  AH[Statistics]
-  click AH href "posts/statistics.html" "Go to page"
-  style AH fill:#008000,color:#FFF,stroke-width:2px
-  AI[Repro/repli]
-  click AI href "posts/repro-repli.html" "Go to page"
-  style AI fill:#008000,color:#FFF,stroke-width:2px
-  AJ[Proj Management]
-  click AJ href "posts/management.html" "Go to page"
-  AK[File management]
-  click AK href "posts/file-manage.html" "Go to page"
-  
-  AL[Machine Learning]
-  click AL href "posts/machine-learning.html" "Go to page"
-  AM[R scripts]
-  click AM href "posts/scripts.html" "Go to page"
-  style AM fill:#008000,color:#FFF,stroke-width:2px
-  AN[R packages]
-  click AN href "posts/packages.html" "Go to page"
-  style AN fill:#008000,color:#FFF,stroke-width:2px
-  
-  AO[Frequentist vs Bayesian]
-  click AO href "posts/freq-bayes.html" "Go to page"
-  style AO fill:#008000,color:#FFF,stroke-width:2px
-  AP[P-values]
-  click AP href "posts/p-values.html" "Go to page"
-  style AP fill:#008000,color:#FFF,stroke-width:2px
-  
-  R[Intro regression II]
-  click R href "posts/intro-regression-predictors.html" "Go to page"
-  style R fill:#008000,color:#FFF,stroke-width:2px
-  S[Regression: categorical predictors]
-  click S href "posts/intro-regression-categorical.html" "Go to page"
-  style S fill:#008000,color:#FFF,stroke-width:2px
-  T[MCMC draws]
-  click T href "posts/regression-draws.html" "Go to page"
-  U[Indexing predictors]
-  click U href "posts/regression-indexing.html" "Go to page"
-  V[Interactions]
-  click V href "posts/regression-interactions.html" "Go to page"
-  W[Categorical-categorical interactions]
-  click W href "posts/regression-interactions-catcat.html" "Go to page"
-  X[Bernoulli regression]
-  click X href "posts/regression-bernoulli.html" "Go to page"
-  AQ[Numeric-numeric interactions]
-  click AQ href "posts/regression-interactions-numnum.html" "Go to page"
-  AT[Poisson regression]
-  click AT href "posts/regression-poisson.html" "Go to page"
-  AU[Ordinal regression]
-  click AU href "posts/regression-ordinal.html" "Go to page"
-  AV[Bayesian regression papers]
-  click AV href "posts/bayes-papers.html" "Go to page"
-  style AV fill:#00008B,color:#FFF,stroke-width:2px
-  
-  AR[Interactive plots]
-  click AR href "posts/plot-plotly.html" "Go to page"
-  AS[Plotting tips]
-  click AS href "posts/plot-galleries.html" "Go to page"
-  
-  A --&gt; B &amp; C
-  
-  B --&gt; AD &amp; AF &amp; AJ
-  AD --&gt; AE
-  AE --&gt; AI
-  AF --&gt; AG &amp; AH
-  AJ --&gt; AK
-  
-  C --&gt; D
-  
-  D --&gt; AN &amp; G
-  AN --&gt; H
-  AH --&gt; AO
-  AO --&gt; J &amp; AP &amp; AV
-  
-  H --&gt; AM
-  AM --&gt; F &amp; I
-  I --&gt; Q
-  
-  F --&gt; E
-  E --&gt; J &amp; K &amp; L &amp; AC &amp; AL
-  
-  K --&gt; M
-  M --&gt; N &amp; Z &amp; AA &amp; AS
-  N --&gt; AB
-  AA --&gt; AB
-  AB --&gt; AR
-
-  L --&gt; O &amp; P &amp; Q
-  P --&gt; N &amp; AA
-  
-  %% Regression
-  J --&gt; R --&gt; S --&gt; T &amp; U
-  U --&gt; V &amp; X
-  V --&gt; W
-  W --&gt; AQ
-  X --&gt; AQ &amp; AT &amp; AU
-  
-  
-  
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<p>The following is an (unstructured and very partial) list of papers in linguistics that use (or promote the use) of Bayesian regression.</p>
+<ul>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0095447017302310">Bayesian data analysis in the phonetic sciences: A tutorial introduction</a></li>
+<li><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/lang.12310?casa_token=ovQSsy5kXskAAAAA%3AlAorbnUpfJBLqeS9i5Yi44y5ao8zDw5lUv7TJ7Y5bnXf2SS7jSfVBERm9bvg66gB9NrgxbPInDIQbQ">The Bayesian Revolution in Second Language Research: An Applied Approach</a></li>
+<li><a href="https://www.cambridge.org/core/journals/language-and-cognition/article/role-of-relevance-for-scalar-diversity-a-usagebased-approach/9DFF372956A0A93ABB4DC6CA8F51DEE7">The role of relevance for scalar diversity: a usage-based approach</a></li>
+<li><a href="https://doi.org/10.1177%2F25152459231162567">Multidimensional Signals and Analytic Flexibility: Estimating Degrees of Freedom in Human-Speech Analyses</a></li>
+<li><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1141174/full">Practice beats age: co-activation shapes heritage speakers’ lexical access more than age of onset</a></li>
+<li><a href="https://www.doi.org/10.1080/01434632.2024.2413933">Measuring spaces and observing attitudes: a comparative analysis on the language practices of Emilian and Esperanto speakers</a></li>
+<li><a href="https://www.doi.org/10.1017/S1360674323000047">The decline of local anchoring: A quantitative investigation</a></li>
+<li><a href="https://www.doi.org/10.1353/lan.2021.0020">Planting the seed for sound change: Evidence from real-time MRI of velum kinematics in German</a></li>
+<li><a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2020.00058/full">Comparing Constraints on Contraction Using Bayesian Regression Modeling</a></li>
+<li><a href="https://www.tandfonline.com/doi/abs/10.1198/004017007000000245?casa_token=CBAo84IxiWUAAAAA:Ws9vGeNkrIgVhqSlYSh5l3L2IilIJf3HHdbh0p7PjpvrCdzUF7hknRAQpd4PKNUCqid2J8k5wQup">Large-Scale Bayesian Logistic Regression for Text Categorization</a></li>
+<li><a href="https://www.doi.org/10.3389/frai.2020.00038">Toward ``English’’ phonetics: variability in the pre-consonantal voicing effect across English dialects and speakers</a></li>
+<li><a href="https://pubs.aip.org/asa/jasa/article-abstract/148/2/793/959127/Structured-speaker-variability-in-Japanese-stops?redirectedFrom=fulltext">Structured speaker variability in Japanese stops: Relationships within versus across cues to stop voicing</a></li>
+<li><a href="https://arxiv.org/abs/2207.03392">Bayesian Modeling of Language-Evoked Event-Related Potentials</a></li>
+<li><a href="https://www.semanticscholar.org/paper/Bayesian-Phylolinguistics-Greenhill-Heggarty/94e3e0387d1a7c54851bf4831990d5f3f4e3edc3">Bayesian Phylolinguistics</a></li>
+<li><a href="https://journals.sagepub.com/doi/full/10.1177/0963721416643289?casa_token=WPps3hrjpmsAAAAA%3AZcDzGwl7DcqbRE2zb4CfuyOqtLv1Il3Ca3YQ_Ll_UGhlSGmAPPfvrCVnE_M7_nG44NUU7Pt874b6">Bayesian Benefits for the Pragmatic Researcher</a></li>
+<li><a href="https://muse.jhu.edu/pub/24/article/757642/summary?casa_token=g0EkGUlEGxkAAAAA:yVyLi7N1Un91aT7QGJCenV7HeFvUpzKiix7OT-6gXPrqJIXKQevv8wb0RoMnDtOldkjVKU5oMg">Theory-driven statistical modeling for semantics and pragmatics: A case study on grammatically generated implicature readings</a></li>
+<li><a href="https://doi.org/10.1111/lang.12006">What a Bayesian Analysis Can Do for SLA: New Tools for the Sociolinguistic Study of Subject Expression in L2 Spanish</a></li>
+<li><a href="https://www.doi.org/10.1044/2018_JSLHR-S-18-0006">An introduction to Bayesian multilevel models using brms: a case study of gender effects on vowel variability in Standard Indonesian</a></li>
+<li><a href="https://www.doi.org/10.1017/S1366728921000316">Analysis of rating scales: A pervasive problem in bilingualism research and a solution with Bayesian ordinal models</a></li>
+<li><a href="https://www.proquest.com/docview/1712400987?fromopenview=true&amp;pq-origsite=gscholar&amp;sourcetype=Dissertations%20&amp;%20Theses">New Directions in Quantitative Hispanic Sociolinguistics</a></li>
+<li><a href="https://www.cambridge.org/core/journals/studies-in-second-language-acquisition/article/variability-and-individual-differences-in-l2-sociolinguistic-evaluations-the-group-the-individual-and-the-homogeneous-ensemble/E2C4F9CB8D6DFF7B8D74802487143258">Variability and individual differences in L2 sociolinguistic evaluations: The GROUP, the INDIVIDUAL and the HOMOGENEOUS ENSEMBLE</a></li>
+<li><a href="https://www.degruyter.com/document/doi/10.1515/cog-2015-0054/html">When variables align: A Bayesian multinomial mixed-effects model of English permissive constructions</a></li>
+<li><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2018.01141/full">Language Structures May Adapt to the Sociolinguistic Environment, but It Matters What and How You Count: A Typological Study of Verbal and Nominal Complexity</a></li>
+</ul>
+<p>Some disciplines use Bayesian probability theory to create linguistic models that explain specific types of linguistic processing. Despite this being “Bayesian” it is very different from using Bayesian regression models. An example of a paper that approaches linguistic processing using Bayesian theory is <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/josl.12229?casa_token=2mVHg23dxzgAAAAA%3AiDwPISV17OTOMKUEEQTyCbwDqng_5W--ASNJVBQN0Z0IaxxUCLsNN-o1qvJa0XDYmE-sPeRq_tavmg">Sociolinguistic interaction and identity construction: The view from game-theoretic pragmatic</a>, but there are many others.</p>
 
 
 
 </main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+  PagedTableDoc.initAll();
+}
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

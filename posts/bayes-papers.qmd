@@ -1,0 +1,47 @@
+---
+title: "Bayesian regression in linguistic research"
+description: "A selection of papers in linguistics that use Bayesian methods with a focus on regression models as of 2024"
+author: "Stefano Coretta"
+date: 2024-11-06
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+execute: 
+  warning: false
+---
+
+::: callout-warning
+#### Prerequisites
+
+-   [Two statistical approaches to inference: Frequentist and Bayesian statistics](freq-bayes.qmd)
+:::
+
+The following is an (unstructured and very partial) list of papers in linguistics that use (or promote the use) of Bayesian regression.
+
+
+- [Bayesian data analysis in the phonetic sciences: A tutorial introduction](https://www.sciencedirect.com/science/article/pii/S0095447017302310)
+- [The Bayesian Revolution in Second Language Research: An Applied Approach](https://onlinelibrary.wiley.com/doi/abs/10.1111/lang.12310?casa_token=ovQSsy5kXskAAAAA%3AlAorbnUpfJBLqeS9i5Yi44y5ao8zDw5lUv7TJ7Y5bnXf2SS7jSfVBERm9bvg66gB9NrgxbPInDIQbQ)
+- [The role of relevance for scalar diversity: a usage-based approach](https://www.cambridge.org/core/journals/language-and-cognition/article/role-of-relevance-for-scalar-diversity-a-usagebased-approach/9DFF372956A0A93ABB4DC6CA8F51DEE7)
+- [Multidimensional Signals and Analytic Flexibility: Estimating Degrees of Freedom in Human-Speech Analyses](https://doi.org/10.1177%2F25152459231162567)
+- [Practice beats age: co-activation shapes heritage speakers’ lexical access more than age of onset](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1141174/full)
+- [Measuring spaces and observing attitudes: a comparative analysis on the language practices of Emilian and Esperanto speakers](https://www.doi.org/10.1080/01434632.2024.2413933)
+- [The decline of local anchoring: A quantitative investigation](https://www.doi.org/10.1017/S1360674323000047)
+- [Planting the seed for sound change: Evidence from real-time MRI of velum kinematics in German](https://www.doi.org/10.1353/lan.2021.0020)
+- [Comparing Constraints on Contraction Using Bayesian Regression Modeling](https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2020.00058/full)
+- [Large-Scale Bayesian Logistic Regression for Text Categorization](https://www.tandfonline.com/doi/abs/10.1198/004017007000000245?casa_token=CBAo84IxiWUAAAAA:Ws9vGeNkrIgVhqSlYSh5l3L2IilIJf3HHdbh0p7PjpvrCdzUF7hknRAQpd4PKNUCqid2J8k5wQup)
+- [Toward ``English'' phonetics: variability in the pre-consonantal voicing effect across English dialects and speakers](https://www.doi.org/10.3389/frai.2020.00038)
+- [Structured speaker variability in Japanese stops: Relationships within versus across cues to stop voicing](https://pubs.aip.org/asa/jasa/article-abstract/148/2/793/959127/Structured-speaker-variability-in-Japanese-stops?redirectedFrom=fulltext)
+- [Bayesian Modeling of Language-Evoked Event-Related Potentials](https://arxiv.org/abs/2207.03392)
+- [Bayesian Phylolinguistics](https://www.semanticscholar.org/paper/Bayesian-Phylolinguistics-Greenhill-Heggarty/94e3e0387d1a7c54851bf4831990d5f3f4e3edc3)
+- [Bayesian Benefits for the Pragmatic Researcher](https://journals.sagepub.com/doi/full/10.1177/0963721416643289?casa_token=WPps3hrjpmsAAAAA%3AZcDzGwl7DcqbRE2zb4CfuyOqtLv1Il3Ca3YQ_Ll_UGhlSGmAPPfvrCVnE_M7_nG44NUU7Pt874b6)
+- [Theory-driven statistical modeling for semantics and pragmatics: A case study on grammatically generated implicature readings](https://muse.jhu.edu/pub/24/article/757642/summary?casa_token=g0EkGUlEGxkAAAAA:yVyLi7N1Un91aT7QGJCenV7HeFvUpzKiix7OT-6gXPrqJIXKQevv8wb0RoMnDtOldkjVKU5oMg)
+- [What a Bayesian Analysis Can Do for SLA: New Tools for the Sociolinguistic Study of Subject Expression in L2 Spanish](https://doi.org/10.1111/lang.12006)
+- [An introduction to Bayesian multilevel models using brms: a case study of gender effects on vowel variability in Standard Indonesian](https://www.doi.org/10.1044/2018_JSLHR-S-18-0006)
+- [Analysis of rating scales: A pervasive problem in bilingualism research and a solution with Bayesian ordinal models](https://www.doi.org/10.1017/S1366728921000316)
+- [New Directions in Quantitative Hispanic Sociolinguistics](https://www.proquest.com/docview/1712400987?fromopenview=true&pq-origsite=gscholar&sourcetype=Dissertations%20&%20Theses)
+- [Variability and individual differences in L2 sociolinguistic evaluations: The GROUP, the INDIVIDUAL and the HOMOGENEOUS ENSEMBLE](https://www.cambridge.org/core/journals/studies-in-second-language-acquisition/article/variability-and-individual-differences-in-l2-sociolinguistic-evaluations-the-group-the-individual-and-the-homogeneous-ensemble/E2C4F9CB8D6DFF7B8D74802487143258)
+- [When variables align: A Bayesian multinomial mixed-effects model of English permissive constructions](https://www.degruyter.com/document/doi/10.1515/cog-2015-0054/html)
+- [Language Structures May Adapt to the Sociolinguistic Environment, but It Matters What and How You Count: A Typological Study of Verbal and Nominal Complexity](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2018.01141/full)
+
+Some disciplines use Bayesian probability theory to create linguistic models that explain specific types of linguistic processing. Despite this being "Bayesian" it is very different from using Bayesian regression models. An example of a paper that approaches linguistic processing using Bayesian theory is [Sociolinguistic interaction and identity construction: The view from game-theoretic pragmatic](https://onlinelibrary.wiley.com/doi/full/10.1111/josl.12229?casa_token=2mVHg23dxzgAAAAA%3AiDwPISV17OTOMKUEEQTyCbwDqng_5W--ASNJVBQN0Z0IaxxUCLsNN-o1qvJa0XDYmE-sPeRq_tavmg), but there are many others.
