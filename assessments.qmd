@@ -197,7 +197,7 @@ This is **robustness assessment** project. You will have to get hold of the orig
 - **You should submit a PDF file.**
 - **You should use this [Quarto document template](static/qml-2024-final-reflection.qmd)** (right-click and download). For the submission, please render the Quarto file to PDF (I suggest trying this as soon as you download the file, to ensure you have all the necessary software for rendering to PDF).
 - **Every student should submit.** Your submission should include the Group Project output or link to it (we will discard the similarity ratings on Turnitin).
-- In your submission, **include the Group Project title and the names of the members of the group**, including yourself, and **your proposed mark** for yourself (this should be done individually, not at the group level), as per the template linked above.
+- In your submission, **include the Group Project title and the NAMES of the members of the group** (not the student number nor the exam number), including yourself, and **your proposed mark** for yourself (this should be done individually, not at the group level), as per the template linked above.
 - If you are unsure about anything, please post a question on Piazza.
 
 ## Feedback and marking
