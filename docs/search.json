@@ -970,7 +970,7 @@
     "href": "extra.html#recommended-textbooks",
     "title": "Extra resources",
     "section": "1 Recommended textbooks",
-    "text": "1 Recommended textbooks\nThese are recommended textbooks for beginners. The topics covered in this course are based on these textbooks.\n\nR for Data Science [R4DS]. This is an introduction to R and the tidyverse packages.\nStatistical (Re)thinking. This is a textbook that teaches statistics in R with a focus on Bayesian regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters.\nStatistics for Linguists. This is a textbook that teaches statistics in R with a focus on frequentist regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters."
+    "text": "1 Recommended textbooks\nThese are recommended textbooks for beginners. The topics covered in this course are based on these textbooks.\n\nR for Data Science [R4DS]. This is an introduction to R and the tidyverse packages.\nStatistical (Re)thinking. This is a textbook that teaches statistics in R with a focus on Bayesian regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters.\nStatistics for Linguists. This is a textbook that teaches statistics in R with a focus on frequentist regression modelling. It is meant for beginners but intermediate and advanced users can benefit from the later chapters.\n\nFor papers that use or argue for the use of Bayesian regression models in different disciplines within linguistics, see Bayesian regression in linguistic research."
   },
   {
     "objectID": "extra.html#r-skills",
