@@ -133,6 +133,10 @@ graph TD
   click AV href "posts/bayes-papers.html" "Go to page"
   style AV fill:#00008B,color:#FFF,stroke-width:2px
   
+  AW[Reporting]
+  click AW href "posts/reporting.html" "Go to page"
+  style AW fill:#00008B,color:#FFF,stroke-width:2px
+  
   AR[Interactive plots]
   click AR href "posts/plot-plotly.html" "Go to page"
   AS[Plotting tips]
@@ -161,16 +165,17 @@ graph TD
   E --> J & K & L & AC & AL
   
   K --> M
-  M --> N & Z & AA & AS
+  M --> N & Z & AA & AS & AW
   N --> AB
   AA --> AB
   AB --> AR
+  AC --> AW
 
   L --> O & P & Q
   P --> N & AA
   
   %% Regression
-  J --> R --> S --> T & U
+  J --> R --> S --> T & U & AW
   U --> V & X
   V --> W
   W --> AQ
@@ -179,3 +184,4 @@ graph TD
   
   
 ```
+

@@ -30,7 +30,7 @@ As part of the [Assessments](assessments.qmd), you will have to complete a **gro
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences. Check the week-by-week boxes below for a more detailed description of what you should be doing each week.
 
 | Week | Seminar | Lab |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | 1 | Welcome and practicalities | Notebook: [Learn the basics of R](posts/r-basics.qmd) |
 | 2 | [More than numbers: quantitative methods and uncertainty](discussions/discussion-02.qmd) | [Challenge](challenges.qmd) |
 | 3 | [Language endangerment and small numbers](discussions/discussion-03.qmd) | [Challenge](challenges.qmd) |
@@ -39,7 +39,7 @@ The following tables gives you an approximate schedule of the weekly themes, alt
 | 6 | [The language of the climate crisis](discussions/discussion-06.qmd) | [Challenge](challenges.qmd) |
 | 7 | [Equality, diversity and inclusiveness in quantitative linguistics](discussions/discussion-07.qmd) | [Challenge](challenges.qmd) |
 | 8 | [Mindless statistics](discussions/discussion-08.qmd) | [Challenge](challenges.qmd) |
-| 9 | [Open research and scholarship](discussions/discussion-09.qmd) | Challenge: Communicate your research |
+| 9 | [Open research and scholarship](discussions/discussion-09.qmd) | Notebook: [Reporting](posts/reporting.qmd) |
 | 10 | What's next? | Group project |
 | 11 | Reflect on what you learnt | Group project |
 
@@ -201,7 +201,7 @@ There isn't a required course textbook as such, but the majority of the course c
 -   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
 :::
 
-::: {.callout-note collapse="false"}
+::: {.callout-note collapse="true"}
 #### Week 8
 
 **BEFORE THE SEMINAR**
@@ -225,7 +225,7 @@ There isn't a required course textbook as such, but the majority of the course c
 -   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
 :::
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="false"}
 #### Week 9
 
 **BEFORE THE SEMINAR**
@@ -246,7 +246,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In the lab**
 
--   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
+-   Group activity: complete the [Reporting](posts/reporting.qmd) entry.
 :::
 
 ::: {.callout-note collapse="true"}
