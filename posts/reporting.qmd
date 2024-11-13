@@ -102,7 +102,7 @@ polite_bm <- brm(
   file = "cache/reporting-polite_bm"
 )
 
-summary(polite_bm, probs = 0.8)
+summary(polite_bm, prob = 0.8)
 
 avg_comparisons(polite_bm, variables = "attitude", by = "gender", conf_level = 0.8)
 ```
@@ -114,6 +114,19 @@ You can report it this way:
 > According to the model, the average f0 for female participants is between 247--267 hz when speaking informally vs 230--248 when speaking politely, at 80% confidence. In males, the average f0 is between 126--149 hz in informal speech vs 115--138 hz in polite speech, at 80% probability. The difference in f0 between polite and informal speech is between -27 and -9 hz in females and between -21 and -0.5 hz in males; in other words, f0 is 9--27 hz lower in females and 0.5--21 hz lower in males when the speech is polite relative to informal speech, at 80% confidence.
 
 You could also calculate and report the "difference of differences" (i.e. the difference between the informal/polite difference of females and the informal/polite difference of males). You can achieve that using the same function, `avg_comparisions()` (check the function's documentation).
+
+::: callout-tip
+### On interpreting Credible Intervals
+
+Credible Intervals are both about the probability that the parameter value is within that interval and the confidence we can have that the value is within that interval.
+
+So for example with a 75% CrI [-1, +3], we can say that:
+
+- There is a 75% probability that the value is between -1 and +3.
+- We can be 75% confident that the value is between -1 and +3.
+
+Alas, the naming of "Confidence Intervals" is unfortunate, because they don't measure confidence at all.
+:::
 
 ## Practice
 
