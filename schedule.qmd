@@ -40,7 +40,7 @@ The following tables gives you an approximate schedule of the weekly themes, alt
 | 7 | [Equality, diversity and inclusiveness in quantitative linguistics](discussions/discussion-07.qmd) | [Challenge](challenges.qmd) |
 | 8 | [Mindless statistics](discussions/discussion-08.qmd) | [Challenge](challenges.qmd) |
 | 9 | [Open research and scholarship](discussions/discussion-09.qmd) | Notebook: [Reporting](posts/reporting.qmd) |
-| 10 | What's next? | Group project |
+| 10 | [What's next?](discussions/discussion-10.qmd) | Group project |
 | 11 | Reflect on what you learnt | Group project |
 
 ## Recommended textbooks
@@ -260,7 +260,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In the seminar**
 
--   Group discussion - What's next?
+-   Group discussion - [What's next?](discussions/discussion-10.qmd)
 
 **In the lab**
 
