@@ -171,141 +171,141 @@
     "objectID": "lectures/data-analysis-workflow.html#research-questions-and-hypothesis",
     "href": "lectures/data-analysis-workflow.html#research-questions-and-hypothesis",
     "title": "Data analysis workflow",
-    "section": "Research questions and hypothesis",
-    "text": "Research questions and hypothesis\n\n\nResearch questions are testable questions.\nResearch hypotheses are falsifiable statements.\nCheck again this entry.\n\n\n\n\nTwo case studies:\n\nDescriptive and exploratory: Do British infants use a different number of gestures depending on their cultural background?\nExplanatory and corroboratory: vowel duration and gesture distance."
+    "section": "2 Research questions and hypothesis",
+    "text": "2 Research questions and hypothesis\n\n\nResearch questions are testable questions.\nResearch hypotheses are falsifiable statements.\nCheck again this entry.\n\n\n. . .\n\nTwo case studies:\n\nDescriptive and exploratory: Do British infants use a different number of gestures depending on their cultural background?\nExplanatory and corroboratory: vowel duration and gesture distance."
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-study-design",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-study-design",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Study design",
-    "text": "British infants’ gestures: Study design\n\n\nPublished paper: https://www.doi.org/10.1111/cdev.13406\nThree cultural backgrounds: English, Bangladeshi and Cantonese.\nAt least 20 infants per background.\nLaboratory setting, three tasks.\n\n\n\n\nAnalysis plan (gesture count by background)\n\nSummaries with median and range.\nVisualisation with strip charts.\nRegression models\n\nOutcome variable: gesture count → Poisson family.\nPredictors: cultural background."
+    "section": "3 British infants’ gestures: Study design",
+    "text": "3 British infants’ gestures: Study design\n\n\nPublished paper: https://www.doi.org/10.1111/cdev.13406\nThree cultural backgrounds: English, Bangladeshi and Cantonese.\nAt least 20 infants per background.\nLaboratory setting, three tasks.\n\n\n. . .\n\nAnalysis plan (gesture count by background)\n\nSummaries with median and range.\nVisualisation with strip charts.\nRegression models\n\nOutcome variable: gesture count → Poisson family.\nPredictors: cultural background."
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Data simulation",
-    "text": "British infants’ gestures: Data simulation\n\nlibrary(tidyverse)\n\nN &lt;- 20\nbackground &lt;- c(\"English\", \"Bangladeshi\", \"Cantonese\")\ncount_en &lt;- rpois(N, 4)\ncount_ba &lt;- rpois(N, 1)\ncount_ca &lt;- rpois(N, 1.5)\n\ngestures_sim &lt;- tibble(\n  background = rep(background, each = N),\n  count = c(count_en, count_ba, count_ca)\n)\n\ngestures_sim\n\n# A tibble: 60 × 2\n   background count\n   &lt;chr&gt;      &lt;int&gt;\n 1 English        2\n 2 English        5\n 3 English        4\n 4 English        3\n 5 English        3\n 6 English        5\n 7 English        3\n 8 English        6\n 9 English        3\n10 English        5\n# ℹ 50 more rows"
+    "section": "4 British infants’ gestures: Data simulation",
+    "text": "4 British infants’ gestures: Data simulation\n\nlibrary(tidyverse)\n\nN &lt;- 20\nbackground &lt;- c(\"English\", \"Bangladeshi\", \"Cantonese\")\ncount_en &lt;- rpois(N, 4)\ncount_ba &lt;- rpois(N, 1)\ncount_ca &lt;- rpois(N, 1.5)\n\ngestures_sim &lt;- tibble(\n  background = rep(background, each = N),\n  count = c(count_en, count_ba, count_ca)\n)\n\ngestures_sim\n\n# A tibble: 60 × 2\n   background count\n   &lt;chr&gt;      &lt;int&gt;\n 1 English        2\n 2 English        5\n 3 English        4\n 4 English        3\n 5 English        3\n 6 English        5\n 7 English        3\n 8 English        6\n 9 English        3\n10 English        5\n# ℹ 50 more rows"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-summarise",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-summarise",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Data simulation (summarise)",
-    "text": "British infants’ gestures: Data simulation (summarise)\n\ngestures_sim |&gt; \n  group_by(background) |&gt; \n  summarise(median(count), min(count), max(count))\n\n# A tibble: 3 × 4\n  background  `median(count)` `min(count)` `max(count)`\n  &lt;chr&gt;                 &lt;dbl&gt;        &lt;int&gt;        &lt;int&gt;\n1 Bangladeshi               1            0            2\n2 Cantonese                 1            0            6\n3 English                   4            1            9"
+    "section": "5 British infants’ gestures: Data simulation (summarise)",
+    "text": "5 British infants’ gestures: Data simulation (summarise)\n\ngestures_sim |&gt; \n  group_by(background) |&gt; \n  summarise(median(count), min(count), max(count))\n\n# A tibble: 3 × 4\n  background  `median(count)` `min(count)` `max(count)`\n  &lt;chr&gt;                 &lt;dbl&gt;        &lt;int&gt;        &lt;int&gt;\n1 Bangladeshi               1            0            2\n2 Cantonese                 1            0            6\n3 English                   4            1            9"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-plotting",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-plotting",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Data simulation (plotting)",
-    "text": "British infants’ gestures: Data simulation (plotting)\n\ngestures_sim |&gt; \n  ggplot(aes(background, count)) +\n  geom_jitter(width = 0.1)"
+    "section": "6 British infants’ gestures: Data simulation (plotting)",
+    "text": "6 British infants’ gestures: Data simulation (plotting)\n\ngestures_sim |&gt; \n  ggplot(aes(background, count)) +\n  geom_jitter(width = 0.1)"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-model",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-model",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Data simulation (model)",
-    "text": "British infants’ gestures: Data simulation (model)\n\nlibrary(brms)\n\ngestures_sim_bm &lt;- brm(\n  count ~ 0 + background,\n  family = poisson,\n  data = gestures_sim,\n  cores = 4,\n  seed = 9527,\n  file = \"cache/gestures_sim_bm\"\n)"
+    "section": "7 British infants’ gestures: Data simulation (model)",
+    "text": "7 British infants’ gestures: Data simulation (model)\n\nlibrary(brms)\n\ngestures_sim_bm &lt;- brm(\n  count ~ 0 + background,\n  family = poisson,\n  data = gestures_sim,\n  cores = 4,\n  seed = 9527,\n  file = \"cache/gestures_sim_bm\"\n)"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-model-1",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-model-1",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Data simulation (model)",
-    "text": "British infants’ gestures: Data simulation (model)\n\nsummary(gestures_sim_bm, prob = 0.8)\n\n Family: poisson \n  Links: mu = log \nFormula: count ~ 0 + background \n   Data: gestures_sim (Number of observations: 60) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n                      Estimate Est.Error l-80% CI u-80% CI Rhat Bulk_ESS\nbackgroundBangladeshi     0.20      0.20    -0.05     0.45 1.00     3695\nbackgroundCantonese       0.39      0.18     0.16     0.62 1.00     3934\nbackgroundEnglish         1.35      0.11     1.21     1.49 1.00     3935\n                      Tail_ESS\nbackgroundBangladeshi     2480\nbackgroundCantonese       2837\nbackgroundEnglish         2974\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+    "section": "8 British infants’ gestures: Data simulation (model)",
+    "text": "8 British infants’ gestures: Data simulation (model)\n\nsummary(gestures_sim_bm, prob = 0.8)\n\n Family: poisson \n  Links: mu = log \nFormula: count ~ 0 + background \n   Data: gestures_sim (Number of observations: 60) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n                      Estimate Est.Error l-80% CI u-80% CI Rhat Bulk_ESS\nbackgroundBangladeshi     0.20      0.20    -0.05     0.45 1.00     3695\nbackgroundCantonese       0.39      0.18     0.16     0.62 1.00     3934\nbackgroundEnglish         1.35      0.11     1.21     1.49 1.00     3935\n                      Tail_ESS\nbackgroundBangladeshi     2480\nbackgroundCantonese       2837\nbackgroundEnglish         2974\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-model-2",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-simulation-model-2",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Data simulation (model)",
-    "text": "British infants’ gestures: Data simulation (model)\n\nconditional_effects(gestures_sim_bm, prob = 0.8)"
+    "section": "9 British infants’ gestures: Data simulation (model)",
+    "text": "9 British infants’ gestures: Data simulation (model)\n\nconditional_effects(gestures_sim_bm, prob = 0.8)"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-data-acquisition",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-data-acquisition",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Data acquisition",
-    "text": "British infants’ gestures: Data acquisition\n\ngestures &lt;- read_csv(\"data/cameron2020/gestures.csv\") |&gt; \n  group_by(background, dyad) |&gt; \n  summarise(\n    count_sum = sum(count, na.rm = TRUE)\n  ) |&gt; \n  drop_na(count_sum)\ngestures\n\n# A tibble: 60 × 3\n# Groups:   background [3]\n   background dyad  count_sum\n   &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt;\n 1 Bengali    b01          17\n 2 Bengali    b02          36\n 3 Bengali    b03          43\n 4 Bengali    b04          50\n 5 Bengali    b05          33\n 6 Bengali    b06          24\n 7 Bengali    b07          16\n 8 Bengali    b08          37\n 9 Bengali    b09          26\n10 Bengali    b10          13\n# ℹ 50 more rows"
+    "section": "10 British infants’ gestures: Data acquisition",
+    "text": "10 British infants’ gestures: Data acquisition\n\ngestures &lt;- read_csv(\"data/cameron2020/gestures.csv\") |&gt; \n  group_by(background, dyad) |&gt; \n  summarise(\n    count_sum = sum(count, na.rm = TRUE)\n  ) |&gt; \n  drop_na(count_sum)\ngestures\n\n# A tibble: 60 × 3\n# Groups:   background [3]\n   background dyad  count_sum\n   &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt;\n 1 Bengali    b01          17\n 2 Bengali    b02          36\n 3 Bengali    b03          43\n 4 Bengali    b04          50\n 5 Bengali    b05          33\n 6 Bengali    b06          24\n 7 Bengali    b07          16\n 8 Bengali    b08          37\n 9 Bengali    b09          26\n10 Bengali    b10          13\n# ℹ 50 more rows"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-summarise",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-summarise",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Summarise",
-    "text": "British infants’ gestures: Summarise\n\ngestures |&gt; \n  group_by(background) |&gt; \n  summarise(median(count_sum), min(count_sum), max(count_sum))\n\n# A tibble: 3 × 4\n  background `median(count_sum)` `min(count_sum)` `max(count_sum)`\n  &lt;chr&gt;                    &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;\n1 Bengali                   36.5                5               81\n2 Chinese                   32.5                1              108\n3 English                   20                  1              164"
+    "section": "11 British infants’ gestures: Summarise",
+    "text": "11 British infants’ gestures: Summarise\n\ngestures |&gt; \n  group_by(background) |&gt; \n  summarise(median(count_sum), min(count_sum), max(count_sum))\n\n# A tibble: 3 × 4\n  background `median(count_sum)` `min(count_sum)` `max(count_sum)`\n  &lt;chr&gt;                    &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;\n1 Bengali                   36.5                5               81\n2 Chinese                   32.5                1              108\n3 English                   20                  1              164"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-plot",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-plot",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Plot",
-    "text": "British infants’ gestures: Plot\n\ngestures |&gt; \n  ggplot(aes(background, count_sum)) +\n  geom_jitter(width = 0.1)"
+    "section": "12 British infants’ gestures: Plot",
+    "text": "12 British infants’ gestures: Plot\n\ngestures |&gt; \n  ggplot(aes(background, count_sum)) +\n  geom_jitter(width = 0.1)"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-model",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-model",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Model",
-    "text": "British infants’ gestures: Model\n\ngestures_bm &lt;- brm(\n  count_sum ~ 0 + background,\n  family = poisson,\n  data = gestures,\n  cores = 4,\n  seed = 9527,\n  file = \"cache/gestures_bm\"\n)"
+    "section": "13 British infants’ gestures: Model",
+    "text": "13 British infants’ gestures: Model\n\ngestures_bm &lt;- brm(\n  count_sum ~ 0 + background,\n  family = poisson,\n  data = gestures,\n  cores = 4,\n  seed = 9527,\n  file = \"cache/gestures_bm\"\n)"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-model-summary",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-model-summary",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Model summary",
-    "text": "British infants’ gestures: Model summary\n\nsummary(gestures_bm, prob = 0.8)\n\n Family: poisson \n  Links: mu = log \nFormula: count_sum ~ 0 + background \n   Data: gestures (Number of observations: 60) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n                  Estimate Est.Error l-80% CI u-80% CI Rhat Bulk_ESS Tail_ESS\nbackgroundBengali     3.63      0.04     3.58     3.68 1.00     4227     3072\nbackgroundChinese     3.60      0.04     3.55     3.65 1.00     4388     3001\nbackgroundEnglish     3.38      0.04     3.32     3.43 1.00     3644     2852\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+    "section": "14 British infants’ gestures: Model summary",
+    "text": "14 British infants’ gestures: Model summary\n\nsummary(gestures_bm, prob = 0.8)\n\n Family: poisson \n  Links: mu = log \nFormula: count_sum ~ 0 + background \n   Data: gestures (Number of observations: 60) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n                  Estimate Est.Error l-80% CI u-80% CI Rhat Bulk_ESS Tail_ESS\nbackgroundBengali     3.63      0.04     3.58     3.68 1.00     4227     3072\nbackgroundChinese     3.60      0.04     3.55     3.65 1.00     4388     3001\nbackgroundEnglish     3.38      0.04     3.32     3.43 1.00     3644     2852\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-conditional-posteriors",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-conditional-posteriors",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Conditional posteriors",
-    "text": "British infants’ gestures: Conditional posteriors\n\nconditional_effects(gestures_bm, prob = 0.8)"
+    "section": "15 British infants’ gestures: Conditional posteriors",
+    "text": "15 British infants’ gestures: Conditional posteriors\n\nconditional_effects(gestures_bm, prob = 0.8)"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-conditional-predictions",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-conditional-predictions",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Conditional predictions",
-    "text": "British infants’ gestures: Conditional predictions\n\nlibrary(marginaleffects)\n\navg_predictions(gestures_bm, variables = \"background\", conf_level = 0.8)\n\n\n background Estimate 10.0 % 90.0 %\n    Bengali     37.7   36.0   39.5\n    Chinese     36.6   34.9   38.4\n    English     29.3   27.8   30.8\n\nType:  response \nColumns: background, estimate, conf.low, conf.high"
+    "section": "16 British infants’ gestures: Conditional predictions",
+    "text": "16 British infants’ gestures: Conditional predictions\n\nlibrary(marginaleffects)\n\navg_predictions(gestures_bm, variables = \"background\", conf_level = 0.8)\n\n\n background Estimate 10.0 % 90.0 %\n    Bengali     37.7   36.0   39.5\n    Chinese     36.6   34.9   38.4\n    English     29.3   27.8   30.8\n\nType:  response \nColumns: background, estimate, conf.low, conf.high"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-comparisons",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-comparisons",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Comparisons",
-    "text": "British infants’ gestures: Comparisons\n\navg_comparisons(gestures_bm, variables = list(background = \"pairwise\"), conf_level = 0.8)\n\n\n                      Contrast Estimate 10.0 % 90.0 %\n mean(Chinese) - mean(Bengali)    -1.07  -3.43   1.44\n mean(English) - mean(Bengali)    -8.37 -10.78  -6.07\n mean(English) - mean(Chinese)    -7.31  -9.72  -5.06\n\nTerm: background\nType:  response \nColumns: term, contrast, estimate, conf.low, conf.high, predicted_lo, predicted_hi, predicted, tmp_idx"
+    "section": "17 British infants’ gestures: Comparisons",
+    "text": "17 British infants’ gestures: Comparisons\n\navg_comparisons(gestures_bm, variables = list(background = \"pairwise\"), conf_level = 0.8)\n\n\n                      Contrast Estimate 10.0 % 90.0 %\n mean(Chinese) - mean(Bengali)    -1.07  -3.43   1.44\n mean(English) - mean(Bengali)    -8.37 -10.78  -6.07\n mean(English) - mean(Chinese)    -7.31  -9.72  -5.06\n\nTerm: background\nType:  response \nColumns: term, contrast, estimate, conf.low, conf.high, predicted_lo, predicted_hi, predicted, tmp_idx"
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-interpretation",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-interpretation",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Interpretation",
-    "text": "British infants’ gestures: Interpretation\n\n\nThe 80% CrIs of the predicted number of gestures are:\n\nBengali: 36–40.\nChinese: 35–38.\nEnglish: 28–31.\n\nEnglish infants performed a lower number of gestures (5 to 11 gestures less than Chinese and Bengali infants at 80% confidence).\nChinese and Bengali children have very similar predicted numbers of gestures. Their difference is between -3.5 to +1.5 gestures at 80% confidence."
+    "section": "18 British infants’ gestures: Interpretation",
+    "text": "18 British infants’ gestures: Interpretation\n\n\nThe 80% CrIs of the predicted number of gestures are:\n\nBengali: 36–40.\nChinese: 35–38.\nEnglish: 28–31.\n\nEnglish infants performed a lower number of gestures (5 to 11 gestures less than Chinese and Bengali infants at 80% confidence).\nChinese and Bengali children have very similar predicted numbers of gestures. Their difference is between -3.5 to +1.5 gestures at 80% confidence."
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-reporting",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-reporting",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Reporting",
-    "text": "British infants’ gestures: Reporting\n\nWe fitted a Bayesian regression model to the number of gestures produced by each infant, using a Poisson distribution. As the only predictor, we included cultural background (Bengali, Chinese, English). This predictor was coded using indexing (by suppressing the intercept with 0 + in the model formula).\nBased on the model and data, the number of gestures by cultural background are 36–40 for Bengali infants, 35–38 for Chinese infants, and 28-31 for English infants, at 80% confidence. When comparing each cultural background, there is an 80% probability that the difference in gesture number is between -3.5 and 1.5 for Bengali vs Chinese, -11 and -6 for English vs Bengali, and -10 and -5 for English vs Chinese."
+    "section": "19 British infants’ gestures: Reporting",
+    "text": "19 British infants’ gestures: Reporting\n\nWe fitted a Bayesian regression model to the number of gestures produced by each infant, using a Poisson distribution. As the only predictor, we included cultural background (Bengali, Chinese, English). This predictor was coded using indexing (by suppressing the intercept with 0 + in the model formula).\nBased on the model and data, the number of gestures by cultural background are 36–40 for Bengali infants, 35–38 for Chinese infants, and 28-31 for English infants, at 80% confidence. When comparing each cultural background, there is an 80% probability that the difference in gesture number is between -3.5 and 1.5 for Bengali vs Chinese, -11 and -6 for English vs Bengali, and -10 and -5 for English vs Chinese."
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#british-infants-gestures-research-question",
     "href": "lectures/data-analysis-workflow.html#british-infants-gestures-research-question",
     "title": "Data analysis workflow",
-    "section": "British infants’ gestures: Research question",
-    "text": "British infants’ gestures: Research question\n\nDo British infants use a different number of gestures depending on their cultural background?\n\n\n\nBased on the model and data, while Bengali and Chinese infants have a very similar number of gestures, English infants have a somewhat lower count relative to the other two groups."
+    "section": "20 British infants’ gestures: Research question",
+    "text": "20 British infants’ gestures: Research question\n\nDo British infants use a different number of gestures depending on their cultural background?\n\n. . .\n\nBased on the model and data, while Bengali and Chinese infants have a very similar number of gestures, English infants have a somewhat lower count relative to the other two groups."
   },
   {
     "objectID": "lectures/data-analysis-workflow.html#in-the-next-lecture",
     "href": "lectures/data-analysis-workflow.html#in-the-next-lecture",
     "title": "Data analysis workflow",
-    "section": "In the next lecture…",
-    "text": "In the next lecture…\n\nDoes the distance the tongue has to travel to produce a vowel determines the duration of the vowel?"
+    "section": "21 In the next lecture…",
+    "text": "21 In the next lecture…\n\nDoes the distance the tongue has to travel to produce a vowel determines the duration of the vowel?"
   },
   {
     "objectID": "posts/regression-draws.html",
@@ -1061,7 +1061,7 @@
     "href": "assessments.html#feedback-and-marking",
     "title": "QML",
     "section": "4 Feedback and marking",
-    "text": "4 Feedback and marking\nFeedback will be provided to you (1) during class, (2) as comments on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me and/or the tutors).\nThis course is self-assessed with co-moderation, which means that at the end of the course you will assign yourself a mark and the mark will be moderated in conversation between you and the Lecturer (Stefano)/Tutors. The conversation will happen either in a meeting or via email:\n\nIf you would like to have a conversation, I will arrange 15-minute meetings the week of December 16.\nIf you don’t want to have a conversation, me or the Tutors will get in touch with you via email only in the case that adjustments to the mark have to be made (which in the experience of other colleagues using this approach happens quite rarely!).\n\n\n\n\n\n\n\nSelf-assessment with co-moderation\n\n\n\n\nBased on your learning as evidenced by the Portfolio, you assign yourself a mark (see section on impression-based step marking) when submitting the Final Reflection with the Group Project (by December 12).\nThe Course Organiser/Tutors will moderate the self-assigned mark as part of a dialogue with you.\n\n\n\n\n4.1 Impression-based step-marking\nTo help you thinking about which mark to assign yourself, we will use an “impression-based step-marking” procedure. The procedure works as follows:\n\nFirst, think about the mark band you think you deserve.\nThen, choose a step within the band (see below for an explanation).\n\nOnce you pick a mark band, you need to pick a step within that band. You can find a description of the bands here: Extended Common Marking Scheme. Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:\n\n\n\n\n\n\n\nStep\nCriteria\n\n\n\n\n2\nThe criteria for the mark band have been achieved, but there might be minor issues.\n\n\n5\nThe criteria for the mark band have been achieved satisfactorily.\n\n\n8\nThe criteria for the mark band have been achieved fully."
+    "text": "4 Feedback and marking\nFeedback will be provided to you (1) during class, (2) as comments on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me and/or the tutors).\nThis course is self-assessed with co-moderation, which means that at the end of the course you will assign yourself a mark and the mark will be moderated in conversation between you and the Lecturer (Stefano)/Tutors. The conversation will happen either in a meeting or via email:\n\nIf you would like to have a conversation, I will arrange 15-minute meetings the week of December 16.\nIf you don’t want to have a conversation, me or the Tutors will get in touch with you via email only in the case that adjustments to the mark have to be made (which in the experience of other colleagues using this approach happens quite rarely!).\n\n\n\n\n\n\n\nSelf-assessment with co-moderation\n\n\n\n\nBased on your learning as evidenced by the Portfolio, you assign yourself a mark (see section on impression-based step marking) when submitting the Final Reflection with the Group Project (by December 12).\nThe Course Organiser/Tutors will moderate the self-assigned mark as part of a dialogue with you.\n\n\n\n\n4.1 Impression-based step-marking\nTo help you thinking about which mark to assign yourself, we will use an “impression-based step-marking” procedure. The procedure works as follows:\n\nFirst, think about the mark band you think you deserve.\nThen, choose a step within the band (see below for an explanation).\n\nOnce you pick a mark band, you need to pick a step within that band. You can find a description of the bands here: Extended Common Marking Scheme. The following is an Extended Extended Common Marking Scheme made specifically for this course.\n\n\n\n\n\n\n\n\n\nMark (bands)\nGrade\nDescription\nFull Description\n\n\n\n\n90-100\nA1\nExcellent\n\nI engaged with the course contents, classes and the learning process at an exeptional level, beyond any expectation.\nI have learnt all of the contents of the Notebook plus (possibly advanced) content from other sources.\nI have practised my R skills above and beyond the methods covered in the Notebook. I feel extremely comfortable finding out how to analyse data in novel contexts.\n\n\n\n80-89\nA2\nExcellent\n\nI engaged with the course contents, classes and the learning process at an outstanding level.\nI have learnt all of the minimum contents (the mandatory Notebook entries) plus further content from the Notebook and possibly from other sources.\nI have practised my R skills and I know how to read a variety of data types, create complex plots and model different data types using advanced regression models and possibly other methods. I feel comfortable finding out how to analyse data in contexts that are very dissimilar from the ones seen in class.\n\n\n\n70-79\nA3\nExcellent\n\nI engaged with the course contents, classes and the learning process at an excellent level.\nI have learnt all of the minimum contents (the mandatory Notebook entries) plus further content from the Notebook.\nI have practised my R skills and I know how to read a variety of data types, create complex plots and model different data types using regression. I feel comfortable finding out how to analyse data in contexts that are very dissimilar from the ones seen in class.\n\n\n\n60-69\nB\nVery good\n\nI engaged with the course contents, classes and the learning process at a very good level.\nI have learnt all of the minimum contents (the mandatory Notebook entries) plus some further content covered in the Notebook.\nI have practised my R skills and I know how to read a variety of data types, create moderately complex plots and model different data types using regression. I feel comfortable finding out how to analyse data in contexts that are dissimilar from the ones seen in class.\n\n\n\n50-59\nC\nGood\n\nI engaged with the course contents, classes and the learning process at a good level.\nI have learnt all of the minimum contents (the mandatory Notebook entries).\nI have practised my R skills and I know how to read data, create plots and model data using regression. I might not be able to apply these to contexts that are dissimilar from those seen in the course.\n\n\n\n40-49\nD\nSatisfactory, pass\n\nI minimally engaged with the course contents and classes and the learning process.\nI have learnt most of the bare minimum (most of the content of the mandatory Notebook entries) but I still have some gaps.\nI have minimally practised my R skills and I can ran minimal and simplistic quantitative analyses in R, like reading data and creating simple plots.\n\n\n\n0-39\nE-H\nFail\n\nI did not engage with the course contents and classes nor the learning process at all.\nI have not learned even the minimum (the content of the mandatory Notebook entries).\n\n\n\n\nWithin each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:\n\n\n\n\n\n\n\nStep\nCriteria\n\n\n\n\n2\nThe criteria for the mark band have been achieved, but there might be minor issues.\n\n\n5\nThe criteria for the mark band have been achieved satisfactorily.\n\n\n8\nThe criteria for the mark band have been achieved fully."
   },
   {
     "objectID": "assessments.html#footnotes",

@@ -63,7 +63,7 @@ In sum: after any given class, you'll write a short self-reflection. Within a re
 ::: callout-important
 ### Deadlines
 
--   You must submit a Project Proposal to Turnitin by **Thursday 7th November at noon** on Learn > Assessment.
+-   You must submit a Project Proposal to Turnitin by **Thursday 7th November at noon** on Learn \> Assessment.
 -   You must submit your Final Reflection, including the product of your Group Project to Turnitin by **Thursday 12th December at noon** on Learn \> Assessment.
 :::
 
@@ -116,12 +116,12 @@ Stefano does not have telepathic powers (yet) and the only way for him to help y
 ::: callout-important
 #### Deadline
 
--   You must submit a Project Proposal to Turnitin by **Thursday 7th November at noon** on Learn > Assessment.
+-   You must submit a Project Proposal to Turnitin by **Thursday 7th November at noon** on Learn \> Assessment.
 :::
 
-- You will have to **submit a very short project proposal for approval by Thursday 7th November** to Turnitin on Learn, but the earlier you submit the earlier you can start working on it! We will be checking submissions as they arrive and ask get in touch if there are any issues.
-- **Only one person per group should submit the proposal** (there is no need for everyone in the group to submit the project proposal and you can add all the names of the group members if you wish).
-- A few sentences explaining the project will be sufficient. Note that this deadline is an informal deadline and there is no possibility of getting an extension.
+-   You will have to **submit a very short project proposal for approval by Thursday 7th November** to Turnitin on Learn, but the earlier you submit the earlier you can start working on it! We will be checking submissions as they arrive and ask get in touch if there are any issues.
+-   **Only one person per group should submit the proposal** (there is no need for everyone in the group to submit the project proposal and you can add all the names of the group members if you wish).
+-   A few sentences explaining the project will be sufficient. Note that this deadline is an informal deadline and there is no possibility of getting an extension.
 
 The following boxes give you some examples of possible projects and project proposals, with an explanation on how you can go about completing these projects.
 
@@ -178,7 +178,7 @@ This is **research** project. You will have to think of a research question/hypo
 
 **Project proposal**
 
-> We want to re-analyse the data from [Ota 2013]. The original study used frequentist regression models, but we will instead apply a Bayesian regression model.
+> We want to re-analyse the data from \[Ota 2013\]. The original study used frequentist regression models, but we will instead apply a Bayesian regression model.
 
 **How to complete it**
 
@@ -191,14 +191,14 @@ This is **robustness assessment** project. You will have to get hold of the orig
 #### Deadline
 
 -   You must submit your Final Reflection, including the product of your Group Project, to Turnitin by **Thursday 12th December at noon** on Learn \> Assessment.
-- Extensions are not possible, so carefully plan your time accordingly.
+-   Extensions are not possible, so carefully plan your time accordingly.
 :::
 
-- **You should submit a PDF file.**
-- **You should use this [Quarto document template](static/qml-2024-final-reflection.qmd)** (right-click and download). For the submission, please render the Quarto file to PDF (I suggest trying this as soon as you download the file, to ensure you have all the necessary software for rendering to PDF).
-- **Every student should submit.** Your submission should include the Group Project output or link to it (we will discard the similarity ratings on Turnitin).
-- In your submission, **include the Group Project title and the NAMES of the members of the group** (not the student number nor the exam number), including yourself, and **your proposed mark** for yourself (this should be done individually, not at the group level), as per the template linked above.
-- If you are unsure about anything, please post a question on Piazza.
+-   **You should submit a PDF file.**
+-   **You should use this [Quarto document template](static/qml-2024-final-reflection.qmd)** (right-click and download). For the submission, please render the Quarto file to PDF (I suggest trying this as soon as you download the file, to ensure you have all the necessary software for rendering to PDF).
+-   **Every student should submit.** Your submission should include the Group Project output or link to it (we will discard the similarity ratings on Turnitin).
+-   In your submission, **include the Group Project title and the NAMES of the members of the group** (not the student number nor the exam number), including yourself, and **your proposed mark** for yourself (this should be done individually, not at the group level), as per the template linked above.
+-   If you are unsure about anything, please post a question on Piazza.
 
 ## Feedback and marking
 
@@ -225,10 +225,60 @@ To help you thinking about which mark to assign yourself, we will use an "impres
 -   First, think about the mark band you think you deserve.
 -   Then, choose a step within the band (see below for an explanation).
 
-Once you pick a mark band, you need to pick a step within that band. You can find a description of the bands here: [Extended Common Marking Scheme](https://registryservices.ed.ac.uk/timetabling-examinations/exams/regulations/common-marking-scheme). Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:
+Once you pick a mark band, you need to pick a step within that band. You can find a description of the bands here: [Extended Common Marking Scheme](https://registryservices.ed.ac.uk/timetabling-examinations/exams/regulations/common-marking-scheme). The following is an Extended Extended Common Marking Scheme made specifically for this course.
 
-| Step | Criteria |
-|:------------------:|----------------------------------------------------|
-| 2 | The criteria for the mark band have been achieved, but there might be minor issues. |
-| 5 | The criteria for the mark band have been achieved satisfactorily. |
-| 8 | The criteria for the mark band have been achieved fully. |
++--------------+-------+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Mark (bands) | Grade | Description        | Full Description                                                                                                                                                                                                                                                                                                       |
++==============+=======+====================+========================================================================================================================================================================================================================================================================================================================+
+| 90-100       | A1    | Excellent          | -   I engaged with the course contents, classes and the learning process at an exeptional level, beyond any expectation.                                                                                                                                                                                               |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have learnt all of the contents of the Notebook plus (possibly advanced) content from other sources.                                                                                                                                                                                                             |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have practised my R skills above and beyond the methods covered in the Notebook. I feel extremely comfortable finding out how to analyse data in novel contexts.                                                                                                                                                 |
++--------------+-------+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 80-89        | A2    | Excellent          | -   I engaged with the course contents, classes and the learning process at an outstanding level.                                                                                                                                                                                                                      |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have learnt all of the minimum contents (the mandatory Notebook entries) plus further content from the Notebook and possibly from other sources.                                                                                                                                                                 |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have practised my R skills and I know how to read a variety of data types, create complex plots and model different data types using advanced regression models and possibly other methods. I feel comfortable finding out how to analyse data in contexts that are very dissimilar from the ones seen in class. |
++--------------+-------+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 70-79        | A3    | Excellent          | -   I engaged with the course contents, classes and the learning process at an excellent level.                                                                                                                                                                                                                        |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have learnt all of the minimum contents (the mandatory Notebook entries) plus further content from the Notebook.                                                                                                                                                                                                 |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have practised my R skills and I know how to read a variety of data types, create complex plots and model different data types using regression. I feel comfortable finding out how to analyse data in contexts that are very dissimilar from the ones seen in class.                                            |
++--------------+-------+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 60-69        | B     | Very good          | -   I engaged with the course contents, classes and the learning process at a very good level.                                                                                                                                                                                                                         |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have learnt all of the minimum contents (the mandatory Notebook entries) plus some further content covered in the Notebook.                                                                                                                                                                                      |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have practised my R skills and I know how to read a variety of data types, create moderately complex plots and model different data types using regression. I feel comfortable finding out how to analyse data in contexts that are dissimilar from the ones seen in class.                                      |
++--------------+-------+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 50-59        | C     | Good               | -   I engaged with the course contents, classes and the learning process at a good level.                                                                                                                                                                                                                              |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have learnt all of the minimum contents (the mandatory Notebook entries).                                                                                                                                                                                                                                        |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have practised my R skills and I know how to read data, create plots and model data using regression. I might not be able to apply these to contexts that are dissimilar from those seen in the course.                                                                                                          |
++--------------+-------+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 40-49        | D     | Satisfactory, pass | -   I minimally engaged with the course contents and classes and the learning process.                                                                                                                                                                                                                                 |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have learnt most of the bare minimum (most of the content of the mandatory Notebook entries) but I still have some gaps.                                                                                                                                                                                         |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have minimally practised my R skills and I can ran minimal and simplistic quantitative analyses in R, like reading data and creating simple plots.                                                                                                                                                               |
++--------------+-------+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 0-39         | E-H   | Fail               | -   I did not engage with the course contents and classes nor the learning process at all.                                                                                                                                                                                                                             |
+|              |       |                    |                                                                                                                                                                                                                                                                                                                        |
+|              |       |                    | -   I have not learned even the minimum (the content of the mandatory Notebook entries).                                                                                                                                                                                                                               |
++--------------+-------+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:
+
++------------------+-------------------------------------------------------------------------------------+
+| Step             | Criteria                                                                            |
++:================:+=====================================================================================+
+| 2                | The criteria for the mark band have been achieved, but there might be minor issues. |
++------------------+-------------------------------------------------------------------------------------+
+| 5                | The criteria for the mark band have been achieved satisfactorily.                   |
++------------------+-------------------------------------------------------------------------------------+
+| 8                | The criteria for the mark band have been achieved fully.                            |
++------------------+-------------------------------------------------------------------------------------+
