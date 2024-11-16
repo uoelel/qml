@@ -173,3 +173,41 @@ C. The coefficients of vowel category and the non-linear effect of distance are 
 :::
 
 ## Simulate data
+
+```{r}
+library(faux)
+
+s_n <- 20
+rep_n <- 10
+vdur_m <- 75
+vdur_a <- 20; vdur_e <- 10; vdur_i <- -20; vdur_o <- 15; vdur_u <- -20
+dist_a <- 8; dist_e <- 4.5; dist_i <- 2; dist_o <- 6; dist_u <- 2
+u_s_sd <- 5
+u_r_sd <- 2
+sigma_sd <- 5
+
+sim_data <- tibble(
+  dist_m, dist
+) |> 
+  add_random(speaker = s_n) |> 
+  add_within("speaker", vowel = c("a", "e", "i", "o", "u")) |> 
+  add_within("vowel", rep = 1:rep_n) |> 
+  add_ranef("speaker", u_s = u_s_sd) |> 
+  add_ranef("rep", u_r = u_r_sd) |> 
+  add_ranef(sigma = sigma_sd) |> 
+  mutate(
+    vdur = case_when(
+      vowel == "a" ~ vdur_m + vdur_a + u_s + u_r + (dist_m * dist) + sigma_sd,
+      vowel == "e" ~ vdur_m + vdur_e + u_s + u_r + (dist_m * dist) + sigma_sd,
+      vowel == "i" ~ vdur_m + vdur_i + u_s + u_r + (dist_m * dist) + sigma_sd,
+      vowel == "o" ~ vdur_m + vdur_o + u_s + u_r + (dist_m * dist) + sigma_sd,
+      vowel == "u" ~ vdur_m + vdur_u + u_s + u_r + (dist_m * dist) + sigma_sd
+    )
+  )
+```
+
+```{r}
+sim_data |> 
+  ggplot(aes(dist_m, vdur)) +
+  geom_point()
+```
