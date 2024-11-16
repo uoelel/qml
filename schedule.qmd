@@ -210,7 +210,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In your own time**
 
--   What the [Data Analysis Workflow](https://media.ed.ac.uk/media/QML+2024+-+Data+Analysis+Workflow+%28Lecture%29/1_rar3mrxo/308657412) pre-recorded lecture. You can find the slides [here](lectures/data-analysis-workflow.qmd).
+-   What the [Data Analysis Workflow](https://media.ed.ac.uk/media/QML+2024+-+Data+Analysis+Workflow+%28Lecture%29/1_rar3mrxo/308657412) pre-recorded lecture. You can find the slides [here](https://uoelel.github.io/qml/lectures/data-analysis-workflow.html).
 
 -   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
 
@@ -225,7 +225,7 @@ There isn't a required course textbook as such, but the majority of the course c
 -   Group activity: pick a [Challenge](challenges.qmd) or continue working on one.
 :::
 
-::: {.callout-note collapse="false"}
+::: {.callout-note collapse="true"}
 #### Week 9
 
 **BEFORE THE SEMINAR**
@@ -249,7 +249,7 @@ There isn't a required course textbook as such, but the majority of the course c
 -   Group activity: complete the [Reporting](posts/reporting.qmd) entry.
 :::
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="false"}
 #### Week 10
 
 **In your own time**

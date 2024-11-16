@@ -1,0 +1,175 @@
+---
+title: "Data analysis workflow: Part 2"
+author: "Stefano Coretta"
+format: mono-light-revealjs
+editor: source
+filters:
+  - tachyonsextra
+execute: 
+  echo: true
+knitr: 
+  opts_chunk: 
+    fig.width: 7
+    fig.align: center
+---
+
+## Research process cycle: Overview
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+theme_set(theme_light())
+library(brms)
+library(marginaleffects)
+```
+
+![](/img/res-process-cycle.png){fig-align="center"}
+
+## Research questions and hypothesis
+
+::: box-tip
+Two case studies:
+
+-   **(Week 8) Descriptive and exploratory**: Do British infants use a different number of gestures depending on their cultural background?
+
+-   **(This week) Explanatory and corroboratory**: vowel duration and gesture distance.
+:::
+
+## Intrinsic vowel duration: Future study
+
+::: box-note
+**High vowels tend to be shorter than low vowels.**
+:::
+
+::: box-tip
+**American English** in Lieberman and Kubaska 1979, Turk et al. 1994, Tauberer and Evanini 2009, Toivonen et al. 2015, Wilson and Chodroff 2017; **Dutch** in Bundgaard 1980; **Swedish** in Toivonen et al. 2015.
+:::
+
+## Distance to target
+
+![](/img/eke-aka.png){fig-align="center" width="700"}
+
+## Source of intrinsic vowel duration
+
+::: {layout-ncol="2"}
+![Distance to target (Turk et al. 1994)](/img/intrinsic.png){#fig-dist fig-align="center" width="500"}
+
+![Phonologisation (Toivonen et al. 2015)](/img/intrinsic-phonologised.png){#fig-phon fig-align="center" width="425"}
+:::
+
+## Variables of interest
+
+| Outcome             | Predictors                      |
+|---------------------|---------------------------------|
+| Vowel duration (ms) | Vowel (quality)                 |
+|                     | Distance to vocalic target (mm) |
+|                     | Speech rate (syl/s)             |
+
+## Models of intrinsic vowel duration
+
+![](/img/vdur-dags-art.png){fig-align="center"}
+
+## Research Hypotheses
+
+::: box-tip
+A. Vowel duration is entirely determined by the distance to vowel target.
+
+B. Vowel duration is entirely determined by stored durational targets.
+
+C. Vowel duration is not entirely determined by distance to vowel target only and stored durational targets are also necessary.
+:::
+
+## Research context overview
+
++-------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| **Topic**               | Intrinsic vowel duration                                                                                                        |
++-------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| **Research problem**    | There are competing models of gestural duration.                                                                                |
++-------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| **Goal**                | Assessing these models against empirical data. (Comparing the fit of different models)                                          |
++-------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| **Research question**   | Which of three possible models of gestural duration are corroborated?                                                           |
++-------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| **Research hypotheses** | A. Vowel duration is entirely determined by the distance to vowel target.                                                       |
+|                         |                                                                                                                                 |
+|                         | B. Vowel duration is entirely determined by stored durational targets.                                                          |
+|                         |                                                                                                                                 |
+|                         | C. Vowel duration is not entirely determined by distance to vowel target only and stored durational targets are also necessary. |
++-------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+
+## Causal inference
+
+::: box-tip
+-   **Causal inference** approach: think about the causal relationship of variables to determine statistical models.
+
+-   Directed Acyclic Graphs, or **DAGs**.
+
+-   Demo on [DAGitty](https://www.dagitty.net/dags.html).
+:::
+
+. . .
+
+::: box-note
+To learn more about Causal Inference:
+
+-   [Statistical Rethinking 2023 - 05 - Elemental Confounds](https://youtu.be/mBEA7PKDmiY?si=2CDiY4ASdIEUIKHz)
+
+-   Statistical Rethinking, Chapter 6.
+:::
+
+## Regression model
+
++-----------------------------+-------------------------------------------------+
+| **Inference**               | Bayesian                                        |
++-----------------------------+-------------------------------------------------+
+| **Model**                   | Regression model                                |
++-----------------------------+-------------------------------------------------+
+| **Outcome variable**        | Vowel duration                                  |
++-----------------------------+-------------------------------------------------+
+| **Distribution of outcome** | Log-normal                                      |
++-----------------------------+-------------------------------------------------+
+| **Predictors**              | vowel, distance, speech rate                    |
++-----------------------------+-------------------------------------------------+
+| **Transformations**         | -   distance: logged and standardised           |
+|                             |                                                 |
+|                             | -   speech rate: logged and standardised        |
++-----------------------------+-------------------------------------------------+
+| **Effect types**            | non-linear effects for distance and speech rate |
++-----------------------------+-------------------------------------------------+
+| **Coding**                  | indexing                                        |
++-----------------------------+-------------------------------------------------+
+| **Varying effects**         | -   by-speaker distance, by vowel               |
+|                             |                                                 |
+|                             | -   by-speaker speech rate                      |
++-----------------------------+-------------------------------------------------+
+
+## Regression model: code
+
+```{r}
+#| label: bm
+#| eval: false
+
+bm <- brm(
+  vowel_duration ~
+    0 + vowel +
+    s(distance) +
+    s(distance, speaker, by = vowel, bs = "fs", m = 1) +
+    s(speech_rate_logz, k = 5) +
+    s(speech_rate_logz, speaker, bs = "fs", m = 1),
+  family = lognormal
+)
+```
+
+## Statistical hypotheses
+
+::: box-note
+A. The coefficients of vowel category are 0 and the non-linear effect of distance is not 0.
+
+B. The coefficients of vowel category are not 0 and the non-linear effect of distance is 0.
+
+C. The coefficients of vowel category and the non-linear effect of distance are not 0.
+:::
+
+## Simulate data
