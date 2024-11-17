@@ -612,8 +612,8 @@ Figure&nbsp;2: Phonologisation (Toivonen et al.&nbsp;2015)
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
 <span id="cb1-2"><a></a>  vowel_duration <span class="sc">~</span></span>
 <span id="cb1-3"><a></a>    <span class="dv">0</span> <span class="sc">+</span> vowel <span class="sc">+</span></span>
-<span id="cb1-4"><a></a>    <span class="fu">s</span>(distance) <span class="sc">+</span></span>
-<span id="cb1-5"><a></a>    <span class="fu">s</span>(distance, speaker, <span class="at">by =</span> vowel, <span class="at">bs =</span> <span class="st">"fs"</span>, <span class="at">m =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-4"><a></a>    <span class="fu">s</span>(distance_logz) <span class="sc">+</span></span>
+<span id="cb1-5"><a></a>    <span class="fu">s</span>(distance_logz, speaker, <span class="at">by =</span> vowel, <span class="at">bs =</span> <span class="st">"fs"</span>, <span class="at">m =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb1-6"><a></a>    <span class="fu">s</span>(speech_rate_logz, <span class="at">k =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
 <span id="cb1-7"><a></a>    <span class="fu">s</span>(speech_rate_logz, speaker, <span class="at">bs =</span> <span class="st">"fs"</span>, <span class="at">m =</span> <span class="dv">1</span>),</span>
 <span id="cb1-8"><a></a>  <span class="at">family =</span> lognormal</span>
@@ -623,15 +623,109 @@ Figure&nbsp;2: Phonologisation (Toivonen et al.&nbsp;2015)
 <section id="statistical-hypotheses" class="slide level2">
 <h2>Statistical hypotheses</h2>
 <div class="box-note">
-<p>A. The coefficients of vowel category are 0 and the non-linear effect of distance is not 0.</p>
-<p>B. The coefficients of vowel category are not 0 and the non-linear effect of distance is 0.</p>
-<p>C. The coefficients of vowel category and the non-linear effect of distance are not 0.</p>
+<p>A. There is no robust effect of vowel but there is a robust (non-linear) effect of distance.</p>
+<p>B. There is a robust effect of vowel but there is no robust effect of distance.</p>
+<p>C. There is both an effect of vowel and distance.</p>
 </div>
 </section>
 <section id="simulate-data" class="slide level2">
 <h2>Simulate data</h2>
+<div class="box-tip">
+<p>Check the <a href="https://debruine.github.io/faux/index.html">faux</a> package, although it might not actively developed anymore.</p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">set.seed</span>(<span class="dv">9817</span>)</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a>s_n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb2-4"><a></a>rep_n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb2-5"><a></a>vdur_m <span class="ot">&lt;-</span> <span class="dv">75</span></span>
+<span id="cb2-6"><a></a>vdur_a <span class="ot">&lt;-</span> <span class="dv">20</span>; vdur_e <span class="ot">&lt;-</span> <span class="dv">10</span>; vdur_i <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">15</span>; vdur_o <span class="ot">&lt;-</span> <span class="dv">10</span>; vdur_u <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">22</span></span>
+<span id="cb2-7"><a></a>dist_a <span class="ot">&lt;-</span> <span class="dv">8</span>; dist_e <span class="ot">&lt;-</span> <span class="fl">4.5</span>; dist_i <span class="ot">&lt;-</span> <span class="dv">2</span>; dist_o <span class="ot">&lt;-</span> <span class="dv">6</span>; dist_u <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb2-8"><a></a>dist_sd <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb2-9"><a></a>b_dist <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb2-10"><a></a>b_sr <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb2-11"><a></a>sr_m <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb2-12"><a></a><span class="co"># varying duration</span></span>
+<span id="cb2-13"><a></a>dur_spk_sd <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb2-14"><a></a>dur_rep_sd <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb2-15"><a></a><span class="co"># varying distance</span></span>
+<span id="cb2-16"><a></a>dist_spk_sd <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb2-17"><a></a>dist_rep_sd <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb2-18"><a></a><span class="co"># varying sr</span></span>
+<span id="cb2-19"><a></a>sr_spk_sd <span class="ot">&lt;-</span> <span class="fl">0.005</span></span>
+<span id="cb2-20"><a></a>sr_rep_sd <span class="ot">&lt;-</span> <span class="fl">0.005</span></span>
+<span id="cb2-21"><a></a></span>
+<span id="cb2-22"><a></a>sigma_sd <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb2-23"><a></a></span>
+<span id="cb2-24"><a></a>sim_data <span class="ot">&lt;-</span> <span class="fu">add_random</span>(<span class="at">speaker =</span> s_n) <span class="sc">|&gt;</span> </span>
+<span id="cb2-25"><a></a>  <span class="fu">add_within</span>(<span class="st">"speaker"</span>, <span class="at">vowel =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"e"</span>, <span class="st">"i"</span>, <span class="st">"o"</span>, <span class="st">"u"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-26"><a></a>  <span class="fu">add_within</span>(<span class="st">"vowel"</span>, <span class="at">rep =</span> <span class="dv">1</span><span class="sc">:</span>rep_n) <span class="sc">|&gt;</span> </span>
+<span id="cb2-27"><a></a>  <span class="fu">add_ranef</span>(<span class="st">"speaker"</span>, <span class="at">dur_spk =</span> dur_spk_sd) <span class="sc">|&gt;</span> </span>
+<span id="cb2-28"><a></a>  <span class="fu">add_ranef</span>(<span class="st">"rep"</span>, <span class="at">dur_rep =</span> dur_rep_sd) <span class="sc">|&gt;</span> </span>
+<span id="cb2-29"><a></a>  <span class="fu">add_ranef</span>(<span class="st">"speaker"</span>, <span class="at">dist_spk =</span> dist_spk_sd) <span class="sc">|&gt;</span> </span>
+<span id="cb2-30"><a></a>  <span class="fu">add_ranef</span>(<span class="st">"rep"</span>, <span class="at">dist_rep =</span> dist_rep_sd) <span class="sc">|&gt;</span></span>
+<span id="cb2-31"><a></a>  <span class="fu">add_ranef</span>(<span class="st">"speaker"</span>, <span class="at">sr_spk =</span> sr_spk_sd) <span class="sc">|&gt;</span> </span>
+<span id="cb2-32"><a></a>  <span class="fu">add_ranef</span>(<span class="st">"rep"</span>, <span class="at">sr_rep =</span> sr_rep_sd) <span class="sc">|&gt;</span> </span>
+<span id="cb2-33"><a></a>  <span class="fu">add_ranef</span>(<span class="at">sigma =</span> sigma_sd) <span class="sc">|&gt;</span> </span>
+<span id="cb2-34"><a></a>  <span class="fu">add_ranef</span>(<span class="at">sigma_dist =</span> dist_sd) <span class="sc">|&gt;</span> </span>
+<span id="cb2-35"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-36"><a></a>    <span class="at">distance =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-37"><a></a>      vowel <span class="sc">==</span> <span class="st">"a"</span> <span class="sc">~</span> dist_a <span class="sc">+</span> dist_spk <span class="sc">+</span> dist_rep <span class="sc">+</span> sigma_dist,</span>
+<span id="cb2-38"><a></a>      vowel <span class="sc">==</span> <span class="st">"e"</span> <span class="sc">~</span> dist_e <span class="sc">+</span> dist_spk <span class="sc">+</span> dist_rep <span class="sc">+</span> sigma_dist,</span>
+<span id="cb2-39"><a></a>      vowel <span class="sc">==</span> <span class="st">"i"</span> <span class="sc">~</span> dist_i <span class="sc">+</span> dist_spk <span class="sc">+</span> dist_rep <span class="sc">+</span> sigma_dist,</span>
+<span id="cb2-40"><a></a>      vowel <span class="sc">==</span> <span class="st">"o"</span> <span class="sc">~</span> dist_o <span class="sc">+</span> dist_spk <span class="sc">+</span> dist_rep <span class="sc">+</span> sigma_dist,</span>
+<span id="cb2-41"><a></a>      vowel <span class="sc">==</span> <span class="st">"u"</span> <span class="sc">~</span> dist_u <span class="sc">+</span> dist_spk <span class="sc">+</span> dist_rep <span class="sc">+</span> sigma_dist</span>
+<span id="cb2-42"><a></a>    ),</span>
+<span id="cb2-43"><a></a>    <span class="at">speech_rate =</span> sr_m <span class="sc">+</span> sr_spk <span class="sc">+</span> sr_rep</span>
+<span id="cb2-44"><a></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb2-45"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-46"><a></a>    <span class="at">vowel_duration =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-47"><a></a>      vowel <span class="sc">==</span> <span class="st">"a"</span> <span class="sc">~</span> vdur_m <span class="sc">+</span> vdur_a <span class="sc">+</span> dur_spk <span class="sc">+</span> dur_rep <span class="sc">+</span> (b_dist <span class="sc">*</span> distance) <span class="sc">+</span> (b_sr <span class="sc">*</span> speech_rate) <span class="sc">+</span> sigma_sd,</span>
+<span id="cb2-48"><a></a>      vowel <span class="sc">==</span> <span class="st">"e"</span> <span class="sc">~</span> vdur_m <span class="sc">+</span> vdur_e <span class="sc">+</span> dur_spk <span class="sc">+</span> dur_rep <span class="sc">+</span> (b_dist <span class="sc">*</span> distance) <span class="sc">+</span> (b_sr <span class="sc">*</span> speech_rate) <span class="sc">+</span> sigma_sd,</span>
+<span id="cb2-49"><a></a>      vowel <span class="sc">==</span> <span class="st">"i"</span> <span class="sc">~</span> vdur_m <span class="sc">+</span> vdur_i <span class="sc">+</span> dur_spk <span class="sc">+</span> dur_rep <span class="sc">+</span> (b_dist <span class="sc">*</span> distance) <span class="sc">+</span> (b_sr <span class="sc">*</span> speech_rate) <span class="sc">+</span> sigma_sd,</span>
+<span id="cb2-50"><a></a>      vowel <span class="sc">==</span> <span class="st">"o"</span> <span class="sc">~</span> vdur_m <span class="sc">+</span> vdur_o <span class="sc">+</span> dur_spk <span class="sc">+</span> dur_rep <span class="sc">+</span> (b_dist <span class="sc">*</span> distance) <span class="sc">+</span> (b_sr <span class="sc">*</span> speech_rate) <span class="sc">+</span> sigma_sd,</span>
+<span id="cb2-51"><a></a>      vowel <span class="sc">==</span> <span class="st">"u"</span> <span class="sc">~</span> vdur_m <span class="sc">+</span> vdur_u <span class="sc">+</span> dur_spk <span class="sc">+</span> dur_rep <span class="sc">+</span> (b_dist <span class="sc">*</span> distance) <span class="sc">+</span> (b_sr <span class="sc">*</span> speech_rate) <span class="sc">+</span> sigma_sd</span>
+<span id="cb2-52"><a></a>    ),</span>
+<span id="cb2-53"><a></a>    <span class="at">distance_log =</span> <span class="fu">log</span>(distance),</span>
+<span id="cb2-54"><a></a>    <span class="at">distance_logz =</span> (distance_log <span class="sc">-</span> <span class="fu">mean</span>(distance_log)) <span class="sc">/</span> <span class="fu">sd</span>(distance_log),</span>
+<span id="cb2-55"><a></a>    <span class="at">speech_rate_log =</span> <span class="fu">log</span>(speech_rate),</span>
+<span id="cb2-56"><a></a>    <span class="at">speech_rate_logz =</span> (speech_rate_log <span class="sc">-</span> <span class="fu">mean</span>(speech_rate_log)) <span class="sc">/</span> <span class="fu">sd</span>(speech_rate_log)</span>
+<span id="cb2-57"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="simulate-data-plot" class="slide level2">
+<h2>Simulate data: plot</h2>
 
-<div class="quarto-auto-generated-content">
+<img data-src="data-analysis-workflow-2_files/figure-revealjs/sim-data-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<section id="simulate-data-model" class="slide level2">
+<h2>Simulate data: model</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb3-2"><a></a>  vowel_duration <span class="sc">~</span></span>
+<span id="cb3-3"><a></a>    <span class="dv">0</span> <span class="sc">+</span> vowel <span class="sc">+</span></span>
+<span id="cb3-4"><a></a>    <span class="fu">s</span>(distance_logz) <span class="sc">+</span></span>
+<span id="cb3-5"><a></a>    <span class="fu">s</span>(distance_logz, speaker, <span class="at">by =</span> vowel, <span class="at">bs =</span> <span class="st">"fs"</span>, <span class="at">m =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a></a>    <span class="fu">s</span>(speech_rate_logz, <span class="at">k =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a></a>    <span class="fu">s</span>(speech_rate_logz, speaker, <span class="at">bs =</span> <span class="st">"fs"</span>, <span class="at">m =</span> <span class="dv">1</span>),</span>
+<span id="cb3-8"><a></a>  <span class="at">family =</span> lognormal,</span>
+<span id="cb3-9"><a></a>  <span class="at">data =</span> sim_data,</span>
+<span id="cb3-10"><a></a>  <span class="at">cores =</span> <span class="dv">4</span>,</span>
+<span id="cb3-11"><a></a>  <span class="at">seed =</span> <span class="dv">7162</span>,</span>
+<span id="cb3-12"><a></a>  <span class="at">file =</span> <span class="st">"cache/data-analysis-workflow-2_bm"</span></span>
+<span id="cb3-13"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="box-important">
+<p>This took 40 minutes to run and ended in 218 divergent transitions. You would normally also specify priors and try and fix the divergent transitions (and in the case of non-linear effects you might also want to estimate the number of knots before fitting).</p>
+</div>
+</section>
+<section id="simulate-data-model-summary" class="slide level2">
+<h2>Simulate data: model summary</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">conditional_effects</span>(bm, <span class="st">"distance_logz:vowel"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+
+<img data-src="data-analysis-workflow-2_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>

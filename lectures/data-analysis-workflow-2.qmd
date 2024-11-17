@@ -23,6 +23,7 @@ library(tidyverse)
 theme_set(theme_light())
 library(brms)
 library(marginaleffects)
+library(faux)
 ```
 
 ![](/img/res-process-cycle.png){fig-align="center"}
@@ -154,8 +155,8 @@ To learn more about Causal Inference:
 bm <- brm(
   vowel_duration ~
     0 + vowel +
-    s(distance) +
-    s(distance, speaker, by = vowel, bs = "fs", m = 1) +
+    s(distance_logz) +
+    s(distance_logz, speaker, by = vowel, bs = "fs", m = 1) +
     s(speech_rate_logz, k = 5) +
     s(speech_rate_logz, speaker, bs = "fs", m = 1),
   family = lognormal
@@ -165,49 +166,121 @@ bm <- brm(
 ## Statistical hypotheses
 
 ::: box-note
-A. The coefficients of vowel category are 0 and the non-linear effect of distance is not 0.
+A. There is no robust effect of vowel but there is a robust (non-linear) effect of distance.
 
-B. The coefficients of vowel category are not 0 and the non-linear effect of distance is 0.
+B. There is a robust effect of vowel but there is no robust effect of distance.
 
-C. The coefficients of vowel category and the non-linear effect of distance are not 0.
+C. There is both an effect of vowel and distance.
 :::
 
 ## Simulate data
 
+::: box-tip
+Check the [faux](https://debruine.github.io/faux/index.html) package, although it might not actively developed anymore.
+:::
+
 ```{r}
-library(faux)
+#| label: sim-data
+set.seed(9817)
 
 s_n <- 20
 rep_n <- 10
 vdur_m <- 75
-vdur_a <- 20; vdur_e <- 10; vdur_i <- -20; vdur_o <- 15; vdur_u <- -20
+vdur_a <- 20; vdur_e <- 10; vdur_i <- -15; vdur_o <- 10; vdur_u <- -22
 dist_a <- 8; dist_e <- 4.5; dist_i <- 2; dist_o <- 6; dist_u <- 2
-u_s_sd <- 5
-u_r_sd <- 2
-sigma_sd <- 5
+dist_sd <- 0.2
+b_dist <- 0.8
+b_sr <- 0.01
+sr_m <- 4
+# varying duration
+dur_spk_sd <- 5
+dur_rep_sd <- 2
+# varying distance
+dist_spk_sd <- 0.05
+dist_rep_sd <- 0.05
+# varying sr
+sr_spk_sd <- 0.005
+sr_rep_sd <- 0.005
 
-sim_data <- tibble(
-  dist_m, dist
-) |> 
-  add_random(speaker = s_n) |> 
+sigma_sd <- 20
+
+sim_data <- add_random(speaker = s_n) |> 
   add_within("speaker", vowel = c("a", "e", "i", "o", "u")) |> 
   add_within("vowel", rep = 1:rep_n) |> 
-  add_ranef("speaker", u_s = u_s_sd) |> 
-  add_ranef("rep", u_r = u_r_sd) |> 
+  add_ranef("speaker", dur_spk = dur_spk_sd) |> 
+  add_ranef("rep", dur_rep = dur_rep_sd) |> 
+  add_ranef("speaker", dist_spk = dist_spk_sd) |> 
+  add_ranef("rep", dist_rep = dist_rep_sd) |>
+  add_ranef("speaker", sr_spk = sr_spk_sd) |> 
+  add_ranef("rep", sr_rep = sr_rep_sd) |> 
   add_ranef(sigma = sigma_sd) |> 
+  add_ranef(sigma_dist = dist_sd) |> 
   mutate(
-    vdur = case_when(
-      vowel == "a" ~ vdur_m + vdur_a + u_s + u_r + (dist_m * dist) + sigma_sd,
-      vowel == "e" ~ vdur_m + vdur_e + u_s + u_r + (dist_m * dist) + sigma_sd,
-      vowel == "i" ~ vdur_m + vdur_i + u_s + u_r + (dist_m * dist) + sigma_sd,
-      vowel == "o" ~ vdur_m + vdur_o + u_s + u_r + (dist_m * dist) + sigma_sd,
-      vowel == "u" ~ vdur_m + vdur_u + u_s + u_r + (dist_m * dist) + sigma_sd
-    )
+    distance = case_when(
+      vowel == "a" ~ dist_a + dist_spk + dist_rep + sigma_dist,
+      vowel == "e" ~ dist_e + dist_spk + dist_rep + sigma_dist,
+      vowel == "i" ~ dist_i + dist_spk + dist_rep + sigma_dist,
+      vowel == "o" ~ dist_o + dist_spk + dist_rep + sigma_dist,
+      vowel == "u" ~ dist_u + dist_spk + dist_rep + sigma_dist
+    ),
+    speech_rate = sr_m + sr_spk + sr_rep
+  ) |> 
+  mutate(
+    vowel_duration = case_when(
+      vowel == "a" ~ vdur_m + vdur_a + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,
+      vowel == "e" ~ vdur_m + vdur_e + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,
+      vowel == "i" ~ vdur_m + vdur_i + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,
+      vowel == "o" ~ vdur_m + vdur_o + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,
+      vowel == "u" ~ vdur_m + vdur_u + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd
+    ),
+    distance_log = log(distance),
+    distance_logz = (distance_log - mean(distance_log)) / sd(distance_log),
+    speech_rate_log = log(speech_rate),
+    speech_rate_logz = (speech_rate_log - mean(speech_rate_log)) / sd(speech_rate_log)
   )
 ```
 
+## Simulate data: plot
+
 ```{r}
+#| label: sim-data-plot
+#| echo: false
 sim_data |> 
-  ggplot(aes(dist_m, vdur)) +
-  geom_point()
+  ggplot(aes(distance, vowel_duration)) +
+  geom_point(alpha = 0.2) +
+  geom_smooth(aes(colour = vowel), method = "lm", formula = "y ~ x") +
+  labs(
+    x = "Distance (mm)", y = "Vowel duration (ms)"
+  )
+  
+```
+
+## Simulate data: model
+
+```{r}
+#| label: bm-test
+
+bm <- brm(
+  vowel_duration ~
+    0 + vowel +
+    s(distance_logz) +
+    s(distance_logz, speaker, by = vowel, bs = "fs", m = 1) +
+    s(speech_rate_logz, k = 5) +
+    s(speech_rate_logz, speaker, bs = "fs", m = 1),
+  family = lognormal,
+  data = sim_data,
+  cores = 4,
+  seed = 7162,
+  file = "cache/data-analysis-workflow-2_bm"
+)
+```
+
+::: box-important
+This took 40 minutes to run and ended in 218 divergent transitions. You would normally also specify priors and try and fix the divergent transitions (and in the case of non-linear effects you might also want to estimate the number of knots before fitting).
+:::
+
+## Simulate data: model summary
+
+```{r}
+conditional_effects(bm, "distance_logz:vowel")
 ```

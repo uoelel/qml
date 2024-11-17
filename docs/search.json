@@ -1537,21 +1537,21 @@
     "href": "lectures/data-analysis-workflow-2.html#regression-model-code",
     "title": "Data analysis workflow: Part 2",
     "section": "Regression model: code",
-    "text": "Regression model: code\n\nbm &lt;- brm(\n  vowel_duration ~\n    0 + vowel +\n    s(distance) +\n    s(distance, speaker, by = vowel, bs = \"fs\", m = 1) +\n    s(speech_rate_logz, k = 5) +\n    s(speech_rate_logz, speaker, bs = \"fs\", m = 1),\n  family = lognormal\n)"
+    "text": "Regression model: code\n\nbm &lt;- brm(\n  vowel_duration ~\n    0 + vowel +\n    s(distance_logz) +\n    s(distance_logz, speaker, by = vowel, bs = \"fs\", m = 1) +\n    s(speech_rate_logz, k = 5) +\n    s(speech_rate_logz, speaker, bs = \"fs\", m = 1),\n  family = lognormal\n)"
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#statistical-hypotheses",
     "href": "lectures/data-analysis-workflow-2.html#statistical-hypotheses",
     "title": "Data analysis workflow: Part 2",
     "section": "Statistical hypotheses",
-    "text": "Statistical hypotheses\n\nA. The coefficients of vowel category are 0 and the non-linear effect of distance is not 0.\nB. The coefficients of vowel category are not 0 and the non-linear effect of distance is 0.\nC. The coefficients of vowel category and the non-linear effect of distance are not 0."
+    "text": "Statistical hypotheses\n\nA. There is no robust effect of vowel but there is a robust (non-linear) effect of distance.\nB. There is a robust effect of vowel but there is no robust effect of distance.\nC. There is both an effect of vowel and distance."
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#simulate-data",
     "href": "lectures/data-analysis-workflow-2.html#simulate-data",
     "title": "Data analysis workflow: Part 2",
     "section": "Simulate data",
-    "text": "Simulate data"
+    "text": "Simulate data\n\nCheck the faux package, although it might not actively developed anymore.\n\n\nset.seed(9817)\n\ns_n &lt;- 20\nrep_n &lt;- 10\nvdur_m &lt;- 75\nvdur_a &lt;- 20; vdur_e &lt;- 10; vdur_i &lt;- -15; vdur_o &lt;- 10; vdur_u &lt;- -22\ndist_a &lt;- 8; dist_e &lt;- 4.5; dist_i &lt;- 2; dist_o &lt;- 6; dist_u &lt;- 2\ndist_sd &lt;- 0.2\nb_dist &lt;- 0.8\nb_sr &lt;- 0.01\nsr_m &lt;- 4\n# varying duration\ndur_spk_sd &lt;- 5\ndur_rep_sd &lt;- 2\n# varying distance\ndist_spk_sd &lt;- 0.05\ndist_rep_sd &lt;- 0.05\n# varying sr\nsr_spk_sd &lt;- 0.005\nsr_rep_sd &lt;- 0.005\n\nsigma_sd &lt;- 20\n\nsim_data &lt;- add_random(speaker = s_n) |&gt; \n  add_within(\"speaker\", vowel = c(\"a\", \"e\", \"i\", \"o\", \"u\")) |&gt; \n  add_within(\"vowel\", rep = 1:rep_n) |&gt; \n  add_ranef(\"speaker\", dur_spk = dur_spk_sd) |&gt; \n  add_ranef(\"rep\", dur_rep = dur_rep_sd) |&gt; \n  add_ranef(\"speaker\", dist_spk = dist_spk_sd) |&gt; \n  add_ranef(\"rep\", dist_rep = dist_rep_sd) |&gt;\n  add_ranef(\"speaker\", sr_spk = sr_spk_sd) |&gt; \n  add_ranef(\"rep\", sr_rep = sr_rep_sd) |&gt; \n  add_ranef(sigma = sigma_sd) |&gt; \n  add_ranef(sigma_dist = dist_sd) |&gt; \n  mutate(\n    distance = case_when(\n      vowel == \"a\" ~ dist_a + dist_spk + dist_rep + sigma_dist,\n      vowel == \"e\" ~ dist_e + dist_spk + dist_rep + sigma_dist,\n      vowel == \"i\" ~ dist_i + dist_spk + dist_rep + sigma_dist,\n      vowel == \"o\" ~ dist_o + dist_spk + dist_rep + sigma_dist,\n      vowel == \"u\" ~ dist_u + dist_spk + dist_rep + sigma_dist\n    ),\n    speech_rate = sr_m + sr_spk + sr_rep\n  ) |&gt; \n  mutate(\n    vowel_duration = case_when(\n      vowel == \"a\" ~ vdur_m + vdur_a + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"e\" ~ vdur_m + vdur_e + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"i\" ~ vdur_m + vdur_i + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"o\" ~ vdur_m + vdur_o + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"u\" ~ vdur_m + vdur_u + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd\n    ),\n    distance_log = log(distance),\n    distance_logz = (distance_log - mean(distance_log)) / sd(distance_log),\n    speech_rate_log = log(speech_rate),\n    speech_rate_logz = (speech_rate_log - mean(speech_rate_log)) / sd(speech_rate_log)\n  )"
   },
   {
     "objectID": "posts/intro-quarto.html",
@@ -2105,5 +2105,26 @@
     "title": "R basics",
     "section": "5 Summary",
     "text": "5 Summary\nYou made it! You completed this week’s tutorial.\nHere’s a summary of what you learnt.\n\n\n\n\n\n\n\nR is a programming language while RStudio is an IDE.\nRStudio projects are folders with an .Rproj file (you can see the name of the project you are currently in in the top-right corner of RStudio).\nYou can perform mathematical operations with +, -, *, /.\nYou can store values in variables.\nA typical object to be stored in a variable is a vector: there are different type of vectors, like numeric, character and logical.\nFunctions are used to perform an operation on its arguments: sum() sums it’s arguments, mean() calculates the mean and cat() prints the arguments.\n\n\n\n\n\n\n\n\n\n\nExtra: Programming in R\n\n\n\n\n\nIf you are interested in learning about programming in R, I recommend you go through Chapters 26-28 of the R4DS book and the Advanced R book.\n\n\n\n\n\n\n\n\n\nNext\n\n\n\n\nR packages\nTroubleshooting"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow-2.html#simulate-data-plot",
+    "href": "lectures/data-analysis-workflow-2.html#simulate-data-plot",
+    "title": "Data analysis workflow: Part 2",
+    "section": "Simulate data: plot",
+    "text": "Simulate data: plot"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow-2.html#simulate-data-model",
+    "href": "lectures/data-analysis-workflow-2.html#simulate-data-model",
+    "title": "Data analysis workflow: Part 2",
+    "section": "Simulate data: model",
+    "text": "Simulate data: model\n\nbm &lt;- brm(\n  vowel_duration ~\n    0 + vowel +\n    s(distance_logz) +\n    s(distance_logz, speaker, by = vowel, bs = \"fs\", m = 1) +\n    s(speech_rate_logz, k = 5) +\n    s(speech_rate_logz, speaker, bs = \"fs\", m = 1),\n  family = lognormal,\n  data = sim_data,\n  cores = 4,\n  seed = 7162,\n  file = \"cache/data-analysis-workflow-2_bm\"\n)\n\n\nThis took 40 minutes to run and ended in 218 divergent transitions. You would normally also specify priors and try and fix the divergent transitions (and in the case of non-linear effects you might also want to estimate the number of knots before fitting)."
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow-2.html#simulate-data-model-summary",
+    "href": "lectures/data-analysis-workflow-2.html#simulate-data-model-summary",
+    "title": "Data analysis workflow: Part 2",
+    "section": "Simulate data: model summary",
+    "text": "Simulate data: model summary\n\nconditional_effects(bm, \"distance_logz:vowel\")"
   }
 ]
