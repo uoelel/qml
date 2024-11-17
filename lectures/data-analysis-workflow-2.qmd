@@ -282,5 +282,20 @@ This took 40 minutes to run and ended in 218 divergent transitions. You would no
 ## Simulate data: model summary
 
 ```{r}
+#| label: bm-cond
 conditional_effects(bm, "distance_logz:vowel")
 ```
+
+## Summary
+
+::: box-note
+-   Research context.
+
+-   Research questions and hypotheses.
+
+-   Plan study design and analysis in details (here we just scratched the surface).
+
+-   Simulate data and/or use previous/pilot data to check that the analysis works as intended.
+
+-   Pre-register the analysis or write a Registered Report.
+:::

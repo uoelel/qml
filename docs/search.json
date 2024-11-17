@@ -2126,5 +2126,12 @@
     "title": "Data analysis workflow: Part 2",
     "section": "Simulate data: model summary",
     "text": "Simulate data: model summary\n\nconditional_effects(bm, \"distance_logz:vowel\")"
+  },
+  {
+    "objectID": "lectures/data-analysis-workflow-2.html#summary",
+    "href": "lectures/data-analysis-workflow-2.html#summary",
+    "title": "Data analysis workflow: Part 2",
+    "section": "Summary",
+    "text": "Summary\n\n\nResearch context.\nResearch questions and hypotheses.\nPlan study design and analysis in details (here we just scratched the surface).\nSimulate data and/or use previous/pilot data to check that the analysis works as intended.\nPre-register the analysis or write a Registered Report."
   }
 ]
