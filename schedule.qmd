@@ -210,7 +210,7 @@ There isn't a required course textbook as such, but the majority of the course c
 
 **In your own time**
 
--   What the [Data Analysis Workflow](https://media.ed.ac.uk/media/QML+2024+-+Data+Analysis+Workflow+%28Lecture%29/1_rar3mrxo/308657412) pre-recorded lecture. You can find the slides [here](https://uoelel.github.io/qml/lectures/data-analysis-workflow.html).
+-   Watch the [Data Analysis Workflow](https://media.ed.ac.uk/media/QML+2024+-+Data+Analysis+Workflow+%28Lecture%29/1_rar3mrxo/308657412) pre-recorded lecture. You can find the slides [here](https://uoelel.github.io/qml/lectures/data-analysis-workflow.html).
 
 -   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
 
@@ -253,6 +253,8 @@ There isn't a required course textbook as such, but the majority of the course c
 #### Week 10
 
 **In your own time**
+
+-   Watch the [Data Analysis Workflow](https://media.ed.ac.uk/media/QML+2024+-+Data+Analysis+Workflow+%28Lecture%2C+Part+2%29/1_dzqq239a) pre-recorded lecture. You can find the slides [here](https://uoelel.github.io/qml/lectures/data-analysis-workflow-2.html).
 
 -   Pick and read any other entry/ies from the [Notebook](notebook.qmd). Feel free to read from any other source, including the recommended textbooks.
 
