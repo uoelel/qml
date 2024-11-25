@@ -132,6 +132,8 @@ graph TD
   AV[Bayesian regression papers]
   click AV href "posts/bayes-papers.html" "Go to page"
   style AV fill:#00008B,color:#FFF,stroke-width:2px
+  AX[Regression model cheat-sheet]
+  style AX fill:#00008B,color:#FFF,stroke-width:2px
   
   AW[Reporting]
   click AW href "posts/reporting.html" "Go to page"
@@ -175,7 +177,7 @@ graph TD
   P --> N & AA
   
   %% Regression
-  J --> R --> S --> T & U & AW
+  J --> R --> S --> T & U & AW & AX
   U --> V & X
   V --> W
   W --> AQ
@@ -184,4 +186,3 @@ graph TD
   
   
 ```
-

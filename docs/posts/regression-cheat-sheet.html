@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stefano Coretta">
+<meta name="dcterms.date" content="2024-11-25">
+<meta name="description" content="Learn about indexing of categorical predictors in regression models">
 
-<title>The Adventurer’s Map to the Notebook – QML</title>
+<title>Regression models: a cheat-sheet – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,12 +69,38 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -81,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
   </div>
@@ -92,31 +121,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Course schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./map.html" aria-current="page"> 
+    <a class="nav-link" href="../map.html"> 
 <span class="menu-text">Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebook.html"> 
+    <a class="nav-link" href="../notebook.html"> 
 <span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./challenges.html"> 
+    <a class="nav-link" href="../challenges.html"> 
 <span class="menu-text">Challenges</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html"> 
+    <a class="nav-link" href="../assessments.html"> 
 <span class="menu-text">Assessment</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./extra.html"> 
+    <a class="nav-link" href="../extra.html"> 
 <span class="menu-text">Extra</span></a>
   </li>  
 </ul>
@@ -131,22 +160,54 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#one-model-to-rule-them-all" id="toc-one-model-to-rule-them-all" class="nav-link active" data-scroll-target="#one-model-to-rule-them-all"><span class="header-section-number">1</span> One model to rule them all</a></li>
+  <li><a href="#step-0-number-of-outcome-variables" id="toc-step-0-number-of-outcome-variables" class="nav-link" data-scroll-target="#step-0-number-of-outcome-variables"><span class="header-section-number">2</span> Step 0: Number of outcome variables</a></li>
+  <li><a href="#step-1-choose-a-distribution-for-your-outcome-variable" id="toc-step-1-choose-a-distribution-for-your-outcome-variable" class="nav-link" data-scroll-target="#step-1-choose-a-distribution-for-your-outcome-variable"><span class="header-section-number">3</span> Step 1: Choose a distribution for your outcome variable</a>
+  <ul class="collapse">
+  <li><a href="#continuous-outcome-variable" id="toc-continuous-outcome-variable" class="nav-link" data-scroll-target="#continuous-outcome-variable"><span class="header-section-number">3.1</span> Continuous outcome variable</a></li>
+  <li><a href="#discrete-outcome-variable" id="toc-discrete-outcome-variable" class="nav-link" data-scroll-target="#discrete-outcome-variable"><span class="header-section-number">3.2</span> Discrete outcome variable</a></li>
+  </ul></li>
+  <li><a href="#step-2-are-there-hierarchical-groupings-andor-repeated-measures" id="toc-step-2-are-there-hierarchical-groupings-andor-repeated-measures" class="nav-link" data-scroll-target="#step-2-are-there-hierarchical-groupings-andor-repeated-measures"><span class="header-section-number">4</span> Step 2: Are there hierarchical groupings and/or repeated measures?</a></li>
+  <li><a href="#step-3-are-there-non-linear-effects" id="toc-step-3-are-there-non-linear-effects" class="nav-link" data-scroll-target="#step-3-are-there-non-linear-effects"><span class="header-section-number">5</span> Step 3: Are there non-linear effects?</a></li>
+  <li><a href="#step-0-bis-number-of-outcome-variables" id="toc-step-0-bis-number-of-outcome-variables" class="nav-link" data-scroll-target="#step-0-bis-number-of-outcome-variables"><span class="header-section-number">6</span> Step 0-bis: Number of outcome variables</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Adventurer’s Map to the Notebook</h1>
+<h1 class="title">Regression models: a cheat-sheet</h1>
 </div>
 
+<div>
+  <div class="description">
+    Learn about indexing of categorical predictors in regression models
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stefano Coretta </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 25, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -156,208 +217,144 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the <a href="./notebook.html">Notebook</a> entries. This Map will grow throughout the semester as new entries are added to the Notebook.</p>
-<p>In blue are entries that were recently added. In green are entries that you should have read by now, as per <a href="./schedule.html">Course schedule</a>.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Prerequisites
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can click on the name in the nodes and you will be taken to the entry in the Notebook.</p>
+<ul>
+<li><a href="../posts/intro-regression-categorical.html">Introduction to regression models (Part III): include categorical predictors</a>.</li>
+</ul>
 </div>
 </div>
-<!--  -->
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
-  A[Start here]
-  B[Research methods]
-  click B href "posts/hodotics.html" "Go to page"
-  style B fill:#008000,color:#FFF,stroke-width:2px
-  C[Computer basics]
-  click C href "posts/computer-basics.html" "Go to page"
-  style C fill:#008000,color:#FFF,stroke-width:2px
-  D[R basics]
-  click D href "posts/r-basics.html" "Go to page"
-  style D fill:#008000,color:#FFF,stroke-width:2px
-  E[Statistical variables]
-  click E href "posts/stat-variables.html" "Go to page"
-  style E fill:#008000,color:#FFF,stroke-width:2px
-  F[Intro to Quarto]
-  click F href "posts/intro-quarto.html" "Go to page"
-  style F fill:#008000,color:#FFF,stroke-width:2px
-  G[R Troubleshooting]
-  click G href "posts/r-troubleshooting.html" "Go to page"
-  H[Read data in R]
-  click H href "posts/data-types.html" "Go to page"
-  style H fill:#008000,color:#FFF,stroke-width:2px
-  I[Read multiple files]
-  click I href "posts/import-multiple.html" "Go to page"
-  J[Intro regression I]
-  click J href "posts/intro-regression.html" "Go to page"
-  style J fill:#008000,color:#FFF,stroke-width:2px
-  K[Introduction to plotting]
-  click K href "posts/intro-plot.html" "Go to page"
-  style K fill:#008000,color:#FFF,stroke-width:2px
-  L[Wrangling data]
-  click L href "posts/wrangle.html" "Go to page"
-  style L fill:#008000,color:#FFF,stroke-width:2px
-  M[Plotting basics]
-  click M href "posts/plotting-basics.html" "Go to page"
-  style M fill:#008000,color:#FFF,stroke-width:2px
-  N[Bar charts]
-  click N href "posts/bar-charts.html" "Go to page"
-  O[Filtering]
-  click O href "posts/wrangle-filter.html" "Go to page"
-  P[Mutating]
-  click P href "posts/wrangle-mutate.html" "Go to page"
-  Q[Pivoting]
-  click Q href "posts/wrangle-pivoting.html" "Go to page"
-  Z[Faceting plots]
-  click Z href "posts/plot-faceting.html" "Go to page"
-  AA[Density plots]
-  click AA href "posts/plot-density.html" "Go to page"
-  AB[Advanced plotting]
-  click AB href "posts/plot-advanced.html" "Go to page"
-  AC[Summary measures]
-  click AC href "posts/summaries.html" "Go to page"
-  style AC fill:#008000,color:#FFF,stroke-width:2px
-  
-  AD[Empirical research]
-  click AD href "posts/research-context.html" "Go to page"
-  style AD fill:#008000,color:#FFF,stroke-width:2px
-  AE[Research Qs and Hs]
-  click AE href "posts/research-qh.html" "Go to page"
-  style AE fill:#008000,color:#FFF,stroke-width:2px
-  AF[Quantitative analysis]
-  click AF href "posts/data-analysis.html" "Go to page"
-  style AF fill:#008000,color:#FFF,stroke-width:2px
-  AG[Inference]
-  click AG href "posts/inference.html" "Go to page"
-  style AG fill:#008000,color:#FFF,stroke-width:2px
-  AH[Statistics]
-  click AH href "posts/statistics.html" "Go to page"
-  style AH fill:#008000,color:#FFF,stroke-width:2px
-  AI[Repro/repli]
-  click AI href "posts/repro-repli.html" "Go to page"
-  style AI fill:#008000,color:#FFF,stroke-width:2px
-  AJ[Proj Management]
-  click AJ href "posts/management.html" "Go to page"
-  AK[File management]
-  click AK href "posts/file-manage.html" "Go to page"
-  
-  AL[Machine Learning]
-  click AL href "posts/machine-learning.html" "Go to page"
-  AM[R scripts]
-  click AM href "posts/scripts.html" "Go to page"
-  style AM fill:#008000,color:#FFF,stroke-width:2px
-  AN[R packages]
-  click AN href "posts/packages.html" "Go to page"
-  style AN fill:#008000,color:#FFF,stroke-width:2px
-  
-  AO[Frequentist vs Bayesian]
-  click AO href "posts/freq-bayes.html" "Go to page"
-  style AO fill:#008000,color:#FFF,stroke-width:2px
-  AP[P-values]
-  click AP href "posts/p-values.html" "Go to page"
-  style AP fill:#008000,color:#FFF,stroke-width:2px
-  
-  R[Intro regression II]
-  click R href "posts/intro-regression-predictors.html" "Go to page"
-  style R fill:#008000,color:#FFF,stroke-width:2px
-  S[Regression: categorical predictors]
-  click S href "posts/intro-regression-categorical.html" "Go to page"
-  style S fill:#008000,color:#FFF,stroke-width:2px
-  T[MCMC draws]
-  click T href "posts/regression-draws.html" "Go to page"
-  U[Indexing predictors]
-  click U href "posts/regression-indexing.html" "Go to page"
-  V[Interactions]
-  click V href "posts/regression-interactions.html" "Go to page"
-  W[Categorical-categorical interactions]
-  click W href "posts/regression-interactions-catcat.html" "Go to page"
-  X[Bernoulli regression]
-  click X href "posts/regression-bernoulli.html" "Go to page"
-  AQ[Numeric-numeric interactions]
-  click AQ href "posts/regression-interactions-numnum.html" "Go to page"
-  AT[Poisson regression]
-  click AT href "posts/regression-poisson.html" "Go to page"
-  AU[Ordinal regression]
-  click AU href "posts/regression-ordinal.html" "Go to page"
-  AV[Bayesian regression papers]
-  click AV href "posts/bayes-papers.html" "Go to page"
-  style AV fill:#00008B,color:#FFF,stroke-width:2px
-  AX[Regression model cheat-sheet]
-  style AX fill:#00008B,color:#FFF,stroke-width:2px
-  
-  AW[Reporting]
-  click AW href "posts/reporting.html" "Go to page"
-  style AW fill:#00008B,color:#FFF,stroke-width:2px
-  
-  AR[Interactive plots]
-  click AR href "posts/plot-plotly.html" "Go to page"
-  AS[Plotting tips]
-  click AS href "posts/plot-galleries.html" "Go to page"
-  
-  A --&gt; B &amp; C
-  
-  B --&gt; AD &amp; AF &amp; AJ
-  AD --&gt; AE
-  AE --&gt; AI
-  AF --&gt; AG &amp; AH
-  AJ --&gt; AK
-  
-  C --&gt; D
-  
-  D --&gt; AN &amp; G
-  AN --&gt; H
-  AH --&gt; AO
-  AO --&gt; J &amp; AP &amp; AV
-  
-  H --&gt; AM
-  AM --&gt; F &amp; I
-  I --&gt; Q
-  
-  F --&gt; E
-  E --&gt; J &amp; K &amp; L &amp; AC &amp; AL
-  
-  K --&gt; M
-  M --&gt; N &amp; Z &amp; AA &amp; AS &amp; AW
-  N --&gt; AB
-  AA --&gt; AB
-  AB --&gt; AR
-  AC --&gt; AW
-
-  L --&gt; O &amp; P &amp; Q
-  P --&gt; N &amp; AA
-  
-  %% Regression
-  J --&gt; R --&gt; S --&gt; T &amp; U &amp; AW &amp; AX
-  U --&gt; V &amp; X
-  V --&gt; W
-  W --&gt; AQ
-  X --&gt; AQ &amp; AT &amp; AU
-  
-  
-  
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<p>This is reposted from <a href="https://stefanocoretta.github.io/posts/2021-08-21-regression-models-a-cheat-sheet/" class="uri">https://stefanocoretta.github.io/posts/2021-08-21-regression-models-a-cheat-sheet/</a>, with minor edits.</p>
+<section id="one-model-to-rule-them-all" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> One model to rule them all</h1>
+<p><strong>Regression models</strong>, aka linear regression models or regression models, are a group of statistical models based on the simple idea that we can predict an outcome variable <span class="math inline">\(Y\)</span> based on a function <span class="math inline">\(f(X)\)</span>.</p>
+<p>The “simplest” regression model is the formula of a line:<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><span class="math display">\[
+y = \alpha + \beta x
+\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span> is the <strong>intercept</strong> of the line and <span class="math inline">\(\beta\)</span> the <strong>slope</strong>.</p>
+<p>The principles behind this formula can be extended to represent virtually any other model, independent of the nature of the outcome variable(s) (<span class="math inline">\(y\)</span>), the predictor(s), the types of relationship between outcome and predictor, and so on.</p>
+<p><strong>This means that if you master the principles of regression models, then you can virtually fit any kind of data using regression models</strong> You can bid farewell to ANOVAs, <span class="math inline">\(t\)</span>-tests, <span class="math inline">\(\chi^2\)</span>-tests, and what not. In fact, these can all be thought of as specific cases of regression models. It just so happens that they got themselves a specific name. But the underlying mechanics is the same.</p>
+<p>Same goes with “linear models”, “logistic regression”, “generalised regression models”, “mixed-effects regression” and so on. These are all regression models, so they all follow the same principles. And again, the fact that they got specific name is a historical “accident”.</p>
+<p>Understanding that these named models are in fact all regression models gives you super powers you can use on data (Sauron would be so jealous):</p>
+<blockquote class="blockquote">
+<p>One model to rule them all, one model to fit them,<br>
+One model to shrink them all, and in probability bind them;<br>
+In the Land of Inference where the distributions lie.</p>
+</blockquote>
+<p>Ehm… perhaps this is not gonna win a poetry context, but…</p>
+<p>The message is that with a single tool, i.e.&nbsp;regression models, you can go a long way!</p>
+<p>Each of the following sections asks you about the nature of your data and/or experimental design. By answering each, you will find out which “pieces” you need to add to your model structure.</p>
+</section>
+<section id="step-0-number-of-outcome-variables" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Step 0: Number of outcome variables</h1>
+<p>We will get back to this step at the end of this post, since it makes things a bit more complex.</p>
+</section>
+<section id="step-1-choose-a-distribution-for-your-outcome-variable" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Step 1: Choose a distribution for your outcome variable</h1>
+<p>The first step towards building a regression model is to choose the <strong>family of distributions</strong> you believe the outcome variable belongs to.</p>
+<p>You can start by answering this question: is your outcome variable continuous or discrete?</p>
+<section id="continuous-outcome-variable" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="continuous-outcome-variable"><span class="header-section-number">3.1</span> Continuous outcome variable</h2>
+<ul>
+<li><p>The variable can take on <em>any positive and negative real number, including 0</em>: <strong>Gaussian</strong> (aka normal) distribution.</p>
+<ul>
+<li>There are very few truly Gaussian variables, although in some cases one can speak of “approximate” or “assumed” normality.</li>
+</ul></li>
+<li><p>The variable can take on <em>any positive number only</em>: <strong>Log-normal</strong> distribution.</p>
+<ul>
+<li><p>Duration of segments, words, pauses, etc, are known to be log-normally distributed.</p></li>
+<li><p>Measurements taken in Hz (like f0, formants, centre of gravity, …) could be considered to be log-normal.</p></li>
+<li><p>There other families that could potentially be used depending on the nature of the variable: exponential-Gaussian (reaction times), gamma, …</p></li>
+</ul></li>
+<li><p>The variable can take on <em>any number between 0 and 1, but not 0 nor 1</em>: <strong>Beta</strong> distribution.</p>
+<ul>
+<li>Proportions fall into this category (for example proportion of voicing within closure), although 0 and 1 are not allowed in the beta distribution.</li>
+</ul></li>
+<li><p>The variable can take on <em>any number between 0 and 1, including 0 or 0 and 1</em>: <strong>Zero-inflated</strong> or <strong>Zero/one-inflated beta</strong> (ZOIB) distribution.</p>
+<ul>
+<li>If the proportion data includes many 0s and 1s, then this is the ideal distribution to use. ZOIB distributions are somewhat more difficult to fit than a simple beta distribution, so a common practice is to transform the data so that it doesn’t include 0s nor 1s (this can be achieved using different techniques, some better than others).</li>
+</ul></li>
+</ul>
+</section>
+<section id="discrete-outcome-variable" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="discrete-outcome-variable"><span class="header-section-number">3.2</span> Discrete outcome variable</h2>
+<ul>
+<li><p>The variable is <em>dichotomous</em>, i.e.&nbsp;it can take one of two levels: <strong>Bernoulli</strong> distribution.</p>
+<ul>
+<li>Categorical outcome variables like yes/no, correct/incorrect, voiced/voiceless, follow this distribution.</li>
+</ul></li>
+<li><p>The variable is <em>counts</em>: <strong>Poisson</strong> distribution.</p>
+<ul>
+<li>Counts of words, segments, gestures, f0 peaks, …</li>
+</ul></li>
+<li><p>The variable is a <em>scale</em>: <strong>ordinal</strong> regression model.</p>
+<ul>
+<li><p>Likert scales and ratings, language attitude questionnaires.</p></li>
+<li><p>Ordinal regression models, a.k.a. ordinal logistic regression, can be fitted with the <a href="https://paul-buerkner.github.io/brms/">brms</a> package using <code>brm(family = cumulative)</code>.</p></li>
+</ul></li>
+<li><p>The variable is categorical with more than two levels, but it is not ordinal: categorical (multinomial) regression model.</p>
+<ul>
+<li>Categorical models can be fitted with the <a href="https://paul-buerkner.github.io/brms/">brms</a> package using <code>brm(family = categorical)</code>.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="step-2-are-there-hierarchical-groupings-andor-repeated-measures" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Step 2: Are there hierarchical groupings and/or repeated measures?</h1>
+<p>The second step is to ensure that, if the data is structured hierarchically or repeated measures were taken, this is taken into account in the model. Here is where so-called “random effects” or “varying effects/terms” come in.</p>
+<p>As an example, let’s assume you asked a number of participants to read a list of words and each word was repeated 5 times by each participant. You then took f0 measurements from the stressed vowel of each word, of each repetition.</p>
+<p>Now, the data has a structure to it:</p>
+<ul>
+<li>First, observations are grouped by participant (some observations belong to one participant and others to another and so on).</li>
+<li>Second, observations are grouped by word (some observations belong to one word and others to another and so on).</li>
+<li>Third, within the observations of each word, some belong to the same participant (or, from a different perspective, within the observations of each participant, some belong to the same word).</li>
+</ul>
+<p>The presence of “groupings” within the data (whether they come from natural groupings like participant or word, or from repeated measures) breaks one of the assumptions of regression models: that each observation must be independent.</p>
+<p>If you don’t include any random effect/varying terms, your model will expect that each observation is independent and hence it will underestimate variance and return unreliable results.</p>
+<p>In the toy-example of f0 measurements, you will want to include varying terms for <em>participant</em> and <em>word</em>. These will take care to let the model know of the structure of the data mentioned above.</p>
+<p>If you have other predictors in the model, you should also add them as (random) slopes in the random effects/varying terms. For example: <code>(question | participant) + (question | word)</code> (where <code>question</code> = statement vs question).</p>
+<p>A quick terminological note: models that include random effects/varying terms are variably called:</p>
+<ul>
+<li>Random-effects models.</li>
+<li>Mixed-effects models.</li>
+<li>Hierarchical models.</li>
+<li>Nested models.</li>
+<li>Multilevel models.</li>
+</ul>
+<p>These terms are for all intents and purposes equivalent (it just happens that different traditions uses different terms).</p>
+</section>
+<section id="step-3-are-there-non-linear-effects" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Step 3: Are there non-linear effects?</h1>
+<p>A typical use-case of non-linear terms is when you are dealing with time-series data or spatial data (i.e.&nbsp;geographic coordinates).</p>
+<p>Generalised Additive Models allow you to fit non-linear effects using so called “smooth” (or “smoother”) terms.</p>
+<p>You can fit a regression model with smooth terms with brms (simply add smooth terms to the formula) or with mgcv (using <code>gam()</code> or <code>bam()</code>), among others.</p>
+</section>
+<section id="step-0-bis-number-of-outcome-variables" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Step 0-bis: Number of outcome variables</h1>
+<p>If you want to model just one outcome variable, you are already covered if you went through steps 1-3.</p>
+<p>If instead your design has two or more outcome variables (for example F1 and F2, or duration of the stressed and unstressed vowel of a word) then you want to fit a <strong>multivariate model</strong> (i.e.&nbsp;a model with <em>multiple outcome </em>variables*).</p>
+<p>The same steps we went through before can be applied to multiple outcome variables. In some cases, you will want to use the same model structure for all the outcome variables, while in others you might want to use a different model structure for each.</p>
+<p>To learn more about multivariate models, I really recommend Paul Bürkner’s vignette <a href="https://cran.r-project.org/web/packages/brms/vignettes/brms_multivariate.html">Estimating Multivariate Models with brms</a>.</p>
 
 
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Technically, the “simplest” regression model is <span class="math inline">\(y = f(x)\)</span>, but oh well…<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
