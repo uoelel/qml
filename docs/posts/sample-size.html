@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stefano Coretta">
+<meta name="dcterms.date" content="2024-11-26">
+<meta name="description" content="Learn about sample size, why it is important and how to decide which sample size you should aim for.">
 
-<title>The Adventurer’s Map to the Notebook – QML</title>
+<title>Sample size matters – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-635a70bd018fe7d22db8c759918aab19.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-635a70bd018fe7d22db8c759918aab19.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,12 +69,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="webex.css">
 </head>
 
 <body class="nav-fixed">
@@ -81,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
   </div>
@@ -92,31 +93,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Course schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./map.html" aria-current="page"> 
+    <a class="nav-link" href="../map.html"> 
 <span class="menu-text">Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebook.html"> 
+    <a class="nav-link" href="../notebook.html"> 
 <span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./challenges.html"> 
+    <a class="nav-link" href="../challenges.html"> 
 <span class="menu-text">Challenges</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html"> 
+    <a class="nav-link" href="../assessments.html"> 
 <span class="menu-text">Assessment</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./extra.html"> 
+    <a class="nav-link" href="../extra.html"> 
 <span class="menu-text">Extra</span></a>
   </li>  
 </ul>
@@ -131,22 +132,47 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sample-size-what-it-is-and-why-it-is-important" id="toc-sample-size-what-it-is-and-why-it-is-important" class="nav-link active" data-scroll-target="#sample-size-what-it-is-and-why-it-is-important"><span class="header-section-number">1</span> Sample size: what it is and why it is important</a></li>
+  <li><a href="#sample-size-estimation" id="toc-sample-size-estimation" class="nav-link" data-scroll-target="#sample-size-estimation"><span class="header-section-number">2</span> Sample size estimation</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3</span> Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Adventurer’s Map to the Notebook</h1>
+<h1 class="title">Sample size matters</h1>
 </div>
 
+<div>
+  <div class="description">
+    Learn about sample size, why it is important and how to decide which sample size you should aim for.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stefano Coretta </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 26, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -156,214 +182,268 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the <a href="./notebook.html">Notebook</a> entries. This Map will grow throughout the semester as new entries are added to the Notebook.</p>
-<p>In blue are entries that were recently added. In green are entries that you should have read by now, as per <a href="./schedule.html">Course schedule</a>.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Prerequisites
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can click on the name in the nodes and you will be taken to the entry in the Notebook.</p>
+<ul>
+<li><a href="../posts/repro-repli.html">Reproducibility and replicability</a></li>
+<li><a href="../posts/statistics.html">What is statistics?</a></li>
+</ul>
 </div>
 </div>
-<!--  -->
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
-  A[Start here]
-  B[Research methods]
-  click B href "posts/hodotics.html" "Go to page"
-  style B fill:#008000,color:#FFF,stroke-width:2px
-  C[Computer basics]
-  click C href "posts/computer-basics.html" "Go to page"
-  style C fill:#008000,color:#FFF,stroke-width:2px
-  D[R basics]
-  click D href "posts/r-basics.html" "Go to page"
-  style D fill:#008000,color:#FFF,stroke-width:2px
-  E[Statistical variables]
-  click E href "posts/stat-variables.html" "Go to page"
-  style E fill:#008000,color:#FFF,stroke-width:2px
-  F[Intro to Quarto]
-  click F href "posts/intro-quarto.html" "Go to page"
-  style F fill:#008000,color:#FFF,stroke-width:2px
-  G[R Troubleshooting]
-  click G href "posts/r-troubleshooting.html" "Go to page"
-  H[Read data in R]
-  click H href "posts/data-types.html" "Go to page"
-  style H fill:#008000,color:#FFF,stroke-width:2px
-  I[Read multiple files]
-  click I href "posts/import-multiple.html" "Go to page"
-  J[Intro regression I]
-  click J href "posts/intro-regression.html" "Go to page"
-  style J fill:#008000,color:#FFF,stroke-width:2px
-  K[Introduction to plotting]
-  click K href "posts/intro-plot.html" "Go to page"
-  style K fill:#008000,color:#FFF,stroke-width:2px
-  L[Wrangling data]
-  click L href "posts/wrangle.html" "Go to page"
-  style L fill:#008000,color:#FFF,stroke-width:2px
-  M[Plotting basics]
-  click M href "posts/plotting-basics.html" "Go to page"
-  style M fill:#008000,color:#FFF,stroke-width:2px
-  N[Bar charts]
-  click N href "posts/bar-charts.html" "Go to page"
-  O[Filtering]
-  click O href "posts/wrangle-filter.html" "Go to page"
-  P[Mutating]
-  click P href "posts/wrangle-mutate.html" "Go to page"
-  Q[Pivoting]
-  click Q href "posts/wrangle-pivoting.html" "Go to page"
-  Z[Faceting plots]
-  click Z href "posts/plot-faceting.html" "Go to page"
-  AA[Density plots]
-  click AA href "posts/plot-density.html" "Go to page"
-  AB[Advanced plotting]
-  click AB href "posts/plot-advanced.html" "Go to page"
-  AC[Summary measures]
-  click AC href "posts/summaries.html" "Go to page"
-  style AC fill:#008000,color:#FFF,stroke-width:2px
-  
-  AD[Empirical research]
-  click AD href "posts/research-context.html" "Go to page"
-  style AD fill:#008000,color:#FFF,stroke-width:2px
-  AE[Research Qs and Hs]
-  click AE href "posts/research-qh.html" "Go to page"
-  style AE fill:#008000,color:#FFF,stroke-width:2px
-  AF[Quantitative analysis]
-  click AF href "posts/data-analysis.html" "Go to page"
-  style AF fill:#008000,color:#FFF,stroke-width:2px
-  AG[Inference]
-  click AG href "posts/inference.html" "Go to page"
-  style AG fill:#008000,color:#FFF,stroke-width:2px
-  AH[Statistics]
-  click AH href "posts/statistics.html" "Go to page"
-  style AH fill:#008000,color:#FFF,stroke-width:2px
-  AI[Repro/repli]
-  click AI href "posts/repro-repli.html" "Go to page"
-  style AI fill:#008000,color:#FFF,stroke-width:2px
-  AJ[Proj Management]
-  click AJ href "posts/management.html" "Go to page"
-  AK[File management]
-  click AK href "posts/file-manage.html" "Go to page"
-  
-  AL[Machine Learning]
-  click AL href "posts/machine-learning.html" "Go to page"
-  AM[R scripts]
-  click AM href "posts/scripts.html" "Go to page"
-  style AM fill:#008000,color:#FFF,stroke-width:2px
-  AN[R packages]
-  click AN href "posts/packages.html" "Go to page"
-  style AN fill:#008000,color:#FFF,stroke-width:2px
-  
-  AO[Frequentist vs Bayesian]
-  click AO href "posts/freq-bayes.html" "Go to page"
-  style AO fill:#008000,color:#FFF,stroke-width:2px
-  AP[P-values]
-  click AP href "posts/p-values.html" "Go to page"
-  style AP fill:#008000,color:#FFF,stroke-width:2px
-  
-  R[Intro regression II]
-  click R href "posts/intro-regression-predictors.html" "Go to page"
-  style R fill:#008000,color:#FFF,stroke-width:2px
-  S[Regression: categorical predictors]
-  click S href "posts/intro-regression-categorical.html" "Go to page"
-  style S fill:#008000,color:#FFF,stroke-width:2px
-  T[MCMC draws]
-  click T href "posts/regression-draws.html" "Go to page"
-  U[Indexing predictors]
-  click U href "posts/regression-indexing.html" "Go to page"
-  V[Interactions]
-  click V href "posts/regression-interactions.html" "Go to page"
-  W[Categorical-categorical interactions]
-  click W href "posts/regression-interactions-catcat.html" "Go to page"
-  X[Bernoulli regression]
-  click X href "posts/regression-bernoulli.html" "Go to page"
-  AQ[Numeric-numeric interactions]
-  click AQ href "posts/regression-interactions-numnum.html" "Go to page"
-  AT[Poisson regression]
-  click AT href "posts/regression-poisson.html" "Go to page"
-  AU[Ordinal regression]
-  click AU href "posts/regression-ordinal.html" "Go to page"
-  AV[Bayesian regression papers]
-  click AV href "posts/bayes-papers.html" "Go to page"
-  style AV fill:#00008B,color:#FFF,stroke-width:2px
-  AX[Regression model cheat-sheet]
-  click AX href "posts/regression-cheat-sheet.html" "Go to page"
-  style AX fill:#00008B,color:#FFF,stroke-width:2px
-  AY[Sample size]
-  click AY href "posts/sample-size.html" "Go to page"
-  style AY fill:#00008B,color:#FFF,stroke-width:2px
-  
-  AW[Reporting]
-  click AW href "posts/reporting.html" "Go to page"
-  style AW fill:#00008B,color:#FFF,stroke-width:2px
-  
-  AR[Interactive plots]
-  click AR href "posts/plot-plotly.html" "Go to page"
-  AS[Plotting tips]
-  click AS href "posts/plot-galleries.html" "Go to page"
-  
-  A --&gt; B &amp; C
-  
-  B --&gt; AD &amp; AF &amp; AJ
-  AD --&gt; AE
-  AE --&gt; AI
-  AF --&gt; AG &amp; AH
-  AJ --&gt; AK
-  
-  C --&gt; D
-  
-  D --&gt; AN &amp; G
-  AN --&gt; H
-  AH --&gt; AO
-  AO --&gt; J &amp; AP &amp; AV
-  
-  H --&gt; AM
-  AM --&gt; F &amp; I
-  I --&gt; Q
-  
-  F --&gt; E
-  E --&gt; J &amp; K &amp; L &amp; AC &amp; AL
-  
-  K --&gt; M
-  M --&gt; N &amp; Z &amp; AA &amp; AS &amp; AW
-  N --&gt; AB
-  AA --&gt; AB
-  AB --&gt; AR
-  AC --&gt; AW
-  AI --&gt; AY
-  AP --&gt; AY
-
-  L --&gt; O &amp; P &amp; Q
-  P --&gt; N &amp; AA
-  
-  %% Regression
-  J --&gt; R --&gt; S --&gt; T &amp; U &amp; AW &amp; AX
-  U --&gt; V &amp; X
-  V --&gt; W
-  W --&gt; AQ
-  X --&gt; AQ &amp; AT &amp; AU
-  
-  
-  
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="sample-size-what-it-is-and-why-it-is-important" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="sample-size-what-it-is-and-why-it-is-important"><span class="header-section-number">1</span> Sample size: what it is and why it is important</h2>
+<p><strong>Sample size</strong> is, simply put, the number of observations that make up your sample.</p>
+<p>In practice, sample size can refer to and is composed of many things:</p>
+<ul>
+<li>Number of participants.</li>
+<li>Number of items/stimuli.</li>
+<li>Number of observations per participant.</li>
+<li>Number of observations per condition.</li>
+<li>Etc…</li>
+</ul>
+<p>All of these aspects of sample size can have big effects on the robustness of the inference process. It might feel intuitive that the bigger the sample size the better: more data means less uncertainty and more variability accounted for.</p>
+<p>As with many other aspects of the research process, modern research has been somewhat insensitive to the issues of small sample sizes: see <a href="https://doi.org/10.1038/nrn3475">Button et al 2013</a> and <a href="https://doi.org/10.2466/03.11.PMS.112.2.331-348">Marszalek et al 2011</a> for a review.</p>
+<p><a href="https://doi.org/10.1016/j.wocn.2018.05.005">Kirby and Sonderegger 2018</a> looked at the effect of sample size on inference in “mixed-effects” studies (i.e.&nbsp;studies with multiple participants and observations per participants, aka repeated-measures, or hierarchical/nested/multilevel/random and so on).</p>
+<p>In the figure below from their paper, they simulated the <a href="https://en.wikipedia.org/wiki/Power_(statistics)">statistical power</a> (the probability of incorrectly not rejecting the null hypothesis, or in other words the probability of not obtaining a significant result when in fact there is one) of studies based on the number of items and subjects. It is interesting to note how these two aspects interact with the “true” effect size: power is affected strongly with less items, less subject and smaller effect sizes.</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0095447017301390-gr1.jpg" class="img-fluid"></p>
+<p>Kirby and Sonderegger suggest, among other things, to ensure that data from enough item/subjects is collected and that we should replicate studies much more than what we do. <a href="https://doi.org/10.5070/G6011135">Kobrock and Roettger 2023</a>, 5 years after Kirby and Sonderegger’s paper, assessed the replication landscape in experimental linguistics and only 1 in 1250 experimental linguistic articles contains an independent direct replication. Other studies on power that draw a sad picture: <a href="https://doi.org/10.1098/rsos.160254">Dumas-Mallet et al 2017</a>, <a href="https://doi.org/10.1044/2020_JSLHR-19-00299">Gaeta 2020</a>, <a href="https://doi.org/10.2139/ssrn.2579268">Tressoldi 2015</a>, <a href="https://doi.org/10.1037/0022-006X.58.5.646">Rossi 1990</a>.</p>
+</section>
+<section id="sample-size-estimation" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sample-size-estimation"><span class="header-section-number">2</span> Sample size estimation</h2>
+<p>When planning a study, it is important to think about which sample size you would need to be able to answer the research question.</p>
+<p>The way most researchers do this is by simply looking at previous work and see which sample size they used. This is unfortunately problematic, since usually researchers don’t use robust methods to estimate the needed sample size, so we basically just keep using the same sample size even though it might not be appropriate.</p>
+<p>Depending on whether you are conducting frequentist or Bayesian analyses, there are different ways of estimating the needed sample size. In all cases, estimating sample size is very difficult just because we don’t know enough about all the aspects of the phenomenon under study. An important factor that determines sample size is variability, and while a lot of current linguistic research uses regression models with varying effects (aka random effects, or mixed-effects models), very few researchers actually report or use the varying effect information from those models.</p>
+<p>So we are usually very much in the dark when it comes to quantifying variability across participants, items, conditions, etc…</p>
+<p>Especially for frequentist methods, a <strong>prospective power analysis</strong> (where power refers to “statistical power”, used to estimate sample size) is a necessary and fundamental step. Virtually all of the frequentist analyses published have not ran prospective power analyses (and based on the literature cited above, most of the studies are “under-powered”, meaning the sample size was to small for results to be robust and replicable.).</p>
+<p>There are several methods for conducting a prospective power analysis within a frequentist framewor. The <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12504">simr</a> package provides researchers with convenient tools for running prospective power analyses. I refer you to the <a href="https://doi.org/10.1111/2041-210X.12504">package paper</a> for an overview. (Note that “generalized linear mixed models” are just regression models with varying effects).</p>
+<p>For Bayesian analyses, “statistical power” doesn’t make sense since it is specifically a frequentist concept (it’s about statistical significance, which does not exist in Bayesian inference). People still talk about “power analyses” but Bayesian power analysis are about the “precision” of the estimates: in other words, you want to find out the sample size needed to reach posterior distributions that cover a tight enough range of values (to minimise uncertainty).</p>
+<p>Both statistical power and precision depend on sample size: the larger the sample size, the greater the statistical power and the greater the precision. The main point is finding a sample size that is large enough to have enough statistical power and enough precision (what “enough” means, depends on a lot of things). This is to find a balance between getting robust results and not having to collect an incredibly large amount of data (in other words, past a certain sample size you might not benefit from having more data, if your power/precision target has been reached).</p>
+<p>For a method of doing Bayesian power analyses, I refer you to this <a href="https://stefanocoretta.github.io/posts/2022-04-05-bayesian-ci-width-power-analysis/">post</a>.</p>
+</section>
+<section id="conclusion" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3</span> Conclusion</h2>
+<p>This entry was really just a very general introduction to sample size and sample size estimation and it’s possibly one of the most complex aspects of quantitative data analyses.</p>
+<p>If you’ll want to know more, I recommend you reach out to Stefano and maybe arrange a chat with him!</p>
 
 
+</section>
 
 </main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+  PagedTableDoc.initAll();
+}
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

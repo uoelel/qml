@@ -1,0 +1,70 @@
+---
+title: "Sample size matters"
+description: "Learn about sample size, why it is important and how to decide which sample size you should aim for."
+author: "Stefano Coretta"
+date: 2024-11-26
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+execute: 
+  warning: false
+---
+
+::: callout-warning
+#### Prerequisites
+
+-   [Reproducibility and replicability](repro-repli.qmd)
+-   [What is statistics?](statistics.qmd)
+:::
+
+## Sample size: what it is and why it is important
+
+**Sample size** is, simply put, the number of observations that make up your sample.
+
+In practice, sample size can refer to and is composed of many things:
+
+- Number of participants.
+- Number of items/stimuli.
+- Number of observations per participant.
+- Number of observations per condition.
+- Etc...
+
+All of these aspects of sample size can have big effects on the robustness of the inference process. It might feel intuitive that the bigger the sample size the better: more data means less uncertainty and more variability accounted for.
+
+As with many other aspects of the research process, modern research has been somewhat insensitive to the issues of small sample sizes: see [Button et al 2013](https://doi.org/10.1038/nrn3475) and [Marszalek et al 2011](https://doi.org/10.2466/03.11.PMS.112.2.331-348) for a review.
+
+[Kirby and Sonderegger 2018](https://doi.org/10.1016/j.wocn.2018.05.005) looked at the effect of sample size on inference in "mixed-effects" studies (i.e. studies with multiple participants and observations per participants, aka repeated-measures, or hierarchical/nested/multilevel/random and so on).
+
+In the figure below from their paper, they simulated the [statistical power](https://en.wikipedia.org/wiki/Power_(statistics)) (the probability of incorrectly not rejecting the null hypothesis, or in other words the probability of not obtaining a significant result when in fact there is one) of studies based on the number of items and subjects. It is interesting to note how these two aspects interact with the "true" effect size: power is affected strongly with less items, less subject and smaller effect sizes.
+
+![](https://ars.els-cdn.com/content/image/1-s2.0-S0095447017301390-gr1.jpg)
+
+Kirby and Sonderegger suggest, among other things, to ensure that data from enough item/subjects is collected and that we should replicate studies much more than what we do. [Kobrock and Roettger 2023](https://doi.org/10.5070/G6011135), 5 years after Kirby and Sonderegger's paper, assessed the replication landscape in experimental linguistics and 
+only 1 in 1250 experimental linguistic articles contains an independent direct replication. Other studies on power that draw a sad picture: [Dumas-Mallet et al 2017](https://doi.org/10.1098/rsos.160254), [Gaeta 2020](https://doi.org/10.1044/2020_JSLHR-19-00299), [Tressoldi 2015](https://doi.org/10.2139/ssrn.2579268), [Rossi 1990](https://doi.org/10.1037/0022-006X.58.5.646).
+
+## Sample size estimation
+
+When planning a study, it is important to think about which sample size you would need to be able to answer the research question.
+
+The way most researchers do this is by simply looking at previous work and see which sample size they used. This is unfortunately problematic, since usually researchers don't use robust methods to estimate the needed sample size, so we basically just keep using the same sample size even though it might not be appropriate.
+
+Depending on whether you are conducting frequentist or Bayesian analyses, there are different ways of estimating the needed sample size. In all cases, estimating sample size is very difficult just because we don't know enough about all the aspects of the phenomenon under study. An important factor that determines sample size is variability, and while a lot of current linguistic research uses regression models with varying effects (aka random effects, or mixed-effects models), very few researchers actually report or use the varying effect information from those models.
+
+So we are usually very much in the dark when it comes to quantifying variability across participants, items, conditions, etc...
+
+Especially for frequentist methods, a **prospective power analysis** (where power refers to "statistical power", used to estimate sample size) is a necessary and fundamental step. Virtually all of the frequentist analyses published have not ran prospective power analyses (and based on the literature cited above, most of the studies are "under-powered", meaning the sample size was to small for results to be robust and replicable.).
+
+There are several methods for conducting a prospective power analysis within a frequentist framewor. The [simr](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12504) package provides researchers with convenient tools for running prospective power analyses. I refer you to the [package paper](https://doi.org/10.1111/2041-210X.12504) for an overview. (Note that "generalized linear mixed models" are just regression models with varying effects).
+
+For Bayesian analyses, "statistical power" doesn't make sense since it is specifically a frequentist concept (it's about statistical significance, which does not exist in Bayesian inference). People still talk about "power analyses" but Bayesian power analysis are about the "precision" of the estimates: in other words, you want to find out the sample size needed to reach posterior distributions that cover a tight enough range of values (to minimise uncertainty).
+
+Both statistical power and precision depend on sample size: the larger the sample size, the greater the statistical power and the greater the precision. The main point is finding a sample size that is large enough to have enough statistical power and enough precision (what "enough" means, depends on a lot of things). This is to find a balance between getting robust results and not having to collect an incredibly large amount of data (in other words, past a certain sample size you might not benefit from having more data, if your power/precision target has been reached).
+
+For a method of doing Bayesian power analyses, I refer you to this [post](https://stefanocoretta.github.io/posts/2022-04-05-bayesian-ci-width-power-analysis/).
+
+## Conclusion
+
+This entry was really just a very general introduction to sample size and sample size estimation and it's possibly one of the most complex aspects of quantitative data analyses.
+
+If you'll want to know more, I recommend you reach out to Stefano and maybe arrange a chat with him!

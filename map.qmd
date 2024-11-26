@@ -135,6 +135,9 @@ graph TD
   AX[Regression model cheat-sheet]
   click AX href "posts/regression-cheat-sheet.html" "Go to page"
   style AX fill:#00008B,color:#FFF,stroke-width:2px
+  AY[Sample size]
+  click AY href "posts/sample-size.html" "Go to page"
+  style AY fill:#00008B,color:#FFF,stroke-width:2px
   
   AW[Reporting]
   click AW href "posts/reporting.html" "Go to page"
@@ -173,6 +176,8 @@ graph TD
   AA --> AB
   AB --> AR
   AC --> AW
+  AI --> AY
+  AP --> AY
 
   L --> O & P & Q
   P --> N & AA
