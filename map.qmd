@@ -133,6 +133,7 @@ graph TD
   click AV href "posts/bayes-papers.html" "Go to page"
   style AV fill:#00008B,color:#FFF,stroke-width:2px
   AX[Regression model cheat-sheet]
+  click AX href "posts/regression-cheat-sheet.html" "Go to page"
   style AX fill:#00008B,color:#FFF,stroke-width:2px
   
   AW[Reporting]

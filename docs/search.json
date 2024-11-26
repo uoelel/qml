@@ -1425,7 +1425,7 @@
     "href": "map.html",
     "title": "The Adventurer’s Map to the Notebook",
     "section": "",
-    "text": "Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the Notebook entries. This Map will grow throughout the semester as new entries are added to the Notebook.\nIn blue are entries that were recently added. In green are entries that you should have read by now, as per Course schedule.\n\n\n\n\n\n\nTip\n\n\n\nYou can click on the name in the nodes and you will be taken to the entry in the Notebook.\n\n\n\n\n\n\n\n\ngraph TD\n  A[Start here]\n  B[Research methods]\n  click B href \"posts/hodotics.html\" \"Go to page\"\n  style B fill:#008000,color:#FFF,stroke-width:2px\n  C[Computer basics]\n  click C href \"posts/computer-basics.html\" \"Go to page\"\n  style C fill:#008000,color:#FFF,stroke-width:2px\n  D[R basics]\n  click D href \"posts/r-basics.html\" \"Go to page\"\n  style D fill:#008000,color:#FFF,stroke-width:2px\n  E[Statistical variables]\n  click E href \"posts/stat-variables.html\" \"Go to page\"\n  style E fill:#008000,color:#FFF,stroke-width:2px\n  F[Intro to Quarto]\n  click F href \"posts/intro-quarto.html\" \"Go to page\"\n  style F fill:#008000,color:#FFF,stroke-width:2px\n  G[R Troubleshooting]\n  click G href \"posts/r-troubleshooting.html\" \"Go to page\"\n  H[Read data in R]\n  click H href \"posts/data-types.html\" \"Go to page\"\n  style H fill:#008000,color:#FFF,stroke-width:2px\n  I[Read multiple files]\n  click I href \"posts/import-multiple.html\" \"Go to page\"\n  J[Intro regression I]\n  click J href \"posts/intro-regression.html\" \"Go to page\"\n  style J fill:#008000,color:#FFF,stroke-width:2px\n  K[Introduction to plotting]\n  click K href \"posts/intro-plot.html\" \"Go to page\"\n  style K fill:#008000,color:#FFF,stroke-width:2px\n  L[Wrangling data]\n  click L href \"posts/wrangle.html\" \"Go to page\"\n  style L fill:#008000,color:#FFF,stroke-width:2px\n  M[Plotting basics]\n  click M href \"posts/plotting-basics.html\" \"Go to page\"\n  style M fill:#008000,color:#FFF,stroke-width:2px\n  N[Bar charts]\n  click N href \"posts/bar-charts.html\" \"Go to page\"\n  O[Filtering]\n  click O href \"posts/wrangle-filter.html\" \"Go to page\"\n  P[Mutating]\n  click P href \"posts/wrangle-mutate.html\" \"Go to page\"\n  Q[Pivoting]\n  click Q href \"posts/wrangle-pivoting.html\" \"Go to page\"\n  Z[Faceting plots]\n  click Z href \"posts/plot-faceting.html\" \"Go to page\"\n  AA[Density plots]\n  click AA href \"posts/plot-density.html\" \"Go to page\"\n  AB[Advanced plotting]\n  click AB href \"posts/plot-advanced.html\" \"Go to page\"\n  AC[Summary measures]\n  click AC href \"posts/summaries.html\" \"Go to page\"\n  style AC fill:#008000,color:#FFF,stroke-width:2px\n  \n  AD[Empirical research]\n  click AD href \"posts/research-context.html\" \"Go to page\"\n  style AD fill:#008000,color:#FFF,stroke-width:2px\n  AE[Research Qs and Hs]\n  click AE href \"posts/research-qh.html\" \"Go to page\"\n  style AE fill:#008000,color:#FFF,stroke-width:2px\n  AF[Quantitative analysis]\n  click AF href \"posts/data-analysis.html\" \"Go to page\"\n  style AF fill:#008000,color:#FFF,stroke-width:2px\n  AG[Inference]\n  click AG href \"posts/inference.html\" \"Go to page\"\n  style AG fill:#008000,color:#FFF,stroke-width:2px\n  AH[Statistics]\n  click AH href \"posts/statistics.html\" \"Go to page\"\n  style AH fill:#008000,color:#FFF,stroke-width:2px\n  AI[Repro/repli]\n  click AI href \"posts/repro-repli.html\" \"Go to page\"\n  style AI fill:#008000,color:#FFF,stroke-width:2px\n  AJ[Proj Management]\n  click AJ href \"posts/management.html\" \"Go to page\"\n  AK[File management]\n  click AK href \"posts/file-manage.html\" \"Go to page\"\n  \n  AL[Machine Learning]\n  click AL href \"posts/machine-learning.html\" \"Go to page\"\n  AM[R scripts]\n  click AM href \"posts/scripts.html\" \"Go to page\"\n  style AM fill:#008000,color:#FFF,stroke-width:2px\n  AN[R packages]\n  click AN href \"posts/packages.html\" \"Go to page\"\n  style AN fill:#008000,color:#FFF,stroke-width:2px\n  \n  AO[Frequentist vs Bayesian]\n  click AO href \"posts/freq-bayes.html\" \"Go to page\"\n  style AO fill:#008000,color:#FFF,stroke-width:2px\n  AP[P-values]\n  click AP href \"posts/p-values.html\" \"Go to page\"\n  style AP fill:#008000,color:#FFF,stroke-width:2px\n  \n  R[Intro regression II]\n  click R href \"posts/intro-regression-predictors.html\" \"Go to page\"\n  style R fill:#008000,color:#FFF,stroke-width:2px\n  S[Regression: categorical predictors]\n  click S href \"posts/intro-regression-categorical.html\" \"Go to page\"\n  style S fill:#008000,color:#FFF,stroke-width:2px\n  T[MCMC draws]\n  click T href \"posts/regression-draws.html\" \"Go to page\"\n  U[Indexing predictors]\n  click U href \"posts/regression-indexing.html\" \"Go to page\"\n  V[Interactions]\n  click V href \"posts/regression-interactions.html\" \"Go to page\"\n  W[Categorical-categorical interactions]\n  click W href \"posts/regression-interactions-catcat.html\" \"Go to page\"\n  X[Bernoulli regression]\n  click X href \"posts/regression-bernoulli.html\" \"Go to page\"\n  AQ[Numeric-numeric interactions]\n  click AQ href \"posts/regression-interactions-numnum.html\" \"Go to page\"\n  AT[Poisson regression]\n  click AT href \"posts/regression-poisson.html\" \"Go to page\"\n  AU[Ordinal regression]\n  click AU href \"posts/regression-ordinal.html\" \"Go to page\"\n  AV[Bayesian regression papers]\n  click AV href \"posts/bayes-papers.html\" \"Go to page\"\n  style AV fill:#00008B,color:#FFF,stroke-width:2px\n  AX[Regression model cheat-sheet]\n  style AX fill:#00008B,color:#FFF,stroke-width:2px\n  \n  AW[Reporting]\n  click AW href \"posts/reporting.html\" \"Go to page\"\n  style AW fill:#00008B,color:#FFF,stroke-width:2px\n  \n  AR[Interactive plots]\n  click AR href \"posts/plot-plotly.html\" \"Go to page\"\n  AS[Plotting tips]\n  click AS href \"posts/plot-galleries.html\" \"Go to page\"\n  \n  A --&gt; B & C\n  \n  B --&gt; AD & AF & AJ\n  AD --&gt; AE\n  AE --&gt; AI\n  AF --&gt; AG & AH\n  AJ --&gt; AK\n  \n  C --&gt; D\n  \n  D --&gt; AN & G\n  AN --&gt; H\n  AH --&gt; AO\n  AO --&gt; J & AP & AV\n  \n  H --&gt; AM\n  AM --&gt; F & I\n  I --&gt; Q\n  \n  F --&gt; E\n  E --&gt; J & K & L & AC & AL\n  \n  K --&gt; M\n  M --&gt; N & Z & AA & AS & AW\n  N --&gt; AB\n  AA --&gt; AB\n  AB --&gt; AR\n  AC --&gt; AW\n\n  L --&gt; O & P & Q\n  P --&gt; N & AA\n  \n  %% Regression\n  J --&gt; R --&gt; S --&gt; T & U & AW & AX\n  U --&gt; V & X\n  V --&gt; W\n  W --&gt; AQ\n  X --&gt; AQ & AT & AU"
+    "text": "Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the Notebook entries. This Map will grow throughout the semester as new entries are added to the Notebook.\nIn blue are entries that were recently added. In green are entries that you should have read by now, as per Course schedule.\n\n\n\n\n\n\nTip\n\n\n\nYou can click on the name in the nodes and you will be taken to the entry in the Notebook.\n\n\n\n\n\n\n\n\ngraph TD\n  A[Start here]\n  B[Research methods]\n  click B href \"posts/hodotics.html\" \"Go to page\"\n  style B fill:#008000,color:#FFF,stroke-width:2px\n  C[Computer basics]\n  click C href \"posts/computer-basics.html\" \"Go to page\"\n  style C fill:#008000,color:#FFF,stroke-width:2px\n  D[R basics]\n  click D href \"posts/r-basics.html\" \"Go to page\"\n  style D fill:#008000,color:#FFF,stroke-width:2px\n  E[Statistical variables]\n  click E href \"posts/stat-variables.html\" \"Go to page\"\n  style E fill:#008000,color:#FFF,stroke-width:2px\n  F[Intro to Quarto]\n  click F href \"posts/intro-quarto.html\" \"Go to page\"\n  style F fill:#008000,color:#FFF,stroke-width:2px\n  G[R Troubleshooting]\n  click G href \"posts/r-troubleshooting.html\" \"Go to page\"\n  H[Read data in R]\n  click H href \"posts/data-types.html\" \"Go to page\"\n  style H fill:#008000,color:#FFF,stroke-width:2px\n  I[Read multiple files]\n  click I href \"posts/import-multiple.html\" \"Go to page\"\n  J[Intro regression I]\n  click J href \"posts/intro-regression.html\" \"Go to page\"\n  style J fill:#008000,color:#FFF,stroke-width:2px\n  K[Introduction to plotting]\n  click K href \"posts/intro-plot.html\" \"Go to page\"\n  style K fill:#008000,color:#FFF,stroke-width:2px\n  L[Wrangling data]\n  click L href \"posts/wrangle.html\" \"Go to page\"\n  style L fill:#008000,color:#FFF,stroke-width:2px\n  M[Plotting basics]\n  click M href \"posts/plotting-basics.html\" \"Go to page\"\n  style M fill:#008000,color:#FFF,stroke-width:2px\n  N[Bar charts]\n  click N href \"posts/bar-charts.html\" \"Go to page\"\n  O[Filtering]\n  click O href \"posts/wrangle-filter.html\" \"Go to page\"\n  P[Mutating]\n  click P href \"posts/wrangle-mutate.html\" \"Go to page\"\n  Q[Pivoting]\n  click Q href \"posts/wrangle-pivoting.html\" \"Go to page\"\n  Z[Faceting plots]\n  click Z href \"posts/plot-faceting.html\" \"Go to page\"\n  AA[Density plots]\n  click AA href \"posts/plot-density.html\" \"Go to page\"\n  AB[Advanced plotting]\n  click AB href \"posts/plot-advanced.html\" \"Go to page\"\n  AC[Summary measures]\n  click AC href \"posts/summaries.html\" \"Go to page\"\n  style AC fill:#008000,color:#FFF,stroke-width:2px\n  \n  AD[Empirical research]\n  click AD href \"posts/research-context.html\" \"Go to page\"\n  style AD fill:#008000,color:#FFF,stroke-width:2px\n  AE[Research Qs and Hs]\n  click AE href \"posts/research-qh.html\" \"Go to page\"\n  style AE fill:#008000,color:#FFF,stroke-width:2px\n  AF[Quantitative analysis]\n  click AF href \"posts/data-analysis.html\" \"Go to page\"\n  style AF fill:#008000,color:#FFF,stroke-width:2px\n  AG[Inference]\n  click AG href \"posts/inference.html\" \"Go to page\"\n  style AG fill:#008000,color:#FFF,stroke-width:2px\n  AH[Statistics]\n  click AH href \"posts/statistics.html\" \"Go to page\"\n  style AH fill:#008000,color:#FFF,stroke-width:2px\n  AI[Repro/repli]\n  click AI href \"posts/repro-repli.html\" \"Go to page\"\n  style AI fill:#008000,color:#FFF,stroke-width:2px\n  AJ[Proj Management]\n  click AJ href \"posts/management.html\" \"Go to page\"\n  AK[File management]\n  click AK href \"posts/file-manage.html\" \"Go to page\"\n  \n  AL[Machine Learning]\n  click AL href \"posts/machine-learning.html\" \"Go to page\"\n  AM[R scripts]\n  click AM href \"posts/scripts.html\" \"Go to page\"\n  style AM fill:#008000,color:#FFF,stroke-width:2px\n  AN[R packages]\n  click AN href \"posts/packages.html\" \"Go to page\"\n  style AN fill:#008000,color:#FFF,stroke-width:2px\n  \n  AO[Frequentist vs Bayesian]\n  click AO href \"posts/freq-bayes.html\" \"Go to page\"\n  style AO fill:#008000,color:#FFF,stroke-width:2px\n  AP[P-values]\n  click AP href \"posts/p-values.html\" \"Go to page\"\n  style AP fill:#008000,color:#FFF,stroke-width:2px\n  \n  R[Intro regression II]\n  click R href \"posts/intro-regression-predictors.html\" \"Go to page\"\n  style R fill:#008000,color:#FFF,stroke-width:2px\n  S[Regression: categorical predictors]\n  click S href \"posts/intro-regression-categorical.html\" \"Go to page\"\n  style S fill:#008000,color:#FFF,stroke-width:2px\n  T[MCMC draws]\n  click T href \"posts/regression-draws.html\" \"Go to page\"\n  U[Indexing predictors]\n  click U href \"posts/regression-indexing.html\" \"Go to page\"\n  V[Interactions]\n  click V href \"posts/regression-interactions.html\" \"Go to page\"\n  W[Categorical-categorical interactions]\n  click W href \"posts/regression-interactions-catcat.html\" \"Go to page\"\n  X[Bernoulli regression]\n  click X href \"posts/regression-bernoulli.html\" \"Go to page\"\n  AQ[Numeric-numeric interactions]\n  click AQ href \"posts/regression-interactions-numnum.html\" \"Go to page\"\n  AT[Poisson regression]\n  click AT href \"posts/regression-poisson.html\" \"Go to page\"\n  AU[Ordinal regression]\n  click AU href \"posts/regression-ordinal.html\" \"Go to page\"\n  AV[Bayesian regression papers]\n  click AV href \"posts/bayes-papers.html\" \"Go to page\"\n  style AV fill:#00008B,color:#FFF,stroke-width:2px\n  AX[Regression model cheat-sheet]\n  click AX href \"posts/regression-cheat-sheet.html\" \"Go to page\"\n  style AX fill:#00008B,color:#FFF,stroke-width:2px\n  \n  AW[Reporting]\n  click AW href \"posts/reporting.html\" \"Go to page\"\n  style AW fill:#00008B,color:#FFF,stroke-width:2px\n  \n  AR[Interactive plots]\n  click AR href \"posts/plot-plotly.html\" \"Go to page\"\n  AS[Plotting tips]\n  click AS href \"posts/plot-galleries.html\" \"Go to page\"\n  \n  A --&gt; B & C\n  \n  B --&gt; AD & AF & AJ\n  AD --&gt; AE\n  AE --&gt; AI\n  AF --&gt; AG & AH\n  AJ --&gt; AK\n  \n  C --&gt; D\n  \n  D --&gt; AN & G\n  AN --&gt; H\n  AH --&gt; AO\n  AO --&gt; J & AP & AV\n  \n  H --&gt; AM\n  AM --&gt; F & I\n  I --&gt; Q\n  \n  F --&gt; E\n  E --&gt; J & K & L & AC & AL\n  \n  K --&gt; M\n  M --&gt; N & Z & AA & AS & AW\n  N --&gt; AB\n  AA --&gt; AB\n  AB --&gt; AR\n  AC --&gt; AW\n\n  L --&gt; O & P & Q\n  P --&gt; N & AA\n  \n  %% Regression\n  J --&gt; R --&gt; S --&gt; T & U & AW & AX\n  U --&gt; V & X\n  V --&gt; W\n  W --&gt; AQ\n  X --&gt; AQ & AT & AU"
   },
   {
     "objectID": "posts/regression-ordinal.html",
@@ -1466,92 +1466,92 @@
     "objectID": "lectures/data-analysis-workflow-2.html#research-questions-and-hypothesis",
     "href": "lectures/data-analysis-workflow-2.html#research-questions-and-hypothesis",
     "title": "Data analysis workflow: Part 2",
-    "section": "Research questions and hypothesis",
-    "text": "Research questions and hypothesis\n\nTwo case studies:\n\n(Week 8) Descriptive and exploratory: Do British infants use a different number of gestures depending on their cultural background?\n(This week) Explanatory and corroboratory: vowel duration and gesture distance."
+    "section": "2 Research questions and hypothesis",
+    "text": "2 Research questions and hypothesis\n\nTwo case studies:\n\n(Week 8) Descriptive and exploratory: Do British infants use a different number of gestures depending on their cultural background?\n(This week) Explanatory and corroboratory: vowel duration and gesture distance."
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#intrinsic-vowel-duration-future-study",
     "href": "lectures/data-analysis-workflow-2.html#intrinsic-vowel-duration-future-study",
     "title": "Data analysis workflow: Part 2",
-    "section": "Intrinsic vowel duration: Future study",
-    "text": "Intrinsic vowel duration: Future study\n\nHigh vowels tend to be shorter than low vowels.\n\n\nAmerican English in Lieberman and Kubaska 1979, Turk et al. 1994, Tauberer and Evanini 2009, Toivonen et al. 2015, Wilson and Chodroff 2017; Dutch in Bundgaard 1980; Swedish in Toivonen et al. 2015."
+    "section": "3 Intrinsic vowel duration: Future study",
+    "text": "3 Intrinsic vowel duration: Future study\n\nHigh vowels tend to be shorter than low vowels.\n\n\nAmerican English in Lieberman and Kubaska 1979, Turk et al. 1994, Tauberer and Evanini 2009, Toivonen et al. 2015, Wilson and Chodroff 2017; Dutch in Bundgaard 1980; Swedish in Toivonen et al. 2015."
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#distance-to-target",
     "href": "lectures/data-analysis-workflow-2.html#distance-to-target",
     "title": "Data analysis workflow: Part 2",
-    "section": "Distance to target",
-    "text": "Distance to target"
+    "section": "4 Distance to target",
+    "text": "4 Distance to target"
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#source-of-intrinsic-vowel-duration",
     "href": "lectures/data-analysis-workflow-2.html#source-of-intrinsic-vowel-duration",
     "title": "Data analysis workflow: Part 2",
-    "section": "Source of intrinsic vowel duration",
-    "text": "Source of intrinsic vowel duration\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Distance to target (Turk et al. 1994)\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Phonologisation (Toivonen et al. 2015)"
+    "section": "5 Source of intrinsic vowel duration",
+    "text": "5 Source of intrinsic vowel duration\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Distance to target (Turk et al. 1994)\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Phonologisation (Toivonen et al. 2015)"
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#variables-of-interest",
     "href": "lectures/data-analysis-workflow-2.html#variables-of-interest",
     "title": "Data analysis workflow: Part 2",
-    "section": "Variables of interest",
-    "text": "Variables of interest\n\n\n\nOutcome\nPredictors\n\n\n\n\nVowel duration (ms)\nVowel (quality)\n\n\n\nDistance to vocalic target (mm)\n\n\n\nSpeech rate (syl/s)"
+    "section": "6 Variables of interest",
+    "text": "6 Variables of interest\n\n\n\nOutcome\nPredictors\n\n\n\n\nVowel duration (ms)\nVowel (quality)\n\n\n\nDistance to vocalic target (mm)\n\n\n\nSpeech rate (syl/s)"
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#models-of-intrinsic-vowel-duration",
     "href": "lectures/data-analysis-workflow-2.html#models-of-intrinsic-vowel-duration",
     "title": "Data analysis workflow: Part 2",
-    "section": "Models of intrinsic vowel duration",
-    "text": "Models of intrinsic vowel duration"
+    "section": "7 Models of intrinsic vowel duration",
+    "text": "7 Models of intrinsic vowel duration"
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#research-hypotheses",
     "href": "lectures/data-analysis-workflow-2.html#research-hypotheses",
     "title": "Data analysis workflow: Part 2",
-    "section": "Research Hypotheses",
-    "text": "Research Hypotheses\n\nA. Vowel duration is entirely determined by the distance to vowel target.\nB. Vowel duration is entirely determined by stored durational targets.\nC. Vowel duration is not entirely determined by distance to vowel target only and stored durational targets are also necessary."
+    "section": "8 Research Hypotheses",
+    "text": "8 Research Hypotheses\n\nA. Vowel duration is entirely determined by the distance to vowel target.\nB. Vowel duration is entirely determined by stored durational targets.\nC. Vowel duration is not entirely determined by distance to vowel target only and stored durational targets are also necessary."
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#research-context-overview",
     "href": "lectures/data-analysis-workflow-2.html#research-context-overview",
     "title": "Data analysis workflow: Part 2",
-    "section": "Research context overview",
-    "text": "Research context overview\n\n\n\n\n\n\n\nTopic\nIntrinsic vowel duration\n\n\nResearch problem\nThere are competing models of gestural duration.\n\n\nGoal\nAssessing these models against empirical data. (Comparing the fit of different models)\n\n\nResearch question\nWhich of three possible models of gestural duration are corroborated?\n\n\nResearch hypotheses\nA. Vowel duration is entirely determined by the distance to vowel target.\nB. Vowel duration is entirely determined by stored durational targets.\nC. Vowel duration is not entirely determined by distance to vowel target only and stored durational targets are also necessary."
+    "section": "9 Research context overview",
+    "text": "9 Research context overview\n\n\n\n\n\n\n\nTopic\nIntrinsic vowel duration\n\n\nResearch problem\nThere are competing models of gestural duration.\n\n\nGoal\nAssessing these models against empirical data. (Comparing the fit of different models)\n\n\nResearch question\nWhich of three possible models of gestural duration are corroborated?\n\n\nResearch hypotheses\nA. Vowel duration is entirely determined by the distance to vowel target.\nB. Vowel duration is entirely determined by stored durational targets.\nC. Vowel duration is not entirely determined by distance to vowel target only and stored durational targets are also necessary."
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#causal-inference",
     "href": "lectures/data-analysis-workflow-2.html#causal-inference",
     "title": "Data analysis workflow: Part 2",
-    "section": "Causal inference",
-    "text": "Causal inference\n\n\nCausal inference approach: think about the causal relationship of variables to determine statistical models.\nDirected Acyclic Graphs, or DAGs.\nDemo on DAGitty.\n\n\n\n\nTo learn more about Causal Inference:\n\nStatistical Rethinking 2023 - 05 - Elemental Confounds\nStatistical Rethinking, Chapter 6."
+    "section": "10 Causal inference",
+    "text": "10 Causal inference\n\n\nCausal inference approach: think about the causal relationship of variables to determine statistical models.\nDirected Acyclic Graphs, or DAGs.\nDemo on DAGitty.\n\n\n. . .\n\nTo learn more about Causal Inference:\n\nStatistical Rethinking 2023 - 05 - Elemental Confounds\nStatistical Rethinking, Chapter 6."
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#regression-model",
     "href": "lectures/data-analysis-workflow-2.html#regression-model",
     "title": "Data analysis workflow: Part 2",
-    "section": "Regression model",
-    "text": "Regression model\n\n\n\n\n\n\n\nInference\nBayesian\n\n\nModel\nRegression model\n\n\nOutcome variable\nVowel duration\n\n\nDistribution of outcome\nLog-normal\n\n\nPredictors\nvowel, distance, speech rate\n\n\nTransformations\n\ndistance: logged and standardised\nspeech rate: logged and standardised\n\n\n\nEffect types\nnon-linear effects for distance and speech rate\n\n\nCoding\nindexing\n\n\nVarying effects\n\nby-speaker distance, by vowel\nby-speaker speech rate"
+    "section": "11 Regression model",
+    "text": "11 Regression model\n\n\n\n\n\n\n\nInference\nBayesian\n\n\nModel\nRegression model\n\n\nOutcome variable\nVowel duration\n\n\nDistribution of outcome\nLog-normal\n\n\nPredictors\nvowel, distance, speech rate\n\n\nTransformations\n\ndistance: logged and standardised\nspeech rate: logged and standardised\n\n\n\nEffect types\nnon-linear effects for distance and speech rate\n\n\nCoding\nindexing\n\n\nVarying effects\n\nby-speaker distance, by vowel\nby-speaker speech rate"
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#regression-model-code",
     "href": "lectures/data-analysis-workflow-2.html#regression-model-code",
     "title": "Data analysis workflow: Part 2",
-    "section": "Regression model: code",
-    "text": "Regression model: code\n\nbm &lt;- brm(\n  vowel_duration ~\n    0 + vowel +\n    s(distance_logz) +\n    s(distance_logz, speaker, by = vowel, bs = \"fs\", m = 1) +\n    s(speech_rate_logz, k = 5) +\n    s(speech_rate_logz, speaker, bs = \"fs\", m = 1),\n  family = lognormal\n)"
+    "section": "12 Regression model: code",
+    "text": "12 Regression model: code\n\nbm &lt;- brm(\n  vowel_duration ~\n    0 + vowel +\n    s(distance_logz) +\n    s(distance_logz, speaker, by = vowel, bs = \"fs\", m = 1) +\n    s(speech_rate_logz, k = 5) +\n    s(speech_rate_logz, speaker, bs = \"fs\", m = 1),\n  family = lognormal\n)"
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#statistical-hypotheses",
     "href": "lectures/data-analysis-workflow-2.html#statistical-hypotheses",
     "title": "Data analysis workflow: Part 2",
-    "section": "Statistical hypotheses",
-    "text": "Statistical hypotheses\n\nA. There is no robust effect of vowel but there is a robust (non-linear) effect of distance.\nB. There is a robust effect of vowel but there is no robust effect of distance.\nC. There is both an effect of vowel and distance."
+    "section": "13 Statistical hypotheses",
+    "text": "13 Statistical hypotheses\n\nA. There is no robust effect of vowel but there is a robust (non-linear) effect of distance.\nB. There is a robust effect of vowel but there is no robust effect of distance.\nC. There is both an effect of vowel and distance."
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#simulate-data",
     "href": "lectures/data-analysis-workflow-2.html#simulate-data",
     "title": "Data analysis workflow: Part 2",
-    "section": "Simulate data",
-    "text": "Simulate data\n\nCheck the faux package, although it might not actively developed anymore.\n\n\nset.seed(9817)\n\ns_n &lt;- 20\nrep_n &lt;- 10\nvdur_m &lt;- 75\nvdur_a &lt;- 20; vdur_e &lt;- 10; vdur_i &lt;- -15; vdur_o &lt;- 10; vdur_u &lt;- -22\ndist_a &lt;- 8; dist_e &lt;- 4.5; dist_i &lt;- 2; dist_o &lt;- 6; dist_u &lt;- 2\ndist_sd &lt;- 0.2\nb_dist &lt;- 0.8\nb_sr &lt;- 0.01\nsr_m &lt;- 4\n# varying duration\ndur_spk_sd &lt;- 5\ndur_rep_sd &lt;- 2\n# varying distance\ndist_spk_sd &lt;- 0.05\ndist_rep_sd &lt;- 0.05\n# varying sr\nsr_spk_sd &lt;- 0.005\nsr_rep_sd &lt;- 0.005\n\nsigma_sd &lt;- 20\n\nsim_data &lt;- add_random(speaker = s_n) |&gt; \n  add_within(\"speaker\", vowel = c(\"a\", \"e\", \"i\", \"o\", \"u\")) |&gt; \n  add_within(\"vowel\", rep = 1:rep_n) |&gt; \n  add_ranef(\"speaker\", dur_spk = dur_spk_sd) |&gt; \n  add_ranef(\"rep\", dur_rep = dur_rep_sd) |&gt; \n  add_ranef(\"speaker\", dist_spk = dist_spk_sd) |&gt; \n  add_ranef(\"rep\", dist_rep = dist_rep_sd) |&gt;\n  add_ranef(\"speaker\", sr_spk = sr_spk_sd) |&gt; \n  add_ranef(\"rep\", sr_rep = sr_rep_sd) |&gt; \n  add_ranef(sigma = sigma_sd) |&gt; \n  add_ranef(sigma_dist = dist_sd) |&gt; \n  mutate(\n    distance = case_when(\n      vowel == \"a\" ~ dist_a + dist_spk + dist_rep + sigma_dist,\n      vowel == \"e\" ~ dist_e + dist_spk + dist_rep + sigma_dist,\n      vowel == \"i\" ~ dist_i + dist_spk + dist_rep + sigma_dist,\n      vowel == \"o\" ~ dist_o + dist_spk + dist_rep + sigma_dist,\n      vowel == \"u\" ~ dist_u + dist_spk + dist_rep + sigma_dist\n    ),\n    speech_rate = sr_m + sr_spk + sr_rep\n  ) |&gt; \n  mutate(\n    vowel_duration = case_when(\n      vowel == \"a\" ~ vdur_m + vdur_a + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"e\" ~ vdur_m + vdur_e + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"i\" ~ vdur_m + vdur_i + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"o\" ~ vdur_m + vdur_o + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"u\" ~ vdur_m + vdur_u + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd\n    ),\n    distance_log = log(distance),\n    distance_logz = (distance_log - mean(distance_log)) / sd(distance_log),\n    speech_rate_log = log(speech_rate),\n    speech_rate_logz = (speech_rate_log - mean(speech_rate_log)) / sd(speech_rate_log)\n  )"
+    "section": "14 Simulate data",
+    "text": "14 Simulate data\n\nCheck the faux package, although it might not actively developed anymore.\n\n\nset.seed(9817)\n\ns_n &lt;- 20\nrep_n &lt;- 10\nvdur_m &lt;- 75\nvdur_a &lt;- 20; vdur_e &lt;- 10; vdur_i &lt;- -15; vdur_o &lt;- 10; vdur_u &lt;- -22\ndist_a &lt;- 8; dist_e &lt;- 4.5; dist_i &lt;- 2; dist_o &lt;- 6; dist_u &lt;- 2\ndist_sd &lt;- 0.2\nb_dist &lt;- 0.8\nb_sr &lt;- 0.01\nsr_m &lt;- 4\n# varying duration\ndur_spk_sd &lt;- 5\ndur_rep_sd &lt;- 2\n# varying distance\ndist_spk_sd &lt;- 0.05\ndist_rep_sd &lt;- 0.05\n# varying sr\nsr_spk_sd &lt;- 0.005\nsr_rep_sd &lt;- 0.005\n\nsigma_sd &lt;- 20\n\nsim_data &lt;- add_random(speaker = s_n) |&gt; \n  add_within(\"speaker\", vowel = c(\"a\", \"e\", \"i\", \"o\", \"u\")) |&gt; \n  add_within(\"vowel\", rep = 1:rep_n) |&gt; \n  add_ranef(\"speaker\", dur_spk = dur_spk_sd) |&gt; \n  add_ranef(\"rep\", dur_rep = dur_rep_sd) |&gt; \n  add_ranef(\"speaker\", dist_spk = dist_spk_sd) |&gt; \n  add_ranef(\"rep\", dist_rep = dist_rep_sd) |&gt;\n  add_ranef(\"speaker\", sr_spk = sr_spk_sd) |&gt; \n  add_ranef(\"rep\", sr_rep = sr_rep_sd) |&gt; \n  add_ranef(sigma = sigma_sd) |&gt; \n  add_ranef(sigma_dist = dist_sd) |&gt; \n  mutate(\n    distance = case_when(\n      vowel == \"a\" ~ dist_a + dist_spk + dist_rep + sigma_dist,\n      vowel == \"e\" ~ dist_e + dist_spk + dist_rep + sigma_dist,\n      vowel == \"i\" ~ dist_i + dist_spk + dist_rep + sigma_dist,\n      vowel == \"o\" ~ dist_o + dist_spk + dist_rep + sigma_dist,\n      vowel == \"u\" ~ dist_u + dist_spk + dist_rep + sigma_dist\n    ),\n    speech_rate = sr_m + sr_spk + sr_rep\n  ) |&gt; \n  mutate(\n    vowel_duration = case_when(\n      vowel == \"a\" ~ vdur_m + vdur_a + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"e\" ~ vdur_m + vdur_e + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"i\" ~ vdur_m + vdur_i + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"o\" ~ vdur_m + vdur_o + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd,\n      vowel == \"u\" ~ vdur_m + vdur_u + dur_spk + dur_rep + (b_dist * distance) + (b_sr * speech_rate) + sigma_sd\n    ),\n    distance_log = log(distance),\n    distance_logz = (distance_log - mean(distance_log)) / sd(distance_log),\n    speech_rate_log = log(speech_rate),\n    speech_rate_logz = (speech_rate_log - mean(speech_rate_log)) / sd(speech_rate_log)\n  )"
   },
   {
     "objectID": "posts/intro-quarto.html",
@@ -2110,29 +2110,29 @@
     "objectID": "lectures/data-analysis-workflow-2.html#simulate-data-plot",
     "href": "lectures/data-analysis-workflow-2.html#simulate-data-plot",
     "title": "Data analysis workflow: Part 2",
-    "section": "Simulate data: plot",
-    "text": "Simulate data: plot"
+    "section": "15 Simulate data: plot",
+    "text": "15 Simulate data: plot"
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#simulate-data-model",
     "href": "lectures/data-analysis-workflow-2.html#simulate-data-model",
     "title": "Data analysis workflow: Part 2",
-    "section": "Simulate data: model",
-    "text": "Simulate data: model\n\nbm &lt;- brm(\n  vowel_duration ~\n    0 + vowel +\n    s(distance_logz) +\n    s(distance_logz, speaker, by = vowel, bs = \"fs\", m = 1) +\n    s(speech_rate_logz, k = 5) +\n    s(speech_rate_logz, speaker, bs = \"fs\", m = 1),\n  family = lognormal,\n  data = sim_data,\n  cores = 4,\n  seed = 7162,\n  file = \"cache/data-analysis-workflow-2_bm\"\n)\n\n\nThis took 40 minutes to run and ended in 218 divergent transitions. You would normally also specify priors and try and fix the divergent transitions (and in the case of non-linear effects you might also want to estimate the number of knots before fitting)."
+    "section": "16 Simulate data: model",
+    "text": "16 Simulate data: model\n\nbm &lt;- brm(\n  vowel_duration ~\n    0 + vowel +\n    s(distance_logz) +\n    s(distance_logz, speaker, by = vowel, bs = \"fs\", m = 1) +\n    s(speech_rate_logz, k = 5) +\n    s(speech_rate_logz, speaker, bs = \"fs\", m = 1),\n  family = lognormal,\n  data = sim_data,\n  cores = 4,\n  seed = 7162,\n  file = \"cache/data-analysis-workflow-2_bm\"\n)\n\n\nThis took 40 minutes to run and ended in 218 divergent transitions. You would normally also specify priors and try and fix the divergent transitions (and in the case of non-linear effects you might also want to estimate the number of knots before fitting)."
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#simulate-data-model-summary",
     "href": "lectures/data-analysis-workflow-2.html#simulate-data-model-summary",
     "title": "Data analysis workflow: Part 2",
-    "section": "Simulate data: model summary",
-    "text": "Simulate data: model summary\n\nconditional_effects(bm, \"distance_logz:vowel\")"
+    "section": "17 Simulate data: model summary",
+    "text": "17 Simulate data: model summary\n\nconditional_effects(bm, \"distance_logz:vowel\")"
   },
   {
     "objectID": "lectures/data-analysis-workflow-2.html#summary",
     "href": "lectures/data-analysis-workflow-2.html#summary",
     "title": "Data analysis workflow: Part 2",
-    "section": "Summary",
-    "text": "Summary\n\n\nResearch context.\nResearch questions and hypotheses.\nPlan study design and analysis in details (here we just scratched the surface).\nSimulate data and/or use previous/pilot data to check that the analysis works as intended.\nPre-register the analysis or write a Registered Report."
+    "section": "18 Summary",
+    "text": "18 Summary\n\n\nResearch context.\nResearch questions and hypotheses.\nPlan study design and analysis in details (here we just scratched the surface).\nSimulate data and/or use previous/pilot data to check that the analysis works as intended.\nPre-register the analysis or write a Registered Report."
   },
   {
     "objectID": "posts/regression-cheat-sheet.html",
