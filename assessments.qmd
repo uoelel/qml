@@ -1,3 +1,7 @@
+---
+title: "Assessment"
+---
+
 ## Assessment overview
 
 This course will be **self-assessed on the basis of a Portfolio** consisting of a Reflective Journal and a Group Project.[^assessments-1]
@@ -206,7 +210,7 @@ This is **robustness assessment** project. You will have to get hold of the orig
 
 This course is **self-assessed with co-moderation,** which means that at the end of the course you will assign yourself a mark and the mark will be moderated in conversation between you and the Lecturer (Stefano)/Tutors. The conversation will happen either in a meeting or via email:
 
--   **If you would like to have a conversation**, I have arranged 10-minute meetings, or "exit interviews", the week of December 16 (every day, between 1-5pm). You can book these from the usual booking system (link at the bottom of the course homepage).
+-   **If you would like to have a conversation**, I have arranged 10-minute online meetings, or "exit interviews", the week of December 16 (every day, between 1-5pm). You can book these from the usual booking system (link at the bottom of the course homepage).
 
 -   **If you don't want to have a conversation**, me or the Tutors will get in touch with you via email *only in the case that adjustments* to the mark have to be made (which in the experience of other colleagues using this approach happens quite rarely!).
 
