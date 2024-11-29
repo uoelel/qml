@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stefano Coretta">
+<meta name="dcterms.date" content="2024-11-28">
+<meta name="description" content="Learn of the dangers of the null ritual in the context of regression models">
 
-<title>The Adventurer’s Map to the Notebook – QML</title>
+<title>When frequentist null-ritualistic and Bayesian regression give you opposite results – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +23,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,12 +103,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -81,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
   </div>
@@ -92,31 +128,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Course schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./map.html" aria-current="page"> 
+    <a class="nav-link" href="../map.html"> 
 <span class="menu-text">Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebook.html"> 
+    <a class="nav-link" href="../notebook.html"> 
 <span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./challenges.html"> 
+    <a class="nav-link" href="../challenges.html"> 
 <span class="menu-text">Challenges</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html"> 
+    <a class="nav-link" href="../assessments.html"> 
 <span class="menu-text">Assessment</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./extra.html"> 
+    <a class="nav-link" href="../extra.html"> 
 <span class="menu-text">Extra</span></a>
   </li>  
 </ul>
@@ -139,14 +175,31 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Adventurer’s Map to the Notebook</h1>
+<h1 class="title">When frequentist null-ritualistic and Bayesian regression give you opposite results</h1>
 </div>
 
+<div>
+  <div class="description">
+    Learn of the dangers of the null ritual in the context of regression models
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stefano Coretta </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 28, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -156,213 +209,133 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here you can find the “Adventurer’s Map” to the course. The Map shows the pathways you can take among the <a href="./notebook.html">Notebook</a> entries. This Map will grow throughout the semester as new entries are added to the Notebook.</p>
-<p>In blue are entries that were recently added. In green are entries that you should have read by now, as per <a href="./schedule.html">Course schedule</a>.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Prerequisites
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can click on the name in the nodes and you will be taken to the entry in the Notebook.</p>
+<ul>
+<li><a href="../posts/intro-regression-categorical.html">Introduction to regression models (Part III): include categorical predictors</a>.</li>
+</ul>
 </div>
 </div>
-<!--  -->
-<div class="cell" data-layout-align="center">
+<p>Are there cases when a frequentist null-ritualistic and a Bayesian regression give opposite results in regression models? <strong>YES</strong>!</p>
+<p>In the following example, we simulate data from two groups, A and B. In the population which A and B are sampled from, there is no difference between the two groups.</p>
+<p>In our simulated sample, however, the mean of group A is 0 and that of group B is 4. This is clearly a quirk of the sample, since the mean of A and B should be the same.</p>
+<p>Let’s say that our measurements contain some error, for example due to equipment limitations. We know that the measurement error of the equipment, based on the manufacturer’s specification, is ±5. In the simulated data, we add random error to the observations (50 per group). Error is usually modelled as a Gaussian distribution with mean 0 and a specific standard deviation: here, we set the standard deviation (<code>error_sd</code>) to 4.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">707</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Observations per group</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>n_per_group <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">each =</span> n_per_group)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>true_diff <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>error_sd <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">each =</span> n_per_group),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Y =</span> <span class="fu">c</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Group A</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rnorm</span>(n_per_group, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> error_sd),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Group B</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rnorm</span>(n_per_group, <span class="at">mean =</span> true_diff, <span class="at">sd =</span> error_sd)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["group"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Y"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"A","2":"-5.1274534"},{"1":"A","2":"-2.4704437"},{"1":"A","2":"2.7958574"},{"1":"A","2":"4.5579942"},{"1":"A","2":"-3.2886185"},{"1":"A","2":"-4.1480475"},{"1":"A","2":"8.2666357"},{"1":"A","2":"1.7678767"},{"1":"A","2":"-4.7311546"},{"1":"A","2":"7.1620730"},{"1":"A","2":"1.6746855"},{"1":"A","2":"4.4868870"},{"1":"A","2":"0.6641751"},{"1":"A","2":"-3.5877884"},{"1":"A","2":"-2.8666390"},{"1":"A","2":"-4.6538122"},{"1":"A","2":"6.0237748"},{"1":"A","2":"1.5431172"},{"1":"A","2":"0.2797623"},{"1":"A","2":"4.2555142"},{"1":"A","2":"-2.4317792"},{"1":"A","2":"-3.8039345"},{"1":"A","2":"0.1519096"},{"1":"A","2":"0.4762532"},{"1":"A","2":"3.1061104"},{"1":"A","2":"9.0185559"},{"1":"A","2":"-0.6643271"},{"1":"A","2":"5.5221930"},{"1":"A","2":"-1.9836975"},{"1":"A","2":"1.8642101"},{"1":"A","2":"2.4150938"},{"1":"A","2":"5.0436252"},{"1":"A","2":"3.7462610"},{"1":"A","2":"-2.0496628"},{"1":"A","2":"0.4320948"},{"1":"A","2":"2.9694058"},{"1":"A","2":"-1.2761049"},{"1":"A","2":"-1.2685659"},{"1":"A","2":"1.1120514"},{"1":"A","2":"-0.1971719"},{"1":"A","2":"-4.3209616"},{"1":"A","2":"2.0652162"},{"1":"A","2":"0.6818319"},{"1":"A","2":"1.6095172"},{"1":"A","2":"-3.8979666"},{"1":"A","2":"-0.9064930"},{"1":"A","2":"8.2899348"},{"1":"A","2":"0.7898929"},{"1":"A","2":"4.0178502"},{"1":"A","2":"-1.9790574"},{"1":"B","2":"4.7506326"},{"1":"B","2":"4.9227076"},{"1":"B","2":"-4.4125635"},{"1":"B","2":"3.5106457"},{"1":"B","2":"2.7700537"},{"1":"B","2":"0.9874614"},{"1":"B","2":"-0.1354450"},{"1":"B","2":"8.2970847"},{"1":"B","2":"0.3916286"},{"1":"B","2":"1.3634314"},{"1":"B","2":"14.3803011"},{"1":"B","2":"3.2319892"},{"1":"B","2":"3.3570230"},{"1":"B","2":"0.8630915"},{"1":"B","2":"1.4311202"},{"1":"B","2":"2.4595505"},{"1":"B","2":"7.7014074"},{"1":"B","2":"3.6584021"},{"1":"B","2":"2.3363910"},{"1":"B","2":"0.4859458"},{"1":"B","2":"3.3239597"},{"1":"B","2":"8.8723950"},{"1":"B","2":"10.5210275"},{"1":"B","2":"6.3334712"},{"1":"B","2":"6.6222179"},{"1":"B","2":"-4.3459678"},{"1":"B","2":"1.4670911"},{"1":"B","2":"2.1990833"},{"1":"B","2":"10.4082632"},{"1":"B","2":"0.6926614"},{"1":"B","2":"5.3883372"},{"1":"B","2":"2.0435300"},{"1":"B","2":"7.5119843"},{"1":"B","2":"4.0344669"},{"1":"B","2":"6.5900990"},{"1":"B","2":"5.7570448"},{"1":"B","2":"3.4515427"},{"1":"B","2":"5.3542787"},{"1":"B","2":"6.6920578"},{"1":"B","2":"9.9582606"},{"1":"B","2":"8.6650351"},{"1":"B","2":"-2.7173171"},{"1":"B","2":"4.2765028"},{"1":"B","2":"2.3127372"},{"1":"B","2":"3.7056914"},{"1":"B","2":"0.8751858"},{"1":"B","2":"5.9761774"},{"1":"B","2":"5.1885109"},{"1":"B","2":"13.2568282"},{"1":"B","2":"4.7171347"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Let’s plot the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(group, Y)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mean with 95% CIs</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> <span class="cf">function</span>(x) <span class="fu">mean_se</span>(x, <span class="fl">1.96</span>), <span class="at">colour =</span> <span class="st">"purple"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
-  A[Start here]
-  B[Research methods]
-  click B href "posts/hodotics.html" "Go to page"
-  style B fill:#008000,color:#FFF,stroke-width:2px
-  C[Computer basics]
-  click C href "posts/computer-basics.html" "Go to page"
-  style C fill:#008000,color:#FFF,stroke-width:2px
-  D[R basics]
-  click D href "posts/r-basics.html" "Go to page"
-  style D fill:#008000,color:#FFF,stroke-width:2px
-  E[Statistical variables]
-  click E href "posts/stat-variables.html" "Go to page"
-  style E fill:#008000,color:#FFF,stroke-width:2px
-  F[Intro to Quarto]
-  click F href "posts/intro-quarto.html" "Go to page"
-  style F fill:#008000,color:#FFF,stroke-width:2px
-  G[R Troubleshooting]
-  click G href "posts/r-troubleshooting.html" "Go to page"
-  H[Read data in R]
-  click H href "posts/data-types.html" "Go to page"
-  style H fill:#008000,color:#FFF,stroke-width:2px
-  I[Read multiple files]
-  click I href "posts/import-multiple.html" "Go to page"
-  J[Intro regression I]
-  click J href "posts/intro-regression.html" "Go to page"
-  style J fill:#008000,color:#FFF,stroke-width:2px
-  K[Introduction to plotting]
-  click K href "posts/intro-plot.html" "Go to page"
-  style K fill:#008000,color:#FFF,stroke-width:2px
-  L[Wrangling data]
-  click L href "posts/wrangle.html" "Go to page"
-  style L fill:#008000,color:#FFF,stroke-width:2px
-  M[Plotting basics]
-  click M href "posts/plotting-basics.html" "Go to page"
-  style M fill:#008000,color:#FFF,stroke-width:2px
-  N[Bar charts]
-  click N href "posts/bar-charts.html" "Go to page"
-  O[Filtering]
-  click O href "posts/wrangle-filter.html" "Go to page"
-  P[Mutating]
-  click P href "posts/wrangle-mutate.html" "Go to page"
-  Q[Pivoting]
-  click Q href "posts/wrangle-pivoting.html" "Go to page"
-  Z[Faceting plots]
-  click Z href "posts/plot-faceting.html" "Go to page"
-  AA[Density plots]
-  click AA href "posts/plot-density.html" "Go to page"
-  AB[Advanced plotting]
-  click AB href "posts/plot-advanced.html" "Go to page"
-  AC[Summary measures]
-  click AC href "posts/summaries.html" "Go to page"
-  style AC fill:#008000,color:#FFF,stroke-width:2px
-  
-  AD[Empirical research]
-  click AD href "posts/research-context.html" "Go to page"
-  style AD fill:#008000,color:#FFF,stroke-width:2px
-  AE[Research Qs and Hs]
-  click AE href "posts/research-qh.html" "Go to page"
-  style AE fill:#008000,color:#FFF,stroke-width:2px
-  AF[Quantitative analysis]
-  click AF href "posts/data-analysis.html" "Go to page"
-  style AF fill:#008000,color:#FFF,stroke-width:2px
-  AG[Inference]
-  click AG href "posts/inference.html" "Go to page"
-  style AG fill:#008000,color:#FFF,stroke-width:2px
-  AH[Statistics]
-  click AH href "posts/statistics.html" "Go to page"
-  style AH fill:#008000,color:#FFF,stroke-width:2px
-  AI[Repro/repli]
-  click AI href "posts/repro-repli.html" "Go to page"
-  style AI fill:#008000,color:#FFF,stroke-width:2px
-  AJ[Proj Management]
-  click AJ href "posts/management.html" "Go to page"
-  AK[File management]
-  click AK href "posts/file-manage.html" "Go to page"
-  
-  AL[Machine Learning]
-  click AL href "posts/machine-learning.html" "Go to page"
-  AM[R scripts]
-  click AM href "posts/scripts.html" "Go to page"
-  style AM fill:#008000,color:#FFF,stroke-width:2px
-  AN[R packages]
-  click AN href "posts/packages.html" "Go to page"
-  style AN fill:#008000,color:#FFF,stroke-width:2px
-  
-  AO[Frequentist vs Bayesian]
-  click AO href "posts/freq-bayes.html" "Go to page"
-  style AO fill:#008000,color:#FFF,stroke-width:2px
-  AP[P-values]
-  click AP href "posts/p-values.html" "Go to page"
-  style AP fill:#008000,color:#FFF,stroke-width:2px
-  
-  R[Intro regression II]
-  click R href "posts/intro-regression-predictors.html" "Go to page"
-  style R fill:#008000,color:#FFF,stroke-width:2px
-  S[Regression: categorical predictors]
-  click S href "posts/intro-regression-categorical.html" "Go to page"
-  style S fill:#008000,color:#FFF,stroke-width:2px
-  T[MCMC draws]
-  click T href "posts/regression-draws.html" "Go to page"
-  U[Indexing predictors]
-  click U href "posts/regression-indexing.html" "Go to page"
-  V[Interactions]
-  click V href "posts/regression-interactions.html" "Go to page"
-  W[Categorical-categorical interactions]
-  click W href "posts/regression-interactions-catcat.html" "Go to page"
-  X[Bernoulli regression]
-  click X href "posts/regression-bernoulli.html" "Go to page"
-  AQ[Numeric-numeric interactions]
-  click AQ href "posts/regression-interactions-numnum.html" "Go to page"
-  AT[Poisson regression]
-  click AT href "posts/regression-poisson.html" "Go to page"
-  AU[Ordinal regression]
-  click AU href "posts/regression-ordinal.html" "Go to page"
-  AV[Bayesian regression papers]
-  click AV href "posts/bayes-papers.html" "Go to page"
-  style AV fill:#00008B,color:#FFF,stroke-width:2px
-  AX[Regression model cheat-sheet]
-  click AX href "posts/regression-cheat-sheet.html" "Go to page"
-  style AX fill:#00008B,color:#FFF,stroke-width:2px
-  AY[Sample size]
-  click AY href "posts/sample-size.html" "Go to page"
-  style AY fill:#00008B,color:#FFF,stroke-width:2px
-  AZ[Wrong inference]
-  click AZ href "posts/regression-freq-bayes.html" "Go to page"
-  style AZ fill:#00008B,color:#FFF,stroke-width:2px
-  
-  AW[Reporting]
-  click AW href "posts/reporting.html" "Go to page"
-  style AW fill:#00008B,color:#FFF,stroke-width:2px
-  
-  AR[Interactive plots]
-  click AR href "posts/plot-plotly.html" "Go to page"
-  AS[Plotting tips]
-  click AS href "posts/plot-galleries.html" "Go to page"
-  
-  A --&gt; B &amp; C
-  
-  B --&gt; AD &amp; AF &amp; AJ
-  AD --&gt; AE
-  AE --&gt; AI
-  AF --&gt; AG &amp; AH
-  AJ --&gt; AK
-  
-  C --&gt; D
-  
-  D --&gt; AN &amp; G
-  AN --&gt; H
-  AH --&gt; AO
-  AO --&gt; J &amp; AP &amp; AV
-  
-  H --&gt; AM
-  AM --&gt; F &amp; I
-  I --&gt; Q
-  
-  F --&gt; E
-  E --&gt; J &amp; K &amp; L &amp; AC &amp; AL
-  
-  K --&gt; M
-  M --&gt; N &amp; Z &amp; AA &amp; AS &amp; AW
-  N --&gt; AB
-  AA --&gt; AB
-  AB --&gt; AR
-  AC --&gt; AW
-  AI --&gt; AY
-  AP --&gt; AY
+<figure class="figure">
+<p><img src="regression-freq-bayes_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We know that the difference we see in the sample is due to error, not to a real difference between A and B.</p>
+<p>Now, let’s run a frequentist (null-ritualistic) regression with <code>lm()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> group, <span class="at">data =</span> data)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Y ~ group, data = data)
 
-  L --&gt; O &amp; P &amp; Q
-  P --&gt; N &amp; AA
-  
-  %% Regression
-  J --&gt; R --&gt; S --&gt; T &amp; U &amp; AW &amp; AX &amp; AZ
-  U --&gt; V &amp; X
-  V --&gt; W
-  W --&gt; AQ
-  X --&gt; AQ &amp; AT &amp; AU
-  
-  
-  
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-8.6422 -2.8030 -0.2708  2.3026 10.1506 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   0.8227     0.5373   1.531    0.129    
+groupB        3.4069     0.7598   4.484 1.99e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.799 on 98 degrees of freedom
+Multiple R-squared:  0.1702,    Adjusted R-squared:  0.1618 
+F-statistic: 20.11 on 1 and 98 DF,  p-value: 1.993e-05</code></pre>
 </div>
 </div>
+<p>If you look at the <em>p</em>-value of <code>groupB</code>, it is lower than 0.05, so according to this model there is a significant difference between A and B.</p>
+<p>Let’s now fit a Bayesian regression.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>brm_model <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  Y <span class="sc">~</span> group,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> data,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seed =</span> <span class="dv">707</span>, <span class="at">file =</span> <span class="st">"cache/regression-freq-bayes_brm_model"</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(brm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: Y ~ group 
+   Data: data (Number of observations: 100) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Regression Coefficients:
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept     0.82      0.53    -0.22     1.85 1.00     3936     2966
+groupB        3.39      0.77     1.91     4.86 1.00     3900     3033
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     3.82      0.28     3.34     4.41 1.00     3427     2615
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+<p>Look at the 95% CrI of <code>groupB</code>: it’s [1.91, 4.86].</p>
+<p>Above we said that the equipment error is ±5. This can be thought of as a “Region of Practical Equivalence” (ROPE): any difference greater than or equal to -5 and smaller than or equal to +5 is practically equivalent to “no difference”, since we know that the equipment is not sensitive enough to be able to record differences that are within that range.</p>
+<p>The CrI of <code>groupB</code> is fully within the ROPE [-5, +5]. Thus, based on the Bayesian model we (correctly) infer that there is no difference in A and B in the population we sampled from.</p>
+<p><strong>To summarise, the frequentist model incorrectly reported a significant difference, while we know the population does not have this difference.</strong></p>
 
 
 

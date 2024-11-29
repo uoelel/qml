@@ -138,6 +138,9 @@ graph TD
   AY[Sample size]
   click AY href "posts/sample-size.html" "Go to page"
   style AY fill:#00008B,color:#FFF,stroke-width:2px
+  AZ[Wrong inference]
+  click AZ href "posts/regression-freq-bayes.html" "Go to page"
+  style AZ fill:#00008B,color:#FFF,stroke-width:2px
   
   AW[Reporting]
   click AW href "posts/reporting.html" "Go to page"
@@ -183,7 +186,7 @@ graph TD
   P --> N & AA
   
   %% Regression
-  J --> R --> S --> T & U & AW & AX
+  J --> R --> S --> T & U & AW & AX & AZ
   U --> V & X
   V --> W
   W --> AQ
