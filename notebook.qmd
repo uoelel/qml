@@ -1,8 +1,0 @@
----
-title: "The Adventurer's Notebook"
-listing:
-  contents: posts
-  sort: "date asc"
-  type: grid
-  categories: true
----

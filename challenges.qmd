@@ -1,8 +1,0 @@
----
-title: "Challenges"
-listing:
-  contents: challenges
-  sort: "title asc"
-  type: grid
-  categories: true
----

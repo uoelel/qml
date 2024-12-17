@@ -1,9 +1,0 @@
----
-title: "LinguaMeta: Unified metadata for thousands of languages"
-author: "Stefano Coretta"
----
-
-![](https://img.shields.io/badge/difficulty-medium-yellow)
-
-> We introduce [LinguaMeta](https://github.com/google-research/url-nlp/tree/main/linguameta), a unified resource for language metadata for thousands of languages, including language codes, names, number of speakers, writing systems, countries, official status, coordinates, and language varieties. The resources are drawn from various existing repositories and supplemented with our own research. Each data point is tagged for its origin, allowing us to easily trace back to and improve existing resources with more up-to-date and complete metadata. The resource is intended for use by researchers and organizations who aim to extend technology to thousands of languages.
-
