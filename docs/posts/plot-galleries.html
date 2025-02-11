@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-85fd5068f3268323a1154533f056ef3e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -236,7 +236,7 @@ Prerequisites
 <li>If you have collected counts from multiple participants (adults, children, learners, etc), then you can use a strip chart to show the counts or proportion of each participant as individual points on the graph. <strong>DO NOT USE BAR CHARTS TO SHOW MEAN PROPORTIONS</strong>, see <a href="../posts/plot-advanced.html#sec-accuracy">Accuracy and computing proportions</a>.</li>
 <li>Connected point plots also work with time series data when you want to show individual trajectories: <a href="https://srcd.onlinelibrary.wiley.com/cms/asset/202b12cd-28b1-4d17-8853-ceb8e55b4b1c/cdev13406-fig-0001-m.jpg">example</a></li>
 <li><strong>Use colour wisely.</strong> If you need more than 4/5 different colours then perhaps you might want to reconsider using colour at all. With a lot of colours you end up with very similar colours. Also, make sure the colours you pick are colour-blind safe (<a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3</a>).</li>
-<li>You can create <strong>interactive plots with plotly</strong>: for example, <a href="https://plotly.com/r/line-and-scatter/">https://plotly.com/r/line-and-scatter/</a> Even interactive 3D plots: <a href="https://stefanocoretta.github.io/post/rgb-space/">https://stefanocoretta.github.io/post/rgb-space/</a>. Do not make static 3D plots, they are difficult to read. See <a href="../posts/plot-plotly.html">Interactive plots</a>.</li>
+<li>You can create <strong>interactive plots with plotly</strong>: for example, <a href="https://plotly.com/r/line-and-scatter/">https://plotly.com/r/line-and-scatter/</a> Even interactive 3D plots: <a href="https://stefanocoretta.github.io/posts/2021-01-29-rgb-space/">https://stefanocoretta.github.io/posts/2021-01-29-rgb-space/</a>. Do not make static 3D plots, they are difficult to read. See <a href="../posts/plot-plotly.html">Interactive plots</a>.</li>
 <li>Density plots and histograms with rugs are useful to visualise a continuous variable. Rain-cloud plots too. <a href="https://wellcomeopenresearch.org/articles/4-63">Examples</a></li>
 <li><strong>Make sure the plot is standalone</strong>: anybody looking at it should understand what it is about without having to read your paper/dissertation. Make clever use of axes labels, titles, subtitles, legends and so on. Enhance you plot without making it crowded.</li>
 <li>Check out this <strong>YT video for some data viz principles</strong>: <a href="https://youtu.be/8y9AIe-tBh4">https://youtu.be/8y9AIe-tBh4</a></li>
@@ -537,8 +537,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -656,7 +654,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
