@@ -30,7 +30,7 @@ As part of the [Assessments](assessments.qmd), you will have to complete a **gro
 The following tables gives you an approximate schedule of the weekly themes, although they are subject to change also in light of your preferences. Check the week-by-week boxes below for a more detailed description of what you should be doing each week.
 
 | Week | Seminar | Lab |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | 1 | Welcome and practicalities | Notebook: [Learn the basics of R](posts/r-basics.qmd) |
 | 2 | [More than numbers: quantitative methods and uncertainty](discussions/discussion-02.qmd) | [Challenge](challenges.qmd) |
 | 3 | [Language endangerment and small numbers](discussions/discussion-03.qmd) | [Challenge](challenges.qmd) |
