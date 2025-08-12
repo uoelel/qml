@@ -1,51 +1,114 @@
 ---
 title: "Assessment"
+bibliography: references.bib
 ---
 
 ## Assessment overview
 
-This course will be **self-assessed on the basis of a Portfolio** consisting of a Reflective Journal and a Group Project.[^assessments-1]
+This course will be **assessed on the basis of a Portfolio** consisting of a Reflective Journal and a Group Project.[^1]
 
-[^assessments-1]: Some of the text on this page is from Itamar Kastner's [Morphology course site](https://itamarkast.github.io/UoEmorphology/assessment.html).
+[^1]: Some of the text on this page is from Itamar Kastner's [Morphology course site](https://itamarkast.github.io/UoEmorphology/assessment.html).
 
 The **Portfolio** is the sum of weekly self-reflections in the Reflective Journal, the feedback you will receive on your reflections, the Group Project and the Final Self-reflection. The course is assessed based on all of these components. There are no weights for the different components, so it is important you engage with all of them.
 
+::: callout-warning
+### Learning adjustments
+
+Students with learning adjustments (whether these are in place from the beginning of course or during the course) should get in touch with me (Stefano) as soon as possible to discuss the assessment format and make adjustments if needed.
+:::
+
 The following sections give more details on the Reflective Journal and the Group Project.
+
+::: callout-important
+Note that if you are in touch with your student adviser and/or the Teaching Organisation, we are usually not informed about it, so if you made arrangements with them while the course is in progress, please let us know.
+:::
 
 ## Reflective Journal
 
 ::: callout-important
-### Deadlines
+### Overview
 
--   You should post your self-reflection **each week after you have attended** your classes.
+-   You should post your self-reflection **each week.**
 
--   There isn't a hard deadline and if necessary you can skip a week and post two reflections the week after.
+-   You should post your self-reflection by the Wednesday following the week the self-reflection is on. This is not a hard deadline and it is fine if you have to catch up with your self reflection in a later week. If we find that you have not posted in a couple of weeks we will get in touch.
+
+-   You should write about 100-200 words for each self-reflection. This is not a hard target or limit. Sometimes you might need to write a bit more or a bit less, as long as you cover the important points. You are also given the space to write more than 200 words, but we might not be able to comment on everything extra to keep our work-load manageable.
 :::
 
 Learning is an active process: it happens best when we're all engaged. Learning is also something that we can learn how to do better. Think of a hobby you might have or a skill you've learned: you've probably perfected it for a while, paying close attention to what did or didn't work.
 
-That's why both students and the lecturer (Stefano) will reflect on how the course is going and what they've learned. After each class we'll all write short self-reflections in the **Reflective Journal**. I'll also comment on yours and you'll be able to comment on mine.
+That's why both students and the lecturer (Stefano) will reflect on how the course is going and what they've learned. After each class we'll all write short self-reflections in the **Reflective Journal**. The tutors will comment on yours and you'll be able to comment on mine.
 
 Each of us will have our own Reflective Journal on Learn. The tutors and I will be able to see your Reflective Journal, but you won't be able to see other students' Journals. My Journal (the lecturer's) will be visible to all and you will also be able to comment on it.
 
-Here are some example prompts to get you started, but you can really write what you want!
+In your self-reflection, you want to focus on your learning process: what did you learn, how easy or difficult was it, how did the learning affect your views on something? Here are more specific questions you can follow, but feel free to make adjustments. We recommend to lay out your the self-reflection based on the questions (see examples below) and to add a title to the self-reflection in the format "Week X" where "X" is the week number.
 
 ::: callout-tip
-## Example prompts
+## Self-reflection questions
 
-1.  Which Notebook entries/other materials did I go through this week?
+-   **Participation and Engagement**\
+    How have I contributed to class activities and managed my independent study? Am I satisfied with my approach so far?
 
-2.  How did I approach this week's Challenge?
+-   **Learning and Challenges**\
+    Which new topics did I encounter this week, how did I approach the weekly Challenge, and what difficulties—if any—did I face? How did I address them?
 
-3.  What has changed in my thinking about quantitative methods so far (if at all)?
+-   **Impact on Perspectives**\
+    How have this week's lessons influenced my views on quantitative methods and related areas? Have my perspectives changed, been reinforced, or stayed the same?
 
-4.  How would I describe my participation in class activities? Am I happy with it?
+-   **Intellectual Growth and Achievements**\
+    In what ways have I developed academically this week? What am I particularly proud of?
 
-5.  In what ways have I grown intellectually so far, if at all?
+-   **Extra thoughts** (optional; you can write as much as you like here, beyond the 100-200 words, but we might not be able to comment on everything to keep our work-load manageable).
+:::
 
-6.  Is there anything I'm particularly proud of?
+The following boxes show three strong examples and three weak examples of self-reflections.
 
-7.  Did I struggle with anything? If so, did I ask for help?
+::: {.callout-tip collapse="true"}
+### Strong example 1
+
+**Week 1**
+
+This week, I actively participated in group problem-solving and contributed ideas in class discussions. My independent study was focused, though I wish I had dedicated more time to reviewing lecture notes before the Challenge. I encountered regression diagnostics for the first time and approached the Challenge by breaking it into smaller tasks. I struggled initially with interpreting residual plots but resolved this through peer discussion. The week's content reinforced my appreciation for quantitative methods, especially in identifying model limitations. My main academic growth was in learning to critically evaluate statistical assumptions. I'm particularly proud of explaining a tricky concept to a peer, which clarified it for both of us.
+:::
+
+::: {.callout-tip collapse="true"}
+### Strong example 2
+
+**Week 1**
+
+I've been consistently present in discussions, asking questions that push me beyond surface understanding. My self-study this week was more structured than before, using a mix of readings and practice exercises. Learning about different summary measures was new to me, and I tackled the Challenge by first reviewing the theory, then applying it to the dataset. Although I initially misunderstood one step, seeking clarification from the tutor helped. This reinforced my belief that statistical tools are most powerful when used critically. I've grown in my ability to connect concepts across topics, and I'm proud of having completed the Challenge which was very difficult for me. Next week, I aim to experiment with visualising results more effectively.
+:::
+
+::: {.callout-tip collapse="true"}
+### Strong example 3
+
+**Week 1**
+
+In class, I've been more reserved this week but contributed meaningfully during smaller group work. My self-directed study was less consistent than I'd like due to other commitments. The new topic was Bernoulli regressions, which I approached with online tutorials and textbook exercises before attempting the Challenge. I struggled with interpreting logit estimates but improved after re-reading lecture slides. This week slightly shifted my view of quantitative methods—I now see how easily results can be distorted if assumptions are ignored. My biggest intellectual gain was in developing a check-list for choosing models. While I'm proud of completing the Challenge despite time pressure, I'll need to manage my schedule better to stay engaged in discussions.
+:::
+
+::: {.callout-important collapse="true"}
+### Weak example 1
+
+I did my work and took part in class. I learned some new things. The Challenge was okay and I finished it. My views on statistics are the same. I have grown a bit and I'm proud I completed my work.
+
+*Why it's bad*: No specifics, no examples, no reflection on challenges or growth.
+:::
+
+::: {.callout-important collapse="true"}
+### Weak example 2
+
+Participation: I was in class. Independent study: I read. New topic: Regression. Challenge: I did it. Views: No change. Growth: Learned more stats. Pride: I finished on time.
+
+*Why it's bad*: Merely answers prompts without linking them or showing thought.
+:::
+
+::: {.callout-important collapse="true"}
+### Weak example 3
+
+This week I came to class and listened to the lecture. I joined in when people were talking, although I didn't say a lot. I did some reading at home but not as much as I probably should have. We learned a new topic about statistics, which was interesting but also quite hard to follow. I did the Challenge activity and submitted it on time. It was a bit tricky but I figured it out eventually. My view on quantitative methods hasn't really changed; I still think they are useful but complicated. I guess I've learned a bit more about how to use them, but it's hard to say exactly what. I'm proud I got everything done, although I didn't always understand it fully. I didn't ask for help because I thought I could manage on my own.
+
+*Why it's bad*: Although it meets the word count, it stays vague, avoids specifics, and offers no meaningful insight into participation, learning, or challenges. It lists activities without explaining what was learned, how difficulties were addressed, or how the week's work connects to personal growth. It also misses opportunities to show critical thinking or outline plans for improvement, making it more of a log than a self-reflection.
 :::
 
 ### Instructions for Weekly self-reflections submission
@@ -55,57 +118,61 @@ After every class you'll need to write one self-reflection in the Reflective Jou
 What happens is:
 
 1.  We have class.
-2.  We reflect on what we've learned and what our expectations are for next class.
-3.  We write down brief reflections (1-paragraph) in one entry in the Reflective Journal on Learn, e.g. one titled "Week 1 Seminar", "Week 1 Lab", and so on.
-4.  I comment on your reflections, and you might comment on mine.
-5.  I might also give general feedback in a collaborative discussion in class or via Learn announcements.
+2.  We reflect on our learning process.
+3.  We write down a self-reflection in one entry in the Reflective Journal on Learn.
+4.  The tutors comment on your reflections as soon as possible, and you might comment on mine.
+5.  We might also give general feedback in a collaborative discussion in class or via Learn announcements.
 
-In sum: after any given class, you'll write a short self-reflection. Within a reasonable amount of time, I'll react to these.
-
-## Group project and Final Reflection
+## Group Project and Final Reflection
 
 ::: callout-important
 ### Deadlines
 
--   You must submit a Project Proposal to Turnitin by **Thursday 7th November at noon** on Learn \> Assessment.
--   You must submit your Final Reflection, including the product of your Group Project to Turnitin by **Thursday 12th December at noon** on Learn \> Assessment.
+-   You must submit a Project Proposal to Turnitin by **Thursday 6th November at noon** on Learn \> Assessment.
+-   You must submit your Final Reflection, including the product of your Group Project to Turnitin by **Thursday 11th December at noon** on Learn \> Assessment.
 :::
 
 ### Overview
 
-As part of the assessment you will have to work on a **Group Project**.
+As part of the assessment you will have to work on a **Group Project**. This project can be anything (some ideas below) so the structure of what you will have to submit differs depending on what you end up doing.
 
-This project can be anything (some ideas below) so the structure of what you will have to submit differs depending on what you end up doing.
-
-Independent of the type of project, you will have to write a **Final Reflection** on your experience with the course and with working on you Group Project. This reflection is what you submit to Turnitin on Learn by the deadline of Thursday 12th December. The reflection should contain the "product" of your Group Project, either as text following the reflection or as a link (since the Group Project can be any of different types of products).
+Independent of the type of project, you will have to write a **Final Reflection where you propose and justify a mark for yourself based on your experience with the course and with working on you Group Projec**t. Note that your mark suggestion is just a suggestion and the tutors and I will make the final decision. This reflection is what you submit to Turnitin on Learn by the deadline of Thursday 12th December. The reflection should contain the "product" of your Group Project, either as text following the reflection or as a link (since the Group Project can be any of different types of products).
 
 The requisites for the Group Project are the following:
 
 -   **It has to be about linguistics**, i.e. research on Language and/or languages.
 
--   **It has to be on knowledge-oriented (aka "basic") research**, not on application-oriented (aka "applied") research.
+-   **It has to be on knowledge-oriented (aka "basic") research**, not on application-oriented (aka "applied") research. Language/speech technology topics are not allowed.
 
--   **It has to be in or on R.**
+-   **It has to be in or on R and or Stan** (used by R to run Bayesian regression models)**.** Other programming languages are not allowed.
 
-Some ideas for Group Projects:
+::: callout-tip
+### Ideas for Group Projects
 
--   Pick a linguistic question that interests you and run a mini quantitative study (this could well be a study where you also act as participants).
+-   Pick a linguistic question that interests you and run a mini quantitative study (this could well be a study where you also act as participants). Write a data analysis report.
 
--   Find a linguistic topic and collect published effects from the relevant literature (the first step towards a fully-fledged meta-analysis).
+-   Find a linguistic topic and collect published effects from the relevant literature (the first step towards a fully-fledged meta-analysis). Curate the data set and make it available on the Open Science Framework and/or GitHub.
+
+-   Conduct a meta-analysis of a topic in linguistics based on existing literature.
 
 -   Design exercises and/or tutorials for the course using linguistic data.
 
 -   Write a collection of sonnets on the replicability crisis.
 
--   Write an essay on minoritised statisticians.
+-   Write an essay on a minoritised statistician.
 
 -   Choreograph an interpretative dance that illustrates how coefficients of a model of lexical decision task data are estimated with the Markov Chain Monte Carlo algorithm in a regression model.
 
+-   Rap a song about the history of statistics.
+:::
+
+::: callout-important
 **Note that the project has to be on a "knowledge-oriented" topic, rather than on a application of statistics to practical problems or language processing/technology.**
 
 So for example the following project is fine: "Do participant respond faster when listening to synthetic speech generated by algorithm A vs those generated by algorithm B?" But the **following projects will not be appropriate** for the Group Project: "We want to write a speech-to-text algorithm in R" or "We will develop a natural language virtual assistant for online shopping" or "I will train a forced-aligner model for a new language".
+:::
 
-As explained above, you will have to **submit a Final Reflection including the product or link to the product of the Group Project by by the deadline of Thursday 12th December at noon**.
+As explained above, you will have to **submit a Final Reflection including the product or link to the product of the Group Project by by the deadline of Thursday 11th December at noon**.
 
 For any question about assessment, post your question on Piazza (unless it's of a sensitive nature, then get in touch with Stefano).
 
@@ -120,12 +187,16 @@ Stefano does not have telepathic powers (yet) and the only way for him to help y
 ::: callout-important
 #### Deadline
 
--   You must submit a Project Proposal to Turnitin by **Thursday 7th November at noon** on Learn \> Assessment.
+-   You must submit a Project Proposal to Turnitin by **Thursday 6th November at noon** on Learn \> Assessment.
 :::
 
--   You will have to **submit a very short project proposal for approval by Thursday 7th November** to Turnitin on Learn, but the earlier you submit the earlier you can start working on it! We will be checking submissions as they arrive and ask get in touch if there are any issues.
--   **Only one person per group should submit the proposal** (there is no need for everyone in the group to submit the project proposal and you can add all the names of the group members if you wish).
+-   You will have to **submit a very short project proposal for approval by Thursday 6th November** to Turnitin on Learn, but the earlier you submit the earlier you can start working on it! We will be checking submissions as they arrive and ask to get in touch if there are any issues.
+-   **Only one person per group should submit the proposal** (there is no need for everyone in the group to submit the project proposal and you should just add all the names of the group members).
 -   A few sentences explaining the project will be sufficient. Note that this deadline is an informal deadline and there is no possibility of getting an extension.
+
+::: callout-important
+If your project requires you to collect data from participants who are not students in this course, you will need to abide to a **generic ethics approval** sought by Stefano for this course. This means there will be limitations on which participants you can gather data from and which data you can collect from them. More information TBA.
+:::
 
 The following boxes give you some examples of possible projects and project proposals, with an explanation on how you can go about completing these projects.
 
@@ -134,7 +205,7 @@ The following boxes give you some examples of possible projects and project prop
 
 **Project proposal**
 
-> We want to replicate the study by [Keogh et al](https://www.research.ed.ac.uk/en/publications/predictability-and-variation-in-language-are-differentially-affec). The study use an artificial language learning paradigm to test the relationship between working memory and regularisation. We will run the exact same experiment with 5 participants and conduct the same analysis they did.
+> We want to replicate the study by @keogh2024. The study use an artificial language learning paradigm to test the relationship between working memory and regularisation. We will run the exact same experiment with 5 participants and conduct the same analysis they did.
 
 **How to complete it**
 
@@ -158,11 +229,11 @@ This is a **data curation** project. You will collect, format, organise and docu
 
 **Project proposal**
 
-> We want to draw an abstract paining that represents the analysis approach used in [Coretta et al.](https://www.doi.org/10.1080/01434632.2024.2413933). The painting will be accompanied by a written piece with an explanation of the approach, our understanding and how this has shaped the painting.
+> We want to draw an abstract paining that represents the analysis approach used in @hampton2024. The painting will be accompanied by a written piece with an explanation of the approach, our understanding and how this has shaped the painting.
 
 **How to complete it**
 
-This is **creative** project. You will have to carefully read a paper, understand the analysis, which will likely be of a more advanced level compared to what you have learnt so far, and use your creativity to create a painting (no need to be artists to make a painting!). The written piece will have to show that you have understood and internalised the analysis and that this understanding has driven the production of the painting. What you submit is the written piece and high resolution photo of the painting.
+This is **creative** project. You will have to carefully read the paper, understand the analysis, which will likely be of a more advanced level compared to what you have learnt so far, and use your creativity to create a painting (no need to be artists to make a painting!). The written piece will have to show that you have understood and internalised the analysis and that this understanding has driven the production of the painting. What you submit is the written piece and high resolution photo of the painting.
 :::
 
 ::: {.callout-note collapse="true"}
@@ -170,11 +241,11 @@ This is **creative** project. You will have to carefully read a paper, understan
 
 **Project proposal**
 
-> We are interested in the relationship between vowel height and vowel duration in Hungarian. We will run a small-scale study with recordings from 2 or 3 students who are speakers of Hungarian. We will analyse the vowel duration using Bayesian regression models.
+> We are interested in the relationship between vowel height and vowel duration in Hungarian. We will run a small-scale study with recordings from 2 or 3 speakers of Hungarian. We will analyse the vowel duration using Bayesian regression models.
 
 **How to complete it**
 
-This is **research** project. You will have to think of a research question/hypothesis (they do not have to be novel and you can reuse existing questions/hypotheses) and collect and analyse data. Note that we are restricted by ethics requirements so you can't record people that are not UoE students, unless you want to apply for ethics (which you can). The written report will have to focus on the data collection and analysis (you should put less focus on literature review and discussion).
+This is **research** project. You will have to think of a research question/hypothesis (they do not have to be novel and you can reuse existing questions/hypotheses) and collect and analyse data. Note that we are restricted by a generic ethics approval (see above, more information TBA). The written report will have to focus on the data collection and analysis (you should put less focus on literature review and discussion).
 :::
 
 ::: {.callout-note collapse="true"}
@@ -182,7 +253,7 @@ This is **research** project. You will have to think of a research question/hypo
 
 **Project proposal**
 
-> We want to re-analyse the data from \[Ota 2013\]. The original study used frequentist regression models, but we will instead apply a Bayesian regression model.
+> We want to re-analyse the data from @ota2013. The original study used frequentist regression models, but we will instead apply a Bayesian regression model.
 
 **How to complete it**
 
@@ -194,14 +265,14 @@ This is **robustness assessment** project. You will have to get hold of the orig
 ::: callout-important
 #### Deadline
 
--   You must submit your Final Reflection, including the product of your Group Project, to Turnitin by **Thursday 12th December at noon** on Learn \> Assessment.
--   Normal extensions are not possible, so carefully plan your time accordingly. Learning Adjustments and Special Circumstances extensions are possible. Note that LA/SC extensions do not extend to group-mates who don't have LA/SC in place.
+-   You must submit your Final Reflection, including the product of your Group Project, to Turnitin by **Thursday 11th December at noon** on Learn \> Assessment.
+-   Normal extensions are not possible, so carefully plan your time accordingly. Learning Adjustments extensions and Special Circumstances applications are possible. Note that Learning Adjustments extensions do not extend to group-mates who don't have Learning Adjustments in place.
 :::
 
 -   **You should submit a PDF file.**
 -   **You should use this [Quarto document template](static/qml-2024-final-reflection.qmd)** (right-click and download). For the submission, please render the Quarto file to PDF (I suggest trying this as soon as you download the file, to ensure you have all the necessary software for rendering to PDF).
--   **Every student should submit.** Your submission should include the Group Project output or link to it (we will discard the similarity ratings on Turnitin).
--   In your submission, **include the Group Project title and the NAMES of the members of the group** (not the student number nor the exam number), including yourself, and **your proposed mark** for yourself (this should be done individually, not at the group level), as per the template linked above.
+-   **Every student should submit.** Your submission should include the same Group Project output or link to it (we will discard the similarity ratings on Turnitin).
+-   In your submission, **include the Group Project title and the NAMES of the members of the group** (not the student number nor the exam number), including yourself, as per the template linked above.
 -   If you are unsure about anything, please post a question on Piazza.
 
 ## Feedback and marking
@@ -277,12 +348,14 @@ Once you pick a mark band, you need to pick a step within that band. You can fin
 
 Within each mark band, there are three steps: 2, 5 or 8 (for example, in the 60s band there is 62, 65 or 68). The criteria for each of 2, 5, or 8 are the following:
 
-+------------------+-------------------------------------------------------------------------------------+
-| Step             | Criteria                                                                            |
-+:================:+=====================================================================================+
-| 2                | The criteria for the mark band have been achieved, but there might be minor issues. |
-+------------------+-------------------------------------------------------------------------------------+
-| 5                | The criteria for the mark band have been achieved satisfactorily.                   |
-+------------------+-------------------------------------------------------------------------------------+
-| 8                | The criteria for the mark band have been achieved fully.                            |
-+------------------+-------------------------------------------------------------------------------------+
++------------+-------------------------------------------------------------------------------------+
+| Step       | Criteria                                                                            |
++:==========:+=====================================================================================+
+| 2          | The criteria for the mark band have been achieved, but there might be minor issues. |
++------------+-------------------------------------------------------------------------------------+
+| 5          | The criteria for the mark band have been achieved satisfactorily.                   |
++------------+-------------------------------------------------------------------------------------+
+| 8          | The criteria for the mark band have been achieved fully.                            |
++------------+-------------------------------------------------------------------------------------+
+
+### References  {.unnumbered}
