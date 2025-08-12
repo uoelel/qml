@@ -1,5 +1,6 @@
 ---
 title: "Quantitative Methods for LEL"
+bibliography: references.bib
 ---
 
 Welcome to the main site of the course *Quantitative Methods for Linguistics and English Language* (Semester 1).
@@ -13,23 +14,21 @@ You can find the data for the course in the [QML Data](https://uoelel.github.io/
 ::: {.callout-note appearance="simple" icon="false"}
 This course is an introduction to **quantitative data analysis** (including data wrangling, visualisation and modelling) as commonly employed in linguistics, using the R software.
 
-This course has a "choose your own adventure" format. Learn more in [Schedule](schedule.qmd).
-
-Among the **topics** that you can learn there are the following:
+The following is a list of **topics** you will learn:
 
 -   The basics of quantitative data analysis.
 -   Data preparation.
 -   Data summaries.
 -   Principles of **data visualisation**.
--   Statistical modelling with **linear models**.
--   Statistical inference using **Bayesian inference** (posterior probability distributions and credible intervals) and frequentist inference (*p*-values and confidence intervals).
+-   Statistical modelling with Bayesian **regression models**.
+-   Open Research practices and the dangers of statistics.
 
 At completion of the course you will have gained the following **skills**:
 
 -   Import common data formats, tidy and transform data.
 -   Choosing and reporting appropriate summary measures.
 -   Using compelling visualisations to communicate a specific message about patterns in the data.
--   Master linear models for different types of data (continuous measures and binary outcomes).
+-   Master regression models for different types of data (continuous measures and binary outcomes).
 -   Using Bayesian inference to answer research questions and avoid common interpretation pitfalls of frequentist techniques.
 
 Examples from different branches of linguistics will be used to provide you with hands-on experience in quantitative data analysis and Open Research practices.
@@ -42,19 +41,20 @@ This course is designed to help you develop the necessary skills for conducting 
 
 The content and objectives of the course are in response to recent advances in our understanding of the theory behind research methods.
 
-Recent meta-scientific research has identified three important aspects of research: the **reproducibility, replicability and generalisability**.
+Recent meta-scientific research has identified four important aspects of research: **reproducibility, replicability, robustness and generalisability**.
 
 -   A result is **reproducible** when the same analysis steps performed on the same dataset consistently produces the same answer.
 -   A result is **replicable** when the same analysis performed on different datasets produces qualitatively similar answers.
+-   A result is **robust** when a different analysis workflow performed on the same dataset produces qualitatively similar answers.
 -   A result is **generalisable** when a different analysis workflow performed on different data sets produces qualitatively similar answers.
 
-See [Definitions](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html) for a more detailed explanation.
+See [Definitions](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html) on "The Turing Way" website for a more detailed explanation.
 
-However, based on surveys from different disciplines, we are currently facing the **three research crises** (*reproducibility, replicability and generalisability crises*) by which most results are neither reproducible, nor replicable, nor generalisable ([Munafò et al. 2017](https://doi.org/10.1038/s41562-016-0021), [Simmons et al. 2011](https://doi.org/10.1177/0956797611417632), [Ioannidis 2005](https://doi.org/10.1371/journal.pmed.0020124), [Yarkoni 2022](https://doi.org/10.1017/S0140525X20001685)).
+However, based on surveys from different disciplines, we are currently facing **three research crises** (*reproducibility, replicability and generalisability crises*) by which most results are neither reproducible, nor replicable, nor generalisable [@munafò2017; @simmons2011; @ioannidis2005; @yarkoni2022].
 
-The **Open Research** movement (also known as Open Science or Open Scholarship, [Crüwell et al. 2019](https://doi.org/10.1027/2151-2604/a000387)) was developed with the aim of improving our understanding of these crises and with the objective of providing researchers with guidelines and tools to produce reproducible, replicable and generalisable research.
+The **Open Research** movement [also known as Open Science or Open Scholarship, @cruwell2019] was developed with the aim of improving our understanding of these crises and with the objective of providing researchers with guidelines and tools to produce reproducible, replicable and generalisable research.
 
-The statistical philosophy adopted in the course is that of the **New Statistics** ([Cumming 2014](https://doi.org/10.1177/0956797613504966), [Kruschke and Liddell 2018](https://doi.org/10.3758/s13423-016-1221-4). The main goal of the New Statistics is to shift the attention from statistical significance to estimation with quantification of uncertainty.
+The statistical philosophy adopted in the course is that of the **New Statistics** [@cumming2013; @kruschke2018]. The main goal of the New Statistics is to shift the attention from statistical significance to estimation with quantification of uncertainty.
 :::
 
 ## Support
@@ -78,15 +78,7 @@ If you want to book **office hours** with me, you can do so here: <https://bit.l
 
 Here's the list of course tutors:
 
--   Alice Marikan
-
--   Anna Laoide-Kemp
-
--   Carine Abraham
-
--   Georges Sakr
-
--   Odysseas Myresiotis Alivertis
-
--   Ponrawee Prasertsom
+-   TBA
 :::
+
+### References  {.unnumbered}

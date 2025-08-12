@@ -1,5 +1,8 @@
 *.DS_Store
 
+# Temporarily ignore docs
+/docs/
+
 .Rproj.user
 .Rhistory
 .RData
