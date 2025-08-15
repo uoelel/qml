@@ -6,7 +6,7 @@ title: "Course content"
 
 This page gathers all the important information about the course content and schedule. Each week is dedicated to a specific set of topics and you are expected to complete readings from the course textbook and homework by the beginning of the following week (so complete readings and homework of week 1 by the beginning of week 2, and so on).
 
-Each week there will be a 50-minute lecture and a 2-hour workshop. The lecture covers the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course textbook. In the workshop you will further practice your R skills with group data challenges (with the exception of the workshop of week 1, where you will go through the R basics chapters in the textbook in class).
+Each week there will be a 50-minute lecture and a 2-hour workshop. The lecture covers the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course textbook. In the workshop you will further practice your R skills with group data [Challenges](challenges.qmd) (with the exception of the workshop of week 1, where you will go through the R basics chapters in the textbook in class).
 
 The **Schedule overview** below gives you an overview of each week, while the **Weekly schedule** is a more in-depth description of the activities and materials of each week.
 
