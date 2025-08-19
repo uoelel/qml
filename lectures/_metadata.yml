@@ -2,3 +2,9 @@ format:
   revealjs:
     slide-number: true
     history: false
+    theme: [default, custom.scss]
+    title-slide-attributes:
+      data-background: |
+        ```{=html}
+        var(--inverse)
+        ```
