@@ -1,0 +1,122 @@
+---
+title: "QML - Week 1"
+subtitle: "Research methods overview"
+author: "Stefano Coretta"
+format: revealjs
+---
+
+## Research methods
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a45274dcfda2498bd555a2" width="100%"></iframe>
+```
+
+## Research methods: components
+
+![](/img/res-methods-2.png){fig-align="center"}
+
+## 
+
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+## Group activity
+
+-   Form groups of 5/6 students. I will give you a card with a research topic.
+
+-   Think about the following research components in relation to the research topic and come up with a "research plan":
+
+    -   **Research process**: What are the steps?
+
+    -   **Project management**: How would you manage roles, timeline, data storage?
+
+    -   **Digital skills**: Which tools will you need?
+
+    -   **Philosophy**: What count as evidence? What are your assumptions?
+
+    -   **Ethics**: How would you ensure personal rights are respected?
+:::
+::::
+
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=15&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
+
+## 
+
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+## Group activity
+
+-   Pick a group next to you and tell each other about your research plans.
+
+-   What are the similarities and why do you think they are what they are?
+
+-   How do your plans differ and how do you think individual differences across and within groups contributed to the differences?
+:::
+::::
+
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
+
+## 
+
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+## Group activity
+
+-   With your group, come up with a research question.
+
+-   It doesn't have to be fancy, just something you are interested in.
+
+-   Write your research question on a post-it.
+:::
+::::
+
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
+
+## Research axes
+
+![](/img/axes-research.png){fig-align="center"}
+
+## 
+
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+## Group activity
+
+-   Think about your chosen research question. Which quadrant in the research axes coordinates do you think it belongs to?
+
+-   Come to the board and place the post-it with your research question in the chosen quadrant.
+:::
+::::
+
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
