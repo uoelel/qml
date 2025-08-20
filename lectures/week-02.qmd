@@ -15,9 +15,17 @@ bibliography: references.bib
 ::: {.callout-tip appearance="simple"}
 "**Bilingual advantage**" refers to the hypothesis that bilinguals possess a cognitive advantage over monolinguals due to greater cognitive control implied in using more than one language [@poarch2019; @samuel2018].
 
--   However, research has indicated both a presence of the bilingual advantage and its absence.
+-   However, research has argued both for and against the existence of the bilingual advantage.
 
--   Research is "inconclusive" [@franck2024; @garraffa2023].
+-   We can say research has been "inconclusive" [@franck2024; @garraffa2023].
+:::
+
+. . .
+
+::: callout-note
+## Inconclusive!
+
+Note that inconclusive does not mean "there is no bilingual advantage". It means we do not know.
 :::
 
 ## 
@@ -48,14 +56,6 @@ bibliography: references.bib
 <iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5b4cbff22a5075a3dd52a" width="100%"></iframe>
 ```
 
-## Uncertainty and variability
-
-::: {.callout-note appearance="simple"}
-
--   **Uncertainty** is a characteristic of each observation of a phenomenon, due to measurement error or because we cannot directly measure what we want to measure.
--   **Variability** is found among different observations of the same phenomenon, due to natural fluctuations and measurement error.
-:::
-
 ## 
 
 :::::: columns
@@ -80,7 +80,18 @@ bibliography: references.bib
 :::
 ::::::
 
-## 
+## Share your conclusion
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5fdd6160380947dd5f666" width="100%"></iframe>
+```
+
+## Uncertainty and variability
+
+::: {.callout-note appearance="simple"}
+-   **Uncertainty** is a characteristic of each observation of a phenomenon, due to measurement error or because we cannot directly measure what we want to measure.
+-   **Variability** is found among different observations of the same phenomenon, due to natural fluctuations and measurement error.
+:::
 
 ## 
 
@@ -88,6 +99,12 @@ bibliography: references.bib
 :::: {.column width="75%"}
 ::: callout-note
 ### Group activity
+
+-   Each group will get a research card with a short literature review and a small data set.
+
+-   Answer the following question:
+
+    > Are younger infants better at discriminating non-native phonetic contrasts than older infants?
 :::
 ::::
 
@@ -99,5 +116,32 @@ bibliography: references.bib
 ```
 :::
 ::::::
+
+## Share your answer
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a60297160380947dd8d03c" width="100%"></iframe>
+```
+
+## Many analysts, one data set
+
+::: {.callout-note appearance="simple"}
+-   You just experienced a form of "many analysts, one data set" scenario.
+
+-   @coretta2023 asked 30 teams to answer the same research question with the same data.
+
+    > Do speakers acoustically modify utterances to signal atypical word combinations?
+
+    -   Participants had to instruct a confederate to move a cube on top of an object. The object either had a typical or atypical colour: YELLOW vs BLUE banana.
+
+-   We gave the data to all teams and they sent us back:
+
+    -   **109 individual analyses**—a bit more than 3 analyses per team!
+    -   **Nine teams out of the thirty (30%) reported to have found at least one statistically reliable effect.**
+:::
+
+## Many analysts, one data set
+
+![](/img/coretta2023-fig3.png){fig-align="center"}
 
 ## References

@@ -66,6 +66,7 @@ $presentation-title-slide-text-align: left;
 
 :root {
   --inverse: #{$base-color};
+  --r-block-margin: 10px;
 }
 
 .subtitle {
@@ -76,10 +77,6 @@ $presentation-title-slide-text-align: left;
   font-style: italic;
 }
 
-.reveal div.callout.callout-style-default div.callout-content {
+.callout {
   background-color: white;
-}
-
-.reveal div.callout.callout-style-simple:not(.callout-titled) .callout-body > .callout-content > :first-child {
-    margin-top: 10px;
 }
