@@ -80,3 +80,6 @@ $presentation-title-slide-text-align: left;
   background-color: white;
 }
 
+.reveal div.callout.callout-style-simple:not(.callout-titled) .callout-body > .callout-content > :first-child {
+    margin-top: 10px;
+}

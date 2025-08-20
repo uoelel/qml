@@ -20,7 +20,7 @@ format: revealjs
 :::::: columns
 :::: {.column width="75%"}
 ::: callout-note
-## Group activity
+### Group activity
 
 -   Form groups of 5/6 students. I will give you a card with a research topic.
 
@@ -52,7 +52,7 @@ format: revealjs
 :::::: columns
 :::: {.column width="75%"}
 ::: callout-note
-## Group activity
+### Group activity
 
 -   Pick a group next to you and tell each other about your research plans.
 
@@ -76,7 +76,7 @@ format: revealjs
 :::::: columns
 :::: {.column width="75%"}
 ::: callout-note
-## Group activity
+### Group activity
 
 -   With your group, come up with a research question.
 
@@ -104,7 +104,7 @@ format: revealjs
 :::::: columns
 :::: {.column width="75%"}
 ::: callout-note
-## Group activity
+### Group activity
 
 -   Think about your chosen research question. Which quadrant in the research axes coordinates do you think it belongs to?
 

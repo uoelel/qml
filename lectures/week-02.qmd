@@ -1,0 +1,103 @@
+---
+title: "QML - Week 2"
+subtitle: "Inference, uncertainty and variability"
+author: "Stefano Coretta"
+format: revealjs
+bibliography: references.bib
+---
+
+## Inference
+
+![](/img/inference.png){fig-align="center"}
+
+## Bilingual advantage: myth or reality?
+
+::: {.callout-tip appearance="simple"}
+"**Bilingual advantage**" refers to the hypothesis that bilinguals possess a cognitive advantage over monolinguals due to greater cognitive control implied in using more than one language [@poarch2019; @samuel2018].
+
+-   However, research has indicated both a presence of the bilingual advantage and its absence.
+
+-   Research is "inconclusive" [@franck2024; @garraffa2023].
+:::
+
+## 
+
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+### Group activity
+
+-   Discuss reasons for which research on the bilingual advantage is inconclusive.
+
+-   You'll share what you discussed in a Wooclap poll in the next slide.
+:::
+::::
+
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
+
+## Share your thoughts
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5b4cbff22a5075a3dd52a" width="100%"></iframe>
+```
+
+## Uncertainty and variability
+
+::: {.callout-note appearance="simple"}
+
+-   **Uncertainty** is a characteristic of each observation of a phenomenon, due to measurement error or because we cannot directly measure what we want to measure.
+-   **Variability** is found among different observations of the same phenomenon, due to natural fluctuations and measurement error.
+:::
+
+## 
+
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+### Group activity
+
+-   Go to <https://stefanocoretta.shinyapps.io/bisim/>.
+
+-   Get one sample by clicking on the button. PLEASE, click only once!
+
+-   Look at the sample data. Is there a bilingual advantage?
+:::
+::::
+
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
+
+## 
+
+## 
+
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+### Group activity
+:::
+::::
+
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=15&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
+
+## References
