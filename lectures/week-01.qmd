@@ -3,6 +3,7 @@ title: "QML - Week 1"
 subtitle: "Research methods overview"
 author: "Stefano Coretta"
 format: revealjs
+bibliography: references.bib
 ---
 
 ## Research methods
@@ -99,6 +100,72 @@ format: revealjs
 
 ![](/img/axes-research.png){fig-align="center"}
 
+## Exploratory (hypothesis generating)
+
+::: {.callout-tip appearance="simple"}
+**What is the role of empathy in the L2 perceptual development of intonation?**
+:::
+
+. . .
+
+::: {.callout-important appearance="simple"}
+➡️ Higher empathic individuals, in comparison with lower empathic individuals, appear to be more sensitive to intonation cues in the process of forming sound-meaning associations [@casillas2023].
+:::
+
+. . .
+
+::: {.callout-tip appearance="simple"}
+**What is the relationship between spaces of language use, attitudes and self-reported proficiency in minorities languages?**
+:::
+
+. . .
+
+::: {.callout-important appearance="simple"}
+➡️ With more spaces available to speakers, the relationship between attitudes and proficiency is weaker [@hampton2024].
+:::
+
+## Corroboratory (hypothesis-testing)
+
+::: {.callout-tip appearance="simple"}
+@raviv2021
+
+-   **More structured languages (with higher systematicity) are easier to learn.**
+
+-   **Languages created by larger groups are easier to learn.**
+:::
+
+. . .
+
+::: {.callout-important appearance="simple"}
+-   ➡️ High systematicity was advantageous for learning, but learners did not benefit from partly or semi-structured languages.
+
+-   ➡️ Languages that evolved in big and small groups were equally learnable.
+:::
+
+## Descriptive
+
+::: {.callout-tip appearance="simple"}
+The phonetic inventory of Northern Tosk Albanian [@coretta2022].
+:::
+
+. . .
+
+::: {.callout-tip appearance="simple"}
+An accurate description of the distribution of reflexives and their antecedents in Yoruba, with an examination of the verbs which they co-occur with in terms of the valency classes of the verbs as well the semantic field into which the verbs can be categorized [@atoyebi2020].
+:::
+
+## Explanatory
+
+::: {.callout-tip appearance="simple"}
+Regularization is a phenomenon in which languages gradually reduce variability along certain dimensions. We use an artificial language learning experiment to test whether constraints on working memory during learning or production contribute to regularization [@keogh2024].
+:::
+
+. . .
+
+::: {.callout-tip appearance="simple"}
+We examine a model of abstraction from exemplars in which (a) all heard exemplars are stored (though influenced by factors like attention, decay, and interference), and (b) for language use, these exemplars are restructured into multiple layers of abstraction [@ambridge2020].
+:::
+
 ## 
 
 :::::: columns
@@ -120,3 +187,5 @@ format: revealjs
 ```
 :::
 ::::::
+
+## References
