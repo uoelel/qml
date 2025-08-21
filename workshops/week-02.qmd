@@ -1,0 +1,52 @@
+---
+title: "Workshop: Week 2"
+format: html
+---
+
+::: callout-important
+## Instructions
+
+-   Pick one of the following tasks and work on them in group. Feel free to work on the others as well if you have time.
+
+-   If you are unsure about anything, please ask us for directions!
+
+-   The tasks are designed for you to practice this week's R skills.
+:::
+
+::: callout-note
+## Task A: Italian Voice Onset Time
+
+-   Read the `coretta2018a/ita_egg` data.
+
+-   Summarise relevant columns, with a particular focus on how VOT (voice onset time, column `vot`) differs depending on phonological features like place, voicing, vowel and so on.
+:::
+
+::: callout-note
+## Task B: World Atlas of Language Structures
+
+-   The data from [WALS](https://wals.info) are available through the R package [ritwals](https://hkauhanen.fi/ritwals/index.html).
+
+-   Install the package. Then attach it and load the data with `data("WALS")`.
+
+-   Get the number of languages by features (`feature_ID` and `feature_name`) you are interested in. The features are listed [here](https://wals.info/feature).
+
+-   Check the counts of "Systems of Gender Assignment" and "Order of Object and Verb" alone and together. Can you spot a preference for certain combinations of the two?
+
+-   Check other feature combinations that make linguistic sense.
+:::
+
+::: callout-note
+## Task C: Massive Auditory Lexical Decision
+
+-   Read the `tucker2019/mald_1_1.rds` data.
+
+-   Summarise the data with number of participants, number of words, number of words by lexical status (real vs nonce word, `IsWord`), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.
+:::
+
+::: callout-tip
+## Feedback
+
+For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
+
+**We will not provide you with model answers**, so make sure you make the most of us in person.
+:::
