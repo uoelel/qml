@@ -41,6 +41,8 @@ format: html
 -   Read the `tucker2019/mald_1_1.rds` data.
 
 -   Summarise the data with number of participants, number of words, number of words by lexical status (real vs nonce word, `IsWord`), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.
+
+-   What can you tell about reaction times and accuracy based on lexical status? What about individual variation?
 :::
 
 ::: callout-tip
