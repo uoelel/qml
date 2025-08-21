@@ -26,8 +26,10 @@ website:
         text: Home
       - href: content.qmd
         text: Contents
-      - href: challenges.qmd
-        text: Challenges
+      - href: lectures.qmd
+        text: Lectures
+      - href: workshops.qmd
+        text: Workshops
       - href: assessments.qmd
         text: Assessment
       - href: extra.qmd

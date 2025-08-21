@@ -12,23 +12,40 @@ The **Schedule overview** below gives you an overview of each week, while the **
 
 ## Schedule overview
 
-The following table is a schedule overview of the course. For each week, you can see the topics covered (divided into research, statistics and R specific topics), which assessments are due (WSR = weekly self-reflection), the topic of the lecture and the topic of the workshop.
+The following table is a schedule overview of the course, with the topic of the lecture, workshop and assessments due (WSR = weekly self-reflection). See [Assessments](assessments.qmd) for more info on assessment.
 
-| Week | Research | Statistics | R | Assessment | Lecture | Workshop |
-|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| 1 | Research methods | Quantitative data analysis | RStudio and R basics | WSR | Research methods | R basics |
-| 2 |  | Data summaries | R scripts, read and summarise data | WSR | Inference and uncertainty | Summarise and group data |
-| 3 | Research cycle | Data viz | Quarto documents and data viz | WSR | Questionable Research Practices | Plot basics |
-| 4 | Frequentist vs Bayesian inference | Probabilities and Gaussian models | Gaussian models with brms | WSR | Frequentist vs Bayesian inference | Gaussian models with brms |
-| 5 |  | Regression modelling (numeric predictor) and posterior draws | Regression modelling with brms | WSR | Regression basics with brms | Regression basics and posteriors draws |
-| 6 |  |  |  | Interim test 1 |  |  |
-| 7 | Null Ritual | Regression (categorical predictor) | Treatment and indexing | WSR | Null Ritual | Categorical predictors in regression |
-| 8 |  | Bernoulli regression | Bernoulli regression | WSR | Bernoulli regression | Bernoulli regression |
-| 9 | Open research | Regression (multiple predictors) and interactions |  | WSR + Mini project proposal | Open research | Multiple predictors and interactions |
-| 10 |  | Regression: more interactions |  | WSR | Case study | Group project |
-| 11 |  |  |  | WSR + Interim test 2 |  | Group project |
-| 12 |  |  |  |  |  |  |
-| 13 |  |  |  | Final reflection + Group project |  |  |
+| Week | Lecture | Workshop | Assessment |
+|------------------|------------------|------------------|------------------|
+| 1 | Research methods | R basics | WSR |
+| 2 | Inference and uncertainty | Summarise and group data | WSR |
+| 3 | Questionable Research Practices | Plot basics | WSR |
+| 4 | Frequentist vs Bayesian inference | Gaussian models with brms | WSR |
+| 5 | Regression basics with brms | Regression basics and posteriors draws | WSR |
+| 6 |  |  | Formative test 1 |
+| 7 | Null Ritual | Categorical predictors in regression | WSR |
+| 8 | Bernoulli regression | Bernoulli regression | WSR |
+| 9 | Open research | Multiple predictors and interactions | WSR + Group project proposal |
+| 10 | Case study | Group project | WSR |
+| 11 |  | Group project | WSR + Formative test 2 |
+| 12 |  |  |  |
+| 13 |  |  | Final reflection + Group project |
+
+## Topics overview
+
+In the following table, you can find a more detailed overview of the topics for each week, divided into research methods, statistics and R specific topics.
+
+| Week | Research | Statistics | R |
+|------------------|------------------|------------------|------------------|
+| 1 | Research methods | Quantitative data analysis | RStudio and R basics |
+| 2 |  | Data summaries | R scripts, read and summarise data |
+| 3 | Research cycle | Data viz | Quarto documents and data viz |
+| 4 | Frequentist vs Bayesian inference | Probabilities and Gaussian models | Gaussian models with brms |
+| 5 |  | Regression modelling (numeric predictor) and posterior draws | Regression modelling with brms |
+| 6 |  |  |  |
+| 7 | Null Ritual | Regression (categorical predictor) | Treatment and indexing |
+| 8 |  | Bernoulli regression | Bernoulli regression |
+| 9 | Open research | Regression (multiple predictors) and interactions |  |
+| 10 |  | Regression: more interactions |  |
 
 ## Weekly schedule
 
@@ -39,17 +56,17 @@ The following table is a schedule overview of the course. For each week, you can
 
 **Questions**
 
--   What is quantitative data analysis?
--   What is the inference process?
--   How can we talk about uncertainty and variability?
--   Which are the limits of quantitative methods?
+-   What are the components of research methods?
+-   What makes a good research question and research hypothesis?
+-   What are the three steps of quantitative data analysis?
+-   What is the computational workflow of quantitative data analysis?
 
 **Skills**
 
--   Think critically about statistics, uncertainty and variability.
--   Use R to perform simple calculations.
+-   Think critically about research methods and research questions.
+-   Master the basics of RStudio.
 -   Master the basics of the programming language R.
--   Use RStudio.
+-   Learn how to install and use R packages.
 :::
 
 ::: {.callout-note collapse="false"}
@@ -69,52 +86,29 @@ The following table is a schedule overview of the course. For each week, you can
 **Install R and RStudio**
 
 -   For this course, you need to install both R and RStudio.
--   **NOTE**: If you have installed either R or RStudio prior to January 2025, please make sure you first delete both R and RStudio from your laptop.
--   Please, follow the instructions in the [Setup](setup.qmd) page.
+-   You should install R and RStudio **before** coming to the workshop.
+-   **NOTE**: If you have installed either R or RStudio prior to January 2025, please make sure you first delete both R and RStudio from your laptop and then reinstall the latest versions.
+-   **Instructions**:
+    -   Install R from <https://cloud.r-project.org>
+    -   Install RStudio from <https://posit.co/download/rstudio-desktop/>
 :::
 
-::: callout-tip
-#### Materials
+::: {.callout-note collapse="false"}
+## Readings
 
--   Readings.
+-   Read Preface and Chapters 1, 2, 3 of the course [textbook](https://stefanocoretta.github.io/qdal/).
+:::
 
--   Lecture slides.
+::: {.callout-tip collapse="false"}
+#### Lecture
+
+-   [Lecture slides](lectures/week-01.qmd).
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
-Go through the R basics chapters in class. You will start working in groups from next week since this week is probably easier to read and try things out solo, but feel free to work in group if it works for you!
+Go through [Chapter 4](https://stefanocoretta.github.io/qdal/ch-r-rstudio.html) and [Chapter 5](https://stefanocoretta.github.io/qdal/ch-packages.html) of the course [textbook](https://stefanocoretta.github.io/qdal/). You will start working in groups from next week since this week is probably easier to read and try things out solo, but feel free to work in group if it works for you!
 
 The tutors will go around and ask how things are going and to answer questions or help.
-:::
-
-::: {.callout-tip collapse="false"}
-#### Suggested readings
-
-**Main textbooks**
-
--   Statistics for Linguists with R, by Bodo Winter (**S4LR**) Ch. 1. \[via library\]
--   R for Data Science (**R4DS**) [Ch. 1](https://r4ds.hadley.nz/intro.html), [Ch. 2](https://r4ds.hadley.nz/data-visualize). \[online book\]
--   Statistical (Re)thinking, by Richard McElreath (**SReT**), Ch. 1. \[via library\]
-
-**From the lecture**
-
--   [Ellis and Levy 2008](https://www.informingscience.org/Publications/438?Source=%2FJournals%2FInformingSciJ%2FArticles%3FVolume%3D11-2008). Framework of Problem-Based Research: A Guide for Novice Researchers on the Development of a Research-Worthy Problem
--   [Silberzahn et al. 2018](https://doi.org/10.1177/2515245917747646). Many Analysts, One Data Set: Making Transparent How Variations in Analytic Choices Affect Results
--   [Coretta et al. 2023](https://doi.org/10.31234/osf.io/q8t2k). Multidimensional signals and analytic flexibility: Estimating degrees of freedom in human speech analyses
--   [Cumming 2014](https://doi.org/10.1177%2F0956797613504966). The New Statistics: Why and How
--   [Kurschke and Liddell 2018](https://doi.org/10.3758/s13423-016-1221-4). The Bayesian New Statistics: Hypothesis testing, estimation, meta-analysis, and power analysis from a Bayesian perspective
-
-**Replication**
-
--   👉 [Assessing the replication landscape in experimental linguistics](https://doi.org/10.31234/osf.io/fzngs).
--   [The Stark realities of reproducible statistically orientated sociological research: Some newer rules of the sociological method](https://doi.org/10.1177/20597991221111681).
-
-**Other**
-
--   [Methods as theory](https://stefanocoretta.github.io/post/methods-as-theory/).
--   Molnar 2022. Modeling Mindsets: The many cultures of learning from data.
--   [Darwin Holmes 2020](https://doi.org/10.34293/education.v8i4.3232). Researcher Positionality - A Consideration of Its Influence and Place in Qualitative Research - A New Researcher Guide
--   [Jafar 2018](https://doi.org/10.1136/emermed-2017-207158). What is positionality and should it be expressed in quantitative studies?
 :::

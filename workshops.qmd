@@ -1,11 +1,11 @@
 ---
-title: "Challenges"
+title: "Workshops"
 ---
 
 This page lists the challenges to be completed as group work during the workshop hours. Note that for the first week you might want to work solo since there isn't a dedicated challenge, but rather you will go through the R chapters of Week 1 from the textbook.
 
 |         |                                                                 |
-|----------|--------------------------------------------------------------|
+|---------------|---------------------------------------------------------|
 | Week 1  | Go through Chapter 4 and 5 of the textbook (you can work solo). |
 | Week 2  |                                                                 |
 | Week 3  |                                                                 |

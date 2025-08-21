@@ -1,0 +1,25 @@
+---
+title: "Lectures"
+format: html
+---
+
+You can find here the links to the lecture slides.
+
+::: callout-tip
+## PDF version of the slides
+
+The slides are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog "Tools" and select "PDF export mode". Then, use the method for your specific browser to print the page to PDF.
+:::
+
+|         |                                |
+|---------|--------------------------------|
+| Week 1  | [Slides](lectures/week-01.qmd) |
+| Week 2  | [Slides](lectures/week-02.qmd) |
+| Week 3  |                                |
+| Week 4  |                                |
+| Week 5  |                                |
+| Week 6  | *No classes*                   |
+| Week 7  |                                |
+| Week 8  |                                |
+| Week 9  |                                |
+| Week 10 |                                |
