@@ -23,6 +23,10 @@ The following sections give more details on the Reflective Journal and the Group
 Note that if you are in touch with your student adviser and/or the Teaching Organisation, we are usually not informed about it, so if you made arrangements with them while the course is in progress, please let us know.
 :::
 
+### Formative tests
+
+You will have the chance to test yourself with two formative assessments. These will be online tests with multiple choice and true/false questions. Formative assessments do **not** contribute to the course mark and they are meant to give you an idea of areas of strength and areas for improvement.
+
 ## Reflective Journal
 
 ::: callout-important
@@ -277,14 +281,14 @@ This is **robustness assessment** project. You will have to get hold of the orig
 
 ## Feedback and marking
 
-**Feedback** will be provided to you (1) during class, (2) as comments on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me and/or the tutors), (4) on the Final Reflection + Group Project submission.
+**Feedback** will be provided to you (1) during class, (2) as comments on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me; you can do so here: <https://bit.ly/33BH84L>), (4) on the Final Reflection + Group Project submission.
 
 ### Impression-based step-marking
 
 The final mark of the course is based on the [PPLS PGT Common Marking Scheme](static/PGT-Common-Marking-Scheme.pdf). The following is a revised version of the PPLS PGT Common Marking Scheme made specifically for this course. Note that within each mark band, you can only get the 5's (so 65, 75, 85, etc...).
 
 | **Mark** | **Grade** | Description | **Full Description** |
-|-------|--------|-------------|---------------------------------------------|
+|------------|------------|------------|-------------------------------------|
 | 95 | A1 | Excellent | Fulfils all criteria for A2. In addition, work demonstrates exceptional insight, originality, and independent thought related to quantitative analysis, research methods, and Open Research. The self-reflections and group project may present novel approaches or critically challenge conventional methodologies. Final reflection shows deep self-awareness and thorough justification of learning outcomes. |
 | 85 | A2 | Excellent | Outstanding work with insight and depth beyond expectations. Sustained, fluent, and authoritative knowledge across statistical concepts, data analysis, and research methods. The self-reflections are reflective and critical; group project demonstrates comprehensive knowledge and rigorous application of quantitative analyses and Open Research practices. Final reflection provides clear evidence of learning and understanding. |
 | 75 | A3 | Excellent | Focused, clear, and well-structured work. Effective and convincing arguments addressing quantitative methods and research challenges. Demonstrates critical understanding of conflicting theories, data analysis strategies, and Open Research principles. Self-reflections show thoughtful engagement. Group project well-executed with sound methodology. Final reflection coherent and reflective, demonstrating good understanding of course content. |

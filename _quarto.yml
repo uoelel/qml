@@ -32,8 +32,6 @@ website:
         text: Workshops
       - href: assessments.qmd
         text: Assessment
-      - href: extra.qmd
-        text: Extra
 
 format:
   html:

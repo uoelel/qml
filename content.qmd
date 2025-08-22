@@ -6,7 +6,7 @@ title: "Course content"
 
 This page gathers all the important information about the course content and schedule. Each week is dedicated to a specific set of topics and you are expected to complete readings from the course textbook and homework by the beginning of the following week (so complete readings and homework of week 1 by the beginning of week 2, and so on).
 
-Each week there will be a 50-minute lecture and a 2-hour workshop. The lecture covers the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course textbook. In the workshop you will further practice your R skills with group data [Challenges](challenges.qmd) (with the exception of the workshop of week 1, where you will go through the R basics chapters in the textbook in class).
+Each week there will be a 50-minute lecture and a 2-hour workshop. The lecture covers the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course [textbook](https://stefanocoretta.github.io/qdal/). In the workshop you will further practice your R skills with group data [challenges](workshops.qmd) (with the exception of the workshop of week 1, where you will go through the R basics chapters in the textbook in class).
 
 The **Schedule overview** below gives you an overview of each week, while the **Weekly schedule** is a more in-depth description of the activities and materials of each week.
 
@@ -17,7 +17,7 @@ The following table is a schedule overview of the course, with the topic of the 
 | Week | Lecture | Workshop | Assessment |
 |------------------|------------------|------------------|------------------|
 | 1 | Research methods | R basics | WSR |
-| 2 | Inference and uncertainty | Summarise and group data | WSR |
+| 2 | Inference and uncertainty | Summarise, count and group data | WSR |
 | 3 | Questionable Research Practices | Plot basics | WSR |
 | 4 | Frequentist vs Bayesian inference | Gaussian models with brms | WSR |
 | 5 | Regression basics with brms | Regression basics and posteriors draws | WSR |
@@ -38,7 +38,7 @@ In the following table, you can find a more detailed overview of the topics for 
 |------------------|------------------|------------------|------------------|
 | 1 | Research methods | Quantitative data analysis | RStudio and R basics |
 | 2 |  | Data summaries | R scripts, read and summarise data |
-| 3 | Research cycle | Data viz | Quarto documents and data viz |
+| 3 | Research cycle | Data viz principles | Quarto documents, data transformation and plottting |
 | 4 | Frequentist vs Bayesian inference | Probabilities and Gaussian models | Gaussian models with brms |
 | 5 |  | Regression modelling (numeric predictor) and posterior draws | Regression modelling with brms |
 | 6 |  |  |  |
@@ -46,6 +46,14 @@ In the following table, you can find a more detailed overview of the topics for 
 | 8 |  | Bernoulli regression | Bernoulli regression |
 | 9 | Open research | Regression (multiple predictors) and interactions |  |
 | 10 |  | Regression: more interactions |  |
+
+## Course textbook
+
+The course textbook can be found at the following link (also available from the site menu): [Quantitative Data Analysis for Linguists in R](https://stefanocoretta.github.io/qdal/). The textbook has been written by Stefano, tailored specifically for this course.
+
+## Course data
+
+The course data is available for download on the [Data for Quantitative Methods in Linguistics](https://uoelel.github.io/qml-data/) website.
 
 ## Weekly schedule
 

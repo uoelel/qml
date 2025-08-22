@@ -16,7 +16,7 @@ format: html
 ::: callout-note
 ## Task A: Italian Voice Onset Time
 
--   Read the `coretta2018a/ita_egg` data.
+-   Read the `coretta2018a/ita_egg.rds` data.
 
 -   Summarise relevant columns, with a particular focus on how VOT (voice onset time, column `vot`) differs depending on phonological features like place, voicing, vowel and so on.
 :::
