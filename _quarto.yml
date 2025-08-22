@@ -13,6 +13,7 @@ project:
     - "img/"
     - "data/"
     - "static/"
+    - ".nojekyll"
 
 website:
   title: "QML"
