@@ -26,7 +26,7 @@ website:
       - href: index.qmd
         text: Home
       - href: content.qmd
-        text: Contents
+        text: Content
       - href: lectures.qmd
         text: Lectures
       - href: workshops.qmd
