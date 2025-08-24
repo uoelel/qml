@@ -57,7 +57,7 @@ Discuss the following practices: are they questionable?
 ::: callout-note
 ### Group activity
 
--   Go to <https://stefanocoretta.shinyapps.io/qrps/>.
+-   Go to <https://stefanocoretta.github.io/qrp/>.
 
 -   Play the game three times to publish a paper: the goal is to publish all three!
 
