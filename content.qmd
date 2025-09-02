@@ -15,7 +15,7 @@ The **Schedule overview** below gives you an overview of each week, while the **
 The following table is a schedule overview of the course, with the topic of the lecture, workshop and assessments due (WSR = weekly self-reflection). See [Assessments](assessments.qmd) for more info on assessment.
 
 | Week | Lecture | Workshop | Assessment |
-|--------|------------------|------------------|------------------|
+|----------------|-------------------|-------------------|-------------------|
 | 1 | Research methods | R basics | WSR |
 | 2 | Inference and uncertainty | Summarise, count and group data | WSR |
 | 3 | Questionable Research Practices | Plot basics | WSR |
@@ -35,7 +35,7 @@ The following table is a schedule overview of the course, with the topic of the 
 In the following table, you can find a more detailed overview of the topics for each week, divided into research methods, statistics and R specific topics.
 
 | Week | Research | Statistics | R |
-|--------|------------------|------------------|------------------|
+|----------------|-------------------|-------------------|-------------------|
 | 1 | Research methods | Quantitative data analysis | RStudio and R basics |
 | 2 |  | Data summaries | R scripts, read and summarise data |
 | 3 | Research cycle | Data viz principles | Quarto documents, data transformation and plottting |
@@ -57,7 +57,7 @@ The course data is available for download on the [Data for Quantitative Methods 
 
 ## Weekly schedule
 
-### Week 1: Quantitative methods and uncertainty
+### Week 1: Quantitative methods and R basics
 
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
@@ -102,9 +102,10 @@ The course data is available for download on the [Data for Quantitative Methods 
 :::
 
 ::: {.callout-note collapse="false"}
-## Readings
+#### Readings
 
 -   Read Preface and Chapters 1, 2, 3 of the course [textbook](https://stefanocoretta.github.io/qdal/).
+-   **Note that this week you are NOT expected to have completed this week's readings before class, but you ARE expected to complete the week's readings before the Workshop from Week 2 on!** You must plan ahead so that by the Workshop in Week 2 you have completed the readings of Week 1 *and* Week 2. You will not be able to complete the workshops from Week 2 on without having done the readings of that week (which means that you very likely have to start the readings of following week in the previous week).
 :::
 
 ::: {.callout-tip collapse="false"}
@@ -118,5 +119,144 @@ The course data is available for download on the [Data for Quantitative Methods 
 
 Go through [Chapter 4](https://stefanocoretta.github.io/qdal/ch-r-rstudio.html) and [Chapter 5](https://stefanocoretta.github.io/qdal/ch-packages.html) of the course [textbook](https://stefanocoretta.github.io/qdal/). You will start working in groups from next week since this week is probably easier to read and try things out solo, but feel free to work in group if it works for you!
 
-The tutors will go around and ask how things are going and to answer questions or help.
+The tutors will go around to ask how things are going and to answer questions or help.
 :::
+
+### Week 2: Inference, uncertainty and data summaries
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+- What is inference and why do we need it?
+
+- Why are uncertainty and variability important?
+
+- What is and isn't statistics?
+
+- What are summary measures?
+
+**Skills**
+
+- Using R scripts to keep reproducible code.
+
+- Reading tabular data in R.
+
+- Summarise data with `summarise()` and `count()`.
+
+- Get grouped summaries with `group_by()`.
+:::
+
+::: {.callout-note collapse="false"}
+#### Readings
+
+-   Read the Week 2 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+-   **Note that from this week on you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+:::
+
+::: {.callout-tip collapse="false"}
+#### Lecture
+
+-   [Lecture slides](lectures/week-02.qmd).
+:::
+
+::: {.callout-tip collapse="false"}
+#### Workshop
+
+- [Workshop instructions](workshops/week-02.qmd)
+
+- The tutors will go around to ask how things are going and to answer questions or help.
+:::
+
+### Week 3: Transforming and plotting data
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+- What does the research cycle entail?
+
+- How do the researcher's degrees of freedom affect research?
+
+- What are Questionable Research Practices?
+
+- Which characteristic do compelling graphics have?
+
+**Skills**
+
+- Use Quarto files to create dynamic reports.
+
+- Filtering rows using `filter()`.
+
+- Using logical operators to filter data.
+
+- Create or modify columns with `mutate()`.
+:::
+
+::: {.callout-note collapse="false"}
+#### Readings
+
+-   Read the Week 3 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+-   **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+:::
+
+::: {.callout-tip collapse="false"}
+#### Lecture
+
+-   [Lecture slides](lectures/week-03.qmd).
+:::
+
+::: {.callout-tip collapse="false"}
+#### Workshop
+
+- [Workshop instructions](workshops/week-03.qmd)
+
+- The tutors will go around to ask how things are going and to answer questions or help.
+:::
+
+### Week 4: Probability distributions and Gaussian models
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+- What are probabilities and probability distributions?
+
+- How do we describe and visualise probability distributions?
+
+- How do we use Gaussian probability distributions to estimate a mean and standard deviation?
+
+- What are the frequentist and Bayesian approach to probability and inference?
+
+**Skills**
+
+- Produce density plots.
+
+- Use `pnorm()` and `qnorm()` to obtain probabilities and quantiles of Gaussian distributions.
+
+- Fit Bayesian Gaussian models with brms.
+
+- Report results from Bayesian Gaussian models.
+:::
+
+::: {.callout-note collapse="false"}
+#### Readings
+
+-   Read the Week 4 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+-   **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+:::
+
+### Week 5: Regression models
+
+### Week 6: Catch-up week
+
+### Week 7: Categorical predictors and frequentist statistics
+
+### Week 8: Binomial/Bernoulli and log-normal regression models
+
+### Week 9: Predictor interactions in regression models
+
+### Week 10: Case study
