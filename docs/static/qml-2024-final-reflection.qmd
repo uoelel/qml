@@ -13,7 +13,7 @@ format: pdf
 ## Final Reflection
 
 -   There is no word limit, but we suggest to keep this to one page.
--   You should propose and justify a mark for yourself based on your experience with the course and with working on you Group Project. Note that your mark suggestion is just a suggestion and the tutors and I will make the final decision.
+-   You should propose and justify a mark for yourself based on your experience with the course and with working on you Group Project. Note that your mark suggestion is just a suggestion and the tutors and I will make the final decision. You must follow the marking rubric of the course available at <https://uoelel.github.io/qml/assessments.html#feedback-and-marking>.
 
 ## Group Project
 
