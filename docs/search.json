@@ -509,5 +509,33 @@
     "title": "QML - Week 4",
     "section": "Distribution of probability",
     "text": "Distribution of probability"
+  },
+  {
+    "objectID": "lectures/week-04.html#calculating-probability-distributions",
+    "href": "lectures/week-04.html#calculating-probability-distributions",
+    "title": "QML - Week 4",
+    "section": "Calculating probability distributions",
+    "text": "Calculating probability distributions\n\n\n\nYou will never need to calculate probability distributions by hand, but it is useful to know about the two mathematical functions that are used for that purpose.\n\nThe Probability Mass Function (PMF) for discrete probability distributions.\nThe Probability Density Function (PDF) for continuous probability distributions."
+  },
+  {
+    "objectID": "lectures/week-04.html#probability-mass-function",
+    "href": "lectures/week-04.html#probability-mass-function",
+    "title": "QML - Week 4",
+    "section": "Probability Mass Function",
+    "text": "Probability Mass Function"
+  },
+  {
+    "objectID": "lectures/week-04.html#probability-density-function",
+    "href": "lectures/week-04.html#probability-density-function",
+    "title": "QML - Week 4",
+    "section": "Probability Density Function",
+    "text": "Probability Density Function"
+  },
+  {
+    "objectID": "lectures/week-04.html#parameters",
+    "href": "lectures/week-04.html#parameters",
+    "title": "QML - Week 4",
+    "section": "Parameters",
+    "text": "Parameters\n\n\n\n\nProbability distributions can be summarised with a set of parameters.\nDifferent types of probability distributions have a different number of parameters and different parameters.\n\n\n\n\n\n\n\n\nGaussian distribution\n\n\nThe Gaussian probability distribution is a continuous probability distribution and it has two parameters:\n\nThe mean \\(\\mu\\).\nThe standard deviation (SD) \\(\\sigma\\).\n\nGo to Seeing Theory.\n\n\n\n\nSeeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).\nhttps://seeing-theory.brown.edu/index.html#3rdPage"
   }
 ]

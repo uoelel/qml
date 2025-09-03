@@ -8,6 +8,15 @@ bibliography: references.bib
 
 ## Probabilities
 
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+theme_set(theme_light())
+library(brms)
+```
+
 ::: callout-note
 **Probability**
 
@@ -57,9 +66,9 @@ A **probability distribution** describes *how the probabilities are distributed 
 ::: callout-note
 ### Two types of probability distributions
 
-- Discrete probability distributions.
+-   Discrete probability distributions.
 
-- Continuous probability distributions.
+-   Continuous probability distributions.
 :::
 
 . . .
@@ -70,16 +79,65 @@ You learned about discrete and continuous variables in Week 2!
 **Discrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions.**
 :::
 
-## Gaussian data
+## Calculating probability distributions
+
+::: {.callout-note appearance="simple"}
+You will never need to calculate probability distributions by hand, but it is useful to know about the two mathematical functions that are used for that purpose.
+
+-   The **Probability Mass Function** (PMF) for discrete probability distributions.
+
+-   The **Probability Density Function** (PDF) for continuous probability distributions.
+:::
+
+## Probability Mass Function
+
+![](/img/dice.png){fig-align="center"}
+
+## Probability Density Function
 
 ```{r}
-#| label: setup
-#| include: false
+#| label: pdf
 
-library(tidyverse)
-theme_set(theme_light())
-library(brms)
+alpha <- 4
+beta <- 1.5
+beta_df <- tibble(
+  x = seq(0, 1, length.out = 100),
+  density = dbeta(x, alpha, beta)
+)
+
+ggplot(beta_df, aes(x = x, y = density)) +
+  geom_line(color = "darkorange", linewidth = 1.2) +
+  labs(x = "Proportion", y = "Density")
 ```
+
+## Parameters
+
+::: {.callout-note appearance="simple"}
+- **Probability distributions can be summarised with a set of parameters.**
+  
+- Different types of probability distributions have a different number of parameters and different parameters.
+:::
+
+. . .
+
+::: callout-tip
+### Gaussian distribution
+
+The **Gaussian probability distribution** is a continuous probability distribution and it has two parameters:
+
+- The mean $\mu$.
+- The standard deviation (SD) $\sigma$.
+
+Go to [Seeing Theory](https://seeing-theory.brown.edu/probability-distributions/index.html#section2) (by Daniel Kunin).
+:::
+
+::: notes
+Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).
+
+<https://seeing-theory.brown.edu/index.html#3rdPage>
+:::
+
+## Gaussian data
 
 ```{r}
 set.seed(81239)
