@@ -467,5 +467,47 @@
     "title": "Workshop: Week 2",
     "section": "",
     "text": "Instructions\n\n\n\n\nPick one of the following tasks and work on them in group. Feel free to work on the others as well if you have time.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice this week’s R skills.\n\n\n\n\n\n\n\n\n\nTask A: Italian Voice Onset Time\n\n\n\n\nRead the coretta2018a/ita_egg.rds data.\nSummarise relevant columns, with a particular focus on how VOT (voice onset time, column vot) differs depending on phonological features like place, voicing, vowel and so on.\n\n\n\n\n\n\n\n\n\nTask B: World Atlas of Language Structures\n\n\n\n\nThe data from WALS are available through the R package ritwals.\nInstall the package. Then attach it and load the data with data(\"WALS\").\nGet the number of languages by features (feature_ID and feature_name) you are interested in. The features are listed here.\nCheck the counts of “Systems of Gender Assignment” and “Order of Object and Verb” alone and together. Can you spot a preference for certain combinations of the two?\nCheck other feature combinations that make linguistic sense.\n\n\n\n\n\n\n\n\n\nTask C: Massive Auditory Lexical Decision\n\n\n\n\nRead the tucker2019/mald_1_1.rds data.\nSummarise the data with number of participants, number of words, number of words by lexical status (real vs nonce word, IsWord), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.\nWhat can you tell about reaction times and accuracy based on lexical status? What about individual variation?\n\n\n\n\n\n\n\n\n\nFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+  },
+  {
+    "objectID": "lectures/week-04.html#probabilities",
+    "href": "lectures/week-04.html#probabilities",
+    "title": "QML - Week 4",
+    "section": "Probabilities",
+    "text": "Probabilities\n\n\n\nNote\n\n\nProbability\n\nProbability of an event occurring.\nProbabilities can only be between 0 and 1.\n\n⛔️ 0 means impossible.\n🤷 0.5 means it can happen but it can also not happen.\n✅ 1 means certain."
+  },
+  {
+    "objectID": "lectures/week-04.html#probabilities-1",
+    "href": "lectures/week-04.html#probabilities-1",
+    "title": "QML - Week 4",
+    "section": "Probabilities",
+    "text": "Probabilities"
+  },
+  {
+    "objectID": "lectures/week-04.html#section",
+    "href": "lectures/week-04.html#section",
+    "title": "QML - Week 4",
+    "section": "",
+    "text": "Probability\n\n\n\nProbability of an event occurring: 0 to 100% probability.\nProbability of a statistical variable being some numeric value: a bit more complicated…\n\n\n\n\n\n\n\n\nWe need probability distributions!"
+  },
+  {
+    "objectID": "lectures/week-04.html#probability-distributions",
+    "href": "lectures/week-04.html#probability-distributions",
+    "title": "QML - Week 4",
+    "section": "Probability distributions",
+    "text": "Probability distributions\n\n\n\nA probability distribution describes how the probabilities are distributed over the values that a variable can take on.\n\n\n\n\n\n\n\nTwo types of probability distributions\n\n\n\nDiscrete probability distributions.\nContinuous probability distributions.\n\n\n\n\n\n\n\n\n\nYou learned about discrete and continuous variables in Week 2!\nDiscrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions."
+  },
+  {
+    "objectID": "lectures/week-04.html#gaussian-data",
+    "href": "lectures/week-04.html#gaussian-data",
+    "title": "QML - Week 4",
+    "section": "Gaussian data",
+    "text": "Gaussian data"
+  },
+  {
+    "objectID": "lectures/week-04.html#distribution-of-probability",
+    "href": "lectures/week-04.html#distribution-of-probability",
+    "title": "QML - Week 4",
+    "section": "Distribution of probability",
+    "text": "Distribution of probability"
   }
 ]

@@ -15,11 +15,11 @@ The **Schedule overview** below gives you an overview of each week, while the **
 The following table is a schedule overview of the course, with the topic of the lecture, workshop and assessments due (WSR = weekly self-reflection). See [Assessments](assessments.qmd) for more info on assessment.
 
 | Week | Lecture | Workshop | Assessment |
-|----------------|-------------------|-------------------|-------------------|
+|------------------|------------------|------------------|------------------|
 | 1 | Research methods | R basics | WSR |
 | 2 | Inference and uncertainty | Summarise, count and group data | WSR |
 | 3 | Questionable Research Practices | Plot basics | WSR |
-| 4 | Frequentist vs Bayesian inference | Gaussian models with brms | WSR |
+| 4 | Bayesian inference | Gaussian models with brms | WSR |
 | 5 | Regression basics with brms | Regression basics and posteriors draws | WSR |
 | 6 |  |  | Formative test 1 |
 | 7 | Null Ritual | Categorical predictors in regression | WSR |
@@ -35,11 +35,11 @@ The following table is a schedule overview of the course, with the topic of the 
 In the following table, you can find a more detailed overview of the topics for each week, divided into research methods, statistics and R specific topics.
 
 | Week | Research | Statistics | R |
-|----------------|-------------------|-------------------|-------------------|
+|------------------|------------------|------------------|------------------|
 | 1 | Research methods | Quantitative data analysis | RStudio and R basics |
 | 2 |  | Data summaries | R scripts, read and summarise data |
 | 3 | Research cycle | Data viz principles | Quarto documents, data transformation and plottting |
-| 4 | Frequentist vs Bayesian inference | Probabilities and Gaussian models | Gaussian models with brms |
+| 4 | Bayesian inference | Probabilities and Gaussian models | Gaussian models with brms |
 | 5 |  | Regression modelling (numeric predictor) and posterior draws | Regression modelling with brms |
 | 6 |  |  |  |
 | 7 | Null Ritual | Regression (categorical predictor) | Treatment and indexing |
@@ -129,23 +129,23 @@ The tutors will go around to ask how things are going and to answer questions or
 
 **Questions**
 
-- What is inference and why do we need it?
+-   What is inference and why do we need it?
 
-- Why are uncertainty and variability important?
+-   Why are uncertainty and variability important?
 
-- What is and isn't statistics?
+-   What is and isn't statistics?
 
-- What are summary measures?
+-   What are summary measures?
 
 **Skills**
 
-- Using R scripts to keep reproducible code.
+-   Using R scripts to keep reproducible code.
 
-- Reading tabular data in R.
+-   Reading tabular data in R.
 
-- Summarise data with `summarise()` and `count()`.
+-   Summarise data with `summarise()` and `count()`.
 
-- Get grouped summaries with `group_by()`.
+-   Get grouped summaries with `group_by()`.
 :::
 
 ::: {.callout-note collapse="false"}
@@ -164,9 +164,9 @@ The tutors will go around to ask how things are going and to answer questions or
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
-- [Workshop instructions](workshops/week-02.qmd)
+-   [Workshop instructions](workshops/week-02.qmd)
 
-- The tutors will go around to ask how things are going and to answer questions or help.
+-   The tutors will go around to ask how things are going and to answer questions or help.
 :::
 
 ### Week 3: Transforming and plotting data
@@ -176,23 +176,23 @@ The tutors will go around to ask how things are going and to answer questions or
 
 **Questions**
 
-- What does the research cycle entail?
+-   What does the research cycle entail?
 
-- How do the researcher's degrees of freedom affect research?
+-   How do the researcher's degrees of freedom affect research?
 
-- What are Questionable Research Practices?
+-   What are Questionable Research Practices?
 
-- Which characteristic do compelling graphics have?
+-   Which characteristic do compelling graphics have?
 
 **Skills**
 
-- Use Quarto files to create dynamic reports.
+-   Use Quarto files to create dynamic reports.
 
-- Filtering rows using `filter()`.
+-   Filtering rows using `filter()`.
 
-- Using logical operators to filter data.
+-   Using logical operators to filter data.
 
-- Create or modify columns with `mutate()`.
+-   Create or modify columns with `mutate()`.
 :::
 
 ::: {.callout-note collapse="false"}
@@ -211,9 +211,9 @@ The tutors will go around to ask how things are going and to answer questions or
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
-- [Workshop instructions](workshops/week-03.qmd)
+-   [Workshop instructions](workshops/week-03.qmd)
 
-- The tutors will go around to ask how things are going and to answer questions or help.
+-   The tutors will go around to ask how things are going and to answer questions or help.
 :::
 
 ### Week 4: Probability distributions and Gaussian models
@@ -223,23 +223,23 @@ The tutors will go around to ask how things are going and to answer questions or
 
 **Questions**
 
-- What are probabilities and probability distributions?
+-   What are probabilities and probability distributions?
 
-- How do we describe and visualise probability distributions?
+-   How do we describe and visualise probability distributions?
 
-- How do we use Gaussian probability distributions to estimate a mean and standard deviation?
+-   How do we use Gaussian probability distributions to estimate a mean and standard deviation?
 
-- What are the frequentist and Bayesian approach to probability and inference?
+-   What is the Bayesian approach to probability and inference?
 
 **Skills**
 
-- Produce density plots.
+-   Produce density plots.
 
-- Use `pnorm()` and `qnorm()` to obtain probabilities and quantiles of Gaussian distributions.
+-   Use `pnorm()` and `qnorm()` to obtain probabilities and quantiles of Gaussian distributions.
 
-- Fit Bayesian Gaussian models with brms.
+-   Fit Bayesian Gaussian models with brms.
 
-- Report results from Bayesian Gaussian models.
+-   Report results from Bayesian Gaussian models.
 :::
 
 ::: {.callout-note collapse="false"}

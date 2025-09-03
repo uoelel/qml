@@ -1,0 +1,94 @@
+---
+title: "QML - Week 4"
+subtitle: "Bayesian inference"
+author: "Stefano Coretta"
+format: revealjs
+bibliography: references.bib
+---
+
+## Probabilities
+
+::: callout-note
+**Probability**
+
+-   Probability of an event occurring.
+
+-   Probabilities can only be **between 0 and 1**.
+
+    -   ⛔️ 0 means **impossible**.
+    -   🤷 0.5 means **it can happen but it can also not happen**.
+    -   ✅ 1 means **certain**.
+:::
+
+## Probabilities
+
+![](/img/probabilities.png){fig-align="center"}
+
+## 
+
+::: callout-note
+### **Probability**
+
+-   Probability of an event occurring: 0 to 100% probability.
+
+-   **Probability of a statistical variable being some numeric value**: a bit more complicated...
+:::
+
+. . .
+
+::: {.callout-tip appearance="simple"}
+**We need probability distributions!**
+:::
+
+## Distribution of probability
+
+<br>
+
+![](/img/grubabilities.png){fig-align="center"}
+
+## Probability distributions
+
+::: {.callout-note appearance="simple"}
+A **probability distribution** describes *how the probabilities are distributed over the values* that a variable can take on.
+:::
+
+. . .
+
+::: callout-note
+### Two types of probability distributions
+
+- Discrete probability distributions.
+
+- Continuous probability distributions.
+:::
+
+. . .
+
+::: {.callout-tip appearance="simple"}
+You learned about discrete and continuous variables in Week 2!
+
+**Discrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions.**
+:::
+
+## Gaussian data
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+theme_set(theme_light())
+library(brms)
+```
+
+```{r}
+set.seed(81239)
+height <- round(rnorm(200, 165, 8))
+```
+
+```{r}
+ggplot() +
+  aes(height) +
+  geom_density(fill = "darkgreen", alpha = 0.2) +
+  geom_rug(alpha = 0.25)
+```
