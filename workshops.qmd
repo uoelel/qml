@@ -9,7 +9,7 @@ This page lists the challenges to be completed as group work during the workshop
 | Week 1 | Go through [Chapter 4](https://stefanocoretta.github.io/qdal/ch-r-rstudio.html) and [5](https://stefanocoretta.github.io/qdal/ch-packages.html) of the [textbook](https://stefanocoretta.github.io/qdal/) (you can work solo). |
 | Week 2 | [Workshop](workshops/week-02.qmd) |
 | Week 3 | [Workshop](workshops/week-03.qmd) |
-| Week 4 |  |
+| Week 4 | [Worksh](workshops/week-03.qmd)[o](workshops/week-04.qmd)[p](workshops/week-03.qmd) |
 | Week 5 |  |
 | Week 6 |  |
 | Week 7 |  |

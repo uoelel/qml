@@ -1,0 +1,48 @@
+---
+title: "Workshop: Week 4"
+format: html
+---
+
+::: callout-important
+## Instructions
+
+-   Pick one of the following tasks and work through it in group.
+
+-   If you are unsure about anything, please ask us for directions!
+
+-   The tasks are designed for you to practice Bayesian Gaussian modelling.
+:::
+
+::: callout-note
+## Task A: Mixean Basque Voice Onset Time
+
+-   Read the `egurtzegi2020/eu_vot.csv` data.
+
+-   Filter the data to include only aspirated consonants.
+
+-   Answer the following question using a Gaussian model: what is the mean and SD of aspirated VOT in Mixean Basque?
+:::
+
+::: callout-note
+## Task B: Shallow morphological parsing (RT)
+
+-   Read the `song2020/shallow.csv` data. Familiarise yourself with the study (<https://uoelel.github.io/qml-data/data/song2020/shallow.html>).
+
+-   Filter the data to include only L2 data from critical trials.
+
+-   Answer the following question using a Gaussian model: what is the mean and SD of reaction times in L2 participants?
+:::
+
+::: callout-note
+## Task C: Reading fixation times (eye-tracking)
+
+XXX
+:::
+
+::: callout-tip
+## Feedback
+
+For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
+
+**We will not provide you with model answers**, so make sure you make the most of us in person.
+:::
