@@ -1,3 +1,0 @@
-load("/Users/ste/repos/qml-data/data/coretta2018a/formants.rda")
-formants
-str(formants)
