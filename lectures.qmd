@@ -16,7 +16,7 @@ The slides are HTML documents that are rendered in your browser. If you wish to 
 | Week 1  | [Slides](lectures/week-01.qmd) |
 | Week 2  | [Slides](lectures/week-02.qmd) |
 | Week 3  | [Slides](lectures/week-03.qmd) |
-| Week 4  |                                |
+| Week 4  | [Slides](lectures/week-04.qmd) |
 | Week 5  |                                |
 | Week 6  | *No classes*                   |
 | Week 7  |                                |

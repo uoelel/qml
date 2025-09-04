@@ -249,6 +249,12 @@ The tutors will go around to ask how things are going and to answer questions or
 -   **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
+::: {.callout-tip collapse="false"}
+#### Lecture
+
+-   [Lecture slides](lectures/week-04.qmd).
+:::
+
 ### Week 5: Regression models
 
 ### Week 6: Catch-up week

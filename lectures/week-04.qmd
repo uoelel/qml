@@ -15,6 +15,7 @@ bibliography: references.bib
 library(tidyverse)
 theme_set(theme_light())
 library(brms)
+library(bayesplot)
 ```
 
 ::: callout-note
@@ -137,16 +138,177 @@ Seeing Theory was created by Daniel Kunin while an undergraduate at Brown Univer
 <https://seeing-theory.brown.edu/index.html#3rdPage>
 :::
 
-## Gaussian data
+## Simulate Gaussian data
+
+::: callout-note
+### Human height
+
+- Simulate human height as a Gaussian variable.
+
+- `rnorm()`: number of observations, mean, SD.
+
+:::
+
+. . .
 
 ```{r}
-set.seed(81239)
-height <- round(rnorm(200, 165, 8))
+#| label: height
+#| echo: true
+
+set.seed(812)
+height <- rnorm(200, 165, 8) |> round()
+
+height[1:10]
 ```
 
+## Kernel Density Estimation
+
+::: {.callout-note appearance="simple"}
+
+- PDF constructs the density curve of theoretical distributions.
+
+- **Kernel Density Estimation** (KDE) constructs the density curve of empirical data (observations).
+
+:::
+
+. . .
+
 ```{r}
+#| label: height-plot
+#| fig-align: center
+
 ggplot() +
   aes(height) +
   geom_density(fill = "darkgreen", alpha = 0.2) +
   geom_rug(alpha = 0.25)
 ```
+
+## Statistical modelling
+
+::: {.callout-note appearance="simple"}
+
+- When you simulate data, you know the population mean and SD.
+
+- In research, you don't. You just have observations.
+
+:::
+
+. . .
+
+::: {.callout-tip}
+### Statistical modelling
+
+- Statistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference.
+
+- **Bayesian Gaussian models** do exactly that: estimate mean and SD.
+
+:::
+
+## Gaussian model of height
+
+
+$$
+\begin{align}
+h & \sim Gaussian(\mu, \sigma)\\
+\mu & = ...\\
+\sigma & = ...
+\end{align}
+$$
+
+## Gaussian model of height
+
+$$
+\begin{align}
+h & \sim Gaussian(\mu, \sigma)\\
+\mu & = P_\mu\\
+\sigma & = P_\sigma
+\end{align}
+$$
+
+::: {.callout-tip appearance="simple"}
+
+- $P$ is a **posterior probability distribution**.
+
+:::
+
+## Gaussian model of height: posteriors
+
+```{r}
+#| label: h-bm
+
+h_tib <- tibble(h = height)
+
+h_bm <- brm(
+  h ~ 1,
+  family = gaussian,
+  data = h_tib,
+  file = "cache/h_bm"
+)
+```
+
+```{r}
+#| label: h-bm-plot
+
+mcmc_dens(h_bm, pars = c("b_Intercept", "sigma"),
+  facet_args = list(
+    labeller = labeller(
+      .default = as_labeller(c(b_Intercept = "mu", sigma = "sigma"))
+    )
+  )
+)
+```
+
+## A bit harder: N = 5
+
+::: callout-note
+### Sample size
+
+- Sample size matters: the lower the sample size, the higher the uncertainty.
+
+- Let's try with just 5 observations (out of 200).
+:::
+
+## A bit harder: N = 5
+
+```{r}
+#| label: h-bm-small
+
+set.seed(4256)
+h_tib <- tibble(h = sample(height, 5))
+
+h_bm_small <- brm(
+  h ~ 1,
+  family = gaussian,
+  data = h_tib,
+  file = "cache/h_bm_small"
+)
+```
+
+
+```{r}
+#| label: h-bm-small-plot
+
+mcmc_dens(h_bm_small, pars = c("b_Intercept", "sigma"),
+  facet_args = list(
+    labeller = labeller(
+      .default = as_labeller(c(b_Intercept = "mu", sigma = "sigma"))
+    )
+  )
+)
+```
+
+## Summary
+
+::: {.callout-note appearance="simple"}
+
+- We discovered probabilities and probability distributions.
+
+- Theoretical probability distributions can be described with PMF/PDF and parameters.
+
+- KDE is used for empirical distributions.
+
+- (Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.
+
+- Sample size affects uncertainty.
+
+:::
