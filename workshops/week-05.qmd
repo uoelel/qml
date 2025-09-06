@@ -26,6 +26,8 @@ format: html
 
     -   You can check the publication linked on the [data documentation](https://uoelel.github.io/qml-data/data/tucker2019/mald_1_1.html) to learn about the mean phoneme-level Levenshtein distance.
 
+-   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.
+
 -   Why does `PhonLev` have the effect it has on reaction times?
 :::
 
@@ -37,6 +39,8 @@ format: html
 -   Filter the data to include only female participants.
 
 -   Fit a regression model of mean f0 (`f0mn`) and mean harmonic-to-noise ratio (`HNRmn`, the higher the HNR, the more modal the voice is). What is the relationship between mean f0 and mean HNR in female Korean speakers?
+
+-   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.
 :::
 
 ::: callout-note
@@ -45,6 +49,8 @@ format: html
 -   Read `berzak2025/fix-dur.csv` and familiarise yourself with the [data documentation](https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html) and study linked therein.
 
 -   With a regression model, answer the following research question: what is the relationship between the current fixation duration and the length of the word being fixated?
+
+-   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.
 :::
 
 ::: callout-tip
@@ -54,3 +60,4 @@ For feedback, ask us in class and/or send your work to Stefano and/or come to St
 
 **We will not provide you with model answers**, so make sure you make the most of us in person.
 :::
+
