@@ -36,7 +36,7 @@ format: html
 ::: callout-note
 ## Task C: Reading fixation times (eye-tracking)
 
--   Read `berzak2025/fix-dur.csv` and familiarise yourself with the study and [data documentation](https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html).
+-   Read `berzak2025/fix-dur.csv` and familiarise yourself with [data documentation](https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html) and study linked therein.
 
 -   Answer the following question using a Gaussian model: what is the mean and SD of fixation durations in the data set?
 

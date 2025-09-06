@@ -1,0 +1,56 @@
+---
+title: "Workshop: Week 5"
+format: html
+---
+
+::: callout-important
+## Instructions
+
+-   Pick one of the following tasks and work through it in group.
+
+-   While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.
+
+-   If you are unsure about anything, please ask us for directions!
+
+-   The tasks are designed for you to practice Bayesian Gaussian modelling.
+:::
+
+::: callout-note
+## Task A: Massive Auditory Lexical Decision (MALD)
+
+-   Read the `tucker2019/mald_1_1.rds` data.
+
+-   Filter the data to include only real words.
+
+-   Fit a regression model to answer the following question: what is the relationship between reaction times and mean phoneme-level Levenshtein distance (`PhonLev`)?
+
+    -   You can check the publication linked on the [data documentation](https://uoelel.github.io/qml-data/data/tucker2019/mald_1_1.html) to learn about the mean phoneme-level Levenshtein distance.
+
+-   Why does `PhonLev` have the effect it has on reaction times?
+:::
+
+::: callout-note
+## Task B: Korean voice quality
+
+-   Read the `winter2012/polite.csv` data.
+
+-   Filter the data to include only female participants.
+
+-   Fit a regression model of mean f0 (`f0mn`) and mean harmonic-to-noise ratio (`HNRmn`, the higher the HNR, the more modal the voice is). What is the relationship between mean f0 and mean HNR in female Korean speakers?
+:::
+
+::: callout-note
+## Task C: Reading fixation times (eye-tracking)
+
+-   Read `berzak2025/fix-dur.csv` and familiarise yourself with the [data documentation](https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html) and study linked therein.
+
+-   With a regression model, answer the following research question: what is the relationship between the current fixation duration and the length of the word being fixated?
+:::
+
+::: callout-tip
+## Feedback
+
+For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
+
+**We will not provide you with model answers**, so make sure you make the most of us in person.
+:::

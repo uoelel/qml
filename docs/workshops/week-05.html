@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Workshop challenges – QML</title>
+<title>Workshop: Week 5 – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b2c27772c7dbbfdac910890378c97b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b2c27772c7dbbfdac910890378c97b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
   </div>
@@ -90,23 +90,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./content.html"> 
+    <a class="nav-link" href="../content.html"> 
 <span class="menu-text">Content</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./lectures.html"> 
+    <a class="nav-link" href="../lectures.html"> 
 <span class="menu-text">Lectures</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./workshops.html" aria-current="page"> 
+    <a class="nav-link" href="../workshops.html"> 
 <span class="menu-text">Workshops</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assessments.html"> 
+    <a class="nav-link" href="../assessments.html"> 
 <span class="menu-text">Assessment</span></a>
   </li>  
   <li class="nav-item">
@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Workshop challenges</h1>
+<h1 class="title">Workshop: Week 5</h1>
 </div>
 
 
@@ -150,51 +150,92 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This page lists the challenges to be completed as group work during the workshop hours. Note that for the first week you might want to work solo since there isn’t a dedicated challenge, but rather you will go through the R chapters of Week 1 from the textbook.</p>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td>Week 1</td>
-<td>Go through <a href="https://stefanocoretta.github.io/qdal/ch-r-rstudio.html">Chapter 4</a> and <a href="https://stefanocoretta.github.io/qdal/ch-packages.html">5</a> of the <a href="https://stefanocoretta.github.io/qdal/">textbook</a> (you can work solo).</td>
-</tr>
-<tr class="even">
-<td>Week 2</td>
-<td><a href="./workshops/week-02.html">Workshop</a></td>
-</tr>
-<tr class="odd">
-<td>Week 3</td>
-<td><a href="./workshops/week-03.html">Workshop</a></td>
-</tr>
-<tr class="even">
-<td>Week 4</td>
-<td><a href="./workshops/week-04.html">Worksh</a><a href="./workshops/week-04.html">o</a><a href="./workshops/week-03.html">p</a></td>
-</tr>
-<tr class="odd">
-<td>Week 5</td>
-<td><a href="./workshops/week-05.html">Worksh</a><a href="./workshops/week-04.html">o</a><a href="./workshops/week-03.html">p</a></td>
-</tr>
-<tr class="even">
-<td>Week 6</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Week 7</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Week 8</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Week 9</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Week 10</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Instructions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Pick one of the following tasks and work through it in group.</p></li>
+<li><p>While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.</p></li>
+<li><p>If you are unsure about anything, please ask us for directions!</p></li>
+<li><p>The tasks are designed for you to practice Bayesian Gaussian modelling.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task A: Massive Auditory Lexical Decision (MALD)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Read the <code>tucker2019/mald_1_1.rds</code> data.</p></li>
+<li><p>Filter the data to include only real words.</p></li>
+<li><p>Fit a regression model to answer the following question: what is the relationship between reaction times and mean phoneme-level Levenshtein distance (<code>PhonLev</code>)?</p>
+<ul>
+<li>You can check the publication linked on the <a href="https://uoelel.github.io/qml-data/data/tucker2019/mald_1_1.html">data documentation</a> to learn about the mean phoneme-level Levenshtein distance.</li>
+</ul></li>
+<li><p>Why does <code>PhonLev</code> have the effect it has on reaction times?</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task B: Korean voice quality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Read the <code>winter2012/polite.csv</code> data.</p></li>
+<li><p>Filter the data to include only female participants.</p></li>
+<li><p>Fit a regression model of mean f0 (<code>f0mn</code>) and mean harmonic-to-noise ratio (<code>HNRmn</code>, the higher the HNR, the more modal the voice is). What is the relationship between mean f0 and mean HNR in female Korean speakers?</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task C: Reading fixation times (eye-tracking)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Read <code>berzak2025/fix-dur.csv</code> and familiarise yourself with the <a href="https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html">data documentation</a> and study linked therein.</p></li>
+<li><p>With a regression model, answer the following research question: what is the relationship between the current fixation duration and the length of the word being fixated?</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Feedback
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).</p>
+<p><strong>We will not provide you with model answers</strong>, so make sure you make the most of us in person.</p>
+</div>
+</div>
 
 
 
