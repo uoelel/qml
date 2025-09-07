@@ -524,36 +524,6 @@
       "Author": "Jonah Gabry [aut, cre], Tristan Mahr [aut] (ORCID: <https://orcid.org/0000-0002-8890-5116>), Paul-Christian Bürkner [ctb], Martin Modrák [ctb], Malcolm Barrett [ctb], Frank Weber [ctb], Eduardo Coronado Sroka [ctb], Teemu Sailynoja [ctb], Aki Vehtari [ctb], Behram Ulukır [ctb]",
       "Repository": "CRAN"
     },
-    "biolingR": {
-      "Package": "biolingR",
-      "Version": "0.1.0",
-      "Source": "GitHub",
-      "Type": "Package",
-      "Title": "Data On Biolinguistic Diversity",
-      "Date": "2025-09-07",
-      "Authors@R": "c(person(given = \"Stefano\", family = \"Coretta\", role = c(\"aut\", \"cre\"), email = paste0(\"stefano.coretta\", \"@\", \"gmail.com\"), comment = c(ORCID = \"0000-0001-9627-5532\")))",
-      "Description": "It provides data on biological and linguistic diversity. As of now, it provides a data frame with number of languages and Biological Intactness Index by country.",
-      "License": "CC BY 4.0",
-      "Encoding": "UTF-8",
-      "LazyData": "true",
-      "Roxygen": "list(markdown = TRUE)",
-      "RoxygenNote": "7.3.3",
-      "Depends": [
-        "R (>= 3.5)"
-      ],
-      "Suggests": [
-        "glottologR"
-      ],
-      "Author": "Stefano Coretta [aut, cre] (ORCID: <https://orcid.org/0000-0001-9627-5532>)",
-      "Maintainer": "Stefano Coretta <stefano.coretta@gmail.com>",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "stefanocoretta",
-      "RemoteRepo": "biolingR",
-      "RemoteRef": "main",
-      "RemoteSha": "6c1c7f1ae9366d8c1a3b8015d9f018e8a47a48f8",
-      "Remotes": "github::stefanocoretta/glottologR"
-    },
     "bit": {
       "Package": "bit",
       "Version": "4.6.0",

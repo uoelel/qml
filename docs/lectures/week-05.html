@@ -205,12 +205,12 @@ Stefano Coretta
 </div>
 
 </section>
-<section id="biodiversity-and-linguistic-diversity" class="slide level2">
-<h2>Biodiversity and linguistic diversity</h2>
+<section id="word-frequency-and-reaction-times" class="slide level2">
+<h2>Word frequency and reaction times</h2>
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>What is the relationship between a country’s intactness of biodiversity and number of languages spoken by that country’s people?</strong></p>
+<p><strong>What is the relationship between a word’s lexical frequency and reaction times in a lexical decision task in Croatian?</strong></p>
 </div>
 </div>
 </div>
@@ -219,17 +219,11 @@ Stefano Coretta
 <div class="callout-body">
 <div class="callout-content">
 <ul>
-<li><p>Data from the <a href="https://github.com/stefanocoretta/biolingR">biolingR</a> package.</p>
+<li><p>Data from <a href="https://data.crossda.hr/dataset.xhtml?persistentId=doi:10.23669/EV3NFJ&amp;version=2.0">Lexical decision times for nouns from the Croatian Psycholinguistic Database</a>.</p></li>
+<li><p>Lexical decision task (<em>is it a real Croatian word?</em>)</p>
 <ul>
-<li><code>bii_nlangs</code>: combines data from the <a href="https://doi.org/10.5519/he1eqmg1">Biodiversity Intactness Index</a> data set and data from <a href="https://glottolog.org">Glottolog</a>.</li>
-</ul></li>
-<li><p><strong>Biodiversity Intactness Index (BII)</strong></p>
-<ul>
-<li>Ratio of the estimated original number of species in undisturbed sites vs their number in adjacent sites with high human activity.</li>
-</ul></li>
-<li><p><strong>Number of languages</strong> per country</p>
-<ul>
-<li>Simply the number of languages per country as listed on Glottolog.</li>
+<li><p><strong>Reaction times</strong>.</p></li>
+<li><p><strong>Word frequency</strong>: counts from the Croatian web Corpus <em>hrWaC</em>.</p></li>
 </ul></li>
 </ul>
 </div>
@@ -240,47 +234,107 @@ Stefano Coretta
 <section id="the-data" class="slide level2">
 <h2>The data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>bii_nlangs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>croat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/vlasicek2024/croatian-lexdes.csv"</span>)</span>
+<span id="cb1-2"><a></a>croat <span class="sc">|&gt;</span> <span class="fu">select</span>(word_string, rt_milliseconds_mean, word_frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 241 × 7
-   ISO3  country        bii_mean bii_logit_mean bii_logit_se n_langs log_n_langs
-   &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;   &lt;int&gt;       &lt;dbl&gt;
- 1 AFG   Afghanistan       0.768          1.20       0.0439       53        3.97
- 2 ALB   Albania           0.664          0.683      0.00792      14        2.64
- 3 DZA   Algeria           0.970          3.49       0.0167       24        3.18
- 4 ASM   American Samoa   NA             NA         NA             1        0   
- 5 AND   Andorra           0.831          1.59       0.0218        5        1.61
- 6 AGO   Angola            0.753          1.12       0.0382       53        3.97
- 7 AIA   Anguilla         NA             NA         NA             1        0   
- 8 ATA   Antarctica       NA             NA         NA            NA       NA   
- 9 ATG   Antigua &amp; Bar…    1              4.60       0             1        0   
-10 ARG   Argentina         0.709          0.891      0.00582      42        3.74
-# ℹ 231 more rows</code></pre>
+<pre><code># A tibble: 2,612 × 3
+   word_string  rt_milliseconds_mean word_frequency
+   &lt;chr&gt;                       &lt;dbl&gt;          &lt;dbl&gt;
+ 1 ribnjak                      575.           5755
+ 2 dostupnost                   624.          15564
+ 3 deformacija                  706.           6016
+ 4 antioksidans                 914.           7646
+ 5 zapis                        623.          44327
+ 6 kvadrat                      549.          36394
+ 7 presedan                     987.           7786
+ 8 zapremnina                  1035.           1434
+ 9 prerada                      750.          18759
+10 general                      625.          96640
+# ℹ 2,602 more rows</code></pre>
 </div>
 </div>
 </section>
-<section id="biodiversity-intactness-index" class="slide level2">
-<h2>Biodiversity Intactness Index</h2>
+<section id="reaction-times" class="slide level2">
+<h2>Reaction times</h2>
 
-<img data-src="week-05_files/figure-revealjs/bii-mean-1.png" width="960" class="r-stretch"></section>
-<section id="biodiversity-intactness-index-logit-transformed" class="slide level2">
-<h2>Biodiversity Intactness Index: logit-transformed</h2>
+<img data-src="week-05_files/figure-revealjs/rts-plot-1.png" width="960" class="r-stretch"></section>
+<section id="word-frequency" class="slide level2">
+<h2>Word frequency</h2>
 
-<img data-src="week-05_files/figure-revealjs/bii-mean-logit-1.png" width="960" class="r-stretch"></section>
-<section id="number-of-languages" class="slide level2">
-<h2>Number of languages</h2>
+<img data-src="week-05_files/figure-revealjs/freq-plot-1.png" width="960" class="r-stretch"></section>
+<section id="word-frequency-logged" class="slide level2">
+<h2>Word frequency: logged</h2>
 
-<img data-src="week-05_files/figure-revealjs/n-langs-1.png" width="960" class="r-stretch"></section>
-<section id="number-of-languages-logged" class="slide level2">
-<h2>Number of languages: logged</h2>
+<img data-src="week-05_files/figure-revealjs/freq-log-plot-1.png" width="960" class="r-stretch"></section>
+<section id="word-frequency-and-rts" class="slide level2">
+<h2>Word frequency and RTs</h2>
 
-<img data-src="week-05_files/figure-revealjs/n-langs-log-1.png" width="960" class="r-stretch"></section>
-<section id="bii-vs-number-of-languages" class="slide level2">
-<h2>BII vs number of languages</h2>
+<img data-src="week-05_files/figure-revealjs/rt-freq-plot-1.png" width="960" class="r-stretch"></section>
+<section id="gaussian-model-of-rt" class="slide level2">
+<h2>Gaussian model of RT</h2>
+<p><span class="math display">\[
+RT \sim Gaussian(\mu, \sigma)
+\]</span></p>
+<div class="fragment">
+<div class="callout callout-important no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>But we want to know what happens to RTs depending on the value of lexical frequency…</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Then we let the mean <span class="math inline">\(\mu\)</span> vary by lexical frequency!</p>
+</div>
+</div>
+</div>
+<p><span class="math display">\[
+\begin{align}
+RT &amp; \sim Gaussian(\mu, \sigma)\\
+\mu &amp; = \beta_0 + \beta_1 \cdot logf
+\end{align}
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="callout callout-important no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>But what are those <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-equation-of-a-line" class="slide level2">
+<h2>The equation of a line</h2>
+<p><span class="math display">\[
+y = a + b \cdot x
+\]</span></p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p><span class="math inline">\(a\)</span> is the line <strong>intercept</strong>: the <span class="math inline">\(y\)</span> value when <span class="math inline">\(x\)</span> is <code>0</code> zero.</p></li>
+<li><p><span class="math inline">\(b\)</span> is the line <strong>slope</strong>: the change in <span class="math inline">\(y\)</span> for each unit-increase of <span class="math inline">\(x\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="intercept" class="slide level2">
+<h2>Intercept</h2>
+
+<img data-src="week-05_files/figure-revealjs/int-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="slope" class="slide level2">
+<h2>Slope</h2>
 
 
 
-<img data-src="week-05_files/figure-revealjs/bii-nlangs-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-05_files/figure-revealjs/slo-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

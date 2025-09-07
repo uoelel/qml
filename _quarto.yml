@@ -51,5 +51,4 @@ format:
 callout-icon: false
 
 execute:
-  freeze: true
-  cache: true
+  freeze: auto

@@ -6,7 +6,7 @@ format: revealjs
 bibliography: references.bib
 ---
 
-## Biodiversity and linguistic diversity
+## Word frequency and reaction times
 
 ```{r}
 #| label: setup
@@ -16,109 +16,183 @@ library(tidyverse)
 theme_set(theme_light())
 library(brms)
 library(bayesplot)
-library(biolingR)
-data("bii_nlangs")
 ```
 
 ::: {.callout-tip appearance="simple"}
-**What is the relationship between a country's intactness of biodiversity and number of languages spoken by that country's people?**
+**What is the relationship between a word's lexical frequency and reaction times in a lexical decision task in Croatian?**
 :::
 
 . . .
 
 ::: {.callout-note appearance="simple"}
--   Data from the [biolingR](https://github.com/stefanocoretta/biolingR) package.
+-   Data from [Lexical decision times for nouns from the Croatian Psycholinguistic Database](https://data.crossda.hr/dataset.xhtml?persistentId=doi:10.23669/EV3NFJ&version=2.0).
 
-    -   `bii_nlangs`: combines data from the [Biodiversity Intactness Index](https://doi.org/10.5519/he1eqmg1) data set and data from [Glottolog](https://glottolog.org).
+-   Lexical decision task (*is it a real Croatian word?*)
 
--   **Biodiversity Intactness Index (BII)**
+    -   **Reaction times**.
 
-    -   Ratio of the estimated original number of species in undisturbed sites vs their number in adjacent sites with high human activity.
-
--   **Number of languages** per country
-
-    -   Simply the number of languages per country as listed on Glottolog.
+    -   **Word frequency**: counts from the Croatian web Corpus *hrWaC*.
 :::
 
 ## The data
 
 ```{r}
-#| label: bii-nlags
+#| label: croat
 #| echo: true
 
-bii_nlangs
-
+croat <- read_csv("data/vlasicek2024/croatian-lexdes.csv")
+croat |> select(word_string, rt_milliseconds_mean, word_frequency)
 ```
 
-## Biodiversity Intactness Index
+## Reaction times
 
 ```{r}
-#| label: bii-mean
+#| label: rts-plot
 
-bii_nlangs <- drop_na(bii_nlangs)
-
-bii_nlangs |> 
-  ggplot(aes(bii_mean)) +
+croat |> 
+  ggplot(aes(rt_milliseconds_mean)) +
   geom_density() +
-  geom_rug() +
+  geom_rug(alpha = 0.05) +
   labs(
-    x = "BII (country mean)"
+    x = "RT (ms)"
   )
+
 ```
 
-## Biodiversity Intactness Index: logit-transformed
+## Word frequency
 
 ```{r}
-#| label: bii-mean-logit
+#| label: freq-plot
 
-bii_nlangs |> 
-  ggplot(aes(bii_logit_mean)) +
+croat |> 
+  ggplot(aes(word_frequency/1e6)) +
+  geom_histogram(binwidth = 0.25) +
+  labs(
+    x = "Lexical frequency (millions)",
+    subtitle = "Bin-width = 0.25"
+  )
+
+```
+
+## Word frequency: logged
+
+```{r}
+#| label: freq-log-plot
+croat <- croat |> 
+  mutate(
+    log_freq = log(word_frequency)
+  )
+
+croat |> 
+  ggplot(aes(log_freq)) +
   geom_density() +
-  geom_rug(alpha = 0.25) +
+  geom_rug(alpha = 0.15) +
   labs(
-    x = "BII (logit country mean)"
+    x = "Lexical frequency (logged)",
   )
 ```
 
-## Number of languages
+## Word frequency and RTs
 
 ```{r}
-#| label: n-langs
+#| label: rt-freq-plot
 
-bii_nlangs |> 
-  ggplot(aes(n_langs)) +
-  geom_histogram(binwidth = 10) +
+croat |> 
+  ggplot(aes(log_freq, rt_milliseconds_mean)) +
+  geom_point(alpha = 0.5) +
   labs(
-    x = "Number of languages (per country)",
-    subtitle = "Bin-width = 10"
+    x = "Lexical frequency (logged)",
+    y = "RT (ms)"
   )
 ```
 
-## Number of languages: logged
+## Gaussian model of RT
+
+$$
+RT \sim Gaussian(\mu, \sigma)
+$$
+
+. . .
+
+::: {.callout-important appearance="simple"}
+But we want to know what happens to RTs depending on the value of lexical frequency...
+:::
+
+. . .
+
+::: {.callout-tip appearance="simple"}
+Then we let the mean $\mu$ vary by lexical frequency!
+:::
+
+$$
+\begin{align}
+RT & \sim Gaussian(\mu, \sigma)\\
+\mu & = \beta_0 + \beta_1 \cdot logf
+\end{align}
+$$
+
+. . .
+
+::: {.callout-important appearance="simple"}
+But what are those $\beta_0$ and $\beta_1$?
+:::
+
+## The equation of a line
+
+$$
+y = a + b \cdot x
+$$
+
+::: {.callout-note appearance="simple"}
+-   $a$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
+
+-   $b$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
+:::
+
+## Intercept
 
 ```{r}
-#| label: n-langs-log
+#| label: int-plot
+#| fig-asp: 1
+#| fig-align: center
 
-bii_nlangs |> 
-  ggplot(aes(log_n_langs)) +
-  geom_density() +
-  geom_rug(alpha = 0.1) +
+ggplot() +
+  geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_abline(intercept = 0, slope = 1, linewidth = 1, colour = "purple") +
+  geom_abline(intercept = 2, slope = 1, linewidth = 1, colour = "darkorange") +
+  annotate("point", x = 0, y = 0, colour = "purple", size = 5) +
+  annotate("point", x = 0, y = 2, colour = "darkorange", size = 5) +
+  scale_x_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
+  scale_y_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
   labs(
-    x = "Logged number of languages (per country)"
-  )
+    x = "X", y = "Y"
+  ) +
+  theme(text = element_text(size = 30))
+
 ```
 
-## BII vs number of languages
+## Slope
 
 ```{r}
-#| label: bii-nlangs
+#| label: slo-plot
+#| fig-asp: 1
+#| fig-align: center
 
-bii_nlangs |> 
-  ggplot(aes(bii_logit_mean, log_n_langs)) +
-  geom_point(colour = "darkgreen") +
+ggplot() +
+  geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_abline(intercept = 0, slope = 1, linewidth = 1, colour = "purple") +
+  geom_abline(intercept = 0, slope = 2, linewidth = 1, colour = "darkorange") +
+  annotate("segment", x = -Inf, xend = 1, y = 1, colour = "purple", linewidth = 1, linetype = "dotted") +
+  annotate("segment", x = -Inf, xend = 1, y = 2, colour = "darkorange", linewidth = 1, linetype = "dotted") +
+  annotate("segment", y = -Inf, yend = 2, x = 1, linewidth = 1, linetype = "dotted") +
+  annotate("point", x = 1, y = 1, colour = "purple", size = 5) +
+  annotate("point", x = 1, y = 2, colour = "darkorange", size = 5) +
+  scale_x_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
+  scale_y_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
   labs(
-    x = "BII (logit)",
-    y = "Number of languages (logged)"
-  )
-
+    x = "X", y = "Y"
+  ) +
+  theme(text = element_text(size = 30))
 ```
