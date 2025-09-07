@@ -1,0 +1,124 @@
+---
+title: "QML - Week 5"
+subtitle: "Regression models: the basics"
+author: "Stefano Coretta"
+format: revealjs
+bibliography: references.bib
+---
+
+## Biodiversity and linguistic diversity
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+theme_set(theme_light())
+library(brms)
+library(bayesplot)
+library(biolingR)
+data("bii_nlangs")
+```
+
+::: {.callout-tip appearance="simple"}
+**What is the relationship between a country's intactness of biodiversity and number of languages spoken by that country's people?**
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+-   Data from the [biolingR](https://github.com/stefanocoretta/biolingR) package.
+
+    -   `bii_nlangs`: combines data from the [Biodiversity Intactness Index](https://doi.org/10.5519/he1eqmg1) data set and data from [Glottolog](https://glottolog.org).
+
+-   **Biodiversity Intactness Index (BII)**
+
+    -   Ratio of the estimated original number of species in undisturbed sites vs their number in adjacent sites with high human activity.
+
+-   **Number of languages** per country
+
+    -   Simply the number of languages per country as listed on Glottolog.
+:::
+
+## The data
+
+```{r}
+#| label: bii-nlags
+#| echo: true
+
+bii_nlangs
+
+```
+
+## Biodiversity Intactness Index
+
+```{r}
+#| label: bii-mean
+
+bii_nlangs <- drop_na(bii_nlangs)
+
+bii_nlangs |> 
+  ggplot(aes(bii_mean)) +
+  geom_density() +
+  geom_rug() +
+  labs(
+    x = "BII (country mean)"
+  )
+```
+
+## Biodiversity Intactness Index: logit-transformed
+
+```{r}
+#| label: bii-mean-logit
+
+bii_nlangs |> 
+  ggplot(aes(bii_logit_mean)) +
+  geom_density() +
+  geom_rug(alpha = 0.25) +
+  labs(
+    x = "BII (logit country mean)"
+  )
+```
+
+## Number of languages
+
+```{r}
+#| label: n-langs
+
+bii_nlangs |> 
+  ggplot(aes(n_langs)) +
+  geom_histogram(binwidth = 10) +
+  labs(
+    x = "Number of languages (per country)",
+    subtitle = "Bin-width = 10"
+  )
+```
+
+## Number of languages: logged
+
+```{r}
+#| label: n-langs-log
+
+bii_nlangs |> 
+  ggplot(aes(log_n_langs)) +
+  geom_density() +
+  geom_rug(alpha = 0.1) +
+  labs(
+    x = "Logged number of languages (per country)"
+  )
+```
+
+## BII vs number of languages
+
+```{r}
+#| label: bii-nlangs
+
+bii_nlangs |> 
+  ggplot(aes(bii_logit_mean, log_n_langs)) +
+  geom_point(colour = "darkgreen") +
+  labs(
+    x = "BII (logit)",
+    y = "Number of languages (logged)"
+  )
+
+```

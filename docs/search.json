@@ -502,5 +502,54 @@
     "title": "Workshop: Week 4",
     "section": "",
     "text": "Instructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice Bayesian Gaussian modelling.\n\n\n\n\n\n\n\n\n\nTask A: Mixean Basque Voice Onset Time\n\n\n\n\nRead the egurtzegi2020/eu_vot.csv data.\nFilter the data to include only aspirated consonants.\nAnswer the following question using a Gaussian model: what is the mean and SD of aspirated VOT in Mixean Basque?\n\n\n\n\n\n\n\n\n\nTask B: Shallow morphological parsing (RT)\n\n\n\n\nRead the song2020/shallow.csv data. Familiarise yourself with the study (https://uoelel.github.io/qml-data/data/song2020/shallow.html).\nFilter the data to include only L2 data from critical trials.\nAnswer the following question using a Gaussian model: what is the mean and SD of reaction times in L2 participants?\n\n\n\n\n\n\n\n\n\nTask C: Reading fixation times (eye-tracking)\n\n\n\n\nRead berzak2025/fix-dur.csv and familiarise yourself with data documentation and study linked therein.\nAnswer the following question using a Gaussian model: what is the mean and SD of fixation durations in the data set?\nNow run another model but with only 5 participants (sample 5 random participants from the data set). What happens to the posterior distributions of the mean and SD?\n\n\n\n\n\n\n\n\n\nFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+  },
+  {
+    "objectID": "lectures/week-05.html#biodiversity-and-linguistic-diversity",
+    "href": "lectures/week-05.html#biodiversity-and-linguistic-diversity",
+    "title": "QML - Week 5",
+    "section": "Biodiversity and linguistic diversity",
+    "text": "Biodiversity and linguistic diversity\n\n\n\nWhat is the relationship between a country’s intactness of biodiversity and number of languages spoken by that country’s people?\n\n\n\n\n\n\n\n\nData from the biolingR package.\n\nbii_nlangs: combines data from the Biodiversity Intactness Index data set and data from Glottolog.\n\nBiodiversity Intactness Index (BII)\n\nRatio of the estimated original number of species in undisturbed sites vs their number in adjacent sites with high human activity.\n\nNumber of languages per country\n\nSimply the number of languages per country as listed on Glottolog."
+  },
+  {
+    "objectID": "lectures/week-05.html#the-data",
+    "href": "lectures/week-05.html#the-data",
+    "title": "QML - Week 5",
+    "section": "The data",
+    "text": "The data\n\nbii_nlangs\n\n# A tibble: 241 × 7\n   ISO3  country        bii_mean bii_logit_mean bii_logit_se n_langs log_n_langs\n   &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;   &lt;int&gt;       &lt;dbl&gt;\n 1 AFG   Afghanistan       0.768          1.20       0.0439       53        3.97\n 2 ALB   Albania           0.664          0.683      0.00792      14        2.64\n 3 DZA   Algeria           0.970          3.49       0.0167       24        3.18\n 4 ASM   American Samoa   NA             NA         NA             1        0   \n 5 AND   Andorra           0.831          1.59       0.0218        5        1.61\n 6 AGO   Angola            0.753          1.12       0.0382       53        3.97\n 7 AIA   Anguilla         NA             NA         NA             1        0   \n 8 ATA   Antarctica       NA             NA         NA            NA       NA   \n 9 ATG   Antigua & Bar…    1              4.60       0             1        0   \n10 ARG   Argentina         0.709          0.891      0.00582      42        3.74\n# ℹ 231 more rows"
+  },
+  {
+    "objectID": "lectures/week-05.html#biodiversity-intactness-index",
+    "href": "lectures/week-05.html#biodiversity-intactness-index",
+    "title": "QML - Week 5",
+    "section": "Biodiversity Intactness Index",
+    "text": "Biodiversity Intactness Index"
+  },
+  {
+    "objectID": "lectures/week-05.html#biodiversity-intactness-index-logit-transformed",
+    "href": "lectures/week-05.html#biodiversity-intactness-index-logit-transformed",
+    "title": "QML - Week 5",
+    "section": "Biodiversity Intactness Index: logit-transformed",
+    "text": "Biodiversity Intactness Index: logit-transformed"
+  },
+  {
+    "objectID": "lectures/week-05.html#number-of-languages",
+    "href": "lectures/week-05.html#number-of-languages",
+    "title": "QML - Week 5",
+    "section": "Number of languages",
+    "text": "Number of languages"
+  },
+  {
+    "objectID": "lectures/week-05.html#number-of-languages-logged",
+    "href": "lectures/week-05.html#number-of-languages-logged",
+    "title": "QML - Week 5",
+    "section": "Number of languages: logged",
+    "text": "Number of languages: logged"
+  },
+  {
+    "objectID": "lectures/week-05.html#bii-vs-number-of-languages",
+    "href": "lectures/week-05.html#bii-vs-number-of-languages",
+    "title": "QML - Week 5",
+    "section": "BII vs number of languages",
+    "text": "BII vs number of languages"
   }
 ]
