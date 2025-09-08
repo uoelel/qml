@@ -15,7 +15,7 @@ The **Schedule overview** below gives you an overview of each week, while the **
 The following table is a schedule overview of the course, with the topic of the lecture, workshop and assessments due (WSR = weekly self-reflection). See [Assessments](assessments.qmd) for more info on assessment.
 
 | Week | Lecture | Workshop | Assessment |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | 1 | Research methods | R basics | WSR |
 | 2 | Inference and uncertainty | Summarise, count and group data | WSR |
 | 3 | Questionable Research Practices | Plot basics | WSR |
@@ -35,7 +35,7 @@ The following table is a schedule overview of the course, with the topic of the 
 In the following table, you can find a more detailed overview of the topics for each week, divided into research methods, statistics and R specific topics.
 
 | Week | Research | Statistics | R |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | 1 | Research methods | Quantitative data analysis | RStudio and R basics |
 | 2 |  | Data summaries | R scripts, read and summarise data |
 | 3 | Research cycle | Data viz principles | Quarto documents, data transformation and plottting |
@@ -164,7 +164,7 @@ The tutors will go around to ask how things are going and to answer questions or
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
--   [Workshop instructions](workshops/week-02.qmd)
+-   [Workshop instructions](workshops/week-02.qmd).
 
 -   The tutors will go around to ask how things are going and to answer questions or help.
 :::
@@ -211,9 +211,7 @@ The tutors will go around to ask how things are going and to answer questions or
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
--   [Workshop instructions](workshops/week-03.qmd)
-
--   The tutors will go around to ask how things are going and to answer questions or help.
+-   [Workshop instructions](workshops/week-03.qmd).
 :::
 
 ### Week 4: Probability distributions and Gaussian models
@@ -255,7 +253,56 @@ The tutors will go around to ask how things are going and to answer questions or
 -   [Lecture slides](lectures/week-04.qmd).
 :::
 
+::: {.callout-tip collapse="false"}
+#### Workshop
+
+-   [Workshop instructions](workshops/week-04.qmd).
+:::
+
 ### Week 5: Regression models
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   What are regression models and what are they for?
+
+-   How do we interpret intercept and slope in a regression model?
+
+-   Why do we need Markov Chain Monte Carlo to estimate models?
+
+-   How do we use MCMC draws from a model fit?
+
+**Skills**
+
+-   Fit regression models of the form $y \sim x$ with brms in R.
+
+-   Interpret the regression coefficients table of the model summary.
+
+-   Extract and plot MCMC draws.
+
+-   Report results from regression models.
+:::
+
+::: {.callout-note collapse="false"}
+#### Readings
+
+-   Read the Week 5 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+-   **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+:::
+
+::: {.callout-tip collapse="false"}
+#### Lecture
+
+-   [Lecture slides](lectures/week-05.qmd).
+:::
+
+::: {.callout-tip collapse="false"}
+#### Workshop
+
+-   [Workshop instructions](workshops/week-05.qmd).
+:::
 
 ### Week 6: Catch-up week
 
