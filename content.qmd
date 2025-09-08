@@ -319,7 +319,7 @@ Note that the workshop's room is still booked at the usual times so you can use 
 
 You should complete the Formative Test 1 this week, to check your learning before moving on onto the second part of the course.
 
-The link to the test is available on the Learn site of the course, under Assessments.
+The link to the test is available on the Learn site of the course.
 :::
 
 ### Week 7: Categorical predictors and frequentist statistics
