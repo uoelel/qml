@@ -235,7 +235,7 @@
     "href": "lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "You can find here the links to the lecture slides.\n\n\n\n\n\n\nPDF version of the slides\n\n\n\nThe slides are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF.\n\n\n\n\n\nWeek 1\nSlides\n\n\nWeek 2\nSlides\n\n\nWeek 3\nSlides\n\n\nWeek 4\nSlides\n\n\nWeek 5\n\n\n\nWeek 6\nNo classes\n\n\nWeek 7\n\n\n\nWeek 8\n\n\n\nWeek 9\n\n\n\nWeek 10"
+    "text": "You can find here the links to the lecture slides.\n\n\n\n\n\n\nPDF version of the slides\n\n\n\nThe slides are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF.\n\n\n\n\n\nWeek 1\nSlides\n\n\nWeek 2\nSlides\n\n\nWeek 3\nSlides\n\n\nWeek 4\nSlides\n\n\nWeek 5\nSlides\n\n\nWeek 6\nNo classes\n\n\nWeek 7\n\n\n\nWeek 8\n\n\n\nWeek 9\n\n\n\nWeek 10"
   },
   {
     "objectID": "content.html",
@@ -497,6 +497,13 @@
     "text": "Word frequency and reaction times\n\n\n\nWhat is the relationship between a word’s lexical frequency and reaction times in a lexical decision task in Croatian?\n\n\n\n\n\n\n\n\nData from Lexical decision times for nouns from the Croatian Psycholinguistic Database.\nLexical decision task (is it a real Croatian word?)\n\nReaction times.\nWord frequency: counts from the Croatian web Corpus hrWaC."
   },
   {
+    "objectID": "lectures/week-05.html#group-activity",
+    "href": "lectures/week-05.html#group-activity",
+    "title": "QML - Week 5",
+    "section": "Group activity",
+    "text": "Group activity"
+  },
+  {
     "objectID": "lectures/week-05.html#the-data",
     "href": "lectures/week-05.html#the-data",
     "title": "QML - Week 5",
@@ -558,6 +565,90 @@
     "title": "QML - Week 5",
     "section": "Slope",
     "text": "Slope"
+  },
+  {
+    "objectID": "lectures/week-05.html#the-equation-of-a-line-bis",
+    "href": "lectures/week-05.html#the-equation-of-a-line-bis",
+    "title": "QML - Week 5",
+    "section": "The equation of a line (bis)",
+    "text": "The equation of a line (bis)\n\\[\ny = a + b \\cdot x\n\\]\n\n\n\n\n\\(a\\) is the line intercept: the \\(y\\) value when \\(x\\) is 0 zero.\n\\(b\\) is the line slope: the change in \\(y\\) for each unit-increase of \\(x\\).\n\n\n\n\n\n\\[\ny = \\beta_0 + \\beta_1 \\cdot x\n\\]\n[alternative notation]"
+  },
+  {
+    "objectID": "lectures/week-05.html#regression-model",
+    "href": "lectures/week-05.html#regression-model",
+    "title": "QML - Week 5",
+    "section": "Regression model",
+    "text": "Regression model\n\\[\n\\begin{align}\nRT & \\sim Gaussian(\\mu, \\sigma)\\\\\n\\mu & = \\beta_0 + \\beta_1 \\cdot logf & \\text{[Regression equation]}\n\\end{align}\n\\]\n\n\n\n\nA regression model is a model based on the equation of a line.\nThe model estimates \\(\\beta_0\\) (the intercept) and \\(\\beta_1\\) (the slope) from the data (i.e. the observed \\(RT\\) and \\(logf\\) values).\n\n\n\n\n\n\n\n\n\n\\(\\beta_0\\), intercept\n\nMean RT value when logged frequency is 0 zero (i.e. when word frequency is 1; exp(0) = 1).\n\n\\(\\beta_1\\), slope\n\nChange in mean RT for each unit increase of log-frequency (when log-frequency goes from \\(x\\) to \\(x + 1\\))."
+  },
+  {
+    "objectID": "lectures/week-05.html#fit-the-model-with-brms",
+    "href": "lectures/week-05.html#fit-the-model-with-brms",
+    "title": "QML - Week 5",
+    "section": "Fit the model with brms",
+    "text": "Fit the model with brms\nrt_bm &lt;- brm(\n  rt ~ 1 + log_freq,\n  family = gaussian,\n  data = croat\n)"
+  },
+  {
+    "objectID": "lectures/week-05.html#model-summary",
+    "href": "lectures/week-05.html#model-summary",
+    "title": "QML - Week 5",
+    "section": "Model summary",
+    "text": "Model summary\n\nsummary(rt_bm)\n\n Family: gaussian \n  Links: mu = identity; sigma = identity \nFormula: rt ~ 1 + log_freq \n   Data: croat (Number of observations: 2612) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nIntercept  1106.79     11.25  1084.44  1128.79 1.00     4140     2687\nlog_freq    -45.56      1.14   -47.81   -43.33 1.00     4163     2633\n\nFurther Distributional Parameters:\n      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nsigma   104.06      1.45   101.28   107.02 1.00     4397     3032\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+  },
+  {
+    "objectID": "lectures/week-05.html#regression-coefficients-intercept",
+    "href": "lectures/week-05.html#regression-coefficients-intercept",
+    "title": "QML - Week 5",
+    "section": "Regression coefficients: intercept",
+    "text": "Regression coefficients: intercept\n\n\n            Estimate Est.Error       Q2.5      Q97.5\nIntercept 1106.78704 11.249044 1084.43507 1128.78687\nlog_freq   -45.56409  1.142898  -47.81221  -43.33064\n\n\n\n\n\nIntercept Intercept\n\n\n\nEstimate = posterior mean: 1107 ms.\nEst.Error = posterior SD: 11 ms.\nQ2.5 Q97.5 = posterior 95% CrI: [1084, 1129] ms."
+  },
+  {
+    "objectID": "lectures/week-05.html#posterior-distribution-intercept",
+    "href": "lectures/week-05.html#posterior-distribution-intercept",
+    "title": "QML - Week 5",
+    "section": "Posterior distribution: intercept",
+    "text": "Posterior distribution: intercept"
+  },
+  {
+    "objectID": "lectures/week-05.html#regression-coefficients-slope",
+    "href": "lectures/week-05.html#regression-coefficients-slope",
+    "title": "QML - Week 5",
+    "section": "Regression coefficients: slope",
+    "text": "Regression coefficients: slope\n\n\n            Estimate Est.Error       Q2.5      Q97.5\nIntercept 1106.78704 11.249044 1084.43507 1128.78687\nlog_freq   -45.56409  1.142898  -47.81221  -43.33064\n\n\n\n\n\nSlope log_freq\n\n\n\nEstimate = posterior mean: -46 ms.\nEst.Error = posterior SD: 1 ms.\nQ2.5 Q97.5 = posterior 95% CrI: [-48, -43] ms."
+  },
+  {
+    "objectID": "lectures/week-05.html#posterior-distribution-slope",
+    "href": "lectures/week-05.html#posterior-distribution-slope",
+    "title": "QML - Week 5",
+    "section": "Posterior distribution: slope",
+    "text": "Posterior distribution: slope"
+  },
+  {
+    "objectID": "lectures/week-05.html#posterior-predictions",
+    "href": "lectures/week-05.html#posterior-predictions",
+    "title": "QML - Week 5",
+    "section": "Posterior predictions",
+    "text": "Posterior predictions"
+  },
+  {
+    "objectID": "lectures/week-05.html#word-frequency-and-reaction-times-bis",
+    "href": "lectures/week-05.html#word-frequency-and-reaction-times-bis",
+    "title": "QML - Week 5",
+    "section": "Word frequency and reaction times (bis)",
+    "text": "Word frequency and reaction times (bis)\n\n\n\nWhat is the relationship between a word’s lexical frequency and reaction times in a lexical decision task in Croatian?\n\n\n\n\n\n\n\n\nWhen log-frequency is 0, the mean RTs are between 1084 and 1129 ms at 95% confidence.\nFor each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence."
+  },
+  {
+    "objectID": "lectures/week-05.html#be-careful",
+    "href": "lectures/week-05.html#be-careful",
+    "title": "QML - Week 5",
+    "section": "Be careful!",
+    "text": "Be careful!\n\n\n\nCorrelation is NOT causation\n\n\n\nCorrelation between two variables: they co-vary (when one changes, the other systematically changes too).\nSpurious correlations: two variables look correlated because of a confounder.\n\n\n\n\n\n\n\n\nNote\n\n\n\nVocabulary for snow vs latitude\n\nThe farther north a community lives, the more words their language has for snow.\nConfounder: subsistence ecology.\n\nNumber of plant names in a language vs. biodiversity of the region\n\nLanguages in biodiverse regions have more words for plants.\nConfounder: cultural reliance on plants.\n\nMetaphors involving animals vs. level of industrialization\n\nLess industrialized societies use more animal-based metaphors\nConfounder: daily exposure to animals."
+  },
+  {
+    "objectID": "lectures/week-05.html#be-careful-1",
+    "href": "lectures/week-05.html#be-careful-1",
+    "title": "QML - Week 5",
+    "section": "Be careful!",
+    "text": "Be careful!\n\n\n\nBut it is if you use causal inference\n\n\n\nCorrelation can be interpreted causally if you adopt a causal inference approach.\nWe won’t treat causal inference in this course due to time, but you can learn about it in McElreath’s textbook Statistical Rethinking."
   },
   {
     "objectID": "workshops/week-02.html",

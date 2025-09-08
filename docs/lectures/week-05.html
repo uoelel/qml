@@ -231,6 +231,15 @@ Stefano Coretta
 </div>
 </div>
 </section>
+<section id="group-activity" class="slide level2">
+<h2>Group activity</h2>
+<div class="columns">
+<div class="column" style="width:75%;">
+<iframe allowfullscreen="" frameborder="0" height="100%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
+</div><div class="column" style="width:25%;">
+<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&amp;color=indigo&amp;hrs=0&amp;min=5&amp;sec=0" frameborder="0"></iframe>
+</div></div>
+</section>
 <section id="the-data" class="slide level2">
 <h2>The data</h2>
 <div class="cell">
@@ -332,9 +341,245 @@ y = a + b \cdot x
 <section id="slope" class="slide level2">
 <h2>Slope</h2>
 
-
-
 <img data-src="week-05_files/figure-revealjs/slo-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="the-equation-of-a-line-bis" class="slide level2">
+<h2>The equation of a line (bis)</h2>
+<p><span class="math display">\[
+y = a + b \cdot x
+\]</span></p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p><span class="math inline">\(a\)</span> is the line <strong>intercept</strong>: the <span class="math inline">\(y\)</span> value when <span class="math inline">\(x\)</span> is <code>0</code> zero.</p></li>
+<li><p><span class="math inline">\(b\)</span> is the line <strong>slope</strong>: the change in <span class="math inline">\(y\)</span> for each unit-increase of <span class="math inline">\(x\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 \cdot x
+\]</span></p>
+<p>[alternative notation]</p>
+</div>
+</section>
+<section id="regression-model" class="slide level2">
+<h2>Regression model</h2>
+<p><span class="math display">\[
+\begin{align}
+RT &amp; \sim Gaussian(\mu, \sigma)\\
+\mu &amp; = \beta_0 + \beta_1 \cdot logf &amp; \text{[Regression equation]}
+\end{align}
+\]</span></p>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>A <strong>regression model</strong> is a model based on the equation of a line.</p></li>
+<li><p>The model <strong>estimates</strong> <span class="math inline">\(\beta_0\)</span> (the intercept) and <span class="math inline">\(\beta_1\)</span> (the slope) from the data (i.e.&nbsp;the observed <span class="math inline">\(RT\)</span> and <span class="math inline">\(logf\)</span> values).</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p><span class="math inline">\(\beta_0\)</span>, intercept</p>
+<ul>
+<li>Mean RT value <em>when logged frequency is <code>0</code> zero</em> (i.e.&nbsp;when word frequency is 1; <code>exp(0)</code> = 1).</li>
+</ul></li>
+<li><p><span class="math inline">\(\beta_1\)</span>, slope</p>
+<ul>
+<li><em>Change</em> in mean RT for each unit increase of log-frequency (when log-frequency goes from <span class="math inline">\(x\)</span> to <span class="math inline">\(x + 1\)</span>).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="fit-the-model-with-brms" class="slide level2">
+<h2>Fit the model with brms</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>rt_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb3-2"><a></a>  rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> log_freq,</span>
+<span id="cb3-3"><a></a>  <span class="at">family =</span> gaussian,</span>
+<span id="cb3-4"><a></a>  <span class="at">data =</span> croat</span>
+<span id="cb3-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="model-summary" class="slide level2">
+<h2>Model summary</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">summary</span>(rt_bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: rt ~ 1 + log_freq 
+   Data: croat (Number of observations: 2612) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Regression Coefficients:
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept  1106.79     11.25  1084.44  1128.79 1.00     4140     2687
+log_freq    -45.56      1.14   -47.81   -43.33 1.00     4163     2633
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma   104.06      1.45   101.28   107.02 1.00     4397     3032
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+</section>
+<section id="regression-coefficients-intercept" class="slide level2">
+<h2>Regression coefficients: intercept</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>            Estimate Est.Error       Q2.5      Q97.5
+Intercept 1106.78704 11.249044 1084.43507 1128.78687
+log_freq   -45.56409  1.142898  -47.81221  -43.33064</code></pre>
+</div>
+</div>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Intercept <code>Intercept</code></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p><code>Estimate</code> = posterior mean: 1107 ms.</p></li>
+<li><p><code>Est.Error</code> = posterior SD: 11 ms.</p></li>
+<li><p><code>Q2.5 Q97.5</code> = posterior 95% CrI: [1084, 1129] ms.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="posterior-distribution-intercept" class="slide level2">
+<h2>Posterior distribution: intercept</h2>
+
+<img data-src="week-05_files/figure-revealjs/rt-bm-int-dens-1.png" width="960" class="r-stretch"></section>
+<section id="regression-coefficients-slope" class="slide level2">
+<h2>Regression coefficients: slope</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>            Estimate Est.Error       Q2.5      Q97.5
+Intercept 1106.78704 11.249044 1084.43507 1128.78687
+log_freq   -45.56409  1.142898  -47.81221  -43.33064</code></pre>
+</div>
+</div>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Slope <code>log_freq</code></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p><code>Estimate</code> = posterior mean: -46 ms.</p></li>
+<li><p><code>Est.Error</code> = posterior SD: 1 ms.</p></li>
+<li><p><code>Q2.5 Q97.5</code> = posterior 95% CrI: [-48, -43] ms.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="posterior-distribution-slope" class="slide level2">
+<h2>Posterior distribution: slope</h2>
+
+<img data-src="week-05_files/figure-revealjs/rt-bm-slo-dens-1.png" width="960" class="r-stretch"></section>
+<section id="posterior-predictions" class="slide level2">
+<h2>Posterior predictions</h2>
+
+<img data-src="week-05_files/figure-revealjs/rt-bm-cond-1.png" width="960" class="r-stretch"></section>
+<section id="word-frequency-and-reaction-times-bis" class="slide level2">
+<h2>Word frequency and reaction times (bis)</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>What is the relationship between a word’s lexical frequency and reaction times in a lexical decision task in Croatian?</strong></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>When log-frequency is 0, the mean RTs are between 1084 and 1129 ms at 95% confidence.</p></li>
+<li><p>For each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="be-careful" class="slide level2">
+<h2>Be careful!</h2>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Correlation is NOT causation</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Correlation between two variables: they co-vary (when one changes, the other systematically changes too).</p></li>
+<li><p>Spurious correlations: two variables look correlated because of a confounder.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Vocabulary for snow vs latitude
+<ul>
+<li>The farther north a community lives, the more words their language has for snow.</li>
+<li><strong>Confounder</strong>: subsistence ecology.</li>
+</ul></li>
+<li>Number of plant names in a language vs.&nbsp;biodiversity of the region
+<ul>
+<li>Languages in biodiverse regions have more words for plants.</li>
+<li><strong>Confounder</strong>: cultural reliance on plants.</li>
+</ul></li>
+<li>Metaphors involving animals vs.&nbsp;level of industrialization
+<ol type="1">
+<li>Less industrialized societies use more animal-based metaphors</li>
+<li><strong>Confounder</strong>: daily exposure to animals.</li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="be-careful-1" class="slide level2">
+<h2>Be careful!</h2>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>But it is if you use causal inference</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Correlation <em>can</em> be interpreted causally if you adopt a <strong>causal inference</strong> approach.</p></li>
+<li><p>We won’t treat causal inference in this course due to time, but you can learn about it in McElreath’s textbook <em>Statistical Rethinking</em>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

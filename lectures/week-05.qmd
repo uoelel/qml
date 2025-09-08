@@ -16,6 +16,7 @@ library(tidyverse)
 theme_set(theme_light())
 library(brms)
 library(bayesplot)
+library(ggdist)
 ```
 
 ::: {.callout-tip appearance="simple"}
@@ -33,6 +34,24 @@ library(bayesplot)
 
     -   **Word frequency**: counts from the Croatian web Corpus *hrWaC*.
 :::
+
+## Group activity
+
+::::: columns
+::: {.column width="75%"}
+```{=html}
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
+```
+:::
+
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+:::::
 
 ## The data
 
@@ -78,9 +97,11 @@ croat |>
 
 ```{r}
 #| label: freq-log-plot
+
 croat <- croat |> 
   mutate(
-    log_freq = log(word_frequency)
+    log_freq = log(word_frequency),
+    rt = rt_milliseconds_mean
   )
 
 croat |> 
@@ -98,7 +119,7 @@ croat |>
 #| label: rt-freq-plot
 
 croat |> 
-  ggplot(aes(log_freq, rt_milliseconds_mean)) +
+  ggplot(aes(log_freq, rt)) +
   geom_point(alpha = 0.5) +
   labs(
     x = "Lexical frequency (logged)",
@@ -196,3 +217,215 @@ ggplot() +
   ) +
   theme(text = element_text(size = 30))
 ```
+
+## The equation of a line (bis)
+
+$$
+y = a + b \cdot x
+$$
+
+::: {.callout-note appearance="simple"}
+-   $a$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
+
+-   $b$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
+:::
+
+. . .
+
+$$
+y = \beta_0 + \beta_1 \cdot x
+$$
+
+\[alternative notation\]
+
+## Regression model
+
+$$
+\begin{align}
+RT & \sim Gaussian(\mu, \sigma)\\
+\mu & = \beta_0 + \beta_1 \cdot logf & \text{[Regression equation]}
+\end{align}
+$$
+
+::: {.callout-tip appearance="simple"}
+-   A **regression model** is a model based on the equation of a line.
+
+-   The model **estimates** $\beta_0$ (the intercept) and $\beta_1$ (the slope) from the data (i.e. the observed $RT$ and $logf$ values).
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+-   $\beta_0$, intercept
+
+    -   Mean RT value *when logged frequency is `0` zero* (i.e. when word frequency is 1; `exp(0)` = 1).
+
+-   $\beta_1$, slope
+
+    -   *Change* in mean RT for each unit increase of log-frequency (when log-frequency goes from $x$ to $x + 1$).
+:::
+
+## Fit the model with brms
+
+``` r
+rt_bm <- brm(
+  rt ~ 1 + log_freq,
+  family = gaussian,
+  data = croat
+)
+```
+
+```{r}
+#| label: rt-bm-fit
+
+rt_bm <- brm(
+  rt ~ 1 + log_freq,
+  family = gaussian,
+  data = croat,
+  cores = 4,
+  seed = 4125,
+  file = "cache/rt_bm"
+)
+
+```
+
+## Model summary
+
+```{r}
+#| label: rt-bm-summary
+#| echo: true
+
+summary(rt_bm)
+
+```
+
+## Regression coefficients: intercept
+
+```{r}
+#| label: rt-bm-coef
+
+fixef(rt_bm)
+```
+
+::: callout-note
+## Intercept `Intercept`
+
+-   `Estimate` = posterior mean: 1107 ms.
+
+-   `Est.Error` = posterior SD: 11 ms.
+
+-   `Q2.5 Q97.5` = posterior 95% CrI: \[1084, 1129\] ms.
+:::
+
+## Posterior distribution: intercept
+
+```{r}
+#| label: rt-bm-int-dens
+
+rt_bm_draws <- as_draws_df(rt_bm)
+
+rt_bm_draws |>
+  ggplot(aes(x = b_Intercept)) +
+  stat_halfeye(.width = c(0.4, 0.95)) +
+  geom_rug(alpha = 0.2) +
+  labs(
+    caption = "Point = median. Error bars = 40% and 95% CrI."
+  )
+```
+
+## Regression coefficients: slope
+
+```{r}
+#| label: rt-bm-coef-2
+
+fixef(rt_bm)
+```
+
+::: callout-note
+## Slope `log_freq`
+
+-   `Estimate` = posterior mean: -46 ms.
+
+-   `Est.Error` = posterior SD: 1 ms.
+
+-   `Q2.5 Q97.5` = posterior 95% CrI: \[-48, -43\] ms.
+:::
+
+## Posterior distribution: slope
+
+```{r}
+#| label: rt-bm-slo-dens
+
+rt_bm_draws |>
+  ggplot(aes(x = b_log_freq)) +
+  stat_halfeye(.width = c(0.4, 0.95)) +
+  geom_rug(alpha = 0.2) +
+  labs(
+    caption = "Point = median. Error bars = 40% and 95% CrI."
+  )
+```
+
+## Posterior predictions
+
+```{r}
+#| label: rt-bm-cond
+
+p <- plot(
+  conditional_effects(rt_bm),
+  points = TRUE,
+  point_args = list(alpha = 0.1),
+  line_args = list(colour = "darkorange"),
+  plot = FALSE
+)[[1]]
+
+p +
+  labs(x = "Lexical frequency (logged)", y = "Predicted RT (ms)")
+```
+
+## Word frequency and reaction times (bis)
+
+::: {.callout-tip appearance="simple"}
+**What is the relationship between a word's lexical frequency and reaction times in a lexical decision task in Croatian?**
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+-   When log-frequency is 0, the mean RTs are between 1084 and 1129 ms at 95% confidence.
+
+-   For each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence.
+:::
+
+## Be careful!
+
+::: callout-important
+### Correlation is NOT causation
+
+-   Correlation between two variables: they co-vary (when one changes, the other systematically changes too).
+
+-   Spurious correlations: two variables look correlated because of a confounder.
+:::
+
+. . .
+
+::: callout-note
+1.  Vocabulary for snow vs latitude
+    -   The farther north a community lives, the more words their language has for snow.
+    -   **Confounder**: subsistence ecology.
+2.  Number of plant names in a language vs. biodiversity of the region
+    -   Languages in biodiverse regions have more words for plants.
+    -   **Confounder**: cultural reliance on plants.
+3.  Metaphors involving animals vs. level of industrialization
+    1.  Less industrialized societies use more animal-based metaphors
+    2.  **Confounder**: daily exposure to animals.
+:::
+
+## Be careful!
+
+::: callout-tip
+### But it is if you use causal inference
+
+-   Correlation *can* be interpreted causally if you adopt a **causal inference** approach.
+
+-   We won't treat causal inference in this course due to time, but you can learn about it in McElreath's textbook *Statistical Rethinking*.
+:::
