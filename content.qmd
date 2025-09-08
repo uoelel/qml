@@ -306,6 +306,22 @@ The tutors will go around to ask how things are going and to answer questions or
 
 ### Week 6: Catch-up week
 
+::: {.callout-important collapse="false"}
+## No classes
+
+This week there will be no classes (no lecture nor workshop) for you to catch up with the materials for Week 1-5 if you need to and/or revise them.
+
+Note that the workshop's room is still booked at the usual times so you can use it a group study space if you wish.
+:::
+
+::: {.callout-note collapse="false"}
+## Formative Test 1
+
+You should complete the Formative Test 1 this week, to check your learning before moving on onto the second part of the course.
+
+The link to the test is available on the Learn site of the course, under Assessments.
+:::
+
 ### Week 7: Categorical predictors and frequentist statistics
 
 ### Week 8: Binomial/Bernoulli and log-normal regression models
