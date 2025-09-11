@@ -23,6 +23,10 @@ bibliography: references.bib
 
 -   This is a **very intense course!**
 
+    -   We focus on quantitative methods for knowledge-oriented research. No machine learning, LLMs, language technology.
+
+-   Finding help:
+
     -   Office Hours.
 
     -   Piazza: Q&A forum.
