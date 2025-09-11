@@ -55,7 +55,7 @@ The course textbook can be found at the following link (also available from the 
 
 The course data is available for download on the [Data for Quantitative Methods in Linguistics](https://uoelel.github.io/qml-data/) website. For each data set, an entry gives detail about the study and the data set. When using data for the first time, you should read the related entry, abstract and skim the linked paper (if applicable) for context.
 
-## Weekly schedule
+## Week by week
 
 ### Week 1: Quantitative methods and R basics
 

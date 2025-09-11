@@ -6,6 +6,28 @@ format: revealjs
 bibliography: references.bib
 ---
 
+## Welcome to QML!
+
+::: callout-note
+## Practicalities
+
+-   Who am I?
+
+-   Overview and week-by-week contents: <https://uoelel.github.io/qml/content.html>
+
+-   Assessment: <https://uoelel.github.io/qml/assessments.html>
+
+    -   **Weekly self-reflections** in the Reflective Journal (on Learn): DUE EVERY WEEK by the following Wednesday.
+
+    -   Information: <https://uoelel.github.io/qml/assessments.html#reflective-journal>
+
+-   This is a **very intense course!**
+
+    -   Office Hours.
+
+    -   Piazza: Q&A forum.
+:::
+
 ## Research methods
 
 ```{=html}
