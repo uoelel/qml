@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b2c27772c7dbbfdac910890378c97b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b635bb0e3b57b47a60f03ff50ee3dd10.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,6 +80,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">QML</span>
     </a>
@@ -156,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Instructions
+<span class="screen-reader-only">Important</span>Instructions
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -164,6 +167,7 @@ Instructions
 <li><p>Pick one of the following tasks and work on them in group. Feel free to work on the others as well if you have time.</p></li>
 <li><p>If you are unsure about anything, please ask us for directions!</p></li>
 <li><p>The tasks are designed for you to practice this week’s R skills.</p></li>
+<li><p>Unless otherwise specified, the data are part of the data archive you downloaded for <a href="https://stefanocoretta.github.io/qdal/ch-read-data.html">Read Data</a> chapter of the textbook. Information about the data can be found on the <a href="https://uoelel.github.io/qml-data/">QML Data</a> website (which is also where you downloaded the data from).</p></li>
 </ul>
 </div>
 </div>
@@ -173,7 +177,7 @@ Instructions
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Task A: Italian Voice Onset Time
+<span class="screen-reader-only">Note</span>Task A: Italian Voice Onset Time
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -189,7 +193,7 @@ Task A: Italian Voice Onset Time
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Task B: World Atlas of Language Structures
+<span class="screen-reader-only">Note</span>Task B: World Atlas of Language Structures
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -208,7 +212,7 @@ Task B: World Atlas of Language Structures
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Task C: Massive Auditory Lexical Decision
+<span class="screen-reader-only">Note</span>Task C: Massive Auditory Lexical Decision
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -225,7 +229,7 @@ Task C: Massive Auditory Lexical Decision
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Feedback
+<span class="screen-reader-only">Tip</span>Feedback
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -288,13 +292,14 @@ Feedback
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

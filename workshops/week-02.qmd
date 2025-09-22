@@ -11,6 +11,8 @@ format: html
 -   If you are unsure about anything, please ask us for directions!
 
 -   The tasks are designed for you to practice this week's R skills.
+
+-   Unless otherwise specified, the data are part of the data archive you downloaded for [Read Data](https://stefanocoretta.github.io/qdal/ch-read-data.html) chapter of the textbook. Information about the data can be found on the [QML Data](https://uoelel.github.io/qml-data/) website (which is also where you downloaded the data from).
 :::
 
 ::: callout-note
