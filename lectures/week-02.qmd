@@ -95,6 +95,8 @@ Note that inconclusive does not mean "there is no bilingual advantage". It means
 
 ![](/img/uncert-var.png){fig-align="center"}
 
+[Images by [Stickers](https://www.flaticon.com/authors/stickers).]{style="font-size: 10px;"}
+
 ## 
 
 :::::: columns
