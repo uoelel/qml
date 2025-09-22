@@ -93,6 +93,8 @@ Note that inconclusive does not mean "there is no bilingual advantage". It means
 -   **Variability** is found among different observations of the same phenomenon, due to natural fluctuations and measurement error.
 :::
 
+![](/img/uncert-var.png){fig-align="center"}
+
 ## 
 
 :::::: columns
