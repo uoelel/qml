@@ -23,15 +23,15 @@ bibliography: references.bib
 
 Discuss the following practices: are they questionable?
 
-1. A researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.
+1.  A researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.
 
-2. A researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.
+2.  A researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.
 
-3. After running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.
+3.  After running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.
 
-4. A research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.
+4.  A research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.
 
-5. An author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions).
+5.  An author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions).
 :::
 ::::
 
@@ -59,7 +59,7 @@ Discuss the following practices: are they questionable?
 
 -   Go to <https://stefanocoretta.github.io/qrp/>.
 
--   Play the game three times to publish a paper: the goal is to publish all three!
+-   **Play the game three times** to publish three papers: the goal is to publish all three!
 
 -   You need to balance Integrity and Career points and beat the reviewers lottery.
 :::
@@ -80,3 +80,24 @@ Discuss the following practices: are they questionable?
 <iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaeef3159e7d9874e6a17e" width="100%"></iframe>
 ```
 
+## Peer-review for better or worse?
+
+::: {.callout-note appearance="simple"}
+A few studies looking at the effectiveness of peer-review [@smith2006; @white2003; @jefferson2002; @jefferson2007; @bruce2016; @garciacosta2022; @stephen2022].
+
+-   Little empirical evidence that peer review ensures quality.
+
+-   Changes to manuscript contents are limited.
+
+-   Statistical content increases after review.
+
+-   Training reviewers does not improve manuscript.
+
+-   Most suggestions are ignored when re-submitting to a different journal.
+:::
+
+## Registered Reports
+
+![](/img/registered_reports.png){fig-align="center"}
+
+## References
