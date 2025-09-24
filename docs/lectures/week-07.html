@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Stefano Coretta">
   <title>QML – QML - Week 7</title>
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-b001fedea81a26c5a04d6c2e04486866.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-6758e170412b7abf6506150a5533c7aa.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -153,6 +153,63 @@ Stefano Coretta
 <iframe allowfullscreen="" frameborder="0" height="100%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d4127b003fb9fde7a375d6" width="100%"></iframe>
 </div><div class="column" style="width:30%;">
 <iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&amp;color=indigo&amp;hrs=0&amp;min=10&amp;sec=0" frameborder="0"></iframe>
+</div></div>
+</section>
+<section id="the-statements" class="slide level2">
+<h2>The statements</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ol type="1">
+<li><p>You have absolutely disproved the null hypothesis (that is, there is no difference between the population means).</p></li>
+<li><p>You have found the probability of the null hypothesis being true.</p></li>
+<li><p>You have absolutely proved your experimental hypothesis (that there is a difference between the population means).</p></li>
+<li><p>You can deduce the probability of the experimental hypothesis being true.</p></li>
+<li><p>You know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.</p></li>
+<li><p>You have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-significance-is-not-meaningful" class="slide level2">
+<h2>Statistical significance is not meaningful</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>Simulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.</p></li>
+<li><p>N is sample size: from 50 to 500.</p></li>
+<li><p>For each N, simulate N observations 100 times (100 draws). For each draw get the <em>p</em>-value of the difference. So 100 p-values for each N.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-significance-is-not-meaningful-1" class="slide level2">
+<h2>Statistical significance is not meaningful</h2>
+
+<img data-src="week-07_files/figure-revealjs/sample-size-1.png" width="960" class="r-stretch"></section>
+<section id="group-activity" class="slide level2">
+<h2>Group activity</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Focus on the results sections of these papers and discuss how they compare with one another.</p>
+<div style="font-size: 15px;">
+<ul>
+<li><p><a href="https://doi.org/10.1111/cogs.13429">Evaluating the Relative Importance of Wordhood Cues Using Statistical Learning</a>.</p></li>
+<li><p><a href="https://doi.org/10.1177/02676583251348942">Brain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions</a>.</p></li>
+<li><p><a href="https://doi.org/10.2307/452621">Notes on the length of vowels</a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:30%;">
+<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&amp;color=indigo&amp;hrs=0&amp;min=20&amp;sec=0" frameborder="0"></iframe>
 </div></div>
 
 
@@ -346,7 +403,7 @@ Stefano Coretta
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -372,6 +429,44 @@ Stefano Coretta
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
@@ -420,13 +515,14 @@ Stefano Coretta
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

@@ -691,5 +691,33 @@
     "title": "QML - Week 7",
     "section": "Statistical significance",
     "text": "Statistical significance\n\n\n\nSuppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose you use a simple independent means t-test and your result is signiﬁcant (t = 2.7, d.f. = 18, p = 0.01)."
+  },
+  {
+    "objectID": "lectures/week-07.html#the-statements",
+    "href": "lectures/week-07.html#the-statements",
+    "title": "QML - Week 7",
+    "section": "The statements",
+    "text": "The statements\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
+  },
+  {
+    "objectID": "lectures/week-07.html#statistical-significance-is-not-meaningful",
+    "href": "lectures/week-07.html#statistical-significance-is-not-meaningful",
+    "title": "QML - Week 7",
+    "section": "Statistical significance is not meaningful",
+    "text": "Statistical significance is not meaningful\n\n\n\n\nSimulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.\nN is sample size: from 50 to 500.\nFor each N, simulate N observations 100 times (100 draws). For each draw get the p-value of the difference. So 100 p-values for each N."
+  },
+  {
+    "objectID": "lectures/week-07.html#statistical-significance-is-not-meaningful-1",
+    "href": "lectures/week-07.html#statistical-significance-is-not-meaningful-1",
+    "title": "QML - Week 7",
+    "section": "Statistical significance is not meaningful",
+    "text": "Statistical significance is not meaningful"
+  },
+  {
+    "objectID": "lectures/week-07.html#group-activity",
+    "href": "lectures/week-07.html#group-activity",
+    "title": "QML - Week 7",
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nFocus on the results sections of these papers and discuss how they compare with one another.\n\n\nEvaluating the Relative Importance of Wordhood Cues Using Statistical Learning.\nBrain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions.\nNotes on the length of vowels."
   }
 ]

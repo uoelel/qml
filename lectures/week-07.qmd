@@ -44,7 +44,17 @@ Suppose you have a treatment that you suspect may alter performance on a certain
 6.  You have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions.
 :::
 
-## Sample size
+## Statistical significance is not meaningful
+
+::: {.callout-note appearance="simple"}
+-   Simulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.
+
+-   N is sample size: from 50 to 500.
+
+-   For each N, simulate N observations 100 times (100 draws). For each draw get the *p*-value of the difference. So 100 p-values for each N.
+:::
+
+## Statistical significance is not meaningful
 
 ```{r}
 #| label: sample-size
@@ -52,18 +62,18 @@ Suppose you have a treatment that you suspect may alter performance on a certain
 #| message: false
 
 library(tidyverse)
+theme_set(theme_light())
 
-set.seed(9234)
-
-sample_sizes <- c(2, 5, 10, 20, 50, 100, 200, 500)
+sample_sizes <- seq(25, 500, by = 25)
 n_draws <- 100
 
 simulate_ttest <- function(n) {
+  set.seed(8723)
   tibble(
     draw = 1:n_draws,
     p_value = map_dbl(1:n_draws, ~ {
       group1 <- rnorm(n, mean = 0, sd = 1)
-      group2 <- rnorm(n, mean = 0, sd = 1)
+      group2 <- rnorm(n, mean = 0.3, sd = 1)
       t.test(group1, group2)$p.value
     })
   )
@@ -72,11 +82,46 @@ simulate_ttest <- function(n) {
 results <- map_dfr(
   sample_sizes,
   ~simulate_ttest(.x) |> mutate(sample_size = .x)
-) |> 
-  group_by(sample_size) |> 
-  count(p_value < 0.05)
+)
 
 results |> 
-  ggplot(aes(as.factor(sample_size), p_value)) +
-  geom_point()
+  ggplot(aes(as.factor(sample_size*2), p_value)) +
+  geom_hline(yintercept = 0.05, colour = "orangered4") +
+  geom_point(alpha = 0.25) +
+  scale_y_continuous(breaks = c(seq(0, 1, 0.25), 0.05)) +
+  labs(
+    x = "Sample size",
+    y = "p-value"
+  )
 ```
+
+## Group activity
+
+::::: columns
+::: {.column width="70%"}
+
+::: {.callout-note appearance="simple"}
+Focus on the results sections of these papers and discuss how they compare with one another.
+
+::: {style="font-size: 15px;"}
+- [Evaluating the Relative Importance of Wordhood Cues Using Statistical Learning](https://doi.org/10.1111/cogs.13429).
+
+- [Brain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions](https://doi.org/10.1177/02676583251348942).
+
+- [Notes on the length of vowels](https://doi.org/10.2307/452621).
+:::
+
+
+
+:::
+
+:::
+
+::: {.column width="30%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=20&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+:::::
