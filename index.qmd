@@ -72,11 +72,14 @@ We are humans first and the rapidly-changing new world we are living in now can 
 ::: {.callout-warning appearance="simple" icon="false"}
 You can reach me (Stefano) at [s.coretta\@ed.ac.uk](mailto:s.coretta@ed.ac.uk){.email} or on Teams.
 
-If you want to book **office hours** with me, you can do so here: <https://bit.ly/33BH84L>.
+If you want to book **office hours** with me, you can do so here: <https://bit.ly/33BH84L>. I have in-person and online slots Tue and Wed 2.30-5pm, and Fri 3-5pm. In-person meetings are in my office, DSB 6.05.
 
 Here's the list of course tutors:
 
--   TBA
+-   Bonnie Liu
+-   Lara Kelly-Iturriaga
+-   Pia Lehecka
+-   Ponrawee Prasertsom
 :::
 
 ### References {.unnumbered}
