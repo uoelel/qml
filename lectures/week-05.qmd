@@ -40,7 +40,7 @@ library(ggdist)
 ::::: columns
 ::: {.column width="75%"}
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
 ```
 :::
 
@@ -161,13 +161,13 @@ But what are those $\beta_0$ and $\beta_1$?
 ## The equation of a line
 
 $$
-y = a + b \cdot x
+y = \beta_0 + \beta_1 \cdot x
 $$
 
 ::: {.callout-note appearance="simple"}
--   $a$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
+-   $\beta_0$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
 
--   $b$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
+-   $\beta_1$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
 :::
 
 ## Intercept
@@ -218,26 +218,6 @@ ggplot() +
   theme(text = element_text(size = 30))
 ```
 
-## The equation of a line (bis)
-
-$$
-y = a + b \cdot x
-$$
-
-::: {.callout-note appearance="simple"}
--   $a$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
-
--   $b$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
-:::
-
-. . .
-
-$$
-y = \beta_0 + \beta_1 \cdot x
-$$
-
-\[alternative notation\]
-
 ## Regression model
 
 $$
@@ -287,6 +267,12 @@ rt_bm <- brm(
   file = "cache/rt_bm"
 )
 
+```
+
+## 
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d3b78edd9a104b0899fcc1" width="100%"></iframe>
 ```
 
 ## Model summary

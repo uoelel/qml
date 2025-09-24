@@ -578,7 +578,7 @@
     "href": "lectures/week-05.html#the-equation-of-a-line",
     "title": "QML - Week 5",
     "section": "The equation of a line",
-    "text": "The equation of a line\n\\[\ny = a + b \\cdot x\n\\]\n\n\n\n\n\\(a\\) is the line intercept: the \\(y\\) value when \\(x\\) is 0 zero.\n\\(b\\) is the line slope: the change in \\(y\\) for each unit-increase of \\(x\\)."
+    "text": "The equation of a line\n\\[\ny = \\beta_0 + \\beta_1 \\cdot x\n\\]\n\n\n\n\n\\(\\beta_0\\) is the line intercept: the \\(y\\) value when \\(x\\) is 0 zero.\n\\(\\beta_1\\) is the line slope: the change in \\(y\\) for each unit-increase of \\(x\\)."
   },
   {
     "objectID": "lectures/week-05.html#intercept",
