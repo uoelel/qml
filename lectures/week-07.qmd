@@ -1,0 +1,82 @@
+---
+title: "QML - Week 7"
+subtitle: "Frequentist statistics and the Null Ritual"
+author: "Stefano Coretta"
+format: revealjs
+bibliography: references.bib
+---
+
+## Statistical significance
+
+::: {.callout-note appearance="simple"}
+Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose you use a simple independent means t-test and your result is signiﬁcant (t = 2.7, d.f. = 18, p = 0.01).
+:::
+
+::::: columns
+::: {.column width="70%"}
+```{=html}
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d4127b003fb9fde7a375d6" width="100%"></iframe>
+```
+:::
+
+::: {.column width="30%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+:::::
+
+## The statements
+
+::: {.callout-note appearance="simple"}
+1.  You have absolutely disproved the null hypothesis (that is, there is no difference between the population means).
+
+2.  You have found the probability of the null hypothesis being true.
+
+3.  You have absolutely proved your experimental hypothesis (that there is a difference between the population means).
+
+4.  You can deduce the probability of the experimental hypothesis being true.
+
+5.  You know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.
+
+6.  You have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions.
+:::
+
+## Sample size
+
+```{r}
+#| label: sample-size
+#| echo: false
+#| message: false
+
+library(tidyverse)
+
+set.seed(9234)
+
+sample_sizes <- c(2, 5, 10, 20, 50, 100, 200, 500)
+n_draws <- 100
+
+simulate_ttest <- function(n) {
+  tibble(
+    draw = 1:n_draws,
+    p_value = map_dbl(1:n_draws, ~ {
+      group1 <- rnorm(n, mean = 0, sd = 1)
+      group2 <- rnorm(n, mean = 0, sd = 1)
+      t.test(group1, group2)$p.value
+    })
+  )
+}
+
+results <- map_dfr(
+  sample_sizes,
+  ~simulate_ttest(.x) |> mutate(sample_size = .x)
+) |> 
+  group_by(sample_size) |> 
+  count(p_value < 0.05)
+
+results |> 
+  ggplot(aes(as.factor(sample_size), p_value)) +
+  geom_point()
+```

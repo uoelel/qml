@@ -684,5 +684,12 @@
     "title": "Workshop: Week 4",
     "section": "",
     "text": "Instructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice Bayesian Gaussian modelling.\n\n\n\n\n\n\n\n\n\nTask A: Mixean Basque Voice Onset Time\n\n\n\n\nRead the egurtzegi2020/eu_vot.csv data.\nFilter the data to include only aspirated consonants.\nAnswer the following question using a Gaussian model: what is the mean and SD of aspirated VOT in Mixean Basque?\n\n\n\n\n\n\n\n\n\nTask B: Shallow morphological parsing (RT)\n\n\n\n\nRead the song2020/shallow.csv data. Familiarise yourself with the study (https://uoelel.github.io/qml-data/data/song2020/shallow.html).\nFilter the data to include only L2 data from critical trials.\nAnswer the following question using a Gaussian model: what is the mean and SD of reaction times in L2 participants?\n\n\n\n\n\n\n\n\n\nTask C: Reading fixation times (eye-tracking)\n\n\n\n\nRead berzak2025/fix-dur.csv and familiarise yourself with data documentation and study linked therein.\nAnswer the following question using a Gaussian model: what is the mean and SD of fixation durations in the data set?\nNow run another model but with only 5 participants (sample 5 random participants from the data set). What happens to the posterior distributions of the mean and SD?\n\n\n\n\n\n\n\n\n\nFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+  },
+  {
+    "objectID": "lectures/week-07.html#statistical-significance",
+    "href": "lectures/week-07.html#statistical-significance",
+    "title": "QML - Week 7",
+    "section": "Statistical significance",
+    "text": "Statistical significance\n\n\n\nSuppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose you use a simple independent means t-test and your result is signiﬁcant (t = 2.7, d.f. = 18, p = 0.01)."
   }
 ]
