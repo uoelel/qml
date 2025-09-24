@@ -20,7 +20,7 @@ format: html
 
 -   Read the `coretta2018a/ita_egg.rds` data.
 
--   Summarise relevant columns, with a particular focus on how VOT (voice onset time, column `vot`) differs depending on phonological features like place, voicing, vowel and so on.
+-   Summarise relevant columns, with a particular focus on how VOT (voice onset time, column `vot`) differs depending on phonological features like place, vowel and so on.
 :::
 
 ::: callout-note
@@ -30,11 +30,7 @@ format: html
 
 -   Install the package. Then attach it and load the data with `data("WALS")`.
 
--   Get the number of languages by features (`feature_ID` and `feature_name`) you are interested in. The features are listed [here](https://wals.info/feature).
-
--   Check the counts of "Systems of Gender Assignment" and "Order of Object and Verb" alone and together. Can you spot a preference for certain combinations of the two?
-
--   Check other feature combinations that make linguistic sense.
+-   Get the number of languages by value (`value`) for each feature (`feature_ID` and `feature`). The features are listed [here](https://wals.info/feature). Focus on features you are interested in.
 :::
 
 ::: callout-note
@@ -42,9 +38,15 @@ format: html
 
 -   Read the `tucker2019/mald_1_1.rds` data.
 
--   Summarise the data with number of participants, number of words, number of words by lexical status (real vs nonce word, `IsWord`), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.
+-   Summarise the data with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, `IsWord`), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.
 
 -   What can you tell about reaction times and accuracy based on lexical status? What about individual variation?
+:::
+
+::: {.callout-tip collapse="true"}
+## Task C: Hint
+
+To get the number of participants and words, you first need to get the unique participant IDs and unique words. `?distinct` is your friend.
 :::
 
 ::: callout-tip
