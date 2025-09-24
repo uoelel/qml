@@ -18,7 +18,7 @@ format: html
 ::: callout-note
 ## Task A: Italian Voice Onset Time
 
--   Read the `coretta2018a/ita_egg.rds` data.
+-   Read the `coretta2018a/ita_egg.rda` data. `.rda` files are read using `load()`. This function works without needing to assign the output to a variable (so it's different from the other `read*()` functions, which do require you to assign the output to a variable).
 
 -   Summarise relevant columns, with a particular focus on how VOT (voice onset time, column `vot`) differs depending on phonological features like place, vowel and so on.
 :::
