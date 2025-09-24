@@ -28,7 +28,7 @@ format: html
 
 -   The data from [WALS](https://wals.info) are available through the R package [ritwals](https://hkauhanen.fi/ritwals/index.html).
 
--   Install the package. Then attach it and load the data with `data("WALS")`.
+-   Install the package (this is done in two steps: first install devtools and then install ritwals with devtools, see linked package documentation). Then attach it and load the data with `data("WALS")`.
 
 -   Get the number of languages by value (`value`) for each feature (`feature_ID` and `feature`). The features are listed [here](https://wals.info/feature). Focus on features you are interested in.
 :::
