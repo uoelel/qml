@@ -97,25 +97,22 @@ results |>
 
 ## Group activity
 
-::::: columns
-::: {.column width="70%"}
-
-::: {.callout-note appearance="simple"}
+::::::: columns
+::::: {.column width="70%"}
+:::: {.callout-note appearance="simple"}
 Focus on the results sections of these papers and discuss how they compare with one another.
 
 ::: {style="font-size: 15px;"}
-- [Evaluating the Relative Importance of Wordhood Cues Using Statistical Learning](https://doi.org/10.1111/cogs.13429).
+-   [Evaluating the Relative Importance of Wordhood Cues Using Statistical Learning](https://doi.org/10.1111/cogs.13429).
 
-- [Brain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions](https://doi.org/10.1177/02676583251348942).
+-   [Brain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions](https://doi.org/10.1177/02676583251348942).
 
-- [Notes on the length of vowels](https://doi.org/10.2307/452621).
+-   [Notes on the length of vowels](https://doi.org/10.2307/452621).
 :::
 
-
-
-:::
-
-:::
+How are the statistical approaches different? Which papers focus more on general directional patterns vs more precise estimation? How are the results weighted and use as evidence?
+::::
+:::::
 
 ::: {.column width="30%"}
 ```{=html}
@@ -124,4 +121,4 @@ Focus on the results sections of these papers and discuss how they compare with 
                     frameborder="0"></iframe>
 ```
 :::
-:::::
+:::::::
