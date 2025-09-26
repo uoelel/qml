@@ -6,7 +6,7 @@ format: html
 ::: callout-important
 ## Instructions
 
--   Pick two of the following tasks and work through them in group.
+-   Complete Task A and then pick of the other two tasks.
 
 -   If you are unsure about anything, please ask us for directions!
 

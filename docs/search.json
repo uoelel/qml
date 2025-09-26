@@ -11,7 +11,7 @@
     "href": "workshops/week-03.html",
     "title": "Workshop: Week 3",
     "section": "",
-    "text": "ImportantInstructions\n\n\n\n\nPick two of the following tasks and work through them in group.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice this week’s R skills.\n\n\n\n\n\n\n\n\n\nNoteTask A: Albanian Voice Onset Time\n\n\n\n\nRead the coretta2021/alb-vot.csv data.\nCalculate the VOT based on the release and voice_onset columns. (VOT is the time lag between the voicing onset and the consonant release).\nCreate a new column that specifies the voicing of the consonant (voiced or voiceless) based on the value in label. ifelse() or case_when() are useful.\nGet summary measures of VOT for voiceless and voiced consonants. Can the VOT differentiate between the two voicing categories?\n\n\n\n\n\n\n\n\n\nNoteTask B: Albanian vowels\n\n\n\n\nRead the coretta2021/alb_formants.rds data.\nCreate a scatter plot of F1 and F2, with points coloured by vowel. Are the vowels in the places you’d expect them to be?\nNow create another scatter plot with F1 and vowel duration. You need to calculate vowel duration first from start and end. Can you notice any patterns in the relationship between F1 and vowel duration?\n\n\n\n\n\n\n\n\n\nNoteTask C: ‘Everywhere here can say this’\n\n\n\n\nRead the slukin2022/everywhere-loc.csv data. The data are acceptability judgments on the impersonal use of “everywhere”, like in the sentence “Everywhere here can say this”.\nThe Restrictor column tells you if the sentence has a restrictor, like in “Everywhere on the coast eats fish and chips.” vs no restrictor “Everywhere takes credit cards these days.” The Value column gives you the acceptability rating from 1 to 7.\nMutate the Restrictor column so that 0 = “no restrictor” and 1 = “restrictor”.\nMutate the Value column so that it is a character column (use as.character()).\nCreate a filled stacked bar chart by Restrictor with fill by Value and panels by Age. Can you spot differences in rating across different age brackets?\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+    "text": "ImportantInstructions\n\n\n\n\nComplete Task A and then pick of the other two tasks.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice this week’s R skills.\n\n\n\n\n\n\n\n\n\nNoteTask A: Albanian Voice Onset Time\n\n\n\n\nRead the coretta2021/alb-vot.csv data.\nCalculate the VOT based on the release and voice_onset columns. (VOT is the time lag between the voicing onset and the consonant release).\nCreate a new column that specifies the voicing of the consonant (voiced or voiceless) based on the value in label. ifelse() or case_when() are useful.\nGet summary measures of VOT for voiceless and voiced consonants. Can the VOT differentiate between the two voicing categories?\n\n\n\n\n\n\n\n\n\nNoteTask B: Albanian vowels\n\n\n\n\nRead the coretta2021/alb_formants.rds data.\nCreate a scatter plot of F1 and F2, with points coloured by vowel. Are the vowels in the places you’d expect them to be?\nNow create another scatter plot with F1 and vowel duration. You need to calculate vowel duration first from start and end. Can you notice any patterns in the relationship between F1 and vowel duration?\n\n\n\n\n\n\n\n\n\nNoteTask C: ‘Everywhere here can say this’\n\n\n\n\nRead the slukin2022/everywhere-loc.csv data. The data are acceptability judgments on the impersonal use of “everywhere”, like in the sentence “Everywhere here can say this”.\nThe Restrictor column tells you if the sentence has a restrictor, like in “Everywhere on the coast eats fish and chips.” vs no restrictor “Everywhere takes credit cards these days.” The Value column gives you the acceptability rating from 1 to 7.\nMutate the Restrictor column so that 0 = “no restrictor” and 1 = “restrictor”.\nMutate the Value column so that it is a character column (use as.character()).\nCreate a filled stacked bar chart by Restrictor with fill by Value and panels by Age. Can you spot differences in rating across different age brackets?\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
   },
   {
     "objectID": "workshops.html",
@@ -675,36 +675,36 @@
     "objectID": "lectures/week-07.html#statistical-significance",
     "href": "lectures/week-07.html#statistical-significance",
     "title": "QML - Week 7",
-    "section": "Statistical significance",
-    "text": "Statistical significance\n\n\n\nSuppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose you use a simple independent means t-test and your result is signiﬁcant (t = 2.7, d.f. = 18, p = 0.01)."
+    "section": "",
+    "text": "Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose you use a simple independent means t-test and your result is signiﬁcant (t = 2.7, d.f. = 18, p = 0.01)."
   },
   {
     "objectID": "lectures/week-07.html#the-statements",
     "href": "lectures/week-07.html#the-statements",
     "title": "QML - Week 7",
-    "section": "The statements",
-    "text": "The statements\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
+    "section": "2 The statements",
+    "text": "2 The statements\n\n\n\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
   },
   {
     "objectID": "lectures/week-07.html#statistical-significance-is-not-meaningful",
     "href": "lectures/week-07.html#statistical-significance-is-not-meaningful",
     "title": "QML - Week 7",
-    "section": "Statistical significance is not meaningful",
-    "text": "Statistical significance is not meaningful\n\n\n\n\nSimulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.\nN is sample size: from 50 to 500.\nFor each N, simulate N observations 100 times (100 draws). For each draw get the p-value of the difference. So 100 p-values for each N."
+    "section": "3 Statistical significance is not meaningful",
+    "text": "3 Statistical significance is not meaningful\n\n\n\n\n\n\n\nSimulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.\nN is sample size: from 50 to 500.\nFor each N, simulate N observations 100 times (100 draws). For each draw get the p-value of the difference. So 100 p-values for each N."
   },
   {
     "objectID": "lectures/week-07.html#statistical-significance-is-not-meaningful-1",
     "href": "lectures/week-07.html#statistical-significance-is-not-meaningful-1",
     "title": "QML - Week 7",
-    "section": "Statistical significance is not meaningful",
-    "text": "Statistical significance is not meaningful"
+    "section": "4 Statistical significance is not meaningful",
+    "text": "4 Statistical significance is not meaningful"
   },
   {
     "objectID": "lectures/week-07.html#group-activity",
     "href": "lectures/week-07.html#group-activity",
     "title": "QML - Week 7",
-    "section": "Group activity",
-    "text": "Group activity\n\n\n\n\n\nFocus on the results sections of these papers and discuss how they compare with one another.\n\n\nEvaluating the Relative Importance of Wordhood Cues Using Statistical Learning.\nBrain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions.\nNotes on the length of vowels.\n\n\nHow are the statistical approaches different? Which papers focus more on general directional patterns vs more precise estimation? How are the results weighted and use as evidence?"
+    "section": "5 Group activity",
+    "text": "5 Group activity\n\n\n\n\n\n\n\n\nFocus on the results sections of these papers and discuss how they compare with one another.\n\n\nEvaluating the Relative Importance of Wordhood Cues Using Statistical Learning.\nBrain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions.\nNotes on the length of vowels.\n\n\nHow are the statistical approaches different? Which papers focus more on general directional patterns vs more precise estimation? How are the results weighted and use as evidence?"
   },
   {
     "objectID": "workshops/week-02.html",
@@ -719,5 +719,12 @@
     "title": "Workshop: Week 4",
     "section": "",
     "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice Bayesian Gaussian modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Mixean Basque Voice Onset Time\n\n\n\n\nRead the egurtzegi2020/eu_vot.csv data.\nFilter the data to include only aspirated consonants.\nAnswer the following question using a Gaussian model: what is the mean and SD of aspirated VOT in Mixean Basque?\n\n\n\n\n\n\n\n\n\nNoteTask B: Shallow morphological parsing (RT)\n\n\n\n\nRead the song2020/shallow.csv data. Familiarise yourself with the study (https://uoelel.github.io/qml-data/data/song2020/shallow.html).\nFilter the data to include only L2 data from critical trials.\nAnswer the following question using a Gaussian model: what is the mean and SD of reaction times in L2 participants?\n\n\n\n\n\n\n\n\n\nNoteTask C: Reading fixation times (eye-tracking)\n\n\n\n\nRead berzak2025/fix-dur.csv and familiarise yourself with data documentation and study linked therein.\nAnswer the following question using a Gaussian model: what is the mean and SD of fixation durations in the data set?\nNow run another model but with only 5 participants (sample 5 random participants from the data set). What happens to the posterior distributions of the mean and SD?\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+  },
+  {
+    "objectID": "lectures/week-07.html",
+    "href": "lectures/week-07.html",
+    "title": "QML - Week 7",
+    "section": "",
+    "text": "Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose you use a simple independent means t-test and your result is signiﬁcant (t = 2.7, d.f. = 18, p = 0.01)."
   }
 ]
