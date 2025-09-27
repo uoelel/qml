@@ -16,7 +16,19 @@ format: html
 :::
 
 ::: callout-note
-## Task A: Pupil width
+## Task A: Vowel duration and vowel category
+
+-   Read the `coretta2018/token-measures.csv` data.
+
+-   Fit a regression model to answer the following question: do different vowels have different durations?
+
+-   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the posterior predictions for each vowel.
+
+- Discuss the results with your group (no need to write the discussion).
+:::
+
+::: callout-note
+## Task B: Pupil width
 
 -   Read the `mclaughlin2023/pupil-width.csv` data.
 
@@ -28,7 +40,7 @@ format: html
 :::
 
 ::: callout-note
-## Task B: Shallow Structure Hypothesis
+## Task C: Shallow Structure Hypothesis
 
 -   Read the `song2020/shallow.csv` data.
 
