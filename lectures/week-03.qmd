@@ -21,7 +21,7 @@ bibliography: references.bib
 ::: callout-note
 ### Group activity
 
-Discuss the following practices: are they questionable?
+Discuss the following practices: are they questionable? Why?
 
 1.  A researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.
 

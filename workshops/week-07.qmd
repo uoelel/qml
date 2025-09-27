@@ -1,0 +1,52 @@
+---
+title: "Workshop: Week 7"
+format: html
+---
+
+::: callout-important
+## Instructions
+
+-   Pick one of the following tasks and work through it in group.
+
+-   While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.
+
+-   If you are unsure about anything, please ask us for directions! You can find information about the data on the [QML Data](https://uoelel.github.io/qml-data/) website.
+
+-   The tasks are designed for you to practice Bayesian Gaussian modelling.
+:::
+
+::: callout-note
+## Task A: Pupil width
+
+-   Read the `mclaughlin2023/pupil-width.csv` data.
+
+-   Fit a regression model to answer the following question: is the average maximum pupil size different when recognising words from dense lexical neighbourhoods compared to words from sparse lexical neighbourhoods?
+
+-   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the posterior predictions for the dense and sparse condition.
+
+- Discuss the results with your group (no need to write the discussion).
+:::
+
+::: callout-note
+## Task B: Shallow Structure Hypothesis
+
+-   Read the `song2020/shallow.csv` data.
+
+- Filter the data so it contains only L2 data and critical trials.
+
+-   Fit a regression model to answer the following question: how does relation type of prime-target affect reaction times in L2 speakers of English?
+
+-   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the posterior predictions for each relation type.
+
+- Discuss the results with your group (no need to write the discussion).
+:::
+
+
+::: callout-tip
+## Feedback
+
+For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
+
+**We will not provide you with model answers**, so make sure you make the most of us in person.
+:::
+

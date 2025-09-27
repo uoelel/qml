@@ -11,8 +11,8 @@ This page lists the challenges to be completed as group work during the workshop
 | Week 3 | [Workshop](workshops/week-03.qmd) |
 | Week 4 | [Workshop](workshops/week-04.qmd) |
 | Week 5 | [Workshop](workshops/week-05.qmd) |
-| Week 6 |  |
-| Week 7 |  |
+| Week 6 | *No classes* |
+| Week 7 | [Workshop](workshops/week-07.qmd) |
 | Week 8 |  |
 | Week 9 |  |
 | Week 10 |  |
