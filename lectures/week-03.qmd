@@ -38,7 +38,7 @@ Discuss the following practices: are they questionable? Why?
 ::: {.column width="25%"}
 ```{=html}
 <iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" 
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=15&sec=0" 
                     frameborder="0"></iframe>
 ```
 :::
@@ -68,7 +68,7 @@ Discuss the following practices: are they questionable? Why?
 ::: {.column width="25%"}
 ```{=html}
 <iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=15&sec=0" 
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" 
                     frameborder="0"></iframe>
 ```
 :::
