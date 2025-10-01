@@ -19,7 +19,7 @@ library(bayesplot)
 ```
 
 ::: callout-note
-**Probability**
+### Probability
 
 -   Probability of an event occurring.
 
@@ -30,15 +30,11 @@ library(bayesplot)
     -   ✅ 1 means **certain**.
 :::
 
-## Probabilities
-
 ![](/img/probabilities.png){fig-align="center"}
 
-## 
+## Probabilities
 
-::: callout-note
-### **Probability**
-
+::: {.callout-note appearance="simple"}
 -   Probability of an event occurring: 0 to 100% probability.
 
 -   **Probability of a statistical variable being some numeric value**: a bit more complicated...
@@ -114,9 +110,9 @@ ggplot(beta_df, aes(x = x, y = density)) +
 ## Parameters
 
 ::: {.callout-note appearance="simple"}
-- **Probability distributions can be summarised with a set of parameters.**
-  
-- Different types of probability distributions have a different number of parameters and different parameters.
+-   **Probability distributions can be summarised with a set of parameters.**
+
+-   Different types of probability distributions have a different number of parameters and different parameters.
 :::
 
 . . .
@@ -126,8 +122,8 @@ ggplot(beta_df, aes(x = x, y = density)) +
 
 The **Gaussian probability distribution** is a continuous probability distribution and it has two parameters:
 
-- The mean $\mu$.
-- The standard deviation (SD) $\sigma$.
+-   The mean $\mu$.
+-   The standard deviation (SD) $\sigma$.
 
 Go to [Seeing Theory](https://seeing-theory.brown.edu/probability-distributions/index.html#section2) (by Daniel Kunin).
 :::
@@ -143,10 +139,9 @@ Seeing Theory was created by Daniel Kunin while an undergraduate at Brown Univer
 ::: callout-note
 ### Human height
 
-- Simulate human height as a Gaussian variable.
+-   Simulate human height as a Gaussian variable.
 
-- `rnorm()`: number of observations, mean, SD.
-
+-   `rnorm()`: number of observations, mean, SD.
 :::
 
 . . .
@@ -164,11 +159,9 @@ height[1:10]
 ## Kernel Density Estimation
 
 ::: {.callout-note appearance="simple"}
+-   PDF constructs the density curve of theoretical distributions.
 
-- PDF constructs the density curve of theoretical distributions.
-
-- **Kernel Density Estimation** (KDE) constructs the density curve of empirical data (observations).
-
+-   **Kernel Density Estimation** (KDE) constructs the density curve of empirical data (observations).
 :::
 
 . . .
@@ -186,26 +179,22 @@ ggplot() +
 ## Statistical modelling
 
 ::: {.callout-note appearance="simple"}
+-   When you simulate data, you know the population mean and SD.
 
-- When you simulate data, you know the population mean and SD.
-
-- In research, you don't. You just have observations.
-
+-   In research, you don't. You just have observations.
 :::
 
 . . .
 
-::: {.callout-tip}
+::: callout-tip
 ### Statistical modelling
 
-- Statistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference.
+-   Statistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference.
 
-- **Bayesian Gaussian models** do exactly that: estimate mean and SD.
-
+-   **Bayesian Gaussian models** do exactly that: estimate mean and SD.
 :::
 
 ## Gaussian model of height
-
 
 $$
 \begin{align}
@@ -226,9 +215,7 @@ h & \sim Gaussian(\mu, \sigma)\\
 $$
 
 ::: {.callout-tip appearance="simple"}
-
-- $P$ is a **posterior probability distribution**.
-
+-   $P$ is a **posterior probability distribution**.
 :::
 
 ## Gaussian model of height: brms
@@ -251,7 +238,6 @@ h_bm <- brm(
 
 ## Gaussian model of height: posteriors
 
-
 ```{r}
 #| label: h-bm-plot
 
@@ -269,9 +255,9 @@ mcmc_dens(h_bm, pars = c("b_Intercept", "sigma"),
 ::: callout-note
 ### Sample size
 
-- Sample size matters: the lower the sample size, the higher the uncertainty.
+-   Sample size matters: the lower the sample size, the higher the uncertainty.
 
-- Let's try with just 5 observations (out of 200).
+-   Let's try with just 5 observations (out of 200).
 :::
 
 ## A bit harder: N = 5
@@ -290,7 +276,6 @@ h_bm_small <- brm(
 )
 ```
 
-
 ```{r}
 #| label: h-bm-small-plot
 
@@ -306,15 +291,13 @@ mcmc_dens(h_bm_small, pars = c("b_Intercept", "sigma"),
 ## Summary
 
 ::: {.callout-note appearance="simple"}
+-   Probability distributions describe how probability is distributed across values.
 
-- Probability distributions describe how probability is distributed across values.
+-   Theoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.
 
-- Theoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.
+-   KDE is used for empirical distributions.
 
-- KDE is used for empirical distributions.
+-   (Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.
 
-- (Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.
-
-- Sample size affects uncertainty.
-
+-   Sample size affects uncertainty.
 :::
