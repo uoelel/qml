@@ -231,12 +231,15 @@ $$
 
 :::
 
-## Gaussian model of height: posteriors
+## Gaussian model of height: brms
 
 ```{r}
 #| label: h-bm
+#| echo: true
 
 h_tib <- tibble(h = height)
+
+library(brms)
 
 h_bm <- brm(
   h ~ 1,
@@ -245,6 +248,9 @@ h_bm <- brm(
   file = "cache/h_bm"
 )
 ```
+
+## Gaussian model of height: posteriors
+
 
 ```{r}
 #| label: h-bm-plot
@@ -301,9 +307,9 @@ mcmc_dens(h_bm_small, pars = c("b_Intercept", "sigma"),
 
 ::: {.callout-note appearance="simple"}
 
-- We discovered probabilities and probability distributions.
+- Probability distributions describe how probability is distributed across values.
 
-- Theoretical probability distributions can be described with PMF/PDF and parameters.
+- Theoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.
 
 - KDE is used for empirical distributions.
 

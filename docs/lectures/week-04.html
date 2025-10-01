@@ -470,6 +470,21 @@ h &amp; \sim Gaussian(\mu, \sigma)\\
 </div>
 </div>
 </section>
+<section id="gaussian-model-of-height-brms" class="slide level2">
+<h2>Gaussian model of height: brms</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>h_tib <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">h =</span> height)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="fu">library</span>(brms)</span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a>h_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb3-6"><a></a>  h <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb3-7"><a></a>  <span class="at">family =</span> gaussian,</span>
+<span id="cb3-8"><a></a>  <span class="at">data =</span> h_tib,</span>
+<span id="cb3-9"><a></a>  <span class="at">file =</span> <span class="st">"cache/h_bm"</span></span>
+<span id="cb3-10"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
 <section id="gaussian-model-of-height-posteriors" class="slide level2">
 <h2>Gaussian model of height: posteriors</h2>
 
@@ -500,8 +515,8 @@ h &amp; \sim Gaussian(\mu, \sigma)\\
 <div class="callout-body">
 <div class="callout-content">
 <ul>
-<li><p>We discovered probabilities and probability distributions.</p></li>
-<li><p>Theoretical probability distributions can be described with PMF/PDF and parameters.</p></li>
+<li><p>Probability distributions describe how probability is distributed across values.</p></li>
+<li><p>Theoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.</p></li>
 <li><p>KDE is used for empirical distributions.</p></li>
 <li><p>(Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.</p></li>
 <li><p>Sample size affects uncertainty.</p></li>
