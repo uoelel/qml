@@ -231,14 +231,9 @@ Stefano Coretta
 </div>
 </div>
 </section>
-<section id="group-activity" class="slide level2">
-<h2>Group activity</h2>
-<div class="columns">
-<div class="column" style="width:75%;">
-<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
-</div><div class="column" style="width:25%;">
-<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&amp;color=indigo&amp;hrs=0&amp;min=5&amp;sec=0" frameborder="0"></iframe>
-</div></div>
+<section id="which-relationship" class="slide level2">
+<h2>Which relationship?</h2>
+<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 455px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
 </section>
 <section id="the-data" class="slide level2">
 <h2>The data</h2>
@@ -266,19 +261,19 @@ Stefano Coretta
 <section id="reaction-times" class="slide level2">
 <h2>Reaction times</h2>
 
-<img data-src="week-05_files/figure-revealjs/rts-plot-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-05_files/figure-revealjs/rts-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="word-frequency" class="slide level2">
 <h2>Word frequency</h2>
 
-<img data-src="week-05_files/figure-revealjs/freq-plot-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-05_files/figure-revealjs/freq-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="word-frequency-logged" class="slide level2">
 <h2>Word frequency: logged</h2>
 
-<img data-src="week-05_files/figure-revealjs/freq-log-plot-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-05_files/figure-revealjs/freq-log-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="word-frequency-and-rts" class="slide level2">
 <h2>Word frequency and RTs</h2>
 
-<img data-src="week-05_files/figure-revealjs/rt-freq-plot-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-05_files/figure-revealjs/rt-freq-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="gaussian-model-of-rt" class="slide level2">
 <h2>Gaussian model of RT</h2>
 <p><span class="math display">\[
@@ -337,11 +332,11 @@ y = \beta_0 + \beta_1 \cdot x
 <section id="intercept" class="slide level2">
 <h2>Intercept</h2>
 
-<img data-src="week-05_files/figure-revealjs/int-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="week-05_files/figure-revealjs/int-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="slope" class="slide level2">
 <h2>Slope</h2>
 
-<img data-src="week-05_files/figure-revealjs/slo-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="week-05_files/figure-revealjs/slo-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="regression-model" class="slide level2">
 <h2>Regression model</h2>
 <p><span class="math display">\[
@@ -397,7 +392,7 @@ RT &amp; \sim Gaussian(\mu, \sigma)\\
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">summary</span>(rt_bm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: gaussian 
-  Links: mu = identity; sigma = identity 
+  Links: mu = identity 
 Formula: rt ~ 1 + log_freq 
    Data: croat (Number of observations: 2612) 
   Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
@@ -445,7 +440,7 @@ log_freq   -45.56409  1.142898  -47.81221  -43.33064</code></pre>
 <section id="posterior-distribution-intercept" class="slide level2">
 <h2>Posterior distribution: intercept</h2>
 
-<img data-src="week-05_files/figure-revealjs/rt-bm-int-dens-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-05_files/figure-revealjs/rt-bm-int-dens-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="regression-coefficients-slope" class="slide level2">
 <h2>Regression coefficients: slope</h2>
 <div class="cell">
@@ -473,11 +468,11 @@ log_freq   -45.56409  1.142898  -47.81221  -43.33064</code></pre>
 <section id="posterior-distribution-slope" class="slide level2">
 <h2>Posterior distribution: slope</h2>
 
-<img data-src="week-05_files/figure-revealjs/rt-bm-slo-dens-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-05_files/figure-revealjs/rt-bm-slo-dens-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="posterior-predictions" class="slide level2">
 <h2>Posterior predictions</h2>
 
-<img data-src="week-05_files/figure-revealjs/rt-bm-cond-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-05_files/figure-revealjs/rt-bm-cond-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="word-frequency-and-reaction-times-bis" class="slide level2">
 <h2>Word frequency and reaction times (bis)</h2>
 <div class="callout callout-tip no-icon callout-style-simple">

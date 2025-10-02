@@ -25,14 +25,14 @@
     "href": "lectures/week-07.html#statistical-significance",
     "title": "QML - Week 7",
     "section": "Statistical significance",
-    "text": "Statistical significance\n\n\n\nSuppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose you use a simple independent means t-test and your result is signiﬁcant (t = 2.7, d.f. = 18, p = 0.01)."
+    "text": "Statistical significance\n\n\n\nSuppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a p-value of 0.01. Which of the following statements are FALSE?\n\n\n\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
   },
   {
-    "objectID": "lectures/week-07.html#the-statements",
-    "href": "lectures/week-07.html#the-statements",
+    "objectID": "lectures/week-07.html#which-statements-are-false",
+    "href": "lectures/week-07.html#which-statements-are-false",
     "title": "QML - Week 7",
-    "section": "The statements",
-    "text": "The statements\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
+    "section": "Which statements are false?",
+    "text": "Which statements are false?"
   },
   {
     "objectID": "lectures/week-07.html#statistical-significance-is-not-meaningful",
@@ -68,13 +68,6 @@
     "title": "QML - Week 4",
     "section": "Probabilities",
     "text": "Probabilities\n\n\n\n\nProbability of an event occurring: 0 to 100% probability.\nProbability of a statistical variable being some numeric value: a bit more complicated…\n\n\n\n\n\n\n\n\nWe need probability distributions!"
-  },
-  {
-    "objectID": "lectures/week-04.html#section",
-    "href": "lectures/week-04.html#section",
-    "title": "QML - Week 4",
-    "section": "",
-    "text": "Probability\n\n\n\nProbability of an event occurring: 0 to 100% probability.\nProbability of a statistical variable being some numeric value: a bit more complicated…\n\n\n\n\n\n\n\n\nWe need probability distributions!"
   },
   {
     "objectID": "lectures/week-04.html#distribution-of-probability",
@@ -152,6 +145,13 @@
     "title": "QML - Week 4",
     "section": "Gaussian model of height",
     "text": "Gaussian model of height\n\\[\n\\begin{align}\nh & \\sim Gaussian(\\mu, \\sigma)\\\\\n\\mu & = P_\\mu\\\\\n\\sigma & = P_\\sigma\n\\end{align}\n\\]\n\n\n\n\n\\(P\\) is a posterior probability distribution."
+  },
+  {
+    "objectID": "lectures/week-04.html#gaussian-model-of-height-brms",
+    "href": "lectures/week-04.html#gaussian-model-of-height-brms",
+    "title": "QML - Week 4",
+    "section": "Gaussian model of height: brms",
+    "text": "Gaussian model of height: brms\n\nh_tib &lt;- tibble(h = height)\n\nlibrary(brms)\n\nh_bm &lt;- brm(\n  h ~ 1,\n  family = gaussian,\n  data = h_tib,\n  file = \"cache/h_bm\"\n)"
   },
   {
     "objectID": "lectures/week-04.html#gaussian-model-of-height-posteriors",
@@ -500,50 +500,50 @@
     "objectID": "lectures/week-03.html#questionable-research-practices-qrps",
     "href": "lectures/week-03.html#questionable-research-practices-qrps",
     "title": "QML - Week 3",
-    "section": "2 Questionable Research Practices (QRPs)",
-    "text": "2 Questionable Research Practices (QRPs)"
+    "section": "Questionable Research Practices (QRPs)",
+    "text": "Questionable Research Practices (QRPs)"
   },
   {
     "objectID": "lectures/week-03.html#section",
     "href": "lectures/week-03.html#section",
     "title": "QML - Week 3",
-    "section": "3 ",
-    "text": "3 \n\n\n\n\n\n\n\n\nNoteGroup activity\n\n\n\nDiscuss the following practices: are they questionable? Why?\n\nA researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.\nA researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.\nAfter running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.\nA research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.\nAn author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions)."
+    "section": "",
+    "text": "Group activity\n\n\nDiscuss the following practices: are they questionable? Why?\n\nA researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.\nA researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.\nAfter running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.\nA research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.\nAn author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions)."
   },
   {
     "objectID": "lectures/week-03.html#share-your-thoughts",
     "href": "lectures/week-03.html#share-your-thoughts",
     "title": "QML - Week 3",
-    "section": "4 Share your thoughts",
-    "text": "4 Share your thoughts"
+    "section": "Share your thoughts",
+    "text": "Share your thoughts"
   },
   {
     "objectID": "lectures/week-03.html#section-1",
     "href": "lectures/week-03.html#section-1",
     "title": "QML - Week 3",
-    "section": "5 ",
-    "text": "5 \n\n\n\n\n\n\n\n\nNoteGroup activity\n\n\n\n\nGo to https://stefanocoretta.github.io/qrp/.\nPlay the game three times to publish three papers: the goal is to publish all three!\nYou need to balance Integrity and Career points and beat the reviewers lottery."
+    "section": "",
+    "text": "Group activity\n\n\n\nGo to https://stefanocoretta.github.io/qrp/.\nPlay the game three times to publish three papers: the goal is to publish all three!\nYou need to balance Integrity and Career points and beat the reviewers lottery."
   },
   {
     "objectID": "lectures/week-03.html#share-your-final-paper-count",
     "href": "lectures/week-03.html#share-your-final-paper-count",
     "title": "QML - Week 3",
-    "section": "6 Share your final paper count",
-    "text": "6 Share your final paper count"
+    "section": "Share your final paper count",
+    "text": "Share your final paper count"
   },
   {
     "objectID": "lectures/week-03.html#peer-review-for-better-or-worse",
     "href": "lectures/week-03.html#peer-review-for-better-or-worse",
     "title": "QML - Week 3",
-    "section": "7 Peer-review for better or worse?",
-    "text": "7 Peer-review for better or worse?\n\n\n\n\n\n\nA few studies looking at the effectiveness of peer-review (Smith 2006; White 2003; Jefferson et al. 2002, 2007; Bruce et al. 2016; Garcia-Costa et al. 2022; Stephen 2022).\n\nLittle empirical evidence that peer review ensures quality.\nChanges to manuscript contents are limited.\nStatistical content increases after review.\nTraining reviewers does not improve manuscript.\nMost suggestions are ignored when re-submitting to a different journal."
+    "section": "Peer-review for better or worse?",
+    "text": "Peer-review for better or worse?\n\n\n\nA few studies looking at the effectiveness of peer-review (Smith 2006; White 2003; Jefferson et al. 2002, 2007; Bruce et al. 2016; Garcia-Costa et al. 2022; Stephen 2022).\n\nLittle empirical evidence that peer review ensures quality.\nChanges to manuscript contents are limited.\nStatistical content increases after review.\nTraining reviewers does not improve manuscript.\nMost suggestions are ignored when re-submitting to a different journal."
   },
   {
     "objectID": "lectures/week-03.html#registered-reports",
     "href": "lectures/week-03.html#registered-reports",
     "title": "QML - Week 3",
-    "section": "8 Registered Reports",
-    "text": "8 Registered Reports"
+    "section": "Registered Reports",
+    "text": "Registered Reports"
   },
   {
     "objectID": "lectures/week-03.html#references",
@@ -560,11 +560,11 @@
     "text": "Word frequency and reaction times\n\n\n\nWhat is the relationship between a word’s lexical frequency and reaction times in a lexical decision task in Croatian?\n\n\n\n\n\n\n\n\nData from Lexical decision times for nouns from the Croatian Psycholinguistic Database.\nLexical decision task (is it a real Croatian word?)\n\nReaction times.\nWord frequency: counts from the Croatian web Corpus hrWaC."
   },
   {
-    "objectID": "lectures/week-05.html#group-activity",
-    "href": "lectures/week-05.html#group-activity",
+    "objectID": "lectures/week-05.html#which-relationship",
+    "href": "lectures/week-05.html#which-relationship",
     "title": "QML - Week 5",
-    "section": "Group activity",
-    "text": "Group activity"
+    "section": "Which relationship?",
+    "text": "Which relationship?"
   },
   {
     "objectID": "lectures/week-05.html#the-data",
@@ -648,7 +648,7 @@
     "href": "lectures/week-05.html#model-summary",
     "title": "QML - Week 5",
     "section": "Model summary",
-    "text": "Model summary\n\nsummary(rt_bm)\n\n Family: gaussian \n  Links: mu = identity; sigma = identity \nFormula: rt ~ 1 + log_freq \n   Data: croat (Number of observations: 2612) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nIntercept  1106.79     11.25  1084.44  1128.79 1.00     4140     2687\nlog_freq    -45.56      1.14   -47.81   -43.33 1.00     4163     2633\n\nFurther Distributional Parameters:\n      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nsigma   104.06      1.45   101.28   107.02 1.00     4397     3032\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+    "text": "Model summary\n\nsummary(rt_bm)\n\n Family: gaussian \n  Links: mu = identity \nFormula: rt ~ 1 + log_freq \n   Data: croat (Number of observations: 2612) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nIntercept  1106.79     11.25  1084.44  1128.79 1.00     4140     2687\nlog_freq    -45.56      1.14   -47.81   -43.33 1.00     4163     2633\n\nFurther Distributional Parameters:\n      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nsigma   104.06      1.45   101.28   107.02 1.00     4397     3032\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
   },
   {
     "objectID": "lectures/week-05.html#regression-coefficients-intercept",
@@ -726,19 +726,5 @@
     "title": "Workshop: Week 5",
     "section": "",
     "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice Bayesian Gaussian modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Massive Auditory Lexical Decision (MALD)\n\n\n\n\nRead the tucker2019/mald_1_1.rds data.\nFilter the data to include only real words.\nFit a regression model to answer the following question: what is the relationship between reaction times and mean phoneme-level Levenshtein distance (PhonLev)?\n\nYou can check the publication linked on the data documentation to learn about the mean phoneme-level Levenshtein distance.\n\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\nWhy does PhonLev have the effect it has on reaction times?\n\n\n\n\n\n\n\n\n\nNoteTask B: Korean voice quality\n\n\n\n\nRead the winter2012/polite.csv data.\nFilter the data to include only female participants.\nFit a regression model of mean f0 (f0mn) and mean harmonic-to-noise ratio (HNRmn, the higher the HNR, the more modal the voice is). What is the relationship between mean f0 and mean HNR in female Korean speakers?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\n\n\n\n\n\n\n\n\n\nNoteTask C: Reading fixation times (eye-tracking)\n\n\n\n\nRead berzak2025/fix-dur.csv and familiarise yourself with the data documentation and study linked therein.\nWith a regression model, answer the following research question: what is the relationship between the current fixation duration and the length of the word being fixated?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
-  },
-  {
-    "objectID": "lectures/week-04.html#gaussian-model-of-height-brms",
-    "href": "lectures/week-04.html#gaussian-model-of-height-brms",
-    "title": "QML - Week 4",
-    "section": "Gaussian model of height: brms",
-    "text": "Gaussian model of height: brms\n\nh_tib &lt;- tibble(h = height)\n\nlibrary(brms)\n\nh_bm &lt;- brm(\n  h ~ 1,\n  family = gaussian,\n  data = h_tib,\n  file = \"cache/h_bm\"\n)"
-  },
-  {
-    "objectID": "lectures/week-04.html#probabilities-2",
-    "href": "lectures/week-04.html#probabilities-2",
-    "title": "QML - Week 4",
-    "section": "Probabilities",
-    "text": "Probabilities\n\n\n\n\nProbability of an event occurring: 0 to 100% probability.\nProbability of a statistical variable being some numeric value: a bit more complicated…\n\n\n\n\n\n\n\n\nWe need probability distributions!"
   }
 ]

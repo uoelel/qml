@@ -35,23 +35,11 @@ library(ggdist)
     -   **Word frequency**: counts from the Croatian web Corpus *hrWaC*.
 :::
 
-## Group activity
+## Which relationship?
 
-::::: columns
-::: {.column width="75%"}
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 455px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
 ```
-:::
-
-::: {.column width="25%"}
-```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
-                    frameborder="0"></iframe>
-```
-:::
-:::::
 
 ## The data
 
@@ -67,6 +55,7 @@ croat |> select(word_string, rt_milliseconds_mean, word_frequency)
 
 ```{r}
 #| label: rts-plot
+#| fig-align: center
 
 croat |> 
   ggplot(aes(rt_milliseconds_mean)) +
@@ -82,6 +71,7 @@ croat |>
 
 ```{r}
 #| label: freq-plot
+#| fig-align: center
 
 croat |> 
   ggplot(aes(word_frequency/1e6)) +
@@ -97,6 +87,7 @@ croat |>
 
 ```{r}
 #| label: freq-log-plot
+#| fig-align: center
 
 croat <- croat |> 
   mutate(
@@ -117,6 +108,7 @@ croat |>
 
 ```{r}
 #| label: rt-freq-plot
+#| fig-align: center
 
 croat |> 
   ggplot(aes(log_freq, rt)) +
@@ -307,6 +299,7 @@ fixef(rt_bm)
 
 ```{r}
 #| label: rt-bm-int-dens
+#| fig-align: center
 
 rt_bm_draws <- as_draws_df(rt_bm)
 
@@ -341,6 +334,7 @@ fixef(rt_bm)
 
 ```{r}
 #| label: rt-bm-slo-dens
+#| fig-align: center
 
 rt_bm_draws |>
   ggplot(aes(x = b_log_freq)) +
@@ -355,6 +349,7 @@ rt_bm_draws |>
 
 ```{r}
 #| label: rt-bm-cond
+#| fig-align: center
 
 p <- plot(
   conditional_effects(rt_bm),

@@ -9,28 +9,12 @@ bibliography: references.bib
 ## Statistical significance
 
 ::: {.callout-note appearance="simple"}
-Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose you use a simple independent means t-test and your result is signiﬁcant (t = 2.7, d.f. = 18, p = 0.01).
+Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a *p*-value of 0.01. Which of the following statements are FALSE?
 :::
 
-::::: columns
-::: {.column width="70%"}
-```{=html}
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d4127b003fb9fde7a375d6" width="100%"></iframe>
-```
-:::
-
-::: {.column width="30%"}
-```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" 
-                    frameborder="0"></iframe>
-```
-:::
-:::::
-
-## The statements
-
-::: {.callout-note appearance="simple"}
+:::::: columns
+:::: {.column width="70%"}
+::: {style="font-size: 18px;"}
 1.  You have absolutely disproved the null hypothesis (that is, there is no difference between the population means).
 
 2.  You have found the probability of the null hypothesis being true.
@@ -43,6 +27,22 @@ Suppose you have a treatment that you suspect may alter performance on a certain
 
 6.  You have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions.
 :::
+::::
+
+::: {.column width="30%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
+
+## Which statements are false?
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d4127b003fb9fde7a375d6" width="100%"></iframe>
+```
 
 ## Statistical significance is not meaningful
 
@@ -60,6 +60,8 @@ Suppose you have a treatment that you suspect may alter performance on a certain
 #| label: sample-size
 #| echo: false
 #| message: false
+#| fig-width: 7
+#| fig-align: center
 
 library(tidyverse)
 theme_set(theme_light())

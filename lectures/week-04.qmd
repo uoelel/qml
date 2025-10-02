@@ -94,6 +94,7 @@ You will never need to calculate probability distributions by hand, but it is us
 
 ```{r}
 #| label: pdf
+#| fig-align: center
 
 alpha <- 4
 beta <- 1.5
@@ -240,6 +241,7 @@ h_bm <- brm(
 
 ```{r}
 #| label: h-bm-plot
+#| fig-align: center
 
 mcmc_dens(h_bm, pars = c("b_Intercept", "sigma"),
   facet_args = list(
@@ -278,6 +280,7 @@ h_bm_small <- brm(
 
 ```{r}
 #| label: h-bm-small-plot
+#| fig-align: center
 
 mcmc_dens(h_bm_small, pars = c("b_Intercept", "sigma"),
   facet_args = list(
