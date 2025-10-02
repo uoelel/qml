@@ -307,7 +307,7 @@ The tutors will go around to ask how things are going and to answer questions or
 ### Week 6: Catch-up week
 
 ::: {.callout-important collapse="false"}
-## No classes
+#### No classes
 
 This week there will be no classes (no lecture nor workshop) for you to catch up with the materials for Week 1-5 if you need to and/or revise them.
 
@@ -315,7 +315,7 @@ Note that the workshop's room is still booked at the usual times so you can use 
 :::
 
 ::: {.callout-note collapse="false"}
-## Formative Test 1
+#### Formative Test 1
 
 You should complete the Formative Test 1 this week, to check your learning before moving on onto the second part of the course.
 
@@ -323,6 +323,49 @@ The link to the test is available on the Learn site of the course.
 :::
 
 ### Week 7: Categorical predictors and frequentist statistics
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   How do regression model work with categorical predictors?
+
+-   How are categorical predictors coded with contrasts?
+
+-   What are frequentist statistics and the "Null Ritual".
+
+-   Why researchers should prefer Bayesian statistics?
+
+**Skills**
+
+-   Fit regression models with a categorical predictor with brms in R.
+
+-   Interpret the regression coefficients table of the model summary.
+
+-   Extract and plot MCMC draws of models with categorical predictors with two or more levels.
+
+-   Report results from regression models with categorical predictors.
+:::
+
+::: {.callout-note collapse="false"}
+#### Readings
+
+-   Read the Week 5 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+-   **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+:::
+
+::: {.callout-tip collapse="false"}
+#### Lecture
+
+-   [Lecture slides](lectures/week-07.qmd).
+:::
+
+::: {.callout-tip collapse="false"}
+#### Workshop
+
+-   [Workshop instructions](workshops/week-07.qmd).
+:::
 
 ### Week 8: Binomial/Bernoulli and log-normal regression models
 
