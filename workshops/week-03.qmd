@@ -18,7 +18,7 @@ format: html
 
 -   Read the `coretta2021/alb-vot.csv` data.
 
--   Calculate the VOT based on the `release` and `voice_onset` columns. (VOT is the time lag between the voicing onset and the consonant release).
+-   Calculate the VOT based on the `release` and `voi_onset` columns. (VOT is the time lag between the voicing onset and the consonant release).
 
 -   Create a new column that specifies the voicing of the consonant (voiced or voiceless) based on the value in `label`. `ifelse()` or `case_when()` are useful.
 
@@ -38,7 +38,7 @@ format: html
 ::: callout-note
 ## Task C: **'Everywhere here can say this'**
 
--   Read the `slukin2022/everywhere-loc.csv` data. The data are acceptability judgements on the impersonal use of "everywhere", like in the sentence "Everywhere here can say this".
+-   Read the `sluckin2022/everywhere-loc.csv` data. The data are acceptability judgements on the impersonal use of "everywhere", like in the sentence "Everywhere here can say this".
 
 -   The `Restrictor` column tells you if the sentence has a restrictor, like in "Everywhere *on the coast* eats fish and chips." vs no restrictor "Everywhere takes credit cards these days." The `Value` column gives you the acceptability rating from 1 to 7.
 
