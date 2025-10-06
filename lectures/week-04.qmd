@@ -6,6 +6,10 @@ format: revealjs
 bibliography: references.bib
 ---
 
+## We're taking attendance
+
+![](/img/QRCode for Quantitative Methods in Linguistics and English Language, Semester 1, Week 4.png){fig-align="center"}
+
 ## Probabilities
 
 ```{r}
@@ -304,3 +308,4 @@ mcmc_dens(h_bm_small, pars = c("b_Intercept", "sigma"),
 
 -   Sample size affects uncertainty.
 :::
+
