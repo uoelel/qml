@@ -41,21 +41,15 @@ library(ggdist)
 <iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 455px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
 ```
 
-## The data
-
-```{r}
-#| label: croat
-#| echo: true
-
-croat <- read_csv("data/vlasicek2024/croatian-lexdes.csv")
-croat |> select(word_string, rt_milliseconds_mean, word_frequency)
-```
-
 ## Reaction times
 
 ```{r}
 #| label: rts-plot
 #| fig-align: center
+#| message: false
+
+croat <- read_csv("data/vlasicek2024/croatian-lexdes.csv")
+croat |> select(word_string, rt_milliseconds_mean, word_frequency)
 
 croat |> 
   ggplot(aes(rt_milliseconds_mean)) +
@@ -160,14 +154,15 @@ $$
 -   $\beta_0$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
 
 -   $\beta_1$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
-:::
 
-## Intercept
+-   Go to [Linear models illustrated](https://stefanocoretta.shinyapps.io/lines/).
+:::
 
 ```{r}
 #| label: int-plot
 #| fig-asp: 1
 #| fig-align: center
+#| eval: false
 
 ggplot() +
   geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.5) +
@@ -185,12 +180,11 @@ ggplot() +
 
 ```
 
-## Slope
-
 ```{r}
 #| label: slo-plot
 #| fig-asp: 1
 #| fig-align: center
+#| eval: false
 
 ggplot() +
   geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.5) +
@@ -237,130 +231,10 @@ $$
     -   *Change* in mean RT for each unit increase of log-frequency (when log-frequency goes from $x$ to $x + 1$).
 :::
 
-## Fit the model with brms
-
-``` r
-rt_bm <- brm(
-  rt ~ 1 + log_freq,
-  family = gaussian,
-  data = croat
-)
-```
-
-```{r}
-#| label: rt-bm-fit
-
-rt_bm <- brm(
-  rt ~ 1 + log_freq,
-  family = gaussian,
-  data = croat,
-  cores = 4,
-  seed = 4125,
-  file = "cache/rt_bm"
-)
-
-```
-
 ## 
 
 ```{=html}
 <iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d3b78edd9a104b0899fcc1" width="100%"></iframe>
-```
-
-## Model summary
-
-```{r}
-#| label: rt-bm-summary
-#| echo: true
-
-summary(rt_bm)
-
-```
-
-## Regression coefficients: intercept
-
-```{r}
-#| label: rt-bm-coef
-
-fixef(rt_bm)
-```
-
-::: callout-note
-## Intercept `Intercept`
-
--   `Estimate` = posterior mean: 1107 ms.
-
--   `Est.Error` = posterior SD: 11 ms.
-
--   `Q2.5 Q97.5` = posterior 95% CrI: \[1084, 1129\] ms.
-:::
-
-## Posterior distribution: intercept
-
-```{r}
-#| label: rt-bm-int-dens
-#| fig-align: center
-
-rt_bm_draws <- as_draws_df(rt_bm)
-
-rt_bm_draws |>
-  ggplot(aes(x = b_Intercept)) +
-  stat_halfeye(.width = c(0.4, 0.95)) +
-  geom_rug(alpha = 0.2) +
-  labs(
-    caption = "Point = median. Error bars = 40% and 95% CrI."
-  )
-```
-
-## Regression coefficients: slope
-
-```{r}
-#| label: rt-bm-coef-2
-
-fixef(rt_bm)
-```
-
-::: callout-note
-## Slope `log_freq`
-
--   `Estimate` = posterior mean: -46 ms.
-
--   `Est.Error` = posterior SD: 1 ms.
-
--   `Q2.5 Q97.5` = posterior 95% CrI: \[-48, -43\] ms.
-:::
-
-## Posterior distribution: slope
-
-```{r}
-#| label: rt-bm-slo-dens
-#| fig-align: center
-
-rt_bm_draws |>
-  ggplot(aes(x = b_log_freq)) +
-  stat_halfeye(.width = c(0.4, 0.95)) +
-  geom_rug(alpha = 0.2) +
-  labs(
-    caption = "Point = median. Error bars = 40% and 95% CrI."
-  )
-```
-
-## Posterior predictions
-
-```{r}
-#| label: rt-bm-cond
-#| fig-align: center
-
-p <- plot(
-  conditional_effects(rt_bm),
-  points = TRUE,
-  point_args = list(alpha = 0.1),
-  line_args = list(colour = "darkorange"),
-  plot = FALSE
-)[[1]]
-
-p +
-  labs(x = "Lexical frequency (logged)", y = "Predicted RT (ms)")
 ```
 
 ## Word frequency and reaction times (bis)
@@ -377,36 +251,36 @@ p +
 -   For each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence.
 :::
 
-## Be careful!
+## Correlation in NOT causation
 
 ::: callout-important
-### Correlation is NOT causation
+### Be careful!
 
--   Correlation between two variables: they co-vary (when one changes, the other systematically changes too).
+-   **Correlation** between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).
 
--   Spurious correlations: two variables look correlated because of a confounder.
+-   **Spurious correlations**: two variables can look correlated because of bias from another variable.
 :::
 
 . . .
 
-::: callout-note
-1.  Vocabulary for snow vs latitude
-    -   The farther north a community lives, the more words their language has for snow.
-    -   **Confounder**: subsistence ecology.
-2.  Number of plant names in a language vs. biodiversity of the region
+::: {.callout-note appearance="simple"}
+1.  Number of plant names in a language vs. biodiversity of the region
     -   Languages in biodiverse regions have more words for plants.
-    -   **Confounder**: cultural reliance on plants.
-3.  Metaphors involving animals vs. level of industrialization
-    1.  Less industrialized societies use more animal-based metaphors
-    2.  **Confounder**: daily exposure to animals.
+    -   **Mediator**: cultural reliance on plants.
+2.  Language endangerment vs. economic development
+    -   Higher economic development is associated with greater language endangerment.
+    -   **Confounder**: colonial history.
+3.  Language prestige vs government policy
+    -   **Collider**: High prestige languages and officially supported languages each attract learners.
+    -   If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected.
 :::
 
-## Be careful!
+## But it is if you use causal inference...
 
 ::: callout-tip
-### But it is if you use causal inference
+### Causal inference
 
 -   Correlation *can* be interpreted causally if you adopt a **causal inference** approach.
 
--   We won't treat causal inference in this course due to time, but you can learn about it in McElreath's textbook *Statistical Rethinking*.
+-   We won't treat causal inference in this course due to time, but you can learn about it in McElreath's textbook *Statistical Rethinking*. I will also run a Causal Inference introduction workshop in Semester 2.
 :::

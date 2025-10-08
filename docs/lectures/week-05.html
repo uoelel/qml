@@ -28,72 +28,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-6758e170412b7abf6506150a5533c7aa.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -235,11 +169,9 @@ Stefano Coretta
 <h2>Which relationship?</h2>
 <iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 455px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
 </section>
-<section id="the-data" class="slide level2">
-<h2>The data</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>croat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/vlasicek2024/croatian-lexdes.csv"</span>)</span>
-<span id="cb1-2"><a></a>croat <span class="sc">|&gt;</span> <span class="fu">select</span>(word_string, rt_milliseconds_mean, word_frequency)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="reaction-times" class="slide level2">
+<h2>Reaction times</h2>
+<div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,612 × 3
    word_string  rt_milliseconds_mean word_frequency
@@ -256,11 +188,8 @@ Stefano Coretta
 10 general                      625.          96640
 # ℹ 2,602 more rows</code></pre>
 </div>
-</div>
-</section>
-<section id="reaction-times" class="slide level2">
-<h2>Reaction times</h2>
 
+</div>
 <img data-src="week-05_files/figure-revealjs/rts-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="word-frequency" class="slide level2">
 <h2>Word frequency</h2>
@@ -324,19 +253,12 @@ y = \beta_0 + \beta_1 \cdot x
 <ul>
 <li><p><span class="math inline">\(\beta_0\)</span> is the line <strong>intercept</strong>: the <span class="math inline">\(y\)</span> value when <span class="math inline">\(x\)</span> is <code>0</code> zero.</p></li>
 <li><p><span class="math inline">\(\beta_1\)</span> is the line <strong>slope</strong>: the change in <span class="math inline">\(y\)</span> for each unit-increase of <span class="math inline">\(x\)</span>.</p></li>
+<li><p>Go to <a href="https://stefanocoretta.shinyapps.io/lines/">Linear models illustrated</a>.</p></li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<section id="intercept" class="slide level2">
-<h2>Intercept</h2>
-
-<img data-src="week-05_files/figure-revealjs/int-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="slope" class="slide level2">
-<h2>Slope</h2>
-
-<img data-src="week-05_files/figure-revealjs/slo-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="regression-model" class="slide level2">
 <h2>Regression model</h2>
 <p><span class="math display">\[
@@ -374,105 +296,10 @@ RT &amp; \sim Gaussian(\mu, \sigma)\\
 </div>
 </div>
 </section>
-<section id="fit-the-model-with-brms" class="slide level2">
-<h2>Fit the model with brms</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>rt_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb3-2"><a></a>  rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> log_freq,</span>
-<span id="cb3-3"><a></a>  <span class="at">family =</span> gaussian,</span>
-<span id="cb3-4"><a></a>  <span class="at">data =</span> croat</span>
-<span id="cb3-5"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
 <section id="section" class="slide level2">
 <h2></h2>
 <iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d3b78edd9a104b0899fcc1" width="100%"></iframe>
 </section>
-<section id="model-summary" class="slide level2">
-<h2>Model summary</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">summary</span>(rt_bm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Family: gaussian 
-  Links: mu = identity 
-Formula: rt ~ 1 + log_freq 
-   Data: croat (Number of observations: 2612) 
-  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-         total post-warmup draws = 4000
-
-Regression Coefficients:
-          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept  1106.79     11.25  1084.44  1128.79 1.00     4140     2687
-log_freq    -45.56      1.14   -47.81   -43.33 1.00     4163     2633
-
-Further Distributional Parameters:
-      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma   104.06      1.45   101.28   107.02 1.00     4397     3032
-
-Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
-and Tail_ESS are effective sample size measures, and Rhat is the potential
-scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
-</div>
-</div>
-</section>
-<section id="regression-coefficients-intercept" class="slide level2">
-<h2>Regression coefficients: intercept</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>            Estimate Est.Error       Q2.5      Q97.5
-Intercept 1106.78704 11.249044 1084.43507 1128.78687
-log_freq   -45.56409  1.142898  -47.81221  -43.33064</code></pre>
-</div>
-</div>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Intercept <code>Intercept</code></strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p><code>Estimate</code> = posterior mean: 1107 ms.</p></li>
-<li><p><code>Est.Error</code> = posterior SD: 11 ms.</p></li>
-<li><p><code>Q2.5 Q97.5</code> = posterior 95% CrI: [1084, 1129] ms.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="posterior-distribution-intercept" class="slide level2">
-<h2>Posterior distribution: intercept</h2>
-
-<img data-src="week-05_files/figure-revealjs/rt-bm-int-dens-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="regression-coefficients-slope" class="slide level2">
-<h2>Regression coefficients: slope</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>            Estimate Est.Error       Q2.5      Q97.5
-Intercept 1106.78704 11.249044 1084.43507 1128.78687
-log_freq   -45.56409  1.142898  -47.81221  -43.33064</code></pre>
-</div>
-</div>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Slope <code>log_freq</code></strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p><code>Estimate</code> = posterior mean: -46 ms.</p></li>
-<li><p><code>Est.Error</code> = posterior SD: 1 ms.</p></li>
-<li><p><code>Q2.5 Q97.5</code> = posterior 95% CrI: [-48, -43] ms.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="posterior-distribution-slope" class="slide level2">
-<h2>Posterior distribution: slope</h2>
-
-<img data-src="week-05_files/figure-revealjs/rt-bm-slo-dens-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="posterior-predictions" class="slide level2">
-<h2>Posterior predictions</h2>
-
-<img data-src="week-05_files/figure-revealjs/rt-bm-cond-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="word-frequency-and-reaction-times-bis" class="slide level2">
 <h2>Word frequency and reaction times (bis)</h2>
 <div class="callout callout-tip no-icon callout-style-simple">
@@ -495,61 +322,58 @@ log_freq   -45.56409  1.142898  -47.81221  -43.33064</code></pre>
 </div>
 </div>
 </section>
-<section id="be-careful" class="slide level2">
-<h2>Be careful!</h2>
+<section id="correlation-in-not-causation" class="slide level2">
+<h2>Correlation in NOT causation</h2>
 <div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Correlation is NOT causation</strong></p>
+<p><strong>Be careful!</strong></p>
 </div>
 <div class="callout-content">
 <ul>
-<li><p>Correlation between two variables: they co-vary (when one changes, the other systematically changes too).</p></li>
-<li><p>Spurious correlations: two variables look correlated because of a confounder.</p></li>
+<li><p><strong>Correlation</strong> between two variables: they co-vary, i.e.&nbsp;they show a systematic association (their values tend to vary together in a consistent pattern).</p></li>
+<li><p><strong>Spurious correlations</strong>: two variables can look correlated because of bias from another variable.</p></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Note</strong></p>
-</div>
 <div class="callout-content">
 <ol type="1">
-<li>Vocabulary for snow vs latitude
-<ul>
-<li>The farther north a community lives, the more words their language has for snow.</li>
-<li><strong>Confounder</strong>: subsistence ecology.</li>
-</ul></li>
 <li>Number of plant names in a language vs.&nbsp;biodiversity of the region
 <ul>
 <li>Languages in biodiverse regions have more words for plants.</li>
-<li><strong>Confounder</strong>: cultural reliance on plants.</li>
+<li><strong>Mediator</strong>: cultural reliance on plants.</li>
 </ul></li>
-<li>Metaphors involving animals vs.&nbsp;level of industrialization
-<ol type="1">
-<li>Less industrialized societies use more animal-based metaphors</li>
-<li><strong>Confounder</strong>: daily exposure to animals.</li>
-</ol></li>
+<li>Language endangerment vs.&nbsp;economic development
+<ul>
+<li>Higher economic development is associated with greater language endangerment.</li>
+<li><strong>Confounder</strong>: colonial history.</li>
+</ul></li>
+<li>Language prestige vs government policy
+<ul>
+<li><strong>Collider</strong>: High prestige languages and officially supported languages each attract learners.</li>
+<li>If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected.</li>
+</ul></li>
 </ol>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="be-careful-1" class="slide level2">
-<h2>Be careful!</h2>
+<section id="but-it-is-if-you-use-causal-inference" class="slide level2">
+<h2>But it is if you use causal inference…</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>But it is if you use causal inference</strong></p>
+<p><strong>Causal inference</strong></p>
 </div>
 <div class="callout-content">
 <ul>
 <li><p>Correlation <em>can</em> be interpreted causally if you adopt a <strong>causal inference</strong> approach.</p></li>
-<li><p>We won’t treat causal inference in this course due to time, but you can learn about it in McElreath’s textbook <em>Statistical Rethinking</em>.</p></li>
+<li><p>We won’t treat causal inference in this course due to time, but you can learn about it in McElreath’s textbook <em>Statistical Rethinking</em>. I will also run a Causal Inference introduction workshop in Semester 2.</p></li>
 </ul>
 </div>
 </div>
