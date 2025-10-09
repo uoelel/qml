@@ -578,7 +578,7 @@
     "href": "lectures/week-05.html#reaction-times",
     "title": "QML - Week 5",
     "section": "Reaction times",
-    "text": "Reaction times\n\n\n# A tibble: 2,612 × 3\n   word_string  rt_milliseconds_mean word_frequency\n   &lt;chr&gt;                       &lt;dbl&gt;          &lt;dbl&gt;\n 1 ribnjak                      575.           5755\n 2 dostupnost                   624.          15564\n 3 deformacija                  706.           6016\n 4 antioksidans                 914.           7646\n 5 zapis                        623.          44327\n 6 kvadrat                      549.          36394\n 7 presedan                     987.           7786\n 8 zapremnina                  1035.           1434\n 9 prerada                      750.          18759\n10 general                      625.          96640\n# ℹ 2,602 more rows"
+    "text": "Reaction times"
   },
   {
     "objectID": "lectures/week-05.html#word-frequency",
@@ -613,7 +613,7 @@
     "href": "lectures/week-05.html#the-equation-of-a-line",
     "title": "QML - Week 5",
     "section": "The equation of a line",
-    "text": "The equation of a line\n\\[\ny = \\beta_0 + \\beta_1 \\cdot x\n\\]\n\n\n\n\n\\(\\beta_0\\) is the line intercept: the \\(y\\) value when \\(x\\) is 0 zero.\n\\(\\beta_1\\) is the line slope: the change in \\(y\\) for each unit-increase of \\(x\\).\nGo to Linear models illustrated."
+    "text": "The equation of a line\n\\[\ny = \\beta_0 + \\beta_1 \\cdot x\n\\]\n\n\n\n\nGo to Linear models illustrated.\n\\(\\beta_0\\) is the line intercept: the \\(y\\) value when \\(x\\) is 0 zero.\n\\(\\beta_1\\) is the line slope: the change in \\(y\\) for each unit-increase of \\(x\\)."
   },
   {
     "objectID": "lectures/week-05.html#regression-model",
@@ -634,14 +634,14 @@
     "href": "lectures/week-05.html#correlation-in-not-causation",
     "title": "QML - Week 5",
     "section": "Correlation in NOT causation",
-    "text": "Correlation in NOT causation\n\n\n\nBe careful!\n\n\n\nCorrelation between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).\nSpurious correlations: two variables can look correlated because of bias from another variable.\n\n\n\n\n\n\n\n\n\nNumber of plant names in a language vs. biodiversity of the region\n\nLanguages in biodiverse regions have more words for plants.\nMediator: cultural reliance on plants.\n\nLanguage endangerment vs. economic development\n\nHigher economic development is associated with greater language endangerment.\nConfounder: colonial history.\n\nLanguage prestige vs government policy\n\nCollider: High prestige languages and officially supported languages each attract learners.\nIf you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected."
+    "text": "Correlation in NOT causation\n\n\n\nBe careful!\n\n\n\nCorrelation between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).\nSpurious correlations: two variables can look correlated because of bias from another variable.\n\n\n\n\n\n\n\n\n\nNumber of plant names in a language vs. biodiversity of the region\n\nLanguages in biodiverse regions have more words for plants.\nMediator: cultural reliance on plants.\n\nLanguage endangerment vs. economic development\n\nHigher economic development is associated with greater language endangerment.\nConfounder: colonial history.\n\nLanguage prestige vs government policy\n\nHigh prestige languages and officially supported languages each attract learners.\nCollider: If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected."
   },
   {
     "objectID": "lectures/week-05.html#but-it-is-if-you-use-causal-inference",
     "href": "lectures/week-05.html#but-it-is-if-you-use-causal-inference",
     "title": "QML - Week 5",
     "section": "But it is if you use causal inference…",
-    "text": "But it is if you use causal inference…\n\n\n\nCausal inference\n\n\n\nCorrelation can be interpreted causally if you adopt a causal inference approach.\nWe won’t treat causal inference in this course due to time, but you can learn about it in McElreath’s textbook Statistical Rethinking. I will also run a Causal Inference introduction workshop in Semester 2."
+    "text": "But it is if you use causal inference…\n\n\n\nCausal inference\n\n\n\nCorrelation can be interpreted causally if you adopt a causal inference approach.\nLearn about it in McElreath’s textbook Statistical Rethinking. Also check STeW."
   },
   {
     "objectID": "workshops.html",
@@ -663,5 +663,26 @@
     "title": "Workshop: Week 5",
     "section": "",
     "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice Bayesian Gaussian modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Massive Auditory Lexical Decision (MALD)\n\n\n\n\nRead the tucker2019/mald_1_1.rds data.\nFilter the data to include only real words.\nFit a regression model to answer the following question: what is the relationship between reaction times and mean phoneme-level Levenshtein distance (PhonLev)?\n\nYou can check the publication linked on the data documentation to learn about the mean phoneme-level Levenshtein distance.\n\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\nWhy does PhonLev have the effect it has on reaction times?\n\n\n\n\n\n\n\n\n\nNoteTask B: Korean voice quality\n\n\n\n\nRead the winter2012/polite.csv data.\nFilter the data to include only female participants.\nFit a regression model of mean f0 (f0mn) and mean harmonic-to-noise ratio (HNRmn, the higher the HNR, the more modal the voice is). What is the relationship between mean f0 and mean HNR in female Korean speakers?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\n\n\n\n\n\n\n\n\n\nNoteTask C: Reading fixation times (eye-tracking)\n\n\n\n\nRead berzak2025/fix-dur.csv and familiarise yourself with the data documentation and study linked therein.\nWith a regression model, answer the following research question: what is the relationship between the current fixation duration and the length of the word being fixated?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+  },
+  {
+    "objectID": "lectures/week-05.html#logged-word-frequency-and-rts",
+    "href": "lectures/week-05.html#logged-word-frequency-and-rts",
+    "title": "QML - Week 5",
+    "section": "Logged word frequency and RTs",
+    "text": "Logged word frequency and RTs"
+  },
+  {
+    "objectID": "lectures/week-05.html#posterior-predictions",
+    "href": "lectures/week-05.html#posterior-predictions",
+    "title": "QML - Week 5",
+    "section": "Posterior predictions",
+    "text": "Posterior predictions"
+  },
+  {
+    "objectID": "lectures/week-05.html#models-posterior-predictions",
+    "href": "lectures/week-05.html#models-posterior-predictions",
+    "title": "QML - Week 5",
+    "section": "Model’s posterior predictions",
+    "text": "Model’s posterior predictions"
   }
 ]

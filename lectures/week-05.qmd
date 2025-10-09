@@ -48,8 +48,11 @@ library(ggdist)
 #| fig-align: center
 #| message: false
 
-croat <- read_csv("data/vlasicek2024/croatian-lexdes.csv")
-croat |> select(word_string, rt_milliseconds_mean, word_frequency)
+croat <- read_csv("data/vlasicek2024/croatian-lexdes.csv") |> 
+  mutate(
+    log_freq = log(word_frequency),
+    rt = rt_milliseconds_mean
+  )
 
 croat |> 
   ggplot(aes(rt_milliseconds_mean)) +
@@ -61,47 +64,25 @@ croat |>
 
 ```
 
-## Word frequency
-
-```{r}
-#| label: freq-plot
-#| fig-align: center
-
-croat |> 
-  ggplot(aes(word_frequency/1e6)) +
-  geom_histogram(binwidth = 0.25) +
-  labs(
-    x = "Lexical frequency (millions)",
-    subtitle = "Bin-width = 0.25"
-  )
-
-```
-
-## Word frequency: logged
-
-```{r}
-#| label: freq-log-plot
-#| fig-align: center
-
-croat <- croat |> 
-  mutate(
-    log_freq = log(word_frequency),
-    rt = rt_milliseconds_mean
-  )
-
-croat |> 
-  ggplot(aes(log_freq)) +
-  geom_density() +
-  geom_rug(alpha = 0.15) +
-  labs(
-    x = "Lexical frequency (logged)",
-  )
-```
-
 ## Word frequency and RTs
 
 ```{r}
 #| label: rt-freq-plot
+#| fig-align: center
+
+croat |> 
+  ggplot(aes(word_frequency/1000000, rt)) +
+  geom_point(alpha = 0.5) +
+  labs(
+    x = "Lexical frequency (millions)",
+    y = "RT (ms)"
+  )
+```
+
+## Logged word frequency and RTs
+
+```{r}
+#| label: rt-logfreq-plot
 #| fig-align: center
 
 croat |> 
@@ -151,11 +132,11 @@ y = \beta_0 + \beta_1 \cdot x
 $$
 
 ::: {.callout-note appearance="simple"}
+-   Go to [Linear models illustrated](https://stefanocoretta.shinyapps.io/lines/).
+
 -   $\beta_0$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
 
 -   $\beta_1$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
-
--   Go to [Linear models illustrated](https://stefanocoretta.shinyapps.io/lines/).
 :::
 
 ```{r}
@@ -237,6 +218,33 @@ $$
 <iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d3b78edd9a104b0899fcc1" width="100%"></iframe>
 ```
 
+## Model's posterior predictions
+
+```{r}
+#| label: rt-bm-cond
+#| fig-align: center
+
+rt_bm <- brm(
+  rt ~ 1 + log_freq,
+  family = gaussian,
+  data = croat,
+  cores = 4,
+  seed = 4125,
+  file = "cache/rt_bm"
+)
+
+p <- plot(
+  conditional_effects(rt_bm),
+  points = TRUE,
+  point_args = list(alpha = 0.1),
+  line_args = list(colour = "darkorange"),
+  plot = FALSE
+)[[1]]
+
+p +
+  labs(x = "Lexical frequency (logged)", y = "Predicted RT (ms)")
+```
+
 ## Word frequency and reaction times (bis)
 
 ::: {.callout-tip appearance="simple"}
@@ -271,8 +279,8 @@ $$
     -   Higher economic development is associated with greater language endangerment.
     -   **Confounder**: colonial history.
 3.  Language prestige vs government policy
-    -   **Collider**: High prestige languages and officially supported languages each attract learners.
-    -   If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected.
+    -   High prestige languages and officially supported languages each attract learners.
+    -   **Collider**: If you only look at languages with many learners, prestige and policy might appear related even if they're not causally connected.
 :::
 
 ## But it is if you use causal inference...
@@ -282,5 +290,5 @@ $$
 
 -   Correlation *can* be interpreted causally if you adopt a **causal inference** approach.
 
--   We won't treat causal inference in this course due to time, but you can learn about it in McElreath's textbook *Statistical Rethinking*. I will also run a Causal Inference introduction workshop in Semester 2.
+-   Learn about it in McElreath's textbook *Statistical Rethinking*. Also check [STeW](https://uoelel.github.io/stew.html).
 :::

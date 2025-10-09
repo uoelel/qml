@@ -171,38 +171,16 @@ Stefano Coretta
 </section>
 <section id="reaction-times" class="slide level2">
 <h2>Reaction times</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2,612 × 3
-   word_string  rt_milliseconds_mean word_frequency
-   &lt;chr&gt;                       &lt;dbl&gt;          &lt;dbl&gt;
- 1 ribnjak                      575.           5755
- 2 dostupnost                   624.          15564
- 3 deformacija                  706.           6016
- 4 antioksidans                 914.           7646
- 5 zapis                        623.          44327
- 6 kvadrat                      549.          36394
- 7 presedan                     987.           7786
- 8 zapremnina                  1035.           1434
- 9 prerada                      750.          18759
-10 general                      625.          96640
-# ℹ 2,602 more rows</code></pre>
-</div>
 
-</div>
 <img data-src="week-05_files/figure-revealjs/rts-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="word-frequency" class="slide level2">
-<h2>Word frequency</h2>
-
-<img data-src="week-05_files/figure-revealjs/freq-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="word-frequency-logged" class="slide level2">
-<h2>Word frequency: logged</h2>
-
-<img data-src="week-05_files/figure-revealjs/freq-log-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="word-frequency-and-rts" class="slide level2">
 <h2>Word frequency and RTs</h2>
 
 <img data-src="week-05_files/figure-revealjs/rt-freq-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<section id="logged-word-frequency-and-rts" class="slide level2">
+<h2>Logged word frequency and RTs</h2>
+
+<img data-src="week-05_files/figure-revealjs/rt-logfreq-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="gaussian-model-of-rt" class="slide level2">
 <h2>Gaussian model of RT</h2>
 <p><span class="math display">\[
@@ -251,9 +229,9 @@ y = \beta_0 + \beta_1 \cdot x
 <div class="callout-body">
 <div class="callout-content">
 <ul>
+<li><p>Go to <a href="https://stefanocoretta.shinyapps.io/lines/">Linear models illustrated</a>.</p></li>
 <li><p><span class="math inline">\(\beta_0\)</span> is the line <strong>intercept</strong>: the <span class="math inline">\(y\)</span> value when <span class="math inline">\(x\)</span> is <code>0</code> zero.</p></li>
 <li><p><span class="math inline">\(\beta_1\)</span> is the line <strong>slope</strong>: the change in <span class="math inline">\(y\)</span> for each unit-increase of <span class="math inline">\(x\)</span>.</p></li>
-<li><p>Go to <a href="https://stefanocoretta.shinyapps.io/lines/">Linear models illustrated</a>.</p></li>
 </ul>
 </div>
 </div>
@@ -300,6 +278,10 @@ RT &amp; \sim Gaussian(\mu, \sigma)\\
 <h2></h2>
 <iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d3b78edd9a104b0899fcc1" width="100%"></iframe>
 </section>
+<section id="models-posterior-predictions" class="slide level2">
+<h2>Model’s posterior predictions</h2>
+
+<img data-src="week-05_files/figure-revealjs/rt-bm-cond-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="word-frequency-and-reaction-times-bis" class="slide level2">
 <h2>Word frequency and reaction times (bis)</h2>
 <div class="callout callout-tip no-icon callout-style-simple">
@@ -354,8 +336,8 @@ RT &amp; \sim Gaussian(\mu, \sigma)\\
 </ul></li>
 <li>Language prestige vs government policy
 <ul>
-<li><strong>Collider</strong>: High prestige languages and officially supported languages each attract learners.</li>
-<li>If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected.</li>
+<li>High prestige languages and officially supported languages each attract learners.</li>
+<li><strong>Collider</strong>: If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected.</li>
 </ul></li>
 </ol>
 </div>
@@ -373,7 +355,7 @@ RT &amp; \sim Gaussian(\mu, \sigma)\\
 <div class="callout-content">
 <ul>
 <li><p>Correlation <em>can</em> be interpreted causally if you adopt a <strong>causal inference</strong> approach.</p></li>
-<li><p>We won’t treat causal inference in this course due to time, but you can learn about it in McElreath’s textbook <em>Statistical Rethinking</em>. I will also run a Causal Inference introduction workshop in Semester 2.</p></li>
+<li><p>Learn about it in McElreath’s textbook <em>Statistical Rethinking</em>. Also check <a href="https://uoelel.github.io/stew.html">STeW</a>.</p></li>
 </ul>
 </div>
 </div>
