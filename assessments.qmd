@@ -9,7 +9,9 @@ This course will be **assessed on the basis of a Portfolio** consisting of a Ref
 
 [^1]: Some of the text on this page is from Itamar Kastner's [Morphology course site](https://itamarkast.github.io/UoEmorphology/assessment.html).
 
-The **Portfolio** is the sum of weekly self-reflections in the Reflective Journal, the feedback you will receive on your reflections, the Group Project and the Final Self-reflection. The course is assessed based on all of these components. There are no weights for the different components, so it is important you engage with all of them.
+The **Portfolio** is the sum of weekly self-reflections in the Reflective Journal, the feedback you will receive on your reflections, the Group Project and the Final Self-reflection.
+The course is assessed based on all of these components.
+There are no weights for the different components, so it is important you engage with all of them.
 
 ::: callout-warning
 ### Learning adjustments
@@ -25,7 +27,9 @@ Note that if you are in touch with your student adviser and/or the Teaching Orga
 
 ### Formative tests
 
-You will have the chance to test yourself with two formative assessments. These will be online tests with multiple choice and true/false questions. Formative assessments do **not** contribute to the course mark and they are meant to give you an idea of areas of strength and areas for improvement.
+You will have the chance to test yourself with two formative assessments.
+These will be online tests with multiple choice and true/false questions.
+Formative assessments do **not** contribute to the course mark and they are meant to give you an idea of areas of strength and areas for improvement.
 
 ## Reflective Journal
 
@@ -34,33 +38,50 @@ You will have the chance to test yourself with two formative assessments. These 
 
 -   You should post your self-reflection **each week.**
 
--   You should post your self-reflection by the Wednesday following the week the self-reflection is on. This is not a hard deadline and it is fine if you have to catch up with your self reflection in a later week. If we find that you have not posted in a couple of weeks we will get in touch.
+-   You should post your self-reflection by the Wednesday following the week the self-reflection is on.
+    This is not a hard deadline and it is fine if you have to catch up with your self reflection in a later week.
+    If we find that you have not posted in a couple of weeks we will get in touch.
 
--   You should write about 100-200 words for each self-reflection. This is not a hard target or limit. Sometimes you might need to write a bit more or a bit less, as long as you cover the important points. You are also given the space to write more than 200 words, but we might not be able to comment on everything extra to keep our work-load manageable.
+-   You should write about 100-200 words for each self-reflection.
+    This is not a hard target or limit.
+    Sometimes you might need to write a bit more or a bit less, as long as you cover the important points.
+    You are also given the space to write more than 200 words, but we might not be able to comment on everything extra to keep our work-load manageable.
 :::
 
-Learning is an active process: it happens best when we're all engaged. Learning is also something that we can learn how to do better. Think of a hobby you might have or a skill you've learned: you've probably perfected it for a while, paying close attention to what did or didn't work.
+Learning is an active process: it happens best when we're all engaged.
+Learning is also something that we can learn how to do better.
+Think of a hobby you might have or a skill you've learned: you've probably perfected it for a while, paying close attention to what did or didn't work.
 
-That's why both students and the lecturer (Stefano) will reflect on how the course is going and what they've learned. After each class we'll all write short self-reflections in the **Reflective Journal**. The tutors will comment on yours and you'll be able to comment on mine.
+That's why both students and the lecturer (Stefano) will reflect on how the course is going and what they've learned.
+After each class we'll all write short self-reflections in the **Reflective Journal**.
+The tutors will comment on yours and you'll be able to comment on mine.
 
-Each of us will have our own Reflective Journal on Learn. The tutors and I will be able to see your Reflective Journal, but you won't be able to see other students' Journals. My Journal (the lecturer's) will be visible to all and you will also be able to comment on it.
+Each of us will have our own Reflective Journal on Learn.
+The tutors and I will be able to see your Reflective Journal, but you won't be able to see other students' Journals.
+My Journal (the lecturer's) will be visible to all and you will also be able to comment on it.
 
-In your self-reflection, you want to focus on your learning process: what did you learn, how easy or difficult was it, how did the learning affect your views on something? Here are more specific questions you can follow, but feel free to make adjustments. We recommend to lay out your the self-reflection based on the questions (see examples below) and to add a title to the self-reflection in the format "Week X" where "X" is the week number.
+In your self-reflection, you want to focus on your learning process: what did you learn, how easy or difficult was it, how did the learning affect your views on something?
+Here are more specific questions you can follow, but feel free to make adjustments.
+We recommend to lay out your the self-reflection based on the questions (see examples below) and to add a title to the self-reflection in the format "Week X" where "X" is the week number.
 
 ::: callout-tip
 ## Self-reflection questions
 
 -   **Participation and Engagement**\
-    How have I contributed to class activities and managed my independent study? Am I satisfied with my approach so far?
+    How have I contributed to class activities and managed my independent study?
+    Am I satisfied with my approach so far?
 
 -   **Learning and Challenges**\
-    Which new topics did I encounter this week, how did I approach the weekly Challenge, and what difficulties—if any—did I face? How did I address them?
+    Which new topics did I encounter this week, how did I approach the weekly Challenge, and what difficulties—if any—did I face?
+    How did I address them?
 
 -   **Impact on Perspectives**\
-    How have this week's lessons influenced my views on quantitative methods and related areas? Have my perspectives changed, been reinforced, or stayed the same?
+    How have this week's lessons influenced my views on quantitative methods and related areas?
+    Have my perspectives changed, been reinforced, or stayed the same?
 
 -   **Intellectual Growth and Achievements**\
-    In what ways have I developed academically this week? What am I particularly proud of?
+    In what ways have I developed academically this week?
+    What am I particularly proud of?
 
 -   **Extra thoughts** (optional; you can write as much as you like here, beyond the 100-200 words, but we might not be able to comment on everything to keep our work-load manageable).
 :::
@@ -72,7 +93,13 @@ The following boxes show three strong examples and three weak examples of self-r
 
 **Week 1**
 
-This week, I actively participated in group problem-solving and contributed ideas in class discussions. My independent study was focused, though I wish I had dedicated more time to reviewing lecture notes before the Challenge. I encountered regression diagnostics for the first time and approached the Challenge by breaking it into smaller tasks. I struggled initially with interpreting residual plots but resolved this through peer discussion. The week's content reinforced my appreciation for quantitative methods, especially in identifying model limitations. My main academic growth was in learning to critically evaluate statistical assumptions. I'm particularly proud of explaining a tricky concept to a peer, which clarified it for both of us.
+This week, I actively participated in group problem-solving and contributed ideas in class discussions.
+My independent study was focused, though I wish I had dedicated more time to reviewing lecture notes before the Challenge.
+I encountered regression diagnostics for the first time and approached the Challenge by breaking it into smaller tasks.
+I struggled initially with interpreting residual plots but resolved this through peer discussion.
+The week's content reinforced my appreciation for quantitative methods, especially in identifying model limitations.
+My main academic growth was in learning to critically evaluate statistical assumptions.
+I'm particularly proud of explaining a tricky concept to a peer, which clarified it for both of us.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -80,7 +107,13 @@ This week, I actively participated in group problem-solving and contributed idea
 
 **Week 1**
 
-I've been consistently present in discussions, asking questions that push me beyond surface understanding. My self-study this week was more structured than before, using a mix of readings and practice exercises. Learning about different summary measures was new to me, and I tackled the Challenge by first reviewing the theory, then applying it to the dataset. Although I initially misunderstood one step, seeking clarification from the tutor helped. This reinforced my belief that statistical tools are most powerful when used critically. I've grown in my ability to connect concepts across topics, and I'm proud of having completed the Challenge which was very difficult for me. Next week, I aim to experiment with visualising results more effectively.
+I've been consistently present in discussions, asking questions that push me beyond surface understanding.
+My self-study this week was more structured than before, using a mix of readings and practice exercises.
+Learning about different summary measures was new to me, and I tackled the Challenge by first reviewing the theory, then applying it to the dataset.
+Although I initially misunderstood one step, seeking clarification from the tutor helped.
+This reinforced my belief that statistical tools are most powerful when used critically.
+I've grown in my ability to connect concepts across topics, and I'm proud of having completed the Challenge which was very difficult for me.
+Next week, I aim to experiment with visualising results more effectively.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -88,13 +121,23 @@ I've been consistently present in discussions, asking questions that push me bey
 
 **Week 1**
 
-In class, I've been more reserved this week but contributed meaningfully during smaller group work. My self-directed study was less consistent than I'd like due to other commitments. The new topic was Bernoulli regressions, which I approached with online tutorials and textbook exercises before attempting the Challenge. I struggled with interpreting logit estimates but improved after re-reading lecture slides. This week slightly shifted my view of quantitative methods—I now see how easily results can be distorted if assumptions are ignored. My biggest intellectual gain was in developing a check-list for choosing models. While I'm proud of completing the Challenge despite time pressure, I'll need to manage my schedule better to stay engaged in discussions.
+In class, I've been more reserved this week but contributed meaningfully during smaller group work.
+My self-directed study was less consistent than I'd like due to other commitments.
+The new topic was Bernoulli regressions, which I approached with online tutorials and textbook exercises before attempting the Challenge.
+I struggled with interpreting logit estimates but improved after re-reading lecture slides.
+This week slightly shifted my view of quantitative methods—I now see how easily results can be distorted if assumptions are ignored.
+My biggest intellectual gain was in developing a check-list for choosing models.
+While I'm proud of completing the Challenge despite time pressure, I'll need to manage my schedule better to stay engaged in discussions.
 :::
 
 ::: {.callout-important collapse="true"}
 ### Weak example 1
 
-I did my work and took part in class. I learned some new things. The Challenge was okay and I finished it. My views on statistics are the same. I have grown a bit and I'm proud I completed my work.
+I did my work and took part in class.
+I learned some new things.
+The Challenge was okay and I finished it.
+My views on statistics are the same.
+I have grown a bit and I'm proud I completed my work.
 
 *Why it's bad*: No specifics, no examples, no reflection on challenges or growth.
 :::
@@ -102,7 +145,13 @@ I did my work and took part in class. I learned some new things. The Challenge w
 ::: {.callout-important collapse="true"}
 ### Weak example 2
 
-Participation: I was in class. Independent study: I read. New topic: Regression. Challenge: I did it. Views: No change. Growth: Learned more stats. Pride: I finished on time.
+Participation: I was in class.
+Independent study: I read.
+New topic: Regression.
+Challenge: I did it.
+Views: No change.
+Growth: Learned more stats.
+Pride: I finished on time.
 
 *Why it's bad*: Merely answers prompts without linking them or showing thought.
 :::
@@ -110,14 +159,26 @@ Participation: I was in class. Independent study: I read. New topic: Regression.
 ::: {.callout-important collapse="true"}
 ### Weak example 3
 
-This week I came to class and listened to the lecture. I joined in when people were talking, although I didn't say a lot. I did some reading at home but not as much as I probably should have. We learned a new topic about statistics, which was interesting but also quite hard to follow. I did the Challenge activity and submitted it on time. It was a bit tricky but I figured it out eventually. My view on quantitative methods hasn't really changed; I still think they are useful but complicated. I guess I've learned a bit more about how to use them, but it's hard to say exactly what. I'm proud I got everything done, although I didn't always understand it fully. I didn't ask for help because I thought I could manage on my own.
+This week I came to class and listened to the lecture.
+I joined in when people were talking, although I didn't say a lot.
+I did some reading at home but not as much as I probably should have.
+We learned a new topic about statistics, which was interesting but also quite hard to follow.
+I did the Challenge activity and submitted it on time.
+It was a bit tricky but I figured it out eventually.
+My view on quantitative methods hasn't really changed; I still think they are useful but complicated.
+I guess I've learned a bit more about how to use them, but it's hard to say exactly what.
+I'm proud I got everything done, although I didn't always understand it fully.
+I didn't ask for help because I thought I could manage on my own.
 
-*Why it's bad*: Although it meets the word count, it stays vague, avoids specifics, and offers no meaningful insight into participation, learning, or challenges. It lists activities without explaining what was learned, how difficulties were addressed, or how the week's work connects to personal growth. It also misses opportunities to show critical thinking or outline plans for improvement, making it more of a log than a self-reflection.
+*Why it's bad*: Although it meets the word count, it stays vague, avoids specifics, and offers no meaningful insight into participation, learning, or challenges.
+It lists activities without explaining what was learned, how difficulties were addressed, or how the week's work connects to personal growth.
+It also misses opportunities to show critical thinking or outline plans for improvement, making it more of a log than a self-reflection.
 :::
 
 ### Instructions for Weekly self-reflections submission
 
-After every class you'll need to write one self-reflection in the Reflective Journal on Learn. Afterwards you need to read our feedback on your entries.
+After every class you'll need to write one self-reflection in the Reflective Journal on Learn.
+Afterwards you need to read our feedback on your entries.
 
 What happens is:
 
@@ -138,24 +199,39 @@ What happens is:
 
 ### Overview
 
-As part of the assessment you will have to work on a **Group Project**. This project can be anything (some ideas below) so the structure of what you will have to submit differs depending on what you end up doing.
+As part of the assessment you will have to work on a **Group Project**.
+This project can be anything (some ideas below) so the structure of what you will have to submit differs depending on what you end up doing.
 
-Independent of the type of project, you will have to write a **Final Reflection where you propose and justify a mark for yourself based on your experience with the course and with working on you Group Projec**t. Note that your mark suggestion is just a suggestion and the tutors and I will make the final decision. You should follow the marking rubric in @sec-rubric below. This reflection is what you submit to Turnitin on Learn by the deadline of Thursday 12th December. The reflection should contain the "product" of your Group Project, either as text following the reflection or as a link (since the Group Project can be any of different types of products).
+Independent of the type of project, you will have to write a **Final Reflection where you propose and justify a mark for yourself based on your experience with the course and with working on you Group Projec**t.
+Note that your mark suggestion is just a suggestion and the tutors and I will make the final decision.
+You should follow the marking rubric in @sec-rubric below.
+This reflection is what you submit to Turnitin on Learn by the deadline of Thursday 12th December.
+The reflection should contain the "product" of your Group Project, either as text following the reflection or as a link (since the Group Project can be any of different types of products).
 
 The requisites for the Group Project are the following:
 
 -   **It has to be about linguistics**, i.e. research on Language and/or languages.
 
--   **It has to be on knowledge-oriented (aka "basic") research**, not on application-oriented (aka "applied") research. Language/speech technology topics are not allowed.
+-   **It has to be on knowledge-oriented (aka "basic") research**, not on application-oriented (aka "applied") research.
+    Language/speech technology topics are not allowed.
 
--   **It has to be in or on R and or Stan** (used by R to run Bayesian regression models)**.** Other programming languages are not allowed.
+-   **If the project requires statistical analysis, you must use R.** Other programming languages are not allowed.
+
+-   **You cannot use data used in the textbook nor workshops**, but you can use data in the [QML Data](https://uoelel.github.io/qml-data/) website that is not in the textbook/workshop tasks.
+
+-   If you are collecting data from participants, you need to obtain consent from them using **approved consent forms** (which will be available on Learn).
+
+-   It is up to you to form a group to work with.
+    I recommend groups of 3-5 people, but you can work in pair and even solo if you prefer that.
 
 ::: callout-tip
 #### Ideas for Group Projects
 
--   Pick a linguistic question that interests you and run a mini quantitative study (this could well be a study where you also act as participants). Write a data analysis report.
+-   Pick a linguistic question that interests you and run a mini quantitative study (this could well be a study where you also act as participants).
+    Write a data analysis report.
 
--   Find a linguistic topic and collect published effects from the relevant literature (the first step towards a fully-fledged meta-analysis). Curate the data set and make it available on the Open Science Framework and/or GitHub.
+-   Find a linguistic topic and collect published effects from the relevant literature (the first step towards a fully-fledged meta-analysis).
+    Curate the data set and make it available on the Open Science Framework and/or GitHub.
 
 -   Conduct a meta-analysis of a topic in linguistics based on existing literature.
 
@@ -183,7 +259,8 @@ For any question about assessment, post your question on Piazza (unless it's of 
 ::: callout-warning
 Each project will be different, so if you are unsure about how to approach your project idea or if you need help finding an idea in the first place, please get in touch with Stefano!
 
-Stefano does not have telepathic powers (yet) and the only way for him to help you is for you to reach out. :)
+Stefano does not have telepathic powers (yet) and the only way for him to help you is for you to reach out.
+:)
 :::
 
 ### Instructions for Project proposal submission
@@ -199,7 +276,9 @@ Stefano does not have telepathic powers (yet) and the only way for him to help y
 -   A few sentences explaining the project will be sufficient. Note that this deadline is an informal deadline and there is no possibility of getting an extension.
 
 ::: callout-important
-If your project requires you to collect data from participants who are not students in this course, you will need to abide to a **generic ethics approval** sought by Stefano for this course. This means there will be limitations on which participants you can gather data from and which data you can collect from them. More information TBA.
+If your project requires you to collect data from participants who are not students in this course, you will need to abide to a **generic ethics approval** sought by Stefano for this course.
+This means there will be limitations on which participants you can gather data from and which data you can collect from them.
+More information TBA.
 :::
 
 The following boxes give you some examples of possible projects and project proposals, with an explanation on how you can go about completing these projects.
@@ -209,11 +288,16 @@ The following boxes give you some examples of possible projects and project prop
 
 **Project proposal**
 
-> We want to replicate the study by @keogh2024. The study use an artificial language learning paradigm to test the relationship between working memory and regularisation. We will run the exact same experiment with 5 participants and conduct the same analysis they did.
+> We want to replicate the study by @keogh2024.
+> The study use an artificial language learning paradigm to test the relationship between working memory and regularisation.
+> We will run the exact same experiment with 5 participants and conduct the same analysis they did.
 
 **How to complete it**
 
-This is a **replication** project. You will need to understand the original study design, make sure you have the same materials and protocols and you will have to recruit 5 participants (these can be students from the QML course, including yourselves). After data collection, you should analyse the data as in the original study and write a short report focussing on the analysis approach and results. Specifically, you should discuss how the new results compare with the ones from the original study.
+This is a **replication** project.
+You will need to understand the original study design, make sure you have the same materials and protocols and you will have to recruit 5 participants (these can be students from the QML course, including yourselves).
+After data collection, you should analyse the data as in the original study and write a short report focussing on the analysis approach and results.
+Specifically, you should discuss how the new results compare with the ones from the original study.
 :::
 
 ::: {.callout-note collapse="true"}
@@ -221,11 +305,16 @@ This is a **replication** project. You will need to understand the original stud
 
 **Project proposal**
 
-> We want to collect recordings of ourselves reading a passage to illustrate different accents. We will include accents from: Scotland, England, India, Tanzania and Hungary. We will curate the data by formatting it so that it's [FAIR](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, Reusable) and we will make it available on the Open Science Framework with a CC-BY license. The data will be thoroughly documented.
+> We want to collect recordings of ourselves reading a passage to illustrate different accents.
+> We will include accents from: Scotland, England, India, Tanzania and Hungary.
+> We will curate the data by formatting it so that it's [FAIR](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, Reusable) and we will make it available on the Open Science Framework with a CC-BY license.
+> The data will be thoroughly documented.
 
 **How to complete it**
 
-This is a **data curation** project. You will collect, format, organise and document data which you will make available online. This requires learning about file data management, file formats, Open Research practices and principles.
+This is a **data curation** project.
+You will collect, format, organise and document data which you will make available online.
+This requires learning about file data management, file formats, Open Research practices and principles.
 :::
 
 ::: {.callout-note collapse="true"}
@@ -233,11 +322,15 @@ This is a **data curation** project. You will collect, format, organise and docu
 
 **Project proposal**
 
-> We want to draw an abstract paining that represents the analysis approach used in @hampton2024. The painting will be accompanied by a written piece with an explanation of the approach, our understanding and how this has shaped the painting.
+> We want to draw an abstract paining that represents the analysis approach used in @hampton2024.
+> The painting will be accompanied by a written piece with an explanation of the approach, our understanding and how this has shaped the painting.
 
 **How to complete it**
 
-This is **creative** project. You will have to carefully read the paper, understand the analysis, which will likely be of a more advanced level compared to what you have learnt so far, and use your creativity to create a painting (no need to be artists to make a painting!). The written piece will have to show that you have understood and internalised the analysis and that this understanding has driven the production of the painting. What you submit is the written piece and high resolution photo of the painting.
+This is **creative** project.
+You will have to carefully read the paper, understand the analysis, which will likely be of a more advanced level compared to what you have learnt so far, and use your creativity to create a painting (no need to be artists to make a painting!).
+The written piece will have to show that you have understood and internalised the analysis and that this understanding has driven the production of the painting.
+What you submit is the written piece and high resolution photo of the painting.
 :::
 
 ::: {.callout-note collapse="true"}
@@ -245,11 +338,16 @@ This is **creative** project. You will have to carefully read the paper, underst
 
 **Project proposal**
 
-> We are interested in the relationship between vowel height and vowel duration in Hungarian. We will run a small-scale study with recordings from 2 or 3 speakers of Hungarian. We will analyse the vowel duration using Bayesian regression models.
+> We are interested in the relationship between vowel height and vowel duration in Hungarian.
+> We will run a small-scale study with recordings from 2 or 3 speakers of Hungarian.
+> We will analyse the vowel duration using Bayesian regression models.
 
 **How to complete it**
 
-This is **research** project. You will have to think of a research question/hypothesis (they do not have to be novel and you can reuse existing questions/hypotheses) and collect and analyse data. Note that we are restricted by a generic ethics approval (see above, more information TBA). The written report will have to focus on the data collection and analysis (you should put less focus on literature review and discussion).
+This is **research** project.
+You will have to think of a research question/hypothesis (they do not have to be novel and you can reuse existing questions/hypotheses) and collect and analyse data.
+Note that we are restricted by a generic ethics approval (see above, more information TBA).
+The written report will have to focus on the data collection and analysis (you should put less focus on literature review and discussion).
 :::
 
 ::: {.callout-note collapse="true"}
@@ -257,11 +355,14 @@ This is **research** project. You will have to think of a research question/hypo
 
 **Project proposal**
 
-> We want to re-analyse the data from @ota2013. The original study used frequentist regression models, but we will instead apply a Bayesian regression model.
+> We want to re-analyse the data from @ota2013.
+> The original study used frequentist regression models, but we will instead apply a Bayesian regression model.
 
 **How to complete it**
 
-This is **robustness assessment** project. You will have to get hold of the original data and re-analyse it using a different approach than that in the original study. The report will describe the original approach and your approach, report the results and assess how these are different (if at all) from the original study's results.
+This is **robustness assessment** project.
+You will have to get hold of the original data and re-analyse it using a different approach than that in the original study.
+The report will describe the original approach and your approach, report the results and assess how these are different (if at all) from the original study's results.
 :::
 
 ### Instructions for Group Project and Final Reflection submission
@@ -283,12 +384,14 @@ This is **robustness assessment** project. You will have to get hold of the orig
 
 **Feedback** will be provided to you (1) during class, (2) as comments on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me; you can do so here: <https://bit.ly/33BH84L>), (4) on the Final Reflection + Group Project submission.
 
-### Marking rubric  {#sec-rubric}
+### Marking rubric {#sec-rubric}
 
-The following marking rubric will be used for the final mark of this course. It is an adaptation of the Psychology/LEL Honours marking rubric. Note that within each mark band, you can only get the 5's (so 65, 75, 85, etc...), except for 92.
+The following marking rubric will be used for the final mark of this course.
+It is an adaptation of the Psychology/LEL Honours marking rubric.
+Note that within each mark band, you can only get the 5's (so 65, 75, 85, etc...), except for 92.
 
 | Grade | Understand general principles of data analysis | Develop state-of-the-art Open Scholarship practices | Conduct data analyses with R |
-|---------------|------------------|------------------------|-----------------|
+|-----------------|-----------------|----------------------|-----------------|
 | **A1 92 Excellent** | Outstanding in every respect. Shows creative, subtle, and/or original independent thinking. Demonstrates breadth of knowledge and deep understanding of summarising, visualising, and modelling data. | Outstanding in every respect. Demonstrates breadth and depth of understanding of Open Scholarship principles. Shows creative, subtle, and/or original application, with critical and insightful evaluation of transparency, reproducibility, and responsible practices. | Outstanding in every respect. Demonstrates breadth and depth of understanding and use of R. Applies methods creatively and accurately, showing original and sophisticated independent thinking. |
 | **A2 85 Excellent** | Outstanding in some respects. Shows original, sophisticated independent thinking. Demonstrates a thorough understanding of summarising, visualising, and modelling data. | Outstanding in some respects. Demonstrates a thorough understanding of Open Scholarship principles. Shows original and sophisticated application, with insightful analysis of responsible practices. | Outstanding in some respects. Demonstrates a thorough understanding and use of R. Applies methods correctly and effectively, showing original and sophisticated independent thinking. |
 | **A3 75 Excellent** | Very good or excellent in most respects. Explores summarising, visualising, and modelling data fully. Shows some complex and/or sensitive independent thinking. Demonstrates a sound understanding. | Very good or excellent in most respects. Explores Open Scholarship principles fully. Demonstrates a sound understanding and shows some complex and/or sensitive independent thinking in application. | Very good or excellent in most respects. Explores use of R fully. Demonstrates a sound understanding and shows some complex and/or sensitive independent thinking in application. |
