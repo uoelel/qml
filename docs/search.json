@@ -49,11 +49,25 @@
     "text": "Statistical significance is not meaningful"
   },
   {
+    "objectID": "lectures/week-07.html#what-a-p-value-really-means",
+    "href": "lectures/week-07.html#what-a-p-value-really-means",
+    "title": "QML - Week 7",
+    "section": "What a p-value really means",
+    "text": "What a p-value really means\n\n\n\nP-value\n\n\nA p-value is the probability of finding a difference as large as or larger than the difference found, assuming there is no difference (i.e. the null hypothesis that the difference is 0).\n\n\n\n\n\n\n\n\nThe “null hypothesis” is always true.\nYou can only reject the null hypothesis, not disprove it nor prove it.\nThe p-value is not about the probability that the difference is not 0.\nThe p-value does not tell you anything about the replicability of the results."
+  },
+  {
     "objectID": "lectures/week-07.html#group-activity",
     "href": "lectures/week-07.html#group-activity",
     "title": "QML - Week 7",
     "section": "Group activity",
     "text": "Group activity\n\n\n\n\n\nFocus on the results sections of these papers and discuss how they compare with one another.\n\n\nEvaluating the Relative Importance of Wordhood Cues Using Statistical Learning.\nBrain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions.\nNotes on the length of vowels.\n\n\nHow are the statistical approaches different? Which papers focus more on general directional patterns vs more precise estimation? How are the results weighted and use as evidence?"
+  },
+  {
+    "objectID": "lectures/week-07.html#lets-discuss",
+    "href": "lectures/week-07.html#lets-discuss",
+    "title": "QML - Week 7",
+    "section": "Let’s discuss!",
+    "text": "Let’s discuss!\n\n\n\nNow share your thoughts with the class."
   },
   {
     "objectID": "lectures/week-04.html#were-taking-attendance",
@@ -581,25 +595,18 @@
     "text": "Reaction times"
   },
   {
-    "objectID": "lectures/week-05.html#word-frequency",
-    "href": "lectures/week-05.html#word-frequency",
-    "title": "QML - Week 5",
-    "section": "Word frequency",
-    "text": "Word frequency"
-  },
-  {
-    "objectID": "lectures/week-05.html#word-frequency-logged",
-    "href": "lectures/week-05.html#word-frequency-logged",
-    "title": "QML - Week 5",
-    "section": "Word frequency: logged",
-    "text": "Word frequency: logged"
-  },
-  {
     "objectID": "lectures/week-05.html#word-frequency-and-rts",
     "href": "lectures/week-05.html#word-frequency-and-rts",
     "title": "QML - Week 5",
     "section": "Word frequency and RTs",
     "text": "Word frequency and RTs"
+  },
+  {
+    "objectID": "lectures/week-05.html#logged-word-frequency-and-rts",
+    "href": "lectures/week-05.html#logged-word-frequency-and-rts",
+    "title": "QML - Week 5",
+    "section": "Logged word frequency and RTs",
+    "text": "Logged word frequency and RTs"
   },
   {
     "objectID": "lectures/week-05.html#gaussian-model-of-rt",
@@ -621,6 +628,13 @@
     "title": "QML - Week 5",
     "section": "Regression model",
     "text": "Regression model\n\\[\n\\begin{align}\nRT & \\sim Gaussian(\\mu, \\sigma)\\\\\n\\mu & = \\beta_0 + \\beta_1 \\cdot logf & \\text{[Regression equation]}\n\\end{align}\n\\]\n\n\n\n\nA regression model is a model based on the equation of a line.\nThe model estimates \\(\\beta_0\\) (the intercept) and \\(\\beta_1\\) (the slope) from the data (i.e. the observed \\(RT\\) and \\(logf\\) values).\n\n\n\n\n\n\n\n\n\n\\(\\beta_0\\), intercept\n\nMean RT value when logged frequency is 0 zero (i.e. when word frequency is 1; exp(0) = 1).\n\n\\(\\beta_1\\), slope\n\nChange in mean RT for each unit increase of log-frequency (when log-frequency goes from \\(x\\) to \\(x + 1\\))."
+  },
+  {
+    "objectID": "lectures/week-05.html#models-posterior-predictions",
+    "href": "lectures/week-05.html#models-posterior-predictions",
+    "title": "QML - Week 5",
+    "section": "Model’s posterior predictions",
+    "text": "Model’s posterior predictions"
   },
   {
     "objectID": "lectures/week-05.html#word-frequency-and-reaction-times-bis",
@@ -663,26 +677,5 @@
     "title": "Workshop: Week 5",
     "section": "",
     "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice Bayesian Gaussian modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Massive Auditory Lexical Decision (MALD)\n\n\n\n\nRead the tucker2019/mald_1_1.rds data.\nFilter the data to include only real words.\nFit a regression model to answer the following question: what is the relationship between reaction times and mean phoneme-level Levenshtein distance (PhonLev)?\n\nYou can check the publication linked on the data documentation to learn about the mean phoneme-level Levenshtein distance.\n\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\nWhy does PhonLev have the effect it has on reaction times?\n\n\n\n\n\n\n\n\n\nNoteTask B: Korean voice quality\n\n\n\n\nRead the winter2012/polite.csv data.\nFilter the data to include only female participants.\nFit a regression model of mean f0 (f0mn) and mean harmonic-to-noise ratio (HNRmn, the higher the HNR, the more modal the voice is). What is the relationship between mean f0 and mean HNR in female Korean speakers?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\n\n\n\n\n\n\n\n\n\nNoteTask C: Reading fixation times (eye-tracking)\n\n\n\n\nRead berzak2025/fix-dur.csv and familiarise yourself with the data documentation and study linked therein.\nWith a regression model, answer the following research question: what is the relationship between the current fixation duration and the length of the word being fixated?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
-  },
-  {
-    "objectID": "lectures/week-05.html#logged-word-frequency-and-rts",
-    "href": "lectures/week-05.html#logged-word-frequency-and-rts",
-    "title": "QML - Week 5",
-    "section": "Logged word frequency and RTs",
-    "text": "Logged word frequency and RTs"
-  },
-  {
-    "objectID": "lectures/week-05.html#posterior-predictions",
-    "href": "lectures/week-05.html#posterior-predictions",
-    "title": "QML - Week 5",
-    "section": "Posterior predictions",
-    "text": "Posterior predictions"
-  },
-  {
-    "objectID": "lectures/week-05.html#models-posterior-predictions",
-    "href": "lectures/week-05.html#models-posterior-predictions",
-    "title": "QML - Week 5",
-    "section": "Model’s posterior predictions",
-    "text": "Model’s posterior predictions"
   }
 ]

@@ -9,7 +9,10 @@ bibliography: references.bib
 ## Statistical significance
 
 ::: {.callout-note appearance="simple"}
-Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a *p*-value of 0.01. Which of the following statements are FALSE?
+Suppose you have a treatment that you suspect may alter performance on a certain task.
+You compare the means of your control and experimental groups (say 20 subjects in each sample).
+Further, suppose a significance test indicates a significant difference, with a *p*-value of 0.01.
+Which of the following statements are FALSE?
 :::
 
 :::::: columns
@@ -41,17 +44,20 @@ Suppose you have a treatment that you suspect may alter performance on a certain
 ## Which statements are false?
 
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d4127b003fb9fde7a375d6" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d4127b003fb9fde7a375d6" width="100%"></iframe>
 ```
 
 ## Statistical significance is not meaningful
 
 ::: {.callout-note appearance="simple"}
--   Simulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.
+-   Simulate N observations from two populations that have very similar means.
+    Their difference is not linguistically meaningful.
 
 -   N is sample size: from 50 to 500.
 
--   For each N, simulate N observations 100 times (100 draws). For each draw get the *p*-value of the difference. So 100 p-values for each N.
+-   For each N, simulate N observations 100 times (100 draws).
+    For each draw get the *p*-value of the difference.
+    So 100 p-values for each N.
 :::
 
 ## Statistical significance is not meaningful
@@ -97,6 +103,26 @@ results |>
   )
 ```
 
+## What a *p*-value really means
+
+::: callout-important
+## *P*-value
+
+A *p*-value is the probability of finding a difference as large as or larger than the difference found, assuming there is no difference (i.e. the null hypothesis that the difference is 0).
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+-   The "null hypothesis" is always true.
+
+-   You can only reject the null hypothesis, not disprove it nor prove it.
+
+-   The *p-*value is not about the probability that the difference is not 0.
+
+-    The *p*-value does not tell you anything about the replicability of the results.
+:::
+
 ## Group activity
 
 ::::::: columns
@@ -112,15 +138,23 @@ Focus on the results sections of these papers and discuss how they compare with 
 -   [Notes on the length of vowels](https://doi.org/10.2307/452621).
 :::
 
-How are the statistical approaches different? Which papers focus more on general directional patterns vs more precise estimation? How are the results weighted and use as evidence?
+How are the statistical approaches different?
+Which papers focus more on general directional patterns vs more precise estimation?
+How are the results weighted and use as evidence?
 ::::
 :::::
 
 ::: {.column width="30%"}
 ```{=html}
 <iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=20&sec=0" 
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" 
                     frameborder="0"></iframe>
 ```
 :::
 :::::::
+
+## Let's discuss!
+
+::: {.callout-note appearance="simple"}
+Now share your thoughts with the class.
+:::
