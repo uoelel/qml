@@ -1,5 +1,5 @@
 ---
-title: "Workshop: Week 7"
+title: "Workshop: Week 8"
 format: html
 ---
 
@@ -12,43 +12,44 @@ format: html
 
 -   If you are unsure about anything, please ask us for directions! You can find information about the data on the [QML Data](https://uoelel.github.io/qml-data/) website.
 
--   The tasks are designed for you to practice Bayesian Gaussian regression modelling.
+-   The tasks are designed for you to practice Bayesian Bernoulli regression modelling.
 :::
 
 ::: callout-note
-## Task A: Vowel duration and vowel category
+## Task A: Scalar inferences and semantic distance
 
--   Read the `coretta2018/token-measures.csv` data.
+-   Read the `pankratz2021/si.csv` data. ([Data documentation](https://uoelel.github.io/qml-data/data/pankratz2021/si.html))
 
--   Fit a regression model to answer the following question: do different vowels have different durations?
+-   Fit a regression model to answer the following question: does the semantic distance (`semdist`) of the weak and strong adjective affect the probability of a scalar inference (`SI`)?
 
 -   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.
 
 - Discuss the results with your group (no need to write the discussion).
 :::
 
-::: callout-note
-## Task B: Pupil width
-
--   Read the `mclaughlin2023/pupil-width.csv` data.
-
--   Fit a regression model to answer the following question: is the average maximum pupil size different when recognising words from dense lexical neighbourhoods compared to words from sparse lexical neighbourhoods?
-
--   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for the dense and sparse condition.
-
-- Discuss the results with your group (no need to write the discussion).
-:::
 
 ::: callout-note
-## Task C: Shallow Structure Hypothesis
+## Task B: Shallow Structure Hypothesis
 
 -   Read the `song2020/shallow.csv` data.
 
 - Filter the data so it contains only L2 data and critical trials.
 
--   Fit a regression model to answer the following question: how does relation type of prime-target affect reaction times in L2 speakers of English?
+-   Fit a regression model to answer the following question: how does relation type of prime-target affect accuracy in L2 speakers of English?
 
--   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each relation type.
+-   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.
+
+- Discuss the results with your group (no need to write the discussion).
+:::
+
+::: callout-note
+## Task C: Pick your own data
+
+-   Find data that can be analysed with a Bernoulli regression.
+
+-   Fit a regression model to answer a question with the data.
+
+-   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions.
 
 - Discuss the results with your group (no need to write the discussion).
 :::

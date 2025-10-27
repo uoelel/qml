@@ -4,7 +4,7 @@
     "href": "workshops/week-07.html",
     "title": "Workshop: Week 7",
     "section": "",
-    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions! You can find information about the data on the QML Data website.\nThe tasks are designed for you to practice Bayesian Gaussian modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Vowel duration and vowel category\n\n\n\n\nRead the coretta2018/token-measures.csv data.\nFit a regression model to answer the following question: do different vowels have different durations?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the posterior predictions for each vowel.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask B: Pupil width\n\n\n\n\nRead the mclaughlin2023/pupil-width.csv data.\nFit a regression model to answer the following question: is the average maximum pupil size different when recognising words from dense lexical neighbourhoods compared to words from sparse lexical neighbourhoods?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the posterior predictions for the dense and sparse condition.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask C: Shallow Structure Hypothesis\n\n\n\n\nRead the song2020/shallow.csv data.\nFilter the data so it contains only L2 data and critical trials.\nFit a regression model to answer the following question: how does relation type of prime-target affect reaction times in L2 speakers of English?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the posterior predictions for each relation type.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions! You can find information about the data on the QML Data website.\nThe tasks are designed for you to practice Bayesian Gaussian regression modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Vowel duration and vowel category\n\n\n\n\nRead the coretta2018/token-measures.csv data.\nFit a regression model to answer the following question: do different vowels have different durations?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask B: Pupil width\n\n\n\n\nRead the mclaughlin2023/pupil-width.csv data.\nFit a regression model to answer the following question: is the average maximum pupil size different when recognising words from dense lexical neighbourhoods compared to words from sparse lexical neighbourhoods?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for the dense and sparse condition.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask C: Shallow Structure Hypothesis\n\n\n\n\nRead the song2020/shallow.csv data.\nFilter the data so it contains only L2 data and critical trials.\nFit a regression model to answer the following question: how does relation type of prime-target affect reaction times in L2 speakers of English?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each relation type.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
   },
   {
     "objectID": "workshops/week-04.html",
@@ -24,50 +24,50 @@
     "objectID": "lectures/week-07.html#statistical-significance",
     "href": "lectures/week-07.html#statistical-significance",
     "title": "QML - Week 7",
-    "section": "Statistical significance",
-    "text": "Statistical significance\n\n\n\nSuppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a p-value of 0.01. Which of the following statements are FALSE?\n\n\n\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
+    "section": "",
+    "text": "Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a p-value of 0.01. Which of the following statements are FALSE?\n\n\n\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
   },
   {
     "objectID": "lectures/week-07.html#which-statements-are-false",
     "href": "lectures/week-07.html#which-statements-are-false",
     "title": "QML - Week 7",
-    "section": "Which statements are false?",
-    "text": "Which statements are false?"
+    "section": "2 Which statements are false?",
+    "text": "2 Which statements are false?"
   },
   {
     "objectID": "lectures/week-07.html#statistical-significance-is-not-meaningful",
     "href": "lectures/week-07.html#statistical-significance-is-not-meaningful",
     "title": "QML - Week 7",
-    "section": "Statistical significance is not meaningful",
-    "text": "Statistical significance is not meaningful\n\n\n\n\nSimulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.\nN is sample size: from 50 to 500.\nFor each N, simulate N observations 100 times (100 draws). For each draw get the p-value of the difference. So 100 p-values for each N."
+    "section": "3 Statistical significance is not meaningful",
+    "text": "3 Statistical significance is not meaningful\n\n\n\n\n\n\n\nSimulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.\nN is sample size: from 50 to 500.\nFor each N, simulate N observations 100 times (100 draws). For each draw get the p-value of the difference. So 100 p-values for each N."
   },
   {
     "objectID": "lectures/week-07.html#statistical-significance-is-not-meaningful-1",
     "href": "lectures/week-07.html#statistical-significance-is-not-meaningful-1",
     "title": "QML - Week 7",
-    "section": "Statistical significance is not meaningful",
-    "text": "Statistical significance is not meaningful"
+    "section": "4 Statistical significance is not meaningful",
+    "text": "4 Statistical significance is not meaningful"
   },
   {
     "objectID": "lectures/week-07.html#what-a-p-value-really-means",
     "href": "lectures/week-07.html#what-a-p-value-really-means",
     "title": "QML - Week 7",
-    "section": "What a p-value really means",
-    "text": "What a p-value really means\n\n\n\nP-value\n\n\nA p-value is the probability of finding a difference as large as or larger than the difference found, assuming there is no difference (i.e. the null hypothesis that the difference is 0).\n\n\n\n\n\n\n\n\nThe “null hypothesis” is always true.\nYou can only reject the null hypothesis, not disprove it nor prove it.\nThe p-value is not about the probability that the difference is not 0.\nThe p-value does not tell you anything about the replicability of the results."
+    "section": "5 What a p-value really means",
+    "text": "5 What a p-value really means\n\n\n\n\n\n\nImportantP-value\n\n\n\nA p-value is the probability of finding a difference as large as or larger than the difference found, assuming there is no difference (i.e. the null hypothesis that the difference is 0).\n\n\n. . .\n\n\n\n\n\n\n\nThe “null hypothesis” is always true.\nYou can only reject the null hypothesis, not disprove it nor prove it.\nThe p-value is not about the probability that the difference is not 0.\nThe p-value does not tell you anything about the replicability of the results."
   },
   {
     "objectID": "lectures/week-07.html#group-activity",
     "href": "lectures/week-07.html#group-activity",
     "title": "QML - Week 7",
-    "section": "Group activity",
-    "text": "Group activity\n\n\n\n\n\nFocus on the results sections of these papers and discuss how they compare with one another.\n\n\nEvaluating the Relative Importance of Wordhood Cues Using Statistical Learning.\nBrain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions.\nNotes on the length of vowels.\n\n\nHow are the statistical approaches different? Which papers focus more on general directional patterns vs more precise estimation? How are the results weighted and use as evidence?"
+    "section": "6 Group activity",
+    "text": "6 Group activity\n\n\n\n\n\n\n\n\nFocus on the results sections of these papers and discuss how they compare with one another.\n\n\nEvaluating the Relative Importance of Wordhood Cues Using Statistical Learning.\nBrain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions.\nNotes on the length of vowels.\n\n\nHow are the statistical approaches different? Which papers focus more on general directional patterns vs more precise estimation? How are the results weighted and use as evidence?"
   },
   {
     "objectID": "lectures/week-07.html#lets-discuss",
     "href": "lectures/week-07.html#lets-discuss",
     "title": "QML - Week 7",
-    "section": "Let’s discuss!",
-    "text": "Let’s discuss!\n\n\n\nNow share your thoughts with the class."
+    "section": "7 Let’s discuss!",
+    "text": "7 Let’s discuss!\n\n\n\n\n\n\nNow share your thoughts with the class."
   },
   {
     "objectID": "lectures/week-04.html#were-taking-attendance",
@@ -662,7 +662,7 @@
     "href": "workshops.html",
     "title": "Workshop challenges",
     "section": "",
-    "text": "This page lists the challenges to be completed as group work during the workshop hours. Note that for the first week you might want to work solo since there isn’t a dedicated challenge, but rather you will go through the R chapters of Week 1 from the textbook.\n\n\n\nWeek 1\nGo through Chapter 4 and 5 of the textbook (you can work solo).\n\n\nWeek 2\nWorkshop\n\n\nWeek 3\nWorkshop\n\n\nWeek 4\nWorkshop\n\n\nWeek 5\nWorkshop\n\n\nWeek 6\nNo classes\n\n\nWeek 7\nWorkshop\n\n\nWeek 8\n\n\n\nWeek 9\n\n\n\nWeek 10"
+    "text": "This page lists the challenges to be completed as group work during the workshop hours. Note that for the first week you might want to work solo since there isn’t a dedicated challenge, but rather you will go through the R chapters of Week 1 from the textbook.\n\n\n\nWeek 1\nGo through Chapter 4 and 5 of the textbook (you can work solo).\n\n\nWeek 2\nWorkshop\n\n\nWeek 3\nWorkshop\n\n\nWeek 4\nWorkshop\n\n\nWeek 5\nWorkshop\n\n\nWeek 6\nNo classes\n\n\nWeek 7\nWorkshop\n\n\nWeek 8\nWorkshop\n\n\nWeek 9\n\n\n\nWeek 10"
   },
   {
     "objectID": "workshops/week-03.html",
@@ -677,5 +677,19 @@
     "title": "Workshop: Week 5",
     "section": "",
     "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice Bayesian Gaussian modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Massive Auditory Lexical Decision (MALD)\n\n\n\n\nRead the tucker2019/mald_1_1.rds data.\nFilter the data to include only real words.\nFit a regression model to answer the following question: what is the relationship between reaction times and mean phoneme-level Levenshtein distance (PhonLev)?\n\nYou can check the publication linked on the data documentation to learn about the mean phoneme-level Levenshtein distance.\n\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\nWhy does PhonLev have the effect it has on reaction times?\n\n\n\n\n\n\n\n\n\nNoteTask B: Korean voice quality\n\n\n\n\nRead the winter2012/polite.csv data.\nFilter the data to include only female participants.\nFit a regression model of mean f0 (f0mn) and mean harmonic-to-noise ratio (HNRmn, the higher the HNR, the more modal the voice is). What is the relationship between mean f0 and mean HNR in female Korean speakers?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\n\n\n\n\n\n\n\n\n\nNoteTask C: Reading fixation times (eye-tracking)\n\n\n\n\nRead berzak2025/fix-dur.csv and familiarise yourself with the data documentation and study linked therein.\nWith a regression model, answer the following research question: what is the relationship between the current fixation duration and the length of the word being fixated?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+  },
+  {
+    "objectID": "workshops/week-08.html",
+    "href": "workshops/week-08.html",
+    "title": "Workshop: Week 8",
+    "section": "",
+    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions! You can find information about the data on the QML Data website.\nThe tasks are designed for you to practice Bayesian Bernoulli regression modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Scalar inferences and semantic distance\n\n\n\n\nRead the pankratz2021/si.csv data. (Data documentation)\nFit a regression model to answer the following question: does the semantic distance (semdist) of the weak and strong adjective affect the probability of a scalar inference (SI)?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask B: Shallow Structure Hypothesis\n\n\n\n\nRead the song2020/shallow.csv data.\nFilter the data so it contains only L2 data and critical trials.\nFit a regression model to answer the following question: how does relation type of prime-target affect accuracy in L2 speakers of English?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask C: Pick your own data\n\n\n\n\nFind data that can be analysed with a Bernoulli regression.\nFit a regression model to answer a question with the data.\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+  },
+  {
+    "objectID": "lectures/week-07.html",
+    "href": "lectures/week-07.html",
+    "title": "QML - Week 7",
+    "section": "",
+    "text": "Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a p-value of 0.01. Which of the following statements are FALSE?\n\n\n\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
   }
 ]

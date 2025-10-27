@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Workshop: Week 7 – QML</title>
+<title>Workshop: Week 8 – QML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Workshop: Week 7</h1>
+<h1 class="title">Workshop: Week 8</h1>
 </div>
 
 
@@ -167,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Pick one of the following tasks and work through it in group.</p></li>
 <li><p>While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.</p></li>
 <li><p>If you are unsure about anything, please ask us for directions! You can find information about the data on the <a href="https://uoelel.github.io/qml-data/">QML Data</a> website.</p></li>
-<li><p>The tasks are designed for you to practice Bayesian Gaussian regression modelling.</p></li>
+<li><p>The tasks are designed for you to practice Bayesian Bernoulli regression modelling.</p></li>
 </ul>
 </div>
 </div>
@@ -177,13 +177,13 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Task A: Vowel duration and vowel category
+<span class="screen-reader-only">Note</span>Task A: Scalar inferences and semantic distance
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>coretta2018/token-measures.csv</code> data.</p></li>
-<li><p>Fit a regression model to answer the following question: do different vowels have different durations?</p></li>
+<li><p>Read the <code>pankratz2021/si.csv</code> data. (<a href="https://uoelel.github.io/qml-data/data/pankratz2021/si.html">Data documentation</a>)</p></li>
+<li><p>Fit a regression model to answer the following question: does the semantic distance (<code>semdist</code>) of the weak and strong adjective affect the probability of a scalar inference (<code>SI</code>)?</p></li>
 <li><p>Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.</p></li>
 <li><p>Discuss the results with your group (no need to write the discussion).</p></li>
 </ul>
@@ -195,14 +195,15 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Task B: Pupil width
+<span class="screen-reader-only">Note</span>Task B: Shallow Structure Hypothesis
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>mclaughlin2023/pupil-width.csv</code> data.</p></li>
-<li><p>Fit a regression model to answer the following question: is the average maximum pupil size different when recognising words from dense lexical neighbourhoods compared to words from sparse lexical neighbourhoods?</p></li>
-<li><p>Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for the dense and sparse condition.</p></li>
+<li><p>Read the <code>song2020/shallow.csv</code> data.</p></li>
+<li><p>Filter the data so it contains only L2 data and critical trials.</p></li>
+<li><p>Fit a regression model to answer the following question: how does relation type of prime-target affect accuracy in L2 speakers of English?</p></li>
+<li><p>Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.</p></li>
 <li><p>Discuss the results with your group (no need to write the discussion).</p></li>
 </ul>
 </div>
@@ -213,15 +214,14 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Task C: Shallow Structure Hypothesis
+<span class="screen-reader-only">Note</span>Task C: Pick your own data
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>song2020/shallow.csv</code> data.</p></li>
-<li><p>Filter the data so it contains only L2 data and critical trials.</p></li>
-<li><p>Fit a regression model to answer the following question: how does relation type of prime-target affect reaction times in L2 speakers of English?</p></li>
-<li><p>Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each relation type.</p></li>
+<li><p>Find data that can be analysed with a Bernoulli regression.</p></li>
+<li><p>Fit a regression model to answer a question with the data.</p></li>
+<li><p>Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions.</p></li>
 <li><p>Discuss the results with your group (no need to write the discussion).</p></li>
 </ul>
 </div>
