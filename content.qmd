@@ -351,7 +351,7 @@ The link to the test is available on the Learn site of the course.
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   Read the Week 5 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+-   Read the Week 7 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
 -   **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
@@ -368,6 +368,13 @@ The link to the test is available on the Learn site of the course.
 :::
 
 ### Week 8: Binomial/Bernoulli and log-normal regression models
+
+::: {.callout-note collapse="false"}
+#### Readings
+
+- **Read [Ch 30](https://stefanocoretta.github.io/qdal/ch-regression-bernoulli.html) of the textbook before the lecture.**
+- Read the other Week 8 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+:::
 
 ### Week 9: Predictor interactions in regression models
 

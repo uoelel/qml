@@ -1,0 +1,128 @@
+---
+title: "QML - Week 7"
+subtitle: "Bernoulli regression models"
+author: "Stefano Coretta"
+format: revealjs
+bibliography: references.bib
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+theme_set(theme_light())
+library(brms)
+```
+
+## Bouba and kiki
+
+![](/img/Booba-Kiki.svg){fig-align="center"}
+
+::: {style="font-size: 1rem;"}
+@holland1964, @chen2016
+:::
+
+## Cross-modality
+
+::: {.callout-note appearance="simple"}
+-   There are links between the auditory and visual modalities.
+
+-   A lot of research this concept, in fact originated with @kohler1929 who used "takete" and "maluma" (not the singer).
+
+-   @koppensteiner2016 ask if not only shape, but also motion patterns enter in the cross-modality link.
+:::
+
+## Motion patterns
+
+![](/img/pone.0150610.g001.PNG_L.png){fig-align="center" width="500"}
+
+::: {style="font-size: 1rem;"}
+@koppensteiner2016
+:::
+
+## Motion patterns
+
+::: {.callout-note appearance="simple"}
+@koppensteiner2016
+
+-   46 students (24 females and 22 males; age M = 25.1 years, SD = 3.6) of the University of Vienna.
+
+-   They saw a word (takete or maluma) and two stick-figures moving.
+
+-   They had to pick the stick figure they thought was described by the word.
+:::
+
+## The data
+
+```{r}
+#| label: kopper
+#| message: false
+#| echo: true
+
+kopper <- read_delim("data/koppensteiner2016/takete_maluma.txt")
+kopper
+```
+
+## Accuracy
+
+```{r}
+#| label: fig-kopper-acc
+#| fig-cap: "Accuracy by stimulus type."
+
+kopper |> 
+  ggplot(aes(Tak_Mal_Stim, fill = Answer)) +
+  geom_bar(position = "fill") +
+  labs(
+    x = "Stimulus type", y = "Proportion"
+  )
+```
+
+## Modelling accuracy
+
+::: {.callout-note appearance="simple"}
+-   We want to model the proportion of correct responses by stimulus type: both types should elicit the same level of accuracy.
+
+-   We can use a Bernoulli regression model.
+:::
+
+. . .
+
+```{r}
+#| label: kop-mutate
+#| echo: true
+
+kopper <- kopper |> 
+  mutate(
+    Answer_f = factor(Answer, levels = c("WRONG", "CORRECT"))
+  )
+levels(kopper$Answer_f)
+```
+
+## Accuracy: Bernoulli regression
+
+```{r}
+#| label: kop-bm
+#| echo: true
+
+kop_bm <- brm(
+  Answer_f ~ Tak_Mal_Stim,
+  data = kopper,
+  family = bernoulli,
+  cores = 4,
+  seed = 9128,
+  file = "cache/kop_bm"
+)
+```
+
+## Accuracy: model summary
+
+```{r}
+#| label: kop-bm-summ
+#| echo: true
+
+summary(kop_bm)
+
+```
+
+## References

@@ -691,5 +691,82 @@
     "title": "QML - Week 7",
     "section": "",
     "text": "Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a p-value of 0.01. Which of the following statements are FALSE?\n\n\n\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
+  },
+  {
+    "objectID": "lectures/week-08.html#bouba-and-kiki",
+    "href": "lectures/week-08.html#bouba-and-kiki",
+    "title": "QML - Week 7",
+    "section": "Bouba and kiki",
+    "text": "Bouba and kiki\n\n\nHolland and Wertheimer (1964), Chen et al. (2016)"
+  },
+  {
+    "objectID": "lectures/week-08.html#references",
+    "href": "lectures/week-08.html#references",
+    "title": "QML - Week 7",
+    "section": "References",
+    "text": "References\n\n\n\n\nChen, Yi-Chuan, Pi-Chun Huang, Andy Woods, and Charles Spence. 2016. “When “Bouba” Equals “Kiki”: Cultural Commonalities and Cultural Differences in Sound-Shape Correspondences.” Scientific Reports 6 (1): 26681. https://doi.org/10.1038/srep26681.\n\n\nHolland, Morris K., and Michael Wertheimer. 1964. “Some Physiognomic Aspects of Naming, or, Maluma and Takete Revisited.” Perceptual and Motor Skills 19 (1): 111–17. https://doi.org/10.2466/pms.1964.19.1.111.\n\n\nKöhler, Wolfgang. 1929. Gestalt Psychology. New York: Liveright.\n\n\nKoppensteiner, Markus, Pia Stephan, and Johannes Paul Michael Jäschke. 2016. “Shaking Takete and Flowing Maluma. Non-Sense Words Are Associated with Motion Patterns.” PLOS ONE 11 (3). https://doi.org/10.1371/journal.pone.0150610."
+  },
+  {
+    "objectID": "lectures/week-08.html#cross-modality",
+    "href": "lectures/week-08.html#cross-modality",
+    "title": "QML - Week 7",
+    "section": "Cross-modality",
+    "text": "Cross-modality\n\n\n\n\nThere are links between the auditory and visual modalities.\nA lot of research this concept, in fact originated with Köhler (1929) who used “takete” and “maluma” (not the singer).\nKoppensteiner, Stephan, and Jäschke (2016) ask if not only shape, but also motion patterns enter in the cross-modality link."
+  },
+  {
+    "objectID": "lectures/week-08.html#motion-patterns",
+    "href": "lectures/week-08.html#motion-patterns",
+    "title": "QML - Week 7",
+    "section": "Motion patterns",
+    "text": "Motion patterns\n\n\nKoppensteiner, Stephan, and Jäschke (2016)"
+  },
+  {
+    "objectID": "lectures/week-08.html#koppensteiner2016",
+    "href": "lectures/week-08.html#koppensteiner2016",
+    "title": "QML - Week 7",
+    "section": "1",
+    "text": "1"
+  },
+  {
+    "objectID": "lectures/week-08.html#motion-patterns-1",
+    "href": "lectures/week-08.html#motion-patterns-1",
+    "title": "QML - Week 7",
+    "section": "Motion patterns",
+    "text": "Motion patterns\n\n\n\nKoppensteiner, Stephan, and Jäschke (2016)\n\n46 students (24 females and 22 males; age M = 25.1 years, SD = 3.6) of the University of Vienna.\nThey saw a word (takete or maluma) and two stick-figures moving.\nThey had to pick the stick figure they thought was described by the word."
+  },
+  {
+    "objectID": "lectures/week-08.html#the-data",
+    "href": "lectures/week-08.html#the-data",
+    "title": "QML - Week 7",
+    "section": "The data",
+    "text": "The data\n\nkopper &lt;- read_delim(\"data/koppensteiner2016/takete_maluma.txt\")\nkopper\n\n# A tibble: 460 × 5\n   Tak_Mal_Stim Answer  Corr_1_Wrong_0 Rater                   Female_0\n   &lt;chr&gt;        &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;                      &lt;dbl&gt;\n 1 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 2 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 3 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 4 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 5 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 6 Maluma       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 7 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 8 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 9 Maluma       CORRECT              1 10MacI_12_10_11_59_.txt        0\n10 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n# ℹ 450 more rows"
+  },
+  {
+    "objectID": "lectures/week-08.html#accuracy",
+    "href": "lectures/week-08.html#accuracy",
+    "title": "QML - Week 7",
+    "section": "Accuracy",
+    "text": "Accuracy\n\n\nFigure 1: Accuracy by stimulus type."
+  },
+  {
+    "objectID": "lectures/week-08.html#modelling-accuracy",
+    "href": "lectures/week-08.html#modelling-accuracy",
+    "title": "QML - Week 7",
+    "section": "Modelling accuracy",
+    "text": "Modelling accuracy\n\n\n\n\nWe want to model the proportion of correct responses by stimulus type.\nWe can use a Bernoulli regression model.\n\n\n\n\n\n\nkopper &lt;- kopper |&gt; \n  mutate(\n    Answer_f = factor(Answer, levels = c(\"WRONG\", \"CORRECT\"))\n  )\nlevels(kopper$Answer_f)\n\n[1] \"WRONG\"   \"CORRECT\""
+  },
+  {
+    "objectID": "lectures/week-08.html#accuracy-bernoulli-regression",
+    "href": "lectures/week-08.html#accuracy-bernoulli-regression",
+    "title": "QML - Week 7",
+    "section": "Accuracy: Bernoulli regression",
+    "text": "Accuracy: Bernoulli regression\n\nkop_bm &lt;- brm(\n  Answer_f ~ Tak_Mal_Stim,\n  data = kopper,\n  family = bernoulli,\n  cores = 4,\n  seed = 9128,\n  file = \"cache/kop_bm\"\n)"
+  },
+  {
+    "objectID": "lectures/week-08.html#accuracy-model-summary",
+    "href": "lectures/week-08.html#accuracy-model-summary",
+    "title": "QML - Week 7",
+    "section": "Accuracy: model summary",
+    "text": "Accuracy: model summary\n\nsummary(kop_bm)\n\n Family: bernoulli \n  Links: mu = logit \nFormula: Answer_f ~ Tak_Mal_Stim \n   Data: kopper (Number of observations: 460) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nIntercept              0.81      0.15     0.52     1.11 1.00     3978     2479\nTak_Mal_StimTakete     0.15      0.21    -0.25     0.56 1.00     4026     2442\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
   }
 ]
