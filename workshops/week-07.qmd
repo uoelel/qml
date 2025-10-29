@@ -20,7 +20,7 @@ format: html
 
 -   Read the `coretta2018/token-measures.csv` data.
 
--   Fit a regression model to answer the following question: do different vowels have different durations?
+-   Fit a regression model to answer the following question: do different vowels (`vowel`) have different durations (`v1_duration`)?
 
 -   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.
 
