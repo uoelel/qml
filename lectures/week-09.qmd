@@ -1,0 +1,41 @@
+---
+title: "QML - Week 9"
+subtitle: "Open Research"
+author: "Stefano Coretta"
+format: revealjs
+bibliography: references.bib
+---
+
+## Open Research
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/69036caca049fba3dad363ee" width="100%"></iframe>
+```
+
+## Transparency and accountability  {.center background-color="var(--inverse)" style="text-align: center;"}
+
+## Open Research in linguistics
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/69036e5d5bd06a9428244b4d" width="100%"></iframe>
+```
+
+## Share your thoughts  {.center background-color="var(--inverse)"}
+
+## Open Research in Practice
+
+::: {.callout-note appearance="simple"}
+-   [Quarto](https://quarto.org) projects and documents.
+
+-   Version control with [git](https://git-scm.com).
+
+-   Online repository with [GitHub](https://github.com) or [GitLab](https://about.gitlab.com).
+
+-   Online project management with the [Open Science Framework](https://osf.io).
+
+-   Sharing manuscripts on [preprint servers](https://spi-hub.app.vumc.org/pp-service/browse).
+
+-   License your work for reuse.
+:::
+
+## DEMO  {.center background-color="var(--inverse)"}

@@ -449,7 +449,8 @@ The link to the test is available on the Learn site of the course.
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   Read the Week 9 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+-   **Read** [Ch 33](https://stefanocoretta.github.io/qdal/ch-open-research.html) **of the textbook before the lecture.**
+-   Read the other Week 9 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
 ### Week 10: Case study
