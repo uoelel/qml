@@ -10,7 +10,8 @@ format: html
 
 -   While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.
 
--   If you are unsure about anything, please ask us for directions! You can find information about the data on the [QML Data](https://uoelel.github.io/qml-data/) website.
+-   If you are unsure about anything, please ask us for directions!
+    You can find information about the data on the [QML Data](https://uoelel.github.io/qml-data/) website.
 
 -   The tasks are designed for you to practice Bayesian Bernoulli regression modelling.
 :::
@@ -18,42 +19,46 @@ format: html
 ::: callout-note
 ## Task A: Scalar inferences and semantic distance
 
--   Read the `pankratz2021/si.csv` data. ([Data documentation](https://uoelel.github.io/qml-data/data/pankratz2021/si.html))
+-   Read the `pankratz2021/si.csv` data.
+    ([Data documentation](https://uoelel.github.io/qml-data/data/pankratz2021/si.html))
 
 -   Fit a regression model to answer the following question: does the semantic distance (`semdist`) of the weak and strong adjective affect the probability of a scalar inference (`SI`)?
 
--   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.
+-   Write a paragraph reporting the model.
+    Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.
 
-- Discuss the results with your group (no need to write the discussion).
+-   Discuss the results with your group (no need to write the discussion).
 :::
-
 
 ::: callout-note
 ## Task B: Shallow Structure Hypothesis
 
 -   Read the `song2020/shallow.csv` data.
 
-- Filter the data so it contains only L2 data and critical trials.
+-   Filter the data so it contains only L2 data and critical trials.
 
 -   Fit a regression model to answer the following question: how does relation type of prime-target affect accuracy in L2 speakers of English?
 
--   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.
+-   Write a paragraph reporting the model.
+    Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.
 
-- Discuss the results with your group (no need to write the discussion).
+-   Discuss the results with your group (no need to write the discussion).
 :::
 
 ::: callout-note
-## Task C: Pick your own data
+## Task C: Simulate data
 
--   Find data that can be analysed with a Bernoulli regression.
+-   Imagine a study with one research question/hypothesis that requires a Bernoulli regression.
 
--   Fit a regression model to answer a question with the data.
+-   Simulate Bernoulli data based on the study design.
 
--   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions.
+-   Fit a regression model to answer a question with the simulated data.
 
-- Discuss the results with your group (no need to write the discussion).
+-   Write a paragraph reporting the data simulation and the model.
+    Produce plots of the posterior distributions of the model parameters and the expected predictions.
+
+-   Discuss the results with your group (no need to write the discussion).
 :::
-
 
 ::: callout-tip
 ## Feedback
@@ -62,4 +67,3 @@ For feedback, ask us in class and/or send your work to Stefano and/or come to St
 
 **We will not provide you with model answers**, so make sure you make the most of us in person.
 :::
-

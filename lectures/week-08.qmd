@@ -1,5 +1,5 @@
 ---
-title: "QML - Week 7"
+title: "QML - Week 8"
 subtitle: "Bernoulli regression models"
 author: "Stefano Coretta"
 format: revealjs
@@ -13,6 +13,7 @@ bibliography: references.bib
 library(tidyverse)
 theme_set(theme_light())
 library(brms)
+library(posterior)
 ```
 
 ## Bouba and kiki
@@ -125,4 +126,46 @@ summary(kop_bm)
 
 ```
 
+## Expected predictions of accuracy by stimulus
+
+```{r}
+#| label: kop-bm-cond
+#| warning: false
+#| message: false
+
+conditional_effects(kop_bm)
+```
+
+## Credible intervals of the difference
+
+```{r}
+#| label: kop-bm-ci
+#| echo: true
+
+kop_bm_draws <- as_draws_df(kop_bm)
+
+kop_bm_draws |> 
+  summarise(
+    `90%` = paste0("[", paste(quantile2(b_Tak_Mal_StimTakete, c(0.05, 0.95)) |> round(2), collapse = ", "), "]"),
+    `80%` = paste0("[", paste(quantile2(b_Tak_Mal_StimTakete, c(0.1, 0.9)) |> round(2), collapse = ", "), "]"),
+    `70%` = paste0("[", paste(quantile2(b_Tak_Mal_StimTakete, c(0.15, 0.85)) |> round(2), collapse = ", "), "]"),
+    `60%` = paste0("[", paste(quantile2(b_Tak_Mal_StimTakete, c(0.2, 0.8)) |> round(2), collapse = ", "), "]"),
+    `40%` = paste0("[", paste(quantile2(b_Tak_Mal_StimTakete, c(0.3, 0.7)) |> round(2), collapse = ", "), "]")
+  ) |> 
+  knitr::kable(align = c("ccccc"))
+
+```
+
+## Is there a difference in accuracy by stimulus type?
+
+::: {.callout-note appearance="simple"}
+-   According to the model, the difference in log-odds is \[-0.25, 0.56\] at 95% probability.
+
+-   Only at 40% probability we can argue for an increase in log-odds for takete stimuli between 0.04 and 0.27.
+
+-   We can't argue for or against a difference.
+    We just do not know.
+:::
+
 ## References
+

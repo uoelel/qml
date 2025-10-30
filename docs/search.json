@@ -4,7 +4,7 @@
     "href": "workshops/week-08.html",
     "title": "Workshop: Week 8",
     "section": "",
-    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions! You can find information about the data on the QML Data website.\nThe tasks are designed for you to practice Bayesian Bernoulli regression modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Scalar inferences and semantic distance\n\n\n\n\nRead the pankratz2021/si.csv data. (Data documentation)\nFit a regression model to answer the following question: does the semantic distance (semdist) of the weak and strong adjective affect the probability of a scalar inference (SI)?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask B: Shallow Structure Hypothesis\n\n\n\n\nRead the song2020/shallow.csv data.\nFilter the data so it contains only L2 data and critical trials.\nFit a regression model to answer the following question: how does relation type of prime-target affect accuracy in L2 speakers of English?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask C: Pick your own data\n\n\n\n\nFind data that can be analysed with a Bernoulli regression.\nFit a regression model to answer a question with the data.\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions! You can find information about the data on the QML Data website.\nThe tasks are designed for you to practice Bayesian Bernoulli regression modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Scalar inferences and semantic distance\n\n\n\n\nRead the pankratz2021/si.csv data. (Data documentation)\nFit a regression model to answer the following question: does the semantic distance (semdist) of the weak and strong adjective affect the probability of a scalar inference (SI)?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask B: Shallow Structure Hypothesis\n\n\n\n\nRead the song2020/shallow.csv data.\nFilter the data so it contains only L2 data and critical trials.\nFit a regression model to answer the following question: how does relation type of prime-target affect accuracy in L2 speakers of English?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask C: Simulate data\n\n\n\n\nImagine a study with one research question/hypothesis that requires a Bernoulli regression.\nSimulate Bernoulli data based on the study design.\nFit a regression model to answer a question with the simulated data.\nWrite a paragraph reporting the data simulation and the model. Produce plots of the posterior distributions of the model parameters and the expected predictions.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
   },
   {
     "objectID": "workshops/week-05.html",
@@ -31,50 +31,50 @@
     "objectID": "lectures/week-07.html#statistical-significance",
     "href": "lectures/week-07.html#statistical-significance",
     "title": "QML - Week 7",
-    "section": "",
-    "text": "Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a p-value of 0.01. Which of the following statements are FALSE?\n\n\n\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
+    "section": "Statistical significance",
+    "text": "Statistical significance\n\n\n\nSuppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a p-value of 0.01. Which of the following statements are FALSE?\n\n\n\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
   },
   {
     "objectID": "lectures/week-07.html#which-statements-are-false",
     "href": "lectures/week-07.html#which-statements-are-false",
     "title": "QML - Week 7",
-    "section": "2 Which statements are false?",
-    "text": "2 Which statements are false?"
+    "section": "Which statements are false?",
+    "text": "Which statements are false?"
   },
   {
     "objectID": "lectures/week-07.html#statistical-significance-is-not-meaningful",
     "href": "lectures/week-07.html#statistical-significance-is-not-meaningful",
     "title": "QML - Week 7",
-    "section": "3 Statistical significance is not meaningful",
-    "text": "3 Statistical significance is not meaningful\n\n\n\n\n\n\n\nSimulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.\nN is sample size: from 50 to 500.\nFor each N, simulate N observations 100 times (100 draws). For each draw get the p-value of the difference. So 100 p-values for each N."
+    "section": "Statistical significance is not meaningful",
+    "text": "Statistical significance is not meaningful\n\n\n\n\nSimulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.\nN is sample size: from 50 to 500.\nFor each N, simulate N observations 100 times (100 draws). For each draw get the p-value of the difference. So 100 p-values for each N."
   },
   {
     "objectID": "lectures/week-07.html#statistical-significance-is-not-meaningful-1",
     "href": "lectures/week-07.html#statistical-significance-is-not-meaningful-1",
     "title": "QML - Week 7",
-    "section": "4 Statistical significance is not meaningful",
-    "text": "4 Statistical significance is not meaningful"
+    "section": "Statistical significance is not meaningful",
+    "text": "Statistical significance is not meaningful"
   },
   {
     "objectID": "lectures/week-07.html#what-a-p-value-really-means",
     "href": "lectures/week-07.html#what-a-p-value-really-means",
     "title": "QML - Week 7",
-    "section": "5 What a p-value really means",
-    "text": "5 What a p-value really means\n\n\n\n\n\n\nImportantP-value\n\n\n\nA p-value is the probability of finding a difference as large as or larger than the difference found, assuming there is no difference (i.e. the null hypothesis that the difference is 0).\n\n\n. . .\n\n\n\n\n\n\n\nThe “null hypothesis” is always true.\nYou can only reject the null hypothesis, not disprove it nor prove it.\nThe p-value is not about the probability that the difference is not 0.\nThe p-value does not tell you anything about the replicability of the results."
+    "section": "What a p-value really means",
+    "text": "What a p-value really means\n\n\n\nP-value\n\n\nA p-value is the probability of finding a difference as large as or larger than the difference found, assuming there is no difference (i.e. the null hypothesis that the difference is 0).\n\n\n\n\n\n\n\n\nThe “null hypothesis” is always true.\nYou can only reject the null hypothesis, not disprove it nor prove it.\nThe p-value is not about the probability that the difference is not 0.\nThe p-value does not tell you anything about the replicability of the results."
   },
   {
     "objectID": "lectures/week-07.html#group-activity",
     "href": "lectures/week-07.html#group-activity",
     "title": "QML - Week 7",
-    "section": "6 Group activity",
-    "text": "6 Group activity\n\n\n\n\n\n\n\n\nFocus on the results sections of these papers and discuss how they compare with one another.\n\n\nEvaluating the Relative Importance of Wordhood Cues Using Statistical Learning.\nBrain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions.\nNotes on the length of vowels.\n\n\nHow are the statistical approaches different? Which papers focus more on general directional patterns vs more precise estimation? How are the results weighted and use as evidence?"
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nFocus on the results sections of these papers and discuss how they compare with one another.\n\n\nEvaluating the Relative Importance of Wordhood Cues Using Statistical Learning.\nBrain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions.\nNotes on the length of vowels.\n\n\nHow are the statistical approaches different? Which papers focus more on general directional patterns vs more precise estimation? How are the results weighted and use as evidence?"
   },
   {
     "objectID": "lectures/week-07.html#lets-discuss",
     "href": "lectures/week-07.html#lets-discuss",
     "title": "QML - Week 7",
-    "section": "7 Let’s discuss!",
-    "text": "7 Let’s discuss!\n\n\n\n\n\n\nNow share your thoughts with the class."
+    "section": "Let’s discuss!",
+    "text": "Let’s discuss!\n\n\n\nNow share your thoughts with the class."
   },
   {
     "objectID": "lectures/week-04.html#were-taking-attendance",
@@ -298,7 +298,7 @@
     "href": "lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "You can find here the links to the lecture slides.\n\n\n\n\n\n\nTipPDF version of the slides\n\n\n\nThe slides are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF.\n\n\n\n\n\nWeek 1\nSlides\n\n\nWeek 2\nSlides\n\n\nWeek 3\nSlides\n\n\nWeek 4\nSlides\n\n\nWeek 5\nSlides\n\n\nWeek 6\nNo classes\n\n\nWeek 7\nSlides\n\n\nWeek 8\n\n\n\nWeek 9\n\n\n\nWeek 10"
+    "text": "You can find here the links to the lecture slides.\n\n\n\n\n\n\nTipPDF version of the slides\n\n\n\nThe slides are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF.\n\n\n\n\n\nWeek 1\nSlides\n\n\nWeek 2\nSlides\n\n\nWeek 3\nSlides\n\n\nWeek 4\nSlides\n\n\nWeek 5\nSlides\n\n\nWeek 6\nNo classes\n\n\nWeek 7\nSlides\n\n\nWeek 8\nSlides\n\n\nWeek 9\n\n\n\nWeek 10"
   },
   {
     "objectID": "content.html",
@@ -667,70 +667,91 @@
   {
     "objectID": "lectures/week-08.html#bouba-and-kiki",
     "href": "lectures/week-08.html#bouba-and-kiki",
-    "title": "QML - Week 7",
-    "section": "",
-    "text": "Holland and Wertheimer (1964), Chen et al. (2016)"
+    "title": "QML - Week 8",
+    "section": "Bouba and kiki",
+    "text": "Bouba and kiki\n\n\nHolland and Wertheimer (1964), Chen et al. (2016)"
   },
   {
     "objectID": "lectures/week-08.html#cross-modality",
     "href": "lectures/week-08.html#cross-modality",
-    "title": "QML - Week 7",
-    "section": "2 Cross-modality",
-    "text": "2 Cross-modality\n\n\n\n\n\n\n\nThere are links between the auditory and visual modalities.\nA lot of research this concept, in fact originated with Köhler (1929) who used “takete” and “maluma” (not the singer).\nKoppensteiner, Stephan, and Jäschke (2016) ask if not only shape, but also motion patterns enter in the cross-modality link."
+    "title": "QML - Week 8",
+    "section": "Cross-modality",
+    "text": "Cross-modality\n\n\n\n\nThere are links between the auditory and visual modalities.\nA lot of research this concept, in fact originated with Köhler (1929) who used “takete” and “maluma” (not the singer).\nKoppensteiner, Stephan, and Jäschke (2016) ask if not only shape, but also motion patterns enter in the cross-modality link."
   },
   {
     "objectID": "lectures/week-08.html#motion-patterns",
     "href": "lectures/week-08.html#motion-patterns",
-    "title": "QML - Week 7",
-    "section": "3 Motion patterns",
-    "text": "3 Motion patterns\n\n\n\n\n\n\nKoppensteiner, Stephan, and Jäschke (2016)"
+    "title": "QML - Week 8",
+    "section": "Motion patterns",
+    "text": "Motion patterns\n\n\nKoppensteiner, Stephan, and Jäschke (2016)"
   },
   {
     "objectID": "lectures/week-08.html#motion-patterns-1",
     "href": "lectures/week-08.html#motion-patterns-1",
-    "title": "QML - Week 7",
-    "section": "4 Motion patterns",
-    "text": "4 Motion patterns\n\n\n\n\n\n\nKoppensteiner, Stephan, and Jäschke (2016)\n\n46 students (24 females and 22 males; age M = 25.1 years, SD = 3.6) of the University of Vienna.\nThey saw a word (takete or maluma) and two stick-figures moving.\nThey had to pick the stick figure they thought was described by the word."
+    "title": "QML - Week 8",
+    "section": "Motion patterns",
+    "text": "Motion patterns\n\n\n\nKoppensteiner, Stephan, and Jäschke (2016)\n\n46 students (24 females and 22 males; age M = 25.1 years, SD = 3.6) of the University of Vienna.\nThey saw a word (takete or maluma) and two stick-figures moving.\nThey had to pick the stick figure they thought was described by the word."
   },
   {
     "objectID": "lectures/week-08.html#the-data",
     "href": "lectures/week-08.html#the-data",
-    "title": "QML - Week 7",
-    "section": "5 The data",
-    "text": "5 The data\n\nkopper &lt;- read_delim(\"data/koppensteiner2016/takete_maluma.txt\")\nkopper\n\n# A tibble: 460 × 5\n   Tak_Mal_Stim Answer  Corr_1_Wrong_0 Rater                   Female_0\n   &lt;chr&gt;        &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;                      &lt;dbl&gt;\n 1 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 2 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 3 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 4 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 5 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 6 Maluma       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 7 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 8 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 9 Maluma       CORRECT              1 10MacI_12_10_11_59_.txt        0\n10 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n# ℹ 450 more rows"
+    "title": "QML - Week 8",
+    "section": "The data",
+    "text": "The data\n\nkopper &lt;- read_delim(\"data/koppensteiner2016/takete_maluma.txt\")\nkopper\n\n# A tibble: 460 × 5\n   Tak_Mal_Stim Answer  Corr_1_Wrong_0 Rater                   Female_0\n   &lt;chr&gt;        &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;                      &lt;dbl&gt;\n 1 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 2 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 3 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 4 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 5 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 6 Maluma       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 7 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 8 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n 9 Maluma       CORRECT              1 10MacI_12_10_11_59_.txt        0\n10 Takete       CORRECT              1 10MacI_12_10_11_59_.txt        0\n# ℹ 450 more rows"
   },
   {
     "objectID": "lectures/week-08.html#accuracy",
     "href": "lectures/week-08.html#accuracy",
-    "title": "QML - Week 7",
-    "section": "6 Accuracy",
-    "text": "6 Accuracy\n\n\n\n\n\n\n\n\nFigure 1: Accuracy by stimulus type."
+    "title": "QML - Week 8",
+    "section": "Accuracy",
+    "text": "Accuracy\n\n\nFigure 1: Accuracy by stimulus type."
   },
   {
     "objectID": "lectures/week-08.html#modelling-accuracy",
     "href": "lectures/week-08.html#modelling-accuracy",
-    "title": "QML - Week 7",
-    "section": "7 Modelling accuracy",
-    "text": "7 Modelling accuracy\n\n\n\n\n\n\n\nWe want to model the proportion of correct responses by stimulus type: both types should elicit the same level of accuracy.\nWe can use a Bernoulli regression model.\n\n\n\n\n. . .\n\nkopper &lt;- kopper |&gt; \n  mutate(\n    Answer_f = factor(Answer, levels = c(\"WRONG\", \"CORRECT\"))\n  )\nlevels(kopper$Answer_f)\n\n[1] \"WRONG\"   \"CORRECT\""
+    "title": "QML - Week 8",
+    "section": "Modelling accuracy",
+    "text": "Modelling accuracy\n\n\n\n\nWe want to model the proportion of correct responses by stimulus type: both types should elicit the same level of accuracy.\nWe can use a Bernoulli regression model.\n\n\n\n\n\n\nkopper &lt;- kopper |&gt; \n  mutate(\n    Answer_f = factor(Answer, levels = c(\"WRONG\", \"CORRECT\"))\n  )\nlevels(kopper$Answer_f)\n\n[1] \"WRONG\"   \"CORRECT\""
   },
   {
     "objectID": "lectures/week-08.html#accuracy-bernoulli-regression",
     "href": "lectures/week-08.html#accuracy-bernoulli-regression",
-    "title": "QML - Week 7",
-    "section": "8 Accuracy: Bernoulli regression",
-    "text": "8 Accuracy: Bernoulli regression\n\nkop_bm &lt;- brm(\n  Answer_f ~ Tak_Mal_Stim,\n  data = kopper,\n  family = bernoulli,\n  cores = 4,\n  seed = 9128,\n  file = \"cache/kop_bm\"\n)"
+    "title": "QML - Week 8",
+    "section": "Accuracy: Bernoulli regression",
+    "text": "Accuracy: Bernoulli regression\n\nkop_bm &lt;- brm(\n  Answer_f ~ Tak_Mal_Stim,\n  data = kopper,\n  family = bernoulli,\n  cores = 4,\n  seed = 9128,\n  file = \"cache/kop_bm\"\n)"
   },
   {
     "objectID": "lectures/week-08.html#accuracy-model-summary",
     "href": "lectures/week-08.html#accuracy-model-summary",
-    "title": "QML - Week 7",
-    "section": "9 Accuracy: model summary",
-    "text": "9 Accuracy: model summary\n\nsummary(kop_bm)\n\n Family: bernoulli \n  Links: mu = logit \nFormula: Answer_f ~ Tak_Mal_Stim \n   Data: kopper (Number of observations: 460) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nIntercept              0.81      0.15     0.52     1.11 1.00     3978     2479\nTak_Mal_StimTakete     0.15      0.21    -0.25     0.56 1.00     4026     2442\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+    "title": "QML - Week 8",
+    "section": "Accuracy: model summary",
+    "text": "Accuracy: model summary\n\nsummary(kop_bm)\n\n Family: bernoulli \n  Links: mu = logit \nFormula: Answer_f ~ Tak_Mal_Stim \n   Data: kopper (Number of observations: 460) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nIntercept              0.81      0.15     0.52     1.11 1.00     3978     2479\nTak_Mal_StimTakete     0.15      0.21    -0.25     0.56 1.00     4026     2442\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+  },
+  {
+    "objectID": "lectures/week-08.html#expected-predictions-of-accuracy-by-stimulus",
+    "href": "lectures/week-08.html#expected-predictions-of-accuracy-by-stimulus",
+    "title": "QML - Week 8",
+    "section": "Expected predictions of accuracy by stimulus",
+    "text": "Expected predictions of accuracy by stimulus"
+  },
+  {
+    "objectID": "lectures/week-08.html#credible-intervals-of-the-difference",
+    "href": "lectures/week-08.html#credible-intervals-of-the-difference",
+    "title": "QML - Week 8",
+    "section": "Credible intervals of the difference",
+    "text": "Credible intervals of the difference\n\nkop_bm_draws &lt;- as_draws_df(kop_bm)\n\nkop_bm_draws |&gt; \n  summarise(\n    `90%` = paste0(\"[\", paste(quantile2(b_Tak_Mal_StimTakete, c(0.05, 0.95)) |&gt; round(2), collapse = \", \"), \"]\"),\n    `80%` = paste0(\"[\", paste(quantile2(b_Tak_Mal_StimTakete, c(0.1, 0.9)) |&gt; round(2), collapse = \", \"), \"]\"),\n    `70%` = paste0(\"[\", paste(quantile2(b_Tak_Mal_StimTakete, c(0.15, 0.85)) |&gt; round(2), collapse = \", \"), \"]\"),\n    `60%` = paste0(\"[\", paste(quantile2(b_Tak_Mal_StimTakete, c(0.2, 0.8)) |&gt; round(2), collapse = \", \"), \"]\"),\n    `40%` = paste0(\"[\", paste(quantile2(b_Tak_Mal_StimTakete, c(0.3, 0.7)) |&gt; round(2), collapse = \", \"), \"]\")\n  ) |&gt; \n  knitr::kable(align = c(\"ccccc\"))\n\n\n\n\n\n\n\n\n\n\n\n90%\n80%\n70%\n60%\n40%\n\n\n\n\n[-0.18, 0.49]\n[-0.11, 0.42]\n[-0.06, 0.37]\n[-0.02, 0.33]\n[0.04, 0.27]"
+  },
+  {
+    "objectID": "lectures/week-08.html#is-there-a-difference-in-accuracy-by-stimulus-type",
+    "href": "lectures/week-08.html#is-there-a-difference-in-accuracy-by-stimulus-type",
+    "title": "QML - Week 8",
+    "section": "Is there a difference in accuracy by stimulus type?",
+    "text": "Is there a difference in accuracy by stimulus type?\n\n\n\n\nAccording to the model, the difference in log-odds is [-0.25, 0.56] at 95% probability.\nOnly at 40% probability we can argue for an increase in log-odds for takete stimuli between 0.04 and 0.27.\nWe can’t argue for or against a difference. We just do not know."
   },
   {
     "objectID": "lectures/week-08.html#references",
     "href": "lectures/week-08.html#references",
-    "title": "QML - Week 7",
+    "title": "QML - Week 8",
     "section": "References",
     "text": "References\n\n\n\n\nChen, Yi-Chuan, Pi-Chun Huang, Andy Woods, and Charles Spence. 2016. “When “Bouba” Equals “Kiki”: Cultural Commonalities and Cultural Differences in Sound-Shape Correspondences.” Scientific Reports 6 (1): 26681. https://doi.org/10.1038/srep26681.\n\n\nHolland, Morris K., and Michael Wertheimer. 1964. “Some Physiognomic Aspects of Naming, or, Maluma and Takete Revisited.” Perceptual and Motor Skills 19 (1): 111–17. https://doi.org/10.2466/pms.1964.19.1.111.\n\n\nKöhler, Wolfgang. 1929. Gestalt Psychology. New York: Liveright.\n\n\nKoppensteiner, Markus, Pia Stephan, and Johannes Paul Michael Jäschke. 2016. “Shaking Takete and Flowing Maluma. Non-Sense Words Are Associated with Motion Patterns.” PLOS ONE 11 (3). https://doi.org/10.1371/journal.pone.0150610."
   },
@@ -754,19 +775,5 @@
     "title": "Workshop: Week 7",
     "section": "",
     "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions! You can find information about the data on the QML Data website.\nThe tasks are designed for you to practice Bayesian Gaussian regression modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Vowel duration and vowel category\n\n\n\n\nRead the coretta2018/token-measures.csv data.\nFit a regression model to answer the following question: do different vowels (vowel) have different durations (v1_duration)?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask B: Pupil width\n\n\n\n\nRead the mclaughlin2023/pupil-width.csv data.\nFit a regression model to answer the following question: is the average maximum pupil size different when recognising words from dense lexical neighbourhoods compared to words from sparse lexical neighbourhoods?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for the dense and sparse condition.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask C: Shallow Structure Hypothesis\n\n\n\n\nRead the song2020/shallow.csv data.\nFilter the data so it contains only L2 data and critical trials.\nFit a regression model to answer the following question: how does relation type of prime-target affect reaction times in L2 speakers of English?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each relation type.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
-  },
-  {
-    "objectID": "lectures/week-07.html",
-    "href": "lectures/week-07.html",
-    "title": "QML - Week 7",
-    "section": "",
-    "text": "Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a p-value of 0.01. Which of the following statements are FALSE?\n\n\n\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
-  },
-  {
-    "objectID": "lectures/week-08.html",
-    "href": "lectures/week-08.html",
-    "title": "QML - Week 7",
-    "section": "",
-    "text": "Holland and Wertheimer (1964), Chen et al. (2016)"
   }
 ]

@@ -8,7 +8,9 @@ You can find here the links to the lecture slides.
 ::: callout-tip
 ## PDF version of the slides
 
-The slides are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog "Tools" and select "PDF export mode". Then, use the method for your specific browser to print the page to PDF.
+The slides are HTML documents that are rendered in your browser.
+If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog "Tools" and select "PDF export mode".
+Then, use the method for your specific browser to print the page to PDF.
 :::
 
 |         |                                |
@@ -20,6 +22,6 @@ The slides are HTML documents that are rendered in your browser. If you wish to 
 | Week 5  | [Slides](lectures/week-05.qmd) |
 | Week 6  | *No classes*                   |
 | Week 7  | [Slides](lectures/week-07.qmd) |
-| Week 8  |                                |
+| Week 8  | [Slides](lectures/week-08.qmd) |
 | Week 9  |                                |
 | Week 10 |                                |
