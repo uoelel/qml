@@ -4,15 +4,19 @@ title: "Course content"
 
 ## Content overview
 
-This page gathers all the important information about the course content and schedule. Each week is dedicated to a specific set of topics and you are expected to complete readings from the course textbook and homework by the beginning of the following week (so complete readings and homework of week 1 by the beginning of week 2, and so on).
+This page gathers all the important information about the course content and schedule.
+Each week is dedicated to a specific set of topics and you are expected to complete readings from the course textbook and homework by the beginning of the following week (so complete readings and homework of week 1 by the beginning of week 2, and so on).
 
-Each week there will be a 50-minute lecture and a 2-hour workshop. The lecture covers the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course [textbook](https://stefanocoretta.github.io/qdal/). In the workshop you will further practice your R skills with group data [challenges](workshops.qmd) (with the exception of the workshop of week 1, where you will go through the R basics chapters in the textbook in class).
+Each week there will be a 50-minute lecture and a 2-hour workshop.
+The lecture covers the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course [textbook](https://stefanocoretta.github.io/qdal/).
+In the workshop you will further practice your R skills with group data [challenges](workshops.qmd) (with the exception of the workshop of week 1, where you will go through the R basics chapters in the textbook in class).
 
 The **Schedule overview** below gives you an overview of each week, while the **Weekly schedule** is a more in-depth description of the activities and materials of each week.
 
 ## Schedule overview
 
-The following table is a schedule overview of the course, with the topic of the lecture, workshop and assessments due (WSR = weekly self-reflection). See [Assessments](assessments.qmd) for more info on assessment.
+The following table is a schedule overview of the course, with the topic of the lecture, workshop and assessments due (WSR = weekly self-reflection).
+See [Assessments](assessments.qmd) for more info on assessment.
 
 | Week | Lecture | Workshop | Assessment |
 |------------------|------------------|------------------|------------------|
@@ -49,11 +53,14 @@ In the following table, you can find a more detailed overview of the topics for 
 
 ## Course textbook
 
-The course textbook can be found at the following link (also available from the site menu): [Quantitative Data Analysis for Linguists in R](https://stefanocoretta.github.io/qdal/). The textbook has been written by Stefano, tailored specifically for this course.
+The course textbook can be found at the following link (also available from the site menu): [Quantitative Data Analysis for Linguists in R](https://stefanocoretta.github.io/qdal/).
+The textbook has been written by Stefano, tailored specifically for this course.
 
 ## Course data
 
-The course data is available for download on the [Data for Quantitative Methods in Linguistics](https://uoelel.github.io/qml-data/) website. For each data set, an entry gives detail about the study and the data set. When using data for the first time, you should read the related entry, abstract and skim the linked paper (if applicable) for context.
+The course data is available for download on the [Data for Quantitative Methods in Linguistics](https://uoelel.github.io/qml-data/) website.
+For each data set, an entry gives detail about the study and the data set.
+When using data for the first time, you should read the related entry, abstract and skim the linked paper (if applicable) for context.
 
 ## Week by week
 
@@ -117,7 +124,8 @@ The course data is available for download on the [Data for Quantitative Methods 
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
-Go through [Chapter 4](https://stefanocoretta.github.io/qdal/ch-r-rstudio.html) and [Chapter 5](https://stefanocoretta.github.io/qdal/ch-packages.html) of the course [textbook](https://stefanocoretta.github.io/qdal/). You will start working in groups from next week since this week is probably easier to read and try things out solo, but feel free to work in group if it works for you!
+Go through [Chapter 4](https://stefanocoretta.github.io/qdal/ch-r-rstudio.html) and [Chapter 5](https://stefanocoretta.github.io/qdal/ch-packages.html) of the course [textbook](https://stefanocoretta.github.io/qdal/).
+You will start working in groups from next week since this week is probably easier to read and try things out solo, but feel free to work in group if it works for you!
 
 The tutors will go around to ask how things are going and to answer questions or help.
 :::
@@ -369,11 +377,47 @@ The link to the test is available on the Learn site of the course.
 
 ### Week 8: Binomial/Bernoulli and log-normal regression models
 
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   How can we model binary outcomes with regression models?
+
+-   How can we model numeric outcome variables that are only positive?
+
+-   What are model diagnostics?
+
+-   Which model diagnostics should I pay attention to?
+
+**Skills**
+
+-   Fit and interpret regression models with a Bernoulli family in brms.
+
+-   Fit and interpret regression models with a log-normal family in brms.
+
+-   Use model diagnostics to understand the model's goodness of fit.
+
+-   Apply standard solutions when models do not converge.
+:::
+
 ::: {.callout-note collapse="false"}
 #### Readings
 
-- **Read [Ch 30](https://stefanocoretta.github.io/qdal/ch-regression-bernoulli.html) of the textbook before the lecture.**
-- Read the other Week 8 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+-   **Read [Ch 30](https://stefanocoretta.github.io/qdal/ch-regression-bernoulli.html) of the textbook before the lecture.**
+-   Read the other Week 8 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+:::
+
+::: {.callout-tip collapse="false"}
+#### Lecture
+
+-   [Lecture slides](lectures/week-08.qmd).
+:::
+
+::: {.callout-tip collapse="false"}
+#### Workshop
+
+-   [Workshop instructions](workshops/week-08.qmd).
 :::
 
 ### Week 9: Predictor interactions in regression models
