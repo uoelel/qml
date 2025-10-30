@@ -27,8 +27,8 @@ See [Assessments](assessments.qmd) for more info on assessment.
 | 5 | Regression basics with brms | Regression basics and posteriors draws | WSR |
 | 6 |  |  | Formative test 1 |
 | 7 | Null Ritual | Categorical predictors in regression | WSR |
-| 8 | Bernoulli regression | Bernoulli regression | WSR |
-| 9 | Open research | Multiple predictors and interactions | WSR + Group project proposal |
+| 8 | Bernoulli regression | Bernoulli regression | WSR + Group project proposal |
+| 9 | Open research | Multiple predictors and interactions | WSR |
 | 10 | Case study | Group project | WSR |
 | 11 |  | Group project | WSR + Formative test 2 |
 | 12 |  |  |  |
@@ -49,7 +49,7 @@ In the following table, you can find a more detailed overview of the topics for 
 | 7 | Null Ritual | Regression (categorical predictor) | Treatment and indexing |
 | 8 |  | Bernoulli regression | Bernoulli regression |
 | 9 | Open research | Regression (multiple predictors) and interactions |  |
-| 10 |  | Regression: more interactions |  |
+| 10 | What's next? |  |  |
 
 ## Course textbook
 
@@ -420,6 +420,36 @@ The link to the test is available on the Learn site of the course.
 -   [Workshop instructions](workshops/week-08.qmd).
 :::
 
-### Week 9: Predictor interactions in regression models
+### Week 9: Open Research and regression model interactions
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   What is Open Research?
+
+-   What makes research reproducible, replicable, robust and generalisable?
+
+-   What are Registered Reports?
+
+-   How can we model interactions between predictors in regression models?
+
+**Skills**
+
+-   Think about Open Research practices and how to assess existing research in light of Open Research practices.
+
+-   Distinguish the four ways research can be reliable.
+
+-   Use Research Compendia.
+
+-   Fit and interpret regression models with categorical-categorical interactions in brms.
+:::
+
+::: {.callout-note collapse="false"}
+#### Readings
+
+-   Read the Week 9 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+:::
 
 ### Week 10: Case study
