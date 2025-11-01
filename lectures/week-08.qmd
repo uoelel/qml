@@ -126,12 +126,13 @@ summary(kop_bm)
 
 ```
 
-## Expected predictions of accuracy by stimulus
+## Expected predictions of accuracy
 
 ```{r}
 #| label: kop-bm-cond
 #| warning: false
 #| message: false
+#| fig-align: center
 
 conditional_effects(kop_bm)
 ```
@@ -141,6 +142,7 @@ conditional_effects(kop_bm)
 ```{r}
 #| label: kop-bm-ci
 #| echo: true
+#| code-line-numbers: "|1|3-10|11"
 
 kop_bm_draws <- as_draws_df(kop_bm)
 
@@ -168,4 +170,3 @@ kop_bm_draws |>
 :::
 
 ## References
-

@@ -358,14 +358,14 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 </section>
-<section id="expected-predictions-of-accuracy-by-stimulus" class="slide level2">
-<h2>Expected predictions of accuracy by stimulus</h2>
+<section id="expected-predictions-of-accuracy" class="slide level2">
+<h2>Expected predictions of accuracy</h2>
 
-<img data-src="week-08_files/figure-revealjs/kop-bm-cond-1.png" width="672" class="r-stretch"></section>
+<img data-src="week-08_files/figure-revealjs/kop-bm-cond-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="credible-intervals-of-the-difference" class="slide level2">
 <h2>Credible intervals of the difference</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>kop_bm_draws <span class="ot">&lt;-</span> <span class="fu">as_draws_df</span>(kop_bm)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-code-line-numbers="|1|3-10|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>kop_bm_draws <span class="ot">&lt;-</span> <span class="fu">as_draws_df</span>(kop_bm)</span>
 <span id="cb8-2"><a></a></span>
 <span id="cb8-3"><a></a>kop_bm_draws <span class="sc">|&gt;</span> </span>
 <span id="cb8-4"><a></a>  <span class="fu">summarise</span>(</span>
