@@ -23,5 +23,5 @@ Then, use the method for your specific browser to print the page to PDF.
 | Week 6  | *No classes*                   |
 | Week 7  | [Slides](lectures/week-07.qmd) |
 | Week 8  | [Slides](lectures/week-08.qmd) |
-| Week 9  |                                |
+| Week 9  | [Slides](lectures/week-09.qmd) |
 | Week 10 |                                |
