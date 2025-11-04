@@ -17,20 +17,31 @@ format: html
 :::
 
 ::: callout-note
-## Task A: Scalar inferences and semantic distance
+## Task A: Shallow Structure Hypothesis
 
--   Read the `pankratz2021/si.csv` data.
-    ([Data documentation](https://uoelel.github.io/qml-data/data/pankratz2021/si.html))
+-   Read the `song2020/shallow.csv` data.
 
--   Fit a regression model to answer the following question: does the semantic distance (`semdist`) of the weak and strong adjective affect the probability of a scalar inference (`SI`)?
+-   Filter the data so it contains only critical trials.
+
+-   Fit a regression model to answer the following question: how does the effect or relation type of prime-target on accuracy differ in L1 vs L2 participants?
 
 -   Write a paragraph reporting the model.
-    Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.
+    Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.
 
 -   Discuss the results with your group (no need to write the discussion).
 :::
 
+::: callout-note
+## Task B: Pupil width
 
+-   Read the `mclaughlin2023/pupil-width.csv` data.
+
+-   Fit a regression model to answer the following question: does the density of the neighbourhood affect maximum pupil size in old vs young adults differently?
+
+-   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for the dense and sparse condition.
+
+- Discuss the results with your group (no need to write the discussion).
+:::
 
 ::: callout-tip
 ## Feedback
