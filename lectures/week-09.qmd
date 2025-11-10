@@ -6,13 +6,17 @@ format: revealjs
 bibliography: references.bib
 ---
 
+## Attendance
+
+![](/img/QRCode for Quantitative Methods in Linguistics and English Language _ Semester 1 - Week 9 (2025-26).png){fig-align="center"}
+
 ## Open Research
 
 ```{=html}
 <iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/69036caca049fba3dad363ee" width="100%"></iframe>
 ```
 
-## Transparency and accountability  {.center background-color="var(--inverse)" style="text-align: center;"}
+## Transparency and accountability {.center background-color="var(--inverse)" style="text-align: center;"}
 
 ## Open Research in linguistics
 
@@ -20,7 +24,7 @@ bibliography: references.bib
 <iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/69036e5d5bd06a9428244b4d" width="100%"></iframe>
 ```
 
-## Share your thoughts  {.center background-color="var(--inverse)"}
+## Share your thoughts {.center background-color="var(--inverse)"}
 
 ## Open Research in Practice
 
@@ -38,4 +42,4 @@ bibliography: references.bib
 -   License your work for reuse.
 :::
 
-## DEMO  {.center background-color="var(--inverse)"}
+## DEMO {.center background-color="var(--inverse)"}
