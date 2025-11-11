@@ -20,17 +20,17 @@ See [Assessments](assessments.qmd) for more info on assessment.
 
 | Week | Lecture | Workshop | Assessment |
 |------------------|------------------|------------------|------------------|
-| 1 | Research methods | R basics | WSR |
+| 1 | Research methods | R basics |  |
 | 2 | Inference and uncertainty | Summarise, count and group data | WSR |
 | 3 | Questionable Research Practices | Plot basics | WSR |
 | 4 | Bayesian inference | Gaussian models with brms | WSR |
 | 5 | Regression basics with brms | Regression basics and posteriors draws | WSR |
-| 6 |  |  | Formative test 1 |
+| 6 |  |  | WSR + Formative test 1 |
 | 7 | Null Ritual | Categorical predictors in regression | WSR |
 | 8 | Bernoulli regression | Bernoulli regression | WSR + Group project proposal |
 | 9 | Open research | Multiple predictors and interactions | WSR |
 | 10 | Case study | Group project | WSR |
-| 11 |  | Group project | WSR + Formative test 2 |
+| 11 |  | (Optional) Group project | WSR + Formative test 2 |
 | 12 |  |  |  |
 | 13 |  |  | Final reflection + Group project |
 
@@ -453,4 +453,39 @@ The link to the test is available on the Learn site of the course.
 -   Read the other Week 9 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
-### Week 10: Case study
+::: {.callout-tip collapse="false"}
+#### Lecture
+
+-   [Lecture slides](lectures/week-09.qmd).
+:::
+
+::: {.callout-tip collapse="false"}
+#### Workshop
+
+-   [Workshop instructions](workshops/week-09.qmd).
+:::
+
+### Week 10: What's next?
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+- What does the whole process of a quantitative study look like?
+
+- What other topics are minimally required to be able to conduct an almost-complete quantitative analysis?
+
+- Where can I find further support for quantitative and statistical methods?
+
+:::
+
+::: {.callout-note collapse="false"}
+#### Readings
+
+-   Read the other Week 10 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+:::
+
+::: {.callout-tip collapse="false"}
+#### Workshop
+
+This week's workshop is dedicated to your group project work. Depending on the nature of your project, you can use the time to discuss any aspect of the project, working on the data analysis, writing your essay, or anything else is relevant to your project.
+:::
