@@ -23,7 +23,7 @@ format: html
 
 -   Filter the data so it contains only critical trials.
 
--   Fit a regression model to answer the following question: how does the effect or relation type of prime-target on accuracy differ in L1 vs L2 participants?
+-   Fit a regression model to answer the following question: how does the effect of relation type of prime-target on accuracy differ in L1 vs L2 participants?
 
 -   Write a paragraph reporting the model.
     Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.
