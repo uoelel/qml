@@ -25,7 +25,7 @@ format: html
 -   Fit a regression model to answer the following question: does the semantic distance (`semdist`) of the weak and strong adjective affect the probability of a scalar inference (`SI`)?
 
 -   Write a paragraph reporting the model.
-    Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.
+    Produce plots of the posterior distributions of the model parameters and the expected predictions depending on semantic distance.
 
 -   Discuss the results with your group (no need to write the discussion).
 :::
