@@ -26,7 +26,7 @@ format: html
 -   Fit a regression model to answer the following question: how does the effect of relation type of prime-target on accuracy differ in L1 vs L2 participants?
 
 -   Write a paragraph reporting the model.
-    Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.
+    Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type in L1 vs L2 participants.
 
 -   Discuss the results with your group (no need to write the discussion).
 :::
@@ -38,7 +38,7 @@ format: html
 
 -   Fit a regression model to answer the following question: does the density of the neighbourhood affect maximum pupil size in old vs young adults differently?
 
--   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for the dense and sparse condition.
+-   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for the dense and sparse condition in old vs young participants.
 
 - Discuss the results with your group (no need to write the discussion).
 :::
