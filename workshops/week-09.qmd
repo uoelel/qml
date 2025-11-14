@@ -19,9 +19,7 @@ format: html
 ::: callout-note
 ## Task A: Shallow Structure Hypothesis
 
--   Read the `song2020/shallow.csv` data.
-
--   Filter the data so it contains only critical trials.
+-   Read the `song2020/shallow.csv` data. Filter the data so it contains only critical trials.
 
 -   Fit a regression model to answer the following question: how does the effect of relation type of prime-target on accuracy differ in L1 vs L2 participants?
 
