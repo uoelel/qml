@@ -80,3 +80,8 @@ $presentation-title-slide-text-align: left;
 .callout {
   background-color: white;
 }
+
+.reveal .bluesky-embed {
+  max-height: 500px;
+  overflow: auto;
+}

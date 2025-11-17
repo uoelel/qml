@@ -8,7 +8,7 @@ bibliography: references.bib
 
 ## Attendance
 
-![](/img/QRCode for Quantitative Methods in Linguistics and English Language _ Semester 1 - Week 9 (2025-26).png){fig-align="center"}
+![](/img/QRCode%20for%20Quantitative%20Methods%20in%20Linguistics%20and%20English%20Language%20_%20Semester%201%20-%20Week%209%20(2025-26).png){fig-align="center"}
 
 ## Open Research
 

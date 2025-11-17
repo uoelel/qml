@@ -1,0 +1,230 @@
+---
+title: "QML - Week 9"
+subtitle: "Open Research"
+author: "Stefano Coretta"
+format: revealjs
+bibliography: references.bib
+---
+
+## What's next?
+
+::: {.callout-note appearance="simple"}
+Case studies:
+
+1.  Recently published paper: @amoruso2025.
+2.  Planned study: Intrinsic Vowel Duration in English.
+:::
+
+## Case study 1: @amoruso2025
+
+::: {.callout-note appearance="simple"}
+-   @amoruso2025 published in Nature in November: "Multilingualism protects against accelerated ageing"
+
+-   They argue that being multilingual reduces the effects of ageing.
+
+> Specifically, speaking one foreign language were 1.3 times less likely (OR = 0.77, 95% CI: 0.71–0.83), two foreign languages 1.96 times less likely (OR = 0.51, 95% CI: 0.47–0.55), and three or more foreign languages 1.56 times less likely (OR = 0.64, 95% CI: 0.59–0.69).
+> These findings underscore the protective effect of multilingualism on aging trajectories.
+:::
+
+## Causal narrative but no causal inference
+
+::: {.callout-note appearance="simple"}
+> While this approach provides evidence of temporal precedence, it does not establish causality.
+> Proper causal inference would require experimental, quasi-experimental or intervention-based designs.
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+Problematic for two reasons:
+
+-   "protects" is causal.
+
+-   Causal Inference can be achieved with observational studies when using causal inference approaches, like Directed Acyclic Graphs.
+:::
+
+## Reactions on social media
+
+```{=html}
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:o7otzpwnmgdvdpdfjjolgctq/app.bsky.feed.post/3m5do43qfpc2q" data-bluesky-cid="bafyreicr574atb5ulvplfvb5ewb3njrdcx457xj4dt5kvozqbb3gan6qaq" data-bluesky-embed-color-mode="system"><p lang="en">Doing non-causal inference (and being explicit about it), yet using a causal word as second word in the title. 
+
+If you pay Nature € 10.690, they will publish this in Nature Ageing.
+
+I can tell you what I think of that for free.
+
+www.nature.com/articles/s43...<br><br><a href="https://bsky.app/profile/did:plc:o7otzpwnmgdvdpdfjjolgctq/post/3m5do43qfpc2q?ref_src=embed">[image or embed]</a></p>&mdash; Casper Albers 🟥 (<a href="https://bsky.app/profile/did:plc:o7otzpwnmgdvdpdfjjolgctq?ref_src=embed">@casperalbers.nl</a>) <a href="https://bsky.app/profile/did:plc:o7otzpwnmgdvdpdfjjolgctq/post/3m5do43qfpc2q?ref_src=embed">11 November 2025 at 07:58</a></blockquote><script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+```
+
+## Reactions on social media
+
+```{=html}
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:gz53felr7btxgmbxae5aooxi/app.bsky.feed.post/3m5dsxw6zk22k" data-bluesky-cid="bafyreiejhnexq4wido3njaqupbne2d7p4apk2dzdma2zj6ewwa67xqw5ou" data-bluesky-embed-color-mode="system"><p lang="en">This slide unfortunately generalizes well 🥲<br><br><a href="https://bsky.app/profile/did:plc:gz53felr7btxgmbxae5aooxi/post/3m5dsxw6zk22k?ref_src=embed">[image or embed]</a></p>&mdash; Julia M. Rohrer (<a href="https://bsky.app/profile/did:plc:gz53felr7btxgmbxae5aooxi?ref_src=embed">@dingdingpeng.the100.ci</a>) <a href="https://bsky.app/profile/did:plc:gz53felr7btxgmbxae5aooxi/post/3m5dsxw6zk22k?ref_src=embed">11 November 2025 at 09:25</a></blockquote><script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+```
+
+## Reactions on social media
+
+```{=html}
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:yxdspbpbzu6k26jh3dmmzm7c/app.bsky.feed.post/3m5dzm5v3xs2t" data-bluesky-cid="bafyreiffmdbq5c5k5zzthv5ll6ffsm4x5emg2vducnotn4babvmzl2tbai" data-bluesky-embed-color-mode="system"><p lang="en">I personally think this is a &quot;harder problem&quot; than we care to admit.
+
+So, are you a (social) scientist struggling with this situation? A break between what you _want_ to study (a causal process) and what you feel you _can_ credibly study (a correlation)?
+
+Here are some readings that might help. 👇<br><br><a href="https://bsky.app/profile/did:plc:yxdspbpbzu6k26jh3dmmzm7c/post/3m5dzm5v3xs2t?ref_src=embed">[image or embed]</a></p>&mdash; Dan de Kadt  (<a href="https://bsky.app/profile/did:plc:yxdspbpbzu6k26jh3dmmzm7c?ref_src=embed">@dandekadt.bsky.social</a>) <a href="https://bsky.app/profile/did:plc:yxdspbpbzu6k26jh3dmmzm7c/post/3m5dzm5v3xs2t?ref_src=embed">11 November 2025 at 11:24</a></blockquote><script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+```
+
+## Missing variables
+
+::: {.callout-note appearance="simple"}
+-   **Childhood socio-economic background** (parental education, early-life deprivation)
+-   **Lifetime SES** (income, wealth, occupational class)
+-   **Individual migration history** (country of birth, age at migration, duration of residence)
+-   **Detailed multilingualism measures** (age of acquisition, proficiency, frequency of use, context of use)
+-   **Genetic predispositions** (e.g., APOE, family history of dementia)
+-   **Early-life health factors** (childhood illnesses, nutrition, developmental conditions)
+-   **Additional health behaviours** (smoking, diet, exercise, alcohol misuse, social networks)
+-   **Survey/measurement-related factors** (selection bias, attrition, exposure misclassification)
+-   **Time-varying confounders** (changes in SES, language use, and health over the life course)
+:::
+
+## Case study 2: intrinsic vowel duration
+
+::: {.callout-note appearance="simple"}
+-   Intrinsic vowel duration: high vowels are shorter and low vowels are longer [@lieberman1979].
+
+-   Three explanatory models:
+
+    (a) Duration as articulatory distance [@turk1994].
+
+    (b) Duration as a vowel-specific target [@toivonen2015; @bermudezotero2010].
+
+    (c) Both articulatory distance and vowel-specific target [@coretta2025b].
+:::
+
+## @coretta2025b: Directed Acyclic Graphs
+
+![DAGs representing three explanatory models of intrinsic vowel duration.](/img/vdur-dags-3a.png){#fig-dags fig-align="center"}
+
+. . .
+
+::: {.callout-note appearance="simple"}
+-   @coretta2025b suggests C: articulatory distance + (possibly) vowel-specific target.
+:::
+
+## Limitations
+
+::: {.callout-note appearance="simple"}
+-   F1 is only a proxy for articulation: it conflates articulatory distance and peak velocity.
+
+-   There might be other explanations than "vowel-specific category".
+    For example, optimisation process in the XT/3C model [@turk2020; @turk2020b; @elie2023; @elie2024; @elie2024a].
+:::
+
+## Future study
+
+::: {.callout-note appearance="simple"}
+-   Direct articulatory data.
+
+-   Revised Directed Acyclic Graphs.
+
+-   Framing in light of alternative explanations.
+:::
+
+## Explanatory models
+
+::: {.callout-note appearance="simple"}
+(a) Duration as articulatory distance.
+
+(b) Duration as other than articulatory distance (different possible processes: categorical specification or optimisation process).
+
+(c) Both articulatory distance and other than articulatory distance (different possible processes: categorical specification or optimisation process).
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+-   Differentiate between categorical specification and optimisation.
+:::
+
+## Revised DAG
+
+![](/img/vdur-dags-4.png){fig-align="center"}
+
+[DAGitty](https://www.dagitty.net/dags.html) demo.
+
+## Adjustment sets
+
+::: {.callout-note appearance="simple"}
+To estimate the direct causal effect of vowel and speech rate on distance:
+
+-   No adjustment needed.
+
+To estimate the direct causal effect of distance on peak velocity:
+
+-   vowel, speech rate.
+
+To estimate the direct causal effect of distance on duration:
+
+-   vowel, speech rate, peak velocity.
+:::
+
+## Power law and log-log form
+
+$$
+\begin{aligned}
+V_p & = k \cdot D^\alpha\\
+ln(V_p) & = ln(k) + \alpha \cdot ln(D)
+\end{aligned}
+$$
+
+::: {.callout-note appearance="simple"}
+-   Peak velocity $V_p$ is equal to the product of a constant $k$ and distance $D$ raised to the power of $\alpha$.
+
+-   Equivalently, logged peak velocity is equal to logged $k$ plus the product of $\alpha$ and logged distance.
+:::
+
+. . .
+
+$$
+y = \beta_0 + \beta_1 \cdot x
+$$
+
+. . .
+
+<div>
+
+In R: `log(dur) ~ 1 + log(dist)`
+
+</div>
+
+## Multivariate regression model
+
+``` r
+ivd_bf <- bf(
+  dist_log ~ vowel + speech_rate_log + (vowel | speaker),
+  
+  pvel_log ~ dist_log * vowel + speech_rate_log + (dist_log * vowel | speaker),
+  
+  dur_log ~ dist_log * vowel + pvel_log * vowel + speech_rate_log +
+    (dist_log * vowel + pvel_log * vowel | speaker)
+)
+```
+
+. . .
+
+Then
+
+``` r
+ivd_bm <- brm(
+  ivd_bf,
+  family = gaussian,
+  data = ...
+)
+```
+
+## Good luck!
+
+::: {.callout-note appearance="simple"}
+You learned a lot, but there is a lot more to learn!
+:::
+
+## References
+

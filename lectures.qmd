@@ -24,4 +24,4 @@ Then, use the method for your specific browser to print the page to PDF.
 | Week 7  | [Slides](lectures/week-07.qmd) |
 | Week 8  | [Slides](lectures/week-08.qmd) |
 | Week 9  | [Slides](lectures/week-09.qmd) |
-| Week 10 |                                |
+| Week 10 | [Slides](lectures/week-10.qmd) |

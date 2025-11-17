@@ -470,12 +470,11 @@ The link to the test is available on the Learn site of the course.
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
 
-- What does the whole process of a quantitative study look like?
+-   What does the whole process of a quantitative study look like?
 
-- What other topics are minimally required to be able to conduct an almost-complete quantitative analysis?
+-   What other topics are minimally required to be able to conduct an almost-complete quantitative analysis?
 
-- Where can I find further support for quantitative and statistical methods?
-
+-   Where can I find further support for quantitative and statistical methods?
 :::
 
 ::: {.callout-note collapse="false"}
@@ -485,7 +484,14 @@ The link to the test is available on the Learn site of the course.
 :::
 
 ::: {.callout-tip collapse="false"}
+#### Lecture
+
+-   [Lecture slides](lectures/week-10.qmd).
+:::
+
+::: {.callout-tip collapse="false"}
 #### Workshop
 
-This week's workshop is dedicated to your group project work. Depending on the nature of your project, you can use the time to discuss any aspect of the project, working on the data analysis, writing your essay, or anything else is relevant to your project.
+This week's workshop is dedicated to your group project work.
+Depending on the nature of your project, you can use the time to discuss any aspect of the project, working on the data analysis, writing your essay, or anything else is relevant to your project.
 :::
