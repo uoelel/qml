@@ -50,7 +50,7 @@ There will be five formative assessments:
 ::: callout-important
 ### Overview
 
-- You should post your self-reflections by Wednesday on Week 4, 6 and 10**.**
+- You should post your self-reflections by Wednesday on Week 4, 6 and 10 on the Reflective Journal on Learn**.**
 
 - You should post your self-reflection by the Wednesday of the check-point weeks (4, 6, 10).
   This is not a hard deadline and it is fine if you have to catch up with your self reflection in a later week.
@@ -67,7 +67,7 @@ Learning is also something that we can learn how to do better.
 Think of a hobby you might have or a skill you've learned: you've probably perfected it for a while, paying close attention to what did or didn't work.
 
 That's why both students and the lecturer (Stefano) will reflect on how the course is going and what they've learned.
-At the defined check-point weeks (weeks 4, 6, 10), we'll all write short self-reflections in the **Reflective Journal**.
+At the defined check-point weeks (weeks 4, 6, 10), we'll all write short self-reflections in the **Reflective Journal on Learn**.
 The tutors will comment on yours and you'll be able to comment on mine.
 
 Each of us will have our own Reflective Journal on Learn.
@@ -106,6 +106,21 @@ The following boxes show three strong examples and three weak examples of self-r
 ::: {.callout-tip collapse="true"}
 ### Strong example 1
 
+**Weeks 2-3**
+
+I've asked questions that push me beyond surface understanding.
+For example, I asked about how incentives affect or not the use of questionable research practices.
+My self-study this week was more structured than before, using a mix of readings and practice exercises.
+Learning about different summary measures was new to me, and I tackled the workshop task by first reviewing the theory, then applying it to the dataset.
+Although I initially misunderstood how to filter data, seeking clarification from the tutor helped.
+This reinforced my belief that statistical tools are most powerful when used critically.
+I've grown in my ability to connect concepts across topics, and I'm proud of myself and my group of having completed the workshop task, which was very difficult for me.
+Next week, I aim to experiment with visualising results more effectively.
+:::
+
+::: {.callout-tip collapse="true"}
+### Strong example 2
+
 **Weeks 7-8-9**
 
 In the past three weeks, I actively participated in group problem-solving (our model code was not working and I realised that there was a typo in one of the variables) and contributed ideas in class discussions (for example, I mentioned that in some cases we might expect that effects are non-linear).
@@ -117,31 +132,17 @@ I'm particularly proud of explaining model diagnostics to a peer, which clarifie
 :::
 
 ::: {.callout-tip collapse="true"}
-### Strong example 2
-
-**Weeks 2-3**
-
-I've been consistently present in discussions, asking questions that push me beyond surface understanding.
-My self-study this week was more structured than before, using a mix of readings and practice exercises.
-Learning about different summary measures was new to me, and I tackled the Challenge by first reviewing the theory, then applying it to the dataset.
-Although I initially misunderstood one step, seeking clarification from the tutor helped.
-This reinforced my belief that statistical tools are most powerful when used critically.
-I've grown in my ability to connect concepts across topics, and I'm proud of having completed the Challenge which was very difficult for me.
-Next week, I aim to experiment with visualising results more effectively.
-:::
-
-::: {.callout-tip collapse="true"}
 ### Strong example 3
 
-**Weeks 2-3**
+**Weeks 7-8-9**
 
 In class, I've been more reserved this week but contributed meaningfully during smaller group work.
 My self-directed study was less consistent than I'd like due to other commitments.
-The new topic was Bernoulli regressions, which I approached with online tutorials and textbook exercises before attempting the Challenge.
-I struggled with interpreting logit estimates but improved after re-reading lecture slides.
-This week slightly shifted my view of quantitative methods—I now see how easily results can be distorted if assumptions are ignored.
+The new topic was Bernoulli regressions, which I approached with online tutorials and textbook exercises before coming to the workshop.
+I struggled with interpreting logit estimates but improved after re-reading the relevant chapter.
+Week 9 slightly shifted my view of quantitative methods: I now see how easily results can be distorted if assumptions are ignored.
 My biggest intellectual gain was in developing a check-list for choosing models.
-While I'm proud of completing the Challenge despite time pressure, I'll need to manage my schedule better to stay engaged in discussions.
+While I'm proud of completing the workshop task with my group despite time pressure, I'll need to manage my schedule better to stay engaged in discussions.
 :::
 
 ::: {.callout-important collapse="true"}
@@ -149,7 +150,7 @@ While I'm proud of completing the Challenge despite time pressure, I'll need to 
 
 I did my work and took part in class.
 I learned some new things.
-The Challenge was okay and I finished it.
+The workshop was okay and I finished it.
 My views on statistics are the same.
 I have grown a bit and I'm proud I completed my work.
 
@@ -177,7 +178,7 @@ This week I came to class and listened to the lecture.
 I joined in when people were talking, although I didn't say a lot.
 I did some reading at home but not as much as I probably should have.
 We learned a new topic about statistics, which was interesting but also quite hard to follow.
-I did the Challenge activity and submitted it on time.
+I did the workshop activity and finished it in time.
 It was a bit tricky but I figured it out eventually.
 My view on quantitative methods hasn't really changed; I still think they are useful but complicated.
 I guess I've learned a bit more about how to use them, but it's hard to say exactly what.
@@ -189,18 +190,16 @@ It lists activities without explaining what was learned, how difficulties were a
 It also misses opportunities to show critical thinking or outline plans for improvement, making it more of a log than a self-reflection.
 :::
 
-### Instructions for Weekly self-reflections submission
+When writing your reflections, make sure they are *reflective*!
+I know it sounds silly, but we have seen several students just writing a dry list of what they have done (and in most cases this is simply a list of what you are expected to do).
 
-After every class you'll need to write one self-reflection in the Reflective Journal on Learn.
-Afterwards you need to read our feedback on your entries.
+### Feedback on self-reflections
 
-What happens is:
+After you post your self-reflections on the Reflective Journal on Learn, me (Stefano) or one of the tutors will write short feedback on what is good and what can be improved in your self-reflection.
+We aim to give you feedback within one week after the Wednesday the submission is due.
 
-1.  We have class.
-2.  We reflect on our learning process.
-3.  We write down a self-reflection in one entry in the Reflective Journal on Learn.
-4.  The tutors comment on your reflections as soon as possible, and you might comment on mine.
-5.  We might also give general feedback in a collaborative discussion in class or via Learn announcements.
+Note that we are not expecting beautiful prose, rather we will be looking for honest reflection.
+Feel free to add specific questions about aspects of your reflection in the reflection itself for me or the tutors to reply in our feedback.
 
 ### Quizzes
 
