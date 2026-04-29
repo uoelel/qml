@@ -3,21 +3,23 @@ title: "Assessment"
 bibliography: references.bib
 ---
 
-## Assessment overview [^1]
+## Assessment overview[^1]
 
 [^1]: Some of the text on this page is from Itamar Kastner's [Morphology course site](https://itamarkast.github.io/UoEmorphology/assessment.html).
 
 This course will be **assessed on the basis of a two summative assessments**:
 
-- A self-reflection of your learning during the course (20% of the final mark).
+-   A final self-reflection of your learning during the course (20% of the final mark).
 
-- A group project (80% of the final mark).
-  The group project must be a data analysis report.
+-   A group project (80% of the final mark).
+    The group project must be a data analysis report.
 
 During the course, you will also have the chance to practice your skills and test your knowledge through **formative assessments**.
 While the formative assessments do not contribute to the course mark, [you are expected to complete them]{.underline}.
 
 See the sections below for more information on feedback and assessment.
+
+For any question about assessment, **post your question on Piazza** (unless it's of a sensitive nature, then get in touch with Stefano).
 
 ::: callout-warning
 ### Learning adjustments
@@ -35,31 +37,36 @@ You have the chance to practice your skills and test your knowledge through **fo
 While the formative assessments do not contribute to the course mark, [you are expected to complete them]{.underline}.
 There will be five formative assessments:
 
-- Self-reflection of weeks 2-3.
+-   Self-reflection of weeks 2-3.
+    Due Week 4.
 
-- Self-reflection of weeks 4-5-6.
+-   Self-reflection of weeks 4-5-6.
+    Due week 7.
 
-- Quiz of weeks 1-5
+-   Quiz of weeks 1-5.
+    Due week 6.
 
-- Self-reflection of weeks 7-8-9.
+-   Self-reflection of weeks 7-8-9.
+    Due week 10.
 
-- Quiz of weeks 1-10.
+-   Quiz of weeks 1-10.
+    Due week 11.
 
 ### Self-reflections
 
 ::: callout-important
 ### Overview
 
-- You should post your self-reflections by Wednesday on Week 4, 6 and 10 on the Reflective Journal on Learn**.**
+-   You should post your self-reflections by Wednesday on Week 4, 6 and 10 on the Reflective Journal on Learn**.**
 
-- You should post your self-reflection by the Wednesday of the check-point weeks (4, 6, 10).
-  This is not a hard deadline and it is fine if you have to catch up with your self reflection in a later week.
-  If we find that you have not posted within a reasonable time after the check-point, we will get in touch.
+-   You should post your self-reflection by the Wednesday of the check-point weeks (4, 6, 10).
+    This is not a hard deadline and it is fine if you have to catch up with your self reflection in a later week.
+    If we find that you have not posted within a reasonable time after the check-point, we will get in touch.
 
-- You should write about 100-150 words for each self-reflection.
-  This is not a hard target or limit.
-  Sometimes you might need to write a bit more or a bit less, as long as you cover the important points.
-  You are also given the space to write more than 200 words, but we might not be able to comment on everything extra to keep our work-load manageable.
+-   You should write about 100-150 words for each self-reflection.
+    This is not a hard target or limit.
+    Sometimes you might need to write a bit more or a bit less, as long as you cover the important points.
+    You are also given the space to write more than 200 words, but we might not be able to comment on everything extra to keep our work-load manageable.
 :::
 
 **Learning is an active process**: it happens best when we're all engaged.
@@ -82,23 +89,23 @@ See the Overview box above for how much you should be writing in each self-refle
 ::: callout-tip
 ## Self-reflection questions
 
-- **Participation and Engagement**\
-  How have I contributed to class activities and managed my independent study?
-  Am I satisfied with my approach so far?
+-   **Participation and Engagement**\
+    How have I contributed to class activities and managed my independent study?
+    Am I satisfied with my approach so far?
 
-- **Learning and Challenges**\
-  Which new topics did I encounter this week, how did I approach the weekly Challenge, and what difficulties—if any—did I face?
-  How did I address them?
+-   **Learning and Challenges**\
+    Which new topics did I encounter this week, how did I approach the weekly Challenge, and what difficulties—if any—did I face?
+    How did I address them?
 
-- **Impact on Perspectives**\
-  How have this week's lessons influenced my views on quantitative methods and related areas?
-  Have my perspectives changed, been reinforced, or stayed the same?
+-   **Impact on Perspectives**\
+    How have this week's lessons influenced my views on quantitative methods and related areas?
+    Have my perspectives changed, been reinforced, or stayed the same?
 
-- **Intellectual Growth and Achievements**\
-  In what ways have I developed academically this week?
-  What am I particularly proud of?
+-   **Intellectual Growth and Achievements**\
+    In what ways have I developed academically this week?
+    What am I particularly proud of?
 
-- **Extra thoughts** (optional; you can write as much as you like here, beyond the 100-200 words, but we might not be able to comment on everything to keep our work-load manageable).
+-   **Extra thoughts** (optional; you can write as much as you like here, beyond the 100-200 words, but we might not be able to comment on everything to keep our work-load manageable).
 :::
 
 The following boxes show three strong examples and three weak examples of self-reflections.
@@ -206,93 +213,92 @@ Feel free to add specific questions about aspects of your reflection in the refl
 The two quizzes will be online tests with multiple choice and true/false questions.
 They will be available on Learn.
 
-## Summative assessments: Group Project and Final Reflection
+-   Quiz of weeks 1-5.
+    Due week 6.
+
+-   Quiz of weeks 1-10.
+    Due week 11.
+
+## Summative assessments: Final Reflection (20%) and Group Project (80%)
 
 ::: callout-important
 ### Deadlines
 
-- You must submit a Project Proposal to Turnitin by **Thursday 6th November at noon** on Learn \> Assessment.
-- You must submit your Final Reflection, including the product of your Group Project to Turnitin by **Thursday 11th December at noon** on Learn \> Assessment.
+-   You must submit a Project Proposal to Turnitin by **Thursday 5th November at noon** (Week 7) on Learn \> Assessment.
+-   You must submit your Final Reflection and your Group Project to Turnitin (separately) by **Thursday 10th December at noon** (Week 12) on Learn \> Assessment.
 :::
 
-### Overview
+### Final self-reflection
+
+### Group Project: data analysis report
 
 As part of the assessment you will have to work on a **Group Project**.
-This project can be anything (some ideas below) so the structure of what you will have to submit differs depending on what you end up doing.
+The group project must be a **data analysis report**, but you can choose the topic as long as it is in linguistics (see below for details).
+Your project has to be approved by Stefano (see @sec-proj-prop below) and you must use the project template (see requisites below).
 
-Independent of the type of project, you will have to write a **Final Reflection where you propose and justify a mark for yourself based on your experience with the course and with working on you Group Projec**t.
-Note that your mark suggestion is just a suggestion and the tutors and I will make the final decision.
-You should follow the marking rubric in @sec-rubric below.
-This reflection is what you submit to Turnitin on Learn by the deadline of Thursday 12th December.
-The reflection should contain the "product" of your Group Project, either as text following the reflection or as a link (since the Group Project can be any of different types of products).
+A **data analysis report** is a special type of document which resembles an academic paper, but focuses more on the analysis aspects of the study.
+This means that your report should include visible R code, more plots than what you would find in a traditional paper, clear explanation of your analytical choices, and so on.
+While you are required to write a literature background that justifies your study, this should be brief and targeted (as short as possible but as detailed as necessary).
+References to relevant literature should be included, but there is no need to discuss everything in detail.
+Only include information that is required for understanding your research question/hypotheses.
 
-The requisites for the Group Project are the following:
-
-- **It has to be about linguistics**, i.e. research on Language and/or languages.
-
-- **It has to be on knowledge-oriented (aka "basic") research**, not on application-oriented (aka "applied") research.
-  Language/speech technology topics are not allowed.
-
-- **If the project requires statistical analysis, you must use R.** Other programming languages are not allowed.
-
-- **You cannot use data used in the textbook nor workshops**, but you can use data in the [QML Data](https://uoelel.github.io/qml-data/) website that is not in the textbook/workshop tasks.
-
-- If you are collecting data from participants, you need to obtain consent from them using **approved consent forms** (which will be available on Learn).
-
-- It is up to you to form a group to work with.
-  I recommend groups of 3-5 people, but you can work in pair and even solo if you prefer that.
+There are four main types of project that are appropriate for the data analysis report format.
 
 ::: callout-tip
-#### Ideas for Group Projects
+## Types of project
 
-- Pick a linguistic question that interests you and run a mini quantitative study (this could well be a study where you also act as participants).
-  Write a data analysis report.
+-   A **study** with a clear research question and/or hypothesis that requires *new data collection* or use of an existing multi-purpose corpus.
 
-- Find a linguistic topic and collect published effects from the relevant literature (the first step towards a fully-fledged meta-analysis).
-  Curate the data set and make it available on the Open Science Framework and/or GitHub.
+-   A **reanalysis** of *pre-existing data* from a published study to answer a clear research question/hypothesis.
 
-- Conduct a meta-analysis of a topic in linguistics based on existing literature.
+-   A **meta-analysis** of a topic where you collate evidence from *multiple pre-existing studies* on a clear research question/hypotheses.
 
-- Design exercises and/or tutorials for the course using linguistic data.
-
-- Write a collection of sonnets on the replicability crisis.
-
-- Write an essay on a minoritised statistician.
-
-- Choreograph an interpretative dance that illustrates how coefficients of a model of lexical decision task data are estimated with the Markov Chain Monte Carlo algorithm in a regression model.
-
-- Rap a song about the history of statistics.
+-   An **analysis plan** with a clear research question/hypothesis that requires *data simulation*.
 :::
+
+The Group Project has the following further requisites.
 
 ::: callout-important
-**Note that the project has to be on a "knowledge-oriented" topic, rather than on a application of statistics to practical problems or language processing/technology.**
+## Requisites
 
-So for example the following project is fine: "Do participant respond faster when listening to synthetic speech generated by algorithm A vs those generated by algorithm B?" But the **following projects will not be appropriate** for the Group Project: "We want to write a speech-to-text algorithm in R" or "We will develop a natural language virtual assistant for online shopping" or "I will train a forced-aligner model for a new language".
+-   **It has to be about linguistics**, i.e. research on Language (human capacity to communicate through languages) and/or on particular languages.
+
+-   **It has to be on knowledge-oriented (aka "basic") research**, not on application-oriented (aka "applied") research.
+
+-   Language/speech technology topics are [**not**]{.underline} allowed.
+    Research topics on Large Language Models are also [**not**]{.underline} allowed.
+
+    -   So for example the following project is fine: "Do participant respond faster when listening to synthetic vs human speech?" But the **following projects will not be appropriate** for the Group Project: "We want to write a speech-to-text algorithm in R" or "We will develop a natural language virtual assistant for online shopping" or "I will train a forced-aligner model for a new language".
+
+-   **The project must require a statistical analysis and you must use R.** Other programming languages for the statistical analysis are not allowed.
+
+-   **You cannot use data used in the textbook nor workshops**, nor data from the [QML Data](https://uoelel.github.io/qml-data/) website.
+    You can re-use existing data, collect new data or simulate data.
+
+-   If you are collecting data from participants, you need to obtain consent from them using **approved consent forms** (which will be available on Learn).
+
+-   **You must share your research compendium** (including code, data, materials, etc).
+    Instructions on how to do this are in the project template (see next point).
+
+-   **You must use the project template**.
+    XXX
+
+-   It is up to you to form a group to work with.
+    I recommend groups of 3-5 people, but you can work in pairs (solo projects will be allowed only if part of learning adjustments).
 :::
 
-As explained above, you will have to **submit a Final Reflection including the product or link to the product of the Group Project by by the deadline of Thursday 11th December at noon**.
-
-For any question about assessment, post your question on Piazza (unless it's of a sensitive nature, then get in touch with Stefano).
-
-::: callout-warning
-Each project will be different, so if you are unsure about how to approach your project idea or if you need help finding an idea in the first place, please get in touch with Stefano!
-
-Stefano does not have telepathic powers (yet) and the only way for him to help you is for you to reach out.
-:)
-:::
-
-### Instructions for Project proposal submission
+### Project proposal submission {#sec-proj-prop}
 
 ::: callout-important
 #### Deadline
 
-- You must submit a Project Proposal to Turnitin by **Thursday 6th November at noon** on Learn \> Assessment.
+-   You must submit a Project Proposal to Turnitin by **Thursday 5th November at noon** (Week 7) on Learn \> Assessment.
 :::
 
-- You will have to **submit a very short project proposal for approval by Thursday 6th November** to Turnitin on Learn, but the earlier you submit the earlier you can start working on it! We will be checking submissions as they arrive and ask to get in touch if there are any issues.
-- **Only one person per group should submit the proposal** (there is no need for everyone in the group to submit the project proposal and you should just add all the names of the group members).
-- A few sentences explaining the project will be sufficient. Note that this deadline is an informal deadline and there is no possibility of getting an extension.
-- **The submission will be marked as such**: a "1" means you can go ahead with the project. A "0" means you should book office hours with Stefano to discuss alternatives or adjustments. You might also find some textual feedback attached to the submission.
+-   You will have to **submit a very short project proposal for approval by Thursday 5th November** to Turnitin on Learn, but the earlier you submit the earlier you can start working on it! We will be checking submissions as they arrive and ask to get in touch if there are any issues.
+-   **Only one person per group should submit the proposal** (there is no need for everyone in the group to submit the project proposal and you should just add all the exam numbers of the group members).
+-   A few sentences explaining the project will be sufficient. Note that this deadline is an informal deadline and there is no possibility of getting an extension.
+-   **The submission will be marked as such**: a "1" means you can go ahead with the project. A "0" means you should book office hours with Stefano to discuss alternatives or adjustments. You might also find some textual feedback attached to the submission.
 
 ::: callout-important
 If your project requires you to collect data from participants who are not students in this course, you will need to abide to a **generic ethics approval** sought by Stefano for this course.
@@ -300,10 +306,25 @@ This means there will be limitations on which participants you can gather data f
 More information TBA.
 :::
 
-The following boxes give you some examples of possible projects and project proposals, with an explanation on how you can go about completing these projects.
+The following boxes give you some examples of possible projects and project proposals.
 
 ::: {.callout-note collapse="true"}
-#### Example project 1
+#### Example proposal 1: study
+
+**Project proposal**
+
+> We are interested in the relationship between vowel height and vowel duration in Hungarian.
+> We will run a small-scale study with recordings from 2 or 3 speakers of Hungarian.
+> We will analyse the vowel duration using Bayesian regression models.
+
+**How to complete it**
+
+You will have to design the study including planning the data analysis, collect data, analyse the data and write the data analysis report.
+Special attention should be given to reporting and interpreting the analysis.
+:::
+
+::: {.callout-note collapse="true"}
+#### Example proposal 2: study (replication)
 
 **Project proposal**
 
@@ -315,62 +336,12 @@ The following boxes give you some examples of possible projects and project prop
 
 This is a **replication** project.
 You will need to understand the original study design, make sure you have the same materials and protocols and you will have to recruit 5 participants (these can be students from the QML course, including yourselves).
-After data collection, you should analyse the data as in the original study and write a short report focussing on the analysis approach and results.
+After data collection, you should analyse the data as in the original study and write a report focussing on the analysis approach and results.
 Specifically, you should discuss how the new results compare with the ones from the original study.
 :::
 
 ::: {.callout-note collapse="true"}
-#### Example project 2
-
-**Project proposal**
-
-> We want to collect recordings of ourselves reading a passage to illustrate different accents.
-> We will include accents from: Scotland, England, India, Tanzania and Hungary.
-> We will curate the data by formatting it so that it's [FAIR](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, Reusable) and we will make it available on the Open Science Framework with a CC-BY license.
-> The data will be thoroughly documented.
-
-**How to complete it**
-
-This is a **data curation** project.
-You will collect, format, organise and document data which you will make available online.
-This requires learning about file data management, file formats, Open Research practices and principles.
-:::
-
-::: {.callout-note collapse="true"}
-#### Example project 3
-
-**Project proposal**
-
-> We want to draw an abstract paining that represents the analysis approach used in @hampton2024.
-> The painting will be accompanied by a written piece with an explanation of the approach, our understanding and how this has shaped the painting.
-
-**How to complete it**
-
-This is **creative** project.
-You will have to carefully read the paper, understand the analysis, which will likely be of a more advanced level compared to what you have learnt so far, and use your creativity to create a painting (no need to be artists to make a painting!).
-The written piece will have to show that you have understood and internalised the analysis and that this understanding has driven the production of the painting.
-What you submit is the written piece and high resolution photo of the painting.
-:::
-
-::: {.callout-note collapse="true"}
-#### Example project 4
-
-**Project proposal**
-
-> We are interested in the relationship between vowel height and vowel duration in Hungarian.
-> We will run a small-scale study with recordings from 2 or 3 speakers of Hungarian.
-> We will analyse the vowel duration using Bayesian regression models.
-
-**How to complete it**
-
-This is **research** project.
-You will have to think of a research question/hypothesis (they do not have to be novel and you can reuse existing questions/hypotheses) and collect and analyse data.
-Note that we are restricted by a generic ethics approval (see above, more information TBA).
-The written report will have to focus on the data collection and analysis (you should put less focus on literature review and discussion).
-:::
-
-::: {.callout-note collapse="true"}
-#### Example project 5
+#### Example proposal 3: reanalysis
 
 **Project proposal**
 
@@ -382,22 +353,54 @@ The written report will have to focus on the data collection and analysis (you s
 This is **robustness assessment** project.
 You will have to get hold of the original data and re-analyse it using a different approach than that in the original study.
 The report will describe the original approach and your approach, report the results and assess how these are different (if at all) from the original study's results.
+Note that you will have to justify why your approach is an appropriate alternative.
 :::
 
-### Instructions for Group Project and Final Reflection submission
+::: {.callout-note collapse="true"}
+#### Example proposal 4: meta-analysis
+
+**Project proposal**
+
+> We will conduct a meta-analysis on the so-called bilingual advantange in executive function tasks.
+> We will systematically scout studies that match our inclusion criteria (documented using the [PRISMA 2020](https://www.prisma-statement.org/prisma-2020-checklist) checklist) and run a Bayesian meta-analysis.
+
+**How to complete it**
+
+This is a **meta-analysis**.
+You will have to decide on how to include/exclude studies and justify your choices.
+Once you have selected the studies, you will have to get hold of the data of those studies if available.
+When the original data is not available, you will have to derive relevant information from the published paper in order to run a meta-analysis.
+Data availability will determine if you can conduct a one-stage (data from all studies analysed together) vs two-stage meta-analysis (first estimates are obtained for each study individually and then they are analysed in a meta-model).
+:::
+
+::: {.callout-note collapse="true"}
+#### Example proposal 5: analysis plan
+
+**Project proposal**
+
+> We will write a research proposal on statistical learning in children.
+> The report will describe the study design, materials, participant inclusion/exclusion criteria, the detailed analysis plan (data processing, cleaning, plotting, modelling).
+> We will create simulated data based on the study design to estimate a minimal sample size, test our analysis plan and show how we will interpret the results.
+> We will follow the format of a Stage 1 registered report.
+
+**How to complete it**
+
+This is an **analysis plan**, so you don't actually conduct the study but just give detailed information on the study design, analysis plan and so on.
+You can think of this as a research proposal but you should focus on the analysis plan: this entails simulating data based on your expectations/prior knowledge of the phenomenon to demonstrate the appropriateness of the analysis in principle.
+Analysis plans also require an estimation of the necessary sample size.
+:::
+
+### Group Project and Final Reflection submission
 
 ::: callout-important
 #### Deadline
 
-- You must submit your Final Reflection, including the product of your Group Project, to Turnitin by **Thursday 11th December at noon** on Learn \> Assessment.
-- Normal extensions are not possible, so carefully plan your time accordingly. Learning Adjustments extensions and Special Circumstances applications are possible. Note that Learning Adjustments extensions do not extend to group-mates who don't have Learning Adjustments in place.
+-   You must submit your Final Reflection and your Group Project (separately) to Turnitin by **Thursday 10th December at noon** (Week 12) on Learn \> Assessment.
+-   Normal extensions and learning adjustments extensions are not possible on the Group Project, so carefully plan your time accordingly.
 :::
 
-- **You should submit a PDF file.**
-- **You should use this [Quarto document template](static/qml-2024-final-reflection.qmd)** (right-click and download). For the submission, please render the Quarto file to PDF (I suggest trying this as soon as you download the file, to ensure you have all the necessary software for rendering to PDF).
-- **Every student should submit.** Your submission should include the same Group Project output or link to it (we will discard the similarity ratings on Turnitin).
-- In your submission, **include the Group Project title and the NAMES of the members of the group** (not the student number nor the exam number), including yourself, as per the template linked above.
-- If you are unsure about anything, please post a question on Piazza.
+-   **You should submit a PDF file.**
+-   XXX
 
 ## Feedback and marking
 
