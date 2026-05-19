@@ -9,10 +9,10 @@ bibliography: references.bib
 
 This course will be **assessed on the basis of a two summative assessments**:
 
--   A final self-reflection of your learning during the course (20% of the final mark).
+- A final self-reflection of your learning during the course (20% of the final mark).
 
--   A group project (80% of the final mark).
-    The group project must be a data analysis report.
+- A group project (80% of the final mark).
+  The group project must be a data analysis report.
 
 During the course, you will also have the chance to practice your skills and test your knowledge through **formative assessments**.
 While the formative assessments do not contribute to the course mark, [you are expected to complete them]{.underline}.
@@ -37,36 +37,36 @@ You have the chance to practice your skills and test your knowledge through **fo
 While the formative assessments do not contribute to the course mark, [you are expected to complete them]{.underline}.
 There will be five formative assessments:
 
--   Self-reflection of weeks 2-3.
-    Due Week 4.
+- Self-reflection of weeks 2-3.
+  Due Week 4.
 
--   Self-reflection of weeks 4-5-6.
-    Due week 7.
+- Self-reflection of weeks 4-5-6.
+  Due week 7.
 
--   Quiz of weeks 1-5.
-    Due week 6.
+- Quiz of weeks 1-5.
+  Due week 6.
 
--   Self-reflection of weeks 7-8-9.
-    Due week 10.
+- Self-reflection of weeks 7-8-9.
+  Due week 10.
 
--   Quiz of weeks 1-10.
-    Due week 11.
+- Quiz of weeks 1-10.
+  Due week 11.
 
 ### Self-reflections
 
 ::: callout-important
 ### Overview
 
--   You should post your self-reflections by Wednesday on Week 4, 6 and 10 on the Reflective Journal on Learn**.**
+- You should post your self-reflections by Wednesday on Week 4, 6 and 10 on the Reflective Journal on Learn**.**
 
--   You should post your self-reflection by the Wednesday of the check-point weeks (4, 6, 10).
-    This is not a hard deadline and it is fine if you have to catch up with your self reflection in a later week.
-    If we find that you have not posted within a reasonable time after the check-point, we will get in touch.
+- You should post your self-reflection by the Wednesday of the check-point weeks (4, 6, 10).
+  This is not a hard deadline and it is fine if you have to catch up with your self reflection in a later week.
+  If we find that you have not posted within a reasonable time after the check-point, we will get in touch.
 
--   You should write about 100-150 words for each self-reflection.
-    This is not a hard target or limit.
-    Sometimes you might need to write a bit more or a bit less, as long as you cover the important points.
-    You are also given the space to write more than 200 words, but we might not be able to comment on everything extra to keep our work-load manageable.
+- You should write about 100-150 words for each self-reflection.
+  This is not a hard target or limit.
+  Sometimes you might need to write a bit more or a bit less, as long as you cover the important points.
+  You are also given the space to write more than 200 words, but we might not be able to comment on everything extra to keep our work-load manageable.
 :::
 
 **Learning is an active process**: it happens best when we're all engaged.
@@ -89,23 +89,23 @@ See the Overview box above for how much you should be writing in each self-refle
 ::: callout-tip
 ## Self-reflection questions
 
--   **Participation and Engagement**\
-    How have I contributed to class activities and managed my independent study?
-    Am I satisfied with my approach so far?
+- **Participation and Engagement**\
+  How have I contributed to class activities and managed my independent study?
+  Am I satisfied with my approach so far?
 
--   **Learning and Challenges**\
-    Which new topics did I encounter this week, how did I approach the weekly Challenge, and what difficulties—if any—did I face?
-    How did I address them?
+- **Learning and Challenges**\
+  Which new topics did I encounter this week, how did I approach the weekly Challenge, and what difficulties—if any—did I face?
+  How did I address them?
 
--   **Impact on Perspectives**\
-    How have this week's lessons influenced my views on quantitative methods and related areas?
-    Have my perspectives changed, been reinforced, or stayed the same?
+- **Impact on Perspectives**\
+  How have this week's lessons influenced my views on quantitative methods and related areas?
+  Have my perspectives changed, been reinforced, or stayed the same?
 
--   **Intellectual Growth and Achievements**\
-    In what ways have I developed academically this week?
-    What am I particularly proud of?
+- **Intellectual Growth and Achievements**\
+  In what ways have I developed academically this week?
+  What am I particularly proud of?
 
--   **Extra thoughts** (optional; you can write as much as you like here, beyond the 100-200 words, but we might not be able to comment on everything to keep our work-load manageable).
+- **Extra thoughts** (optional; you can write as much as you like here, beyond the 100-200 words, but we might not be able to comment on everything to keep our work-load manageable).
 :::
 
 The following boxes show three strong examples and three weak examples of self-reflections.
@@ -213,19 +213,19 @@ Feel free to add specific questions about aspects of your reflection in the refl
 The two quizzes will be online tests with multiple choice and true/false questions.
 They will be available on Learn.
 
--   Quiz of weeks 1-5.
-    Due week 6.
+- Quiz of weeks 1-5.
+  Due week 6.
 
--   Quiz of weeks 1-10.
-    Due week 11.
+- Quiz of weeks 1-10.
+  Due week 11.
 
 ## Summative assessments: Final Reflection (20%) and Group Project (80%)
 
 ::: callout-important
 ### Deadlines
 
--   You must submit a Project Proposal to Turnitin by **Thursday 5th November at noon** (Week 7) on Learn \> Assessment.
--   You must submit your Final Reflection and your Group Project to Turnitin (separately) by **Thursday 10th December at noon** (Week 12) on Learn \> Assessment.
+- You must submit a Project Proposal to Turnitin by **Thursday 5th November at noon** (Week 7) on Learn \> Assessment.
+- You must submit your Final Reflection and your Group Project to Turnitin (separately) by **Thursday 10th December at noon** (Week 12) on Learn \> Assessment.
 :::
 
 ### Final self-reflection
@@ -247,13 +247,13 @@ There are four main types of project that are appropriate for the data analysis 
 ::: callout-tip
 ## Types of project
 
--   A **study** with a clear research question and/or hypothesis that requires *new data collection* or use of an existing multi-purpose corpus.
+- A **study** with a clear research question and/or hypothesis that requires *new data collection* or use of an existing multi-purpose corpus.
 
--   A **reanalysis** of *pre-existing data* from a published study to answer a clear research question/hypothesis.
+- A **reanalysis** of *pre-existing data* from a published study to answer a clear research question/hypothesis.
 
--   A **meta-analysis** of a topic where you collate evidence from *multiple pre-existing studies* on a clear research question/hypotheses.
+- A **meta-analysis** of a topic where you collate evidence from *multiple pre-existing studies* on a clear research question/hypotheses.
 
--   An **analysis plan** with a clear research question/hypothesis that requires *data simulation*.
+- An **analysis plan** with a clear research question/hypothesis that requires *data simulation*.
 :::
 
 The Group Project has the following further requisites.
@@ -261,30 +261,30 @@ The Group Project has the following further requisites.
 ::: callout-important
 ## Requisites
 
--   **It has to be about linguistics**, i.e. research on Language (human capacity to communicate through languages) and/or on particular languages.
+- **It has to be about linguistics**, i.e. research on Language (human capacity to communicate through languages) and/or on particular languages.
 
--   **It has to be on knowledge-oriented (aka "basic") research**, not on application-oriented (aka "applied") research.
+- **It has to be on knowledge-oriented (aka "basic") research**, not on application-oriented (aka "applied") research.
 
--   Language/speech technology topics are [**not**]{.underline} allowed.
-    Research topics on Large Language Models are also [**not**]{.underline} allowed.
+- Language/speech technology topics are [**not**]{.underline} allowed.
+  Research topics on Large Language Models are also [**not**]{.underline} allowed.
 
-    -   So for example the following project is fine: "Do participant respond faster when listening to synthetic vs human speech?" But the **following projects will not be appropriate** for the Group Project: "We want to write a speech-to-text algorithm in R" or "We will develop a natural language virtual assistant for online shopping" or "I will train a forced-aligner model for a new language".
+  - So for example the following project is fine: "Do participant respond faster when listening to synthetic vs human speech?" But the **following projects will not be appropriate** for the Group Project: "We want to write a speech-to-text algorithm in R" or "We will develop a natural language virtual assistant for online shopping" or "I will train a forced-aligner model for a new language".
 
--   **The project must require a statistical analysis and you must use R.** Other programming languages for the statistical analysis are not allowed.
+- **The project must require a statistical analysis and you must use R.** Other programming languages for the statistical analysis are not allowed.
 
--   **You cannot use data used in the textbook nor workshops**, nor data from the [QML Data](https://uoelel.github.io/qml-data/) website.
-    You can re-use existing data, collect new data or simulate data.
+- **You cannot use data used in the textbook nor workshops**, nor data from the [QML Data](https://uoelel.github.io/qml-data/) website.
+  You can re-use existing data, collect new data or simulate data.
 
--   If you are collecting data from participants, you need to obtain consent from them using **approved consent forms** (which will be available on Learn).
+- If you are collecting data from participants, you need to obtain consent from them using **approved consent forms** (which will be available on Learn).
 
--   **You must share your research compendium** (including code, data, materials, etc).
-    Instructions on how to do this are in the project template (see next point).
+- **You must share your research compendium** (including code, data, materials, etc).
+  Instructions on how to do this are in the project template (see next point).
 
--   **You must use the project template**.
-    XXX
+- **You must use the project template**.
+  XXX
 
--   It is up to you to form a group to work with.
-    I recommend groups of 3-5 people, but you can work in pairs (solo projects will be allowed only if part of learning adjustments).
+- It is up to you to form a group to work with.
+  I recommend groups of 3-5 people, but you can work in pairs (solo projects will be allowed only if part of learning adjustments).
 :::
 
 ### Project proposal submission {#sec-proj-prop}
@@ -292,13 +292,13 @@ The Group Project has the following further requisites.
 ::: callout-important
 #### Deadline
 
--   You must submit a Project Proposal to Turnitin by **Thursday 5th November at noon** (Week 7) on Learn \> Assessment.
+- You must submit a Project Proposal to Turnitin by **Thursday 5th November at noon** (Week 7) on Learn \> Assessment.
 :::
 
--   You will have to **submit a very short project proposal for approval by Thursday 5th November** to Turnitin on Learn, but the earlier you submit the earlier you can start working on it! We will be checking submissions as they arrive and ask to get in touch if there are any issues.
--   **Only one person per group should submit the proposal** (there is no need for everyone in the group to submit the project proposal and you should just add all the exam numbers of the group members).
--   A few sentences explaining the project will be sufficient. Note that this deadline is an informal deadline and there is no possibility of getting an extension.
--   **The submission will be marked as such**: a "1" means you can go ahead with the project. A "0" means you should book office hours with Stefano to discuss alternatives or adjustments. You might also find some textual feedback attached to the submission.
+- You will have to **submit a very short project proposal for approval by Thursday 5th November** to Turnitin on Learn, but the earlier you submit the earlier you can start working on it! We will be checking submissions as they arrive and ask to get in touch if there are any issues.
+- **Only one person per group should submit the proposal** (there is no need for everyone in the group to submit the project proposal and you should just add all the exam numbers of the group members).
+- A few sentences explaining the project will be sufficient. Note that this deadline is an informal deadline and there is no possibility of getting an extension.
+- **The submission will be marked as such**: a "1" means you can go ahead with the project. A "0" means you should book office hours with Stefano to discuss alternatives or adjustments. You might also find some textual feedback attached to the submission.
 
 ::: callout-important
 If your project requires you to collect data from participants who are not students in this course, you will need to abide to a **generic ethics approval** sought by Stefano for this course.
@@ -395,12 +395,12 @@ Analysis plans also require an estimation of the necessary sample size.
 ::: callout-important
 #### Deadline
 
--   You must submit your Final Reflection and your Group Project (separately) to Turnitin by **Thursday 10th December at noon** (Week 12) on Learn \> Assessment.
--   Normal extensions and learning adjustments extensions are not possible on the Group Project, so carefully plan your time accordingly.
+- You must submit your Final Reflection and your Group Project (separately) to Turnitin by **Thursday 10th December at noon** (Week 12) on Learn \> Assessment.
+- Normal extensions and learning adjustments extensions are not possible on the Group Project, so carefully plan your time accordingly.
 :::
 
--   **You should submit a PDF file.**
--   XXX
+- **You should submit a PDF file.**
+- XXX
 
 ## Feedback and marking
 
@@ -413,7 +413,7 @@ It is an adaptation of the Psychology/LEL Honours marking rubric.
 Note that within each mark band, you can only get the 5's (so 65, 75, 85, etc...), except for 92.
 
 | Grade | Understand general principles of data analysis | Develop state-of-the-art Open Scholarship practices | Conduct data analyses with R |
-|------------------|------------------|-------------------|------------------|
+|----|----|----|----|
 | **A1 92 Excellent** | Outstanding in every respect. Shows creative, subtle, and/or original independent thinking. Demonstrates breadth of knowledge and deep understanding of summarising, visualising, and modelling data. | Outstanding in every respect. Demonstrates breadth and depth of understanding of Open Scholarship principles. Shows creative, subtle, and/or original application, with critical and insightful evaluation of transparency, reproducibility, and responsible practices. | Outstanding in every respect. Demonstrates breadth and depth of understanding and use of R. Applies methods creatively and accurately, showing original and sophisticated independent thinking. |
 | **A2 85 Excellent** | Outstanding in some respects. Shows original, sophisticated independent thinking. Demonstrates a thorough understanding of summarising, visualising, and modelling data. | Outstanding in some respects. Demonstrates a thorough understanding of Open Scholarship principles. Shows original and sophisticated application, with insightful analysis of responsible practices. | Outstanding in some respects. Demonstrates a thorough understanding and use of R. Applies methods correctly and effectively, showing original and sophisticated independent thinking. |
 | **A3 75 Excellent** | Very good or excellent in most respects. Explores summarising, visualising, and modelling data fully. Shows some complex and/or sensitive independent thinking. Demonstrates a sound understanding. | Very good or excellent in most respects. Explores Open Scholarship principles fully. Demonstrates a sound understanding and shows some complex and/or sensitive independent thinking in application. | Very good or excellent in most respects. Explores use of R fully. Demonstrates a sound understanding and shows some complex and/or sensitive independent thinking in application. |

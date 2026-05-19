@@ -52,3 +52,8 @@ callout-icon: false
 
 execute:
   freeze: auto
+
+editor:
+  markdown:
+    wrap: sentence
+    canonical: true
