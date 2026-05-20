@@ -5,34 +5,35 @@ title: "Course content"
 ## Content overview
 
 This page gathers all the important information about the course content and schedule.
-Each week is dedicated to a specific set of topics and you are expected to complete readings from the course textbook and homework by the beginning of the following week (so complete readings and homework of week 1 by the beginning of week 2, and so on).
+Each week is dedicated to a specific set of topics and you are expected to complete readings from the course textbook and other homework of a particular week by the Tuesday lecture of that week (so complete readings and homework of Week 2 by the Tuesday lecture of Week 2, and so on).
+There will be no workshops in Week 1.
 
 Each week there will be a 50-minute lecture and a 2-hour workshop.
-The lecture covers the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course [textbook](https://stefanocoretta.github.io/qdal/).
-In the workshop you will further practice your R skills with group data [challenges](workshops.qmd) (with the exception of the workshop of week 1, where you will go through the R basics chapters in the textbook in class).
+The lecture expands on the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course [textbook](https://stefanocoretta.github.io/qdal/).
+In the workshop you will further practice your R skills with group data [challenges](workshops.qmd).
 
 The **Schedule overview** below gives you an overview of each week, while the **Weekly schedule** is a more in-depth description of the activities and materials of each week.
 
 ## Schedule overview
 
-The following table is a schedule overview of the course, with the topic of the lecture, workshop and assessments due (WSR = weekly self-reflection).
+The following table is a schedule overview of the course, with the topic of the lecture, workshop and assessments due.
 See [Assessments](assessments.qmd) for more info on assessment.
 
 | Week | Lecture | Workshop | Assessment |
 |------------------|------------------|------------------|------------------|
-| 1 | Research methods | R basics |  |
-| 2 | Inference and uncertainty | Summarise, count and group data | WSR |
-| 3 | Questionable Research Practices | Plot basics | WSR |
-| 4 | Bayesian inference | Gaussian models with brms | WSR |
-| 5 | Regression basics with brms | Regression basics and posteriors draws | WSR |
-| 6 |  |  | WSR + Formative test 1 |
-| 7 | Null Ritual | Categorical predictors in regression | WSR |
-| 8 | Bernoulli regression | Bernoulli regression | WSR + Group project proposal |
-| 9 | Open research | Multiple predictors and interactions | WSR |
-| 10 | Case study | Group project | WSR |
-| 11 |  | (Optional) Group project | WSR + Formative test 2 |
+| 1 | Onboarding |  |  |
+| 2 | Research methods | R basics |  |
+| 3 | Inference and uncertainty | Summarise, count and group data |  |
+| 4 | Questionable Research Practices | Plot basics | Self-reflection |
+| 5 | Bayesian inference | Gaussian models with brms |  |
+| 6 | Regression basics with brms | Regression basics and posteriors draws | Self-reflection + Quiz 1 |
+| 7 | Null Ritual | Categorical predictors in regression |  |
+| 8 | Bernoulli regression | Bernoulli regression | Group project proposal |
+| 9 | Open research | Multiple predictors and interactions |  |
+| 10 | Case study | Group project | Self-reflection |
+| 11 |  | (Optional) Group project | Quiz  2 |
 | 12 |  |  |  |
-| 13 |  |  | Final reflection + Group project |
+| 13 |  |  | Final reflection and Group project |
 
 ## Topics overview
 
@@ -40,12 +41,12 @@ In the following table, you can find a more detailed overview of the topics for 
 
 | Week | Research | Statistics | R |
 |------------------|------------------|------------------|------------------|
-| 1 | Research methods | Quantitative data analysis | RStudio and R basics |
-| 2 |  | Data summaries | R scripts, read and summarise data |
-| 3 | Research cycle | Data viz principles | Quarto documents, data transformation and plottting |
-| 4 | Bayesian inference | Probabilities and Gaussian models | Gaussian models with brms |
-| 5 |  | Regression modelling (numeric predictor) and posterior draws | Regression modelling with brms |
-| 6 |  |  |  |
+| 1 |  |  |  |
+| 2 | Research methods | Quantitative data analysis | RStudio and R basics |
+| 3 |  | Data summaries | R scripts, read and summarise data |
+| 4 | Research cycle | Data viz principles | Quarto documents, data transformation and plotting |
+| 5 | Bayesian inference | Probabilities and Gaussian models | Gaussian models with brms |
+| 6 |  | Regression modelling (numeric predictor) and posterior draws | Regression modelling with brms |
 | 7 | Null Ritual | Regression (categorical predictor) | Treatment and indexing |
 | 8 |  | Bernoulli regression | Bernoulli regression |
 | 9 | Open research | Regression (multiple predictors) and interactions |  |
@@ -64,24 +65,24 @@ When using data for the first time, you should read the related entry, abstract 
 
 ## Week by week
 
-### Week 1: Quantitative methods and R basics
+### Week 2: Quantitative methods and R basics
 
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
 
 **Questions**
 
--   What are the components of research methods?
--   What makes a good research question and research hypothesis?
--   What are the three steps of quantitative data analysis?
--   What is the computational workflow of quantitative data analysis?
+- What are the components of research methods?
+- What makes a good research question and research hypothesis?
+- What are the three steps of quantitative data analysis?
+- What is the computational workflow of quantitative data analysis?
 
 **Skills**
 
--   Think critically about research methods and research questions.
--   Master the basics of RStudio.
--   Master the basics of the programming language R.
--   Learn how to install and use R packages.
+- Think critically about research methods and research questions.
+- Master the basics of RStudio.
+- Master the basics of the programming language R.
+- Learn how to install and use R packages.
 :::
 
 ::: {.callout-note collapse="false"}
@@ -89,36 +90,36 @@ When using data for the first time, you should read the related entry, abstract 
 
 **Course website**
 
--   Carefully read the [homepage](index.qmd).
+- Carefully read the [homepage](index.qmd).
 
--   Familiarise yourself with this *Course content* page, especially the Content overview and the Schedule overview.
+- Familiarise yourself with this *Course content* page, especially the Content overview and the Schedule overview.
 
 **Intake form**
 
--   **You must complete the intake form before coming to the Tuesday lecture.**
--   The link to the form can be found on the Learn website.
+- **You must complete the intake form before coming to the Tuesday lecture.**
+- The link to the form can be found on the Learn website.
 
 **Install R and RStudio**
 
--   For this course, you need to install both R and RStudio.
--   You should install R and RStudio **before** coming to the workshop.
--   **NOTE**: If you have installed either R or RStudio prior to January 2025, please make sure you first delete both R and RStudio from your laptop and then reinstall the latest versions.
--   **Instructions**:
-    -   Install R from <https://cloud.r-project.org>
-    -   Install RStudio from <https://posit.co/download/rstudio-desktop/>
+- For this course, you need to install both R and RStudio.
+- You should install R and RStudio **before** coming to the workshop.
+- **NOTE**: If you have installed either R or RStudio prior to January 2025, please make sure you first delete both R and RStudio from your laptop and then reinstall the latest versions.
+- **Instructions**:
+  - Install R from <https://cloud.r-project.org>
+  - Install RStudio from <https://posit.co/download/rstudio-desktop/>
 :::
 
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   Read Preface and Chapters 1, 2, 3 of the course [textbook](https://stefanocoretta.github.io/qdal/).
--   **Note that this week you are NOT expected to have completed this week's readings before class, but you ARE expected to complete the week's readings before the Workshop from Week 2 on!** You must plan ahead so that by the Workshop in Week 2 you have completed the readings of Week 1 *and* Week 2. You will not be able to complete the workshops from Week 2 on without having done the readings of that week (which means that you very likely have to start the readings of following week in the previous week).
+- Read Preface and Chapters 1, 2, 3 of the course [textbook](https://stefanocoretta.github.io/qdal/).
+- **Note that this week you are NOT expected to have completed this week's readings before class, but you ARE expected to complete the week's readings before the Workshop from Week 2 on!** You must plan ahead so that by the Workshop in Week 2 you have completed the readings of Week 1 *and* Week 2. You will not be able to complete the workshops from Week 2 on without having done the readings of that week (which means that you very likely have to start the readings of following week in the previous week).
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Lecture
 
--   [Lecture slides](lectures/week-01.qmd).
+- [Lecture slides](lectures/week-01.qmd).
 :::
 
 ::: {.callout-tip collapse="false"}
@@ -130,186 +131,194 @@ You will start working in groups from next week since this week is probably easi
 The tutors will go around to ask how things are going and to answer questions or help.
 :::
 
-### Week 2: Inference, uncertainty and data summaries
+### Week 3: Inference, uncertainty and data summaries
 
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
 
 **Questions**
 
--   What is inference and why do we need it?
+- What is inference and why do we need it?
 
--   Why are uncertainty and variability important?
+- Why are uncertainty and variability important?
 
--   What is and isn't statistics?
+- What is and isn't statistics?
 
--   What are summary measures?
+- What are summary measures?
 
 **Skills**
 
--   Using R scripts to keep reproducible code.
+- Using R scripts to keep reproducible code.
 
--   Reading tabular data in R.
+- Reading tabular data in R.
 
--   Summarise data with `summarise()` and `count()`.
+- Summarise data with `summarise()` and `count()`.
 
--   Get grouped summaries with `group_by()`.
+- Get grouped summaries with `group_by()`.
 :::
 
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   Read the Week 2 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
--   **Note that from this week on you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+- Read the Week 2 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+- **Note that from this week on you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Lecture
 
--   [Lecture slides](lectures/week-02.qmd).
+- [Lecture slides](lectures/week-02.qmd).
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
--   [Workshop instructions](workshops/week-02.qmd).
+- [Workshop instructions](workshops/week-02.qmd).
 
--   The tutors will go around to ask how things are going and to answer questions or help.
+- The tutors will go around to ask how things are going and to answer questions or help.
 :::
 
-### Week 3: Transforming and plotting data
+### Week 4: Transforming and plotting data
 
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
 
 **Questions**
 
--   What does the research cycle entail?
+- What does the research cycle entail?
 
--   How do the researcher's degrees of freedom affect research?
+- How do the researcher's degrees of freedom affect research?
 
--   What are Questionable Research Practices?
+- What are Questionable Research Practices?
 
--   Which characteristic do compelling graphics have?
+- Which characteristic do compelling graphics have?
 
 **Skills**
 
--   Use Quarto files to create dynamic reports.
+- Use Quarto files to create dynamic reports.
 
--   Filtering rows using `filter()`.
+- Filtering rows using `filter()`.
 
--   Using logical operators to filter data.
+- Using logical operators to filter data.
 
--   Create or modify columns with `mutate()`.
+- Create or modify columns with `mutate()`.
 :::
 
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   Read the Week 3 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
--   **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+- Read the Week 3 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+- **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Lecture
 
--   [Lecture slides](lectures/week-03.qmd).
+- [Lecture slides](lectures/week-03.qmd).
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
--   [Workshop instructions](workshops/week-03.qmd).
+- [Workshop instructions](workshops/week-03.qmd).
 :::
 
-### Week 4: Probability distributions and Gaussian models
+### Week 5: Probability distributions and Gaussian models
 
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
 
 **Questions**
 
--   What are probabilities and probability distributions?
+- What are probabilities and probability distributions?
 
--   How do we describe and visualise probability distributions?
+- How do we describe and visualise probability distributions?
 
--   How do we use Gaussian probability distributions to estimate a mean and standard deviation?
+- How do we use Gaussian probability distributions to estimate a mean and standard deviation?
 
--   What is the Bayesian approach to probability and inference?
+- What is the Bayesian approach to probability and inference?
 
 **Skills**
 
--   Produce density plots.
+- Produce density plots.
 
--   Use `pnorm()` and `qnorm()` to obtain probabilities and quantiles of Gaussian distributions.
+- Use `pnorm()` and `qnorm()` to obtain probabilities and quantiles of Gaussian distributions.
 
--   Fit Bayesian Gaussian models with brms.
+- Fit Bayesian Gaussian models with brms.
 
--   Report results from Bayesian Gaussian models.
+- Report results from Bayesian Gaussian models.
 :::
 
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   Read the Week 4 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
--   **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+- Read the Week 4 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+- **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Lecture
 
--   [Lecture slides](lectures/week-04.qmd).
+- [Lecture slides](lectures/week-04.qmd).
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
--   [Workshop instructions](workshops/week-04.qmd).
+- [Workshop instructions](workshops/week-04.qmd).
 :::
 
-### Week 5: Regression models
+### Week 6: Regression models
+
+::: {.callout-note collapse="false"}
+#### Quiz 1
+
+You should complete Quiz 1 this week, to check your learning before moving on onto the second part of the course.
+
+The link to the quiz is available on the Learn site of the course.
+:::
 
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
 
 **Questions**
 
--   What are regression models and what are they for?
+- What are regression models and what are they for?
 
--   How do we interpret intercept and slope in a regression model?
+- How do we interpret intercept and slope in a regression model?
 
--   Why do we need Markov Chain Monte Carlo to estimate models?
+- Why do we need Markov Chain Monte Carlo to estimate models?
 
--   How do we use MCMC draws from a model fit?
+- How do we use MCMC draws from a model fit?
 
 **Skills**
 
--   Fit regression models of the form $y \sim x$ with brms in R.
+- Fit regression models of the form $y \sim x$ with brms in R.
 
--   Interpret the regression coefficients table of the model summary.
+- Interpret the regression coefficients table of the model summary.
 
--   Extract and plot MCMC draws.
+- Extract and plot MCMC draws.
 
--   Report results from regression models.
+- Report results from regression models.
 :::
 
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   Read the Week 5 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
--   **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+- Read the Week 5 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+- **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Lecture
 
--   [Lecture slides](lectures/week-05.qmd).
+- [Lecture slides](lectures/week-05.qmd).
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
--   [Workshop instructions](workshops/week-05.qmd).
+- [Workshop instructions](workshops/week-05.qmd).
 :::
 
 ### Week 6: Catch-up week
@@ -323,11 +332,6 @@ Note that the workshop's room is still booked at the usual times so you can use 
 :::
 
 ::: {.callout-note collapse="false"}
-#### Formative Test 1
-
-You should complete the Formative Test 1 this week, to check your learning before moving on onto the second part of the course.
-
-The link to the test is available on the Learn site of the course.
 :::
 
 ### Week 7: Categorical predictors and frequentist statistics
@@ -337,42 +341,42 @@ The link to the test is available on the Learn site of the course.
 
 **Questions**
 
--   How do regression model work with categorical predictors?
+- How do regression model work with categorical predictors?
 
--   How are categorical predictors coded with contrasts?
+- How are categorical predictors coded with contrasts?
 
--   What are frequentist statistics and the "Null Ritual".
+- What are frequentist statistics and the "Null Ritual".
 
--   Why researchers should prefer Bayesian statistics?
+- Why researchers should prefer Bayesian statistics?
 
 **Skills**
 
--   Fit regression models with a categorical predictor with brms in R.
+- Fit regression models with a categorical predictor with brms in R.
 
--   Interpret the regression coefficients table of the model summary.
+- Interpret the regression coefficients table of the model summary.
 
--   Extract and plot MCMC draws of models with categorical predictors with two or more levels.
+- Extract and plot MCMC draws of models with categorical predictors with two or more levels.
 
--   Report results from regression models with categorical predictors.
+- Report results from regression models with categorical predictors.
 :::
 
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   Read the Week 7 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
--   **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+- Read the Week 7 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+- **Remember that you ARE expected to have completed this week's readings before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Lecture
 
--   [Lecture slides](lectures/week-07.qmd).
+- [Lecture slides](lectures/week-07.qmd).
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
--   [Workshop instructions](workshops/week-07.qmd).
+- [Workshop instructions](workshops/week-07.qmd).
 :::
 
 ### Week 8: Binomial/Bernoulli and log-normal regression models
@@ -382,42 +386,42 @@ The link to the test is available on the Learn site of the course.
 
 **Questions**
 
--   How can we model binary outcomes with regression models?
+- How can we model binary outcomes with regression models?
 
--   How can we model numeric outcome variables that are only positive?
+- How can we model numeric outcome variables that are only positive?
 
--   What are model diagnostics?
+- What are model diagnostics?
 
--   Which model diagnostics should I pay attention to?
+- Which model diagnostics should I pay attention to?
 
 **Skills**
 
--   Fit and interpret regression models with a Bernoulli family in brms.
+- Fit and interpret regression models with a Bernoulli family in brms.
 
--   Fit and interpret regression models with a log-normal family in brms.
+- Fit and interpret regression models with a log-normal family in brms.
 
--   Use model diagnostics to understand the model's goodness of fit.
+- Use model diagnostics to understand the model's goodness of fit.
 
--   Apply standard solutions when models do not converge.
+- Apply standard solutions when models do not converge.
 :::
 
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   **Read [Ch 30](https://stefanocoretta.github.io/qdal/ch-regression-bernoulli.html) of the textbook before the lecture.**
--   Read the other Week 8 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+- **Read [Ch 30](https://stefanocoretta.github.io/qdal/ch-regression-bernoulli.html) of the textbook before the lecture.**
+- Read the other Week 8 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Lecture
 
--   [Lecture slides](lectures/week-08.qmd).
+- [Lecture slides](lectures/week-08.qmd).
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
--   [Workshop instructions](workshops/week-08.qmd).
+- [Workshop instructions](workshops/week-08.qmd).
 :::
 
 ### Week 9: Open Research and regression model interactions
@@ -427,42 +431,42 @@ The link to the test is available on the Learn site of the course.
 
 **Questions**
 
--   What is Open Research?
+- What is Open Research?
 
--   What makes research reproducible, replicable, robust and generalisable?
+- What makes research reproducible, replicable, robust and generalisable?
 
--   What are Registered Reports?
+- What are Registered Reports?
 
--   How can we model interactions between predictors in regression models?
+- How can we model interactions between predictors in regression models?
 
 **Skills**
 
--   Think about Open Research practices and how to assess existing research in light of Open Research practices.
+- Think about Open Research practices and how to assess existing research in light of Open Research practices.
 
--   Distinguish the four ways research can be reliable.
+- Distinguish the four ways research can be reliable.
 
--   Use Research Compendia.
+- Use Research Compendia.
 
--   Fit and interpret regression models with categorical-categorical interactions in brms.
+- Fit and interpret regression models with categorical-categorical interactions in brms.
 :::
 
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   **Read** [Ch 33](https://stefanocoretta.github.io/qdal/ch-open-research.html) **of the textbook before the lecture.**
--   Read the other Week 9 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
+- **Read** [Ch 33](https://stefanocoretta.github.io/qdal/ch-open-research.html) **of the textbook before the lecture.**
+- Read the other Week 9 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) **before this week's Workshop!** This means that you very likely have to start the readings of each week in the previous week.
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Lecture
 
--   [Lecture slides](lectures/week-09.qmd).
+- [Lecture slides](lectures/week-09.qmd).
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Workshop
 
--   [Workshop instructions](workshops/week-09.qmd).
+- [Workshop instructions](workshops/week-09.qmd).
 :::
 
 ### Week 10: What's next?
@@ -470,23 +474,23 @@ The link to the test is available on the Learn site of the course.
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
 
--   What does the whole process of a quantitative study look like?
+- What does the whole process of a quantitative study look like?
 
--   What other topics are minimally required to be able to conduct an almost-complete quantitative analysis?
+- What other topics are minimally required to be able to conduct an almost-complete quantitative analysis?
 
--   Where can I find further support for quantitative and statistical methods?
+- Where can I find further support for quantitative and statistical methods?
 :::
 
 ::: {.callout-note collapse="false"}
 #### Readings
 
--   Read the other Week 10 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
+- Read the other Week 10 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/).
 :::
 
 ::: {.callout-tip collapse="false"}
 #### Lecture
 
--   [Lecture slides](lectures/week-10.qmd).
+- [Lecture slides](lectures/week-10.qmd).
 :::
 
 ::: {.callout-tip collapse="false"}
@@ -494,4 +498,14 @@ The link to the test is available on the Learn site of the course.
 
 This week's workshop is dedicated to your group project work.
 Depending on the nature of your project, you can use the time to discuss any aspect of the project, working on the data analysis, writing your essay, or anything else is relevant to your project.
+:::
+
+### Week 11
+
+::: {.callout-note collapse="false"}
+#### Quiz 2
+
+You should complete Quiz 2 this week, to check your learning before moving on onto the second part of the course.
+
+The link to the quiz is available on the Learn site of the course.
 :::
