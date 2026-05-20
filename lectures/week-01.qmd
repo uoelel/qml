@@ -38,4 +38,66 @@ bibliography: references.bib
 
 ## Assessment
 
+::::::::::::::::::: columns
+:::::::::: column
+::::::::: callout-tip
+### Formative assessments
+
+::::: columns
+::: column
+![](../img/flaticon/self-reflection.png){width="150"}
+:::
+
+::: column
+4 self-reflections
+:::
+:::::
+
+::::: columns
+::: column
+![](../img/flaticon/quiz.png){width="150"}
+:::
+
+::: column
+2 quizzes
+:::
+:::::
+:::::::::
+::::::::::
+
+:::::::::: column
+::::::::: callout-tip
+### Summative assessments
+
+::::: columns
+::: column
+![](../img/flaticon/self-reflection.png){width="150"}
+:::
+
+::: column
+Final Self-reflection
+:::
+:::::
+
+::::: columns
+::: column
+![](../img/flaticon/exploration.png){width="150"}
+:::
+
+::: column
+Group project
+:::
+:::::
+:::::::::
+::::::::::
+:::::::::::::::::::
+
+Detailed information on assessment can be found here: <https://uoelel.github.io/qml/assessments.html>
+
+:::: aside
+::: {style="font-size: 8pt;"}
+<a href="https://www.flaticon.com/free-icons/self-esteem" title="self esteem icons">Self esteem icons created by Freepik - Flaticon</a> <a href="https://www.flaticon.com/free-icons/analysis" title="analysis icons">Analysis icons created by HAJICON - Flaticon</a>
+:::
+::::
+
 ## Finding help
