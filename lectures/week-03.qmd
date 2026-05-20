@@ -1,18 +1,32 @@
 ---
-title: "QML - Week 3"
-subtitle: "The research cycle and questionable research practices"
+title: "QML - Week 2"
+subtitle: "Inference, uncertainty and variability"
 author: "Stefano Coretta"
 format: revealjs
 bibliography: references.bib
 ---
 
-## The Research Cycle
+## Inference
 
-![](/img/res-process-cycle.png){fig-align="center" width="700"}
+![](/img/inference.png){fig-align="center"}
 
-## Questionable Research Practices (QRPs)
+## Bilingual advantage: myth or reality?
 
-![](/img/res-process-cycle-qrps.png){fig-align="center" width="700"}
+::: {.callout-tip appearance="simple"}
+"**Bilingual advantage**" refers to the hypothesis that bilinguals possess a cognitive advantage over monolinguals due to greater cognitive control implied in using more than one language [@poarch2019; @samuel2018].
+
+-   However, research has argued both for and against the existence of the bilingual advantage.
+
+-   We can say research has been "inconclusive" [@franck2024; @garraffa2023].
+:::
+
+. . .
+
+::: callout-note
+## Inconclusive!
+
+Note that inconclusive does not mean "there is no bilingual advantage". It means we do not know.
+:::
 
 ## 
 
@@ -21,24 +35,16 @@ bibliography: references.bib
 ::: callout-note
 ### Group activity
 
-Discuss the following practices: are they questionable? Why?
+-   Discuss reasons for which research on the bilingual advantage is inconclusive.
 
-1.  A researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.
-
-2.  A researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.
-
-3.  After running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.
-
-4.  A research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.
-
-5.  An author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions).
+-   You'll share what you discussed in a Wooclap poll in the next slide.
 :::
 ::::
 
 ::: {.column width="25%"}
 ```{=html}
 <iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=15&sec=0" 
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
                     frameborder="0"></iframe>
 ```
 :::
@@ -47,7 +53,7 @@ Discuss the following practices: are they questionable? Why?
 ## Share your thoughts
 
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaed39cc0a8cceadd9a1f8" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5b4cbff22a5075a3dd52a" width="100%"></iframe>
 ```
 
 ## 
@@ -57,11 +63,11 @@ Discuss the following practices: are they questionable? Why?
 ::: callout-note
 ### Group activity
 
--   Go to <https://stefanocoretta.github.io/qrp/>.
+-   Go to <https://stefanocoretta.shinyapps.io/bisim/>.
 
--   **Play the game three times** to publish three papers: the goal is to publish all three!
+-   Get one sample by clicking on the button. PLEASE, click only once!
 
--   You need to balance Integrity and Career points and beat the reviewers lottery.
+-   Look at the sample data. Is there a bilingual advantage?
 :::
 ::::
 
@@ -74,30 +80,72 @@ Discuss the following practices: are they questionable? Why?
 :::
 ::::::
 
-## Share your final paper count
+## Share your conclusion
 
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaeef3159e7d9874e6a17e" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5fdd6160380947dd5f666" width="100%"></iframe>
 ```
 
-## Peer-review for better or worse?
+## Uncertainty and variability
 
 ::: {.callout-note appearance="simple"}
-A few studies looking at the effectiveness of peer-review [@smith2006; @white2003; @jefferson2002; @jefferson2007; @bruce2016; @garciacosta2022; @stephen2022].
-
--   Little empirical evidence that peer review ensures quality.
-
--   Changes to manuscript contents are limited.
-
--   Statistical content increases after review.
-
--   Training reviewers does not improve manuscript.
-
--   Most suggestions are ignored when re-submitting to a different journal.
+-   **Uncertainty** is a characteristic of each observation of a phenomenon, due to measurement error or because we cannot directly measure what we want to measure.
+-   **Variability** is found among different observations of the same phenomenon, due to natural fluctuations and measurement error.
 :::
 
-## Registered Reports
+![](/img/uncert-var.png){fig-align="center"}
 
-![](/img/registered_reports.png){fig-align="center"}
+[Images by [Stickers](https://www.flaticon.com/authors/stickers).]{style="font-size: 10px;"}
+
+## 
+
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+### Group activity
+
+-   Each group will get a research card with a short literature review and a small data set.
+
+-   Answer the following question:
+
+    > Are younger infants better at discriminating non-native phonetic contrasts than older infants?
+:::
+::::
+
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=15&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
+
+## Share your answer
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d123d6796e2e8c31715b44" width="100%"></iframe>
+```
+
+## Many analysts, one data set
+
+::: {.callout-note appearance="simple"}
+-   You just experienced a form of "many analysts, one data set" scenario.
+
+-   @coretta2023 asked 30 teams to answer the same research question with the same data.
+
+    > Do speakers acoustically modify utterances to signal atypical word combinations?
+
+    -   Participants had to instruct a confederate to move a cube on top of an object. The object either had a typical or atypical colour: YELLOW vs BLUE banana.
+
+-   We gave the data to all teams and they sent us back:
+
+    -   **109 individual analyses**—a bit more than 3 analyses per team!
+    -   **Nine teams out of the thirty (30%) reported to have found at least one statistically reliable effect.**
+:::
+
+## Many analysts, one data set
+
+![](/img/coretta2023-fig3.png){fig-align="center"}
 
 ## References

@@ -1,0 +1,294 @@
+---
+title: "QML - Week 5"
+subtitle: "Regression models: the basics"
+author: "Stefano Coretta"
+format: revealjs
+bibliography: references.bib
+---
+
+## Word frequency and reaction times
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+theme_set(theme_light())
+library(brms)
+library(bayesplot)
+library(ggdist)
+```
+
+::: {.callout-tip appearance="simple"}
+**What is the relationship between a word's lexical frequency and reaction times in a lexical decision task in Croatian?**
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+-   Data from [Lexical decision times for nouns from the Croatian Psycholinguistic Database](https://data.crossda.hr/dataset.xhtml?persistentId=doi:10.23669/EV3NFJ&version=2.0).
+
+-   Lexical decision task (*is it a real Croatian word?*)
+
+    -   **Reaction times**.
+
+    -   **Word frequency**: counts from the Croatian web Corpus *hrWaC*.
+:::
+
+## Which relationship?
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 455px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
+```
+
+## Reaction times
+
+```{r}
+#| label: rts-plot
+#| fig-align: center
+#| message: false
+
+croat <- read_csv("data/vlasicek2024/croatian-lexdes.csv") |> 
+  mutate(
+    log_freq = log(word_frequency),
+    rt = rt_milliseconds_mean
+  )
+
+croat |> 
+  ggplot(aes(rt_milliseconds_mean)) +
+  geom_density() +
+  geom_rug(alpha = 0.05) +
+  labs(
+    x = "RT (ms)"
+  )
+
+```
+
+## Word frequency and RTs
+
+```{r}
+#| label: rt-freq-plot
+#| fig-align: center
+
+croat |> 
+  ggplot(aes(word_frequency/1000000, rt)) +
+  geom_point(alpha = 0.5) +
+  labs(
+    x = "Lexical frequency (millions)",
+    y = "RT (ms)"
+  )
+```
+
+## Logged word frequency and RTs
+
+```{r}
+#| label: rt-logfreq-plot
+#| fig-align: center
+
+croat |> 
+  ggplot(aes(log_freq, rt)) +
+  geom_point(alpha = 0.5) +
+  labs(
+    x = "Lexical frequency (logged)",
+    y = "RT (ms)"
+  )
+```
+
+## Gaussian model of RT
+
+$$
+RT \sim Gaussian(\mu, \sigma)
+$$
+
+. . .
+
+::: {.callout-important appearance="simple"}
+But we want to know what happens to RTs depending on the value of lexical frequency...
+:::
+
+. . .
+
+::: {.callout-tip appearance="simple"}
+Then we let the mean $\mu$ vary by lexical frequency!
+:::
+
+$$
+\begin{align}
+RT & \sim Gaussian(\mu, \sigma)\\
+\mu & = \beta_0 + \beta_1 \cdot logf
+\end{align}
+$$
+
+. . .
+
+::: {.callout-important appearance="simple"}
+But what are those $\beta_0$ and $\beta_1$?
+:::
+
+## The equation of a line
+
+$$
+y = \beta_0 + \beta_1 \cdot x
+$$
+
+::: {.callout-note appearance="simple"}
+-   Go to [Linear models illustrated](https://stefanocoretta.shinyapps.io/lines/).
+
+-   $\beta_0$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
+
+-   $\beta_1$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
+:::
+
+```{r}
+#| label: int-plot
+#| fig-asp: 1
+#| fig-align: center
+#| eval: false
+
+ggplot() +
+  geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_abline(intercept = 0, slope = 1, linewidth = 1, colour = "purple") +
+  geom_abline(intercept = 2, slope = 1, linewidth = 1, colour = "darkorange") +
+  annotate("point", x = 0, y = 0, colour = "purple", size = 5) +
+  annotate("point", x = 0, y = 2, colour = "darkorange", size = 5) +
+  scale_x_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
+  scale_y_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
+  labs(
+    x = "X", y = "Y"
+  ) +
+  theme(text = element_text(size = 30))
+
+```
+
+```{r}
+#| label: slo-plot
+#| fig-asp: 1
+#| fig-align: center
+#| eval: false
+
+ggplot() +
+  geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_abline(intercept = 0, slope = 1, linewidth = 1, colour = "purple") +
+  geom_abline(intercept = 0, slope = 2, linewidth = 1, colour = "darkorange") +
+  annotate("segment", x = -Inf, xend = 1, y = 1, colour = "purple", linewidth = 1, linetype = "dotted") +
+  annotate("segment", x = -Inf, xend = 1, y = 2, colour = "darkorange", linewidth = 1, linetype = "dotted") +
+  annotate("segment", y = -Inf, yend = 2, x = 1, linewidth = 1, linetype = "dotted") +
+  annotate("point", x = 1, y = 1, colour = "purple", size = 5) +
+  annotate("point", x = 1, y = 2, colour = "darkorange", size = 5) +
+  scale_x_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
+  scale_y_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
+  labs(
+    x = "X", y = "Y"
+  ) +
+  theme(text = element_text(size = 30))
+```
+
+## Regression model
+
+$$
+\begin{align}
+RT & \sim Gaussian(\mu, \sigma)\\
+\mu & = \beta_0 + \beta_1 \cdot logf & \text{[Regression equation]}
+\end{align}
+$$
+
+::: {.callout-tip appearance="simple"}
+-   A **regression model** is a model based on the equation of a line.
+
+-   The model **estimates** $\beta_0$ (the intercept) and $\beta_1$ (the slope) from the data (i.e. the observed $RT$ and $logf$ values).
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+-   $\beta_0$, intercept
+
+    -   Mean RT value *when logged frequency is `0` zero* (i.e. when word frequency is 1; `exp(0)` = 1).
+
+-   $\beta_1$, slope
+
+    -   *Change* in mean RT for each unit increase of log-frequency (when log-frequency goes from $x$ to $x + 1$).
+:::
+
+## 
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d3b78edd9a104b0899fcc1" width="100%"></iframe>
+```
+
+## Model's posterior predictions
+
+```{r}
+#| label: rt-bm-cond
+#| fig-align: center
+
+rt_bm <- brm(
+  rt ~ 1 + log_freq,
+  family = gaussian,
+  data = croat,
+  cores = 4,
+  seed = 4125,
+  file = "cache/rt_bm"
+)
+
+p <- plot(
+  conditional_effects(rt_bm),
+  points = TRUE,
+  point_args = list(alpha = 0.1),
+  line_args = list(colour = "darkorange"),
+  plot = FALSE
+)[[1]]
+
+p +
+  labs(x = "Lexical frequency (logged)", y = "Predicted RT (ms)")
+```
+
+## Word frequency and reaction times (bis)
+
+::: {.callout-tip appearance="simple"}
+**What is the relationship between a word's lexical frequency and reaction times in a lexical decision task in Croatian?**
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+-   When log-frequency is 0, the mean RTs are between 1084 and 1129 ms at 95% confidence.
+
+-   For each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence.
+:::
+
+## Correlation in NOT causation
+
+::: callout-important
+### Be careful!
+
+-   **Correlation** between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).
+
+-   **Spurious correlations**: two variables can look correlated because of bias from another variable.
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+1.  Number of plant names in a language vs. biodiversity of the region
+    -   Languages in biodiverse regions have more words for plants.
+    -   **Mediator**: cultural reliance on plants.
+2.  Language endangerment vs. economic development
+    -   Higher economic development is associated with greater language endangerment.
+    -   **Confounder**: colonial history.
+3.  Language prestige vs government policy
+    -   High prestige languages and officially supported languages each attract learners.
+    -   **Collider**: If you only look at languages with many learners, prestige and policy might appear related even if they're not causally connected.
+:::
+
+## But it is if you use causal inference...
+
+::: callout-tip
+### Causal inference
+
+-   Correlation *can* be interpreted causally if you adopt a **causal inference** approach.
+
+-   Learn about it in McElreath's textbook *Statistical Rethinking*. Also check [STeW](https://uoelel.github.io/stew.html).
+:::

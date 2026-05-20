@@ -1,311 +1,103 @@
 ---
-title: "QML - Week 4"
-subtitle: "Bayesian inference"
+title: "QML - Week 3"
+subtitle: "The research cycle and questionable research practices"
 author: "Stefano Coretta"
 format: revealjs
 bibliography: references.bib
 ---
 
-## We're taking attendance
+## The Research Cycle
 
-![](/img/QRCode for Quantitative Methods in Linguistics and English Language, Semester 1, Week 4.png){fig-align="center"}
+![](/img/res-process-cycle.png){fig-align="center" width="700"}
 
-## Probabilities
+## Questionable Research Practices (QRPs)
 
-```{r}
-#| label: setup
-#| include: false
+![](/img/res-process-cycle-qrps.png){fig-align="center" width="700"}
 
-library(tidyverse)
-theme_set(theme_light())
-library(brms)
-library(bayesplot)
-```
+## 
 
+:::::: columns
+:::: {.column width="75%"}
 ::: callout-note
-### Probability
+### Group activity
 
--   Probability of an event occurring.
+Discuss the following practices: are they questionable? Why?
 
--   Probabilities can only be **between 0 and 1**.
+1.  A researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.
 
-    -   ⛔️ 0 means **impossible**.
-    -   🤷 0.5 means **it can happen but it can also not happen**.
-    -   ✅ 1 means **certain**.
+2.  A researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.
+
+3.  After running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.
+
+4.  A research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.
+
+5.  An author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions).
 :::
+::::
 
-![](/img/probabilities.png){fig-align="center"}
-
-## Probabilities
-
-::: {.callout-note appearance="simple"}
--   Probability of an event occurring: 0 to 100% probability.
-
--   **Probability of a statistical variable being some numeric value**: a bit more complicated...
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=15&sec=0" 
+                    frameborder="0"></iframe>
+```
 :::
+::::::
 
-. . .
+## Share your thoughts
 
-::: {.callout-tip appearance="simple"}
-**We need probability distributions!**
-:::
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaed39cc0a8cceadd9a1f8" width="100%"></iframe>
+```
 
-## Distribution of probability
+## 
 
-<br>
-
-![](/img/grubabilities.png){fig-align="center"}
-
-## Probability distributions
-
-::: {.callout-note appearance="simple"}
-A **probability distribution** describes *how the probabilities are distributed over the values* that a variable can take on.
-:::
-
-. . .
-
+:::::: columns
+:::: {.column width="75%"}
 ::: callout-note
-### Two types of probability distributions
+### Group activity
 
--   Discrete probability distributions.
+-   Go to <https://stefanocoretta.github.io/qrp/>.
 
--   Continuous probability distributions.
+-   **Play the game three times** to publish three papers: the goal is to publish all three!
+
+-   You need to balance Integrity and Career points and beat the reviewers lottery.
 :::
+::::
 
-. . .
-
-::: {.callout-tip appearance="simple"}
-You learned about discrete and continuous variables in Week 2!
-
-**Discrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions.**
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" 
+                    frameborder="0"></iframe>
+```
 :::
+::::::
 
-## Calculating probability distributions
+## Share your final paper count
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaeef3159e7d9874e6a17e" width="100%"></iframe>
+```
+
+## Peer-review for better or worse?
 
 ::: {.callout-note appearance="simple"}
-You will never need to calculate probability distributions by hand, but it is useful to know about the two mathematical functions that are used for that purpose.
+A few studies looking at the effectiveness of peer-review [@smith2006; @white2003; @jefferson2002; @jefferson2007; @bruce2016; @garciacosta2022; @stephen2022].
 
--   The **Probability Mass Function** (PMF) for discrete probability distributions.
+-   Little empirical evidence that peer review ensures quality.
 
--   The **Probability Density Function** (PDF) for continuous probability distributions.
+-   Changes to manuscript contents are limited.
+
+-   Statistical content increases after review.
+
+-   Training reviewers does not improve manuscript.
+
+-   Most suggestions are ignored when re-submitting to a different journal.
 :::
 
-## Probability Mass Function
+## Registered Reports
 
-![](/img/dice.png){fig-align="center"}
+![](/img/registered_reports.png){fig-align="center"}
 
-## Probability Density Function
-
-```{r}
-#| label: pdf
-#| fig-align: center
-
-alpha <- 4
-beta <- 1.5
-beta_df <- tibble(
-  x = seq(0, 1, length.out = 100),
-  density = dbeta(x, alpha, beta)
-)
-
-ggplot(beta_df, aes(x = x, y = density)) +
-  geom_line(color = "darkorange", linewidth = 1.2) +
-  labs(x = "Proportion", y = "Density")
-```
-
-## Parameters
-
-::: {.callout-note appearance="simple"}
--   **Probability distributions can be summarised with a set of parameters.**
-
--   Different types of probability distributions have a different number of parameters and different parameters.
-:::
-
-. . .
-
-::: callout-tip
-### Gaussian distribution
-
-The **Gaussian probability distribution** is a continuous probability distribution and it has two parameters:
-
--   The mean $\mu$.
--   The standard deviation (SD) $\sigma$.
-
-Go to [Seeing Theory](https://seeing-theory.brown.edu/probability-distributions/index.html#section2) (by Daniel Kunin).
-:::
-
-::: notes
-Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).
-
-<https://seeing-theory.brown.edu/index.html#3rdPage>
-:::
-
-## Simulate Gaussian data
-
-::: callout-note
-### Human height
-
--   Simulate human height as a Gaussian variable.
-
--   `rnorm()`: number of observations, mean, SD.
-:::
-
-. . .
-
-```{r}
-#| label: height
-#| echo: true
-
-set.seed(812)
-height <- rnorm(200, 165, 8) |> round()
-
-height[1:10]
-```
-
-## Kernel Density Estimation
-
-::: {.callout-note appearance="simple"}
--   PDF constructs the density curve of theoretical distributions.
-
--   **Kernel Density Estimation** (KDE) constructs the density curve of empirical data (observations).
-:::
-
-. . .
-
-```{r}
-#| label: height-plot
-#| fig-align: center
-
-ggplot() +
-  aes(height) +
-  geom_density(fill = "darkgreen", alpha = 0.2) +
-  geom_rug(alpha = 0.25)
-```
-
-## Statistical modelling
-
-::: {.callout-note appearance="simple"}
--   When you simulate data, you know the population mean and SD.
-
--   In research, you don't. You just have observations.
-:::
-
-. . .
-
-::: callout-tip
-### Statistical modelling
-
--   Statistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference.
-
--   **Bayesian Gaussian models** do exactly that: estimate mean and SD.
-:::
-
-## Gaussian model of height
-
-$$
-\begin{align}
-h & \sim Gaussian(\mu, \sigma)\\
-\mu & = ...\\
-\sigma & = ...
-\end{align}
-$$
-
-## Gaussian model of height
-
-$$
-\begin{align}
-h & \sim Gaussian(\mu, \sigma)\\
-\mu & = P_\mu\\
-\sigma & = P_\sigma
-\end{align}
-$$
-
-::: {.callout-tip appearance="simple"}
--   $P$ is a **posterior probability distribution**.
-:::
-
-## Gaussian model of height: brms
-
-```{r}
-#| label: h-bm
-#| echo: true
-
-h_tib <- tibble(h = height)
-
-library(brms)
-
-h_bm <- brm(
-  h ~ 1,
-  family = gaussian,
-  data = h_tib,
-  file = "cache/h_bm"
-)
-```
-
-## Gaussian model of height: posteriors
-
-```{r}
-#| label: h-bm-plot
-#| fig-align: center
-
-mcmc_dens(h_bm, pars = c("b_Intercept", "sigma"),
-  facet_args = list(
-    labeller = labeller(
-      .default = as_labeller(c(b_Intercept = "mu", sigma = "sigma"))
-    )
-  )
-)
-```
-
-## A bit harder: N = 5
-
-::: callout-note
-### Sample size
-
--   Sample size matters: the lower the sample size, the higher the uncertainty.
-
--   Let's try with just 5 observations (out of 200).
-:::
-
-## A bit harder: N = 5
-
-```{r}
-#| label: h-bm-small
-
-set.seed(4256)
-h_tib <- tibble(h = sample(height, 5))
-
-h_bm_small <- brm(
-  h ~ 1,
-  family = gaussian,
-  data = h_tib,
-  file = "cache/h_bm_small"
-)
-```
-
-```{r}
-#| label: h-bm-small-plot
-#| fig-align: center
-
-mcmc_dens(h_bm_small, pars = c("b_Intercept", "sigma"),
-  facet_args = list(
-    labeller = labeller(
-      .default = as_labeller(c(b_Intercept = "mu", sigma = "sigma"))
-    )
-  )
-)
-```
-
-## Summary
-
-::: {.callout-note appearance="simple"}
--   Probability distributions describe how probability is distributed across values.
-
--   Theoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.
-
--   KDE is used for empirical distributions.
-
--   (Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.
-
--   Sample size affects uncertainty.
-:::
-
+## References

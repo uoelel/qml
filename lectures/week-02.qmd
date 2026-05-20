@@ -1,32 +1,20 @@
 ---
-title: "QML - Week 2"
-subtitle: "Inference, uncertainty and variability"
+title: "QML - Week 1"
+subtitle: "Research methods overview"
 author: "Stefano Coretta"
 format: revealjs
 bibliography: references.bib
 ---
 
-## Inference
+## Research methods
 
-![](/img/inference.png){fig-align="center"}
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a45274dcfda2498bd555a2" width="100%"></iframe>
+```
 
-## Bilingual advantage: myth or reality?
+## Research methods: components
 
-::: {.callout-tip appearance="simple"}
-"**Bilingual advantage**" refers to the hypothesis that bilinguals possess a cognitive advantage over monolinguals due to greater cognitive control implied in using more than one language [@poarch2019; @samuel2018].
-
--   However, research has argued both for and against the existence of the bilingual advantage.
-
--   We can say research has been "inconclusive" [@franck2024; @garraffa2023].
-:::
-
-. . .
-
-::: callout-note
-## Inconclusive!
-
-Note that inconclusive does not mean "there is no bilingual advantage". It means we do not know.
-:::
+![](/img/res-methods-2.png){fig-align="center"}
 
 ## 
 
@@ -35,80 +23,21 @@ Note that inconclusive does not mean "there is no bilingual advantage". It means
 ::: callout-note
 ### Group activity
 
--   Discuss reasons for which research on the bilingual advantage is inconclusive.
+- Form groups of 5/6 students.
+  I will give you a paper strip with a research topic.
 
--   You'll share what you discussed in a Wooclap poll in the next slide.
-:::
-::::
+- Think about the following research components in relation to the research topic and come up with a "research plan":
 
-::: {.column width="25%"}
-```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
-                    frameborder="0"></iframe>
-```
-:::
-::::::
+  - **Research process**: What are the steps?
 
-## Share your thoughts
+  - **Project management**: How would you manage roles, timeline, data storage?
 
-```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5b4cbff22a5075a3dd52a" width="100%"></iframe>
-```
+  - **Digital skills**: Which tools will you need?
 
-## 
+  - **Philosophy**: What count as evidence?
+    What are your assumptions?
 
-:::::: columns
-:::: {.column width="75%"}
-::: callout-note
-### Group activity
-
--   Go to <https://stefanocoretta.shinyapps.io/bisim/>.
-
--   Get one sample by clicking on the button. PLEASE, click only once!
-
--   Look at the sample data. Is there a bilingual advantage?
-:::
-::::
-
-::: {.column width="25%"}
-```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" 
-                    frameborder="0"></iframe>
-```
-:::
-::::::
-
-## Share your conclusion
-
-```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5fdd6160380947dd5f666" width="100%"></iframe>
-```
-
-## Uncertainty and variability
-
-::: {.callout-note appearance="simple"}
--   **Uncertainty** is a characteristic of each observation of a phenomenon, due to measurement error or because we cannot directly measure what we want to measure.
--   **Variability** is found among different observations of the same phenomenon, due to natural fluctuations and measurement error.
-:::
-
-![](/img/uncert-var.png){fig-align="center"}
-
-[Images by [Stickers](https://www.flaticon.com/authors/stickers).]{style="font-size: 10px;"}
-
-## 
-
-:::::: columns
-:::: {.column width="75%"}
-::: callout-note
-### Group activity
-
--   Each group will get a research card with a short literature review and a small data set.
-
--   Answer the following question:
-
-    > Are younger infants better at discriminating non-native phonetic contrasts than older infants?
+  - **Ethics**: How would you ensure personal rights are respected?
 :::
 ::::
 
@@ -121,31 +50,147 @@ Note that inconclusive does not mean "there is no bilingual advantage". It means
 :::
 ::::::
 
-## Share your answer
+## 
 
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+### Group activity
+
+- Pick a group next to you and tell each other about your research plans.
+
+- What are the similarities and why do you think they are what they are?
+
+- How do your plans differ and how do you think individual differences across and within groups contributed to the differences?
+:::
+::::
+
+::: {.column width="25%"}
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d123d6796e2e8c31715b44" width="100%"></iframe>
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
+                    frameborder="0"></iframe>
 ```
+:::
+::::::
 
-## Many analysts, one data set
+## 
 
-::: {.callout-note appearance="simple"}
--   You just experienced a form of "many analysts, one data set" scenario.
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+### Group activity
 
--   @coretta2023 asked 30 teams to answer the same research question with the same data.
+- With your group, come up with a research question.
 
-    > Do speakers acoustically modify utterances to signal atypical word combinations?
+- It doesn't have to be fancy, just something you are interested in.
 
-    -   Participants had to instruct a confederate to move a cube on top of an object. The object either had a typical or atypical colour: YELLOW vs BLUE banana.
+- Write your research question on a post-it.
+:::
+::::
 
--   We gave the data to all teams and they sent us back:
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
 
-    -   **109 individual analyses**—a bit more than 3 analyses per team!
-    -   **Nine teams out of the thirty (30%) reported to have found at least one statistically reliable effect.**
+## Research axes
+
+![](/img/axes-research.png){fig-align="center"}
+
+## Exploratory (hypothesis generating)
+
+::: {.callout-tip appearance="simple"}
+**What is the role of empathy in the L2 perceptual development of intonation?**
 :::
 
-## Many analysts, one data set
+. . .
 
-![](/img/coretta2023-fig3.png){fig-align="center"}
+::: {.callout-important appearance="simple"}
+➡️ Higher empathic individuals, in comparison with lower empathic individuals, appear to be more sensitive to intonation cues in the process of forming sound-meaning associations [@casillas2023].
+:::
+
+. . .
+
+::: {.callout-tip appearance="simple"}
+**What is the relationship between spaces of language use, attitudes and self-reported proficiency in minorities languages?**
+:::
+
+. . .
+
+::: {.callout-important appearance="simple"}
+➡️ With more spaces available to speakers, the relationship between attitudes and proficiency is weaker [@hampton2024].
+:::
+
+## Corroboratory (hypothesis-testing)
+
+::: {.callout-tip appearance="simple"}
+@raviv2021
+
+- **More structured languages (with higher systematicity) are easier to learn.**
+
+- **Languages created by larger groups are easier to learn.**
+:::
+
+. . .
+
+::: {.callout-important appearance="simple"}
+- ➡️ High systematicity was advantageous for learning, but learners did not benefit from partly or semi-structured languages.
+
+- ➡️ Languages that evolved in big and small groups were equally learnable.
+:::
+
+## Descriptive
+
+::: {.callout-tip appearance="simple"}
+The phonetic inventory of Northern Tosk Albanian [@coretta2022].
+:::
+
+. . .
+
+::: {.callout-tip appearance="simple"}
+An accurate description of the distribution of reflexives and their antecedents in Yoruba, with an examination of the verbs which they co-occur with in terms of the valency classes of the verbs as well the semantic field into which the verbs can be categorized [@atoyebi2020].
+:::
+
+## Explanatory
+
+::: {.callout-tip appearance="simple"}
+Regularization is a phenomenon in which languages gradually reduce variability along certain dimensions.
+We use an artificial language learning experiment to test whether constraints on working memory during learning or production contribute to regularization [@keogh2024].
+:::
+
+. . .
+
+::: {.callout-tip appearance="simple"}
+We examine a model of abstraction from exemplars in which (a) all heard exemplars are stored (though influenced by factors like attention, decay, and interference), and (b) for language use, these exemplars are restructured into multiple layers of abstraction [@ambridge2020].
+:::
+
+## 
+
+:::::: columns
+:::: {.column width="75%"}
+::: callout-note
+### Group activity
+
+- Think about your chosen research question.
+  Which quadrant in the research axes coordinates do you think it belongs to?
+
+- Come to the board and place the post-it with your research question in the chosen quadrant.
+:::
+::::
+
+::: {.column width="25%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;"
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
+                    frameborder="0"></iframe>
+```
+:::
+::::::
 
 ## References
+

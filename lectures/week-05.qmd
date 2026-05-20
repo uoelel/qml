@@ -1,12 +1,16 @@
 ---
-title: "QML - Week 5"
-subtitle: "Regression models: the basics"
+title: "QML - Week 4"
+subtitle: "Bayesian inference"
 author: "Stefano Coretta"
 format: revealjs
 bibliography: references.bib
 ---
 
-## Word frequency and reaction times
+## We're taking attendance
+
+![](/img/QRCode for Quantitative Methods in Linguistics and English Language, Semester 1, Week 4.png){fig-align="center"}
+
+## Probabilities
 
 ```{r}
 #| label: setup
@@ -16,279 +20,292 @@ library(tidyverse)
 theme_set(theme_light())
 library(brms)
 library(bayesplot)
-library(ggdist)
 ```
 
-::: {.callout-tip appearance="simple"}
-**What is the relationship between a word's lexical frequency and reaction times in a lexical decision task in Croatian?**
+::: callout-note
+### Probability
+
+-   Probability of an event occurring.
+
+-   Probabilities can only be **between 0 and 1**.
+
+    -   ⛔️ 0 means **impossible**.
+    -   🤷 0.5 means **it can happen but it can also not happen**.
+    -   ✅ 1 means **certain**.
 :::
 
-. . .
+![](/img/probabilities.png){fig-align="center"}
+
+## Probabilities
 
 ::: {.callout-note appearance="simple"}
--   Data from [Lexical decision times for nouns from the Croatian Psycholinguistic Database](https://data.crossda.hr/dataset.xhtml?persistentId=doi:10.23669/EV3NFJ&version=2.0).
+-   Probability of an event occurring: 0 to 100% probability.
 
--   Lexical decision task (*is it a real Croatian word?*)
-
-    -   **Reaction times**.
-
-    -   **Word frequency**: counts from the Croatian web Corpus *hrWaC*.
-:::
-
-## Which relationship?
-
-```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 455px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
-```
-
-## Reaction times
-
-```{r}
-#| label: rts-plot
-#| fig-align: center
-#| message: false
-
-croat <- read_csv("data/vlasicek2024/croatian-lexdes.csv") |> 
-  mutate(
-    log_freq = log(word_frequency),
-    rt = rt_milliseconds_mean
-  )
-
-croat |> 
-  ggplot(aes(rt_milliseconds_mean)) +
-  geom_density() +
-  geom_rug(alpha = 0.05) +
-  labs(
-    x = "RT (ms)"
-  )
-
-```
-
-## Word frequency and RTs
-
-```{r}
-#| label: rt-freq-plot
-#| fig-align: center
-
-croat |> 
-  ggplot(aes(word_frequency/1000000, rt)) +
-  geom_point(alpha = 0.5) +
-  labs(
-    x = "Lexical frequency (millions)",
-    y = "RT (ms)"
-  )
-```
-
-## Logged word frequency and RTs
-
-```{r}
-#| label: rt-logfreq-plot
-#| fig-align: center
-
-croat |> 
-  ggplot(aes(log_freq, rt)) +
-  geom_point(alpha = 0.5) +
-  labs(
-    x = "Lexical frequency (logged)",
-    y = "RT (ms)"
-  )
-```
-
-## Gaussian model of RT
-
-$$
-RT \sim Gaussian(\mu, \sigma)
-$$
-
-. . .
-
-::: {.callout-important appearance="simple"}
-But we want to know what happens to RTs depending on the value of lexical frequency...
+-   **Probability of a statistical variable being some numeric value**: a bit more complicated...
 :::
 
 . . .
 
 ::: {.callout-tip appearance="simple"}
-Then we let the mean $\mu$ vary by lexical frequency!
+**We need probability distributions!**
 :::
 
-$$
-\begin{align}
-RT & \sim Gaussian(\mu, \sigma)\\
-\mu & = \beta_0 + \beta_1 \cdot logf
-\end{align}
-$$
+## Distribution of probability
+
+<br>
+
+![](/img/grubabilities.png){fig-align="center"}
+
+## Probability distributions
+
+::: {.callout-note appearance="simple"}
+A **probability distribution** describes *how the probabilities are distributed over the values* that a variable can take on.
+:::
 
 . . .
 
-::: {.callout-important appearance="simple"}
-But what are those $\beta_0$ and $\beta_1$?
+::: callout-note
+### Two types of probability distributions
+
+-   Discrete probability distributions.
+
+-   Continuous probability distributions.
 :::
 
-## The equation of a line
-
-$$
-y = \beta_0 + \beta_1 \cdot x
-$$
-
-::: {.callout-note appearance="simple"}
--   Go to [Linear models illustrated](https://stefanocoretta.shinyapps.io/lines/).
-
--   $\beta_0$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
-
--   $\beta_1$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
-:::
-
-```{r}
-#| label: int-plot
-#| fig-asp: 1
-#| fig-align: center
-#| eval: false
-
-ggplot() +
-  geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.5) +
-  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
-  geom_abline(intercept = 0, slope = 1, linewidth = 1, colour = "purple") +
-  geom_abline(intercept = 2, slope = 1, linewidth = 1, colour = "darkorange") +
-  annotate("point", x = 0, y = 0, colour = "purple", size = 5) +
-  annotate("point", x = 0, y = 2, colour = "darkorange", size = 5) +
-  scale_x_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
-  scale_y_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
-  labs(
-    x = "X", y = "Y"
-  ) +
-  theme(text = element_text(size = 30))
-
-```
-
-```{r}
-#| label: slo-plot
-#| fig-asp: 1
-#| fig-align: center
-#| eval: false
-
-ggplot() +
-  geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.5) +
-  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
-  geom_abline(intercept = 0, slope = 1, linewidth = 1, colour = "purple") +
-  geom_abline(intercept = 0, slope = 2, linewidth = 1, colour = "darkorange") +
-  annotate("segment", x = -Inf, xend = 1, y = 1, colour = "purple", linewidth = 1, linetype = "dotted") +
-  annotate("segment", x = -Inf, xend = 1, y = 2, colour = "darkorange", linewidth = 1, linetype = "dotted") +
-  annotate("segment", y = -Inf, yend = 2, x = 1, linewidth = 1, linetype = "dotted") +
-  annotate("point", x = 1, y = 1, colour = "purple", size = 5) +
-  annotate("point", x = 1, y = 2, colour = "darkorange", size = 5) +
-  scale_x_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
-  scale_y_continuous(breaks = seq(-6, 6), limits = c(-6, 6)) +
-  labs(
-    x = "X", y = "Y"
-  ) +
-  theme(text = element_text(size = 30))
-```
-
-## Regression model
-
-$$
-\begin{align}
-RT & \sim Gaussian(\mu, \sigma)\\
-\mu & = \beta_0 + \beta_1 \cdot logf & \text{[Regression equation]}
-\end{align}
-$$
+. . .
 
 ::: {.callout-tip appearance="simple"}
--   A **regression model** is a model based on the equation of a line.
+You learned about discrete and continuous variables in Week 2!
 
--   The model **estimates** $\beta_0$ (the intercept) and $\beta_1$ (the slope) from the data (i.e. the observed $RT$ and $logf$ values).
+**Discrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions.**
 :::
 
-. . .
+## Calculating probability distributions
 
 ::: {.callout-note appearance="simple"}
--   $\beta_0$, intercept
+You will never need to calculate probability distributions by hand, but it is useful to know about the two mathematical functions that are used for that purpose.
 
-    -   Mean RT value *when logged frequency is `0` zero* (i.e. when word frequency is 1; `exp(0)` = 1).
+-   The **Probability Mass Function** (PMF) for discrete probability distributions.
 
--   $\beta_1$, slope
-
-    -   *Change* in mean RT for each unit increase of log-frequency (when log-frequency goes from $x$ to $x + 1$).
+-   The **Probability Density Function** (PDF) for continuous probability distributions.
 :::
 
-## 
+## Probability Mass Function
 
-```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d3b78edd9a104b0899fcc1" width="100%"></iframe>
-```
+![](/img/dice.png){fig-align="center"}
 
-## Model's posterior predictions
+## Probability Density Function
 
 ```{r}
-#| label: rt-bm-cond
+#| label: pdf
 #| fig-align: center
 
-rt_bm <- brm(
-  rt ~ 1 + log_freq,
-  family = gaussian,
-  data = croat,
-  cores = 4,
-  seed = 4125,
-  file = "cache/rt_bm"
+alpha <- 4
+beta <- 1.5
+beta_df <- tibble(
+  x = seq(0, 1, length.out = 100),
+  density = dbeta(x, alpha, beta)
 )
 
-p <- plot(
-  conditional_effects(rt_bm),
-  points = TRUE,
-  point_args = list(alpha = 0.1),
-  line_args = list(colour = "darkorange"),
-  plot = FALSE
-)[[1]]
-
-p +
-  labs(x = "Lexical frequency (logged)", y = "Predicted RT (ms)")
+ggplot(beta_df, aes(x = x, y = density)) +
+  geom_line(color = "darkorange", linewidth = 1.2) +
+  labs(x = "Proportion", y = "Density")
 ```
 
-## Word frequency and reaction times (bis)
+## Parameters
 
-::: {.callout-tip appearance="simple"}
-**What is the relationship between a word's lexical frequency and reaction times in a lexical decision task in Croatian?**
+::: {.callout-note appearance="simple"}
+-   **Probability distributions can be summarised with a set of parameters.**
+
+-   Different types of probability distributions have a different number of parameters and different parameters.
 :::
 
 . . .
-
-::: {.callout-note appearance="simple"}
--   When log-frequency is 0, the mean RTs are between 1084 and 1129 ms at 95% confidence.
-
--   For each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence.
-:::
-
-## Correlation in NOT causation
-
-::: callout-important
-### Be careful!
-
--   **Correlation** between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).
-
--   **Spurious correlations**: two variables can look correlated because of bias from another variable.
-:::
-
-. . .
-
-::: {.callout-note appearance="simple"}
-1.  Number of plant names in a language vs. biodiversity of the region
-    -   Languages in biodiverse regions have more words for plants.
-    -   **Mediator**: cultural reliance on plants.
-2.  Language endangerment vs. economic development
-    -   Higher economic development is associated with greater language endangerment.
-    -   **Confounder**: colonial history.
-3.  Language prestige vs government policy
-    -   High prestige languages and officially supported languages each attract learners.
-    -   **Collider**: If you only look at languages with many learners, prestige and policy might appear related even if they're not causally connected.
-:::
-
-## But it is if you use causal inference...
 
 ::: callout-tip
-### Causal inference
+### Gaussian distribution
 
--   Correlation *can* be interpreted causally if you adopt a **causal inference** approach.
+The **Gaussian probability distribution** is a continuous probability distribution and it has two parameters:
 
--   Learn about it in McElreath's textbook *Statistical Rethinking*. Also check [STeW](https://uoelel.github.io/stew.html).
+-   The mean $\mu$.
+-   The standard deviation (SD) $\sigma$.
+
+Go to [Seeing Theory](https://seeing-theory.brown.edu/probability-distributions/index.html#section2) (by Daniel Kunin).
 :::
+
+::: notes
+Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).
+
+<https://seeing-theory.brown.edu/index.html#3rdPage>
+:::
+
+## Simulate Gaussian data
+
+::: callout-note
+### Human height
+
+-   Simulate human height as a Gaussian variable.
+
+-   `rnorm()`: number of observations, mean, SD.
+:::
+
+. . .
+
+```{r}
+#| label: height
+#| echo: true
+
+set.seed(812)
+height <- rnorm(200, 165, 8) |> round()
+
+height[1:10]
+```
+
+## Kernel Density Estimation
+
+::: {.callout-note appearance="simple"}
+-   PDF constructs the density curve of theoretical distributions.
+
+-   **Kernel Density Estimation** (KDE) constructs the density curve of empirical data (observations).
+:::
+
+. . .
+
+```{r}
+#| label: height-plot
+#| fig-align: center
+
+ggplot() +
+  aes(height) +
+  geom_density(fill = "darkgreen", alpha = 0.2) +
+  geom_rug(alpha = 0.25)
+```
+
+## Statistical modelling
+
+::: {.callout-note appearance="simple"}
+-   When you simulate data, you know the population mean and SD.
+
+-   In research, you don't. You just have observations.
+:::
+
+. . .
+
+::: callout-tip
+### Statistical modelling
+
+-   Statistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference.
+
+-   **Bayesian Gaussian models** do exactly that: estimate mean and SD.
+:::
+
+## Gaussian model of height
+
+$$
+\begin{align}
+h & \sim Gaussian(\mu, \sigma)\\
+\mu & = ...\\
+\sigma & = ...
+\end{align}
+$$
+
+## Gaussian model of height
+
+$$
+\begin{align}
+h & \sim Gaussian(\mu, \sigma)\\
+\mu & = P_\mu\\
+\sigma & = P_\sigma
+\end{align}
+$$
+
+::: {.callout-tip appearance="simple"}
+-   $P$ is a **posterior probability distribution**.
+:::
+
+## Gaussian model of height: brms
+
+```{r}
+#| label: h-bm
+#| echo: true
+
+h_tib <- tibble(h = height)
+
+library(brms)
+
+h_bm <- brm(
+  h ~ 1,
+  family = gaussian,
+  data = h_tib,
+  file = "cache/h_bm"
+)
+```
+
+## Gaussian model of height: posteriors
+
+```{r}
+#| label: h-bm-plot
+#| fig-align: center
+
+mcmc_dens(h_bm, pars = c("b_Intercept", "sigma"),
+  facet_args = list(
+    labeller = labeller(
+      .default = as_labeller(c(b_Intercept = "mu", sigma = "sigma"))
+    )
+  )
+)
+```
+
+## A bit harder: N = 5
+
+::: callout-note
+### Sample size
+
+-   Sample size matters: the lower the sample size, the higher the uncertainty.
+
+-   Let's try with just 5 observations (out of 200).
+:::
+
+## A bit harder: N = 5
+
+```{r}
+#| label: h-bm-small
+
+set.seed(4256)
+h_tib <- tibble(h = sample(height, 5))
+
+h_bm_small <- brm(
+  h ~ 1,
+  family = gaussian,
+  data = h_tib,
+  file = "cache/h_bm_small"
+)
+```
+
+```{r}
+#| label: h-bm-small-plot
+#| fig-align: center
+
+mcmc_dens(h_bm_small, pars = c("b_Intercept", "sigma"),
+  facet_args = list(
+    labeller = labeller(
+      .default = as_labeller(c(b_Intercept = "mu", sigma = "sigma"))
+    )
+  )
+)
+```
+
+## Summary
+
+::: {.callout-note appearance="simple"}
+-   Probability distributions describe how probability is distributed across values.
+
+-   Theoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.
+
+-   KDE is used for empirical distributions.
+
+-   (Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.
+
+-   Sample size affects uncertainty.
+:::
+

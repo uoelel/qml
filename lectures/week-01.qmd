@@ -8,210 +8,34 @@ bibliography: references.bib
 
 ## Welcome to QML!
 
+## Who am I?
+
 ::: callout-note
 ## Practicalities
 
--   Who am I?
+- Who am I?
 
--   Overview and week-by-week contents: <https://uoelel.github.io/qml/content.html>
+- Overview and week-by-week contents: <https://uoelel.github.io/qml/content.html>
 
--   Assessment: <https://uoelel.github.io/qml/assessments.html>
+- Assessment: <https://uoelel.github.io/qml/assessments.html>
 
-    -   **Weekly self-reflections** in the Reflective Journal (on Learn): DUE EVERY WEEK by the following Wednesday.
+  - **Weekly self-reflections** in the Reflective Journal (on Learn): DUE EVERY WEEK by the following Wednesday.
 
-    -   Information: <https://uoelel.github.io/qml/assessments.html#reflective-journal>
+  - Information: <https://uoelel.github.io/qml/assessments.html#reflective-journal>
 
--   This is a **very intense course!**
+- This is a **very intense course!**
 
-    -   We focus on quantitative methods for knowledge-oriented research. No machine learning, LLMs, language technology.
+  - We focus on quantitative methods for knowledge-oriented research. No machine learning, LLMs, language technology.
 
--   Finding help:
+- Finding help:
 
-    -   Office Hours.
+  - Office Hours.
 
-    -   Piazza: Q&A forum.
+  - Piazza: Q&A forum.
 :::
 
-## Research methods
+## Overview
 
-```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a45274dcfda2498bd555a2" width="100%"></iframe>
-```
+## Assessment
 
-## Research methods: components
-
-![](/img/res-methods-2.png){fig-align="center"}
-
-## 
-
-:::::: columns
-:::: {.column width="75%"}
-::: callout-note
-### Group activity
-
--   Form groups of 5/6 students. I will give you a paper strip with a research topic.
-
--   Think about the following research components in relation to the research topic and come up with a "research plan":
-
-    -   **Research process**: What are the steps?
-
-    -   **Project management**: How would you manage roles, timeline, data storage?
-
-    -   **Digital skills**: Which tools will you need?
-
-    -   **Philosophy**: What count as evidence? What are your assumptions?
-
-    -   **Ethics**: How would you ensure personal rights are respected?
-:::
-::::
-
-::: {.column width="25%"}
-```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=15&sec=0" 
-                    frameborder="0"></iframe>
-```
-:::
-::::::
-
-## 
-
-:::::: columns
-:::: {.column width="75%"}
-::: callout-note
-### Group activity
-
--   Pick a group next to you and tell each other about your research plans.
-
--   What are the similarities and why do you think they are what they are?
-
--   How do your plans differ and how do you think individual differences across and within groups contributed to the differences?
-:::
-::::
-
-::: {.column width="25%"}
-```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
-                    frameborder="0"></iframe>
-```
-:::
-::::::
-
-## 
-
-:::::: columns
-:::: {.column width="75%"}
-::: callout-note
-### Group activity
-
--   With your group, come up with a research question.
-
--   It doesn't have to be fancy, just something you are interested in.
-
--   Write your research question on a post-it.
-:::
-::::
-
-::: {.column width="25%"}
-```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
-                    frameborder="0"></iframe>
-```
-:::
-::::::
-
-## Research axes
-
-![](/img/axes-research.png){fig-align="center"}
-
-## Exploratory (hypothesis generating)
-
-::: {.callout-tip appearance="simple"}
-**What is the role of empathy in the L2 perceptual development of intonation?**
-:::
-
-. . .
-
-::: {.callout-important appearance="simple"}
-➡️ Higher empathic individuals, in comparison with lower empathic individuals, appear to be more sensitive to intonation cues in the process of forming sound-meaning associations [@casillas2023].
-:::
-
-. . .
-
-::: {.callout-tip appearance="simple"}
-**What is the relationship between spaces of language use, attitudes and self-reported proficiency in minorities languages?**
-:::
-
-. . .
-
-::: {.callout-important appearance="simple"}
-➡️ With more spaces available to speakers, the relationship between attitudes and proficiency is weaker [@hampton2024].
-:::
-
-## Corroboratory (hypothesis-testing)
-
-::: {.callout-tip appearance="simple"}
-@raviv2021
-
--   **More structured languages (with higher systematicity) are easier to learn.**
-
--   **Languages created by larger groups are easier to learn.**
-:::
-
-. . .
-
-::: {.callout-important appearance="simple"}
--   ➡️ High systematicity was advantageous for learning, but learners did not benefit from partly or semi-structured languages.
-
--   ➡️ Languages that evolved in big and small groups were equally learnable.
-:::
-
-## Descriptive
-
-::: {.callout-tip appearance="simple"}
-The phonetic inventory of Northern Tosk Albanian [@coretta2022].
-:::
-
-. . .
-
-::: {.callout-tip appearance="simple"}
-An accurate description of the distribution of reflexives and their antecedents in Yoruba, with an examination of the verbs which they co-occur with in terms of the valency classes of the verbs as well the semantic field into which the verbs can be categorized [@atoyebi2020].
-:::
-
-## Explanatory
-
-::: {.callout-tip appearance="simple"}
-Regularization is a phenomenon in which languages gradually reduce variability along certain dimensions. We use an artificial language learning experiment to test whether constraints on working memory during learning or production contribute to regularization [@keogh2024].
-:::
-
-. . .
-
-::: {.callout-tip appearance="simple"}
-We examine a model of abstraction from exemplars in which (a) all heard exemplars are stored (though influenced by factors like attention, decay, and interference), and (b) for language use, these exemplars are restructured into multiple layers of abstraction [@ambridge2020].
-:::
-
-## 
-
-:::::: columns
-:::: {.column width="75%"}
-::: callout-note
-### Group activity
-
--   Think about your chosen research question. Which quadrant in the research axes coordinates do you think it belongs to?
-
--   Come to the board and place the post-it with your research question in the chosen quadrant.
-:::
-::::
-
-::: {.column width="25%"}
-```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
-                    frameborder="0"></iframe>
-```
-:::
-::::::
-
-## References
+## Finding help
