@@ -1,96 +1,116 @@
 ---
 title: "QML - Week 1"
-subtitle: "Research methods overview"
+subtitle: "Onboarding"
 author: "Stefano Coretta"
 format: revealjs
 bibliography: references.bib
 ---
 
-## Welcome to QML!
+## Welcome to QML! {.center background-color="var(--inverse)"}
 
 ## Who am I?
 
-::: callout-note
-## Practicalities
+## Overview
 
-- Who am I?
+<br>
 
-- Overview and week-by-week contents: <https://uoelel.github.io/qml/content.html>
+::::::: columns
+:::: column
+![](../img/flaticon/sensory.png){fig-align="center" width="150"}
 
-- Assessment: <https://uoelel.github.io/qml/assessments.html>
+::: {style="text-align: center;"}
+[very **intense** course]{.t2em}
+:::
+::::
 
-  - **Weekly self-reflections** in the Reflective Journal (on Learn): DUE EVERY WEEK by the following Wednesday.
+:::: {.column .fragment}
+![](../img/flaticon/open-book.png){fig-align="center" width="150"}
 
-  - Information: <https://uoelel.github.io/qml/assessments.html#reflective-journal>
+::: {style="text-align: center;"}
+[knowledge-oriented research]{.t2em}
+:::
+::::
+:::::::
 
-- This is a **very intense course!**
-
-  - We focus on quantitative methods for knowledge-oriented research. No machine learning, LLMs, language technology.
-
-- Finding help:
-
-  - Office Hours.
-
-  - Piazza: Q&A forum.
+::: aside
+[<a href="https://www.flaticon.com/free-icons/intensity" title="intensity icons">Intensity icons created by Freepik - Flaticon</a> <a href="https://www.flaticon.com/free-icons/knowledge" title="knowledge icons">Knowledge icons created by Freepik - Flaticon</a>]{style="font-size: 8pt;"}
 :::
 
-## Overview
+## Course website
+
+<br><br>
+
+[[uoelel.github.io/qml/](https://uoelel.github.io/qml/)]{.r-fit-text}
+
+. . .
+
+See the [Content](https://uoelel.github.io/qml/content.html) page for a week-by-week breakdown.
+
+. . .
+
+Also see Learn.
 
 ## Assessment
 
-::::::::::::::::::: columns
-:::::::::: column
-::::::::: callout-tip
+::::::::::::::::::::: columns
+::::::::::: column
+:::::::::: callout-tip
 ### Formative assessments
 
+::::::::: fragment
 ::::: columns
-::: column
-![](../img/flaticon/self-reflection.png){width="150"}
+::: {.column width="30%"}
+![](../img/flaticon/self-reflection.png){fig-align="center" width="100"}
 :::
 
-::: column
-4 self-reflections
+::: {.column width="70%"}
+<br><br> [4 Self-reflections]{style="font-size: 1.5em;"}
 :::
 :::::
 
 ::::: columns
-::: column
-![](../img/flaticon/quiz.png){width="150"}
+::: {.column width="30%"}
+![](../img/flaticon/quiz.png){fig-align="center" width="100"}
 :::
 
-::: column
-2 quizzes
+::: {.column width="70%"}
+<br><br> [2 Quizzes]{style="font-size: 1.5em;"}
 :::
 :::::
 :::::::::
 ::::::::::
+:::::::::::
 
-:::::::::: column
-::::::::: callout-tip
+::::::::::: column
+:::::::::: callout-note
 ### Summative assessments
 
+::::::::: fragment
 ::::: columns
-::: column
-![](../img/flaticon/self-reflection.png){width="150"}
+::: {.column width="30%"}
+![](../img/flaticon/self-reflection.png){fig-align="center" width="100"}
 :::
 
-::: column
-Final Self-reflection
+::: {.column width="70%"}
+<br><br> [Final Self-reflection]{style="font-size: 1.5em;"}
 :::
 :::::
 
 ::::: columns
-::: column
-![](../img/flaticon/exploration.png){width="150"}
+::: {.column width="30%"}
+![](../img/flaticon/exploration.png){fig-align="center" width="100"}
 :::
 
-::: column
-Group project
+::: {.column width="70%"}
+<br><br> [Group Project]{style="font-size: 1.5em;"}
 :::
 :::::
 :::::::::
 ::::::::::
-:::::::::::::::::::
+:::::::::::
+:::::::::::::::::::::
+
+. . .
 
 Detailed information on assessment can be found here: <https://uoelel.github.io/qml/assessments.html>
 
@@ -101,3 +121,27 @@ Detailed information on assessment can be found here: <https://uoelel.github.io/
 ::::
 
 ## Finding help
+
+<br>
+
+::::::: columns
+:::: column
+![](../img/flaticon/clock.png){fig-align="center" width="150"}
+
+::: {style="text-align: center;"}
+[[book](https://outlook.office.com/book/Stefanosofficehours@uoe.onmicrosoft.com/?ismsaljsauthenabled) office hours]{.t15em}
+:::
+::::
+
+:::: {.column .fragment}
+![](../img/flaticon/forum.png){fig-align="center" width="150"}
+
+::: {style="text-align: center;"}
+[Piazza Q&A forum]{.t15em}
+:::
+::::
+:::::::
+
+::: aside
+[<a href="https://www.flaticon.com/free-icons/clock" title="clock icons">Clock icons created by Freepik - Flaticon</a> <a href="https://www.flaticon.com/free-icons/forum" title="forum icons">Forum icons created by Freepik - Flaticon</a>]{style="font-size: 8pt;"}
+:::
