@@ -429,12 +429,21 @@ The following areas in the data analysis report (Group project) will be assessed
   A description of which statistical coefficients/comparisons will be used for which RQ/RH should be included in the report.
 
 - **Data processing**.
+  Appropriate processing should be applied to the data, including data cleaning and data validation checks.
+  Processing steps should be justified where relevant (for example, when filtering data or recoding labels).
 
 - **Summaries**.
+  Appropriate summary measures (central tendency and dispersion) must be provided for relevant data and data groupings, as formatted tables.
+  A brief description should accompany the measures.
 
 - **Plotting**.
+  Appropriate plots illustrate patterns and characteristics of the data.
+  Plots should be accompanied by a caption and a textual description.
+  Visualisation principles of clarity and honesty should be followed.
 
 - **Modelling**.
+  You must carefully justify the specification of regression models with appropriately selected variables, family distributions, interactions if applicable.
+  When multiple models are necessary, you must explain why and how each model is linked with which RQ/RH.
 
 - **R/Quarto skills**.
   These are general R and Quarto/markdown skills not covered in the other areas.
