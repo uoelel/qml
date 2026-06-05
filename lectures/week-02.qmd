@@ -231,6 +231,4 @@ Dual-path vs obligatory decomposition models of lexical retrieval produce contra
 :::
 ::::::
 
-## Research objectives
-
 ## References
