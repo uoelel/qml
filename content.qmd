@@ -65,6 +65,8 @@ When using data for the first time, you should read the related entry, abstract 
 
 ## Week by week
 
+### Week 1: Onboarding
+
 ### Week 2: Quantitative methods and R basics
 
 ::: {.callout-important collapse="false"}
@@ -321,19 +323,6 @@ The link to the quiz is available on the Learn site of the course.
 - [Workshop instructions](workshops/week-05.qmd).
 :::
 
-### Week 6: Catch-up week
-
-::: {.callout-important collapse="false"}
-#### No classes
-
-This week there will be no classes (no lecture nor workshop) for you to catch up with the materials for Week 1-5 if you need to and/or revise them.
-
-Note that the workshop's room is still booked at the usual times so you can use it a group study space if you wish.
-:::
-
-::: {.callout-note collapse="false"}
-:::
-
 ### Week 7: Categorical predictors and frequentist statistics
 
 ::: {.callout-important collapse="false"}
@@ -509,3 +498,4 @@ You should complete Quiz 2 this week, to check your learning before moving on on
 
 The link to the quiz is available on the Learn site of the course.
 :::
+
