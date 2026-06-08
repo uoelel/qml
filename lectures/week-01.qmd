@@ -145,3 +145,9 @@ Detailed information on assessment can be found here: <https://uoelel.github.io/
 ::: aside
 [<a href="https://www.flaticon.com/free-icons/clock" title="clock icons">Clock icons created by Freepik - Flaticon</a> <a href="https://www.flaticon.com/free-icons/forum" title="forum icons">Forum icons created by Freepik - Flaticon</a>]{style="font-size: 8pt;"}
 :::
+
+## 
+
+## Group Activity
+
+![](/img/week-01-activity.png){fig-align="center"}
