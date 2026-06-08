@@ -1,52 +1,52 @@
 ---
-title: "Workshop: Week 3"
+title: "Workshop: Week 2"
 format: html
 ---
 
 ::: callout-important
 ## Instructions
 
--   Complete Task A and then pick of the other two tasks.
+-   Pick one of the following tasks and work on them in group. Feel free to work on the others as well if you have time.
 
 -   If you are unsure about anything, please ask us for directions!
 
 -   The tasks are designed for you to practice this week's R skills.
+
+-   Unless otherwise specified, the data are part of the data archive you downloaded for [Read Data](https://stefanocoretta.github.io/qdal/ch-read-data.html) chapter of the textbook. Information about the data can be found on the [QML Data](https://uoelel.github.io/qml-data/) website (which is also where you downloaded the data from).
 :::
 
 ::: callout-note
-## Task A: Albanian Voice Onset Time
+## Task A: Italian Voice Onset Time
 
--   Read the `coretta2021/alb-vot.csv` data.
+-   Read the `coretta2018a/ita_egg.rda` data. `.rda` files are read using `load()`. This function works without needing to assign the output to a variable (so it's different from the other `read*()` functions, which do require you to assign the output to a variable).
 
--   Calculate the VOT based on the `release` and `voi_onset` columns. (VOT is the time lag between the voicing onset and the consonant release).
-
--   Create a new column that specifies the voicing of the consonant (voiced or voiceless) based on the value in `label`. `ifelse()` or `case_when()` are useful.
-
--   Get summary measures of VOT for voiceless and voiced consonants. Can the VOT differentiate between the two voicing categories?
+-   Summarise relevant columns, with a particular focus on how VOT (voice onset time, column `vot`) differs depending on phonological features like place, vowel and so on.
 :::
 
 ::: callout-note
-## Task B: Albanian vowels
+## Task B: World Atlas of Language Structures
 
--   Read the `coretta2021/alb_formants.rds` data.
+-   The data from [WALS](https://wals.info) are available through the R package [ritwals](https://hkauhanen.fi/ritwals/index.html).
 
--   Create a scatter plot of F1 and F2, with points coloured by `vowel`. Are the vowels in the places you'd expect them to be?
+-   Install the package (this is done in two steps: first install devtools and then install ritwals with devtools, see linked package documentation). Then attach it and load the data with `data("WALS")`.
 
--   Now create another scatter plot with F1 and vowel duration. You need to calculate vowel duration first from `start` and `end`. Can you notice any patterns in the relationship between F1 and vowel duration?
+-   Get the number of languages by value (`value`) for each feature (`feature_ID` and `feature`). The features are listed [here](https://wals.info/feature). Focus on features you are interested in.
 :::
 
 ::: callout-note
-## Task C: **'Everywhere here can say this'**
+## Task C: Massive Auditory Lexical Decision
 
--   Read the `sluckin2022/everywhere-loc.csv` data. The data are acceptability judgements on the impersonal use of "everywhere", like in the sentence "Everywhere here can say this".
+-   Read the `tucker2019/mald_1_1.rds` data.
 
--   The `Restrictor` column tells you if the sentence has a restrictor, like in "Everywhere *on the coast* eats fish and chips." vs no restrictor "Everywhere takes credit cards these days." The `Value` column gives you the acceptability rating from 1 to 7.
+-   Summarise the data with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, `IsWord`), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.
 
--   Mutate the `Restrictor` column so that 0 = "no restrictor" and 1 = "restrictor".
+-   What can you tell about reaction times and accuracy based on lexical status? What about individual variation?
+:::
 
--   Mutate the `Value` column so that it is a character column (use `as.character()`).
+::: {.callout-tip collapse="true"}
+## Task C: Hint
 
--   Create a filled stacked bar chart by `Restrictor` with fill by `Value` and panels by `Age`. Can you spot differences in rating across different age brackets?
+To get the number of participants and words, you first need to get the unique participant IDs and unique words. `?distinct` is your friend.
 :::
 
 ::: callout-tip

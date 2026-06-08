@@ -20,18 +20,18 @@ The following table is a schedule overview of the course, with the topic of the 
 See [Assessments](assessments.qmd) for more info on assessment.
 
 | Week | Lecture | Workshop | Assessment |
-|------------------|------------------|------------------|------------------|
-| 1 | Onboarding |  |  |
-| 2 | Research methods | R basics |  |
-| 3 | Inference and uncertainty | Summarise, count and group data |  |
-| 4 | Questionable Research Practices | Plot basics | Self-reflection |
-| 5 | Bayesian inference | Gaussian models with brms |  |
-| 6 | Regression basics with brms | Regression basics and posteriors draws | Self-reflection + Quiz 1 |
-| 7 | Null Ritual | Categorical predictors in regression |  |
-| 8 | Bernoulli regression | Bernoulli regression | Group project proposal |
-| 9 | Open research | Multiple predictors and interactions |  |
-| 10 | Case study | Group project | Self-reflection |
-| 11 |  | (Optional) Group project | Quiz  2 |
+|----------------|------------------|------------------|------------------|
+| 1 | [Onboarding](lectures/week-01.qmd) |  |  |
+| 2 | [Research methods](lectures/week-02.qmd) | [R basics](workshops/week-02.qmd) |  |
+| 3 | [Inference and uncertainty](lectures/week-03.qmd) | [Summarise, count and group data](workshops/week-03.qmd) |  |
+| 4 | [Questionable Research Practices](lectures/week-04.qmd) | [Plot basics](workshops/week-04.qmd) | Self-reflection |
+| 5 | [Bayesian inference](lectures/week-05.qmd) | [Gaussian models with brms](workshops/week-05.qmd) |  |
+| 6 | [Regression basics with brms](lectures/week-06.qmd) | [Regression basics and posteriors draws](workshops/week-06.qmd) | Self-reflection + Quiz 1 |
+| 7 | [Null Ritual](lectures/week-07.qmd) | [Categorical predictors in regression](workshops/week-07.qmd) |  |
+| 8 | [Bernoulli regression](lectures/week-08.qmd) | [Bernoulli regression](workshops/week-08.qmd) | Group project proposal |
+| 9 | [Open research](lectures/week-09.qmd) | [Multiple predictors and interactions](workshops/week-09.qmd) |  |
+| 10 | [Case study](lectures/week-10.qmd) | Group project | Self-reflection |
+| 11 |  | (Optional) Group project | Quiz 2 |
 | 12 |  |  |  |
 | 13 |  |  | Final reflection and Group project |
 
@@ -64,6 +64,8 @@ For each data set, an entry gives detail about the study and the data set.
 When using data for the first time, you should read the related entry, abstract and skim the linked paper (if applicable) for context.
 
 ## Week by week
+
+### Week 1: Onboarding
 
 ### Week 2: Quantitative methods and R basics
 
@@ -321,19 +323,6 @@ The link to the quiz is available on the Learn site of the course.
 - [Workshop instructions](workshops/week-05.qmd).
 :::
 
-### Week 6: Catch-up week
-
-::: {.callout-important collapse="false"}
-#### No classes
-
-This week there will be no classes (no lecture nor workshop) for you to catch up with the materials for Week 1-5 if you need to and/or revise them.
-
-Note that the workshop's room is still booked at the usual times so you can use it a group study space if you wish.
-:::
-
-::: {.callout-note collapse="false"}
-:::
-
 ### Week 7: Categorical predictors and frequentist statistics
 
 ::: {.callout-important collapse="false"}
@@ -509,3 +498,4 @@ You should complete Quiz 2 this week, to check your learning before moving on on
 
 The link to the quiz is available on the Learn site of the course.
 :::
+

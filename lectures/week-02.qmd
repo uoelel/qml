@@ -37,9 +37,7 @@ bibliography: references.bib
 
 ::: {.column width="30%"}
 ```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
-                    frameborder="0"></iframe>
+<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" frameborder="0"></iframe>
 ```
 :::
 ::::::
@@ -136,9 +134,7 @@ We examine a model of abstraction from exemplars in which (a) all heard exemplar
 
 ::: {.column width="30%"}
 ```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
-                    frameborder="0"></iframe>
+<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" frameborder="0"></iframe>
 ```
 :::
 ::::::
@@ -213,5 +209,26 @@ Dual-path vs obligatory decomposition models of lexical retrieval produce contra
 :::
 ::::
 :::::::::
+
+## Group activity
+
+:::::: columns
+:::: {.column width="70%"}
+::: callout-note
+### Instructions
+
+- Think about your chosen research goal.
+  In which of the three research objectives does it fit?
+
+- Come to the board and place the post-it with your research question in the chose objective.
+:::
+::::
+
+::: {.column width="30%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" frameborder="0"></iframe>
+```
+:::
+::::::
 
 ## References
