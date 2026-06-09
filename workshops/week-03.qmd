@@ -1,52 +1,61 @@
 ---
-title: "Workshop: Week 2"
+title: "Workshop: Week 3"
 format: html
 ---
 
 ::: callout-important
 ## Instructions
 
--   Pick one of the following tasks and work on them in group. Feel free to work on the others as well if you have time.
+- Pick one of the following tasks and work on them in group.
+  Feel free to work on the others as well if you have time.
 
--   If you are unsure about anything, please ask us for directions!
+- If you are unsure about anything, please ask us for directions!
 
--   The tasks are designed for you to practice this week's R skills.
+- The tasks are designed for you to practice this week's R skills.
 
--   Unless otherwise specified, the data are part of the data archive you downloaded for [Read Data](https://stefanocoretta.github.io/qdal/ch-read-data.html) chapter of the textbook. Information about the data can be found on the [QML Data](https://uoelel.github.io/qml-data/) website (which is also where you downloaded the data from).
+- Unless otherwise specified, the data are part of the data archive you downloaded for [Read Data](https://stefanocoretta.github.io/qdal/ch-read-data.html) chapter of the textbook.
+  Information about the data can be found on the [QML Data](https://uoelel.github.io/qml-data/) website (which is also where you downloaded the data from).
 :::
 
 ::: callout-note
 ## Task A: Italian Voice Onset Time
 
--   Read the `coretta2018a/ita_egg.rda` data. `.rda` files are read using `load()`. This function works without needing to assign the output to a variable (so it's different from the other `read*()` functions, which do require you to assign the output to a variable).
+- Read the `coretta2018a/ita_egg.rda` data.
+  `.rda` files are read using `load()`.
+  This function works without needing to assign the output to a variable (so it's different from the other `read*()` functions, which do require you to assign the output to a variable).
 
--   Summarise relevant columns, with a particular focus on how VOT (voice onset time, column `vot`) differs depending on phonological features like place, vowel and so on.
+- Summarise relevant columns, with a particular focus on how VOT (voice onset time, column `vot`) differs depending on phonological features like place, vowel and so on.
 :::
 
 ::: callout-note
 ## Task B: World Atlas of Language Structures
 
--   The data from [WALS](https://wals.info) are available through the R package [ritwals](https://hkauhanen.fi/ritwals/index.html).
+- The data from [WALS](https://wals.info) are available through the R package [ritwals](https://hkauhanen.fi/ritwals/index.html).
 
--   Install the package (this is done in two steps: first install devtools and then install ritwals with devtools, see linked package documentation). Then attach it and load the data with `data("WALS")`.
+- Install the package (this is done in two steps: first install devtools and then install ritwals with devtools, see linked package documentation).
+  Then attach it and load the data with `data("WALS")`.
 
--   Get the number of languages by value (`value`) for each feature (`feature_ID` and `feature`). The features are listed [here](https://wals.info/feature). Focus on features you are interested in.
+- Get the number of languages by value (`value`) for each feature (`feature_ID` and `feature`).
+  The features are listed [here](https://wals.info/feature).
+  Focus on features you are interested in.
 :::
 
 ::: callout-note
 ## Task C: Massive Auditory Lexical Decision
 
--   Read the `tucker2019/mald_1_1.rds` data.
+- Read the `tucker2019/mald_1_1.rds` data.
 
--   Summarise the data with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, `IsWord`), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.
+- Summarise the data with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, `IsWord`), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.
 
--   What can you tell about reaction times and accuracy based on lexical status? What about individual variation?
+- What can you tell about reaction times and accuracy based on lexical status?
+  What about individual variation?
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Task C: Hint
 
-To get the number of participants and words, you first need to get the unique participant IDs and unique words. `?distinct` is your friend.
+To get the number of participants and words, you first need to get the unique participant IDs and unique words.
+`?distinct` is your friend.
 :::
 
 ::: callout-tip
@@ -56,3 +65,4 @@ For feedback, ask us in class and/or send your work to Stefano and/or come to St
 
 **We will not provide you with model answers**, so make sure you make the most of us in person.
 :::
+

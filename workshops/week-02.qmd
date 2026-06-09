@@ -1,0 +1,91 @@
+---
+title: "Workshop: Week 2"
+format: html
+---
+
+::: callout-important
+## Instructions
+
+- Work through the following exercises with your group.
+
+- Choose one member of the group to be the **group navigator**.
+  The group navigator must connect their laptop to the table screen and guide the group through the exercises.
+  You can rotate navigator each week.
+
+- If you are unsure about anything, please ask us for directions!
+
+- The tasks are designed for you to practice this week's R skills.
+:::
+
+::: callout-note
+## Exercise 1
+
+1.  Open RStudio as you would open any other application/programme (this depends on your operating system).
+
+2.  RStudio reopens the last open project.
+    That might be the RStudio project you created for the [R basics](https://stefanocoretta.github.io/qdal/ch-r-rstudio.html) chapter in the course textbook.
+
+3.  Check that the project name is visible in the top-right corner of RStudio.
+    If it says `Project (none)`, you are not working in a specific project.
+    You should always make sure that the intended project name is visible in the top-right corner of RStudio.
+
+4.  Now close RStudio.
+
+5.  Navigate to the folder of the course Quarto project (maybe you called this `qml-2026`) in Finder/File Explorer on your laptop (outside of RStudio).
+    Double click on the `.Rproj` file to open that project in RStudio.
+
+6.  Now create a new Quarto project called `test-project`.
+    Close RStudio and open the project by double clicking on the `.Rproj` file of the `test-project` Quarto project.
+
+7.  Click on the project name in the top-right corner of RStudio to show the project drop-down menu (see example below).
+
+![](/img/rstudio-project-dropdown.png){fig-align="center" width="200"}
+
+8.  Try the `Open Project...`, `Open Project in New Session...`, `Close Project` menu items and switch projects from within the project list. What do each of these do?
+:::
+
+::: callout-note
+## Exercise 2
+
+Make sure that everyone in your group has the correct RStudio settings, as per <https://stefanocoretta.github.io/qdal/ch-r-rstudio.html#a-few-important-settings>.
+
+![](/img/rstudio-6.png){fig-align="center"}
+
+What do those settings do?
+:::
+
+::: callout-note
+## Exercise 3
+
+Calculate the following.
+
+1.  The sum of two numbers.
+2.  The product of three numbers.
+3.  The square root of 961.
+4.  The square of 12.34.
+5.  The mean of 10, 21.5, 3, 5.7.
+:::
+
+::: callout-note
+## Exercise 4
+
+Do the following.
+
+1.  Assign a single value to a numeric vector.
+2.  Assign many values to a numeric vector.
+3.  Create a character vector with your first name and one with your surname. Use the variable names `first` and `surname`.
+4.  Now print out in the R console `Hello! My first name is FIRST and my surname is SURNAME` (where `FIRST` and `SURNAME` are your first name and surname. You must use the character vectors you created above.
+5.  Assign two numbers to two vectors and assign their sum to another vector names `the_sum`.
+6.  Take the square of `the_sum`.
+:::
+
+::: callout-note
+## Exercise 5
+
+From next week, we will use a set of packages known as the *tidyverse*.
+Practice installing and attaching packages by installing and attaching the tidyverse package, which automatically installs core tidyverse packages (so that you don't have to install them one by one).
+
+1.  Install the package `tidyverse`.
+2.  Attach the `tidyverse` package. This automatically attaches the core tidyverse packages (as explained by the message printed in the R Console. You can safely discard the `Conflicts` part of the message).
+3.  Check the documentation for `tidyverse`.
+:::

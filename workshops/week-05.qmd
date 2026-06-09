@@ -1,46 +1,48 @@
 ---
-title: "Workshop: Week 4"
+title: "Workshop: Week 5"
 format: html
 ---
 
 ::: callout-important
 ## Instructions
 
--   Pick one of the following tasks and work through it in group.
+- Pick one of the following tasks and work through it in group.
 
--   If you are unsure about anything, please ask us for directions!
+- If you are unsure about anything, please ask us for directions!
 
--   The tasks are designed for you to practice Bayesian Gaussian modelling.
+- The tasks are designed for you to practice Bayesian Gaussian modelling.
 :::
 
 ::: callout-note
 ## Task A: Mixean Basque Voice Onset Time
 
--   Read the `egurtzegi2020/eu_vot.csv` data.
+- Read the `egurtzegi2020/eu_vot.csv` data.
 
--   Filter the data to include only aspirated consonants.
+- Filter the data to include only aspirated consonants.
 
--   Answer the following question using a Gaussian model: what is the mean and SD of aspirated VOT in Mixean Basque?
+- Answer the following question using a Gaussian model: what is the mean and SD of aspirated VOT in Mixean Basque?
 :::
 
 ::: callout-note
 ## Task B: Shallow morphological parsing (RT)
 
--   Read the `song2020/shallow.csv` data. Familiarise yourself with the study (<https://uoelel.github.io/qml-data/data/song2020/shallow.html>).
+- Read the `song2020/shallow.csv` data.
+  Familiarise yourself with the study (<https://uoelel.github.io/qml-data/data/song2020/shallow.html>).
 
--   Filter the data to include only L2 data from critical trials.
+- Filter the data to include only L2 data from critical trials.
 
--   Answer the following question using a Gaussian model: what is the mean and SD of reaction times in L2 participants?
+- Answer the following question using a Gaussian model: what is the mean and SD of reaction times in L2 participants?
 :::
 
 ::: callout-note
 ## Task C: Reading fixation times (eye-tracking)
 
--   Read `berzak2025/fix-dur.csv` and familiarise yourself with [data documentation](https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html) and study linked therein.
+- Read `berzak2025/fix-dur.csv` and familiarise yourself with [data documentation](https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html) and study linked therein.
 
--   Answer the following question using a Gaussian model: what is the mean and SD of fixation durations in the data set?
+- Answer the following question using a Gaussian model: what is the mean and SD of fixation durations in the data set?
 
--   Now run another model but with only 5 participants (sample 5 random participants from the data set). What happens to the posterior distributions of the mean and SD?
+- Now run another model but with only 5 participants (sample 5 random participants from the data set).
+  What happens to the posterior distributions of the mean and SD?
 :::
 
 ::: callout-tip
@@ -50,3 +52,4 @@ For feedback, ask us in class and/or send your work to Stefano and/or come to St
 
 **We will not provide you with model answers**, so make sure you make the most of us in person.
 :::
+
