@@ -1,13 +1,27 @@
 set_up <- function() {
   if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
   if (!requireNamespace("renv", quietly = TRUE)) pak::pak("renv")
-  
-  if (!requireNamespace("cmdstanr", quietly = TRUE)) pak::pak("stan-dev/cmdstanr")
-  if (!requireNamespace("coretta2018itapol", quietly = TRUE)) pak::pak("stefanocoretta/coretta2018itapol")
-  if (!requireNamespace("coretta2019eng", quietly = TRUE)) pak::pak("stefanocoretta/coretta2019eng")
-  
+
+  remotes <- c(
+    "stan-dev/cmdstanr",
+    "stefanocoretta/coretta2018itapol",
+    "stefanocoretta/coretta2019eng"
+  )
+
+  # Install GitHub packages
+  pak::pak(remotes)
+
+  # Get list of necessary packages
   deps <- unique(renv::dependencies()[,2])
+
+  # Drop GitHub packages from deps list. pak doesn't know where to find them.
+  deps <- setdiff(
+    deps,
+    c("cmdstanr", "coretta2018itapol", "coretta2019eng")
+  )
+
+  # Install all dependencies (except the ones from GitHub)
   pak::pak(deps)
-  
+
   cmdstanr::check_cmdstan_toolchain()
 }
