@@ -148,6 +148,10 @@ Detailed information on assessment can be found here: <https://uoelel.github.io/
 
 ## 
 
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/RRYQTLH/questions/6a27e65cb5cb1178d5b6a61b" width="100%"></iframe>
+```
+
 ## Group Activity
 
 ![](/img/week-01-activity.png){fig-align="center"}
