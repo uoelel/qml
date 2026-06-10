@@ -152,6 +152,16 @@ Detailed information on assessment can be found here: <https://uoelel.github.io/
 <iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/RRYQTLH/questions/6a27e65cb5cb1178d5b6a61b" width="100%"></iframe>
 ```
 
-## Group Activity
+## Group activity
 
-![](/img/week-01-activity.png){fig-align="center"}
+::::: columns
+::: {.column width="70%"}
+[![](/img/week-01-activity.png){fig-align="center" width="600"}](https://forms.office.com/e/2NFcCVdtfL)
+:::
+
+::: {.column width="30%"}
+```{=html}
+<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" frameborder="0"></iframe>
+```
+:::
+:::::
