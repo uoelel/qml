@@ -1,5 +1,5 @@
 ---
-title: "QML - Week 2"
+title: "QML - Week 3"
 subtitle: "Inference, uncertainty and variability"
 author: "Stefano Coretta"
 format: revealjs
@@ -12,32 +12,60 @@ bibliography: references.bib
 
 ## Bilingual advantage: myth or reality?
 
+:::::: columns
+:::: column
 ::: {.callout-tip appearance="simple"}
-"**Bilingual advantage**" refers to the hypothesis that bilinguals possess a cognitive advantage over monolinguals due to greater cognitive control implied in using more than one language [@poarch2019; @samuel2018].
+**Bilingual advantage hypothesis**
 
--   However, research has argued both for and against the existence of the bilingual advantage.
+Bilingual individuals possess a cognitive advantage over monolinguals due to greater cognitive control implied in using more than one language.
+[@poarch2019; @samuel2018]
+:::
+::::
 
--   We can say research has been "inconclusive" [@franck2024; @garraffa2023].
+::: column
+![](../img/flaticon/bilingual.png){fig-align="center" width="400px"}
+:::
+::::::
+
+::: aside
+[<a href="https://www.flaticon.com/free-icons/bilingual" title="bilingual icons">Bilingual icons created by Freepik - Flaticon</a>]{style="font-size: 8px;"}
 :::
 
-. . .
+## Bilingual advantage: inconclusive!
 
-::: callout-note
-## Inconclusive!
-
-Note that inconclusive does not mean "there is no bilingual advantage". It means we do not know.
+::::::: columns
+::::: column
+::: {.callout-tip appearance="simple"}
+Research **both for and against** the bilingual advantage hypothesis.
+[@franck2024; @garraffa2023].
 :::
 
-## 
+<br>
+
+::: {.fragment .callout-important appearance="simple"}
+Inconclusive does *not* mean "there is no bilingual advantage".
+:::
+:::::
+
+::: column
+![](../img/flaticon/question.png){fig-align="center" width="400px"}
+:::
+:::::::
+
+::: aside
+[<a href="https://www.flaticon.com/free-icons/doubt" title="doubt icons">Doubt icons created by Freepik - Flaticon</a>]{style="font-size: 8px;"}
+:::
+
+## Group activity
 
 :::::: columns
 :::: {.column width="75%"}
 ::: callout-note
-### Group activity
+### Instructions
 
--   Discuss reasons for which research on the bilingual advantage is inconclusive.
+- Discuss reasons for which research on the bilingual advantage is inconclusive.
 
--   You'll share what you discussed in a Wooclap poll in the next slide.
+- You'll share what you discussed in a Wooclap poll in the next slide.
 :::
 ::::
 
@@ -56,59 +84,46 @@ Note that inconclusive does not mean "there is no bilingual advantage". It means
 <iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5b4cbff22a5075a3dd52a" width="100%"></iframe>
 ```
 
-## 
+## Uncertainty and variability
 
-:::::: columns
-:::: {.column width="75%"}
-::: callout-note
-### Group activity
+::::::: columns
+:::: column
+![](../img/uncertain.png){fig-align="center" height="300px"}
 
--   Go to <https://stefanocoretta.shinyapps.io/bisim/>.
+::: {.callout-note appearance="simple"}
+**Uncertainty**
 
--   Get one sample by clicking on the button. PLEASE, click only once!
-
--   Look at the sample data. Is there a bilingual advantage?
+is a characteristic of each observation of a phenomenon, due to measurement error or because we cannot directly measure what we want to measure.
 :::
 ::::
 
-::: {.column width="25%"}
-```{=html}
-<iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=10&sec=0" 
-                    frameborder="0"></iframe>
-```
-:::
-::::::
-
-## Share your conclusion
-
-```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5fdd6160380947dd5f666" width="100%"></iframe>
-```
-
-## Uncertainty and variability
+:::: {.fragment .column}
+![](../img/variable.png){fig-align="center" height="300px"}
 
 ::: {.callout-note appearance="simple"}
--   **Uncertainty** is a characteristic of each observation of a phenomenon, due to measurement error or because we cannot directly measure what we want to measure.
--   **Variability** is found among different observations of the same phenomenon, due to natural fluctuations and measurement error.
+**Variability**
+
+is found among different observations of the same phenomenon, due to natural fluctuations and measurement error.
+:::
+::::
+:::::::
+
+::: aside
+[Images by [Stickers](https://www.flaticon.com/authors/stickers).]{style="font-size: 8px;"}
 :::
 
-![](/img/uncert-var.png){fig-align="center"}
-
-[Images by [Stickers](https://www.flaticon.com/authors/stickers).]{style="font-size: 10px;"}
-
-## 
+## Group activity
 
 :::::: columns
 :::: {.column width="75%"}
 ::: callout-note
-### Group activity
+### Instructions
 
--   Each group will get a research card with a short literature review and a small data set.
+- Each group will get a research card with a short literature review and a small data set.
 
--   Answer the following question:
+- Answer the following question:
 
-    > Are younger infants better at discriminating non-native phonetic contrasts than older infants?
+  > Are younger infants better at discriminating non-native phonetic contrasts than older infants?
 :::
 ::::
 
@@ -130,18 +145,18 @@ Note that inconclusive does not mean "there is no bilingual advantage". It means
 ## Many analysts, one data set
 
 ::: {.callout-note appearance="simple"}
--   You just experienced a form of "many analysts, one data set" scenario.
+- You just experienced a form of "many analysts, one data set" scenario.
 
--   @coretta2023 asked 30 teams to answer the same research question with the same data.
+- @coretta2023 asked 30 teams to answer the same research question with the same data.
 
-    > Do speakers acoustically modify utterances to signal atypical word combinations?
+  > Do speakers acoustically modify utterances to signal atypical word combinations?
 
-    -   Participants had to instruct a confederate to move a cube on top of an object. The object either had a typical or atypical colour: YELLOW vs BLUE banana.
+  - Participants had to instruct a confederate to move a cube on top of an object. The object either had a typical or atypical colour: YELLOW vs BLUE banana.
 
--   We gave the data to all teams and they sent us back:
+- We gave the data to all teams and they sent us back:
 
-    -   **109 individual analyses**—a bit more than 3 analyses per team!
-    -   **Nine teams out of the thirty (30%) reported to have found at least one statistically reliable effect.**
+  - **109 individual analyses**—a bit more than 3 analyses per team!
+  - **Nine teams out of the thirty (30%) reported to have found at least one statistically reliable effect.**
 :::
 
 ## Many analysts, one data set

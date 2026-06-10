@@ -1,6 +1,6 @@
 ---
-title: "QML - Week 1"
-subtitle: "Research methods overview"
+title: "QML - Week 2"
+subtitle: "Research methods"
 author: "Stefano Coretta"
 format: revealjs
 bibliography: references.bib
