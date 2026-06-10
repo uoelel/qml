@@ -27,10 +27,6 @@ website:
         text: Home
       - href: content.qmd
         text: Content
-      - href: lectures.qmd
-        text: Lectures
-      - href: workshops.qmd
-        text: Workshops
       - href: assessments.qmd
         text: Assessment
       - href: https://stefanocoretta.github.io/qdal/
@@ -48,6 +44,9 @@ format:
     fig-align: center
     link-external-icon: true
     link-external-newwindow: true
+    include-in-header:
+      - text: |
+          <script src="js/table-links.js"></script>
 
 callout-icon: false
 
