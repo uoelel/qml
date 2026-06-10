@@ -48,10 +48,9 @@ format: html
 ## Exercise 2
 
 Make sure that everyone in your group has the correct RStudio settings, as per <https://stefanocoretta.github.io/qdal/ch-r-rstudio.html#a-few-important-settings>.
+What do those settings do?
 
 ![](/img/rstudio-6.png){fig-align="center"}
-
-What do those settings do?
 :::
 
 ::: callout-note
