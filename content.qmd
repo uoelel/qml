@@ -2,7 +2,7 @@
 title: "Course content"
 ---
 
-## Content overview
+## Overview
 
 This page gathers all the important information about the course content and schedule.
 Each week is dedicated to a specific set of topics and you are expected to complete readings from the course textbook and other homework of a particular week by the Tuesday lecture of that week (so complete readings and homework of Week 2 by the Tuesday lecture of Week 2, and so on).
@@ -19,7 +19,7 @@ The **Schedule overview** below gives you an overview of each week, while the **
 ## Schedule overview
 
 :::: {.callout-tip appearance="minimal"}
-::: {style="font-size: 10px;"}
+::: {style="font-size: 11px;"}
 **PDF version of the slides**
 
 The lecture slides linked below are HTML documents that are rendered in your browser.
@@ -28,9 +28,8 @@ Then, use the method for your specific browser to print the page to PDF.
 :::
 ::::
 
-The following table is a schedule overview of the course, with the topic of the lecture, workshop and assessments due.
-Click on the links to go to the lecture slides or the workshop instructions.
-See [Assessments](assessments.qmd) for more info on assessment.
+**The following table is a schedule overview of the course, with links to lecture slides and workshop instructions.** Due dates for assessments are also included.
+See [Assessments](assessments.qmd) for more info.
 
 | Week | Lecture | Workshop | Assessment |
 |----|----|----|----|
@@ -116,7 +115,7 @@ When using data for the first time, you should read the related entry, abstract 
 
 - Carefully read the [homepage](index.qmd).
 
-- Familiarise yourself with this *Course content* page, read the Content overview and the Schedule overview.
+- Familiarise yourself with this Course content page, read the *Overview* and the *Schedule overview*.
 :::
 
 ::: {.callout-note collapse="false"}
