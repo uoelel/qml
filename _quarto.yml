@@ -35,6 +35,7 @@ website:
         text: Assessment
       - href: https://stefanocoretta.github.io/qdal/
         text: Textbook
+        target: _blank
 
 format:
   html:
