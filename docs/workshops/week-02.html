@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Workshop: Week 2 – QML</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -32,15 +35,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b635bb0e3b57b47a60f03ff50ee3dd10.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-91a2a5be1ebf863ba10245d8d2e4e422.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -162,10 +164,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Pick one of the following tasks and work on them in group. Feel free to work on the others as well if you have time.</p></li>
+<li><p>Work through the following exercises with your group.</p></li>
+<li><p>Choose one member of the group to be the <strong>group navigator</strong>. The group navigator must connect their laptop to the table screen and guide the group through the exercises. You can rotate navigator each week.</p></li>
 <li><p>If you are unsure about anything, please ask us for directions!</p></li>
 <li><p>The tasks are designed for you to practice this week’s R skills.</p></li>
-<li><p>Unless otherwise specified, the data are part of the data archive you downloaded for <a href="https://stefanocoretta.github.io/qdal/ch-read-data.html">Read Data</a> chapter of the textbook. Information about the data can be found on the <a href="https://uoelel.github.io/qml-data/">QML Data</a> website (which is also where you downloaded the data from).</p></li>
 </ul>
 </div>
 </div>
@@ -175,14 +177,27 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Task A: Italian Voice Onset Time
+<span class="screen-reader-only">Note</span>Exercise 1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><p>Read the <code>coretta2018a/ita_egg.rda</code> data. <code>.rda</code> files are read using <code>load()</code>. This function works without needing to assign the output to a variable (so it’s different from the other <code>read*()</code> functions, which do require you to assign the output to a variable).</p></li>
-<li><p>Summarise relevant columns, with a particular focus on how VOT (voice onset time, column <code>vot</code>) differs depending on phonological features like place, vowel and so on.</p></li>
-</ul>
+<ol type="1">
+<li><p>Open RStudio as you would open any other application/programme (this depends on your operating system).</p></li>
+<li><p>RStudio reopens the last open project. That might be the RStudio project you created for the <a href="https://stefanocoretta.github.io/qdal/ch-r-rstudio.html">R basics</a> chapter in the course textbook.</p></li>
+<li><p>Check that the project name is visible in the top-right corner of RStudio. If it says <code>Project (none)</code>, you are not working in a specific project. You should always make sure that the intended project name is visible in the top-right corner of RStudio.</p></li>
+<li><p>Now close RStudio.</p></li>
+<li><p>Navigate to the folder of the course Quarto project (maybe you called this <code>qml-2026</code>) in Finder/File Explorer on your laptop (outside of RStudio). Double click on the <code>.Rproj</code> file to open that project in RStudio.</p></li>
+<li><p>Now create a new Quarto project called <code>test-project</code>. Close RStudio and open the project by double clicking on the <code>.Rproj</code> file of the <code>test-project</code> Quarto project.</p></li>
+<li><p>Click on the project name in the top-right corner of RStudio to show the project drop-down menu (see example below).</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/rstudio-project-dropdown.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="200"></p>
+</figure>
+</div>
+<ol start="8" type="1">
+<li>Try the <code>Open Project...</code>, <code>Open Project in New Session...</code>, <code>Close Project</code> menu items and switch projects from within the project list. What do each of these do?</li>
+</ol>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -191,15 +206,17 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Task B: World Atlas of Language Structures
+<span class="screen-reader-only">Note</span>Exercise 2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><p>The data from <a href="https://wals.info">WALS</a> are available through the R package <a href="https://hkauhanen.fi/ritwals/index.html">ritwals</a>.</p></li>
-<li><p>Install the package (this is done in two steps: first install devtools and then install ritwals with devtools, see linked package documentation). Then attach it and load the data with <code>data("WALS")</code>.</p></li>
-<li><p>Get the number of languages by value (<code>value</code>) for each feature (<code>feature_ID</code> and <code>feature</code>). The features are listed <a href="https://wals.info/feature">here</a>. Focus on features you are interested in.</p></li>
-</ul>
+<p>Make sure that everyone in your group has the correct RStudio settings, as per <a href="https://stefanocoretta.github.io/qdal/ch-r-rstudio.html#a-few-important-settings" class="uri">https://stefanocoretta.github.io/qdal/ch-r-rstudio.html#a-few-important-settings</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/rstudio-6.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>What do those settings do?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -208,45 +225,57 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Task C: Massive Auditory Lexical Decision
+<span class="screen-reader-only">Note</span>Exercise 3
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><p>Read the <code>tucker2019/mald_1_1.rds</code> data.</p></li>
-<li><p>Summarise the data with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, <code>IsWord</code>), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.</p></li>
-<li><p>What can you tell about reaction times and accuracy based on lexical status? What about individual variation?</p></li>
-</ul>
+<p>Calculate the following.</p>
+<ol type="1">
+<li>The sum of two numbers.</li>
+<li>The product of three numbers.</li>
+<li>The square root of 961.</li>
+<li>The square of 12.34.</li>
+<li>The mean of 10, 21.5, 3, 5.7.</li>
+</ol>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Task C: Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To get the number of participants and words, you first need to get the unique participant IDs and unique words. <code>?distinct</code> is your friend.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Feedback
+<span class="screen-reader-only">Note</span>Exercise 4
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).</p>
-<p><strong>We will not provide you with model answers</strong>, so make sure you make the most of us in person.</p>
+<p>Do the following.</p>
+<ol type="1">
+<li>Assign a single value to a numeric vector.</li>
+<li>Assign many values to a numeric vector.</li>
+<li>Create a character vector with your first name and one with your surname. Use the variable names <code>first</code> and <code>surname</code>.</li>
+<li>Now print out in the R console <code>Hello! My first name is FIRST and my surname is SURNAME</code> (where <code>FIRST</code> and <code>SURNAME</code> are your first name and surname. You must use the character vectors you created above.</li>
+<li>Assign two numbers to two vectors and assign their sum to another vector names <code>the_sum</code>.</li>
+<li>Take the square of <code>the_sum</code>.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>From next week, we will use a set of packages known as the <em>tidyverse</em>. Practice installing and attaching packages by installing and attaching the tidyverse package, which automatically installs core tidyverse packages (so that you don’t have to install them one by one).</p>
+<ol type="1">
+<li>Install the package <code>tidyverse</code>.</li>
+<li>Attach the <code>tidyverse</code> package. This automatically attaches the core tidyverse packages (as explained by the message printed in the R Console. You can safely discard the <code>Conflicts</code> part of the message).</li>
+<li>Check the documentation for <code>tidyverse</code>.</li>
+</ol>
 </div>
 </div>
 

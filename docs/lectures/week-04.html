@@ -6,17 +6,20 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Stefano Coretta">
-  <title>QML – QML - Week 4</title>
+  <title>QML – QML - Week 3</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -28,74 +31,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
     }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
     }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
     }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-12afe8b7eea41e62dceb5044d5f7a78c.css">
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-fac3640d0e5d4d8001cd6d949dd94a4a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -193,8 +149,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background="var(--inverse)" class="quarto-title-block center">
-  <h1 class="title">QML - Week 4</h1>
-  <p class="subtitle">Bayesian inference</p>
+  <h1 class="title">QML - Week 3</h1>
+  <p class="subtitle">The research cycle and questionable research practices</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -205,324 +161,117 @@ Stefano Coretta
 </div>
 
 </section>
-<section id="were-taking-attendance" class="slide level2">
-<h2>We’re taking attendance</h2>
+<section id="the-research-cycle" class="slide level2">
+<h2>The Research Cycle</h2>
 
-<img data-src="../img/QRCode for Quantitative Methods in Linguistics and English Language, Semester 1, Week 4.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="probabilities" class="slide level2">
-<h2>Probabilities</h2>
+<img data-src="../img/res-process-cycle.png" class="quarto-figure quarto-figure-center r-stretch" width="700"></section>
+<section id="questionable-research-practices-qrps" class="slide level2">
+<h2>Questionable Research Practices (QRPs)</h2>
+
+<img data-src="../img/res-process-cycle-qrps.png" class="quarto-figure quarto-figure-center r-stretch" width="700"></section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:75%;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Probability</strong></p>
+<p><strong>Group activity</strong></p>
 </div>
 <div class="callout-content">
-<ul>
-<li><p>Probability of an event occurring.</p></li>
-<li><p>Probabilities can only be <strong>between 0 and 1</strong>.</p>
-<ul>
-<li>⛔️ 0 means <strong>impossible</strong>.</li>
-<li>🤷 0.5 means <strong>it can happen but it can also not happen</strong>.</li>
-<li>✅ 1 means <strong>certain</strong>.</li>
-</ul></li>
-</ul>
+<p>Discuss the following practices: are they questionable? Why?</p>
+<ol type="1">
+<li><p>A researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.</p></li>
+<li><p>A researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.</p></li>
+<li><p>After running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.</p></li>
+<li><p>A research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.</p></li>
+<li><p>An author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g.&nbsp;confidentiality, ethical restrictions).</p></li>
+</ol>
 </div>
 </div>
 </div>
-
-<img data-src="../img/probabilities.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="probabilities-1" class="slide level2">
-<h2>Probabilities</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>Probability of an event occurring: 0 to 100% probability.</p></li>
-<li><p><strong>Probability of a statistical variable being some numeric value</strong>: a bit more complicated…</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-tip no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><strong>We need probability distributions!</strong></p>
-</div>
-</div>
-</div>
-</div>
+</div><div class="column" style="width:25%;">
+<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&amp;color=indigo&amp;hrs=0&amp;min=15&amp;sec=0" frameborder="0"></iframe>
+</div></div>
 </section>
-<section id="distribution-of-probability" class="slide level2">
-<h2>Distribution of probability</h2>
-<p><br></p>
-
-<img data-src="../img/grubabilities.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="probability-distributions" class="slide level2">
-<h2>Probability distributions</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>A <strong>probability distribution</strong> describes <em>how the probabilities are distributed over the values</em> that a variable can take on.</p>
-</div>
-</div>
-</div>
-<div class="fragment">
+<section id="share-your-thoughts" class="slide level2">
+<h2>Share your thoughts</h2>
+<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaed39cc0a8cceadd9a1f8" width="100%"></iframe>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:75%;">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Two types of probability distributions</strong></p>
+<p><strong>Group activity</strong></p>
 </div>
 <div class="callout-content">
 <ul>
-<li><p>Discrete probability distributions.</p></li>
-<li><p>Continuous probability distributions.</p></li>
+<li><p>Go to <a href="https://stefanocoretta.github.io/qrp/" class="uri">https://stefanocoretta.github.io/qrp/</a>.</p></li>
+<li><p><strong>Play the game three times</strong> to publish three papers: the goal is to publish all three!</p></li>
+<li><p>You need to balance Integrity and Career points and beat the reviewers lottery.</p></li>
 </ul>
 </div>
 </div>
 </div>
-</div>
-<div class="fragment">
-<div class="callout callout-tip no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>You learned about discrete and continuous variables in Week 2!</p>
-<p><strong>Discrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions.</strong></p>
-</div>
-</div>
-</div>
-</div>
+</div><div class="column" style="width:25%;">
+<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&amp;color=indigo&amp;hrs=0&amp;min=10&amp;sec=0" frameborder="0"></iframe>
+</div></div>
 </section>
-<section id="calculating-probability-distributions" class="slide level2">
-<h2>Calculating probability distributions</h2>
+<section id="share-your-final-paper-count" class="slide level2">
+<h2>Share your final paper count</h2>
+<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaeef3159e7d9874e6a17e" width="100%"></iframe>
+</section>
+<section id="peer-review-for-better-or-worse" class="slide level2">
+<h2>Peer-review for better or worse?</h2>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>You will never need to calculate probability distributions by hand, but it is useful to know about the two mathematical functions that are used for that purpose.</p>
+<p>A few studies looking at the effectiveness of peer-review <span class="citation" data-cites="smith2006 white2003 jefferson2002 jefferson2007 bruce2016 garciacosta2022 stephen2022">(<a href="#/references" role="doc-biblioref" onclick="">Smith 2006</a>; <a href="#/references" role="doc-biblioref" onclick="">White 2003</a>; <a href="#/references" role="doc-biblioref" onclick="">Jefferson et al. 2002</a>, <a href="#/references" role="doc-biblioref" onclick="">2007</a>; <a href="#/references" role="doc-biblioref" onclick="">Bruce et al. 2016</a>; <a href="#/references" role="doc-biblioref" onclick="">Garcia-Costa et al. 2022</a>; <a href="#/references" role="doc-biblioref" onclick="">Stephen 2022</a>)</span>.</p>
 <ul>
-<li><p>The <strong>Probability Mass Function</strong> (PMF) for discrete probability distributions.</p></li>
-<li><p>The <strong>Probability Density Function</strong> (PDF) for continuous probability distributions.</p></li>
+<li><p>Little empirical evidence that peer review ensures quality.</p></li>
+<li><p>Changes to manuscript contents are limited.</p></li>
+<li><p>Statistical content increases after review.</p></li>
+<li><p>Training reviewers does not improve manuscript.</p></li>
+<li><p>Most suggestions are ignored when re-submitting to a different journal.</p></li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<section id="probability-mass-function" class="slide level2">
-<h2>Probability Mass Function</h2>
+<section id="registered-reports" class="slide level2">
+<h2>Registered Reports</h2>
 
-<img data-src="../img/dice.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="probability-density-function" class="slide level2">
-<h2>Probability Density Function</h2>
-
-<img data-src="week-04_files/figure-revealjs/pdf-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="parameters" class="slide level2">
-<h2>Parameters</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p><strong>Probability distributions can be summarised with a set of parameters.</strong></p></li>
-<li><p>Different types of probability distributions have a different number of parameters and different parameters.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Gaussian distribution</strong></p>
-</div>
-<div class="callout-content">
-<p>The <strong>Gaussian probability distribution</strong> is a continuous probability distribution and it has two parameters:</p>
-<ul>
-<li>The mean <span class="math inline">\(\mu\)</span>.</li>
-<li>The standard deviation (SD) <span class="math inline">\(\sigma\)</span>.</li>
-</ul>
-<p>Go to <a href="https://seeing-theory.brown.edu/probability-distributions/index.html#section2">Seeing Theory</a> (by Daniel Kunin).</p>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).</p>
-<p><a href="https://seeing-theory.brown.edu/index.html#3rdPage" class="uri">https://seeing-theory.brown.edu/index.html#3rdPage</a></p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-</section>
-<section id="simulate-gaussian-data" class="slide level2">
-<h2>Simulate Gaussian data</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Human height</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>Simulate human height as a Gaussian variable.</p></li>
-<li><p><code>rnorm()</code>: number of observations, mean, SD.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">set.seed</span>(<span class="dv">812</span>)</span>
-<span id="cb1-2"><a></a>height <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="dv">165</span>, <span class="dv">8</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a>height[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 150 172 161 162 161 172 178 156 171 158</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="kernel-density-estimation" class="slide level2">
-<h2>Kernel Density Estimation</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>PDF constructs the density curve of theoretical distributions.</p></li>
-<li><p><strong>Kernel Density Estimation</strong> (KDE) constructs the density curve of empirical data (observations).</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="week-04_files/figure-revealjs/height-plot-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="statistical-modelling" class="slide level2">
-<h2>Statistical modelling</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>When you simulate data, you know the population mean and SD.</p></li>
-<li><p>In research, you don’t. You just have observations.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Statistical modelling</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>Statistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference.</p></li>
-<li><p><strong>Bayesian Gaussian models</strong> do exactly that: estimate mean and SD.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="gaussian-model-of-height" class="slide level2">
-<h2>Gaussian model of height</h2>
-<p><span class="math display">\[
-\begin{align}
-h &amp; \sim Gaussian(\mu, \sigma)\\
-\mu &amp; = ...\\
-\sigma &amp; = ...
-\end{align}
-\]</span></p>
-</section>
-<section id="gaussian-model-of-height-1" class="slide level2">
-<h2>Gaussian model of height</h2>
-<p><span class="math display">\[
-\begin{align}
-h &amp; \sim Gaussian(\mu, \sigma)\\
-\mu &amp; = P_\mu\\
-\sigma &amp; = P_\sigma
-\end{align}
-\]</span></p>
-<div class="callout callout-tip no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><span class="math inline">\(P\)</span> is a <strong>posterior probability distribution</strong>.</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="gaussian-model-of-height-brms" class="slide level2">
-<h2>Gaussian model of height: brms</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>h_tib <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">h =</span> height)</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="fu">library</span>(brms)</span>
-<span id="cb3-4"><a></a></span>
-<span id="cb3-5"><a></a>h_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb3-6"><a></a>  h <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb3-7"><a></a>  <span class="at">family =</span> gaussian,</span>
-<span id="cb3-8"><a></a>  <span class="at">data =</span> h_tib,</span>
-<span id="cb3-9"><a></a>  <span class="at">file =</span> <span class="st">"cache/h_bm"</span></span>
-<span id="cb3-10"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="gaussian-model-of-height-posteriors" class="slide level2">
-<h2>Gaussian model of height: posteriors</h2>
-
-<img data-src="week-04_files/figure-revealjs/h-bm-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="a-bit-harder-n-5" class="slide level2">
-<h2>A bit harder: N = 5</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Sample size</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>Sample size matters: the lower the sample size, the higher the uncertainty.</p></li>
-<li><p>Let’s try with just 5 observations (out of 200).</p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="a-bit-harder-n-5-1" class="slide level2">
-<h2>A bit harder: N = 5</h2>
-
-<img data-src="week-04_files/figure-revealjs/h-bm-small-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>Probability distributions describe how probability is distributed across values.</p></li>
-<li><p>Theoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.</p></li>
-<li><p>KDE is used for empirical distributions.</p></li>
-<li><p>(Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.</p></li>
-<li><p>Sample size affects uncertainty.</p></li>
-</ul>
-</div>
-</div>
-</div>
+<img data-src="../img/registered_reports.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bruce2016" class="csl-entry" role="listitem">
+Bruce, Rachel, Anthony Chauvin, Ludovic Trinquart, Philippe Ravaud, and Isabelle Boutron. 2016. <span>“Impact of Interventions to Improve the Quality of Peer Review of Biomedical Journals: A Systematic Review and Meta-Analysis.”</span> <em>BMC Medicine</em> 14 (1): 85. <a href="https://doi.org/10.1186/s12916-016-0631-5">https://doi.org/10.1186/s12916-016-0631-5</a>.
+</div>
+<div id="ref-garciacosta2022" class="csl-entry" role="listitem">
+Garcia-Costa, Daniel, Anabel Forte, Emilia Lòpez-Iñesta, Flaminio Squazzoni, and Francisco Grimaldo. 2022. <span>“Does Peer Review Improve the Statistical Content of Manuscripts? A Study on 27 467 Submissions to Four Journals.”</span> <em>Royal Society Open Science</em> 9 (9): 210681. <a href="https://doi.org/10.1098/rsos.210681">https://doi.org/10.1098/rsos.210681</a>.
+</div>
+<div id="ref-jefferson2002" class="csl-entry" role="listitem">
+Jefferson, Tom, Philip Alderson, Elizabeth Wager, and Frank Davidoff. 2002. <span>“Effects of Editorial Peer Review: A Systematic Review.”</span> <em>JAMA</em> 287 (21): 2784. <a href="https://doi.org/10.1001/jama.287.21.2784">https://doi.org/10.1001/jama.287.21.2784</a>.
+</div>
+<div id="ref-jefferson2007" class="csl-entry" role="listitem">
+Jefferson, Tom, Melanie Rudin, Suzanne Brodney Folse, and Frank Davidoff. 2007. <span>“Editorial Peer Review for Improving the Quality of Reports of Biomedical Studies.”</span> <em>Cochrane Database of Systematic Reviews</em> 2010 (1). <a href="https://doi.org/10.1002/14651858.MR000016.pub3">https://doi.org/10.1002/14651858.MR000016.pub3</a>.
+</div>
+<div id="ref-smith2006" class="csl-entry" role="listitem">
+Smith, Richard. 2006. <span>“Peer Review: A Flawed Process at the Heart of Science and Journals.”</span> <em>Journal of the Royal Society of Medicine</em> 99 (4): 178–82. <a href="https://doi.org/10.1177/014107680609900414">https://doi.org/10.1177/014107680609900414</a>.
+</div>
+<div id="ref-stephen2022" class="csl-entry" role="listitem">
+Stephen, Dimity. 2022. <span>“Peer Reviewers Equally Critique Theory, Method, and Writing, with Limited Effect on the Final Content of Accepted Manuscripts.”</span> <em>Scientometrics</em> 127 (6): 3413–35. <a href="https://doi.org/10.1007/s11192-022-04357-y">https://doi.org/10.1007/s11192-022-04357-y</a>.
+</div>
+<div id="ref-white2003" class="csl-entry" role="listitem">
+White, C. 2003. <span>“Little Evidence for Effectiveness of Scientific Peer Review.”</span> <em>BMJ</em> 326 (7383): 241a–241. <a href="https://doi.org/10.1136/bmj.326.7383.241/a">https://doi.org/10.1136/bmj.326.7383.241/a</a>.
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -739,44 +488,6 @@ h &amp; \sim Gaussian(\mu, \sigma)\\
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

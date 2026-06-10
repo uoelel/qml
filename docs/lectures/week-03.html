@@ -6,17 +6,20 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Stefano Coretta">
-  <title>QML – QML - Week 3</title>
+  <title>QML – QML - Week 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -32,7 +35,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -49,7 +51,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-12afe8b7eea41e62dceb5044d5f7a78c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-fac3640d0e5d4d8001cd6d949dd94a4a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -147,8 +149,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background="var(--inverse)" class="quarto-title-block center">
-  <h1 class="title">QML - Week 3</h1>
-  <p class="subtitle">The research cycle and questionable research practices</p>
+  <h1 class="title">QML - Week 2</h1>
+  <p class="subtitle">Inference, uncertainty and variability</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -159,14 +161,36 @@ Stefano Coretta
 </div>
 
 </section>
-<section id="the-research-cycle" class="slide level2">
-<h2>The Research Cycle</h2>
+<section id="inference" class="slide level2">
+<h2>Inference</h2>
 
-<img data-src="../img/res-process-cycle.png" class="quarto-figure quarto-figure-center r-stretch" width="700"></section>
-<section id="questionable-research-practices-qrps" class="slide level2">
-<h2>Questionable Research Practices (QRPs)</h2>
-
-<img data-src="../img/res-process-cycle-qrps.png" class="quarto-figure quarto-figure-center r-stretch" width="700"></section>
+<img data-src="../img/inference.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="bilingual-advantage-myth-or-reality" class="slide level2">
+<h2>Bilingual advantage: myth or reality?</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>“<strong>Bilingual advantage</strong>” refers to the hypothesis that bilinguals possess a cognitive advantage over monolinguals due to greater cognitive control implied in using more than one language <span class="citation" data-cites="poarch2019 samuel2018">(<a href="#/references" role="doc-biblioref" onclick="">Poarch and Krott 2019</a>; <a href="#/references" role="doc-biblioref" onclick="">Samuel et al. 2018</a>)</span>.</p>
+<ul>
+<li><p>However, research has argued both for and against the existence of the bilingual advantage.</p></li>
+<li><p>We can say research has been “inconclusive” <span class="citation" data-cites="franck2024 garraffa2023">(<a href="#/references" role="doc-biblioref" onclick="">Franck et al. 2024</a>; <a href="#/references" role="doc-biblioref" onclick="">Garraffa et al. 2023</a>)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Inconclusive!</strong></p>
+</div>
+<div class="callout-content">
+<p>Note that inconclusive does not mean “there is no bilingual advantage”. It means we do not know.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="section" class="slide level2">
 <h2></h2>
 <div class="columns">
@@ -177,24 +201,20 @@ Stefano Coretta
 <p><strong>Group activity</strong></p>
 </div>
 <div class="callout-content">
-<p>Discuss the following practices: are they questionable? Why?</p>
-<ol type="1">
-<li><p>A researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.</p></li>
-<li><p>A researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.</p></li>
-<li><p>After running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.</p></li>
-<li><p>A research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.</p></li>
-<li><p>An author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g.&nbsp;confidentiality, ethical restrictions).</p></li>
-</ol>
+<ul>
+<li><p>Discuss reasons for which research on the bilingual advantage is inconclusive.</p></li>
+<li><p>You’ll share what you discussed in a Wooclap poll in the next slide.</p></li>
+</ul>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:25%;">
-<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&amp;color=indigo&amp;hrs=0&amp;min=15&amp;sec=0" frameborder="0"></iframe>
+<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&amp;color=indigo&amp;hrs=0&amp;min=5&amp;sec=0" frameborder="0"></iframe>
 </div></div>
 </section>
 <section id="share-your-thoughts" class="slide level2">
 <h2>Share your thoughts</h2>
-<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaed39cc0a8cceadd9a1f8" width="100%"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5b4cbff22a5075a3dd52a" width="100%"></iframe>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -207,9 +227,9 @@ Stefano Coretta
 </div>
 <div class="callout-content">
 <ul>
-<li><p>Go to <a href="https://stefanocoretta.github.io/qrp/" class="uri">https://stefanocoretta.github.io/qrp/</a>.</p></li>
-<li><p><strong>Play the game three times</strong> to publish three papers: the goal is to publish all three!</p></li>
-<li><p>You need to balance Integrity and Career points and beat the reviewers lottery.</p></li>
+<li><p>Go to <a href="https://stefanocoretta.shinyapps.io/bisim/" class="uri">https://stefanocoretta.shinyapps.io/bisim/</a>.</p></li>
+<li><p>Get one sample by clicking on the button. PLEASE, click only once!</p></li>
+<li><p>Look at the sample data. Is there a bilingual advantage?</p></li>
 </ul>
 </div>
 </div>
@@ -218,56 +238,100 @@ Stefano Coretta
 <iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&amp;color=indigo&amp;hrs=0&amp;min=10&amp;sec=0" frameborder="0"></iframe>
 </div></div>
 </section>
-<section id="share-your-final-paper-count" class="slide level2">
-<h2>Share your final paper count</h2>
-<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaeef3159e7d9874e6a17e" width="100%"></iframe>
+<section id="share-your-conclusion" class="slide level2">
+<h2>Share your conclusion</h2>
+<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68a5fdd6160380947dd5f666" width="100%"></iframe>
 </section>
-<section id="peer-review-for-better-or-worse" class="slide level2">
-<h2>Peer-review for better or worse?</h2>
+<section id="uncertainty-and-variability" class="slide level2">
+<h2>Uncertainty and variability</h2>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>A few studies looking at the effectiveness of peer-review <span class="citation" data-cites="smith2006 white2003 jefferson2002 jefferson2007 bruce2016 garciacosta2022 stephen2022">(<a href="#/references" role="doc-biblioref" onclick="">Smith 2006</a>; <a href="#/references" role="doc-biblioref" onclick="">White 2003</a>; <a href="#/references" role="doc-biblioref" onclick="">Jefferson et al. 2002</a>, <a href="#/references" role="doc-biblioref" onclick="">2007</a>; <a href="#/references" role="doc-biblioref" onclick="">Bruce et al. 2016</a>; <a href="#/references" role="doc-biblioref" onclick="">Garcia-Costa et al. 2022</a>; <a href="#/references" role="doc-biblioref" onclick="">Stephen 2022</a>)</span>.</p>
 <ul>
-<li><p>Little empirical evidence that peer review ensures quality.</p></li>
-<li><p>Changes to manuscript contents are limited.</p></li>
-<li><p>Statistical content increases after review.</p></li>
-<li><p>Training reviewers does not improve manuscript.</p></li>
-<li><p>Most suggestions are ignored when re-submitting to a different journal.</p></li>
+<li><strong>Uncertainty</strong> is a characteristic of each observation of a phenomenon, due to measurement error or because we cannot directly measure what we want to measure.</li>
+<li><strong>Variability</strong> is found among different observations of the same phenomenon, due to natural fluctuations and measurement error.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<img data-src="../img/uncert-var.png" class="quarto-figure quarto-figure-center r-stretch"><p><span style="font-size: 10px;">Images by <a href="https://www.flaticon.com/authors/stickers">Stickers</a>.</span></p>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:75%;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Group activity</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Each group will get a research card with a short literature review and a small data set.</p></li>
+<li><p>Answer the following question:</p>
+<blockquote>
+<p>Are younger infants better at discriminating non-native phonetic contrasts than older infants?</p>
+</blockquote></li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:25%;">
+<iframe style="width:100%;max-width:360px;height:360px;" src="https://stopwatch-app.com/widget/timer?theme=light&amp;color=indigo&amp;hrs=0&amp;min=15&amp;sec=0" frameborder="0"></iframe>
+</div></div>
+</section>
+<section id="share-your-answer" class="slide level2">
+<h2>Share your answer</h2>
+<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d123d6796e2e8c31715b44" width="100%"></iframe>
+</section>
+<section id="many-analysts-one-data-set" class="slide level2">
+<h2>Many analysts, one data set</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>You just experienced a form of “many analysts, one data set” scenario.</p></li>
+<li><p><span class="citation" data-cites="coretta2023">Coretta et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> asked 30 teams to answer the same research question with the same data.</p>
+<blockquote>
+<p>Do speakers acoustically modify utterances to signal atypical word combinations?</p>
+</blockquote>
+<ul>
+<li>Participants had to instruct a confederate to move a cube on top of an object. The object either had a typical or atypical colour: YELLOW vs BLUE banana.</li>
+</ul></li>
+<li><p>We gave the data to all teams and they sent us back:</p>
+<ul>
+<li><strong>109 individual analyses</strong>—a bit more than 3 analyses per team!</li>
+<li><strong>Nine teams out of the thirty (30%) reported to have found at least one statistically reliable effect.</strong></li>
+</ul></li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<section id="registered-reports" class="slide level2">
-<h2>Registered Reports</h2>
+<section id="many-analysts-one-data-set-1" class="slide level2">
+<h2>Many analysts, one data set</h2>
 
-<img data-src="../img/registered_reports.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="../img/coretta2023-fig3.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-bruce2016" class="csl-entry" role="listitem">
-Bruce, Rachel, Anthony Chauvin, Ludovic Trinquart, Philippe Ravaud, and Isabelle Boutron. 2016. <span>“Impact of Interventions to Improve the Quality of Peer Review of Biomedical Journals: A Systematic Review and Meta-Analysis.”</span> <em>BMC Medicine</em> 14 (1): 85. <a href="https://doi.org/10.1186/s12916-016-0631-5">https://doi.org/10.1186/s12916-016-0631-5</a>.
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-coretta2023" class="csl-entry" role="listitem">
+Coretta, Stefano, Joseph V. Casillas, Simon Roessig, et al. 2023. <span>“Multidimensional Signals and Analytic Flexibility: Estimating Degrees of Freedom in Human-Speech Analyses.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 6 (3). <a href="https://doi.org/10.1177/25152459231162567">https://doi.org/10.1177/25152459231162567</a>.
 </div>
-<div id="ref-garciacosta2022" class="csl-entry" role="listitem">
-Garcia-Costa, Daniel, Anabel Forte, Emilia Lòpez-Iñesta, Flaminio Squazzoni, and Francisco Grimaldo. 2022. <span>“Does Peer Review Improve the Statistical Content of Manuscripts? A Study on 27 467 Submissions to Four Journals.”</span> <em>Royal Society Open Science</em> 9 (9): 210681. <a href="https://doi.org/10.1098/rsos.210681">https://doi.org/10.1098/rsos.210681</a>.
+<div id="ref-franck2024" class="csl-entry" role="listitem">
+Franck, Julie, Federico Faloppa, and Theodoros Marinis, eds. 2024. <em>Myths and Facts about Multilingualism</em>. Bilingualism Matters 1. CALEC / TBR Books.
 </div>
-<div id="ref-jefferson2002" class="csl-entry" role="listitem">
-Jefferson, Tom, Philip Alderson, Elizabeth Wager, and Frank Davidoff. 2002. <span>“Effects of Editorial Peer Review: A Systematic Review.”</span> <em>JAMA</em> 287 (21): 2784. <a href="https://doi.org/10.1001/jama.287.21.2784">https://doi.org/10.1001/jama.287.21.2784</a>.
+<div id="ref-garraffa2023" class="csl-entry" role="listitem">
+Garraffa, Maria, Antonella Sorace, Maria Vender, and John W. Schwieter. 2023. <em>Bilingualism Matters: Language Learning Across the Lifespan</em>. Cambridge University Press.
 </div>
-<div id="ref-jefferson2007" class="csl-entry" role="listitem">
-Jefferson, Tom, Melanie Rudin, Suzanne Brodney Folse, and Frank Davidoff. 2007. <span>“Editorial Peer Review for Improving the Quality of Reports of Biomedical Studies.”</span> Edited by Cochrane Methodology Review Group. <em>Cochrane Database of Systematic Reviews</em> 2010 (1). <a href="https://doi.org/10.1002/14651858.MR000016.pub3">https://doi.org/10.1002/14651858.MR000016.pub3</a>.
+<div id="ref-poarch2019" class="csl-entry" role="listitem">
+Poarch, Gregory J., and Andrea Krott. 2019. <span>“A Bilingual Advantage? An Appeal for a Change in Perspective and Recommendations for Future Research.”</span> <em>Behavioral Sciences</em> 9 (9): 95. <a href="https://doi.org/10.3390/bs9090095">https://doi.org/10.3390/bs9090095</a>.
 </div>
-<div id="ref-smith2006" class="csl-entry" role="listitem">
-Smith, Richard. 2006. <span>“Peer Review: A Flawed Process at the Heart of Science and Journals.”</span> <em>Journal of the Royal Society of Medicine</em> 99 (4): 178–82. <a href="https://doi.org/10.1177/014107680609900414">https://doi.org/10.1177/014107680609900414</a>.
-</div>
-<div id="ref-stephen2022" class="csl-entry" role="listitem">
-Stephen, Dimity. 2022. <span>“Peer Reviewers Equally Critique Theory, Method, and Writing, with Limited Effect on the Final Content of Accepted Manuscripts.”</span> <em>Scientometrics</em> 127 (6): 3413–35. <a href="https://doi.org/10.1007/s11192-022-04357-y">https://doi.org/10.1007/s11192-022-04357-y</a>.
-</div>
-<div id="ref-white2003" class="csl-entry" role="listitem">
-White, C. 2003. <span>“Little Evidence for Effectiveness of Scientific Peer Review.”</span> <em>BMJ</em> 326 (7383): 241a–241. <a href="https://doi.org/10.1136/bmj.326.7383.241/a">https://doi.org/10.1136/bmj.326.7383.241/a</a>.
+<div id="ref-samuel2018" class="csl-entry" role="listitem">
+Samuel, Steven, Karen Roehr-Brackin, Hyensou Pak, and Hyunji Kim. 2018. <span>“Cultural Effects Rather Than a Bilingual Advantage in Cognition: A Review and an Empirical Study.”</span> <em>Cognitive Science</em> 42 (7): 2313–41. <a href="https://doi.org/10.1111/cogs.12672">https://doi.org/10.1111/cogs.12672</a>.
 </div>
 </div>
 </section>

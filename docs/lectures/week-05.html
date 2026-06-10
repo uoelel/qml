@@ -6,17 +6,20 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Stefano Coretta">
-  <title>QML – QML - Week 5</title>
+  <title>QML – QML - Week 4</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -28,8 +31,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-12afe8b7eea41e62dceb5044d5f7a78c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-fac3640d0e5d4d8001cd6d949dd94a4a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -127,8 +196,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background="var(--inverse)" class="quarto-title-block center">
-  <h1 class="title">QML - Week 5</h1>
-  <p class="subtitle">Regression models: the basics</p>
+  <h1 class="title">QML - Week 4</h1>
+  <p class="subtitle">Bayesian inference</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -139,223 +208,318 @@ Stefano Coretta
 </div>
 
 </section>
-<section id="word-frequency-and-reaction-times" class="slide level2">
-<h2>Word frequency and reaction times</h2>
-<div class="callout callout-tip no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><strong>What is the relationship between a word’s lexical frequency and reaction times in a lexical decision task in Croatian?</strong></p>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>Data from <a href="https://data.crossda.hr/dataset.xhtml?persistentId=doi:10.23669/EV3NFJ&amp;version=2.0">Lexical decision times for nouns from the Croatian Psycholinguistic Database</a>.</p></li>
-<li><p>Lexical decision task (<em>is it a real Croatian word?</em>)</p>
-<ul>
-<li><p><strong>Reaction times</strong>.</p></li>
-<li><p><strong>Word frequency</strong>: counts from the Croatian web Corpus <em>hrWaC</em>.</p></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="which-relationship" class="slide level2">
-<h2>Which relationship?</h2>
-<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 455px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
-</section>
-<section id="reaction-times" class="slide level2">
-<h2>Reaction times</h2>
+<section id="were-taking-attendance" class="slide level2">
+<h2>We’re taking attendance</h2>
 
-<img data-src="week-05_files/figure-revealjs/rts-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="word-frequency-and-rts" class="slide level2">
-<h2>Word frequency and RTs</h2>
-
-<img data-src="week-05_files/figure-revealjs/rt-freq-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="logged-word-frequency-and-rts" class="slide level2">
-<h2>Logged word frequency and RTs</h2>
-
-<img data-src="week-05_files/figure-revealjs/rt-logfreq-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="gaussian-model-of-rt" class="slide level2">
-<h2>Gaussian model of RT</h2>
-<p><span class="math display">\[
-RT \sim Gaussian(\mu, \sigma)
-\]</span></p>
-<div class="fragment">
-<div class="callout callout-important no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>But we want to know what happens to RTs depending on the value of lexical frequency…</p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-tip no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>Then we let the mean <span class="math inline">\(\mu\)</span> vary by lexical frequency!</p>
-</div>
-</div>
-</div>
-<p><span class="math display">\[
-\begin{align}
-RT &amp; \sim Gaussian(\mu, \sigma)\\
-\mu &amp; = \beta_0 + \beta_1 \cdot logf
-\end{align}
-\]</span></p>
-</div>
-<div class="fragment">
-<div class="callout callout-important no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>But what are those <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>?</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="the-equation-of-a-line" class="slide level2">
-<h2>The equation of a line</h2>
-<p><span class="math display">\[
-y = \beta_0 + \beta_1 \cdot x
-\]</span></p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>Go to <a href="https://stefanocoretta.shinyapps.io/lines/">Linear models illustrated</a>.</p></li>
-<li><p><span class="math inline">\(\beta_0\)</span> is the line <strong>intercept</strong>: the <span class="math inline">\(y\)</span> value when <span class="math inline">\(x\)</span> is <code>0</code> zero.</p></li>
-<li><p><span class="math inline">\(\beta_1\)</span> is the line <strong>slope</strong>: the change in <span class="math inline">\(y\)</span> for each unit-increase of <span class="math inline">\(x\)</span>.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="regression-model" class="slide level2">
-<h2>Regression model</h2>
-<p><span class="math display">\[
-\begin{align}
-RT &amp; \sim Gaussian(\mu, \sigma)\\
-\mu &amp; = \beta_0 + \beta_1 \cdot logf &amp; \text{[Regression equation]}
-\end{align}
-\]</span></p>
-<div class="callout callout-tip no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>A <strong>regression model</strong> is a model based on the equation of a line.</p></li>
-<li><p>The model <strong>estimates</strong> <span class="math inline">\(\beta_0\)</span> (the intercept) and <span class="math inline">\(\beta_1\)</span> (the slope) from the data (i.e.&nbsp;the observed <span class="math inline">\(RT\)</span> and <span class="math inline">\(logf\)</span> values).</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p><span class="math inline">\(\beta_0\)</span>, intercept</p>
-<ul>
-<li>Mean RT value <em>when logged frequency is <code>0</code> zero</em> (i.e.&nbsp;when word frequency is 1; <code>exp(0)</code> = 1).</li>
-</ul></li>
-<li><p><span class="math inline">\(\beta_1\)</span>, slope</p>
-<ul>
-<li><em>Change</em> in mean RT for each unit increase of log-frequency (when log-frequency goes from <span class="math inline">\(x\)</span> to <span class="math inline">\(x + 1\)</span>).</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d3b78edd9a104b0899fcc1" width="100%"></iframe>
-</section>
-<section id="models-posterior-predictions" class="slide level2">
-<h2>Model’s posterior predictions</h2>
-
-<img data-src="week-05_files/figure-revealjs/rt-bm-cond-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="word-frequency-and-reaction-times-bis" class="slide level2">
-<h2>Word frequency and reaction times (bis)</h2>
-<div class="callout callout-tip no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><strong>What is the relationship between a word’s lexical frequency and reaction times in a lexical decision task in Croatian?</strong></p>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>When log-frequency is 0, the mean RTs are between 1084 and 1129 ms at 95% confidence.</p></li>
-<li><p>For each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="correlation-in-not-causation" class="slide level2">
-<h2>Correlation in NOT causation</h2>
-<div class="callout callout-important no-icon callout-titled callout-style-default">
+<img data-src="../img/QRCode for Quantitative Methods in Linguistics and English Language, Semester 1, Week 4.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="probabilities" class="slide level2">
+<h2>Probabilities</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Be careful!</strong></p>
+<p><strong>Probability</strong></p>
 </div>
 <div class="callout-content">
 <ul>
-<li><p><strong>Correlation</strong> between two variables: they co-vary, i.e.&nbsp;they show a systematic association (their values tend to vary together in a consistent pattern).</p></li>
-<li><p><strong>Spurious correlations</strong>: two variables can look correlated because of bias from another variable.</p></li>
+<li><p>Probability of an event occurring.</p></li>
+<li><p>Probabilities can only be <strong>between 0 and 1</strong>.</p>
+<ul>
+<li>⛔️ 0 means <strong>impossible</strong>.</li>
+<li>🤷 0.5 means <strong>it can happen but it can also not happen</strong>.</li>
+<li>✅ 1 means <strong>certain</strong>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<img data-src="../img/probabilities.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="probabilities-1" class="slide level2">
+<h2>Probabilities</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>Probability of an event occurring: 0 to 100% probability.</p></li>
+<li><p><strong>Probability of a statistical variable being some numeric value</strong>: a bit more complicated…</p></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<ol type="1">
-<li>Number of plant names in a language vs.&nbsp;biodiversity of the region
-<ul>
-<li>Languages in biodiverse regions have more words for plants.</li>
-<li><strong>Mediator</strong>: cultural reliance on plants.</li>
-</ul></li>
-<li>Language endangerment vs.&nbsp;economic development
-<ul>
-<li>Higher economic development is associated with greater language endangerment.</li>
-<li><strong>Confounder</strong>: colonial history.</li>
-</ul></li>
-<li>Language prestige vs government policy
-<ul>
-<li>High prestige languages and officially supported languages each attract learners.</li>
-<li><strong>Collider</strong>: If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected.</li>
-</ul></li>
-</ol>
+<p><strong>We need probability distributions!</strong></p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="but-it-is-if-you-use-causal-inference" class="slide level2">
-<h2>But it is if you use causal inference…</h2>
+<section id="distribution-of-probability" class="slide level2">
+<h2>Distribution of probability</h2>
+<p><br></p>
+
+<img data-src="../img/grubabilities.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="probability-distributions" class="slide level2">
+<h2>Probability distributions</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>A <strong>probability distribution</strong> describes <em>how the probabilities are distributed over the values</em> that a variable can take on.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Two types of probability distributions</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Discrete probability distributions.</p></li>
+<li><p>Continuous probability distributions.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>You learned about discrete and continuous variables in Week 2!</p>
+<p><strong>Discrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions.</strong></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-probability-distributions" class="slide level2">
+<h2>Calculating probability distributions</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>You will never need to calculate probability distributions by hand, but it is useful to know about the two mathematical functions that are used for that purpose.</p>
+<ul>
+<li><p>The <strong>Probability Mass Function</strong> (PMF) for discrete probability distributions.</p></li>
+<li><p>The <strong>Probability Density Function</strong> (PDF) for continuous probability distributions.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="probability-mass-function" class="slide level2">
+<h2>Probability Mass Function</h2>
+
+<img data-src="../img/dice.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="probability-density-function" class="slide level2">
+<h2>Probability Density Function</h2>
+
+<img data-src="week-05_files/figure-revealjs/pdf-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<section id="parameters" class="slide level2">
+<h2>Parameters</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p><strong>Probability distributions can be summarised with a set of parameters.</strong></p></li>
+<li><p>Different types of probability distributions have a different number of parameters and different parameters.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Causal inference</strong></p>
+<p><strong>Gaussian distribution</strong></p>
+</div>
+<div class="callout-content">
+<p>The <strong>Gaussian probability distribution</strong> is a continuous probability distribution and it has two parameters:</p>
+<ul>
+<li>The mean <span class="math inline">\(\mu\)</span>.</li>
+<li>The standard deviation (SD) <span class="math inline">\(\sigma\)</span>.</li>
+</ul>
+<p>Go to <a href="https://seeing-theory.brown.edu/probability-distributions/index.html#section2">Seeing Theory</a> (by Daniel Kunin).</p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).</p>
+<p><a href="https://seeing-theory.brown.edu/index.html#3rdPage" class="uri">https://seeing-theory.brown.edu/index.html#3rdPage</a></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="simulate-gaussian-data" class="slide level2">
+<h2>Simulate Gaussian data</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Human height</strong></p>
 </div>
 <div class="callout-content">
 <ul>
-<li><p>Correlation <em>can</em> be interpreted causally if you adopt a <strong>causal inference</strong> approach.</p></li>
-<li><p>Learn about it in McElreath’s textbook <em>Statistical Rethinking</em>. Also check <a href="https://uoelel.github.io/stew.html">STeW</a>.</p></li>
+<li><p>Simulate human height as a Gaussian variable.</p></li>
+<li><p><code>rnorm()</code>: number of observations, mean, SD.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">set.seed</span>(<span class="dv">812</span>)</span>
+<span id="cb1-2"><a></a>height <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="dv">165</span>, <span class="dv">8</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>height[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 150 172 161 162 161 172 178 156 171 158</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="kernel-density-estimation" class="slide level2">
+<h2>Kernel Density Estimation</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>PDF constructs the density curve of theoretical distributions.</p></li>
+<li><p><strong>Kernel Density Estimation</strong> (KDE) constructs the density curve of empirical data (observations).</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="week-05_files/figure-revealjs/height-plot-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-modelling" class="slide level2">
+<h2>Statistical modelling</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>When you simulate data, you know the population mean and SD.</p></li>
+<li><p>In research, you don’t. You just have observations.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Statistical modelling</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Statistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference.</p></li>
+<li><p><strong>Bayesian Gaussian models</strong> do exactly that: estimate mean and SD.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gaussian-model-of-height" class="slide level2">
+<h2>Gaussian model of height</h2>
+<p><span class="math display">\[
+\begin{align}
+h &amp; \sim Gaussian(\mu, \sigma)\\
+\mu &amp; = ...\\
+\sigma &amp; = ...
+\end{align}
+\]</span></p>
+</section>
+<section id="gaussian-model-of-height-1" class="slide level2">
+<h2>Gaussian model of height</h2>
+<p><span class="math display">\[
+\begin{align}
+h &amp; \sim Gaussian(\mu, \sigma)\\
+\mu &amp; = P_\mu\\
+\sigma &amp; = P_\sigma
+\end{align}
+\]</span></p>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><span class="math inline">\(P\)</span> is a <strong>posterior probability distribution</strong>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="gaussian-model-of-height-brms" class="slide level2">
+<h2>Gaussian model of height: brms</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>h_tib <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">h =</span> height)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="fu">library</span>(brms)</span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a>h_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb3-6"><a></a>  h <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb3-7"><a></a>  <span class="at">family =</span> gaussian,</span>
+<span id="cb3-8"><a></a>  <span class="at">data =</span> h_tib,</span>
+<span id="cb3-9"><a></a>  <span class="at">file =</span> <span class="st">"cache/h_bm"</span></span>
+<span id="cb3-10"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="gaussian-model-of-height-posteriors" class="slide level2">
+<h2>Gaussian model of height: posteriors</h2>
+
+<img data-src="week-05_files/figure-revealjs/h-bm-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<section id="a-bit-harder-n-5" class="slide level2">
+<h2>A bit harder: N = 5</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Sample size</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Sample size matters: the lower the sample size, the higher the uncertainty.</p></li>
+<li><p>Let’s try with just 5 observations (out of 200).</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="a-bit-harder-n-5-1" class="slide level2">
+<h2>A bit harder: N = 5</h2>
+
+<img data-src="week-05_files/figure-revealjs/h-bm-small-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>Probability distributions describe how probability is distributed across values.</p></li>
+<li><p>Theoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.</p></li>
+<li><p>KDE is used for empirical distributions.</p></li>
+<li><p>(Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.</p></li>
+<li><p>Sample size affects uncertainty.</p></li>
 </ul>
 </div>
 </div>

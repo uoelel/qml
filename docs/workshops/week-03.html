@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Workshop: Week 3 – QML</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -32,15 +35,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b635bb0e3b57b47a60f03ff50ee3dd10.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-91a2a5be1ebf863ba10245d8d2e4e422.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -162,9 +164,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Complete Task A and then pick of the other two tasks.</p></li>
+<li><p>Pick one of the following tasks and work on them in group. Feel free to work on the others as well if you have time.</p></li>
 <li><p>If you are unsure about anything, please ask us for directions!</p></li>
 <li><p>The tasks are designed for you to practice this week’s R skills.</p></li>
+<li><p>Unless otherwise specified, the data are part of the data archive you downloaded for <a href="https://stefanocoretta.github.io/qdal/ch-read-data.html">Read Data</a> chapter of the textbook. Information about the data can be found on the <a href="https://uoelel.github.io/qml-data/">QML Data</a> website (which is also where you downloaded the data from).</p></li>
 </ul>
 </div>
 </div>
@@ -174,15 +177,13 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Task A: Albanian Voice Onset Time
+<span class="screen-reader-only">Note</span>Task A: Italian Voice Onset Time
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>coretta2021/alb-vot.csv</code> data.</p></li>
-<li><p>Calculate the VOT based on the <code>release</code> and <code>voi_onset</code> columns. (VOT is the time lag between the voicing onset and the consonant release).</p></li>
-<li><p>Create a new column that specifies the voicing of the consonant (voiced or voiceless) based on the value in <code>label</code>. <code>ifelse()</code> or <code>case_when()</code> are useful.</p></li>
-<li><p>Get summary measures of VOT for voiceless and voiced consonants. Can the VOT differentiate between the two voicing categories?</p></li>
+<li><p>Read the <code>coretta2018a/ita_egg.rda</code> data. <code>.rda</code> files are read using <code>load()</code>. This function works without needing to assign the output to a variable (so it’s different from the other <code>read*()</code> functions, which do require you to assign the output to a variable).</p></li>
+<li><p>Summarise relevant columns, with a particular focus on how VOT (voice onset time, column <code>vot</code>) differs depending on phonological features like place, vowel and so on.</p></li>
 </ul>
 </div>
 </div>
@@ -192,14 +193,14 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Task B: Albanian vowels
+<span class="screen-reader-only">Note</span>Task B: World Atlas of Language Structures
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>coretta2021/alb_formants.rds</code> data.</p></li>
-<li><p>Create a scatter plot of F1 and F2, with points coloured by <code>vowel</code>. Are the vowels in the places you’d expect them to be?</p></li>
-<li><p>Now create another scatter plot with F1 and vowel duration. You need to calculate vowel duration first from <code>start</code> and <code>end</code>. Can you notice any patterns in the relationship between F1 and vowel duration?</p></li>
+<li><p>The data from <a href="https://wals.info">WALS</a> are available through the R package <a href="https://hkauhanen.fi/ritwals/index.html">ritwals</a>.</p></li>
+<li><p>Install the package (this is done in two steps: first install devtools and then install ritwals with devtools, see linked package documentation). Then attach it and load the data with <code>data("WALS")</code>.</p></li>
+<li><p>Get the number of languages by value (<code>value</code>) for each feature (<code>feature_ID</code> and <code>feature</code>). The features are listed <a href="https://wals.info/feature">here</a>. Focus on features you are interested in.</p></li>
 </ul>
 </div>
 </div>
@@ -209,17 +210,31 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Task C: <strong>‘Everywhere here can say this’</strong>
+<span class="screen-reader-only">Note</span>Task C: Massive Auditory Lexical Decision
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>sluckin2022/everywhere-loc.csv</code> data. The data are acceptability judgements on the impersonal use of “everywhere”, like in the sentence “Everywhere here can say this”.</p></li>
-<li><p>The <code>Restrictor</code> column tells you if the sentence has a restrictor, like in “Everywhere <em>on the coast</em> eats fish and chips.” vs no restrictor “Everywhere takes credit cards these days.” The <code>Value</code> column gives you the acceptability rating from 1 to 7.</p></li>
-<li><p>Mutate the <code>Restrictor</code> column so that 0 = “no restrictor” and 1 = “restrictor”.</p></li>
-<li><p>Mutate the <code>Value</code> column so that it is a character column (use <code>as.character()</code>).</p></li>
-<li><p>Create a filled stacked bar chart by <code>Restrictor</code> with fill by <code>Value</code> and panels by <code>Age</code>. Can you spot differences in rating across different age brackets?</p></li>
+<li><p>Read the <code>tucker2019/mald_1_1.rds</code> data.</p></li>
+<li><p>Summarise the data with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, <code>IsWord</code>), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.</p></li>
+<li><p>What can you tell about reaction times and accuracy based on lexical status? What about individual variation?</p></li>
 </ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Task C: Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To get the number of participants and words, you first need to get the unique participant IDs and unique words. <code>?distinct</code> is your friend.</p>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
