@@ -1,5 +1,5 @@
 ---
-title: "QML - Week 3"
+title: "QML - Week 4"
 subtitle: "The research cycle and questionable research practices"
 author: "Stefano Coretta"
 format: revealjs
@@ -8,20 +8,21 @@ bibliography: references.bib
 
 ## The Research Cycle
 
-![](/img/res-process-cycle.png){fig-align="center" width="700"}
+![](../img/res-process-cycle.png){fig-align="center" width="700"}
 
 ## Questionable Research Practices (QRPs)
 
-![](/img/res-process-cycle-qrps.png){fig-align="center" width="700"}
+![](../img/res-process-cycle-qrps.png){fig-align="center" width="700"}
 
-## 
+## Group activity
 
 :::::: columns
 :::: {.column width="75%"}
 ::: callout-note
-### Group activity
+### Instructions
 
-Discuss the following practices: are they questionable? Why?
+Discuss the following practices: are they questionable?
+Why?
 
 1.  A researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.
 
@@ -29,7 +30,8 @@ Discuss the following practices: are they questionable? Why?
 
 3.  After running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.
 
-4.  A research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.
+4.  A research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects.
+    They clearly document this change in their published article.
 
 5.  An author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions).
 :::
@@ -38,7 +40,7 @@ Discuss the following practices: are they questionable? Why?
 ::: {.column width="25%"}
 ```{=html}
 <iframe style="width:100%;max-width:360px;height:360px;"
-                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=15&sec=0" 
+                    src="https://stopwatch-app.com/widget/timer?theme=light&color=indigo&hrs=0&min=5&sec=0" 
                     frameborder="0"></iframe>
 ```
 :::
@@ -50,18 +52,18 @@ Discuss the following practices: are they questionable? Why?
 <iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaed39cc0a8cceadd9a1f8" width="100%"></iframe>
 ```
 
-## 
+## Group activity
 
 :::::: columns
 :::: {.column width="75%"}
 ::: callout-note
-### Group activity
+### Instructions
 
--   Go to <https://stefanocoretta.github.io/qrp/>.
+- Go to <https://stefanocoretta.github.io/qrp/>.
 
--   **Play the game three times** to publish three papers: the goal is to publish all three!
+- **Play the game three times** to publish three papers: the goal is to publish all three!
 
--   You need to balance Integrity and Career points and beat the reviewers lottery.
+- You need to balance Integrity and Career points and beat the reviewers lottery.
 :::
 ::::
 
@@ -82,22 +84,57 @@ Discuss the following practices: are they questionable? Why?
 
 ## Peer-review for better or worse?
 
-::: {.callout-note appearance="simple"}
-A few studies looking at the effectiveness of peer-review [@smith2006; @white2003; @jefferson2002; @jefferson2007; @bruce2016; @garciacosta2022; @stephen2022].
+::::::::::: {style="font-size: 0.7em;"}
+:::::: columns
+::: {.fragment .column width="33%"}
+![](../img/flaticon/quality-assurance.png){fig-align="center" width="100px"}
 
--   Little empirical evidence that peer review ensures quality.
+Little empirical evidence that peer review ensures quality.
+:::
 
--   Changes to manuscript contents are limited.
+::: {.fragment .column width="33%"}
+![](../img/flaticon/edit.png){fig-align="center" width="100px"}
 
--   Statistical content increases after review.
+Changes to manuscript contents are limited.
+:::
 
--   Training reviewers does not improve manuscript.
+::: {.fragment .column width="33%"}
+![](../img/flaticon/curve.png){fig-align="center" width="100px"}
 
--   Most suggestions are ignored when re-submitting to a different journal.
+Statistical content increases after review.
+:::
+::::::
+
+:::::: columns
+::: {.fragment .column width="33%"}
+![](../img/flaticon/training.png){fig-align="center" width="100px"}
+
+Training reviewers does not improve manuscript.
+:::
+
+::: {.fragment .column width="33%"}
+![](../img/flaticon/cancel.png){fig-align="center" width="100px"}
+
+Most suggestions are ignored when re-submitting to a different journal.
+:::
+
+::: {.column width="33%"}
+:::
+::::::
+:::::::::::
+
+::: aside
+@smith2006; @white2003; @jefferson2002; @jefferson2007; @bruce2016; @garciacosta2022; @stephen2022
+
+[<a href="https://www.flaticon.com/free-icons/quality-assurance" title="quality assurance icons">Quality assurance icons created by Slamlabs - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/register" title="register icons">Register icons created by Pixel perfect - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/statistics" title="statistics icons">Statistics icons created by Freepik - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/practice" title="practice icons">Practice icons created by Elzicon - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/cancel" title="cancel icons">Cancel icons created by Freepik - Flaticon</a>]{style="font-size: 8px;"}
 :::
 
 ## Registered Reports
 
-![](/img/registered_reports.png){fig-align="center"}
+![](../img/rr-timeline-0.png){fig-align="center"}
+
+## Registered Reports
+
+![](../img/rr-timeline.png){fig-align="center"}
 
 ## References

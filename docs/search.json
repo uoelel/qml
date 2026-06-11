@@ -632,63 +632,63 @@
   {
     "objectID": "lectures/week-04.html#the-research-cycle",
     "href": "lectures/week-04.html#the-research-cycle",
-    "title": "QML - Week 3",
+    "title": "QML - Week 4",
     "section": "The Research Cycle",
     "text": "The Research Cycle"
   },
   {
     "objectID": "lectures/week-04.html#questionable-research-practices-qrps",
     "href": "lectures/week-04.html#questionable-research-practices-qrps",
-    "title": "QML - Week 3",
+    "title": "QML - Week 4",
     "section": "Questionable Research Practices (QRPs)",
     "text": "Questionable Research Practices (QRPs)"
   },
   {
     "objectID": "lectures/week-04.html#section",
     "href": "lectures/week-04.html#section",
-    "title": "QML - Week 3",
+    "title": "QML - Week 4",
     "section": "",
-    "text": "Group activity\n\n\nDiscuss the following practices: are they questionable? Why?\n\nA researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.\nA researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.\nAfter running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.\nA research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.\nAn author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions)."
+    "text": "Group activity\n\n\n\nGo to https://stefanocoretta.github.io/qrp/.\nPlay the game three times to publish three papers: the goal is to publish all three!\nYou need to balance Integrity and Career points and beat the reviewers lottery."
   },
   {
     "objectID": "lectures/week-04.html#share-your-thoughts",
     "href": "lectures/week-04.html#share-your-thoughts",
-    "title": "QML - Week 3",
+    "title": "QML - Week 4",
     "section": "Share your thoughts",
     "text": "Share your thoughts"
   },
   {
     "objectID": "lectures/week-04.html#section-1",
     "href": "lectures/week-04.html#section-1",
-    "title": "QML - Week 3",
+    "title": "QML - Week 4",
     "section": "",
     "text": "Group activity\n\n\n\nGo to https://stefanocoretta.github.io/qrp/.\nPlay the game three times to publish three papers: the goal is to publish all three!\nYou need to balance Integrity and Career points and beat the reviewers lottery."
   },
   {
     "objectID": "lectures/week-04.html#share-your-final-paper-count",
     "href": "lectures/week-04.html#share-your-final-paper-count",
-    "title": "QML - Week 3",
+    "title": "QML - Week 4",
     "section": "Share your final paper count",
     "text": "Share your final paper count"
   },
   {
     "objectID": "lectures/week-04.html#peer-review-for-better-or-worse",
     "href": "lectures/week-04.html#peer-review-for-better-or-worse",
-    "title": "QML - Week 3",
+    "title": "QML - Week 4",
     "section": "Peer-review for better or worse?",
-    "text": "Peer-review for better or worse?\n\n\n\nA few studies looking at the effectiveness of peer-review (Smith 2006; White 2003; Jefferson et al. 2002, 2007; Bruce et al. 2016; Garcia-Costa et al. 2022; Stephen 2022).\n\nLittle empirical evidence that peer review ensures quality.\nChanges to manuscript contents are limited.\nStatistical content increases after review.\nTraining reviewers does not improve manuscript.\nMost suggestions are ignored when re-submitting to a different journal."
+    "text": "Peer-review for better or worse?\n\n\n\n\n\n\n\n\nLittle empirical evidence that peer review ensures quality.\n\n\n\n\n\n\nChanges to manuscript contents are limited.\n\n\n\n\n\n\nStatistical content increases after review.\n\n\n\n\n\n\n\n\nTraining reviewers does not improve manuscript.\n\n\n\n\n\n\nMost suggestions are ignored when re-submitting to a different journal.\n\n\n\n\n\n\nSmith (2006); White (2003); Jefferson et al. (2002); Jefferson et al. (2007); Bruce et al. (2016); Garcia-Costa et al. (2022); Stephen (2022)\nQuality assurance icons created by Slamlabs - Flaticon. Register icons created by Pixel perfect - Flaticon. Statistics icons created by Freepik - Flaticon. Practice icons created by Elzicon - Flaticon. Cancel icons created by Freepik - Flaticon"
   },
   {
     "objectID": "lectures/week-04.html#registered-reports",
     "href": "lectures/week-04.html#registered-reports",
-    "title": "QML - Week 3",
+    "title": "QML - Week 4",
     "section": "Registered Reports",
     "text": "Registered Reports"
   },
   {
     "objectID": "lectures/week-04.html#references",
     "href": "lectures/week-04.html#references",
-    "title": "QML - Week 3",
+    "title": "QML - Week 4",
     "section": "References",
     "text": "References\n\n\n\n\nBruce, Rachel, Anthony Chauvin, Ludovic Trinquart, Philippe Ravaud, and Isabelle Boutron. 2016. “Impact of Interventions to Improve the Quality of Peer Review of Biomedical Journals: A Systematic Review and Meta-Analysis.” BMC Medicine 14 (1): 85. https://doi.org/10.1186/s12916-016-0631-5.\n\n\nGarcia-Costa, Daniel, Anabel Forte, Emilia Lòpez-Iñesta, Flaminio Squazzoni, and Francisco Grimaldo. 2022. “Does Peer Review Improve the Statistical Content of Manuscripts? A Study on 27 467 Submissions to Four Journals.” Royal Society Open Science 9 (9): 210681. https://doi.org/10.1098/rsos.210681.\n\n\nJefferson, Tom, Philip Alderson, Elizabeth Wager, and Frank Davidoff. 2002. “Effects of Editorial Peer Review: A Systematic Review.” JAMA 287 (21): 2784. https://doi.org/10.1001/jama.287.21.2784.\n\n\nJefferson, Tom, Melanie Rudin, Suzanne Brodney Folse, and Frank Davidoff. 2007. “Editorial Peer Review for Improving the Quality of Reports of Biomedical Studies.” Cochrane Database of Systematic Reviews 2010 (1). https://doi.org/10.1002/14651858.MR000016.pub3.\n\n\nSmith, Richard. 2006. “Peer Review: A Flawed Process at the Heart of Science and Journals.” Journal of the Royal Society of Medicine 99 (4): 178–82. https://doi.org/10.1177/014107680609900414.\n\n\nStephen, Dimity. 2022. “Peer Reviewers Equally Critique Theory, Method, and Writing, with Limited Effect on the Final Content of Accepted Manuscripts.” Scientometrics 127 (6): 3413–35. https://doi.org/10.1007/s11192-022-04357-y.\n\n\nWhite, C. 2003. “Little Evidence for Effectiveness of Scientific Peer Review.” BMJ 326 (7383): 241a–241. https://doi.org/10.1136/bmj.326.7383.241/a."
   },
@@ -1069,5 +1069,26 @@
     "title": "QML - Week 3",
     "section": "GARDEN OF FORKING PATHS",
     "text": "GARDEN OF FORKING PATHS\n\n\nImage credits https://xinespack.com/2025/01/12/a-journey-through-borges-short-story-the-garden-of-forking-paths/"
+  },
+  {
+    "objectID": "lectures/week-04.html#group-activity",
+    "href": "lectures/week-04.html#group-activity",
+    "title": "QML - Week 4",
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\nDiscuss the following practices: are they questionable? Why?\n\nA researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.\nA researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.\nAfter running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.\nA research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.\nAn author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions)."
+  },
+  {
+    "objectID": "lectures/week-04.html#group-activity-1",
+    "href": "lectures/week-04.html#group-activity-1",
+    "title": "QML - Week 4",
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nGo to https://stefanocoretta.github.io/qrp/.\nPlay the game three times to publish three papers: the goal is to publish all three!\nYou need to balance Integrity and Career points and beat the reviewers lottery."
+  },
+  {
+    "objectID": "lectures/week-04.html#registered-reports-1",
+    "href": "lectures/week-04.html#registered-reports-1",
+    "title": "QML - Week 4",
+    "section": "Registered Reports",
+    "text": "Registered Reports"
   }
 ]
