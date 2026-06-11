@@ -144,23 +144,73 @@ is found among different observations of the same phenomenon, due to natural flu
 
 ## Many analysts, one data set
 
-::: {.callout-note appearance="simple"}
-- You just experienced a form of "many analysts, one data set" scenario.
+![](../img/flaticon/research-paper.png){width="200px" fig-align="center"}
 
-- @coretta2023 asked 30 teams to answer the same research question with the same data.
+![](../img/flaticon/meeting.png){width="200px" fig-align="center"} ![](../img/flaticon/meeting.png){width="200px" fig-align="center"} ![](../img/flaticon/meeting.png){width="200px" fig-align="center"} ![](../img/flaticon/meeting.png){width="200px" fig-align="center"} ![](../img/flaticon/meeting.png){width="200px" fig-align="center"}
 
-  > Do speakers acoustically modify utterances to signal atypical word combinations?
+::: aside
+[<a href="https://www.flaticon.com/free-icons/research-paper" title="research paper icons">Research paper icons created by Graphiqa - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/discussion" title="discussion icons">Discussion icons created by Freepik - Flaticon</a>.]{style="font-size: 8px;"}
+:::
 
-  - Participants had to instruct a confederate to move a cube on top of an object. The object either had a typical or atypical colour: YELLOW vs BLUE banana.
-
-- We gave the data to all teams and they sent us back:
-
-  - **109 individual analyses**—a bit more than 3 analyses per team!
-  - **Nine teams out of the thirty (30%) reported to have found at least one statistically reliable effect.**
+::: notes
+You just experienced a form of "many analysts, one data set" scenario.
 :::
 
 ## Many analysts, one data set
 
-![](/img/coretta2023-fig3.png){fig-align="center"}
+[**Do speakers acoustically modify utterances to signal atypical word combinations?**]{.r-fit-text} [@coretta2023]
+
+. . .
+
+::::::: columns
+:::: {.column width="33%"}
+![](../img/flaticon/meeting.png){width="200px" fig-align="center"}
+
+::: {style="text-align: center;"}
+**30 teams**
+:::
+::::
+
+::: {.fragment .column width="33%"}
+![](../img/flaticon/research-paper.png){width="200px" fig-align="center"}
+
+**109 individual analyses**—a bit more than 3 analyses per team!
+:::
+
+::: {.fragment .column width="33%"}
+![](../img/flaticon/checked.png){width="200px" fig-align="center"}
+
+**Nine teams out of the thirty (30%)** reported to have found at least one statistically reliable effect.
+:::
+:::::::
+
+::: notes
+Participants had to instruct a confederate to move a cube on top of an object.
+The object either had a typical or atypical colour: YELLOW vs BLUE banana.
+:::
+
+## Many analysts, one data set
+
+![](/img/coretta2023-fig3.png){fig-align="center" height="500px"}
+
+::: aside
+@coretta2023
+:::
+
+##  {background-image="../img/unsplash/ben-mathis-seibel-OjrmUvnkMYs-unsplash.jpg" background-opacity="0.7"}
+
+<br><br><br><br><br>
+
+[**GARDEN OF FORKING PATHS**]{.r-fit-text style="color: black;"}
+
+. . .
+
+::: {style="text-align: center;"}
+aka **RESEARCHER'S DEGREES OF FREEDOM**
+:::
+
+::: aside
+[Photo by <a href="https://unsplash.com/@benseibel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ben Mathis Seibel</a> on <a href="https://unsplash.com/photos/an-aerial-view-of-a-circular-maze-in-a-park-OjrmUvnkMYs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>]{style="font-size: 8px;"}
+:::
 
 ## References
