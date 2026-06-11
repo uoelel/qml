@@ -13,8 +13,16 @@ format: html
 
 - The tasks are designed for you to practice this week's R skills.
 
-- Unless otherwise specified, the data are part of the data archive you downloaded for [Read Data](https://stefanocoretta.github.io/qdal/ch-read-data.html) chapter of the textbook.
+- Unless otherwise specified, the data are part of the data archive you downloaded for the [Read Data](https://stefanocoretta.github.io/qdal/ch-read-data.html) chapter of the textbook.
   Information about the data can be found on the [QML Data](https://uoelel.github.io/qml-data/) website (which is also where you downloaded the data from).
+:::
+
+::: callout-tip
+## Feedback
+
+For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
+
+**We will not provide you with model answers**, so make sure you make the most of us in person.
 :::
 
 ::: callout-note
@@ -57,12 +65,3 @@ format: html
 To get the number of participants and words, you first need to get the unique participant IDs and unique words.
 `?distinct` is your friend.
 :::
-
-::: callout-tip
-## Feedback
-
-For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
-
-**We will not provide you with model answers**, so make sure you make the most of us in person.
-:::
-

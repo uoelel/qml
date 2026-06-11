@@ -25,7 +25,7 @@
     "href": "workshops/week-03.html",
     "title": "Workshop: Week 3",
     "section": "",
-    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work on them in group. Feel free to work on the others as well if you have time.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice this week’s R skills.\nUnless otherwise specified, the data are part of the data archive you downloaded for Read Data chapter of the textbook. Information about the data can be found on the QML Data website (which is also where you downloaded the data from).\n\n\n\n\n\n\n\n\n\nNoteTask A: Italian Voice Onset Time\n\n\n\n\nRead the coretta2018a/ita_egg.rda data. .rda files are read using load(). This function works without needing to assign the output to a variable (so it’s different from the other read*() functions, which do require you to assign the output to a variable).\nSummarise relevant columns, with a particular focus on how VOT (voice onset time, column vot) differs depending on phonological features like place, vowel and so on.\n\n\n\n\n\n\n\n\n\nNoteTask B: World Atlas of Language Structures\n\n\n\n\nThe data from WALS are available through the R package ritwals.\nInstall the package (this is done in two steps: first install devtools and then install ritwals with devtools, see linked package documentation). Then attach it and load the data with data(\"WALS\").\nGet the number of languages by value (value) for each feature (feature_ID and feature). The features are listed here. Focus on features you are interested in.\n\n\n\n\n\n\n\n\n\nNoteTask C: Massive Auditory Lexical Decision\n\n\n\n\nRead the tucker2019/mald_1_1.rds data.\nSummarise the data with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, IsWord), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.\nWhat can you tell about reaction times and accuracy based on lexical status? What about individual variation?\n\n\n\n\n\n\n\n\n\nTipTask C: Hint\n\n\n\n\n\nTo get the number of participants and words, you first need to get the unique participant IDs and unique words. ?distinct is your friend.\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work on them in group. Feel free to work on the others as well if you have time.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice this week’s R skills.\nUnless otherwise specified, the data are part of the data archive you downloaded for the Read Data chapter of the textbook. Information about the data can be found on the QML Data website (which is also where you downloaded the data from).\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person.\n\n\n\n\n\n\n\n\nNoteTask A: Italian Voice Onset Time\n\n\n\n\nRead the coretta2018a/ita_egg.rda data. .rda files are read using load(). This function works without needing to assign the output to a variable (so it’s different from the other read*() functions, which do require you to assign the output to a variable).\nSummarise relevant columns, with a particular focus on how VOT (voice onset time, column vot) differs depending on phonological features like place, vowel and so on.\n\n\n\n\n\n\n\n\n\nNoteTask B: World Atlas of Language Structures\n\n\n\n\nThe data from WALS are available through the R package ritwals.\nInstall the package (this is done in two steps: first install devtools and then install ritwals with devtools, see linked package documentation). Then attach it and load the data with data(\"WALS\").\nGet the number of languages by value (value) for each feature (feature_ID and feature). The features are listed here. Focus on features you are interested in.\n\n\n\n\n\n\n\n\n\nNoteTask C: Massive Auditory Lexical Decision\n\n\n\n\nRead the tucker2019/mald_1_1.rds data.\nSummarise the data with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, IsWord), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.\nWhat can you tell about reaction times and accuracy based on lexical status? What about individual variation?\n\n\n\n\n\n\n\n\n\nTipTask C: Hint\n\n\n\n\n\nTo get the number of participants and words, you first need to get the unique participant IDs and unique words. ?distinct is your friend."
   },
   {
     "objectID": "workshops.html",
@@ -494,14 +494,14 @@
     "href": "content.html#schedule-overview",
     "title": "Course content",
     "section": "2 Schedule overview",
-    "text": "2 Schedule overview\n\n\n\n\n\n\n\nPDF version of the slides\nThe lecture slides linked below are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF.\n\n\n\n\nThe following table is a schedule overview of the course, with links to lecture slides and workshop instructions. Due dates for assessments are also included. See Assessments for more info.\n\n\n\nWeek\nLecture\nWorkshop\nAssessment\n\n\n\n\n1\nOnboarding\n\n\n\n\n2\nResearch methods\nR basics\n\n\n\n3\nInference and uncertainty\nSummarise, count and group data\n\n\n\n4\nQuestionable Research Practices\nPlot basics\nSelf-reflection\n\n\n5\nBayesian inference\nGaussian models with brms\n\n\n\n6\nRegression basics with brms\nRegression basics and posteriors draws\nQuiz 1\n\n\n7\nNull Ritual\nCategorical predictors in regression\nSelf-reflection\n\n\n8\nBernoulli regression\nBernoulli regression\nGroup project proposal\n\n\n9\nOpen research\nMultiple predictors and interactions\n\n\n\n10\nCase study\nGroup project\nSelf-reflection\n\n\n11\n\n(Optional) Group project\nQuiz 2\n\n\n12\n\n\n\n\n\n13\n\n\nFinal reflection and Group project"
+    "text": "2 Schedule overview\n\n\n\n\n\n\n\nPDF version of the slides\nThe lecture slides linked below are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF.\n\n\n\n\nThe following table is a schedule overview of the course, with links to lecture slides and workshop instructions. Due dates for assessments are also included. See Assessments for more info.\n\n\n\nWeek\nLecture\nWorkshop\nAssessment\n\n\n\n\n1\nOnboarding\n\n\n\n\n2\nResearch methods\nR basics\n\n\n\n3\nInference, uncertainty and variability\nSummarise, count and group data\n\n\n\n4\nQuestionable Research Practices\nPlot basics\nSelf-reflection\n\n\n5\nBayesian inference\nGaussian models with brms\n\n\n\n6\nRegression basics with brms\nRegression basics and posteriors draws\nQuiz 1\n\n\n7\nNull Ritual\nCategorical predictors in regression\nSelf-reflection\n\n\n8\nBernoulli regression\nBernoulli regression\nGroup project proposal\n\n\n9\nOpen research\nMultiple predictors and interactions\n\n\n\n10\nCase study\nGroup project\nSelf-reflection\n\n\n11\n\n(Optional) Group project\nQuiz 2\n\n\n12\n\n\n\n\n\n13\n\n\nFinal reflection and Group project"
   },
   {
     "objectID": "content.html#topics-overview",
     "href": "content.html#topics-overview",
     "title": "Course content",
     "section": "3 Topics overview",
-    "text": "3 Topics overview\nIn the following table, you can find a more detailed overview of the topics for each week, divided into research methods, statistics and R specific topics.\n\n\n\n\n\n\n\n\n\nWeek\nResearch\nStatistics\nR\n\n\n\n\n1\n\n\n\n\n\n2\nResearch methods\nQuantitative data analysis\nRStudio and R basics\n\n\n3\n\nData summaries\nR scripts, read and summarise data\n\n\n4\nResearch cycle\nData viz principles\nQuarto documents, data transformation and plotting\n\n\n5\nBayesian inference\nProbabilities and Gaussian models\nGaussian models with brms\n\n\n6\n\nRegression modelling (numeric predictor) and posterior draws\nRegression modelling with brms\n\n\n7\nNull Ritual\nRegression (categorical predictor)\nTreatment and indexing\n\n\n8\n\nBernoulli regression\nBernoulli regression\n\n\n9\nOpen research\nRegression (multiple predictors) and interactions\n\n\n\n10\nWhat’s next?"
+    "text": "3 Topics overview\nIn the following table, you can find a more detailed overview of the topics for each week, divided into research methods, statistics and R specific topics.\n\n\n\n\n\n\n\n\n\nWeek\nResearch\nStatistics\nR\n\n\n\n\n1\n\n\n\n\n\n2\nResearch methods\nQuantitative data analysis\nRStudio and R basics\n\n\n3\nInference\nData summaries\nR scripts, read and summarise data\n\n\n4\nResearch cycle\nData viz principles\nQuarto documents, data transformation and plotting\n\n\n5\nBayesian inference\nProbabilities and Gaussian models\nGaussian models with brms\n\n\n6\n\nRegression modelling (numeric predictor) and posterior draws\nRegression modelling with brms\n\n\n7\nNull Ritual\nRegression (categorical predictor)\nTreatment and indexing\n\n\n8\n\nBernoulli regression\nBernoulli regression\n\n\n9\nOpen research\nRegression (multiple predictors) and interactions\n\n\n\n10\nWhat’s next?"
   },
   {
     "objectID": "content.html#course-textbook",
@@ -541,86 +541,86 @@
   {
     "objectID": "lectures/week-02.html#research-process",
     "href": "lectures/week-02.html#research-process",
-    "title": "QML - Week 1",
-    "section": "Research process",
-    "text": "Research process"
+    "title": "QML - Week 2",
+    "section": "2 Research process",
+    "text": "2 Research process"
   },
   {
     "objectID": "lectures/week-02.html#research-context",
     "href": "lectures/week-02.html#research-context",
-    "title": "QML - Week 1",
-    "section": "Research context",
-    "text": "Research context"
+    "title": "QML - Week 2",
+    "section": "3 Research context",
+    "text": "3 Research context"
   },
   {
     "objectID": "lectures/week-02.html#group-activity",
     "href": "lectures/week-02.html#group-activity",
-    "title": "QML - Week 1",
-    "section": "Group activity",
-    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nForm groups of 4/6 students.\nCome up with a research goal that can be achieved with empirical research.\nIt doesn’t have to be fancy, just something you are interested in.\nWrite your research question on a post-it."
+    "title": "QML - Week 2",
+    "section": "4 Group activity",
+    "text": "4 Group activity\n\n\n\n\n\n\n\n\nNoteInstructions\n\n\n\n\nForm groups of 4/6 students.\nCome up with a research goal that can be achieved with empirical research.\nIt doesn’t have to be fancy, just something you are interested in.\nWrite your research question on a post-it."
   },
   {
     "objectID": "lectures/week-02.html#research-axes",
     "href": "lectures/week-02.html#research-axes",
-    "title": "QML - Week 1",
-    "section": "Research axes",
-    "text": "Research axes"
+    "title": "QML - Week 2",
+    "section": "5 Research axes",
+    "text": "5 Research axes"
   },
   {
     "objectID": "lectures/week-02.html#exploratory-hypothesis-generating",
     "href": "lectures/week-02.html#exploratory-hypothesis-generating",
-    "title": "QML - Week 1",
-    "section": "Exploratory (hypothesis generating)",
-    "text": "Exploratory (hypothesis generating)\n\n\n\nWhat is the role of empathy in the L2 perceptual development of intonation?\n\n\n\n\n\n\n\n➡️ Higher empathic individuals, in comparison with lower empathic individuals, appear to be more sensitive to intonation cues in the process of forming sound-meaning associations. (Casillas et al. 2023)\n\n\n\n\n\n\n\n\nWhat is the relationship between spaces of language use, attitudes and self-reported proficiency in minorities languages?\n\n\n\n\n\n\n\n\n➡️ With more spaces available to speakers, the relationship between attitudes and proficiency is weaker. (Hampton and Coretta 2024)"
+    "title": "QML - Week 2",
+    "section": "6 Exploratory (hypothesis generating)",
+    "text": "6 Exploratory (hypothesis generating)\n\n\n\n\n\n\nWhat is the role of empathy in the L2 perceptual development of intonation?\n\n\n\n. . .\n\n\n\n\n\n\n➡️ Higher empathic individuals, in comparison with lower empathic individuals, appear to be more sensitive to intonation cues in the process of forming sound-meaning associations. (Casillas et al. 2023)\n\n\n\n. . .\n\n\n\n\n\n\nWhat is the relationship between spaces of language use, attitudes and self-reported proficiency in minorities languages?\n\n\n\n. . .\n\n\n\n\n\n\n➡️ With more spaces available to speakers, the relationship between attitudes and proficiency is weaker. (Hampton and Coretta 2024)"
   },
   {
     "objectID": "lectures/week-02.html#corroboratory-hypothesis-testing",
     "href": "lectures/week-02.html#corroboratory-hypothesis-testing",
-    "title": "QML - Week 1",
-    "section": "Corroboratory (hypothesis-testing)",
-    "text": "Corroboratory (hypothesis-testing)\n\n\n\nMore structured languages (with higher systematicity) are easier to learn.\nLanguages created by larger groups are easier to learn.\n\n\n\n\n\n\n\n➡️ High systematicity was advantageous for learning, but learners did not benefit from partly or semi-structured languages.\n➡️ Languages that evolved in big and small groups were equally learnable. (Raviv et al. 2021)"
+    "title": "QML - Week 2",
+    "section": "7 Corroboratory (hypothesis-testing)",
+    "text": "7 Corroboratory (hypothesis-testing)\n\n\n\n\n\n\nMore structured languages (with higher systematicity) are easier to learn.\nLanguages created by larger groups are easier to learn.\n\n\n\n. . .\n\n\n\n\n\n\n➡️ High systematicity was advantageous for learning, but learners did not benefit from partly or semi-structured languages.\n➡️ Languages that evolved in big and small groups were equally learnable. (Raviv et al. 2021)"
   },
   {
     "objectID": "lectures/week-02.html#descriptive",
     "href": "lectures/week-02.html#descriptive",
-    "title": "QML - Week 1",
-    "section": "Descriptive",
-    "text": "Descriptive\n\n\n\nThe phonetic inventory of Northern Tosk Albanian. (Coretta et al. 2022)\n\n\n\n\n\n\n\nAn accurate description of the distribution of reflexives and their antecedents in Yoruba, with an examination of the verbs which they co-occur with in terms of the valency classes of the verbs as well the semantic field into which the verbs can be categorized. (Atoyebi and Anyanwu 2020)"
+    "title": "QML - Week 2",
+    "section": "8 Descriptive",
+    "text": "8 Descriptive\n\n\n\n\n\n\nThe phonetic inventory of Northern Tosk Albanian. (Coretta et al. 2022)\n\n\n\n. . .\n\n\n\n\n\n\nAn accurate description of the distribution of reflexives and their antecedents in Yoruba, with an examination of the verbs which they co-occur with in terms of the valency classes of the verbs as well the semantic field into which the verbs can be categorized. (Atoyebi and Anyanwu 2020)"
   },
   {
     "objectID": "lectures/week-02.html#explanatory",
     "href": "lectures/week-02.html#explanatory",
-    "title": "QML - Week 1",
-    "section": "Explanatory",
-    "text": "Explanatory\n\n\n\nRegularization is a phenomenon in which languages gradually reduce variability along certain dimensions. We use an artificial language learning experiment to test whether constraints on working memory during learning or production contribute to regularization. (Keogh et al. 2024)\n\n\n\n\n\n\n\nWe examine a model of abstraction from exemplars in which (a) all heard exemplars are stored (though influenced by factors like attention, decay, and interference), and (b) for language use, these exemplars are restructured into multiple layers of abstraction. (Ambridge 2020)"
+    "title": "QML - Week 2",
+    "section": "9 Explanatory",
+    "text": "9 Explanatory\n\n\n\n\n\n\nRegularization is a phenomenon in which languages gradually reduce variability along certain dimensions. We use an artificial language learning experiment to test whether constraints on working memory during learning or production contribute to regularization. (Keogh et al. 2024)\n\n\n\n. . .\n\n\n\n\n\n\nWe examine a model of abstraction from exemplars in which (a) all heard exemplars are stored (though influenced by factors like attention, decay, and interference), and (b) for language use, these exemplars are restructured into multiple layers of abstraction. (Ambridge 2020)"
   },
   {
     "objectID": "lectures/week-02.html#group-activity-1",
     "href": "lectures/week-02.html#group-activity-1",
-    "title": "QML - Week 1",
-    "section": "Group activity",
-    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nThink about your chosen research goal. Which quadrant in the research axes coordinates do you think it belongs to?\nCome to the board and place the post-it with your research question in the chosen quadrant."
+    "title": "QML - Week 2",
+    "section": "10 Group activity",
+    "text": "10 Group activity\n\n\n\n\n\n\n\n\nNoteInstructions\n\n\n\n\nThink about your chosen research goal. Which quadrant in the research axes coordinates do you think it belongs to?\nCome to the board and place the post-it with your research question in the chosen quadrant."
   },
   {
     "objectID": "lectures/week-02.html#research-objectives",
     "href": "lectures/week-02.html#research-objectives",
-    "title": "QML - Week 1",
-    "section": "Research objectives",
-    "text": "Research objectives\n\n\n\n\n\n\nEstablish facts\n\n\n\n\n\nImprove fit of framework to facts\n\n\n\n\n\nCompare fit of frameworks to facts\n\n\n\n\n\nTick icons created by Roundicons - Flaticon. Performance icons created by Freepik - Flaticon. Comparative icons created by Paul J. - Flaticon"
+    "title": "QML - Week 2",
+    "section": "11 Research objectives",
+    "text": "11 Research objectives\n\n\n\n\n\n\nEstablish facts\n\n\n\n\n\nImprove fit of framework to facts\n\n\n\n\n\nCompare fit of frameworks to facts\n\n\n\n\n\nTick icons created by Roundicons - Flaticon. Performance icons created by Freepik - Flaticon. Comparative icons created by Paul J. - Flaticon"
   },
   {
     "objectID": "lectures/week-02.html#research-objectives-examples",
     "href": "lectures/week-02.html#research-objectives-examples",
-    "title": "QML - Week 1",
-    "section": "Research objectives (examples)",
-    "text": "Research objectives (examples)\n\n\n\n\n\n\n\n\n\n\nEstablish facts\n\n\nAre more regular systems easier to learn? (Raviv et al. 2021)\n\n\n\n\n\n\n\n\n\n\n\n\nImprove fit\n\n\nModels of learning need to consider both a systematicity bias and a preference bias to fit empirical data. (Schumacher and Pierrehumbert 2021)\n\n\n\n\n\n\n\n\n\n\n\n\nCompare fit\n\n\nDual-path vs obligatory decomposition models of lexical retrieval produce contrasting hypotheses. (Taft 2004)"
+    "title": "QML - Week 2",
+    "section": "12 Research objectives (examples)",
+    "text": "12 Research objectives (examples)\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipEstablish facts\n\n\n\nAre more regular systems easier to learn? (Raviv et al. 2021)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipImprove fit\n\n\n\nModels of learning need to consider both a systematicity bias and a preference bias to fit empirical data. (Schumacher and Pierrehumbert 2021)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipCompare fit\n\n\n\nDual-path vs obligatory decomposition models of lexical retrieval produce contrasting hypotheses. (Taft 2004)"
   },
   {
     "objectID": "lectures/week-02.html#group-activity-2",
     "href": "lectures/week-02.html#group-activity-2",
-    "title": "QML - Week 1",
-    "section": "Group activity",
-    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nThink about your chosen research goal. In which of the three research objectives does it fit?\nCome to the board and place the post-it with your research question in the chose objective."
+    "title": "QML - Week 2",
+    "section": "13 Group activity",
+    "text": "13 Group activity\n\n\n\n\n\n\n\n\nNoteInstructions\n\n\n\n\nThink about your chosen research goal. In which of the three research objectives does it fit?\nCome to the board and place the post-it with your research question in the chose objective."
   },
   {
     "objectID": "lectures/week-02.html#references",
@@ -998,7 +998,7 @@
     "href": "workshops/week-02.html",
     "title": "Workshop: Week 2",
     "section": "",
-    "text": "ImportantInstructions\n\n\n\n\nWork through the following exercises with your group.\nChoose one member of the group to be the group navigator. The group navigator must connect their laptop to the table screen and guide the group through the exercises. You can rotate navigator each week.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice this week’s R skills.\n\n\n\n\n\n\n\n\n\nNoteExercise 1\n\n\n\n\nOpen RStudio as you would open any other application/programme (this depends on your operating system).\nRStudio reopens the last open project. That might be the RStudio project you created for the R basics chapter in the course textbook.\nCheck that the project name is visible in the top-right corner of RStudio. If it says Project (none), you are not working in a specific project. You should always make sure that the intended project name is visible in the top-right corner of RStudio.\nNow close RStudio.\nNavigate to the folder of the course Quarto project (maybe you called this qml-2026) in Finder/File Explorer on your laptop (outside of RStudio). Double click on the .Rproj file to open that project in RStudio.\nNow create a new Quarto project called test-project. Close RStudio and open the project by double clicking on the .Rproj file of the test-project Quarto project.\nClick on the project name in the top-right corner of RStudio to show the project drop-down menu (see example below).\n\n\n\n\n\n\n\nTry the Open Project..., Open Project in New Session..., Close Project menu items and switch projects from within the project list. What do each of these do?\n\n\n\n\n\n\n\n\n\nNoteExercise 2\n\n\n\nMake sure that everyone in your group has the correct RStudio settings, as per https://stefanocoretta.github.io/qdal/ch-r-rstudio.html#a-few-important-settings. What do those settings do?\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteExercise 3\n\n\n\nCalculate the following.\n\nThe sum of two numbers.\nThe product of three numbers.\nThe square root of 961.\nThe square of 12.34.\nThe mean of 10, 21.5, 3, 5.7.\n\n\n\n\n\n\n\n\n\nNoteExercise 4\n\n\n\nDo the following.\n\nAssign a single value to a numeric vector.\nAssign many values to a numeric vector.\nCreate a character vector with your first name and one with your surname. Use the variable names first and surname.\nNow print out in the R console Hello! My first name is FIRST and my surname is SURNAME (where FIRST and SURNAME are your first name and surname. You must use the character vectors you created above.\nAssign two numbers to two vectors and assign their sum to another vector names the_sum.\nTake the square of the_sum.\n\n\n\n\n\n\n\n\n\nNoteExercise 5\n\n\n\nFrom next week, we will use a set of packages known as the tidyverse. Practice installing and attaching packages by installing and attaching the tidyverse package, which automatically installs core tidyverse packages (so that you don’t have to install them one by one).\n\nInstall the package tidyverse.\nAttach the tidyverse package. This automatically attaches the core tidyverse packages (as explained by the message printed in the R Console. You can safely discard the Conflicts part of the message).\nCheck the documentation for tidyverse."
+    "text": "ImportantInstructions\n\n\n\n\nWork through the following exercises with your group.\nChoose one member of the group to be the group navigator. The group navigator must connect their laptop to the table screen and guide the group through the exercises. You can rotate navigator each week.\nIf you are unsure about anything, please ask us for directions!\nThe tasks are designed for you to practice this week’s R skills.\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person.\n\n\n\n\n\n\n\n\nNoteExercise 1\n\n\n\n\nOpen RStudio as you would open any other application/programme (this depends on your operating system).\nRStudio reopens the last open project. That might be the RStudio project you created for the R basics chapter in the course textbook.\nCheck that the project name is visible in the top-right corner of RStudio. If it says Project (none), you are not working in a specific project. You should always make sure that the intended project name is visible in the top-right corner of RStudio.\nNow close RStudio.\nNavigate to the folder of the course Quarto project (maybe you called this qml-2026) in Finder/File Explorer on your laptop (outside of RStudio). Double click on the .Rproj file to open that project in RStudio.\nNow create a new Quarto project called test-project. Close RStudio and open the project by double clicking on the .Rproj file of the test-project Quarto project.\nClick on the project name in the top-right corner of RStudio to show the project drop-down menu (see example below).\n\n\n\n\n\n\n\nTry the Open Project..., Open Project in New Session..., Close Project menu items and switch projects from within the project list. What do each of these do?\n\n\n\n\n\n\n\n\n\nNoteExercise 2\n\n\n\nMake sure that everyone in your group has the correct RStudio settings, as per https://stefanocoretta.github.io/qdal/ch-r-rstudio.html#a-few-important-settings. What do those settings do?\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteExercise 3\n\n\n\nCalculate the following.\n\nThe sum of two numbers.\nThe product of three numbers.\nThe square root of 961.\nThe square of 12.34.\nThe mean of 10, 21.5, 3, 5.7.\n\n\n\n\n\n\n\n\n\nNoteExercise 4\n\n\n\nDo the following.\n\nAssign a single value to a numeric vector.\nAssign many values to a numeric vector.\nCreate a character vector with your first name and one with your surname. Use the variable names first and surname.\nNow print out in the R console Hello! My first name is FIRST and my surname is SURNAME (where FIRST and SURNAME are your first name and surname. You must use the character vectors you created above.\nAssign two numbers to two vectors and assign their sum to another vector names the_sum.\nTake the square of the_sum.\n\n\n\n\n\n\n\n\n\nNoteExercise 5\n\n\n\nFrom next week, we will use a set of packages known as the tidyverse. Practice installing and attaching packages by installing and attaching the tidyverse package, which automatically installs core tidyverse packages (so that you don’t have to install them one by one).\n\nInstall the package tidyverse.\nAttach the tidyverse package. This automatically attaches the core tidyverse packages (as explained by the message printed in the R Console. You can safely discard the Conflicts part of the message).\nCheck the documentation for tidyverse."
   },
   {
     "objectID": "workshops/week-04.html",

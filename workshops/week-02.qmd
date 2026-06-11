@@ -17,6 +17,14 @@ format: html
 - The tasks are designed for you to practice this week's R skills.
 :::
 
+::: callout-tip
+## Feedback
+
+For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
+
+**We will not provide you with model answers**, so make sure you make the most of us in person.
+:::
+
 ::: callout-note
 ## Exercise 1
 

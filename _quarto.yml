@@ -46,7 +46,7 @@ format:
     link-external-newwindow: true
     include-in-header:
       - text: |
-          <script src="js/table-links.js"></script>
+          <script src="/js/table-links.js"></script>
 
 callout-icon: false
 
