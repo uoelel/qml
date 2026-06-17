@@ -6,29 +6,26 @@ format: html
 ::: callout-important
 ## Instructions
 
-- Pick one of the following tasks and work on them in group.
+- Pick one of the following tasks and work on it as a group, guided by the group navigator.
   Feel free to work on the others as well if you have time.
+
+- Each of you should complete the exercises on your laptop, using the RStudio project you created for the course.
+  This includes writing, commenting and executing code in an **R script**.
 
 - If you are unsure about anything, please ask us for directions!
 
 - The tasks are designed for you to practice this week's R skills.
 
 - Unless otherwise specified, the data are part of the data archive you downloaded for the [Read Data](https://stefanocoretta.github.io/qdal/ch-read-data.html) chapter of the textbook.
-  Information about the data can be found on the [QML Data](https://uoelel.github.io/qml-data/) website (which is also where you downloaded the data from).
-:::
-
-::: callout-tip
-## Feedback
-
-For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
-
-**We will not provide you with model answers**, so make sure you make the most of us in person.
+  Information about the data can be found on the [QML Data](https://uoelel.github.io/qml-data/) website (which is also where you downloaded the data from), by following the "Data docs" links.
 :::
 
 ::: callout-note
 ## Task A: Italian Voice Onset Time
 
-- Read the `coretta2018a/ita_egg.rda` data.
+- [Data docs](https://uoelel.github.io/qml-data/data/coretta2018a/ita_egg.html).
+
+- Read the `coretta2018a/ita_egg.rda` data in R.
   `.rda` files are read using `load()`.
   This function works without needing to assign the output to a variable (so it's different from the other `read*()` functions, which do require you to assign the output to a variable).
 
@@ -50,7 +47,9 @@ For feedback, ask us in class and/or send your work to Stefano and/or come to St
 ::: callout-note
 ## Task C: Massive Auditory Lexical Decision
 
-- Read the `tucker2019/mald_1_1.rds` data.
+- [Data docs](https://uoelel.github.io/qml-data/data/tucker2019/mald_1_1.html).
+
+- Read the `tucker2019/mald_1_1.rds` data in R.
 
 - Summarise the following with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, `IsWord`), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.
 

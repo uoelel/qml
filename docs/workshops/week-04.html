@@ -157,9 +157,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Complete Task A and then pick of the other two tasks.</p></li>
-<li><p>If you are unsure about anything, please ask us for directions!</p></li>
-<li><p>The tasks are designed for you to practice this week’s R skills.</p></li>
+<li><p>Work on Task A as a group, guided by the group navigator, then work on one of the other two tasks. Feel free to work on the remaining task as well if you have time.</p></li>
+<li><p>Each of you should complete the exercises on your laptop, using the RStudio project you created for the course. This includes writing text and code in a <strong>Quarto document</strong> and executing the code. You should use Quarto documents (rather than scripts) from now on (in the workshops and at home).</p></li>
 </ul>
 </div>
 </div>
@@ -174,7 +173,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>coretta2021/alb-vot.csv</code> data.</p></li>
+<li><p><a href="https://uoelel.github.io/qml-data/data/coretta2021/alb-vot.html">Data docs</a>.</p></li>
+<li><p>Read the <code>coretta2021/alb-vot.csv</code> data in R.</p></li>
 <li><p>Calculate the VOT based on the <code>release</code> and <code>voi_onset</code> columns. (VOT is the time lag between the voicing onset and the consonant release).</p></li>
 <li><p>Create a new column that specifies the voicing of the consonant (voiced or voiceless) based on the value in <code>label</code>. <code>ifelse()</code> or <code>case_when()</code> are useful.</p></li>
 <li><p>Get summary measures of VOT for voiceless and voiced consonants. Can the VOT differentiate between the two voicing categories?</p></li>
@@ -192,7 +192,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>coretta2021/alb_formants.rds</code> data.</p></li>
+<li><p><a href="https://uoelel.github.io/qml-data/data/coretta2021/alb_formants.html">Data docs</a>.</p></li>
+<li><p>Read the <code>coretta2021/alb_formants.rds</code> data in R.</p></li>
 <li><p>Create a scatter plot of F1 and F2, with points coloured by <code>vowel</code>. Are the vowels in the places you’d expect them to be?</p></li>
 <li><p>Now create another scatter plot with F1 and vowel duration. You need to calculate vowel duration first from <code>start</code> and <code>end</code>. Can you notice any patterns in the relationship between F1 and vowel duration?</p></li>
 </ul>
@@ -209,26 +210,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>sluckin2022/everywhere-loc.csv</code> data. The data are acceptability judgements on the impersonal use of “everywhere”, like in the sentence “Everywhere here can say this”.</p></li>
+<li><p><a href="https://uoelel.github.io/qml-data/data/sluckin2022/everywhere-loc.html">Data docs</a>.</p></li>
+<li><p>Read the <code>sluckin2022/everywhere-loc.csv</code> data in R. The data are acceptability judgements on the impersonal use of “everywhere”, like in the sentence “Everywhere here can say this”.</p></li>
 <li><p>The <code>Restrictor</code> column tells you if the sentence has a restrictor, like in “Everywhere <em>on the coast</em> eats fish and chips.” vs no restrictor “Everywhere takes credit cards these days.” The <code>Value</code> column gives you the acceptability rating from 1 to 7.</p></li>
 <li><p>Mutate the <code>Restrictor</code> column so that 0 = “no restrictor” and 1 = “restrictor”.</p></li>
 <li><p>Mutate the <code>Value</code> column so that it is a character column (use <code>as.character()</code>).</p></li>
 <li><p>Create a filled stacked bar chart by <code>Restrictor</code> with fill by <code>Value</code> and panels by <code>Age</code>. Can you spot differences in rating across different age brackets?</p></li>
 </ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Feedback
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).</p>
-<p><strong>We will not provide you with model answers</strong>, so make sure you make the most of us in person.</p>
 </div>
 </div>
 

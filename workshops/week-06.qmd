@@ -6,17 +6,15 @@ format: html
 ::: callout-important
 ## Instructions
 
-- Pick one of the following tasks and work through it in group.
+- Pick one of the following tasks and work as a group, guided by the group navigator.
 
 - While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.
-
-- If you are unsure about anything, please ask us for directions!
-
-- The tasks are designed for you to practice Bayesian Gaussian modelling.
 :::
 
 ::: callout-note
 ## Task A: Massive Auditory Lexical Decision (MALD)
+
+- [Data docs](https://uoelel.github.io/qml-data/data/tucker2019/mald_1_1.html).
 
 - Read the `tucker2019/mald_1_1.rds` data.
 
@@ -35,6 +33,8 @@ format: html
 ::: callout-note
 ## Task B: Korean voice quality
 
+- [Data docs](https://uoelel.github.io/qml-data/data/winter2012/polite.html).
+
 - Read the `winter2012/polite.csv` data.
 
 - Filter the data to include only female participants.
@@ -49,18 +49,12 @@ format: html
 ::: callout-note
 ## Task C: Reading fixation times (eye-tracking)
 
-- Read `berzak2025/fix-dur.csv` and familiarise yourself with the [data documentation](https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html) and study linked therein.
+- [Data docs](https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html).
+
+- Read `berzak2025/fix-dur.csv`.
 
 - With a regression model, answer the following research question: what is the relationship between the current fixation duration and the length of the word being fixated?
 
 - Write a paragraph reporting the model.
   Produce plots of the posterior distributions of the model parameters.
-:::
-
-::: callout-tip
-## Feedback
-
-For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
-
-**We will not provide you with model answers**, so make sure you make the most of us in person.
 :::

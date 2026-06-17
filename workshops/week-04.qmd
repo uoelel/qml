@@ -6,17 +6,20 @@ format: html
 ::: callout-important
 ## Instructions
 
-- Complete Task A and then pick of the other two tasks.
+- Work on Task A as a group, guided by the group navigator, then work on one of the other two tasks.
+  Feel free to work on the remaining task as well if you have time.
 
-- If you are unsure about anything, please ask us for directions!
-
-- The tasks are designed for you to practice this week's R skills.
+- Each of you should complete the exercises on your laptop, using the RStudio project you created for the course.
+  This includes writing text and code in a **Quarto document** and executing the code.
+  You should use Quarto documents (rather than scripts) from now on (in the workshops and at home).
 :::
 
 ::: callout-note
 ## Task A: Albanian Voice Onset Time
 
-- Read the `coretta2021/alb-vot.csv` data.
+- [Data docs](https://uoelel.github.io/qml-data/data/coretta2021/alb-vot.html).
+
+- Read the `coretta2021/alb-vot.csv` data in R.
 
 - Calculate the VOT based on the `release` and `voi_onset` columns.
   (VOT is the time lag between the voicing onset and the consonant release).
@@ -31,7 +34,9 @@ format: html
 ::: callout-note
 ## Task B: Albanian vowels
 
-- Read the `coretta2021/alb_formants.rds` data.
+- [Data docs](https://uoelel.github.io/qml-data/data/coretta2021/alb_formants.html).
+
+- Read the `coretta2021/alb_formants.rds` data in R.
 
 - Create a scatter plot of F1 and F2, with points coloured by `vowel`.
   Are the vowels in the places you'd expect them to be?
@@ -44,7 +49,9 @@ format: html
 ::: callout-note
 ## Task C: **'Everywhere here can say this'**
 
-- Read the `sluckin2022/everywhere-loc.csv` data.
+- [Data docs](https://uoelel.github.io/qml-data/data/sluckin2022/everywhere-loc.html).
+
+- Read the `sluckin2022/everywhere-loc.csv` data in R.
   The data are acceptability judgements on the impersonal use of "everywhere", like in the sentence "Everywhere here can say this".
 
 - The `Restrictor` column tells you if the sentence has a restrictor, like in "Everywhere *on the coast* eats fish and chips." vs no restrictor "Everywhere takes credit cards these days." The `Value` column gives you the acceptability rating from 1 to 7.
@@ -55,12 +62,4 @@ format: html
 
 - Create a filled stacked bar chart by `Restrictor` with fill by `Value` and panels by `Age`.
   Can you spot differences in rating across different age brackets?
-:::
-
-::: callout-tip
-## Feedback
-
-For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
-
-**We will not provide you with model answers**, so make sure you make the most of us in person.
 :::
