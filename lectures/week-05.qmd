@@ -1,253 +1,187 @@
 ---
-title: "QML - Week 4"
-subtitle: "Bayesian inference"
+title: "QML - Week 5"
+subtitle: "Intro to statistical modelling"
 author: "Stefano Coretta"
 format: revealjs
 bibliography: references.bib
 ---
 
-## We're taking attendance
-
-![](/img/QRCode for Quantitative Methods in Linguistics and English Language, Semester 1, Week 4.png){fig-align="center"}
-
-## Probabilities
+## Statistical modelling
 
 ```{r}
 #| label: setup
-#| include: false
 
 library(tidyverse)
 theme_set(theme_light())
 library(brms)
 library(bayesplot)
+
 ```
 
-::: callout-note
-### Probability
+![](/img/data-model.png){fig-align="center"}
 
--   Probability of an event occurring.
+## Gaussian models
 
--   Probabilities can only be **between 0 and 1**.
-
-    -   ⛔️ 0 means **impossible**.
-    -   🤷 0.5 means **it can happen but it can also not happen**.
-    -   ✅ 1 means **certain**.
-:::
-
-![](/img/probabilities.png){fig-align="center"}
-
-## Probabilities
-
-::: {.callout-note appearance="simple"}
--   Probability of an event occurring: 0 to 100% probability.
-
--   **Probability of a statistical variable being some numeric value**: a bit more complicated...
-:::
-
-. . .
-
-::: {.callout-tip appearance="simple"}
-**We need probability distributions!**
-:::
-
-## Distribution of probability
-
-<br>
-
-![](/img/grubabilities.png){fig-align="center"}
-
-## Probability distributions
-
-::: {.callout-note appearance="simple"}
-A **probability distribution** describes *how the probabilities are distributed over the values* that a variable can take on.
-:::
-
-. . .
-
-::: callout-note
-### Two types of probability distributions
-
--   Discrete probability distributions.
-
--   Continuous probability distributions.
-:::
-
-. . .
-
-::: {.callout-tip appearance="simple"}
-You learned about discrete and continuous variables in Week 2!
-
-**Discrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions.**
-:::
-
-## Calculating probability distributions
-
-::: {.callout-note appearance="simple"}
-You will never need to calculate probability distributions by hand, but it is useful to know about the two mathematical functions that are used for that purpose.
-
--   The **Probability Mass Function** (PMF) for discrete probability distributions.
-
--   The **Probability Density Function** (PDF) for continuous probability distributions.
-:::
-
-## Probability Mass Function
-
-![](/img/dice.png){fig-align="center"}
-
-## Probability Density Function
+$$y \sim Gaussian(\mu, \sigma)$$
 
 ```{r}
-#| label: pdf
-#| fig-align: center
+#| label: gauss
+#| layout-ncol: 2
 
-alpha <- 4
-beta <- 1.5
-beta_df <- tibble(
-  x = seq(0, 1, length.out = 100),
-  density = dbeta(x, alpha, beta)
-)
+x <- seq(-10, 20, length.out = 1000)
 
-ggplot(beta_df, aes(x = x, y = density)) +
-  geom_line(color = "darkorange", linewidth = 1.2) +
-  labs(x = "Proportion", y = "Density")
+means <- c(0, -5, 10)
+sd_fixed <- 2
+
+df_means <- crossing(x = x, mean = means) |> 
+  mutate(
+    y = dnorm(x, mean = mean, sd = sd_fixed),
+    mean = factor(mean)
+  ) |> 
+  arrange(mean, x)
+
+ggplot(df_means, aes(x = x, y = y, color = mean)) +
+  geom_line(linewidth = 1) +
+  labs(x = element_blank(), y = "Density", caption = "SD = 2.")
+
+sds <- c(1, 2, 4)
+mean_fixed <- 5
+
+df_sds <- crossing(x = x, SD = sds) |> 
+  mutate(
+    y = dnorm(x, mean = mean_fixed, sd = SD),
+    SD = factor(SD)
+  ) |> 
+  arrange(SD, x)
+
+ggplot(df_sds, aes(x = x, y = y, color = SD)) +
+  geom_line(linewidth = 1) +
+  labs(x = NULL, y = "Density", caption = "Mean = 5.")
+
 ```
-
-## Parameters
-
-::: {.callout-note appearance="simple"}
--   **Probability distributions can be summarised with a set of parameters.**
-
--   Different types of probability distributions have a different number of parameters and different parameters.
-:::
-
-. . .
-
-::: callout-tip
-### Gaussian distribution
-
-The **Gaussian probability distribution** is a continuous probability distribution and it has two parameters:
-
--   The mean $\mu$.
--   The standard deviation (SD) $\sigma$.
-
-Go to [Seeing Theory](https://seeing-theory.brown.edu/probability-distributions/index.html#section2) (by Daniel Kunin).
-:::
-
-::: notes
-Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).
-
-<https://seeing-theory.brown.edu/index.html#3rdPage>
-:::
 
 ## Simulate Gaussian data
 
-::: callout-note
-### Human height
+::: {style="text-align: center;"}
+`rnorm(n, mean, sd)`
+:::
 
--   Simulate human height as a Gaussian variable.
-
--   `rnorm()`: number of observations, mean, SD.
+::: {.callout-note appearance="simple"}
+- `n`: number of obs to generate
+- `mean`: mean of the Gaussian distribution
+- `sd`: SD of the Gaussian distribution
 :::
 
 . . .
 
 ```{r}
-#| label: height
+#| label: f0
 #| echo: true
 
 set.seed(812)
-height <- rnorm(200, 165, 8) |> round()
+f0 <- rnorm(200, 125, 25) |> round()
 
-height[1:10]
+f0[1:10]
 ```
 
-## Kernel Density Estimation
-
-::: {.callout-note appearance="simple"}
--   PDF constructs the density curve of theoretical distributions.
-
--   **Kernel Density Estimation** (KDE) constructs the density curve of empirical data (observations).
-:::
-
-. . .
+## f0 density
 
 ```{r}
-#| label: height-plot
+#| label: f0-plot
 #| fig-align: center
 
 ggplot() +
-  aes(height) +
+  aes(f0) +
   geom_density(fill = "darkgreen", alpha = 0.2) +
-  geom_rug(alpha = 0.25)
+  geom_rug(alpha = 0.25) +
+  labs(x = "f0 (Hz)")
 ```
 
-## Statistical modelling
+## Simulation vs estimation
 
-::: {.callout-note appearance="simple"}
--   When you simulate data, you know the population mean and SD.
+<br><br>
 
--   In research, you don't. You just have observations.
+::::::: columns
+:::: column
+::: {style="text-align: center;"}
+**SIMULATION**
 :::
 
-. . .
+![](../img/flaticon/simulation.png){fig-align="center" height="100px"}
 
-::: callout-tip
-### Statistical modelling
+You have $\mu, \sigma$ and you generate $y$.
+::::
 
--   Statistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference.
-
--   **Bayesian Gaussian models** do exactly that: estimate mean and SD.
+:::: {.column .fragment}
+::: {style="text-align: center;"}
+**ESTIMATION**
 :::
 
-## Gaussian model of height
+![](../img/flaticon/earth.png){fig-align="center" height="100px"}
 
-$$
-\begin{align}
-h & \sim Gaussian(\mu, \sigma)\\
+You have $y$ and you estimate $\mu$ and $\sigma$.
+::::
+:::::::
+
+::: aside
+[<a href="https://www.flaticon.com/free-icons/simulation" title="simulation icons">Simulation icons created by Flat Icons - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/world" title="world icons">World icons created by Freepik - Flaticon</a>]{style="font-size: 8px;"}
+:::
+
+::: notes
+When you simulate data, you know the population mean and SD.
+In research, you don't.
+You just have observations.
+
+Statistical modelling allows you to estimate the mean and SD of the population from the sample.
+This is statistical inference.
+**Bayesian Gaussian models** do exactly that: estimate mean and SD.
+:::
+
+## Gaussian model of f0
+
+$$\begin{align}
+f0 & \sim Gaussian(\mu, \sigma)\\
 \mu & = ...\\
 \sigma & = ...
-\end{align}
-$$
+\end{align}$$
 
-## Gaussian model of height
+## Gaussian model of f0
 
-$$
-\begin{align}
-h & \sim Gaussian(\mu, \sigma)\\
+$$\begin{align}
+f0 & \sim Gaussian(\mu, \sigma)\\
 \mu & = P_\mu\\
 \sigma & = P_\sigma
-\end{align}
-$$
+\end{align}$$
 
 ::: {.callout-tip appearance="simple"}
--   $P$ is a **posterior probability distribution**.
+$P$ is a generic **posterior probability distribution**.
 :::
 
-## Gaussian model of height: brms
+## Gaussian model of f0: brms
 
 ```{r}
-#| label: h-bm
+#| label: f0-bm
 #| echo: true
 
-h_tib <- tibble(h = height)
+f0_tib <- tibble(f0 = f0)
 
 library(brms)
 
-h_bm <- brm(
-  h ~ 1,
+f0_bm <- brm(
+  f0 ~ 1,
   family = gaussian,
-  data = h_tib,
-  file = "cache/h_bm"
+  data = f0_tib,
+  file = "cache/f0_bm"
 )
 ```
 
 ## Gaussian model of height: posteriors
 
 ```{r}
-#| label: h-bm-plot
+#| label: f0-bm-plot
 #| fig-align: center
 
-mcmc_dens(h_bm, pars = c("b_Intercept", "sigma"),
+mcmc_dens(f0_bm, pars = c("b_Intercept", "sigma"),
   facet_args = list(
     labeller = labeller(
       .default = as_labeller(c(b_Intercept = "mu", sigma = "sigma"))
@@ -256,37 +190,73 @@ mcmc_dens(h_bm, pars = c("b_Intercept", "sigma"),
 )
 ```
 
-## A bit harder: N = 5
+## Posterior summary
 
-::: callout-note
-### Sample size
+```{r}
+#| label: f0-bm-summary
+#| echo: true
 
--   Sample size matters: the lower the sample size, the higher the uncertainty.
+posterior_summary(f0_bm, probs = c(0.1, 0.9))[1:2,] |> round()
+```
 
--   Let's try with just 5 observations (out of 200).
+## Sample size and uncertainty
+
+<br><br>
+
+:::::: columns
+::: {.column width="33%"}
+![](../img/flaticon/marbles.png){fig-align="center" height="200px"}
+:::
+
+::: {.column width="33%"}
+<br>
+
+![](../img/flaticon/up-and-down.png){fig-align="center" height="100px"}
+:::
+
+::: {.column width="33%"}
+![](../img/flaticon/question-2.png){fig-align="center" height="200px"}
+:::
+::::::
+
+::::: columns
+::: {.column style="text-align: center;"}
+the lower the sample size
+:::
+
+::: {.column style="text-align: center;"}
+the higher the uncertainty
+:::
+:::::
+
+::: aside
+[<a href="https://www.flaticon.com/free-icons/marble" title="marble icons">Marble icons created by Freepik - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/question" title="question icons">Question icons created by Freepik - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/up-and-down" title="up and down icons">Up and down icons created by Freepik - Flaticon</a>]{style="font-size: 8px;"}
 :::
 
 ## A bit harder: N = 5
 
 ```{r}
-#| label: h-bm-small
+#| label: f0-bm-small
+#| echo: true
 
 set.seed(4256)
-h_tib <- tibble(h = sample(height, 5))
+f0_tib <- tibble(f0 = sample(f0, 5))
 
-h_bm_small <- brm(
-  h ~ 1,
+f0_bm_small <- brm(
+  f0 ~ 1,
   family = gaussian,
-  data = h_tib,
-  file = "cache/h_bm_small"
+  data = f0_tib,
+  file = "cache/f0_bm_small"
 )
 ```
 
+## A bit harder: N = 5
+
 ```{r}
-#| label: h-bm-small-plot
+#| label: f0-bm-small-plot
 #| fig-align: center
 
-mcmc_dens(h_bm_small, pars = c("b_Intercept", "sigma"),
+mcmc_dens(f0_bm_small, pars = c("b_Intercept", "sigma"),
   facet_args = list(
     labeller = labeller(
       .default = as_labeller(c(b_Intercept = "mu", sigma = "sigma"))
@@ -295,17 +265,15 @@ mcmc_dens(h_bm_small, pars = c("b_Intercept", "sigma"),
 )
 ```
 
-## Summary
+## A bit harder: N = 5
 
-::: {.callout-note appearance="simple"}
--   Probability distributions describe how probability is distributed across values.
+```{r}
+#| label: f0-bm-small-summary
+#| echo: true
 
--   Theoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.
+posterior_summary(f0_bm_small, probs = c(0.1, 0.9))[1:2,] |> round()
+```
 
--   KDE is used for empirical distributions.
+## Statistical modelling
 
--   (Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.
-
--   Sample size affects uncertainty.
-:::
-
+![](/img/data-model.png){fig-align="center"}

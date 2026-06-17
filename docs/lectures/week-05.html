@@ -6,11 +6,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Stefano Coretta">
-  <title>QML – QML - Week 4</title>
+  <title>QML – QML - Week 5</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -196,8 +196,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background="var(--inverse)" class="quarto-title-block center">
-  <h1 class="title">QML - Week 4</h1>
-  <p class="subtitle">Bayesian inference</p>
+  <h1 class="title">QML - Week 5</h1>
+  <p class="subtitle">Intro to statistical modelling</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -208,147 +208,85 @@ Stefano Coretta
 </div>
 
 </section>
-<section id="were-taking-attendance" class="slide level2">
-<h2>We’re taking attendance</h2>
+<section id="statistical-modelling" class="slide level2">
+<h2>Statistical modelling</h2>
 
-<img data-src="../img/QRCode for Quantitative Methods in Linguistics and English Language, Semester 1, Week 4.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="probabilities" class="slide level2">
-<h2>Probabilities</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Probability</strong></p>
+<img data-src="../img/data-model.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="gaussian-models" class="slide level2">
+<h2>Gaussian models</h2>
+<p><span class="math display">\[y \sim Gaussian(\mu, \sigma)\]</span></p>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="week-05_files/figure-revealjs/gauss-1.png" width="672"></p>
 </div>
-<div class="callout-content">
-<ul>
-<li><p>Probability of an event occurring.</p></li>
-<li><p>Probabilities can only be <strong>between 0 and 1</strong>.</p>
-<ul>
-<li>⛔️ 0 means <strong>impossible</strong>.</li>
-<li>🤷 0.5 means <strong>it can happen but it can also not happen</strong>.</li>
-<li>✅ 1 means <strong>certain</strong>.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-
-<img data-src="../img/probabilities.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="probabilities-1" class="slide level2">
-<h2>Probabilities</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>Probability of an event occurring: 0 to 100% probability.</p></li>
-<li><p><strong>Probability of a statistical variable being some numeric value</strong>: a bit more complicated…</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-tip no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><strong>We need probability distributions!</strong></p>
-</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="week-05_files/figure-revealjs/gauss-2.png" width="672"></p>
 </div>
 </div>
 </div>
 </section>
-<section id="distribution-of-probability" class="slide level2">
-<h2>Distribution of probability</h2>
-<p><br></p>
-
-<img data-src="../img/grubabilities.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="probability-distributions" class="slide level2">
-<h2>Probability distributions</h2>
+<section id="simulate-gaussian-data" class="slide level2">
+<h2>Simulate Gaussian data</h2>
+<div style="text-align: center;">
+<p><code>rnorm(n, mean, sd)</code></p>
+</div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>A <strong>probability distribution</strong> describes <em>how the probabilities are distributed over the values</em> that a variable can take on.</p>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Two types of probability distributions</strong></p>
-</div>
-<div class="callout-content">
 <ul>
-<li><p>Discrete probability distributions.</p></li>
-<li><p>Continuous probability distributions.</p></li>
+<li><code>n</code>: number of obs to generate</li>
+<li><code>mean</code>: mean of the Gaussian distribution</li>
+<li><code>sd</code>: SD of the Gaussian distribution</li>
 </ul>
 </div>
 </div>
 </div>
-</div>
 <div class="fragment">
-<div class="callout callout-tip no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>You learned about discrete and continuous variables in Week 2!</p>
-<p><strong>Discrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions.</strong></p>
-</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">set.seed</span>(<span class="dv">812</span>)</span>
+<span id="cb1-2"><a></a>f0 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="dv">125</span>, <span class="dv">25</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>f0[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  79 146 111 114 112 147 167  98 143 102</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="calculating-probability-distributions" class="slide level2">
-<h2>Calculating probability distributions</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>You will never need to calculate probability distributions by hand, but it is useful to know about the two mathematical functions that are used for that purpose.</p>
-<ul>
-<li><p>The <strong>Probability Mass Function</strong> (PMF) for discrete probability distributions.</p></li>
-<li><p>The <strong>Probability Density Function</strong> (PDF) for continuous probability distributions.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="probability-mass-function" class="slide level2">
-<h2>Probability Mass Function</h2>
+<section id="f0-density" class="slide level2">
+<h2>f0 density</h2>
 
-<img data-src="../img/dice.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="probability-density-function" class="slide level2">
-<h2>Probability Density Function</h2>
+<img data-src="week-05_files/figure-revealjs/f0-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<section id="simulation-vs-estimation" class="slide level2">
+<h2>Simulation vs estimation</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column">
+<div style="text-align: center;">
+<p><strong>SIMULATION</strong></p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../img/flaticon/simulation.png" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+<p>You have <span class="math inline">\(\mu, \sigma\)</span> and you generate <span class="math inline">\(y\)</span>.</p>
+</div><div class="column fragment">
+<div style="text-align: center;">
+<p><strong>ESTIMATION</strong></p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../img/flaticon/earth.png" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+<p>You have <span class="math inline">\(y\)</span> and you estimate <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
+</div></div>
 
-<img data-src="week-05_files/figure-revealjs/pdf-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="parameters" class="slide level2">
-<h2>Parameters</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p><strong>Probability distributions can be summarised with a set of parameters.</strong></p></li>
-<li><p>Different types of probability distributions have a different number of parameters and different parameters.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Gaussian distribution</strong></p>
-</div>
-<div class="callout-content">
-<p>The <strong>Gaussian probability distribution</strong> is a continuous probability distribution and it has two parameters:</p>
-<ul>
-<li>The mean <span class="math inline">\(\mu\)</span>.</li>
-<li>The standard deviation (SD) <span class="math inline">\(\sigma\)</span>.</li>
-</ul>
-<p>Go to <a href="https://seeing-theory.brown.edu/probability-distributions/index.html#section2">Seeing Theory</a> (by Daniel Kunin).</p>
-</div>
-</div>
-</div>
 <aside class="notes">
-<p>Seeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).</p>
-<p><a href="https://seeing-theory.brown.edu/index.html#3rdPage" class="uri">https://seeing-theory.brown.edu/index.html#3rdPage</a></p>
+<p>When you simulate data, you know the population mean and SD. In research, you don’t. You just have observations.</p>
+<p>Statistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference. <strong>Bayesian Gaussian models</strong> do exactly that: estimate mean and SD.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -360,173 +298,131 @@ Stefano Coretta
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
-</section>
-<section id="simulate-gaussian-data" class="slide level2">
-<h2>Simulate Gaussian data</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Human height</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>Simulate human height as a Gaussian variable.</p></li>
-<li><p><code>rnorm()</code>: number of observations, mean, SD.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">set.seed</span>(<span class="dv">812</span>)</span>
-<span id="cb1-2"><a></a>height <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="dv">165</span>, <span class="dv">8</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a>height[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 150 172 161 162 161 172 178 156 171 158</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="kernel-density-estimation" class="slide level2">
-<h2>Kernel Density Estimation</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>PDF constructs the density curve of theoretical distributions.</p></li>
-<li><p><strong>Kernel Density Estimation</strong> (KDE) constructs the density curve of empirical data (observations).</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="week-05_files/figure-revealjs/height-plot-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="statistical-modelling" class="slide level2">
-<h2>Statistical modelling</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>When you simulate data, you know the population mean and SD.</p></li>
-<li><p>In research, you don’t. You just have observations.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Statistical modelling</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>Statistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference.</p></li>
-<li><p><strong>Bayesian Gaussian models</strong> do exactly that: estimate mean and SD.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="gaussian-model-of-height" class="slide level2">
-<h2>Gaussian model of height</h2>
-<p><span class="math display">\[
-\begin{align}
-h &amp; \sim Gaussian(\mu, \sigma)\\
+<aside><div>
+<p><span style="font-size: 8px;"><a href="https://www.flaticon.com/free-icons/simulation" title="simulation icons">Simulation icons created by Flat Icons - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/world" title="world icons">World icons created by Freepik - Flaticon</a></span></p>
+</div></aside></section>
+<section id="gaussian-model-of-f0" class="slide level2">
+<h2>Gaussian model of f0</h2>
+<p><span class="math display">\[\begin{align}
+f0 &amp; \sim Gaussian(\mu, \sigma)\\
 \mu &amp; = ...\\
 \sigma &amp; = ...
-\end{align}
-\]</span></p>
+\end{align}\]</span></p>
 </section>
-<section id="gaussian-model-of-height-1" class="slide level2">
-<h2>Gaussian model of height</h2>
-<p><span class="math display">\[
-\begin{align}
-h &amp; \sim Gaussian(\mu, \sigma)\\
+<section id="gaussian-model-of-f0-1" class="slide level2">
+<h2>Gaussian model of f0</h2>
+<p><span class="math display">\[\begin{align}
+f0 &amp; \sim Gaussian(\mu, \sigma)\\
 \mu &amp; = P_\mu\\
 \sigma &amp; = P_\sigma
-\end{align}
-\]</span></p>
+\end{align}\]</span></p>
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<ul>
-<li><span class="math inline">\(P\)</span> is a <strong>posterior probability distribution</strong>.</li>
-</ul>
+<p><span class="math inline">\(P\)</span> is a generic <strong>posterior probability distribution</strong>.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="gaussian-model-of-height-brms" class="slide level2">
-<h2>Gaussian model of height: brms</h2>
+<section id="gaussian-model-of-f0-brms" class="slide level2">
+<h2>Gaussian model of f0: brms</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>h_tib <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">h =</span> height)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>f0_tib <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">f0 =</span> f0)</span>
 <span id="cb3-2"><a></a></span>
 <span id="cb3-3"><a></a><span class="fu">library</span>(brms)</span>
 <span id="cb3-4"><a></a></span>
-<span id="cb3-5"><a></a>h_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb3-6"><a></a>  h <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb3-5"><a></a>f0_bm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb3-6"><a></a>  f0 <span class="sc">~</span> <span class="dv">1</span>,</span>
 <span id="cb3-7"><a></a>  <span class="at">family =</span> gaussian,</span>
-<span id="cb3-8"><a></a>  <span class="at">data =</span> h_tib,</span>
-<span id="cb3-9"><a></a>  <span class="at">file =</span> <span class="st">"cache/h_bm"</span></span>
+<span id="cb3-8"><a></a>  <span class="at">data =</span> f0_tib,</span>
+<span id="cb3-9"><a></a>  <span class="at">file =</span> <span class="st">"cache/f0_bm"</span></span>
 <span id="cb3-10"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="gaussian-model-of-height-posteriors" class="slide level2">
 <h2>Gaussian model of height: posteriors</h2>
 
-<img data-src="week-05_files/figure-revealjs/h-bm-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<img data-src="week-05_files/figure-revealjs/f0-bm-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<section id="posterior-summary" class="slide level2">
+<h2>Posterior summary</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">posterior_summary</span>(f0_bm, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>))[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,] <span class="sc">|&gt;</span> <span class="fu">round</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Estimate Est.Error Q10 Q90
+b_Intercept      126         2 124 129
+sigma             27         1  25  28</code></pre>
+</div>
+</div>
+</section>
+<section id="sample-size-and-uncertainty" class="slide level2">
+<h2>Sample size and uncertainty</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../img/flaticon/marbles.png" class="quarto-figure quarto-figure-center" height="200"></p>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../img/flaticon/up-and-down.png" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../img/flaticon/question-2.png" class="quarto-figure quarto-figure-center" height="200"></p>
+</figure>
+</div>
+</div></div>
+<div class="columns">
+<div class="column" style="text-align: center;">
+<p>the lower the sample size</p>
+</div><div class="column" style="text-align: center;">
+<p>the higher the uncertainty</p>
+</div></div>
+
+<aside><div>
+<p><span style="font-size: 8px;"><a href="https://www.flaticon.com/free-icons/marble" title="marble icons">Marble icons created by Freepik - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/question" title="question icons">Question icons created by Freepik - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/up-and-down" title="up and down icons">Up and down icons created by Freepik - Flaticon</a></span></p>
+</div></aside></section>
 <section id="a-bit-harder-n-5" class="slide level2">
 <h2>A bit harder: N = 5</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Sample size</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>Sample size matters: the lower the sample size, the higher the uncertainty.</p></li>
-<li><p>Let’s try with just 5 observations (out of 200).</p></li>
-</ul>
-</div>
-</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">set.seed</span>(<span class="dv">4256</span>)</span>
+<span id="cb6-2"><a></a>f0_tib <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">f0 =</span> <span class="fu">sample</span>(f0, <span class="dv">5</span>))</span>
+<span id="cb6-3"><a></a></span>
+<span id="cb6-4"><a></a>f0_bm_small <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb6-5"><a></a>  f0 <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb6-6"><a></a>  <span class="at">family =</span> gaussian,</span>
+<span id="cb6-7"><a></a>  <span class="at">data =</span> f0_tib,</span>
+<span id="cb6-8"><a></a>  <span class="at">file =</span> <span class="st">"cache/f0_bm_small"</span></span>
+<span id="cb6-9"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="a-bit-harder-n-5-1" class="slide level2">
 <h2>A bit harder: N = 5</h2>
 
-<img data-src="week-05_files/figure-revealjs/h-bm-small-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<ul>
-<li><p>Probability distributions describe how probability is distributed across values.</p></li>
-<li><p>Theoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.</p></li>
-<li><p>KDE is used for empirical distributions.</p></li>
-<li><p>(Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.</p></li>
-<li><p>Sample size affects uncertainty.</p></li>
-</ul>
+<img data-src="week-05_files/figure-revealjs/f0-bm-small-plot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<section id="a-bit-harder-n-5-2" class="slide level2">
+<h2>A bit harder: N = 5</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">posterior_summary</span>(f0_bm_small, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>))[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,] <span class="sc">|&gt;</span> <span class="fu">round</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Estimate Est.Error Q10 Q90
+b_Intercept      122         7 114 130
+sigma             22         7  15  31</code></pre>
 </div>
 </div>
-</div>
-
-
 </section>
+<section id="statistical-modelling-1" class="slide level2">
+<h2>Statistical modelling</h2>
+
+
+
+<img data-src="../img/data-model.png" class="quarto-figure quarto-figure-center r-stretch"></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

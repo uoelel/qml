@@ -133,137 +133,109 @@
     "text": "Let’s discuss!\n\n\n\nNow share your thoughts with the class."
   },
   {
-    "objectID": "lectures/week-05.html#were-taking-attendance",
-    "href": "lectures/week-05.html#were-taking-attendance",
-    "title": "QML - Week 4",
-    "section": "We’re taking attendance",
-    "text": "We’re taking attendance"
+    "objectID": "lectures/week-05.html#statistical-modelling",
+    "href": "lectures/week-05.html#statistical-modelling",
+    "title": "QML - Week 5",
+    "section": "Statistical modelling",
+    "text": "Statistical modelling"
   },
   {
-    "objectID": "lectures/week-05.html#probabilities",
-    "href": "lectures/week-05.html#probabilities",
-    "title": "QML - Week 4",
-    "section": "Probabilities",
-    "text": "Probabilities\n\n\n\nProbability\n\n\n\nProbability of an event occurring.\nProbabilities can only be between 0 and 1.\n\n⛔️ 0 means impossible.\n🤷 0.5 means it can happen but it can also not happen.\n✅ 1 means certain."
-  },
-  {
-    "objectID": "lectures/week-05.html#probabilities-1",
-    "href": "lectures/week-05.html#probabilities-1",
-    "title": "QML - Week 4",
-    "section": "Probabilities",
-    "text": "Probabilities\n\n\n\n\nProbability of an event occurring: 0 to 100% probability.\nProbability of a statistical variable being some numeric value: a bit more complicated…\n\n\n\n\n\n\n\n\nWe need probability distributions!"
-  },
-  {
-    "objectID": "lectures/week-05.html#distribution-of-probability",
-    "href": "lectures/week-05.html#distribution-of-probability",
-    "title": "QML - Week 4",
-    "section": "Distribution of probability",
-    "text": "Distribution of probability"
-  },
-  {
-    "objectID": "lectures/week-05.html#probability-distributions",
-    "href": "lectures/week-05.html#probability-distributions",
-    "title": "QML - Week 4",
-    "section": "Probability distributions",
-    "text": "Probability distributions\n\n\n\nA probability distribution describes how the probabilities are distributed over the values that a variable can take on.\n\n\n\n\n\n\n\nTwo types of probability distributions\n\n\n\nDiscrete probability distributions.\nContinuous probability distributions.\n\n\n\n\n\n\n\n\n\nYou learned about discrete and continuous variables in Week 2!\nDiscrete variables (numeric or categorical) follow discrete probability distributions and continuous variables follow continuous probability distributions."
-  },
-  {
-    "objectID": "lectures/week-05.html#calculating-probability-distributions",
-    "href": "lectures/week-05.html#calculating-probability-distributions",
-    "title": "QML - Week 4",
-    "section": "Calculating probability distributions",
-    "text": "Calculating probability distributions\n\n\n\nYou will never need to calculate probability distributions by hand, but it is useful to know about the two mathematical functions that are used for that purpose.\n\nThe Probability Mass Function (PMF) for discrete probability distributions.\nThe Probability Density Function (PDF) for continuous probability distributions."
-  },
-  {
-    "objectID": "lectures/week-05.html#probability-mass-function",
-    "href": "lectures/week-05.html#probability-mass-function",
-    "title": "QML - Week 4",
-    "section": "Probability Mass Function",
-    "text": "Probability Mass Function"
-  },
-  {
-    "objectID": "lectures/week-05.html#probability-density-function",
-    "href": "lectures/week-05.html#probability-density-function",
-    "title": "QML - Week 4",
-    "section": "Probability Density Function",
-    "text": "Probability Density Function"
-  },
-  {
-    "objectID": "lectures/week-05.html#parameters",
-    "href": "lectures/week-05.html#parameters",
-    "title": "QML - Week 4",
-    "section": "Parameters",
-    "text": "Parameters\n\n\n\n\nProbability distributions can be summarised with a set of parameters.\nDifferent types of probability distributions have a different number of parameters and different parameters.\n\n\n\n\n\n\n\n\nGaussian distribution\n\n\nThe Gaussian probability distribution is a continuous probability distribution and it has two parameters:\n\nThe mean \\(\\mu\\).\nThe standard deviation (SD) \\(\\sigma\\).\n\nGo to Seeing Theory (by Daniel Kunin).\n\n\n\n\nSeeing Theory was created by Daniel Kunin while an undergraduate at Brown University. The goal of this website is to make statistics more accessible through interactive visualizations (designed using Mike Bostock’s JavaScript library D3.js).\nhttps://seeing-theory.brown.edu/index.html#3rdPage"
+    "objectID": "lectures/week-05.html#gaussian-models",
+    "href": "lectures/week-05.html#gaussian-models",
+    "title": "QML - Week 5",
+    "section": "Gaussian models",
+    "text": "Gaussian models\n\\[y \\sim Gaussian(\\mu, \\sigma)\\]"
   },
   {
     "objectID": "lectures/week-05.html#simulate-gaussian-data",
     "href": "lectures/week-05.html#simulate-gaussian-data",
-    "title": "QML - Week 4",
+    "title": "QML - Week 5",
     "section": "Simulate Gaussian data",
-    "text": "Simulate Gaussian data\n\n\n\nHuman height\n\n\n\nSimulate human height as a Gaussian variable.\nrnorm(): number of observations, mean, SD.\n\n\n\n\n\n\nset.seed(812)\nheight &lt;- rnorm(200, 165, 8) |&gt; round()\n\nheight[1:10]\n\n [1] 150 172 161 162 161 172 178 156 171 158"
+    "text": "Simulate Gaussian data\n\nrnorm(n, mean, sd)\n\n\n\n\n\nn: number of obs to generate\nmean: mean of the Gaussian distribution\nsd: SD of the Gaussian distribution\n\n\n\n\n\n\nset.seed(812)\nf0 &lt;- rnorm(200, 125, 25) |&gt; round()\n\nf0[1:10]\n\n [1]  79 146 111 114 112 147 167  98 143 102"
   },
   {
-    "objectID": "lectures/week-05.html#kernel-density-estimation",
-    "href": "lectures/week-05.html#kernel-density-estimation",
-    "title": "QML - Week 4",
-    "section": "Kernel Density Estimation",
-    "text": "Kernel Density Estimation\n\n\n\n\nPDF constructs the density curve of theoretical distributions.\nKernel Density Estimation (KDE) constructs the density curve of empirical data (observations)."
+    "objectID": "lectures/week-05.html#f0-density",
+    "href": "lectures/week-05.html#f0-density",
+    "title": "QML - Week 5",
+    "section": "f0 density",
+    "text": "f0 density"
   },
   {
-    "objectID": "lectures/week-05.html#statistical-modelling",
-    "href": "lectures/week-05.html#statistical-modelling",
-    "title": "QML - Week 4",
-    "section": "Statistical modelling",
-    "text": "Statistical modelling\n\n\n\n\nWhen you simulate data, you know the population mean and SD.\nIn research, you don’t. You just have observations.\n\n\n\n\n\n\n\n\nStatistical modelling\n\n\n\nStatistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference.\nBayesian Gaussian models do exactly that: estimate mean and SD."
+    "objectID": "lectures/week-05.html#simulation-vs-estimation",
+    "href": "lectures/week-05.html#simulation-vs-estimation",
+    "title": "QML - Week 5",
+    "section": "Simulation vs estimation",
+    "text": "Simulation vs estimation\n\n\n\n\nSIMULATION\n\n\n\n\n\n\nYou have \\(\\mu, \\sigma\\) and you generate \\(y\\).\n\n\nESTIMATION\n\n\n\n\n\n\nYou have \\(y\\) and you estimate \\(\\mu\\) and \\(\\sigma\\).\n\n\n\nWhen you simulate data, you know the population mean and SD. In research, you don’t. You just have observations.\nStatistical modelling allows you to estimate the mean and SD of the population from the sample. This is statistical inference. Bayesian Gaussian models do exactly that: estimate mean and SD.\n\n\nSimulation icons created by Flat Icons - Flaticon. World icons created by Freepik - Flaticon"
   },
   {
-    "objectID": "lectures/week-05.html#gaussian-model-of-height",
-    "href": "lectures/week-05.html#gaussian-model-of-height",
-    "title": "QML - Week 4",
-    "section": "Gaussian model of height",
-    "text": "Gaussian model of height\n\\[\n\\begin{align}\nh & \\sim Gaussian(\\mu, \\sigma)\\\\\n\\mu & = ...\\\\\n\\sigma & = ...\n\\end{align}\n\\]"
+    "objectID": "lectures/week-05.html#gaussian-model-of-f0",
+    "href": "lectures/week-05.html#gaussian-model-of-f0",
+    "title": "QML - Week 5",
+    "section": "Gaussian model of f0",
+    "text": "Gaussian model of f0\n\\[\\begin{align}\nf0 & \\sim Gaussian(\\mu, \\sigma)\\\\\n\\mu & = ...\\\\\n\\sigma & = ...\n\\end{align}\\]"
   },
   {
-    "objectID": "lectures/week-05.html#gaussian-model-of-height-1",
-    "href": "lectures/week-05.html#gaussian-model-of-height-1",
-    "title": "QML - Week 4",
-    "section": "Gaussian model of height",
-    "text": "Gaussian model of height\n\\[\n\\begin{align}\nh & \\sim Gaussian(\\mu, \\sigma)\\\\\n\\mu & = P_\\mu\\\\\n\\sigma & = P_\\sigma\n\\end{align}\n\\]\n\n\n\n\n\\(P\\) is a posterior probability distribution."
+    "objectID": "lectures/week-05.html#gaussian-model-of-f0-1",
+    "href": "lectures/week-05.html#gaussian-model-of-f0-1",
+    "title": "QML - Week 5",
+    "section": "Gaussian model of f0",
+    "text": "Gaussian model of f0\n\\[\\begin{align}\nf0 & \\sim Gaussian(\\mu, \\sigma)\\\\\n\\mu & = P_\\mu\\\\\n\\sigma & = P_\\sigma\n\\end{align}\\]\n\n\n\n\\(P\\) is a generic posterior probability distribution."
   },
   {
-    "objectID": "lectures/week-05.html#gaussian-model-of-height-brms",
-    "href": "lectures/week-05.html#gaussian-model-of-height-brms",
-    "title": "QML - Week 4",
-    "section": "Gaussian model of height: brms",
-    "text": "Gaussian model of height: brms\n\nh_tib &lt;- tibble(h = height)\n\nlibrary(brms)\n\nh_bm &lt;- brm(\n  h ~ 1,\n  family = gaussian,\n  data = h_tib,\n  file = \"cache/h_bm\"\n)"
+    "objectID": "lectures/week-05.html#gaussian-model-of-f0-brms",
+    "href": "lectures/week-05.html#gaussian-model-of-f0-brms",
+    "title": "QML - Week 5",
+    "section": "Gaussian model of f0: brms",
+    "text": "Gaussian model of f0: brms\n\nf0_tib &lt;- tibble(f0 = f0)\n\nlibrary(brms)\n\nf0_bm &lt;- brm(\n  f0 ~ 1,\n  family = gaussian,\n  data = f0_tib,\n  file = \"cache/f0_bm\"\n)"
   },
   {
     "objectID": "lectures/week-05.html#gaussian-model-of-height-posteriors",
     "href": "lectures/week-05.html#gaussian-model-of-height-posteriors",
-    "title": "QML - Week 4",
+    "title": "QML - Week 5",
     "section": "Gaussian model of height: posteriors",
     "text": "Gaussian model of height: posteriors"
   },
   {
+    "objectID": "lectures/week-05.html#posterior-summary",
+    "href": "lectures/week-05.html#posterior-summary",
+    "title": "QML - Week 5",
+    "section": "Posterior summary",
+    "text": "Posterior summary\n\nposterior_summary(f0_bm, probs = c(0.1, 0.9))[1:2,] |&gt; round()\n\n            Estimate Est.Error Q10 Q90\nb_Intercept      126         2 124 129\nsigma             27         1  25  28"
+  },
+  {
+    "objectID": "lectures/week-05.html#sample-size-and-uncertainty",
+    "href": "lectures/week-05.html#sample-size-and-uncertainty",
+    "title": "QML - Week 5",
+    "section": "Sample size and uncertainty",
+    "text": "Sample size and uncertainty\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nthe lower the sample size\n\nthe higher the uncertainty\n\n\n\nMarble icons created by Freepik - Flaticon. Question icons created by Freepik - Flaticon. Up and down icons created by Freepik - Flaticon"
+  },
+  {
     "objectID": "lectures/week-05.html#a-bit-harder-n-5",
     "href": "lectures/week-05.html#a-bit-harder-n-5",
-    "title": "QML - Week 4",
+    "title": "QML - Week 5",
     "section": "A bit harder: N = 5",
-    "text": "A bit harder: N = 5\n\n\n\nSample size\n\n\n\nSample size matters: the lower the sample size, the higher the uncertainty.\nLet’s try with just 5 observations (out of 200)."
+    "text": "A bit harder: N = 5\n\nset.seed(4256)\nf0_tib &lt;- tibble(f0 = sample(f0, 5))\n\nf0_bm_small &lt;- brm(\n  f0 ~ 1,\n  family = gaussian,\n  data = f0_tib,\n  file = \"cache/f0_bm_small\"\n)"
   },
   {
     "objectID": "lectures/week-05.html#a-bit-harder-n-5-1",
     "href": "lectures/week-05.html#a-bit-harder-n-5-1",
-    "title": "QML - Week 4",
+    "title": "QML - Week 5",
     "section": "A bit harder: N = 5",
     "text": "A bit harder: N = 5"
   },
   {
-    "objectID": "lectures/week-05.html#summary",
-    "href": "lectures/week-05.html#summary",
-    "title": "QML - Week 4",
-    "section": "Summary",
-    "text": "Summary\n\n\n\n\nProbability distributions describe how probability is distributed across values.\nTheoretical probability distributions can be visualised with PMF/PDF and summarised with parameters.\nKDE is used for empirical distributions.\n(Bayesian) Gaussian models infer the population probability distribution from the data, by estimating posterior probability distributions of mean and SD.\nSample size affects uncertainty."
+    "objectID": "lectures/week-05.html#a-bit-harder-n-5-2",
+    "href": "lectures/week-05.html#a-bit-harder-n-5-2",
+    "title": "QML - Week 5",
+    "section": "A bit harder: N = 5",
+    "text": "A bit harder: N = 5\n\nposterior_summary(f0_bm_small, probs = c(0.1, 0.9))[1:2,] |&gt; round()\n\n            Estimate Est.Error Q10 Q90\nb_Intercept      122         7 114 130\nsigma             22         7  15  31"
+  },
+  {
+    "objectID": "lectures/week-05.html#statistical-modelling-1",
+    "href": "lectures/week-05.html#statistical-modelling-1",
+    "title": "QML - Week 5",
+    "section": "Statistical modelling",
+    "text": "Statistical modelling"
   },
   {
     "objectID": "lectures/week-03.html#inference",
@@ -280,11 +252,18 @@
     "text": "Bilingual advantage: myth or reality?\n\n\n\n\n\nBilingual advantage hypothesis\nBilingual individuals possess a cognitive advantage over monolinguals due to greater cognitive control implied in using more than one language. (Poarch and Krott 2019; Samuel et al. 2018)\n\n\n\n\n\n\n\n\n\n\n\n\nBilingual icons created by Freepik - Flaticon"
   },
   {
-    "objectID": "lectures/week-03.html#section",
-    "href": "lectures/week-03.html#section",
+    "objectID": "lectures/week-03.html#bilingual-advantage-inconclusive",
+    "href": "lectures/week-03.html#bilingual-advantage-inconclusive",
     "title": "QML - Week 3",
-    "section": "",
-    "text": "GARDEN OF FORKING PATHS\n\n\naka RESEARCHER’S DEGREES OF FREEDOM\n\n\n\n\nPhoto by Ben Mathis Seibel on Unsplash"
+    "section": "Bilingual advantage: inconclusive!",
+    "text": "Bilingual advantage: inconclusive!\n\n\n\n\n\nResearch both for and against the bilingual advantage hypothesis. (Franck et al. 2024; Garraffa et al. 2023).\n\n\n\n\n\n\n\n\nInconclusive does not mean “there is no bilingual advantage”.\n\n\n\n\n\n\n\n\n\n\n\n\n\nDoubt icons created by Freepik - Flaticon"
+  },
+  {
+    "objectID": "lectures/week-03.html#group-activity",
+    "href": "lectures/week-03.html#group-activity",
+    "title": "QML - Week 3",
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nDiscuss reasons for which research on the bilingual advantage is inconclusive.\nYou’ll share what you discussed in a Wooclap poll in the next slide."
   },
   {
     "objectID": "lectures/week-03.html#share-your-thoughts",
@@ -294,20 +273,6 @@
     "text": "Share your thoughts"
   },
   {
-    "objectID": "lectures/week-03.html#section-1",
-    "href": "lectures/week-03.html#section-1",
-    "title": "QML - Week 3",
-    "section": "",
-    "text": "Group activity\n\n\n\nEach group will get a research card with a short literature review and a small data set.\nAnswer the following question:\n\nAre younger infants better at discriminating non-native phonetic contrasts than older infants?"
-  },
-  {
-    "objectID": "lectures/week-03.html#share-your-conclusion",
-    "href": "lectures/week-03.html#share-your-conclusion",
-    "title": "QML - Week 3",
-    "section": "Share your conclusion",
-    "text": "Share your conclusion"
-  },
-  {
     "objectID": "lectures/week-03.html#uncertainty-and-variability",
     "href": "lectures/week-03.html#uncertainty-and-variability",
     "title": "QML - Week 3",
@@ -315,11 +280,11 @@
     "text": "Uncertainty and variability\n\n\n\n\n\n\n\n\n\n\nUncertainty\nis a characteristic of each observation of a phenomenon, due to measurement error or because we cannot directly measure what we want to measure.\n\n\n\n\n\n\n\n\n\n\n\n\nVariability\nis found among different observations of the same phenomenon, due to natural fluctuations and measurement error.\n\n\n\n\n\n\nImages by Stickers."
   },
   {
-    "objectID": "lectures/week-03.html#section-2",
-    "href": "lectures/week-03.html#section-2",
+    "objectID": "lectures/week-03.html#group-activity-1",
+    "href": "lectures/week-03.html#group-activity-1",
     "title": "QML - Week 3",
-    "section": "",
-    "text": "Group activity\n\n\n\nEach group will get a research card with a short literature review and a small data set.\nAnswer the following question:\n\nAre younger infants better at discriminating non-native phonetic contrasts than older infants?"
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nEach group will get a research card with a short literature review and a small data set.\nAnswer the following question:\n\nAre younger infants better at discriminating non-native phonetic contrasts than older infants?"
   },
   {
     "objectID": "lectures/week-03.html#share-your-answer",
@@ -341,6 +306,20 @@
     "title": "QML - Week 3",
     "section": "Many analysts, one data set",
     "text": "Many analysts, one data set\nDo speakers acoustically modify utterances to signal atypical word combinations? (Coretta et al. 2023)\n\n\n\n\n\n\n\n\n\n30 teams\n\n\n\n\n\n\n\n109 individual analyses—a bit more than 3 analyses per team!\n\n\n\n\n\n\nNine teams out of the thirty (30%) reported to have found at least one statistically reliable effect.\n\n\nParticipants had to instruct a confederate to move a cube on top of an object. The object either had a typical or atypical colour: YELLOW vs BLUE banana."
+  },
+  {
+    "objectID": "lectures/week-03.html#many-analysts-one-data-set-2",
+    "href": "lectures/week-03.html#many-analysts-one-data-set-2",
+    "title": "QML - Week 3",
+    "section": "Many analysts, one data set",
+    "text": "Many analysts, one data set\n\n\n\n\n\n\n\nCoretta et al. (2023)"
+  },
+  {
+    "objectID": "lectures/week-03.html#section",
+    "href": "lectures/week-03.html#section",
+    "title": "QML - Week 3",
+    "section": "",
+    "text": "GARDEN OF FORKING PATHS\n\n\naka RESEARCHER’S DEGREES OF FREEDOM\n\n\n\n\nPhoto by Ben Mathis Seibel on Unsplash"
   },
   {
     "objectID": "lectures/week-03.html#references",
@@ -483,8 +462,8 @@
     "text": "This page gathers all the important information about the course content and schedule. Each week is dedicated to a specific set of topics and you are expected to complete readings from the course textbook and other homework of a particular week by the Tuesday lecture of that week (so complete readings and homework of Week 2 by the Tuesday lecture of Week 2, and so on). There will be no workshops in Week 1.\nEach week there will be a 50-minute lecture and a 2-hour workshop. The lecture expands on the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course textbook. Before each lecture, students are expected to work through the assigned textbook chapters in full. This includes not only reading the text, but also completing all accompanying R/RStudio activities, code examples, installation steps, exercises, and quizzes as you encounter them. In the workshop you will further practice your R skills with group data challenges.\nThe Schedule overview below gives you an overview of each week, while the Weekly schedule is a more in-depth description of the activities and materials of each week."
   },
   {
-    "objectID": "content.html#content-overview",
-    "href": "content.html#content-overview",
+    "objectID": "content.html#overview",
+    "href": "content.html#overview",
     "title": "Course content",
     "section": "",
     "text": "This page gathers all the important information about the course content and schedule. Each week is dedicated to a specific set of topics and you are expected to complete readings from the course textbook and other homework of a particular week by the Tuesday lecture of that week (so complete readings and homework of Week 2 by the Tuesday lecture of Week 2, and so on). There will be no workshops in Week 1.\nEach week there will be a 50-minute lecture and a 2-hour workshop. The lecture expands on the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course textbook. Before each lecture, students are expected to work through the assigned textbook chapters in full. This includes not only reading the text, but also completing all accompanying R/RStudio activities, code examples, installation steps, exercises, and quizzes as you encounter them. In the workshop you will further practice your R skills with group data challenges.\nThe Schedule overview below gives you an overview of each week, while the Weekly schedule is a more in-depth description of the activities and materials of each week."
@@ -494,7 +473,7 @@
     "href": "content.html#schedule-overview",
     "title": "Course content",
     "section": "2 Schedule overview",
-    "text": "2 Schedule overview\n\n\n\n\n\n\n\nPDF version of the slides\nThe lecture slides linked below are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF.\n\n\n\n\nThe following table is a schedule overview of the course, with links to lecture slides and workshop instructions. Due dates for assessments are also included. See Assessments for more info.\n\n\n\nWeek\nLecture\nWorkshop\nAssessment\n\n\n\n\n1\nOnboarding\n\n\n\n\n2\nResearch methods\nR basics\n\n\n\n3\nInference, uncertainty and variability\nSummarise, count and group data\n\n\n\n4\nQuestionable Research Practices\nPlot basics\nSelf-reflection\n\n\n5\nBayesian inference\nGaussian models with brms\n\n\n\n6\nRegression basics with brms\nRegression basics and posteriors draws\nQuiz 1\n\n\n7\nNull Ritual\nCategorical predictors in regression\nSelf-reflection\n\n\n8\nBernoulli regression\nBernoulli regression\nGroup project proposal\n\n\n9\nOpen research\nMultiple predictors and interactions\n\n\n\n10\nCase study\nGroup project\nSelf-reflection\n\n\n11\n\n(Optional) Group project\nQuiz 2\n\n\n12\n\n\n\n\n\n13\n\n\nFinal reflection and Group project"
+    "text": "2 Schedule overview\n\n\n\n\n\n\n\nPDF version of the slides\nThe lecture slides linked below are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF.\n\n\n\n\nThe following table is a schedule overview of the course, with links to lecture slides and workshop instructions. Due dates for assessments are also included. See Assessments for more info.\n\n\n\nWeek\nLecture\nWorkshop\nAssessment\n\n\n\n\n1\nOnboarding\n\n\n\n\n2\nResearch methods\nR basics\n\n\n\n3\nInference, uncertainty and variability\nSummarise, count and group data\n\n\n\n4\nQuestionable Research Practices\nPlot basics\nSelf-reflection\n\n\n5\nIntro to statistical modelling\nGaussian models with brms\n\n\n\n6\nRegression basics with brms\nRegression basics and posteriors draws\nQuiz 1\n\n\n7\nNull Ritual\nCategorical predictors in regression\nSelf-reflection\n\n\n8\nBernoulli regression\nBernoulli regression\nGroup project proposal\n\n\n9\nOpen research\nMultiple predictors and interactions\n\n\n\n10\nCase study\nGroup project\nSelf-reflection\n\n\n11\n\n(Optional) Group project\nQuiz 2\n\n\n12\n\n\n\n\n\n13\n\n\nFinal reflection and Group project"
   },
   {
     "objectID": "content.html#topics-overview",
@@ -534,7 +513,7 @@
   {
     "objectID": "lectures/week-02.html#research-methods",
     "href": "lectures/week-02.html#research-methods",
-    "title": "QML - Week 1",
+    "title": "QML - Week 2",
     "section": "Research methods",
     "text": "Research methods"
   },
@@ -542,90 +521,90 @@
     "objectID": "lectures/week-02.html#research-process",
     "href": "lectures/week-02.html#research-process",
     "title": "QML - Week 2",
-    "section": "2 Research process",
-    "text": "2 Research process"
+    "section": "Research process",
+    "text": "Research process"
   },
   {
     "objectID": "lectures/week-02.html#research-context",
     "href": "lectures/week-02.html#research-context",
     "title": "QML - Week 2",
-    "section": "3 Research context",
-    "text": "3 Research context"
+    "section": "Research context",
+    "text": "Research context"
   },
   {
     "objectID": "lectures/week-02.html#group-activity",
     "href": "lectures/week-02.html#group-activity",
     "title": "QML - Week 2",
-    "section": "4 Group activity",
-    "text": "4 Group activity\n\n\n\n\n\n\n\n\nNoteInstructions\n\n\n\n\nForm groups of 4/6 students.\nCome up with a research goal that can be achieved with empirical research.\nIt doesn’t have to be fancy, just something you are interested in.\nWrite your research question on a post-it."
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nForm groups of 4/6 students.\nCome up with a research goal that can be achieved with empirical research.\nIt doesn’t have to be fancy, just something you are interested in.\nWrite your research question on a post-it."
   },
   {
     "objectID": "lectures/week-02.html#research-axes",
     "href": "lectures/week-02.html#research-axes",
     "title": "QML - Week 2",
-    "section": "5 Research axes",
-    "text": "5 Research axes"
+    "section": "Research axes",
+    "text": "Research axes"
   },
   {
     "objectID": "lectures/week-02.html#exploratory-hypothesis-generating",
     "href": "lectures/week-02.html#exploratory-hypothesis-generating",
     "title": "QML - Week 2",
-    "section": "6 Exploratory (hypothesis generating)",
-    "text": "6 Exploratory (hypothesis generating)\n\n\n\n\n\n\nWhat is the role of empathy in the L2 perceptual development of intonation?\n\n\n\n. . .\n\n\n\n\n\n\n➡️ Higher empathic individuals, in comparison with lower empathic individuals, appear to be more sensitive to intonation cues in the process of forming sound-meaning associations. (Casillas et al. 2023)\n\n\n\n. . .\n\n\n\n\n\n\nWhat is the relationship between spaces of language use, attitudes and self-reported proficiency in minorities languages?\n\n\n\n. . .\n\n\n\n\n\n\n➡️ With more spaces available to speakers, the relationship between attitudes and proficiency is weaker. (Hampton and Coretta 2024)"
+    "section": "Exploratory (hypothesis generating)",
+    "text": "Exploratory (hypothesis generating)\n\n\n\nWhat is the role of empathy in the L2 perceptual development of intonation?\n\n\n\n\n\n\n\n➡️ Higher empathic individuals, in comparison with lower empathic individuals, appear to be more sensitive to intonation cues in the process of forming sound-meaning associations. (Casillas et al. 2023)\n\n\n\n\n\n\n\n\nWhat is the relationship between spaces of language use, attitudes and self-reported proficiency in minorities languages?\n\n\n\n\n\n\n\n\n➡️ With more spaces available to speakers, the relationship between attitudes and proficiency is weaker. (Hampton and Coretta 2024)"
   },
   {
     "objectID": "lectures/week-02.html#corroboratory-hypothesis-testing",
     "href": "lectures/week-02.html#corroboratory-hypothesis-testing",
     "title": "QML - Week 2",
-    "section": "7 Corroboratory (hypothesis-testing)",
-    "text": "7 Corroboratory (hypothesis-testing)\n\n\n\n\n\n\nMore structured languages (with higher systematicity) are easier to learn.\nLanguages created by larger groups are easier to learn.\n\n\n\n. . .\n\n\n\n\n\n\n➡️ High systematicity was advantageous for learning, but learners did not benefit from partly or semi-structured languages.\n➡️ Languages that evolved in big and small groups were equally learnable. (Raviv et al. 2021)"
+    "section": "Corroboratory (hypothesis-testing)",
+    "text": "Corroboratory (hypothesis-testing)\n\n\n\nMore structured languages (with higher systematicity) are easier to learn.\nLanguages created by larger groups are easier to learn.\n\n\n\n\n\n\n\n➡️ High systematicity was advantageous for learning, but learners did not benefit from partly or semi-structured languages.\n➡️ Languages that evolved in big and small groups were equally learnable. (Raviv et al. 2021)"
   },
   {
     "objectID": "lectures/week-02.html#descriptive",
     "href": "lectures/week-02.html#descriptive",
     "title": "QML - Week 2",
-    "section": "8 Descriptive",
-    "text": "8 Descriptive\n\n\n\n\n\n\nThe phonetic inventory of Northern Tosk Albanian. (Coretta et al. 2022)\n\n\n\n. . .\n\n\n\n\n\n\nAn accurate description of the distribution of reflexives and their antecedents in Yoruba, with an examination of the verbs which they co-occur with in terms of the valency classes of the verbs as well the semantic field into which the verbs can be categorized. (Atoyebi and Anyanwu 2020)"
+    "section": "Descriptive",
+    "text": "Descriptive\n\n\n\nThe phonetic inventory of Northern Tosk Albanian. (Coretta et al. 2022)\n\n\n\n\n\n\n\nAn accurate description of the distribution of reflexives and their antecedents in Yoruba, with an examination of the verbs which they co-occur with in terms of the valency classes of the verbs as well the semantic field into which the verbs can be categorized. (Atoyebi and Anyanwu 2020)"
   },
   {
     "objectID": "lectures/week-02.html#explanatory",
     "href": "lectures/week-02.html#explanatory",
     "title": "QML - Week 2",
-    "section": "9 Explanatory",
-    "text": "9 Explanatory\n\n\n\n\n\n\nRegularization is a phenomenon in which languages gradually reduce variability along certain dimensions. We use an artificial language learning experiment to test whether constraints on working memory during learning or production contribute to regularization. (Keogh et al. 2024)\n\n\n\n. . .\n\n\n\n\n\n\nWe examine a model of abstraction from exemplars in which (a) all heard exemplars are stored (though influenced by factors like attention, decay, and interference), and (b) for language use, these exemplars are restructured into multiple layers of abstraction. (Ambridge 2020)"
+    "section": "Explanatory",
+    "text": "Explanatory\n\n\n\nRegularization is a phenomenon in which languages gradually reduce variability along certain dimensions. We use an artificial language learning experiment to test whether constraints on working memory during learning or production contribute to regularization. (Keogh et al. 2024)\n\n\n\n\n\n\n\nWe examine a model of abstraction from exemplars in which (a) all heard exemplars are stored (though influenced by factors like attention, decay, and interference), and (b) for language use, these exemplars are restructured into multiple layers of abstraction. (Ambridge 2020)"
   },
   {
     "objectID": "lectures/week-02.html#group-activity-1",
     "href": "lectures/week-02.html#group-activity-1",
     "title": "QML - Week 2",
-    "section": "10 Group activity",
-    "text": "10 Group activity\n\n\n\n\n\n\n\n\nNoteInstructions\n\n\n\n\nThink about your chosen research goal. Which quadrant in the research axes coordinates do you think it belongs to?\nCome to the board and place the post-it with your research question in the chosen quadrant."
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nThink about your chosen research goal. Which quadrant in the research axes coordinates do you think it belongs to?\nCome to the board and place the post-it with your research question in the chosen quadrant."
   },
   {
     "objectID": "lectures/week-02.html#research-objectives",
     "href": "lectures/week-02.html#research-objectives",
     "title": "QML - Week 2",
-    "section": "11 Research objectives",
-    "text": "11 Research objectives\n\n\n\n\n\n\nEstablish facts\n\n\n\n\n\nImprove fit of framework to facts\n\n\n\n\n\nCompare fit of frameworks to facts\n\n\n\n\n\nTick icons created by Roundicons - Flaticon. Performance icons created by Freepik - Flaticon. Comparative icons created by Paul J. - Flaticon"
+    "section": "Research objectives",
+    "text": "Research objectives\n\n\n\n\n\n\nEstablish facts\n\n\n\n\n\nImprove fit of framework to facts\n\n\n\n\n\nCompare fit of frameworks to facts\n\n\n\n\n\nTick icons created by Roundicons - Flaticon. Performance icons created by Freepik - Flaticon. Comparative icons created by Paul J. - Flaticon"
   },
   {
     "objectID": "lectures/week-02.html#research-objectives-examples",
     "href": "lectures/week-02.html#research-objectives-examples",
     "title": "QML - Week 2",
-    "section": "12 Research objectives (examples)",
-    "text": "12 Research objectives (examples)\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipEstablish facts\n\n\n\nAre more regular systems easier to learn? (Raviv et al. 2021)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipImprove fit\n\n\n\nModels of learning need to consider both a systematicity bias and a preference bias to fit empirical data. (Schumacher and Pierrehumbert 2021)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipCompare fit\n\n\n\nDual-path vs obligatory decomposition models of lexical retrieval produce contrasting hypotheses. (Taft 2004)"
+    "section": "Research objectives (examples)",
+    "text": "Research objectives (examples)\n\n\n\n\n\n\n\n\n\n\nEstablish facts\n\n\nAre more regular systems easier to learn? (Raviv et al. 2021)\n\n\n\n\n\n\n\n\n\n\n\n\nImprove fit\n\n\nModels of learning need to consider both a systematicity bias and a preference bias to fit empirical data. (Schumacher and Pierrehumbert 2021)\n\n\n\n\n\n\n\n\n\n\n\n\nCompare fit\n\n\nDual-path vs obligatory decomposition models of lexical retrieval produce contrasting hypotheses. (Taft 2004)"
   },
   {
     "objectID": "lectures/week-02.html#group-activity-2",
     "href": "lectures/week-02.html#group-activity-2",
     "title": "QML - Week 2",
-    "section": "13 Group activity",
-    "text": "13 Group activity\n\n\n\n\n\n\n\n\nNoteInstructions\n\n\n\n\nThink about your chosen research goal. In which of the three research objectives does it fit?\nCome to the board and place the post-it with your research question in the chose objective."
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nThink about your chosen research goal. In which of the three research objectives does it fit?\nCome to the board and place the post-it with your research question in the chose objective."
   },
   {
     "objectID": "lectures/week-02.html#references",
     "href": "lectures/week-02.html#references",
-    "title": "QML - Week 1",
+    "title": "QML - Week 2",
     "section": "References",
     "text": "References\n\n\n\n\nAmbridge, Ben. 2020. “Abstractions Made of Exemplars or ‘You’re All Right, and i’ve Changed My Mind’: Response to Commentators.” First Language 40 (5-6): 640659. https://doi.org/10.1177/0142723720949723.\n\n\nAtoyebi, Joseph, and Ogbonna Anyanwu. 2020. “On the Syntax of Reflexives in Yoruba: A Descriptive Perspective.” Journal of the Nigerian Languages Project 2. https://jnlp.com.ng/index.php/home/article/view/8.\n\n\nCasillas, Joseph V., Juan José Garrido-Pozú, Kyle Parrish, et al. 2023. “Using Intonation to Disambiguate Meaning: The Role of Empathy and Proficiency in L2 Perceptual Development.” Applied Psycholinguistics 44 (5): 913940. https://doi.org/10.1017/s0142716423000310.\n\n\nCoretta, Stefano, Josiane Riverin-Coutlée, Enkeleida Kapia, and Stephen Nichols. 2022. “Northern Tosk Albanian.” Journal of the International Phonetic Association, 123. https://doi.org/10.1017/s0025100322000044.\n\n\nHampton, Jessica, and Stefano Coretta. 2024. “Language Practices of Emilian and Esperanto Communities: Spaces of Use, Explicit Language Attitudes and Self-Reported Competence.” Journal of Multilingual and Multicultural Development, October 17, 1–26. https://doi.org/10.1080/01434632.2024.2413933.\n\n\nKeogh, Aislinn, Simon Kirby, and Jennifer Culbertson. 2024. “Predictability and Variation in Language Are Differentially Affected by Learning and Production.” Cognitive Science 48 (4): e13435. https://doi.org/10.1111/cogs.13435.\n\n\nRaviv, Limor, Marianne De Heer Kloots, and Antje Meyer. 2021. “What Makes a Language Easy to Learn? A Preregistered Study on How Systematic Structure and Community Size Affect Language Learnability.” Cognition 210 (May): 104620. https://doi.org/10.1016/j.cognition.2021.104620.\n\n\nSchumacher, R. Alexander, and Janet B Pierrehumbert. 2021. “Familiarity, Consistency, and Systematizing in Morphology.” Cognition 212 (July): 104512. https://doi.org/10.1016/j.cognition.2020.104512.\n\n\nTaft, Marcus. 2004. “Morphological Decomposition and the Reverse Base Frequency Effect.” The Quarterly Journal of Experimental Psychology Section A 57 (4): 745–65. https://doi.org/10.1080/02724980343000477."
   },
@@ -644,11 +623,11 @@
     "text": "Questionable Research Practices (QRPs)"
   },
   {
-    "objectID": "lectures/week-04.html#section",
-    "href": "lectures/week-04.html#section",
+    "objectID": "lectures/week-04.html#group-activity",
+    "href": "lectures/week-04.html#group-activity",
     "title": "QML - Week 4",
-    "section": "",
-    "text": "Group activity\n\n\n\nGo to https://stefanocoretta.github.io/qrp/.\nPlay the game three times to publish three papers: the goal is to publish all three!\nYou need to balance Integrity and Career points and beat the reviewers lottery."
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\nDiscuss the following practices: are they questionable? Why?\n\nA researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.\nA researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.\nAfter running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.\nA research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.\nAn author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions)."
   },
   {
     "objectID": "lectures/week-04.html#share-your-thoughts",
@@ -658,11 +637,11 @@
     "text": "Share your thoughts"
   },
   {
-    "objectID": "lectures/week-04.html#section-1",
-    "href": "lectures/week-04.html#section-1",
+    "objectID": "lectures/week-04.html#group-activity-1",
+    "href": "lectures/week-04.html#group-activity-1",
     "title": "QML - Week 4",
-    "section": "",
-    "text": "Group activity\n\n\n\nGo to https://stefanocoretta.github.io/qrp/.\nPlay the game three times to publish three papers: the goal is to publish all three!\nYou need to balance Integrity and Career points and beat the reviewers lottery."
+    "section": "Group activity",
+    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nGo to https://stefanocoretta.github.io/qrp/.\nPlay the game three times to publish three papers: the goal is to publish all three!\nYou need to balance Integrity and Career points and beat the reviewers lottery."
   },
   {
     "objectID": "lectures/week-04.html#share-your-final-paper-count",
@@ -681,6 +660,13 @@
   {
     "objectID": "lectures/week-04.html#registered-reports",
     "href": "lectures/week-04.html#registered-reports",
+    "title": "QML - Week 4",
+    "section": "Registered Reports",
+    "text": "Registered Reports"
+  },
+  {
+    "objectID": "lectures/week-04.html#registered-reports-1",
+    "href": "lectures/week-04.html#registered-reports-1",
     "title": "QML - Week 4",
     "section": "Registered Reports",
     "text": "Registered Reports"
@@ -1020,75 +1006,5 @@
     "title": "Workshop: Week 8",
     "section": "",
     "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions! You can find information about the data on the QML Data website.\nThe tasks are designed for you to practice Bayesian Bernoulli regression modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Scalar inferences and semantic distance\n\n\n\n\nRead the pankratz2021/si.csv data. (Data documentation)\nFit a regression model to answer the following question: does the semantic distance (semdist) of the weak and strong adjective affect the probability of a scalar inference (SI)?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions depending on semantic distance.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask B: Shallow Structure Hypothesis\n\n\n\n\nRead the song2020/shallow.csv data.\nFilter the data so it contains only L2 data and critical trials.\nFit a regression model to answer the following question: how does relation type of prime-target affect accuracy in L2 speakers of English?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask C: Simulate data\n\n\n\n\nImagine a study with one research question/hypothesis that requires a Bernoulli regression.\nSimulate Bernoulli data based on the study design.\nFit a regression model to answer a question with the simulated data.\nWrite a paragraph reporting the data simulation and the model. Produce plots of the posterior distributions of the model parameters and the expected predictions.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
-  },
-  {
-    "objectID": "content.html#lectures-and-workshops",
-    "href": "content.html#lectures-and-workshops",
-    "title": "Course content",
-    "section": "2 Lectures and workshops",
-    "text": "2 Lectures and workshops\nThe following table is a schedule overview of the course, with the topic of the lecture, workshop and assessments due. Click on the topic to go to the lecture slides or the workshop instructions. See Assessments for more info on assessment.\n\n\n\nWeek\nLecture\nWorkshop\nAssessment\n\n\n\n\n1\nOnboarding\n\n\n\n\n2\nResearch methods\nR basics\n\n\n\n3\nInference and uncertainty\nSummarise, count and group data\n\n\n\n4\nQuestionable Research Practices\nPlot basics\nSelf-reflection\n\n\n5\nBayesian inference\nGaussian models with brms\n\n\n\n6\nRegression basics with brms\nRegression basics and posteriors draws\nQuiz 1\n\n\n7\nNull Ritual\nCategorical predictors in regression\nSelf-reflection\n\n\n8\nBernoulli regression\nBernoulli regression\nGroup project proposal\n\n\n9\nOpen research\nMultiple predictors and interactions\n\n\n\n10\nCase study\nGroup project\nSelf-reflection\n\n\n11\n\n(Optional) Group project\nQuiz 2\n\n\n12\n\n\n\n\n\n13\n\n\nFinal reflection and Group project\n\n\n\n\n\n\n\n\n\nTipPDF version of the slides\n\n\n\nThe slides are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF."
-  },
-  {
-    "objectID": "content.html#overview",
-    "href": "content.html#overview",
-    "title": "Course content",
-    "section": "",
-    "text": "This page gathers all the important information about the course content and schedule. Each week is dedicated to a specific set of topics and you are expected to complete readings from the course textbook and other homework of a particular week by the Tuesday lecture of that week (so complete readings and homework of Week 2 by the Tuesday lecture of Week 2, and so on). There will be no workshops in Week 1.\nEach week there will be a 50-minute lecture and a 2-hour workshop. The lecture expands on the most important and/or difficult topics of the week, but you are expected to learn and understand all the topics of the week as treated in the readings from the course textbook. Before each lecture, students are expected to work through the assigned textbook chapters in full. This includes not only reading the text, but also completing all accompanying R/RStudio activities, code examples, installation steps, exercises, and quizzes as you encounter them. In the workshop you will further practice your R skills with group data challenges.\nThe Schedule overview below gives you an overview of each week, while the Weekly schedule is a more in-depth description of the activities and materials of each week."
-  },
-  {
-    "objectID": "lectures/week-03.html#group-activity",
-    "href": "lectures/week-03.html#group-activity",
-    "title": "QML - Week 3",
-    "section": "Group activity",
-    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nDiscuss reasons for which research on the bilingual advantage is inconclusive.\nYou’ll share what you discussed in a Wooclap poll in the next slide."
-  },
-  {
-    "objectID": "lectures/week-03.html#group-activity-1",
-    "href": "lectures/week-03.html#group-activity-1",
-    "title": "QML - Week 3",
-    "section": "Group activity",
-    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nEach group will get a research card with a short literature review and a small data set.\nAnswer the following question:\n\nAre younger infants better at discriminating non-native phonetic contrasts than older infants?"
-  },
-  {
-    "objectID": "lectures/week-03.html#bilingual-advantage-inconclusive",
-    "href": "lectures/week-03.html#bilingual-advantage-inconclusive",
-    "title": "QML - Week 3",
-    "section": "Bilingual advantage: inconclusive!",
-    "text": "Bilingual advantage: inconclusive!\n\n\n\n\n\nResearch both for and against the bilingual advantage hypothesis. (Franck et al. 2024; Garraffa et al. 2023).\n\n\n\n\n\n\n\n\nInconclusive does not mean “there is no bilingual advantage”.\n\n\n\n\n\n\n\n\n\n\n\n\n\nDoubt icons created by Freepik - Flaticon"
-  },
-  {
-    "objectID": "lectures/week-03.html#many-analysts-one-data-set-2",
-    "href": "lectures/week-03.html#many-analysts-one-data-set-2",
-    "title": "QML - Week 3",
-    "section": "Many analysts, one data set",
-    "text": "Many analysts, one data set\n\n\n\n\n\n\n\nCoretta et al. (2023)"
-  },
-  {
-    "objectID": "lectures/week-03.html#garden-of-forking-paths",
-    "href": "lectures/week-03.html#garden-of-forking-paths",
-    "title": "QML - Week 3",
-    "section": "GARDEN OF FORKING PATHS",
-    "text": "GARDEN OF FORKING PATHS\n\n\nImage credits https://xinespack.com/2025/01/12/a-journey-through-borges-short-story-the-garden-of-forking-paths/"
-  },
-  {
-    "objectID": "lectures/week-04.html#group-activity",
-    "href": "lectures/week-04.html#group-activity",
-    "title": "QML - Week 4",
-    "section": "Group activity",
-    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\nDiscuss the following practices: are they questionable? Why?\n\nA researcher tests several different statistical models on the same dataset but only reports the one that gives the strongest effect.\nA researcher preregisters their study design, runs the study as planned, and publishes the results even though they found no effect.\nAfter running an experiment, a researcher changes the stated hypothesis to match the observed results and rewrites the paper introduction.\nA research team decides to increase their sample size mid-study because they realise the initial sample lacks the statistical power to detect medium effects. They clearly document this change in their published article.\nAn author declines to share their raw data when requested by other researchers, without offering any clear reason (e.g. confidentiality, ethical restrictions)."
-  },
-  {
-    "objectID": "lectures/week-04.html#group-activity-1",
-    "href": "lectures/week-04.html#group-activity-1",
-    "title": "QML - Week 4",
-    "section": "Group activity",
-    "text": "Group activity\n\n\n\n\n\nInstructions\n\n\n\nGo to https://stefanocoretta.github.io/qrp/.\nPlay the game three times to publish three papers: the goal is to publish all three!\nYou need to balance Integrity and Career points and beat the reviewers lottery."
-  },
-  {
-    "objectID": "lectures/week-04.html#registered-reports-1",
-    "href": "lectures/week-04.html#registered-reports-1",
-    "title": "QML - Week 4",
-    "section": "Registered Reports",
-    "text": "Registered Reports"
   }
 ]

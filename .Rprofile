@@ -21,7 +21,7 @@ set_up <- function() {
   )
 
   # Install all dependencies (except the ones from GitHub)
-  pak::pak(deps)
+  pak::pak(c(deps, "BH", "RcppEigen"))
 
   cmdstanr::check_cmdstan_toolchain()
 }
