@@ -10,6 +10,28 @@ bibliography: references.bib
 
 ## Who am I?
 
+::::::: columns
+::: column
+![](../img/me.jpg){height="500" fig-align="center"}
+:::
+
+::::: column
+::: {.callout-note appearance="simple"}
+- Dr Stefano \[ˈsteˑfano\] Coretta
+
+- Lecturer (= Assistant Professor) in LEL.
+
+- Methodological theory and statistics in linguistics.
+:::
+
+::: {.fragment .callout-tip}
+## My researcher orientation
+
+Read it [here](https://stefanocoretta.github.io/orientation.html).
+:::
+:::::
+:::::::
+
 ## Overview
 
 <br>
@@ -120,6 +142,21 @@ Detailed information on assessment can be found here: <https://uoelel.github.io/
 :::
 ::::
 
+## Changes
+
+:::: callout-note
+## Last year's feedback
+
+::: incremental
+- Pace of the course: too slow AND too fast
+  - No real solution... BUT change of pace between Week 4 and 5.
+- Lecture content is variable
+  - Now readings must be completed before each lecture.
+- Group project: too many formats
+  - Data analysis is the only format.
+:::
+::::
+
 ## Finding help
 
 <br>
@@ -130,6 +167,8 @@ Detailed information on assessment can be found here: <https://uoelel.github.io/
 
 ::: {style="text-align: center;"}
 [[book](https://outlook.office.com/book/Stefanosofficehours@uoe.onmicrosoft.com/?ismsaljsauthenabled) office hours]{.t15em}
+
+\[link also on the course homepage\]
 :::
 ::::
 
@@ -138,6 +177,8 @@ Detailed information on assessment can be found here: <https://uoelel.github.io/
 
 ::: {style="text-align: center;"}
 [Piazza Q&A forum]{.t15em}
+
+\[access via Learn\]
 :::
 ::::
 :::::::
