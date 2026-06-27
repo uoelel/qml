@@ -42,7 +42,7 @@ df_means <- crossing(x = x, mean = means) |>
 
 ggplot(df_means, aes(x = x, y = y, color = mean)) +
   geom_line(linewidth = 1) +
-  labs(x = element_blank(), y = "Density", caption = "SD = 2.")
+  labs(x = "y", y = "Density", caption = "SD = 2.")
 
 sds <- c(1, 2, 4)
 mean_fixed <- 5
@@ -56,7 +56,7 @@ df_sds <- crossing(x = x, SD = sds) |>
 
 ggplot(df_sds, aes(x = x, y = y, color = SD)) +
   geom_line(linewidth = 1) +
-  labs(x = NULL, y = "Density", caption = "Mean = 5.")
+  labs(x = "y", y = "Density", caption = "Mean = 5.")
 
 ```
 
@@ -67,12 +67,14 @@ ggplot(df_sds, aes(x = x, y = y, color = SD)) +
 :::
 
 ::: {.callout-note appearance="simple"}
-- `n`: number of obs to generate
+- `n`: number of observations to generate
 - `mean`: mean of the Gaussian distribution
 - `sd`: SD of the Gaussian distribution
 :::
 
 . . .
+
+Simulate fundamental frequency *f0*.
 
 ```{r}
 #| label: f0

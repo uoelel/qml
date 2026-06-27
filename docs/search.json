@@ -151,7 +151,7 @@
     "href": "lectures/week-05.html#simulate-gaussian-data",
     "title": "QML - Week 5",
     "section": "Simulate Gaussian data",
-    "text": "Simulate Gaussian data\n\nrnorm(n, mean, sd)\n\n\n\n\n\nn: number of obs to generate\nmean: mean of the Gaussian distribution\nsd: SD of the Gaussian distribution\n\n\n\n\n\n\nset.seed(812)\nf0 &lt;- rnorm(200, 125, 25) |&gt; round()\n\nf0[1:10]\n\n [1]  79 146 111 114 112 147 167  98 143 102"
+    "text": "Simulate Gaussian data\n\nrnorm(n, mean, sd)\n\n\n\n\n\nn: number of observations to generate\nmean: mean of the Gaussian distribution\nsd: SD of the Gaussian distribution\n\n\n\n\n\nSimulate fundamental frequency f0.\n\nset.seed(812)\nf0 &lt;- rnorm(200, 125, 25) |&gt; round()\n\nf0[1:10]\n\n [1]  79 146 111 114 112 147 167  98 143 102"
   },
   {
     "objectID": "lectures/week-05.html#f0-density",
