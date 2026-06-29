@@ -1,5 +1,5 @@
 ---
-title: "QML - Week 5"
+title: "QML - Week 6"
 subtitle: "Regression models: the basics"
 author: "Stefano Coretta"
 format: revealjs
@@ -26,19 +26,19 @@ library(ggdist)
 . . .
 
 ::: {.callout-note appearance="simple"}
--   Data from [Lexical decision times for nouns from the Croatian Psycholinguistic Database](https://data.crossda.hr/dataset.xhtml?persistentId=doi:10.23669/EV3NFJ&version=2.0).
+- Data from [Lexical decision times for nouns from the Croatian Psycholinguistic Database](https://data.crossda.hr/dataset.xhtml?persistentId=doi:10.23669/EV3NFJ&version=2.0).
 
--   Lexical decision task (*is it a real Croatian word?*)
+- Lexical decision task (*is it a real Croatian word?*)
 
-    -   **Reaction times**.
+  - **Reaction times**.
 
-    -   **Word frequency**: counts from the Croatian web Corpus *hrWaC*.
+  - **Word frequency**: counts from the Croatian web Corpus *hrWaC*.
 :::
 
 ## Which relationship?
 
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 455px" src="https://app.wooclap.com/events/EIZPEY/questions/68be9c5d60c14c53a7fc9db4" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/RRYQTLH/questions/6a423e4fdf37a75258bb186d" width="100%"></iframe>
 ```
 
 ## Reaction times
@@ -56,8 +56,8 @@ croat <- read_csv("data/vlasicek2024/croatian-lexdes.csv") |>
 
 croat |> 
   ggplot(aes(rt_milliseconds_mean)) +
-  geom_density() +
-  geom_rug(alpha = 0.05) +
+  geom_density(fill = "darkgreen", alpha = 0.5) +
+  geom_rug(colour = "darkorange", alpha = 0.05) +
   labs(
     x = "RT (ms)"
   )
@@ -72,7 +72,7 @@ croat |>
 
 croat |> 
   ggplot(aes(word_frequency/1000000, rt)) +
-  geom_point(alpha = 0.5) +
+  geom_point(colour = "darkorange", alpha = 0.5) +
   labs(
     x = "Lexical frequency (millions)",
     y = "RT (ms)"
@@ -87,7 +87,7 @@ croat |>
 
 croat |> 
   ggplot(aes(log_freq, rt)) +
-  geom_point(alpha = 0.5) +
+  geom_point(colour = "darkorange", alpha = 0.5) +
   labs(
     x = "Lexical frequency (logged)",
     y = "RT (ms)"
@@ -96,9 +96,7 @@ croat |>
 
 ## Gaussian model of RT
 
-$$
-RT \sim Gaussian(\mu, \sigma)
-$$
+$$RT \sim Gaussian(\mu, \sigma)$$
 
 . . .
 
@@ -112,31 +110,19 @@ But we want to know what happens to RTs depending on the value of lexical freque
 Then we let the mean $\mu$ vary by lexical frequency!
 :::
 
-$$
-\begin{align}
-RT & \sim Gaussian(\mu, \sigma)\\
-\mu & = \beta_0 + \beta_1 \cdot logf
-\end{align}
-$$
-
-. . .
-
-::: {.callout-important appearance="simple"}
-But what are those $\beta_0$ and $\beta_1$?
-:::
+$$\begin{aligned}
+RT_i & \sim Gaussian(\mu_i, \sigma)\\
+\mu_i & = \beta_0 + \beta_1 \cdot logf_i
+\end{aligned}$$
 
 ## The equation of a line
 
-$$
-y = \beta_0 + \beta_1 \cdot x
-$$
+[$$y = \beta_0 + \beta_1 \cdot x$$]{.t2em}
 
 ::: {.callout-note appearance="simple"}
--   Go to [Linear models illustrated](https://stefanocoretta.shinyapps.io/lines/).
+- $\beta_0$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
 
--   $\beta_0$ is the line **intercept**: the $y$ value when $x$ is `0` zero.
-
--   $\beta_1$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
+- $\beta_1$ is the line **slope**: the change in $y$ for each unit-increase of $x$.
 :::
 
 ```{r}
@@ -187,42 +173,40 @@ ggplot() +
 
 ## Regression model
 
-$$
-\begin{align}
-RT & \sim Gaussian(\mu, \sigma)\\
-\mu & = \beta_0 + \beta_1 \cdot logf & \text{[Regression equation]}
-\end{align}
-$$
+$$\begin{aligned}
+RT_i & \sim Gaussian(\mu_i, \sigma)\\
+\mu_i & = \beta_0 + \beta_1 \cdot logf_i & \text{[Regression equation]}
+\end{aligned}$$
 
 ::: {.callout-tip appearance="simple"}
--   A **regression model** is a model based on the equation of a line.
+- A **regression model** is a model that uses the equation of a line (the *regression equation*).
 
--   The model **estimates** $\beta_0$ (the intercept) and $\beta_1$ (the slope) from the data (i.e. the observed $RT$ and $logf$ values).
+- The model **estimates** $\beta_0$ (the intercept), $\beta_1$ (the slope) and $\sigma$ from the data (i.e. the observed $RT$ and $logf$ values).
 :::
 
 . . .
 
 ::: {.callout-note appearance="simple"}
--   $\beta_0$, intercept
+$\beta_0$, **intercept**
 
-    -   Mean RT value *when logged frequency is `0` zero* (i.e. when word frequency is 1; `exp(0)` = 1).
+- Mean RT value *when logged frequency is `0` zero* (i.e. when word frequency is 1; `exp(0)` = 1).
 
--   $\beta_1$, slope
+$\beta_1$, **slope**
 
-    -   *Change* in mean RT for each unit increase of log-frequency (when log-frequency goes from $x$ to $x + 1$).
+- *Change* in mean RT for each unit increase of log-frequency (when log-frequency goes from $x$ to $x + 1$).
 :::
 
 ## 
 
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d3b78edd9a104b0899fcc1" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/RRYQTLH/questions/6a423e4f8cffe6b5916a2ccf" width="100%"></iframe>
 ```
 
-## Model's posterior predictions
+## Fit model in brms
 
 ```{r}
-#| label: rt-bm-cond
-#| fig-align: center
+#| label: rt-bm
+#| echo: true
 
 rt_bm <- brm(
   rt ~ 1 + log_freq,
@@ -232,6 +216,77 @@ rt_bm <- brm(
   seed = 4125,
   file = "cache/rt_bm"
 )
+```
+
+## Model results
+
+```{r}
+#| label: rt-bm-posteriors
+#| echo: true
+
+library(bayesplot)
+
+mcmc_dens(rt_bm, pars = c("b_Intercept", "b_log_freq", "sigma"))
+```
+
+## Posterior draws
+
+```{r}
+#| laber: rt-bm-draws
+#| echo: true
+
+rt_draws <- as_draws_df(rt_bm)
+rt_draws
+```
+
+## Posterior of $\beta_1$
+
+```{r}
+#| label: rt-post-beta1
+#| echo: true
+
+rt_draws |> 
+  ggplot(aes(b_log_freq)) +
+  geom_density(fill = "brown", alpha = 0.5)
+```
+
+## Posterior of $\beta_1$ with CrIs
+
+```{r}
+#| label: rt-post-beta-1-cris
+
+library(ggdist)
+
+rt_draws |>
+  ggplot(aes(x = b_log_freq)) +
+  stat_halfeye(
+    .width = c(0.5, 0.8, 0.9),
+    aes(fill = after_stat(level))
+  ) +
+  scale_fill_brewer(na.translate = FALSE)
+```
+
+## CrIs of $\beta_1$
+
+```{r}
+#| label: rt-beta-1-cris
+#| echo: true
+
+library(posterior)
+
+# 95%
+quantile2(rt_draws$b_log_freq, c(0.025, 0.975)) |> round(2)
+# 80%
+quantile2(rt_draws$b_log_freq, c(0.1, 0.9)) |> round(2)
+# 60%
+quantile2(rt_draws$b_log_freq, c(0.2, 0.8)) |> round(2)
+```
+
+## Model's expected values
+
+```{r}
+#| label: rt-bm-cond
+#| fig-align: center
 
 p <- plot(
   conditional_effects(rt_bm),
@@ -254,9 +309,9 @@ p +
 . . .
 
 ::: {.callout-note appearance="simple"}
--   When log-frequency is 0, the mean RTs are between 1084 and 1129 ms at 95% confidence.
+- When log-frequency is 0, the mean RTs are between 1084 and 1129 ms at 95% confidence.
 
--   For each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence.
+- For each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence.
 :::
 
 ## Correlation in NOT causation
@@ -264,23 +319,23 @@ p +
 ::: callout-important
 ### Be careful!
 
--   **Correlation** between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).
+- **Correlation** between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).
 
--   **Spurious correlations**: two variables can look correlated because of bias from another variable.
+- **Spurious correlations**: two variables can look correlated because of bias from another variable.
 :::
 
 . . .
 
 ::: {.callout-note appearance="simple"}
 1.  Number of plant names in a language vs. biodiversity of the region
-    -   Languages in biodiverse regions have more words for plants.
-    -   **Mediator**: cultural reliance on plants.
+    - Languages in biodiverse regions have more words for plants.
+    - **Mediator**: cultural reliance on plants.
 2.  Language endangerment vs. economic development
-    -   Higher economic development is associated with greater language endangerment.
-    -   **Confounder**: colonial history.
+    - Higher economic development is associated with greater language endangerment.
+    - **Confounder**: colonial history.
 3.  Language prestige vs government policy
-    -   High prestige languages and officially supported languages each attract learners.
-    -   **Collider**: If you only look at languages with many learners, prestige and policy might appear related even if they're not causally connected.
+    - High prestige languages and officially supported languages each attract learners.
+    - **Collider**: If you only look at languages with many learners, prestige and policy might appear related even if they're not causally connected.
 :::
 
 ## But it is if you use causal inference...
@@ -288,7 +343,8 @@ p +
 ::: callout-tip
 ### Causal inference
 
--   Correlation *can* be interpreted causally if you adopt a **causal inference** approach.
+- Correlation *can* be interpreted causally if you adopt a **causal inference** approach.
 
--   Learn about it in McElreath's textbook *Statistical Rethinking*. Also check [STeW](https://uoelel.github.io/stew.html).
+- Learn about it in McElreath's textbook *Statistical Rethinking*.
+  Also check [STeW](https://uoelel.github.io/stew.html).
 :::

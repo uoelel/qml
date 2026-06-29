@@ -681,84 +681,84 @@
   {
     "objectID": "lectures/week-06.html#word-frequency-and-reaction-times",
     "href": "lectures/week-06.html#word-frequency-and-reaction-times",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "Word frequency and reaction times",
     "text": "Word frequency and reaction times\n\n\n\nWhat is the relationship between a word’s lexical frequency and reaction times in a lexical decision task in Croatian?\n\n\n\n\n\n\n\n\nData from Lexical decision times for nouns from the Croatian Psycholinguistic Database.\nLexical decision task (is it a real Croatian word?)\n\nReaction times.\nWord frequency: counts from the Croatian web Corpus hrWaC."
   },
   {
     "objectID": "lectures/week-06.html#which-relationship",
     "href": "lectures/week-06.html#which-relationship",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "Which relationship?",
     "text": "Which relationship?"
   },
   {
     "objectID": "lectures/week-06.html#reaction-times",
     "href": "lectures/week-06.html#reaction-times",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "Reaction times",
     "text": "Reaction times"
   },
   {
     "objectID": "lectures/week-06.html#word-frequency-and-rts",
     "href": "lectures/week-06.html#word-frequency-and-rts",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "Word frequency and RTs",
     "text": "Word frequency and RTs"
   },
   {
     "objectID": "lectures/week-06.html#logged-word-frequency-and-rts",
     "href": "lectures/week-06.html#logged-word-frequency-and-rts",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "Logged word frequency and RTs",
     "text": "Logged word frequency and RTs"
   },
   {
     "objectID": "lectures/week-06.html#gaussian-model-of-rt",
     "href": "lectures/week-06.html#gaussian-model-of-rt",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "Gaussian model of RT",
-    "text": "Gaussian model of RT\n\\[\nRT \\sim Gaussian(\\mu, \\sigma)\n\\]\n\n\n\n\nBut we want to know what happens to RTs depending on the value of lexical frequency…\n\n\n\n\n\n\n\n\nThen we let the mean \\(\\mu\\) vary by lexical frequency!\n\n\n\n\\[\n\\begin{align}\nRT & \\sim Gaussian(\\mu, \\sigma)\\\\\n\\mu & = \\beta_0 + \\beta_1 \\cdot logf\n\\end{align}\n\\]\n\n\n\n\n\nBut what are those \\(\\beta_0\\) and \\(\\beta_1\\)?"
+    "text": "Gaussian model of RT\n\\[RT \\sim Gaussian(\\mu, \\sigma)\\]\n\n\n\n\nBut we want to know what happens to RTs depending on the value of lexical frequency…\n\n\n\n\n\n\n\n\nThen we let the mean \\(\\mu\\) vary by lexical frequency!\n\n\n\n\\[\\begin{aligned}\nRT_i & \\sim Gaussian(\\mu_i, \\sigma)\\\\\n\\mu_i & = \\beta_0 + \\beta_1 \\cdot logf_i\n\\end{aligned}\\]"
   },
   {
     "objectID": "lectures/week-06.html#the-equation-of-a-line",
     "href": "lectures/week-06.html#the-equation-of-a-line",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "The equation of a line",
-    "text": "The equation of a line\n\\[\ny = \\beta_0 + \\beta_1 \\cdot x\n\\]\n\n\n\n\nGo to Linear models illustrated.\n\\(\\beta_0\\) is the line intercept: the \\(y\\) value when \\(x\\) is 0 zero.\n\\(\\beta_1\\) is the line slope: the change in \\(y\\) for each unit-increase of \\(x\\)."
+    "text": "The equation of a line\n\\[y = \\beta_0 + \\beta_1 \\cdot x\\]\n\n\n\n\n\\(\\beta_0\\) is the line intercept: the \\(y\\) value when \\(x\\) is 0 zero.\n\\(\\beta_1\\) is the line slope: the change in \\(y\\) for each unit-increase of \\(x\\)."
   },
   {
     "objectID": "lectures/week-06.html#regression-model",
     "href": "lectures/week-06.html#regression-model",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "Regression model",
-    "text": "Regression model\n\\[\n\\begin{align}\nRT & \\sim Gaussian(\\mu, \\sigma)\\\\\n\\mu & = \\beta_0 + \\beta_1 \\cdot logf & \\text{[Regression equation]}\n\\end{align}\n\\]\n\n\n\n\nA regression model is a model based on the equation of a line.\nThe model estimates \\(\\beta_0\\) (the intercept) and \\(\\beta_1\\) (the slope) from the data (i.e. the observed \\(RT\\) and \\(logf\\) values).\n\n\n\n\n\n\n\n\n\n\\(\\beta_0\\), intercept\n\nMean RT value when logged frequency is 0 zero (i.e. when word frequency is 1; exp(0) = 1).\n\n\\(\\beta_1\\), slope\n\nChange in mean RT for each unit increase of log-frequency (when log-frequency goes from \\(x\\) to \\(x + 1\\))."
+    "text": "Regression model\n\\[\\begin{aligned}\nRT_i & \\sim Gaussian(\\mu_i, \\sigma)\\\\\n\\mu_i & = \\beta_0 + \\beta_1 \\cdot logf_i & \\text{[Regression equation]}\n\\end{aligned}\\]\n\n\n\n\nA regression model is a model that uses the equation of a line (the regression equation).\nThe model estimates \\(\\beta_0\\) (the intercept), \\(\\beta_1\\) (the slope) and \\(\\sigma\\) from the data (i.e. the observed \\(RT\\) and \\(logf\\) values).\n\n\n\n\n\n\n\n\n\\(\\beta_0\\), intercept\n\nMean RT value when logged frequency is 0 zero (i.e. when word frequency is 1; exp(0) = 1).\n\n\\(\\beta_1\\), slope\n\nChange in mean RT for each unit increase of log-frequency (when log-frequency goes from \\(x\\) to \\(x + 1\\))."
   },
   {
     "objectID": "lectures/week-06.html#models-posterior-predictions",
     "href": "lectures/week-06.html#models-posterior-predictions",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "Model’s posterior predictions",
     "text": "Model’s posterior predictions"
   },
   {
     "objectID": "lectures/week-06.html#word-frequency-and-reaction-times-bis",
     "href": "lectures/week-06.html#word-frequency-and-reaction-times-bis",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "Word frequency and reaction times (bis)",
     "text": "Word frequency and reaction times (bis)\n\n\n\nWhat is the relationship between a word’s lexical frequency and reaction times in a lexical decision task in Croatian?\n\n\n\n\n\n\n\n\nWhen log-frequency is 0, the mean RTs are between 1084 and 1129 ms at 95% confidence.\nFor each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence."
   },
   {
     "objectID": "lectures/week-06.html#correlation-in-not-causation",
     "href": "lectures/week-06.html#correlation-in-not-causation",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "Correlation in NOT causation",
     "text": "Correlation in NOT causation\n\n\n\nBe careful!\n\n\n\nCorrelation between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).\nSpurious correlations: two variables can look correlated because of bias from another variable.\n\n\n\n\n\n\n\n\n\nNumber of plant names in a language vs. biodiversity of the region\n\nLanguages in biodiverse regions have more words for plants.\nMediator: cultural reliance on plants.\n\nLanguage endangerment vs. economic development\n\nHigher economic development is associated with greater language endangerment.\nConfounder: colonial history.\n\nLanguage prestige vs government policy\n\nHigh prestige languages and officially supported languages each attract learners.\nCollider: If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected."
   },
   {
     "objectID": "lectures/week-06.html#but-it-is-if-you-use-causal-inference",
     "href": "lectures/week-06.html#but-it-is-if-you-use-causal-inference",
-    "title": "QML - Week 5",
+    "title": "QML - Week 6",
     "section": "But it is if you use causal inference…",
     "text": "But it is if you use causal inference…\n\n\n\nCausal inference\n\n\n\nCorrelation can be interpreted causally if you adopt a causal inference approach.\nLearn about it in McElreath’s textbook Statistical Rethinking. Also check STeW."
   },
@@ -1013,5 +1013,54 @@
     "title": "QML - Week 1",
     "section": "Changes",
     "text": "Changes\n\n\n\nLast year’s feedback\n\n\n\nPace of the course: too slow AND too fast\n\nNo real solution… BUT change of pace between Week 4 and 5.\n\nLecture content is variable\n\nNow readings must be completed before each lecture.\n\nGroup project: too many formats\n\nData analysis is the only format."
+  },
+  {
+    "objectID": "lectures/week-06.html#fit-model-in-brms",
+    "href": "lectures/week-06.html#fit-model-in-brms",
+    "title": "QML - Week 6",
+    "section": "Fit model in brms",
+    "text": "Fit model in brms\n\nrt_bm &lt;- brm(\n  rt ~ 1 + log_freq,\n  family = gaussian,\n  data = croat,\n  cores = 4,\n  seed = 4125,\n  file = \"cache/rt_bm\"\n)"
+  },
+  {
+    "objectID": "lectures/week-06.html#model-results",
+    "href": "lectures/week-06.html#model-results",
+    "title": "QML - Week 6",
+    "section": "Model results",
+    "text": "Model results\n\nlibrary(bayesplot)\n\nmcmc_dens(rt_bm, pars = c(\"b_Intercept\", \"b_log_freq\", \"sigma\"))"
+  },
+  {
+    "objectID": "lectures/week-06.html#posterior-draws",
+    "href": "lectures/week-06.html#posterior-draws",
+    "title": "QML - Week 6",
+    "section": "Posterior draws",
+    "text": "Posterior draws\n\nrt_draws &lt;- as_draws_df(rt_bm)\nrt_draws\n\n# A draws_df: 1000 iterations, 4 chains, and 6 variables\n   b_Intercept b_log_freq sigma Intercept lprior   lp__\n1         1096        -44   107       664    -11 -15847\n2         1120        -47   103       667    -11 -15846\n3         1095        -45   105       660    -11 -15846\n4         1121        -47   104       667    -11 -15845\n5         1103        -45   102       663    -11 -15845\n6         1105        -45   106       665    -11 -15845\n7         1110        -46   103       664    -11 -15844\n8         1092        -44   103       663    -11 -15845\n9         1125        -47   103       666    -11 -15846\n10        1114        -46   104       662    -11 -15845\n# ... with 3990 more draws\n# ... hidden reserved variables {'.chain', '.iteration', '.draw'}"
+  },
+  {
+    "objectID": "lectures/week-06.html#models-expected-values",
+    "href": "lectures/week-06.html#models-expected-values",
+    "title": "QML - Week 6",
+    "section": "Model’s expected values",
+    "text": "Model’s expected values"
+  },
+  {
+    "objectID": "lectures/week-06.html#posterior-of-beta_1",
+    "href": "lectures/week-06.html#posterior-of-beta_1",
+    "title": "QML - Week 6",
+    "section": "Posterior of \\(\\beta_1\\)",
+    "text": "Posterior of \\(\\beta_1\\)\n\nrt_draws |&gt; \n  ggplot(aes(b_log_freq)) +\n  geom_density(fill = \"brown\", alpha = 0.5)"
+  },
+  {
+    "objectID": "lectures/week-06.html#posterior-of-beta_1-with-cris",
+    "href": "lectures/week-06.html#posterior-of-beta_1-with-cris",
+    "title": "QML - Week 6",
+    "section": "Posterior of \\(\\beta_1\\) with CrIs",
+    "text": "Posterior of \\(\\beta_1\\) with CrIs"
+  },
+  {
+    "objectID": "lectures/week-06.html#cris-of-beta_1",
+    "href": "lectures/week-06.html#cris-of-beta_1",
+    "title": "QML - Week 6",
+    "section": "CrIs of \\(\\beta_1\\)",
+    "text": "CrIs of \\(\\beta_1\\)\n\nlibrary(posterior)\n\n# 95%\nquantile2(rt_draws$b_log_freq, c(0.025, 0.975)) |&gt; round(2)\n\n  q2.5  q97.5 \n-47.81 -43.33 \n\n# 80%\nquantile2(rt_draws$b_log_freq, c(0.1, 0.9)) |&gt; round(2)\n\n   q10    q90 \n-47.00 -44.09 \n\n# 60%\nquantile2(rt_draws$b_log_freq, c(0.2, 0.8)) |&gt; round(2)\n\n   q20    q80 \n-46.53 -44.61"
   }
 ]

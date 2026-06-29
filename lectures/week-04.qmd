@@ -49,7 +49,7 @@ Why?
 ## Share your thoughts
 
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaed39cc0a8cceadd9a1f8" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/RRYQTLH/questions/6a423e4f955dade4c2ba071b" width="100%"></iframe>
 ```
 
 ## Group activity
@@ -79,7 +79,7 @@ Why?
 ## Share your final paper count
 
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68aaeef3159e7d9874e6a17e" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/RRYQTLH/questions/6a423e4f8cffe6b5916a2c57" width="100%"></iframe>
 ```
 
 ## Peer-review for better or worse?
