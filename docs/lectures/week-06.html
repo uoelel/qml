@@ -391,27 +391,55 @@ RT_i &amp; \sim Gaussian(\mu_i, \sigma)\\
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(posterior)</span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a><span class="co"># 95%</span></span>
-<span id="cb6-4"><a></a><span class="fu">quantile2</span>(rt_draws<span class="sc">$</span>b_log_freq, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-4"><a></a><span class="fu">quantile2</span>(rt_draws<span class="sc">$</span>b_log_freq, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  q2.5  q97.5 
--47.81 -43.33 </code></pre>
+<pre><code> q2.5 q97.5 
+  -48   -43 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># 80%</span></span>
-<span id="cb8-2"><a></a><span class="fu">quantile2</span>(rt_draws<span class="sc">$</span>b_log_freq, <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>)) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-2"><a></a><span class="fu">quantile2</span>(rt_draws<span class="sc">$</span>b_log_freq, <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>)) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   q10    q90 
--47.00 -44.09 </code></pre>
+<pre><code>q10 q90 
+-47 -44 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># 60%</span></span>
-<span id="cb10-2"><a></a><span class="fu">quantile2</span>(rt_draws<span class="sc">$</span>b_log_freq, <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>)) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-2"><a></a><span class="fu">quantile2</span>(rt_draws<span class="sc">$</span>b_log_freq, <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>)) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   q20    q80 
--46.53 -44.61 </code></pre>
+<pre><code>q20 q80 
+-47 -45 </code></pre>
 </div>
 </div>
 </section>
-<section id="models-expected-values" class="slide level2">
-<h2>Model’s expected values</h2>
+<section id="expected-values" class="slide level2">
+<h2>Expected values</h2>
+<p><span class="math display">\[\begin{aligned}
+\mu_i &amp; = \beta_0 + \beta_1 \cdot logf_i\\
+\mu_{[logf = 4]} &amp; = \beta_0 + \beta_1 \cdot 4\\
+\mu_{[logf = 12]} &amp; = \beta_0 + \beta_1 \cdot 12\\
+\end{aligned}\]</span></p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>rt_draws <span class="ot">&lt;-</span> rt_draws <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-3"><a></a>    <span class="at">rt_logf_4 =</span> b_Intercept <span class="sc">+</span> b_log_freq <span class="sc">*</span> <span class="dv">4</span>,</span>
+<span id="cb12-4"><a></a>    <span class="at">rt_logf_12 =</span> b_Intercept <span class="sc">+</span> b_log_freq <span class="sc">*</span> <span class="dv">12</span></span>
+<span id="cb12-5"><a></a>  )</span>
+<span id="cb12-6"><a></a></span>
+<span id="cb12-7"><a></a><span class="fu">quantile2</span>(rt_draws<span class="sc">$</span>rt_logf_4, <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>)) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>q10 q90 
+916 933 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">quantile2</span>(rt_draws<span class="sc">$</span>rt_logf_12, <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>)) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>q10 q90 
+556 564 </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-expected-values" class="slide level2">
+<h2>Plotting expected values</h2>
 
 <img data-src="week-06_files/figure-revealjs/rt-bm-cond-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="word-frequency-and-reaction-times-bis" class="slide level2">
@@ -446,7 +474,7 @@ RT_i &amp; \sim Gaussian(\mu_i, \sigma)\\
 <div class="callout-content">
 <ul>
 <li><p><strong>Correlation</strong> between two variables: they co-vary, i.e.&nbsp;they show a systematic association (their values tend to vary together in a consistent pattern).</p></li>
-<li><p><strong>Spurious correlations</strong>: two variables can look correlated because of bias from another variable.</p></li>
+<li><p><strong>Spurious correlations</strong>: two variables can be correlated because of bias from another variable.</p></li>
 </ul>
 </div>
 </div>

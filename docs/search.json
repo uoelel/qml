@@ -753,7 +753,7 @@
     "href": "lectures/week-06.html#correlation-in-not-causation",
     "title": "QML - Week 6",
     "section": "Correlation in NOT causation",
-    "text": "Correlation in NOT causation\n\n\n\nBe careful!\n\n\n\nCorrelation between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).\nSpurious correlations: two variables can look correlated because of bias from another variable.\n\n\n\n\n\n\n\n\n\nNumber of plant names in a language vs. biodiversity of the region\n\nLanguages in biodiverse regions have more words for plants.\nMediator: cultural reliance on plants.\n\nLanguage endangerment vs. economic development\n\nHigher economic development is associated with greater language endangerment.\nConfounder: colonial history.\n\nLanguage prestige vs government policy\n\nHigh prestige languages and officially supported languages each attract learners.\nCollider: If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected."
+    "text": "Correlation in NOT causation\n\n\n\nBe careful!\n\n\n\nCorrelation between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).\nSpurious correlations: two variables can be correlated because of bias from another variable.\n\n\n\n\n\n\n\n\n\nNumber of plant names in a language vs. biodiversity of the region\n\nLanguages in biodiverse regions have more words for plants.\nMediator: cultural reliance on plants.\n\nLanguage endangerment vs. economic development\n\nHigher economic development is associated with greater language endangerment.\nConfounder: colonial history.\n\nLanguage prestige vs government policy\n\nHigh prestige languages and officially supported languages each attract learners.\nCollider: If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected."
   },
   {
     "objectID": "lectures/week-06.html#but-it-is-if-you-use-causal-inference",
@@ -1061,6 +1061,27 @@
     "href": "lectures/week-06.html#cris-of-beta_1",
     "title": "QML - Week 6",
     "section": "CrIs of \\(\\beta_1\\)",
-    "text": "CrIs of \\(\\beta_1\\)\n\nlibrary(posterior)\n\n# 95%\nquantile2(rt_draws$b_log_freq, c(0.025, 0.975)) |&gt; round(2)\n\n  q2.5  q97.5 \n-47.81 -43.33 \n\n# 80%\nquantile2(rt_draws$b_log_freq, c(0.1, 0.9)) |&gt; round(2)\n\n   q10    q90 \n-47.00 -44.09 \n\n# 60%\nquantile2(rt_draws$b_log_freq, c(0.2, 0.8)) |&gt; round(2)\n\n   q20    q80 \n-46.53 -44.61"
+    "text": "CrIs of \\(\\beta_1\\)\n\nlibrary(posterior)\n\n# 95%\nquantile2(rt_draws$b_log_freq, c(0.025, 0.975)) |&gt; round()\n\n q2.5 q97.5 \n  -48   -43 \n\n# 80%\nquantile2(rt_draws$b_log_freq, c(0.1, 0.9)) |&gt; round()\n\nq10 q90 \n-47 -44 \n\n# 60%\nquantile2(rt_draws$b_log_freq, c(0.2, 0.8)) |&gt; round()\n\nq20 q80 \n-47 -45"
+  },
+  {
+    "objectID": "lectures/week-06.html#expected-values-of-the-posterior-predictive-distribution",
+    "href": "lectures/week-06.html#expected-values-of-the-posterior-predictive-distribution",
+    "title": "QML - Week 6",
+    "section": "Expected values of the posterior predictive distribution",
+    "text": "Expected values of the posterior predictive distribution\n\\[\\begin{aligned}\n\\mu_i & = \\beta_0 + \\beta_1 \\cdot logf_i\\\\\n\\mu_{[logf = 4]} & = \\beta_0 + \\beta_1 \\cdot 4\\\\\n\\mu_{[logf = 12]} & = \\beta_0 + \\beta_1 \\cdot 12\\\\\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "lectures/week-06.html#expected-values",
+    "href": "lectures/week-06.html#expected-values",
+    "title": "QML - Week 6",
+    "section": "Expected values",
+    "text": "Expected values\n\\[\\begin{aligned}\n\\mu_i & = \\beta_0 + \\beta_1 \\cdot logf_i\\\\\n\\mu_{[logf = 4]} & = \\beta_0 + \\beta_1 \\cdot 4\\\\\n\\mu_{[logf = 12]} & = \\beta_0 + \\beta_1 \\cdot 12\\\\\n\\end{aligned}\\]\n\n\nrt_draws &lt;- rt_draws |&gt; \n  mutate(\n    rt_logf_4 = b_Intercept + b_log_freq * 4,\n    rt_logf_12 = b_Intercept + b_log_freq * 12\n  )\n\nquantile2(rt_draws$rt_logf_4, c(0.1, 0.9)) |&gt; round()\n\nq10 q90 \n916 933 \n\nquantile2(rt_draws$rt_logf_12, c(0.1, 0.9)) |&gt; round()\n\nq10 q90 \n556 564"
+  },
+  {
+    "objectID": "lectures/week-06.html#plotting-expected-values",
+    "href": "lectures/week-06.html#plotting-expected-values",
+    "title": "QML - Week 6",
+    "section": "Plotting expected values",
+    "text": "Plotting expected values"
   }
 ]
