@@ -6,23 +6,36 @@ format: html
 ::: callout-important
 ## Instructions
 
--   Pick one of the following tasks and work through it in group.
+- Pick one of the following tasks and work as a group, guided by the group navigator.
 
--   While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.
+- While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.
 
--   If you are unsure about anything, please ask us for directions! You can find information about the data on the [QML Data](https://uoelel.github.io/qml-data/) website.
+**When completing your chosen task, you are expected to:**
 
--   The tasks are designed for you to practice Bayesian Gaussian regression modelling.
+- Learn about the task data by reading the linked data docs.
+
+- Use a Quarto document for your code and text.
+
+- Read the data and familiarise yourself with it.
+  As mentioned above, you should calculate summary measures and create plots of relevant variables (based on the given research question).
+
+- Work out and discuss the mathematical formula of the regression model to fit to answer the research question.
+
+- Fit the regression model.
+
+- Discuss the summary, plot and calculate summaries of the posterior draws of the coefficients and expected values.
+
+- Write a result paragraph where you report the model specification and the results.
 :::
 
 ::: callout-note
 ## Task A: Vowel duration and vowel category
 
--   Read the `coretta2018/token-measures.csv` data.
+- [Data docs](https://uoelel.github.io/qml-data/data/coretta2018/token-measures.html).
 
--   Fit a regression model to answer the following question: do different vowels (`vowel`) have different durations (`v1_duration`)?
+- Data: `coretta2018/token-measures.csv`.
 
--   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.
+- Do different vowels (`vowel`) have different durations (`v1_duration`)?
 
 - Discuss the results with your group (no need to write the discussion).
 :::
@@ -30,11 +43,11 @@ format: html
 ::: callout-note
 ## Task B: Pupil width
 
--   Read the `mclaughlin2023/pupil-width.csv` data.
+- [Data docs](https://uoelel.github.io/qml-data/data/mclaughlin2023/pupil-width.html).
 
--   Fit a regression model to answer the following question: is the average maximum pupil size different when recognising words from dense lexical neighbourhoods compared to words from sparse lexical neighbourhoods?
+- Data: `mclaughlin2023/pupil-width.csv`.
 
--   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for the dense and sparse condition.
+- Is the average maximum pupil size (`pupil_max`) different when recognising words from dense lexical neighbourhoods compared to words from sparse lexical neighbourhoods (`Condition`)?
 
 - Discuss the results with your group (no need to write the discussion).
 :::
@@ -42,23 +55,13 @@ format: html
 ::: callout-note
 ## Task C: Shallow Structure Hypothesis
 
--   Read the `song2020/shallow.csv` data.
+- [Data docs](https://uoelel.github.io/qml-data/data/song2020/shallow.html).
 
-- Filter the data so it contains only L2 data and critical trials.
+- Data: `song2020/shallow.csv`.
 
--   Fit a regression model to answer the following question: how does relation type of prime-target affect reaction times in L2 speakers of English?
+- Filter the data so it contains only L2 data (`Group`) and critical trials (`Critical_Filler`).
 
--   Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each relation type.
+- How does relation type of prime-target (`Relation_type`) affect reaction times (`RT`) in L2 speakers of English?
 
 - Discuss the results with your group (no need to write the discussion).
 :::
-
-
-::: callout-tip
-## Feedback
-
-For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
-
-**We will not provide you with model answers**, so make sure you make the most of us in person.
-:::
-

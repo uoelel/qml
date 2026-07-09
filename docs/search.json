@@ -11,14 +11,14 @@
     "href": "workshops/week-07.html",
     "title": "Workshop: Week 7",
     "section": "",
-    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions! You can find information about the data on the QML Data website.\nThe tasks are designed for you to practice Bayesian Gaussian regression modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Vowel duration and vowel category\n\n\n\n\nRead the coretta2018/token-measures.csv data.\nFit a regression model to answer the following question: do different vowels (vowel) have different durations (v1_duration)?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each vowel.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask B: Pupil width\n\n\n\n\nRead the mclaughlin2023/pupil-width.csv data.\nFit a regression model to answer the following question: is the average maximum pupil size different when recognising words from dense lexical neighbourhoods compared to words from sparse lexical neighbourhoods?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for the dense and sparse condition.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask C: Shallow Structure Hypothesis\n\n\n\n\nRead the song2020/shallow.csv data.\nFilter the data so it contains only L2 data and critical trials.\nFit a regression model to answer the following question: how does relation type of prime-target affect reaction times in L2 speakers of English?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions for each relation type.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
+    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work as a group, guided by the group navigator.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\n\nWhen completing your chosen task, you are expected to:\n\nLearn about the task data by reading the linked data docs.\nUse a Quarto document for your code and text.\nRead the data and familiarise yourself with it. As mentioned above, you should calculate summary measures and create plots of relevant variables (based on the given research question).\nWork out and discuss the mathematical formula of the regression model to fit to answer the research question.\nFit the regression model.\nDiscuss the summary, plot and calculate summaries of the posterior draws of the coefficients and expected values.\nWrite a result paragraph where you report the model specification and the results.\n\n\n\n\n\n\n\n\n\nNoteTask A: Vowel duration and vowel category\n\n\n\n\nData docs.\nData: coretta2018/token-measures.csv.\nDo different vowels (vowel) have different durations (v1_duration)?\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask B: Pupil width\n\n\n\n\nData docs.\nData: mclaughlin2023/pupil-width.csv.\nIs the average maximum pupil size (pupil_max) different when recognising words from dense lexical neighbourhoods compared to words from sparse lexical neighbourhoods (Condition)?\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask C: Shallow Structure Hypothesis\n\n\n\n\nData docs.\nData: song2020/shallow.csv.\nFilter the data so it contains only L2 data (Group) and critical trials (Critical_Filler).\nHow does relation type of prime-target (Relation_type) affect reaction times (RT) in L2 speakers of English?\nDiscuss the results with your group (no need to write the discussion)."
   },
   {
     "objectID": "workshops/week-05.html",
     "href": "workshops/week-05.html",
     "title": "Workshop: Week 5",
     "section": "",
-    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work as a group, guided by the group navigator.\nWhile this week focusses on Gaussian models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\n\n\n\n\n\n\n\n\n\nNoteTask A: Mixean Basque Voice Onset Time\n\n\n\n\nData docs.\nRead the egurtzegi2020/eu_vot.csv data.\nFilter the data to include only aspirated consonants.\nAnswer the following question using a Gaussian model: what is the mean and SD of aspirated VOT in Mixean Basque?\nWrite a results paragraph.\n\n\n\n\n\n\n\n\n\nNoteTask B: Shallow morphological parsing (RT)\n\n\n\n\nData docs.\nRead the song2020/shallow.csv data. Familiarise yourself with the study (https://uoelel.github.io/qml-data/data/song2020/shallow.html).\nFilter the data to include only L2 data from critical trials.\nAnswer the following question using a Gaussian model: what is the mean and SD of reaction times in L2 participants?\nWrite a results paragraph.\n\n\n\n\n\n\n\n\n\nNoteTask C: Reading fixation times (eye-tracking)\n\n\n\n\nData docs.\nRead berzak2025/fix-dur.csv.\nAnswer the following question using a Gaussian model: what is the mean and SD of fixation durations in the data set?\nWrite a results paragraph.\nNow run another model but with only 5 participants (sample 5 random participants from the data set). What happens to the posterior distributions of the mean and SD?"
+    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work as a group, guided by the group navigator.\nWhile this week focusses on Gaussian models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nFrom this week on, you are asked to write the mathematical formulae of the statistical models you work with. You can write them on paper or in your Quarto document (check the R Note in this chapter from the textbook to learn how to write maths in Quarto).\n\nWhen completing your chosen task, you are expected to:\n\nLearn about the task data by reading the linked data docs.\nUse a Quarto document for your code and text.\nRead the data and familiarise yourself with it. As mentioned above, you should calculate summary measures and create plots of relevant variables (based on the given research question).\nWork out and discuss the mathematical formula of the Gaussian model to fit to answer the research question.\nFit the Gaussian model.\nDiscuss the summary, plot posterior probabilities.\nWrite a result paragraph where you report the model specification and the results.\n\n\n\n\n\n\n\n\n\nNoteTask A: Mixean Basque Voice Onset Time\n\n\n\n\nData docs.\nData: egurtzegi2020/eu_vot.csv.\nFilter the data to include only aspirated consonants.\nWhat is the mean and SD of aspirated VOT in Mixean Basque?\n\n\n\n\n\n\n\n\n\nNoteTask B: Shallow morphological parsing (RT)\n\n\n\n\nData docs.\nData: song2020/shallow.csv.\nFilter the data to include only L2 data from critical trials.\nWhat is the mean and SD of reaction times in L2 participants?\n\n\n\n\n\n\n\n\n\nNoteTask C: Reading fixation times (eye-tracking)\n\n\n\n\nData docs.\nData: berzak2025/fix-dur.csv.\nWhat is the mean and SD of fixation durations in the data set?\nNow run another model but with only 5 participants (sample 5 random participants from the data set). What happens to the posterior distributions of the mean and SD?"
   },
   {
     "objectID": "workshops/week-03.html",
@@ -362,6 +362,13 @@
     "title": "QML - Week 1",
     "section": "Assessment",
     "text": "Assessment\n\n\n\n\n\nFormative assessments\n\n\n\n\n\n\n\n\n\n\n\n 4 Self-reflections\n\n\n\n\n\n\n\n\n\n 2 Quizzes\n\n\n\n\n\n\n\n\n\nSummative assessments\n\n\n\n\n\n\n\n\n\n\n\n Final Self-reflection\n\n\n\n\n\n\n\n\n\n Group Project\n\n\n\n\n\n\n\nDetailed information on assessment can be found here: https://uoelel.github.io/qml/assessments.html\n\n\n\n\nSelf esteem icons created by Freepik - Flaticon Analysis icons created by HAJICON - Flaticon"
+  },
+  {
+    "objectID": "lectures/week-01.html#changes",
+    "href": "lectures/week-01.html#changes",
+    "title": "QML - Week 1",
+    "section": "Changes",
+    "text": "Changes\n\n\n\nLast year’s feedback\n\n\n\nPace of the course: too slow AND too fast\n\nNo real solution… BUT change of pace between Week 4 and 5.\n\nLecture content is variable\n\nNow readings must be completed before each lecture.\n\nGroup project: too many formats\n\nData analysis is the only format."
   },
   {
     "objectID": "lectures/week-01.html#finding-help",
@@ -735,11 +742,60 @@
     "text": "Regression model\n\\[\\begin{aligned}\nRT_i & \\sim Gaussian(\\mu_i, \\sigma)\\\\\n\\mu_i & = \\beta_0 + \\beta_1 \\cdot logf_i & \\text{[Regression equation]}\n\\end{aligned}\\]\n\n\n\n\nA regression model is a model that uses the equation of a line (the regression equation).\nThe model estimates \\(\\beta_0\\) (the intercept), \\(\\beta_1\\) (the slope) and \\(\\sigma\\) from the data (i.e. the observed \\(RT\\) and \\(logf\\) values).\n\n\n\n\n\n\n\n\n\\(\\beta_0\\), intercept\n\nMean RT value when logged frequency is 0 zero (i.e. when word frequency is 1; exp(0) = 1).\n\n\\(\\beta_1\\), slope\n\nChange in mean RT for each unit increase of log-frequency (when log-frequency goes from \\(x\\) to \\(x + 1\\))."
   },
   {
-    "objectID": "lectures/week-06.html#models-posterior-predictions",
-    "href": "lectures/week-06.html#models-posterior-predictions",
+    "objectID": "lectures/week-06.html#fit-model-in-brms",
+    "href": "lectures/week-06.html#fit-model-in-brms",
     "title": "QML - Week 6",
-    "section": "Model’s posterior predictions",
-    "text": "Model’s posterior predictions"
+    "section": "Fit model in brms",
+    "text": "Fit model in brms\n\nrt_bm &lt;- brm(\n  rt ~ 1 + log_freq,\n  family = gaussian,\n  data = croat,\n  cores = 4,\n  seed = 4125,\n  file = \"cache/rt_bm\"\n)"
+  },
+  {
+    "objectID": "lectures/week-06.html#model-results",
+    "href": "lectures/week-06.html#model-results",
+    "title": "QML - Week 6",
+    "section": "Model results",
+    "text": "Model results\n\nlibrary(bayesplot)\n\nmcmc_dens(rt_bm, pars = c(\"b_Intercept\", \"b_log_freq\", \"sigma\"))"
+  },
+  {
+    "objectID": "lectures/week-06.html#posterior-draws",
+    "href": "lectures/week-06.html#posterior-draws",
+    "title": "QML - Week 6",
+    "section": "Posterior draws",
+    "text": "Posterior draws\n\nrt_draws &lt;- as_draws_df(rt_bm)\nrt_draws\n\n# A draws_df: 1000 iterations, 4 chains, and 6 variables\n   b_Intercept b_log_freq sigma Intercept lprior   lp__\n1         1096        -44   107       664    -11 -15847\n2         1120        -47   103       667    -11 -15846\n3         1095        -45   105       660    -11 -15846\n4         1121        -47   104       667    -11 -15845\n5         1103        -45   102       663    -11 -15845\n6         1105        -45   106       665    -11 -15845\n7         1110        -46   103       664    -11 -15844\n8         1092        -44   103       663    -11 -15845\n9         1125        -47   103       666    -11 -15846\n10        1114        -46   104       662    -11 -15845\n# ... with 3990 more draws\n# ... hidden reserved variables {'.chain', '.iteration', '.draw'}"
+  },
+  {
+    "objectID": "lectures/week-06.html#posterior-of-beta_1",
+    "href": "lectures/week-06.html#posterior-of-beta_1",
+    "title": "QML - Week 6",
+    "section": "Posterior of \\(\\beta_1\\)",
+    "text": "Posterior of \\(\\beta_1\\)\n\nrt_draws |&gt; \n  ggplot(aes(b_log_freq)) +\n  geom_density(fill = \"brown\", alpha = 0.5)"
+  },
+  {
+    "objectID": "lectures/week-06.html#posterior-of-beta_1-with-cris",
+    "href": "lectures/week-06.html#posterior-of-beta_1-with-cris",
+    "title": "QML - Week 6",
+    "section": "Posterior of \\(\\beta_1\\) with CrIs",
+    "text": "Posterior of \\(\\beta_1\\) with CrIs"
+  },
+  {
+    "objectID": "lectures/week-06.html#cris-of-beta_1",
+    "href": "lectures/week-06.html#cris-of-beta_1",
+    "title": "QML - Week 6",
+    "section": "CrIs of \\(\\beta_1\\)",
+    "text": "CrIs of \\(\\beta_1\\)\n\nlibrary(posterior)\n\n# 95%\nquantile2(rt_draws$b_log_freq, c(0.025, 0.975)) |&gt; round()\n\n q2.5 q97.5 \n  -48   -43 \n\n# 80%\nquantile2(rt_draws$b_log_freq, c(0.1, 0.9)) |&gt; round()\n\nq10 q90 \n-47 -44 \n\n# 60%\nquantile2(rt_draws$b_log_freq, c(0.2, 0.8)) |&gt; round()\n\nq20 q80 \n-47 -45"
+  },
+  {
+    "objectID": "lectures/week-06.html#expected-values",
+    "href": "lectures/week-06.html#expected-values",
+    "title": "QML - Week 6",
+    "section": "Expected values",
+    "text": "Expected values\n\\[\\begin{aligned}\n\\mu_i & = \\beta_0 + \\beta_1 \\cdot logf_i\\\\\n\\mu_{[logf = 4]} & = \\beta_0 + \\beta_1 \\cdot 4\\\\\n\\mu_{[logf = 12]} & = \\beta_0 + \\beta_1 \\cdot 12\\\\\n\\end{aligned}\\]\n\n\nrt_draws &lt;- rt_draws |&gt; \n  mutate(\n    rt_logf_4 = b_Intercept + b_log_freq * 4,\n    rt_logf_12 = b_Intercept + b_log_freq * 12\n  )\n\nquantile2(rt_draws$rt_logf_4, c(0.1, 0.9)) |&gt; round()\n\nq10 q90 \n916 933 \n\nquantile2(rt_draws$rt_logf_12, c(0.1, 0.9)) |&gt; round()\n\nq10 q90 \n556 564"
+  },
+  {
+    "objectID": "lectures/week-06.html#plotting-expected-values",
+    "href": "lectures/week-06.html#plotting-expected-values",
+    "title": "QML - Week 6",
+    "section": "Plotting expected values",
+    "text": "Plotting expected values"
   },
   {
     "objectID": "lectures/week-06.html#word-frequency-and-reaction-times-bis",
@@ -998,7 +1054,7 @@
     "href": "workshops/week-06.html",
     "title": "Workshop: Week 6",
     "section": "",
-    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work as a group, guided by the group navigator.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\n\n\n\n\n\n\n\n\n\nNoteTask A: Massive Auditory Lexical Decision (MALD)\n\n\n\n\nData docs.\nRead the tucker2019/mald_1_1.rds data.\nFilter the data to include only real words.\nFit a regression model to answer the following question: what is the relationship between reaction times and mean phoneme-level Levenshtein distance (PhonLev)?\n\nYou can check the publication linked on the data documentation to learn about the mean phoneme-level Levenshtein distance.\n\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\nWhy does PhonLev have the effect it has on reaction times?\n\n\n\n\n\n\n\n\n\nNoteTask B: Korean voice quality\n\n\n\n\nData docs.\nRead the winter2012/polite.csv data.\nFilter the data to include only female participants.\nFit a regression model of mean f0 (f0mn) and mean harmonic-to-noise ratio (HNRmn, the higher the HNR, the more modal the voice is). What is the relationship between mean f0 and mean HNR in female Korean speakers?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters.\n\n\n\n\n\n\n\n\n\nNoteTask C: Reading fixation times (eye-tracking)\n\n\n\n\nData docs.\nRead berzak2025/fix-dur.csv.\nWith a regression model, answer the following research question: what is the relationship between the current fixation duration and the length of the word being fixated?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters."
+    "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work as a group, guided by the group navigator.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\n\nWhen completing your chosen task, you are expected to:\n\nLearn about the task data by reading the linked data docs.\nUse a Quarto document for your code and text.\nRead the data and familiarise yourself with it. As mentioned above, you should calculate summary measures and create plots of relevant variables (based on the given research question).\nWork out and discuss the mathematical formula of the regression model to fit to answer the research question.\nFit the regression model.\nDiscuss the summary, plot and calculate summaries of the posterior draws of the coefficients and expected values.\nWrite a result paragraph where you report the model specification and the results.\n\n\n\n\n\n\n\n\n\nNoteTask A: Massive Auditory Lexical Decision (MALD)\n\n\n\n\nData docs.\nData: tucker2019/mald_1_1.rds.\nFilter the data to include only real words.\nWhat is the relationship between reaction times (RT) and mean phoneme-level Levenshtein distance (PhonLev)?\n\nYou can check the publication linked on the data documentation to learn about the mean phoneme-level Levenshtein distance.\n\nWhy does PhonLev have the effect it has on reaction times?\n\n\n\n\n\n\n\n\n\nNoteTask B: Korean voice quality\n\n\n\n\nData docs.\nData: winter2012/polite.csv.\nFilter the data to include only female participants.\nFit a regression model of mean f0 (f0mn) and mean harmonic-to-noise ratio (HNRmn, the higher the HNR, the more modal the voice is). What is the relationship between mean f0 and mean HNR in female Korean speakers?\n\n\n\n\n\n\n\n\n\nNoteTask C: Reading fixation times (eye-tracking)\n\n\n\n\nData docs.\nData: berzak2025/fix-dur.csv.\nWhat is the relationship between the current fixation duration and the length of the word being fixated?"
   },
   {
     "objectID": "workshops/week-08.html",
@@ -1006,82 +1062,5 @@
     "title": "Workshop: Week 8",
     "section": "",
     "text": "ImportantInstructions\n\n\n\n\nPick one of the following tasks and work through it in group.\nWhile this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.\nIf you are unsure about anything, please ask us for directions! You can find information about the data on the QML Data website.\nThe tasks are designed for you to practice Bayesian Bernoulli regression modelling.\n\n\n\n\n\n\n\n\n\nNoteTask A: Scalar inferences and semantic distance\n\n\n\n\nRead the pankratz2021/si.csv data. (Data documentation)\nFit a regression model to answer the following question: does the semantic distance (semdist) of the weak and strong adjective affect the probability of a scalar inference (SI)?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions depending on semantic distance.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask B: Shallow Structure Hypothesis\n\n\n\n\nRead the song2020/shallow.csv data.\nFilter the data so it contains only L2 data and critical trials.\nFit a regression model to answer the following question: how does relation type of prime-target affect accuracy in L2 speakers of English?\nWrite a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nNoteTask C: Simulate data\n\n\n\n\nImagine a study with one research question/hypothesis that requires a Bernoulli regression.\nSimulate Bernoulli data based on the study design.\nFit a regression model to answer a question with the simulated data.\nWrite a paragraph reporting the data simulation and the model. Produce plots of the posterior distributions of the model parameters and the expected predictions.\nDiscuss the results with your group (no need to write the discussion).\n\n\n\n\n\n\n\n\n\nTipFeedback\n\n\n\nFor feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).\nWe will not provide you with model answers, so make sure you make the most of us in person."
-  },
-  {
-    "objectID": "lectures/week-01.html#changes",
-    "href": "lectures/week-01.html#changes",
-    "title": "QML - Week 1",
-    "section": "Changes",
-    "text": "Changes\n\n\n\nLast year’s feedback\n\n\n\nPace of the course: too slow AND too fast\n\nNo real solution… BUT change of pace between Week 4 and 5.\n\nLecture content is variable\n\nNow readings must be completed before each lecture.\n\nGroup project: too many formats\n\nData analysis is the only format."
-  },
-  {
-    "objectID": "lectures/week-06.html#fit-model-in-brms",
-    "href": "lectures/week-06.html#fit-model-in-brms",
-    "title": "QML - Week 6",
-    "section": "Fit model in brms",
-    "text": "Fit model in brms\n\nrt_bm &lt;- brm(\n  rt ~ 1 + log_freq,\n  family = gaussian,\n  data = croat,\n  cores = 4,\n  seed = 4125,\n  file = \"cache/rt_bm\"\n)"
-  },
-  {
-    "objectID": "lectures/week-06.html#model-results",
-    "href": "lectures/week-06.html#model-results",
-    "title": "QML - Week 6",
-    "section": "Model results",
-    "text": "Model results\n\nlibrary(bayesplot)\n\nmcmc_dens(rt_bm, pars = c(\"b_Intercept\", \"b_log_freq\", \"sigma\"))"
-  },
-  {
-    "objectID": "lectures/week-06.html#posterior-draws",
-    "href": "lectures/week-06.html#posterior-draws",
-    "title": "QML - Week 6",
-    "section": "Posterior draws",
-    "text": "Posterior draws\n\nrt_draws &lt;- as_draws_df(rt_bm)\nrt_draws\n\n# A draws_df: 1000 iterations, 4 chains, and 6 variables\n   b_Intercept b_log_freq sigma Intercept lprior   lp__\n1         1096        -44   107       664    -11 -15847\n2         1120        -47   103       667    -11 -15846\n3         1095        -45   105       660    -11 -15846\n4         1121        -47   104       667    -11 -15845\n5         1103        -45   102       663    -11 -15845\n6         1105        -45   106       665    -11 -15845\n7         1110        -46   103       664    -11 -15844\n8         1092        -44   103       663    -11 -15845\n9         1125        -47   103       666    -11 -15846\n10        1114        -46   104       662    -11 -15845\n# ... with 3990 more draws\n# ... hidden reserved variables {'.chain', '.iteration', '.draw'}"
-  },
-  {
-    "objectID": "lectures/week-06.html#models-expected-values",
-    "href": "lectures/week-06.html#models-expected-values",
-    "title": "QML - Week 6",
-    "section": "Model’s expected values",
-    "text": "Model’s expected values"
-  },
-  {
-    "objectID": "lectures/week-06.html#posterior-of-beta_1",
-    "href": "lectures/week-06.html#posterior-of-beta_1",
-    "title": "QML - Week 6",
-    "section": "Posterior of \\(\\beta_1\\)",
-    "text": "Posterior of \\(\\beta_1\\)\n\nrt_draws |&gt; \n  ggplot(aes(b_log_freq)) +\n  geom_density(fill = \"brown\", alpha = 0.5)"
-  },
-  {
-    "objectID": "lectures/week-06.html#posterior-of-beta_1-with-cris",
-    "href": "lectures/week-06.html#posterior-of-beta_1-with-cris",
-    "title": "QML - Week 6",
-    "section": "Posterior of \\(\\beta_1\\) with CrIs",
-    "text": "Posterior of \\(\\beta_1\\) with CrIs"
-  },
-  {
-    "objectID": "lectures/week-06.html#cris-of-beta_1",
-    "href": "lectures/week-06.html#cris-of-beta_1",
-    "title": "QML - Week 6",
-    "section": "CrIs of \\(\\beta_1\\)",
-    "text": "CrIs of \\(\\beta_1\\)\n\nlibrary(posterior)\n\n# 95%\nquantile2(rt_draws$b_log_freq, c(0.025, 0.975)) |&gt; round()\n\n q2.5 q97.5 \n  -48   -43 \n\n# 80%\nquantile2(rt_draws$b_log_freq, c(0.1, 0.9)) |&gt; round()\n\nq10 q90 \n-47 -44 \n\n# 60%\nquantile2(rt_draws$b_log_freq, c(0.2, 0.8)) |&gt; round()\n\nq20 q80 \n-47 -45"
-  },
-  {
-    "objectID": "lectures/week-06.html#expected-values-of-the-posterior-predictive-distribution",
-    "href": "lectures/week-06.html#expected-values-of-the-posterior-predictive-distribution",
-    "title": "QML - Week 6",
-    "section": "Expected values of the posterior predictive distribution",
-    "text": "Expected values of the posterior predictive distribution\n\\[\\begin{aligned}\n\\mu_i & = \\beta_0 + \\beta_1 \\cdot logf_i\\\\\n\\mu_{[logf = 4]} & = \\beta_0 + \\beta_1 \\cdot 4\\\\\n\\mu_{[logf = 12]} & = \\beta_0 + \\beta_1 \\cdot 12\\\\\n\\end{aligned}\\]"
-  },
-  {
-    "objectID": "lectures/week-06.html#expected-values",
-    "href": "lectures/week-06.html#expected-values",
-    "title": "QML - Week 6",
-    "section": "Expected values",
-    "text": "Expected values\n\\[\\begin{aligned}\n\\mu_i & = \\beta_0 + \\beta_1 \\cdot logf_i\\\\\n\\mu_{[logf = 4]} & = \\beta_0 + \\beta_1 \\cdot 4\\\\\n\\mu_{[logf = 12]} & = \\beta_0 + \\beta_1 \\cdot 12\\\\\n\\end{aligned}\\]\n\n\nrt_draws &lt;- rt_draws |&gt; \n  mutate(\n    rt_logf_4 = b_Intercept + b_log_freq * 4,\n    rt_logf_12 = b_Intercept + b_log_freq * 12\n  )\n\nquantile2(rt_draws$rt_logf_4, c(0.1, 0.9)) |&gt; round()\n\nq10 q90 \n916 933 \n\nquantile2(rt_draws$rt_logf_12, c(0.1, 0.9)) |&gt; round()\n\nq10 q90 \n556 564"
-  },
-  {
-    "objectID": "lectures/week-06.html#plotting-expected-values",
-    "href": "lectures/week-06.html#plotting-expected-values",
-    "title": "QML - Week 6",
-    "section": "Plotting expected values",
-    "text": "Plotting expected values"
   }
 ]

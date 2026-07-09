@@ -9,6 +9,26 @@ format: html
 - Pick one of the following tasks and work as a group, guided by the group navigator.
 
 - While this week focusses on Gaussian models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.
+
+- From this week on, you are asked to write the mathematical formulae of the statistical models you work with.
+  You can write them on paper or in your Quarto document (check the R Note in [this chapter](https://stefanocoretta.github.io/qdal/ch-gauss-model.html) from the textbook to learn how to write maths in Quarto).
+
+**When completing your chosen task, you are expected to:**
+
+- Learn about the task data by reading the linked data docs.
+
+- Use a Quarto document for your code and text.
+
+- Read the data and familiarise yourself with it.
+  As mentioned above, you should calculate summary measures and create plots of relevant variables (based on the given research question).
+
+- Work out and discuss the mathematical formula of the Gaussian model to fit to answer the research question.
+
+- Fit the Gaussian model.
+
+- Discuss the summary, plot posterior probabilities.
+
+- Write a result paragraph where you report the model specification and the results.
 :::
 
 ::: callout-note
@@ -16,13 +36,11 @@ format: html
 
 - [Data docs](https://uoelel.github.io/qml-data/data/egurtzegi2020/eu_vot.html).
 
-- Read the `egurtzegi2020/eu_vot.csv` data.
+- Data: `egurtzegi2020/eu_vot.csv`.
 
 - Filter the data to include only aspirated consonants.
 
-- Answer the following question using a Gaussian model: what is the mean and SD of aspirated VOT in Mixean Basque?
-
-- Write a results paragraph.
+- What is the mean and SD of aspirated VOT in Mixean Basque?
 :::
 
 ::: callout-note
@@ -30,14 +48,11 @@ format: html
 
 - [Data docs](https://uoelel.github.io/qml-data/data/song2020/shallow.html).
 
-- Read the `song2020/shallow.csv` data.
-  Familiarise yourself with the study (<https://uoelel.github.io/qml-data/data/song2020/shallow.html>).
+- Data: `song2020/shallow.csv`.
 
 - Filter the data to include only L2 data from critical trials.
 
-- Answer the following question using a Gaussian model: what is the mean and SD of reaction times in L2 participants?
-
-- Write a results paragraph.
+- What is the mean and SD of reaction times in L2 participants?
 :::
 
 ::: callout-note
@@ -45,11 +60,9 @@ format: html
 
 - [Data docs](https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html).
 
-- Read `berzak2025/fix-dur.csv`.
+- Data: `berzak2025/fix-dur.csv`.
 
-- Answer the following question using a Gaussian model: what is the mean and SD of fixation durations in the data set?
-
-- Write a results paragraph.
+- What is the mean and SD of fixation durations in the data set?
 
 - Now run another model but with only 5 participants (sample 5 random participants from the data set).
   What happens to the posterior distributions of the mean and SD?

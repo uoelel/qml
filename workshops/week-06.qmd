@@ -9,6 +9,23 @@ format: html
 - Pick one of the following tasks and work as a group, guided by the group navigator.
 
 - While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.
+
+**When completing your chosen task, you are expected to:**
+
+- Learn about the task data by reading the linked data docs.
+
+- Use a Quarto document for your code and text.
+
+- Read the data and familiarise yourself with it.
+  As mentioned above, you should calculate summary measures and create plots of relevant variables (based on the given research question).
+
+- Work out and discuss the mathematical formula of the regression model to fit to answer the research question.
+
+- Fit the regression model.
+
+- Discuss the summary, plot and calculate summaries of the posterior draws of the coefficients and expected values.
+
+- Write a result paragraph where you report the model specification and the results.
 :::
 
 ::: callout-note
@@ -16,16 +33,13 @@ format: html
 
 - [Data docs](https://uoelel.github.io/qml-data/data/tucker2019/mald_1_1.html).
 
-- Read the `tucker2019/mald_1_1.rds` data.
+- Data: `tucker2019/mald_1_1.rds`.
 
 - Filter the data to include only real words.
 
-- Fit a regression model to answer the following question: what is the relationship between reaction times and mean phoneme-level Levenshtein distance (`PhonLev`)?
+- What is the relationship between reaction times (`RT`) and mean phoneme-level Levenshtein distance (`PhonLev`)?
 
   - You can check the publication linked on the [data documentation](https://uoelel.github.io/qml-data/data/tucker2019/mald_1_1.html) to learn about the mean phoneme-level Levenshtein distance.
-
-- Write a paragraph reporting the model.
-  Produce plots of the posterior distributions of the model parameters.
 
 - Why does `PhonLev` have the effect it has on reaction times?
 :::
@@ -35,15 +49,12 @@ format: html
 
 - [Data docs](https://uoelel.github.io/qml-data/data/winter2012/polite.html).
 
-- Read the `winter2012/polite.csv` data.
+- Data: `winter2012/polite.csv`.
 
 - Filter the data to include only female participants.
 
 - Fit a regression model of mean f0 (`f0mn`) and mean harmonic-to-noise ratio (`HNRmn`, the higher the HNR, the more modal the voice is).
   What is the relationship between mean f0 and mean HNR in female Korean speakers?
-
-- Write a paragraph reporting the model.
-  Produce plots of the posterior distributions of the model parameters.
 :::
 
 ::: callout-note
@@ -51,10 +62,7 @@ format: html
 
 - [Data docs](https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html).
 
-- Read `berzak2025/fix-dur.csv`.
+- Data: `berzak2025/fix-dur.csv`.
 
-- With a regression model, answer the following research question: what is the relationship between the current fixation duration and the length of the word being fixated?
-
-- Write a paragraph reporting the model.
-  Produce plots of the posterior distributions of the model parameters.
+- What is the relationship between the current fixation duration and the length of the word being fixated?
 :::
