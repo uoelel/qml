@@ -9,17 +9,20 @@ bibliography: references.bib
 ## Statistical significance
 
 ::: {.callout-note appearance="simple"}
-Suppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a *p*-value of 0.01. Which of the following statements are FALSE?
+Suppose you have a treatment that you suspect may alter performance on a certain task.
+You compare the means of your control and experimental groups (say 20 subjects in each sample).
+Further, suppose a significance test indicates a significant difference, with a *p*-value of 0.01.
+Which of the following statements are FALSE?
 :::
 
 :::::: columns
 :::: {.column width="70%"}
-::: {style="font-size: 18px;"}
-1.  You have absolutely disproved the null hypothesis (that is, there is no difference between the population means).
+::: {.callout-tip style="font-size: 0.8em;" appearance="simple"}
+1.  You have disproved the null hypothesis (that is, there is no difference between the population means).
 
 2.  You have found the probability of the null hypothesis being true.
 
-3.  You have absolutely proved your experimental hypothesis (that there is a difference between the population means).
+3.  You have proved your research hypothesis (that there is a difference between the population means).
 
 4.  You can deduce the probability of the experimental hypothesis being true.
 
@@ -41,17 +44,21 @@ Suppose you have a treatment that you suspect may alter performance on a certain
 ## Which statements are false?
 
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/EIZPEY/questions/68d4127b003fb9fde7a375d6" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/RRYQTLH/questions/6a423e4f8cffe6b5916a2d93" width="100%"></iframe>
 ```
 
 ## Statistical significance is not meaningful
 
 ::: {.callout-note appearance="simple"}
--   Simulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.
+- Simulate N observations from two groups that have very similar means.
+  One group has mean 0 while the other has mean 0.3.
+  Their difference is not linguistically meaningful (the two groups are from the same population despite having different means).
 
--   N is sample size: from 50 to 500.
+- N is sample size: from 50 to 500.
 
--   For each N, simulate N observations 100 times (100 draws). For each draw get the *p*-value of the difference. So 100 p-values for each N.
+- For each N, simulate N observations 100 times (100 draws).
+  For each draw, get the *p*-value of the difference.
+  So 100 *p*-values for each sample size N.
 :::
 
 ## Statistical significance is not meaningful
@@ -108,13 +115,13 @@ A *p*-value is the probability of finding a difference as large as or larger tha
 . . .
 
 ::: {.callout-note appearance="simple"}
--   The "null hypothesis" is always true.
+- The "null hypothesis" is always true.
 
--   You can only reject the null hypothesis, not disprove it nor prove it.
+- You can only reject the null hypothesis, not disprove it nor prove it.
 
--   The *p-*value is not about the probability that the difference is not 0.
+- The *p-*value is not about the probability that the difference is not 0.
 
--   The *p*-value does not tell you anything about the replicability of the results.
+- The *p*-value does not tell you anything about the replicability of the results.
 :::
 
 ## Group activity
@@ -125,14 +132,16 @@ A *p*-value is the probability of finding a difference as large as or larger tha
 Focus on the results sections of these papers and discuss how they compare with one another.
 
 ::: {style="font-size: 15px;"}
--   [Evaluating the Relative Importance of Wordhood Cues Using Statistical Learning](https://doi.org/10.1111/cogs.13429).
+- [Evaluating the Relative Importance of Wordhood Cues Using Statistical Learning](https://doi.org/10.1111/cogs.13429).
 
--   [Brain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions](https://doi.org/10.1177/02676583251348942).
+- [Brain boosters: How bilingualism and working memory enhance children’s comprehension of which-questions](https://doi.org/10.1177/02676583251348942).
 
--   [Notes on the length of vowels](https://doi.org/10.2307/452621).
+- [Notes on the length of vowels](https://doi.org/10.2307/452621).
 :::
 
-How are the statistical approaches different? Which papers focus more on general directional patterns vs more precise estimation? How are the results weighted and use as evidence?
+How are the statistical approaches different?
+Which papers focus more on general directional patterns vs more precise estimation?
+How are the results weighted and use as evidence?
 ::::
 :::::
 

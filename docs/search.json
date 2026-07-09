@@ -88,7 +88,7 @@
     "href": "lectures/week-07.html#statistical-significance",
     "title": "QML - Week 7",
     "section": "Statistical significance",
-    "text": "Statistical significance\n\n\n\nSuppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a p-value of 0.01. Which of the following statements are FALSE?\n\n\n\n\n\n\n\nYou have absolutely disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have absolutely proved your experimental hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
+    "text": "Statistical significance\n\n\n\nSuppose you have a treatment that you suspect may alter performance on a certain task. You compare the means of your control and experimental groups (say 20 subjects in each sample). Further, suppose a significance test indicates a significant difference, with a p-value of 0.01. Which of the following statements are FALSE?\n\n\n\n\n\n\n\n\n\n\nYou have disproved the null hypothesis (that is, there is no difference between the population means).\nYou have found the probability of the null hypothesis being true.\nYou have proved your research hypothesis (that there is a difference between the population means).\nYou can deduce the probability of the experimental hypothesis being true.\nYou know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.\nYou have a reliable experimental ﬁnding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a signiﬁcant result on 99% of occasions."
   },
   {
     "objectID": "lectures/week-07.html#which-statements-are-false",
@@ -102,7 +102,7 @@
     "href": "lectures/week-07.html#statistical-significance-is-not-meaningful",
     "title": "QML - Week 7",
     "section": "Statistical significance is not meaningful",
-    "text": "Statistical significance is not meaningful\n\n\n\n\nSimulate N observations from two populations that have very similar means. Their difference is not linguistically meaningful.\nN is sample size: from 50 to 500.\nFor each N, simulate N observations 100 times (100 draws). For each draw get the p-value of the difference. So 100 p-values for each N."
+    "text": "Statistical significance is not meaningful\n\n\n\n\nSimulate N observations from two groups that have very similar means. One group has mean 0 while the other has mean 0.3. Their difference is not linguistically meaningful (the two groups are from the same population despite having different means).\nN is sample size: from 50 to 500.\nFor each N, simulate N observations 100 times (100 draws). For each draw, get the p-value of the difference. So 100 p-values for each sample size N."
   },
   {
     "objectID": "lectures/week-07.html#statistical-significance-is-not-meaningful-1",
