@@ -16,159 +16,208 @@ library(brms)
 library(posterior)
 ```
 
-ba \<- brm(RealizationOfRecipient \~ LengthOfRecipient, family = bernoulli, data = dative)
+## The English dative alternation
 
-## Bouba and kiki
-
-![](/img/Booba-Kiki.svg){fig-align="center"}
-
-::: {style="font-size: 1rem;"}
-@holland1964, @chen2016
+::::: columns
+::: column
+![](../img/flaticon/friends.png){fig-align="center" width="200"}
 :::
 
-## Cross-modality
+::: column
+![](/img/flaticon/open-book-2.png){fig-align="center" width="200"}
+:::
+:::::
 
-::: {.callout-note appearance="simple"}
-- There are links between the auditory and visual modalities.
+::: {style="text-align: center;"}
+I gave my friend a book.
 
-- A lot of research this concept, in fact originated with @kohler1929 who used "takete" and "maluma" (not the singer).
-
-- @koppensteiner2016 ask if not only shape, but also motion patterns enter in the cross-modality link.
+I gave a book to my friend.
 :::
 
-## Motion patterns
-
-![](/img/pone.0150610.g001.PNG_L.png){fig-align="center" width="500"}
-
-::: {style="font-size: 1rem;"}
-@koppensteiner2016
+::: aside
+[<a href="https://www.flaticon.com/free-icons/friends" title="friends icons">Friends icons created by Freepik - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/open-book" title="open book icons">Open book icons created by Freepik - Flaticon</a>]{style="font-size: 8px;"}
 :::
 
-## Motion patterns
+## Dative alternation: length of recipient
 
-::: {.callout-note appearance="simple"}
-@koppensteiner2016
+::: {.r-fit-text style="text-align: center"}
+I gave *them* a book.
 
-- 46 students (24 females and 22 males; age M = 25.1 years, SD = 3.6) of the University of Vienna.
-
-- They saw a word (takete or maluma) and two stick-figures moving.
-
-- They had to pick the stick figure they thought was described by the word.
+I gave a book to *my friend's mom*.
 :::
 
 ## The data
 
 ```{r}
-#| label: kopper
-#| message: false
+#| label: dative
 #| echo: true
 
-kopper <- read_delim("data/koppensteiner2016/takete_maluma.txt")
-kopper
+library(languageR)
+data("dative")
+
+dative
+
 ```
 
-## Accuracy
+## Realisation of recipient
 
 ```{r}
-#| label: fig-kopper-acc
-#| fig-cap: "Accuracy by stimulus type."
+#| label: dat-realisation
 
-kopper |> 
-  ggplot(aes(Tak_Mal_Stim, fill = Answer)) +
-  geom_bar(position = "fill") +
-  labs(
-    x = "Stimulus type", y = "Proportion"
-  )
+dative |>
+  ggplot(aes(RealizationOfRecipient, fill = RealizationOfRecipient)) +
+  geom_bar() +
+  theme(legend.position = "none")
+
 ```
 
-## Modelling accuracy
+## Length of recipient
 
-::: {.callout-note appearance="simple"}
-- We want to model the proportion of correct responses by stimulus type: both types should elicit the same level of accuracy.
+```{r}
+#| label: dat-length
 
-- We can use a Bernoulli regression model.
-:::
+dative |>
+  ggplot(aes(LengthOfRecipient)) +
+  geom_histogram(binwidth = 1, fill = "cadetblue") +
+  labs(x = "Length of recipient (number of words)")
+
+```
+
+## Realisation and length
+
+```{r}
+#| label: dat-real-length
+#| echo: true
+#| output-location: slide
+
+dative <- dative |> 
+  mutate(
+    Realisation_num = ifelse(RealizationOfRecipient == "NP", 0, 1)
+  )
+
+dative |> 
+  ggplot(aes(LengthOfRecipient, Realisation_num)) +
+  geom_smooth(
+    method = "glm",
+    method.args = list(family = "binomial"),
+    colour = "sienna"
+  ) +
+  ylim(0, 1)
+```
+
+## Regression model
+
+```{r}
+#| label: dat-bm
+#| echo: true
+
+dat_bm <- brm(
+  RealizationOfRecipient ~ LengthOfRecipient,
+  family = "bernoulli",
+  data = dative,
+  seed = 3926,
+  file = "cache/dat_bm"
+)
+
+summary(dat_bm)
+```
+
+## Posterior distributions
+
+```{r}
+#| label: dat-bm-dens
+
+mcmc_plot(dat_bm, type = "dens")
+```
+
+## Odd ratio of the effect of length
+
+```{r}
+#| label: dat-bm-draws
+#| echo: true
+#| output-location: column
+
+dat_bm_draws <- as_draws_df(dat_bm) |> 
+  mutate(
+    Length_OR = exp(b_LengthOfRecipient)
+  )
+
+dat_bm_draws |> 
+  ggplot(aes(Length_OR)) +
+  geom_density(fill = "aquamarine4", alpha = 0.5) +
+  labs(x = "Odd ratio of the effect of recipient length")
+```
 
 . . .
 
 ```{r}
-#| label: kop-mutate
-#| echo: true
+#| label: dat-bm-draws-cri
 
-kopper <- kopper |> 
-  mutate(
-    Answer_f = factor(Answer, levels = c("WRONG", "CORRECT"))
-  )
-levels(kopper$Answer_f)
-```
-
-## Accuracy: Bernoulli regression
-
-```{r}
-#| label: kop-bm
-#| echo: true
-
-kop_bm <- brm(
-  Answer_f ~ Tak_Mal_Stim,
-  data = kopper,
-  family = bernoulli,
-  cores = 4,
-  seed = 9128,
-  file = "cache/kop_bm"
-)
-```
-
-## Accuracy: model summary
-
-```{r}
-#| label: kop-bm-summ
-#| echo: true
-
-summary(kop_bm)
-
-```
-
-## Expected predictions of accuracy
-
-```{r}
-#| label: kop-bm-cond
-#| warning: false
-#| message: false
-#| fig-align: center
-
-conditional_effects(kop_bm)
-```
-
-## Credible intervals of the difference
-
-```{r}
-#| label: kop-bm-ci
-#| echo: true
-#| code-line-numbers: "|1|3-10|11"
-
-kop_bm_draws <- as_draws_df(kop_bm)
-
-kop_bm_draws |> 
+dat_bm_draws |>
   summarise(
-    `90%` = paste0("[", paste(quantile2(b_Tak_Mal_StimTakete, c(0.05, 0.95)) |> round(2), collapse = ", "), "]"),
-    `80%` = paste0("[", paste(quantile2(b_Tak_Mal_StimTakete, c(0.1, 0.9)) |> round(2), collapse = ", "), "]"),
-    `70%` = paste0("[", paste(quantile2(b_Tak_Mal_StimTakete, c(0.15, 0.85)) |> round(2), collapse = ", "), "]"),
-    `60%` = paste0("[", paste(quantile2(b_Tak_Mal_StimTakete, c(0.2, 0.8)) |> round(2), collapse = ", "), "]"),
-    `40%` = paste0("[", paste(quantile2(b_Tak_Mal_StimTakete, c(0.3, 0.7)) |> round(2), collapse = ", "), "]")
-  ) |> 
+    `90%` = paste0("[", paste(quantile2(Length_OR, c(0.05, 0.95)) |> round(2), collapse = ", "), "]"),
+    `80%` = paste0("[", paste(quantile2(Length_OR, c(0.1, 0.9)) |> round(2), collapse = ", "), "]"),
+    `70%` = paste0("[", paste(quantile2(Length_OR, c(0.15, 0.85)) |> round(2), collapse = ", "), "]"),
+    `60%` = paste0("[", paste(quantile2(Length_OR, c(0.2, 0.8)) |> round(2), collapse = ", "), "]"),
+    `40%` = paste0("[", paste(quantile2(Length_OR, c(0.3, 0.7)) |> round(2), collapse = ", "), "]")
+    ) |>
   knitr::kable(align = c("ccccc"))
-
 ```
 
-## Is there a difference in accuracy by stimulus type?
+## From 1 to 2 to 3 words
+
+```{r}
+#| label: dat-bm-1-5
+#| echo: true
+
+dat_bm_draws <- dat_bm_draws |> 
+  mutate(
+    p_1 = plogis(b_Intercept + b_LengthOfRecipient),
+    p_2 = plogis(b_Intercept + b_LengthOfRecipient * 2),
+    p_3 = plogis(b_Intercept + b_LengthOfRecipient * 3),
+    p_2_1 = p_2 - p_1, p_3_2 = p_3 - p_2,
+  )
+
+quantile2(dat_bm_draws$p_2_1, probs = c(0.05, 0.95)) |> round(2)
+quantile2(dat_bm_draws$p_3_2, probs = c(0.05, 0.95)) |> round(2)
+```
+
+## Expected values
+
+```{r}
+#| label: dat-bm-epred
+#| echo: true
+#| output-location: slide
+
+library(tidybayes)
+
+pred_grid <- tibble(
+  LengthOfRecipient = seq(
+    min(dative$LengthOfRecipient),
+    max(dative$LengthOfRecipient)
+  )
+)
+
+dat_bm_epred <- epred_draws(dat_bm, pred_grid) |> 
+  mutate(
+    median = median(.epred),
+    lower = quantile2(.epred, probs = 0.025),
+    upper = quantile2(.epred, probs = 0.975)
+  )
+
+dat_bm_epred |> 
+  ggplot(aes(LengthOfRecipient, median)) +
+  geom_ribbon(aes(ymin = lower, ymax = upper), alpha = 0.2) +
+  geom_line(linewidth = 1, colour = "sienna")
+```
+
+## Results
 
 ::: {.callout-note appearance="simple"}
-- According to the model, the difference in log-odds is \[-0.25, 0.56\] at 95% probability.
+- At 90% confidence, the probability of the recipient being realised as PP increases by a factor of 1.9 to 2.15 for each extra word in the recipient.
 
-- Only at 40% probability we can argue for an increase in log-odds for takete stimuli between 0.04 and 0.27.
+- The probability of a PP increases by 11-13 percentage points from 1 to 2 words, at 90% probability.
+  (But it is still below 50%, so an NP is still more likely).
 
-- We can't argue for or against a difference.
-  We just do not know.
+- Above 10 words, an PP is virtually certain.
 :::
-
-## References
