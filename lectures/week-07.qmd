@@ -6,6 +6,12 @@ format: revealjs
 bibliography: references.bib
 ---
 
+## 
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/RRYQTLH/questions/6a54dcb21a6fa95d6c99cfac" width="100%"></iframe>
+```
+
 ## Statistical significance
 
 ::: {.callout-note appearance="simple"}
