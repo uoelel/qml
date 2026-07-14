@@ -121,8 +121,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#bernoulli-models-pick-one-task" id="toc-bernoulli-models-pick-one-task" class="nav-link active" data-scroll-target="#bernoulli-models-pick-one-task"><span class="header-section-number">1</span> Bernoulli models (pick one task)</a></li>
+  <li><a href="#log-normal-model" id="toc-log-normal-model" class="nav-link" data-scroll-target="#log-normal-model"><span class="header-section-number">2</span> Log-normal model</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -157,13 +164,24 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Pick one of the following tasks and work through it in group.</p></li>
-<li><p>While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.</p></li>
-<li><p>If you are unsure about anything, please ask us for directions! You can find information about the data on the <a href="https://uoelel.github.io/qml-data/">QML Data</a> website.</p></li>
-<li><p>The tasks are designed for you to practice Bayesian Bernoulli regression modelling.</p></li>
+<li><p>Pick one of task A-C and work as a group, guided by the group navigator. After you have finished with your chosen task, complete task D.</p></li>
+<li><p>While this week focusses on Bernoulli and log-normal regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.</p></li>
+</ul>
+<p><strong>When completing your chosen task, you are expected to:</strong></p>
+<ul>
+<li><p>Learn about the task data by reading the linked data docs.</p></li>
+<li><p>Use a Quarto document for your code and text.</p></li>
+<li><p>Read the data and familiarise yourself with it. As mentioned above, you should calculate summary measures and create plots of relevant variables (based on the given research question).</p></li>
+<li><p>Work out and discuss the mathematical formula of the regression model to fit to answer the research question.</p></li>
+<li><p>Fit the regression model.</p></li>
+<li><p>Check the model diagnostics.</p></li>
+<li><p>Discuss the summary, plot and calculate summaries of the posterior draws of the coefficients and expected values.</p></li>
+<li><p>Write a result paragraph where you report the model specification and the results.</p></li>
 </ul>
 </div>
 </div>
+<section id="bernoulli-models-pick-one-task" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="bernoulli-models-pick-one-task"><span class="header-section-number">1</span> Bernoulli models (pick one task)</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -175,10 +193,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>pankratz2021/si.csv</code> data. (<a href="https://uoelel.github.io/qml-data/data/pankratz2021/si.html">Data documentation</a>)</p></li>
-<li><p>Fit a regression model to answer the following question: does the semantic distance (<code>semdist</code>) of the weak and strong adjective affect the probability of a scalar inference (<code>SI</code>)?</p></li>
-<li><p>Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions depending on semantic distance.</p></li>
-<li><p>Discuss the results with your group (no need to write the discussion).</p></li>
+<li><p><a href="https://uoelel.github.io/qml-data/data/pankratz2021/si.html">Data docs</a>.</p></li>
+<li><p>Data: <code>pankratz2021/si.csv.</code></p></li>
+<li><p>Does the semantic distance (<code>semdist</code>) of the weak and strong adjective affect the probability of a scalar inference (<code>SI</code>)?</p></li>
+</ul>
+<!-- -->
+<ul>
+<li>Discuss the results with your group (no need to write the discussion).</li>
 </ul>
 </div>
 </div>
@@ -193,10 +214,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Read the <code>song2020/shallow.csv</code> data.</p></li>
-<li><p>Filter the data so it contains only L2 data and critical trials.</p></li>
-<li><p>Fit a regression model to answer the following question: how does relation type of prime-target affect accuracy in L2 speakers of English?</p></li>
-<li><p>Write a paragraph reporting the model. Produce plots of the posterior distributions of the model parameters and the expected predictions of accuracy for each relation type.</p></li>
+<li><p><a href="https://uoelel.github.io/qml-data/data/song2020/shallow.html">Data docs</a>.</p></li>
+<li><p>Data: <code>song2020/shallow.csv</code>.</p></li>
+<li><p>Filter the data so it contains only L2 data (<code>Group</code>) and critical trials (<code>Critical_Filler</code>).</p></li>
+<li><p>How does relation type of prime-target (<code>Relation_type</code>) affect accuracy (<code>ACC</code>) in L2 speakers of English?</p></li>
 <li><p>Discuss the results with your group (no need to write the discussion).</p></li>
 </ul>
 </div>
@@ -215,27 +236,34 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Imagine a study with one research question/hypothesis that requires a Bernoulli regression.</p></li>
 <li><p>Simulate Bernoulli data based on the study design.</p></li>
 <li><p>Fit a regression model to answer a question with the simulated data.</p></li>
-<li><p>Write a paragraph reporting the data simulation and the model. Produce plots of the posterior distributions of the model parameters and the expected predictions.</p></li>
 <li><p>Discuss the results with your group (no need to write the discussion).</p></li>
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+</section>
+<section id="log-normal-model" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="log-normal-model"><span class="header-section-number">2</span> Log-normal model</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Feedback
+<span class="screen-reader-only">Note</span>Task D: Vowel duration
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For feedback, ask us in class and/or send your work to Stefano and/or come to Stefano’s office hours (you can also come in groups).</p>
-<p><strong>We will not provide you with model answers</strong>, so make sure you make the most of us in person.</p>
+<ul>
+<li><p><a href="https://uoelel.github.io/qml-data/data/coretta2018a/ita_egg.html">Data docs</a>.</p></li>
+<li><p>Data: <code>coretta2018a/ita_egg.rda</code>.</p></li>
+<li><p>How does vowel duration (<code>v1_duration</code>) differ by vowel type (<code>vowel</code>)?</p></li>
+<li><p>Discuss the results with your group (no need to write the discussion).</p></li>
+</ul>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

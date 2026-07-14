@@ -8,7 +8,7 @@ format: html
 
 - Pick one of the following tasks and work as a group, guided by the group navigator.
 
-- While this week focusses on regression models and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.
+- While this week focusses on regression models with categorical predictors and the tasks below are for you to practice them, you should also get summary measures and plot the data, so that you familiarise yourself with the data sets and you keep practising skills learned in earlier weeks.
 
 **When completing your chosen task, you are expected to:**
 
