@@ -37,11 +37,9 @@ format: html
 
 - Filter the data to include only real words.
 
-- What is the relationship between reaction times (`RT`) and mean phoneme-level Levenshtein distance (`PhonLev`)?
+- What is the relationship between reaction times (`RT`) and lexical frequency (`FreqSUBTLEX`)?
 
-  - You can check the publication linked on the [data documentation](https://uoelel.github.io/qml-data/data/tucker2019/mald_1_1.html) to learn about the mean phoneme-level Levenshtein distance.
-
-- Why does `PhonLev` have the effect it has on reaction times?
+- Why does `FreqSUBTLEX` have the effect it has on reaction times?
 :::
 
 ::: callout-note
