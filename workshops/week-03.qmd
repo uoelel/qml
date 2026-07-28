@@ -56,10 +56,3 @@ format: html
 - What can the summaries tell you about reaction times and accuracy based on lexical status?
   What about individual variation?
 :::
-
-::: {.callout-tip collapse="true"}
-## Task C: Hint
-
-To get the number of participants and words, you first need to get the unique participant IDs and unique words.
-`?distinct` is your friend.
-:::
