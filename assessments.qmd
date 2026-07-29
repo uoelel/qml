@@ -9,9 +9,9 @@ bibliography: references.bib
 
 This course will be **assessed on the basis of a two summative assessments**:
 
-- A final self-reflection of your learning during the course (20% of the final mark).
+- A final self-reflection of your learning during the course (500 words, 20% of the final mark).
 
-- A group project (80% of the final mark).
+- A group project (80% of the final mark, no word limit).
   The group project must be a data analysis report.
 
 During the course, you will also have the chance to practice your skills and test your knowledge through **formative assessments**.
@@ -57,7 +57,7 @@ There will be five formative assessments:
 ::: callout-important
 ### Overview
 
-- You should post your self-reflections by Wednesday on Week 4, 6 and 10 on the Reflective Journal on Learn**.**
+- You should submit your self-reflections by Thursday on Week 4, 6 and 10 to Turnitin on Learn**.**
 
 - You should post your self-reflection by the Wednesday of the check-point weeks (4, 6, 10).
   This is not a hard deadline and it is fine if you have to catch up with your self reflection in a later week.
@@ -74,12 +74,9 @@ Learning is also something that we can learn how to do better.
 Think of a hobby you might have or a skill you've learned: you've probably perfected it for a while, paying close attention to what did or didn't work.
 
 That's why both students and the lecturer (Stefano) will reflect on how the course is going and what they've learned.
-At the defined check-point weeks (weeks 4, 6, 10), we'll all write short self-reflections in the **Reflective Journal on Learn**.
-The tutors will comment on yours and you'll be able to comment on mine.
-
-Each of us will have our own Reflective Journal on Learn.
-The tutors and I will be able to see your Reflective Journal, but you won't be able to see other students' Journals.
-My Journal (the lecturer's) will be visible to all and you will also be able to comment on it.
+At the defined check-point weeks (weeks 4, 6, 10), we'll all write short self-reflections.
+You will receive feedback on yours and you'll be able to comment on mine.
+You will submit your self-reflections to Turnitin on Learn, while I will post mine on my Reflective Journal.
 
 In your self-reflection, you want to focus on your learning process: what did you learn, how easy or difficult was it, how did the learning affect your views on something?
 Here are more specific questions you can follow, but feel free to make adjustments.
@@ -202,8 +199,8 @@ I know it sounds silly, but we have seen several students just writing a dry lis
 
 ### Feedback on self-reflections
 
-After you post your self-reflections on the Reflective Journal on Learn, me (Stefano) or one of the tutors will write short feedback on what is good and what can be improved in your self-reflection.
-We aim to give you feedback within one week after the Wednesday the submission is due.
+After you submit your self-reflections to Turnitin on Learn, you will be given feedback on what is good and what can be improved in your self-reflection.
+We aim to release feedback within one week after the submission is due.
 
 Note that we are not expecting beautiful prose, rather we will be looking for honest reflection.
 Feel free to add specific questions about aspects of your reflection in the reflection itself for me or the tutors to reply in our feedback.
@@ -214,10 +211,10 @@ The two quizzes will be online tests with multiple choice and true/false questio
 They will be available on Learn.
 
 - Quiz of weeks 1-5.
-  Due week 6.
+  Due Thursday at noon Week 6.
 
 - Quiz of weeks 1-10.
-  Due week 11.
+  Due Thursday at noon Week 11.
 
 ## Summative assessments: Final Reflection (20%) and Group Project (80%)
 
@@ -225,16 +222,46 @@ They will be available on Learn.
 ### Deadlines
 
 - You must submit a Project Proposal to Turnitin by **Thursday 5th November at noon** (Week 7) on Learn \> Assessment.
-- You must submit your Final Reflection and your Group Project to Turnitin (separately) by **Thursday 10th December at noon** (Week 12) on Learn \> Assessment.
+- You must submit your Final Reflection and your Group Project to Turnitin (separately) by **Thursday 10th December at noon** (Week 12) on Learn \> Assessment. For the Group Project, only one student of the group should submit, but each of you must submit their Final Reflection.
+- Final Reflection: 500 words maximum. Group Project: no word limit (since it doesn't make sense for a data analysis report).
 :::
 
-### Final self-reflection
+### Final self-reflection (500 words maximum, 20%)
 
-### Group Project: data analysis report
+For the Final Self-reflection, you should write a maximum of 500 words.
+In the Final Reflection, you should reflect on your learning experience throughout the course.
+You can think of the Final Reflection as the synthesis of the individual formative Self-reflections (but do not just copy paste what you have written in them; you should write a synthesis of your overall experience rather than just a list).
+Below you can find questions to guide you, like for the formative Self-reflections.
+We recommend that you structure your reflection using the headings of the questions below as headings in your Final Reflection.
+
+::: callout-tip
+## Self-reflection questions
+
+- **Participation and Engagement**\
+  How have I contributed to class activities and managed my independent study?
+  Am I satisfied with my approach throughout the course?
+  How did my approach change, if I had to make changes?
+
+- **Learning and Challenges**\
+  Which topics did I find easy and which did I find difficult?
+  How did I approach the weekly Challenges, and what difficulties—if any—did I face?
+  How did I address them?
+
+- **Impact on Perspectives**\
+  How did this course influence my views on quantitative methods and related areas?
+  Have my perspectives changed, been reinforced, or stayed the same?
+
+- **Intellectual Growth and Achievements**\
+  In what ways have I developed academically throughout this course?
+  What am I particularly proud of?
+:::
+
+### Group Project: data analysis report (no word limit, 80%)
 
 As part of the assessment you will have to work on a **Group Project**.
 The group project must be a **data analysis report**, but you can choose the topic as long as it is in linguistics (see below for details).
 Your project has to be approved by Stefano (see @sec-proj-prop below) and you must use the project template (see requisites below).
+Note that there is no word limit for the Group Project.
 
 A **data analysis report** is a special type of document which resembles an academic paper, but focuses more on the analysis aspects of the study.
 This means that your report should include visible R code, more plots than what you would find in a traditional paper, clear explanation of your analytical choices, and so on.
@@ -286,6 +313,49 @@ The Group Project has the following further requisites.
 - It is up to you to form a group to work with.
   I recommend groups of 3-5 people, but you can work in pairs (solo projects will be allowed only if part of learning adjustments).
 :::
+
+- **Background**.
+  This should be brief (2-3 paragraphs) but should discuss relevant literature in enough detail to justify the research questions/hypotheses.
+
+- **Research Questions/Hypotheses**.
+  The research questions should be defined precisely and it should be clear how they follow from previous work discussed in the Background.
+  If you wish, you can also define precise research hypotheses (it is fine to not have hypotheses).
+  Your RQ/RHs don't have to be novel/original.
+  A simple, well-justified RQ will be better than many complex vaguely defined RHs.
+
+- **Methods**.
+  The sections under Methods should be as detailed as possible to allow an independent research to exactly repeat the study.
+  Materials and procedures, if applicable, should be described.
+  If the project uses pre-existing data or simulates data, this should be clearly stated and details should be provided.
+
+- **Analysis plan**.
+  The planned statistical analysis must be justified and care should be given ensuring that it straightforwardly addresses the RQ/RHs.
+  A description of which statistical coefficients/comparisons will be used for which RQ/RH should be included in the report.
+
+- **Data processing**.
+  Appropriate processing should be applied to the data, including data cleaning and data validation checks.
+  Processing steps should be justified where relevant (for example, when filtering data or recoding labels).
+
+- **Summaries**.
+  Appropriate summary measures (central tendency and dispersion) must be provided for relevant data and data groupings, as formatted tables.
+  A brief description should accompany the measures.
+
+- **Plotting**.
+  Appropriate plots illustrate patterns and characteristics of the data.
+  Plots should be accompanied by a caption and a textual description.
+  Visualisation principles of clarity and honesty should be followed.
+
+- **Modelling**.
+  You must carefully justify the specification of regression models with appropriately selected variables, family distributions, interactions if applicable.
+  When multiple models are necessary, you must explain why and how each model is linked with which RQ/RH.
+
+- **R/Quarto skills**.
+  These are general R and Quarto/markdown skills not covered in the other areas.
+  They include general code/text organisation, markdown formatting, use of headings, code chunk labels, referencing, code commenting, code succinctness and clarity.
+
+- **Open Research**.
+  The Research Compendium of the study must be available online.
+  We will assess file/folder structure and organisation, clarity of documentation, including degree of data documentation, and whether code runs.
 
 ### Project proposal submission {#sec-proj-prop}
 
@@ -399,62 +469,27 @@ Analysis plans also require an estimation of the necessary sample size.
 - Normal extensions and learning adjustments extensions are not possible on the Group Project, so carefully plan your time accordingly.
 :::
 
-- **You should submit a PDF file.**
+- **You can use any file format for the Final Reflection, but you must submit a PDF file for the Group Project generated from the template.**
 - XXX
 
 ## Feedback and marking
 
-**Feedback** will be provided to you (1) during class, (2) as comments on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me; you can do so here: <https://bit.ly/33BH84L>), (4) on the Final Reflection + Group Project submission.
+**Feedback** will be provided to you (1) during class, (2) on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me; you can do so here: <https://bit.ly/33BH84L>), (4) on the Final Reflection + Group Project submission.
 
-### Marking rubric for Group Project {#sec-rubric}
+### Feedback rubric for Group Project {#sec-rubric}
 
 The following areas in the data analysis report (Group project) will be assessed.
 
-- **Background**.
-  This should be brief (2-3 paragraphs) but should discuss relevant literature in enough detail to justify the research questions/hypotheses.
+- **Research framing**: positioning of the study within its academic context, developing a clear rationale, and formulating well-justified research questions or hypotheses that align with appropriate methods and analyses.
 
-- **Research Questions/Hypotheses**.
-  The research questions should be defined precisely and it should be clear how they follow from previous work discussed in the Background.
-  If you wish, you can also define precise research hypotheses (it is fine to not have hypotheses).
-  Your RQ/RHs don't have to be novel/original.
-  A simple, well-justified RQ will be better than many complex vaguely defined RHs.
+- **Summaries**: describing and presenting data through accurate measures of central tendency and variability, using clear tables and interpretations to identify key patterns, distributions, and differences across variables.
 
-- **Methods**.
-  The sections under Methods should be as detailed as possible to allow an independent research to exactly repeat the study.
-  Materials and procedures, if applicable, should be described.
-  If the project uses pre-existing data or simulates data, this should be clearly stated and details should be provided.
+- **Plotting**: effectively presenting data through appropriate plots and clear visual design, using accurate and transparent representations to highlight key patterns, relationships, and features that support meaningful interpretation.
 
-- **Analysis plan**.
-  The planned statistical analysis must be justified and care should be given ensuring that it straightforwardly addresses the RQ/RHs.
-  A description of which statistical coefficients/comparisons will be used for which RQ/RH should be included in the report.
+- **Modelling**: selecting, justifying, and implementing appropriate statistical models that address research questions or hypotheses, with careful consideration of variables, assumptions, distributions, interactions, and the coherence of the overall analytical strategy.
 
-- **Data processing**.
-  Appropriate processing should be applied to the data, including data cleaning and data validation checks.
-  Processing steps should be justified where relevant (for example, when filtering data or recoding labels).
+- **R/Quarto**: using R and Quarto/Markdown effectively to create well-structured, clear, and transparent documents, with organised code, appropriate formatting, and concise, well-justified analytical workflows.
 
-- **Summaries**.
-  Appropriate summary measures (central tendency and dispersion) must be provided for relevant data and data groupings, as formatted tables.
-  A brief description should accompany the measures.
-
-- **Plotting**.
-  Appropriate plots illustrate patterns and characteristics of the data.
-  Plots should be accompanied by a caption and a textual description.
-  Visualisation principles of clarity and honesty should be followed.
-
-- **Modelling**.
-  You must carefully justify the specification of regression models with appropriately selected variables, family distributions, interactions if applicable.
-  When multiple models are necessary, you must explain why and how each model is linked with which RQ/RH.
-
-- **R/Quarto skills**.
-  These are general R and Quarto/markdown skills not covered in the other areas.
-  They include general code/text organisation, markdown formatting, use of headings, code chunk labels, referencing, code commenting, code succinctness and clarity.
-
-- **Open Research**.
-  The Research Compendium of the study must be available online.
-  We will assess file/folder structure and organisation, clarity of documentation, including degree of data documentation, and whether code runs.
-
-The following marking rubric will be used for the final mark of this course.
-It is an adaptation of the Psychology/LEL Honours marking rubric.
-Note that within each mark band, you can only get the 5's (so 65, 75, 85, etc...), except for 92.
+- **Open Research**: organising, documenting, and sharing research materials in an open, reproducible, and reusable format, with clear file structures, comprehensive documentation, and workflows that support transparency and reproducibility.
 
 ### References {.unnumbered}
