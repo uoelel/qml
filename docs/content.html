@@ -341,13 +341,13 @@ window.Quarto = {
 <td>2</td>
 <td>Research methods</td>
 <td>Quantitative data analysis</td>
-<td>RStudio and R basics</td>
+<td>RStudio, R basics, R packages and reading data</td>
 </tr>
 <tr class="odd">
 <td>3</td>
 <td>Inference</td>
 <td>Data summaries</td>
-<td>R scripts, read and summarise data</td>
+<td>R scripts and summarise data</td>
 </tr>
 <tr class="even">
 <td>4</td>
@@ -365,31 +365,31 @@ window.Quarto = {
 <td>6</td>
 <td></td>
 <td>Regression modelling (numeric predictor) and posterior draws</td>
-<td>Regression modelling with brms</td>
+<td>Regression modelling with brms, MCMC draws</td>
 </tr>
 <tr class="odd">
 <td>7</td>
 <td>Null Ritual</td>
 <td>Regression (categorical predictor)</td>
-<td>Treatment and indexing</td>
+<td>Treatment coding and contrasts, posterior draws of the expected values</td>
 </tr>
 <tr class="even">
 <td>8</td>
 <td></td>
 <td>Bernoulli and log-normal regression</td>
-<td>Bernoulli and log-normal regression</td>
+<td>Bernoulli and log-normal regression, model diagnostics</td>
 </tr>
 <tr class="odd">
 <td>9</td>
 <td>Open research</td>
 <td>Regression (multiple predictors) and interactions</td>
-<td></td>
+<td>Categorical/categorical and categorical/numeric interactions</td>
 </tr>
 <tr class="even">
 <td>10</td>
 <td>What’s next?</td>
-<td></td>
-<td></td>
+<td>Outlook on further statistical topics</td>
+<td>Numeric/numeric interactions</td>
 </tr>
 </tbody>
 </table>
@@ -451,9 +451,9 @@ window.Quarto = {
 <p><strong>Skills</strong></p>
 <ul>
 <li>Think critically about research methods and research questions.</li>
-<li>Master the basics of RStudio.</li>
-<li>Master the basics of the programming language R.</li>
+<li>Master the basics of RStudio and the programming language R.</li>
 <li>Learn how to install and use R packages.</li>
+<li>Learn how to read a variety of data files in R.</li>
 </ul>
 </div>
 </div>
@@ -493,7 +493,7 @@ window.Quarto = {
 <ul>
 <li>You must always complete the week’s readings by the Tuesday lecture of that week (this rule applies to all the readings of the course, so it will not be repeated).</li>
 <li>This includes not only reading the text, but also completing all accompanying R/RStudio activities, code examples, installation steps, exercises, and quizzes as you encounter them.</li>
-<li>Read and complete any activity in the Preface and the Week 2 chapters of the course <a href="https://stefanocoretta.github.io/qdal/">textbook</a>.</li>
+<li><strong>Read and complete any activity in the Preface and the Week 2 chapters of the course <a href="https://stefanocoretta.github.io/qdal/">textbook</a>.</strong></li>
 </ul>
 </div>
 </div>
@@ -515,17 +515,17 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p><strong>Questions</strong></p>
 <ul>
-<li><p>What is inference and why do we need it?</p></li>
-<li><p>Why are uncertainty and variability important?</p></li>
-<li><p>What is and isn’t statistics?</p></li>
-<li><p>What are summary measures?</p></li>
+<li>What is inference and why do we need it?</li>
+<li>Why are uncertainty and variability important?</li>
+<li>What is and isn’t statistics?</li>
+<li>What are summary measures?</li>
 </ul>
 <p><strong>Skills</strong></p>
 <ul>
-<li><p>Using R scripts to keep reproducible code.</p></li>
-<li><p>Reading tabular data in R.</p></li>
-<li><p>Summarise data with <code>summarise()</code> and <code>count()</code>.</p></li>
-<li><p>Get grouped summaries with <code>group_by()</code>.</p></li>
+<li>Using R scripts to keep reproducible code.</li>
+<li>Reading tabular data in R.</li>
+<li>Summarise data with <code>summarise()</code> and <code>count()</code>.</li>
+<li>Get grouped summaries with <code>group_by()</code>.</li>
 </ul>
 </div>
 </div>
@@ -582,17 +582,17 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p><strong>Questions</strong></p>
 <ul>
-<li><p>What does the research cycle entail?</p></li>
-<li><p>How do the researcher’s degrees of freedom affect research?</p></li>
-<li><p>What are Questionable Research Practices?</p></li>
-<li><p>Which characteristic do compelling graphics have?</p></li>
+<li>What does the research cycle entail?</li>
+<li>How do the researcher’s degrees of freedom affect research?</li>
+<li>What are Questionable Research Practices?</li>
+<li>Which characteristic do compelling graphics have?</li>
 </ul>
 <p><strong>Skills</strong></p>
 <ul>
-<li><p>Use Quarto files to create dynamic reports.</p></li>
-<li><p>Filtering rows using <code>filter()</code>.</p></li>
-<li><p>Using logical operators to filter data.</p></li>
-<li><p>Create or modify columns with <code>mutate()</code>.</p></li>
+<li>Use Quarto files to create dynamic reports.</li>
+<li>Filtering rows using <code>filter()</code>.</li>
+<li>Using logical operators to filter data.</li>
+<li>Create or modify columns with <code>mutate()</code>.</li>
 </ul>
 </div>
 </div>
@@ -632,17 +632,17 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p><strong>Questions</strong></p>
 <ul>
-<li><p>What are probabilities and probability distributions?</p></li>
-<li><p>How do we describe and visualise probability distributions?</p></li>
-<li><p>How do we use Gaussian probability distributions to estimate a mean and standard deviation?</p></li>
-<li><p>What is the Bayesian approach to probability and inference?</p></li>
+<li>What are probabilities and probability distributions?</li>
+<li>How do we describe and visualise probability distributions?</li>
+<li>How do we use Gaussian probability distributions to estimate a mean and standard deviation?</li>
+<li>What is the Bayesian approach to probability and inference?</li>
 </ul>
 <p><strong>Skills</strong></p>
 <ul>
-<li><p>Produce density plots.</p></li>
-<li><p>Use <code>pnorm()</code> and <code>qnorm()</code> to obtain probabilities and quantiles of Gaussian distributions.</p></li>
-<li><p>Fit Bayesian Gaussian models with brms.</p></li>
-<li><p>Report results from Bayesian Gaussian models.</p></li>
+<li>Produce density plots.</li>
+<li>Use <code>pnorm()</code> and <code>qnorm()</code> to obtain probabilities and quantiles of Gaussian distributions.</li>
+<li>Fit Bayesian Gaussian models with brms.</li>
+<li>Report results from Bayesian Gaussian models.</li>
 </ul>
 </div>
 </div>
@@ -700,17 +700,17 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p><strong>Questions</strong></p>
 <ul>
-<li><p>What are regression models and what are they for?</p></li>
-<li><p>How do we interpret intercept and slope in a regression model?</p></li>
-<li><p>Why do we need Markov Chain Monte Carlo to estimate models?</p></li>
-<li><p>How do we use MCMC draws from a model fit?</p></li>
+<li>What are regression models and what are they for?</li>
+<li>How do we interpret intercept and slope in a regression model?</li>
+<li>Why do we need Markov Chain Monte Carlo to estimate models?</li>
+<li>How do we use MCMC draws from a model fit?</li>
 </ul>
 <p><strong>Skills</strong></p>
 <ul>
-<li><p>Fit regression models of the form <span class="math inline">\(y \sim x\)</span> with brms in R.</p></li>
-<li><p>Interpret the regression coefficients table of the model summary.</p></li>
-<li><p>Extract and plot MCMC draws.</p></li>
-<li><p>Report results from regression models.</p></li>
+<li>Fit regression models of the form <span class="math inline">\(y \sim x\)</span> with brms in R.</li>
+<li>Interpret the regression coefficients table of the model summary.</li>
+<li>Extract and plot MCMC draws.</li>
+<li>Report results from regression models.</li>
 </ul>
 </div>
 </div>
@@ -767,17 +767,17 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p><strong>Questions</strong></p>
 <ul>
-<li><p>How do regression model work with categorical predictors?</p></li>
-<li><p>How are categorical predictors coded with contrasts?</p></li>
-<li><p>What are frequentist statistics and the “Null Ritual”.</p></li>
-<li><p>Why researchers should prefer Bayesian statistics?</p></li>
+<li>How do regression model work with categorical predictors?</li>
+<li>How are categorical predictors coded with contrasts?</li>
+<li>What are frequentist statistics and the “Null Ritual”.</li>
+<li>Why researchers should prefer Bayesian statistics?</li>
 </ul>
 <p><strong>Skills</strong></p>
 <ul>
-<li><p>Fit regression models with a categorical predictor with brms in R.</p></li>
-<li><p>Interpret the regression coefficients table of the model summary.</p></li>
-<li><p>Extract and plot MCMC draws of models with categorical predictors with two or more levels.</p></li>
-<li><p>Report results from regression models with categorical predictors.</p></li>
+<li>Fit regression models with a categorical predictor with brms in R.</li>
+<li>Interpret the regression coefficients table of the model summary.</li>
+<li>Extract and plot MCMC draws of models with categorical predictors with two or more levels.</li>
+<li>Report results from regression models with categorical predictors.</li>
 </ul>
 </div>
 </div>
@@ -817,17 +817,17 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p><strong>Questions</strong></p>
 <ul>
-<li><p>How can we model binary outcomes with regression models?</p></li>
-<li><p>How can we model numeric outcome variables that are only positive?</p></li>
-<li><p>What are model diagnostics?</p></li>
-<li><p>Which model diagnostics should I pay attention to?</p></li>
+<li>How can we model binary outcomes with regression models?</li>
+<li>How can we model numeric outcome variables that are only positive?</li>
+<li>What are model diagnostics?</li>
+<li>Which model diagnostics should I pay attention to?</li>
 </ul>
 <p><strong>Skills</strong></p>
 <ul>
-<li><p>Fit and interpret regression models with a Bernoulli family in brms.</p></li>
-<li><p>Fit and interpret regression models with a log-normal family in brms.</p></li>
-<li><p>Use model diagnostics to understand the model’s goodness of fit.</p></li>
-<li><p>Apply standard solutions when models do not converge.</p></li>
+<li>Fit and interpret regression models with a Bernoulli family in brms.</li>
+<li>Fit and interpret regression models with a log-normal family in brms.</li>
+<li>Use model diagnostics to understand the model’s goodness of fit.</li>
+<li>Apply standard solutions when models do not converge.</li>
 </ul>
 </div>
 </div>
@@ -867,17 +867,17 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p><strong>Questions</strong></p>
 <ul>
-<li><p>What is Open Research?</p></li>
-<li><p>What makes research reproducible, replicable, robust and generalisable?</p></li>
-<li><p>What are Registered Reports?</p></li>
-<li><p>How can we model interactions between predictors in regression models?</p></li>
+<li>What is Open Research?</li>
+<li>What makes research reproducible, replicable, robust and generalisable?</li>
+<li>What are Registered Reports?</li>
+<li>How can we model interactions between predictors in regression models?</li>
 </ul>
 <p><strong>Skills</strong></p>
 <ul>
-<li><p>Think about Open Research practices and how to assess existing research in light of Open Research practices.</p></li>
-<li><p>Distinguish the four ways research can be reliable.</p></li>
-<li><p>Use Research Compendia.</p></li>
-<li><p>Fit and interpret regression models with categorical-categorical interactions in brms.</p></li>
+<li>Think about Open Research practices and how to assess existing research in light of Open Research practices.</li>
+<li>Distinguish the four ways research can be reliable.</li>
+<li>Use Research Compendia.</li>
+<li>Fit and interpret regression models with categorical/categorical and categorical/numeric interactions in brms.</li>
 </ul>
 </div>
 </div>
@@ -932,10 +932,13 @@ window.Quarto = {
 </div>
 <div id="callout-23" class="callout-23-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
+<p><strong>Questions</strong></p>
 <ul>
-<li><p>What does the whole process of a quantitative study look like?</p></li>
-<li><p>What other topics are minimally required to be able to conduct an almost-complete quantitative analysis?</p></li>
-<li><p>Where can I find further support for quantitative and statistical methods?</p></li>
+<li>When continuing my learning journey, which further statistical topics should I first focus on?</li>
+</ul>
+<p><strong>Skills</strong></p>
+<ul>
+<li>Fit and interpret regression models with numeric/numeric interactions in brms.</li>
 </ul>
 </div>
 </div>
