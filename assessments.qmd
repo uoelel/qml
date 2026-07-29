@@ -472,11 +472,31 @@ Analysis plans also require an estimation of the necessary sample size.
 - **You can use any file format for the Final Reflection, but you must submit a PDF file for the Group Project generated from the template.**
 - XXX
 
-## Feedback and marking
+## Feedback and marking {#sec-rubric}
 
 **Feedback** will be provided to you (1) during class, (2) on your weekly self-reflections and (3) during office hours (it is up to you to book meetings with me; you can do so here: <https://bit.ly/33BH84L>), (4) on the Final Reflection + Group Project submission.
 
-### Feedback rubric for Group Project {#sec-rubric}
+Marking will follow the approved PPLS/LEL marking scheme, which you can find on the PPLS Undergraduate Hub and the PPLS MSc Hub on SharePoint.
+For feedback, we will use the feedback forms reported in the following sections.
+These forms have been created to streamline feedback and to allow you to understand which areas of the assessment were strong and which could have been improved.
+The feedback forms will help us coming up with a mark, but note that there is no mathematical formula which translates the feedback form to a numeric mark.
+
+For the numeric mark, we will limit marks to the following values: 0, 15, 25, 35, 45, 55, 65, 75, 85, 95.
+For students who are not used to the marking system of the PPLS School, we would like to stress that 65 is already a very good mark, 75 is excellent and 85 or above are outstanding (above what expected from even the best student at their level).
+
+### Feedback rubric for Self-Reflections and Final Reflection
+
+The following feedback rubric will be used for feedback on the formative Self-Reflections and the summative Final Reflection.
+
+::: {style="font-size: 0.7em;"}
+|   | Proficient | Adequate | Limited | Absent |
+|-----------|---------------|---------------|---------------|---------------|
+| **Engagement with quantitative methods** | Excellent critical engagement with research methods and statistical concepts. A range of methods and concepts from the course have been covered and meaningfully connected. | Good or very good engagement with research methods and statistical concepts, although it is descriptive to partially critical. A range of methods and concepts are discussed, although there might be limited critical connection. | Limited engagement with research methods and statistical concepts. When present it is only descriptive. Only a very limited range of methods and concepts are discussed. | Very limited or totally absent engagement with research methods and statistical concepts. |
+| **Depth of reflection and learning** | Critical reflection on engagement in the course and the learning process. Excellent discussion of impact of learning on own views and understanding of quantitative methods and beyond. | Good or very good level of reflection on engagement in the course and the learning process. Impact of learning on views and understanding of quantitative methods is mostly descriptive, with minimal insight and limited connection to concepts beyond those treated in the course. | Limited level of reflection on engagement in the course and the learning process. Impact of learning on views and understanding of quantitative methods is only descriptive, with no insight and limited connection to concepts beyong those treated in the course. | Very limited or totally absent reflection. |
+| **Use of evidence** | An excellent variety of specific examples are provided and critically discussed to illustrate engagement and impact on understanding of quantitative methods. | Good or very good selection of examples to illustrate engagement and impact on understanding of quantitative methods. | Limited selection of examples to illustrate engagement and impact on understanding of quantitative methods. | Very few or no meaningful examples. |
+:::
+
+### Feedback rubric for Group Project
 
 The following areas in the data analysis report (Group project) will be assessed.
 
