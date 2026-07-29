@@ -14,20 +14,20 @@ This course is an introduction to **quantitative data analysis** (including data
 
 The following is a list of **topics** you will learn:
 
--   The basics of quantitative data analysis.
--   Data preparation.
--   Data summaries.
--   Principles of **data visualisation**.
--   Statistical modelling with Bayesian **regression models**.
--   Open Research practices and the dangers of statistics.
+- The basics of quantitative data analysis.
+- Data preparation.
+- Data summaries.
+- Principles of **data visualisation**.
+- Statistical modelling with Bayesian **regression models**.
+- Open Research practices and the dangers of statistics.
 
 At completion of the course you will have gained the following **skills**:
 
--   Import common data formats, tidy and transform data.
--   Choosing and reporting appropriate summary measures.
--   Using compelling visualisations to communicate a specific message about patterns in the data.
--   Master regression models for different types of data (continuous measures and binary outcomes).
--   Using Bayesian inference to answer research questions and avoid common interpretation pitfalls of frequentist techniques.
+- Import common data formats, tidy and transform data.
+- Choosing and reporting appropriate summary measures.
+- Using compelling visualisations to communicate a specific message about patterns in the data.
+- Master regression models for different types of data (continuous measures and binary outcomes).
+- Using Bayesian inference to answer research questions and avoid common interpretation pitfalls of frequentist techniques.
 
 Examples from different branches of linguistics will be used to provide you with hands-on experience in quantitative data analysis and Open Research practices.
 :::
@@ -41,10 +41,10 @@ The content and objectives of the course are in response to recent advances in o
 
 Recent meta-scientific research has identified four important aspects of research: **reproducibility, replicability, robustness and generalisability**.
 
--   A result is **reproducible** when the same analysis steps performed on the same dataset consistently produces the same answer.
--   A result is **replicable** when the same analysis performed on different datasets produces qualitatively similar answers.
--   A result is **robust** when a different analysis workflow performed on the same dataset produces qualitatively similar answers.
--   A result is **generalisable** when a different analysis workflow performed on different data sets produces qualitatively similar answers.
+- A result is **reproducible** when the same analysis steps performed on the same dataset consistently produces the same answer.
+- A result is **replicable** when the same analysis performed on different datasets produces qualitatively similar answers.
+- A result is **robust** when a different analysis workflow performed on the same dataset produces qualitatively similar answers.
+- A result is **generalisable** when a different analysis workflow performed on different data sets produces qualitatively similar answers.
 
 See [Definitions](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html) on "The Turing Way" website for a more detailed explanation.
 
@@ -52,7 +52,8 @@ However, based on surveys from different disciplines, we are currently facing **
 
 The **Open Research** movement [also known as Open Science or Open Scholarship, @cruwell2019] was developed with the aim of improving our understanding of these crises and with the objective of providing researchers with guidelines and tools to produce reproducible, replicable and generalisable research.
 
-The statistical philosophy adopted in the course is that of the **New Statistics** [@cumming2013; @kruschke2018]. The main goal of the New Statistics is to shift the attention from statistical significance to estimation with quantification of uncertainty.
+The statistical philosophy adopted in the course is that of the **New Statistics** [@cumming2013; @kruschke2018].
+The main goal of the New Statistics is to shift the attention from statistical significance to estimation with quantification of uncertainty.
 :::
 
 ## Support
@@ -62,9 +63,12 @@ The statistical philosophy adopted in the course is that of the **New Statistics
 
 If at any point during the course you don't feel comfortable with any aspect of the course, you are unsure about anything that has been covered in class or in your own time, you are struggling to keep up with the course workload, you are experiencing mental of physical distress due to a pre-existing or new illness, medical condition or disability, or you find yourself unable to access basic needs like food or housing, **please do get in touch with me and/or the PPLS support** (*go to the PPLS UG or MSc Hub on SharePoint \> Support for students \> Health & Wellbeing*).
 
-We are humans first and the rapidly-changing new world we are living in now can put us under pressure. What is most important to me is that you are first and foremost healthy and able to participate to the course, and that you succeed and get the most out of the course.
+We are humans first and the rapidly-changing new world we are living in now can put us under pressure.
+What is most important to me is that you are first and foremost healthy and able to participate to the course, and that you succeed and get the most out of the course.
 
-**It is OK not to be OK, and remember that you are not alone.** Other people, teachers and students, might be struggling right now or have struggled before and might have gone through what you are going through now. Remember that support exists for you, so please do reach out. If you see somebody close to you struggling, please let them know about the available support network and encourage them to reach out.
+**It is OK not to be OK, and remember that you are not alone.** Other people, teachers and students, might be struggling right now or have struggled before and might have gone through what you are going through now.
+Remember that support exists for you, so please do reach out.
+If you see somebody close to you struggling, please let them know about the available support network and encourage them to reach out.
 :::
 
 ## Contacts
@@ -72,14 +76,15 @@ We are humans first and the rapidly-changing new world we are living in now can 
 ::: {.callout-warning appearance="simple" icon="false"}
 You can reach me (Stefano) at [s.coretta\@ed.ac.uk](mailto:s.coretta@ed.ac.uk){.email} or on Teams.
 
-If you want to book **office hours** with me, you can do so here: <https://bit.ly/33BH84L>. I have in-person and online slots Tue and Wed 2.30-5pm, and Fri 3-5pm. In-person meetings are in my office, DSB 6.05.
+If you want to book **office hours** with me, you can do so here: <https://bit.ly/33BH84L>.
+I have in-person and online slots Tue and Wed 2.30-5pm.
+In-person meetings are in my office, DSB 6.05.
+Online meetings are on Teams.
 
-Here's the list of course tutors:
+Here's the list of the course tutors:
 
--   Bonnie Liu
--   Lara Kelly-Iturriaga
--   Pia Lehecka
--   Ponrawee Prasertsom
+- Pia Pratscher
+- Yutong Wang
 :::
 
 ### References {.unnumbered}
