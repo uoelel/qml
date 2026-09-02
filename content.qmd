@@ -213,6 +213,7 @@ Submit your self-reflection, covering Weeks 2-3.
 #### Readings
 
 - Read the Week 5 chapters of the course [textbook](https://stefanocoretta.github.io/qdal/) and complete any activity in those chapters.
+- Note that [Chapter 22](https://stefanocoretta.github.io/qdal/ch-fit-model.html) includes instructions on installing brms and extra software. Installation can take a long time. **If you have any issues with installing the necessary software**, I will run a drop-in session on **Tuesday 20th October from 10.30am to 12.00** in my office. You don't need to book, just show up.
 :::
 
 ### Week 6: Regression models
