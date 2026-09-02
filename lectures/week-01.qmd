@@ -72,6 +72,36 @@ See the [Content](https://uoelel.github.io/qml/content.html) page for a week-by-
 
 Also see Learn.
 
+## Classes
+
+<br>
+
+::::::: columns
+:::: column
+![](../img/flaticon/conference.png){fig-align="center" width="150"}
+
+::: {style="text-align: center;"}
+[**LECTURES**]{.t15em}
+
+Week 1-10
+:::
+::::
+
+:::: {.column .fragment}
+![](../img/flaticon/meeting-2.png){fig-align="center" width="150"}
+
+::: {style="text-align: center;"}
+[**WORKSHOPS**]{.t15em}
+
+Week 2-10
+:::
+::::
+:::::::
+
+::: aside
+[<a href="https://www.flaticon.com/free-icons/conference" title="conference icons">Conference icons created by Magnific - Flaticon</a> <a href="https://www.flaticon.com/free-icons/group" title="group icons">Group icons created by Magnific - Flaticon</a>]{style="font-size: 8pt;"}
+:::
+
 ## Assessment
 
 ::::::::::::::::::::: columns

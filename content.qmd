@@ -30,19 +30,21 @@ Then, use the method for your specific browser to print the page to PDF.
 
 **The following table is a schedule overview of the course, with links to lecture slides and workshop instructions.** Due dates for assessments are also included.
 See [Assessments](assessments.qmd) for more info.
+The emojis next to the lectures from Week 2 on indicate whether the lecture contains group activities 🎮 or whether it is a standard frontal lecture 👨‍🏫.
+Note that all lectures will have a standard lecture component at varying rates to accompany the activities.
 
 | Week | Lecture | Workshop | Assessment |
 |------------------|------------------|------------------|------------------|
 | 1 | [Onboarding](lectures/week-01.qmd) |  |  |
-| 2 | [Research methods](lectures/week-02.qmd) | [R basics](workshops/week-02.qmd) |  |
-| 3 | [Inference, uncertainty and variability](lectures/week-03.qmd) | [Summarise, count and group data](workshops/week-03.qmd) |  |
-| 4 | [Questionable Research Practices](lectures/week-04.qmd) | [Plot basics](workshops/week-04.qmd) | Self-reflection |
-| 5 | [Intro to statistical modelling](lectures/week-05.qmd) | [Gaussian models with brms](workshops/week-05.qmd) |  |
-| 6 | [Regression basics with brms](lectures/week-06.qmd) | [Regression basics and posteriors draws](workshops/week-06.qmd) | Quiz 1 |
-| 7 | [Null Ritual](lectures/week-07.qmd) | [Categorical predictors in regression](workshops/week-07.qmd) | Self-reflection |
-| 8 | [Bernoulli regression](lectures/week-08.qmd) | [Bernoulli and log-normal regression](workshops/week-08.qmd) | Group project proposal |
-| 9 | [Open research](lectures/week-09.qmd) | [Multiple predictors and interactions](workshops/week-09.qmd) |  |
-| 10 | [Case study](lectures/week-10.qmd) | Group project | Self-reflection |
+| 2 | 🎮 [Research methods](lectures/week-02.qmd) | [R basics](workshops/week-02.qmd) |  |
+| 3 | 🎮 [Inference, uncertainty and variability](lectures/week-03.qmd) | [Summarise, count and group data](workshops/week-03.qmd) |  |
+| 4 | 🎮 [Questionable Research Practices](lectures/week-04.qmd) | [Plot basics](workshops/week-04.qmd) | Self-reflection |
+| 5 | 👨‍🏫 [Intro to statistical modelling](lectures/week-05.qmd) | [Gaussian models with brms](workshops/week-05.qmd) |  |
+| 6 | 👨‍🏫 [Regression basics with brms](lectures/week-06.qmd) | [Regression basics and posteriors draws](workshops/week-06.qmd) | Quiz 1 |
+| 7 | 🎮 [Null Ritual](lectures/week-07.qmd) | [Categorical predictors in regression](workshops/week-07.qmd) | Self-reflection |
+| 8 | 👨‍🏫 [Bernoulli regression](lectures/week-08.qmd) | [Bernoulli and log-normal regression](workshops/week-08.qmd) | Group project proposal |
+| 9 | 🎮 [Open research](lectures/week-09.qmd) | [Multiple predictors and interactions](workshops/week-09.qmd) |  |
+| 10 | 👨‍🏫 [Case study](lectures/week-10.qmd) | Group project | Self-reflection |
 | 11 |  | (Optional) Group project | Quiz 2 |
 | 12 |  |  |  |
 | 13 |  |  | Final reflection and Group project |
@@ -237,7 +239,7 @@ The link to the quiz is available on the Learn site of the course.
 
 **Skills**
 
-- Fit regression models of the form $y \sim x$ with brms in R.
+- Fit regression models of the form $y \sim x$\$y \\sim x\$ with brms in R.
 - Interpret the regression coefficients table of the model summary.
 - Extract and plot MCMC draws.
 - Report results from regression models.
