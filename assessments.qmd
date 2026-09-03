@@ -307,8 +307,7 @@ The Group Project has the following further requisites.
 - **You must share your research compendium** (including code, data, materials, etc).
   Instructions on how to do this are in the project template (see next point).
 
-- **You must use the project template**.
-  XXX
+- **You must use the project template**, which can be found (with instructions) at <https://github.com/uoelel/qml-template>.
 
 - It is up to you to form a group to work with.
   I recommend groups of 3-5 people, but you can work in pairs (solo projects will be allowed only if part of learning adjustments).
@@ -470,7 +469,7 @@ Analysis plans also require an estimation of the necessary sample size.
 :::
 
 - **You can use any file format for the Final Reflection, but you must submit a PDF file for the Group Project generated from the template.**
-- XXX
+- The template (with instructions) is available at <https://github.com/uoelel/qml-template>.
 
 ## Feedback and marking {#sec-rubric}
 
