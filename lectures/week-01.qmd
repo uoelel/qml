@@ -36,24 +36,24 @@ Read it [here](https://stefanocoretta.github.io/orientation.html).
 
 ![](/img/who-are-you.jpg){fig-align="center"}
 
-## Overview
+## The approach of the course
 
 <br>
 
 ::::::: columns
 :::: column
-![](../img/flaticon/sensory.png){fig-align="center" width="150"}
-
-::: {style="text-align: center;"}
-[very **intense** course]{.t2em}
-:::
-::::
-
-:::: {.column .fragment}
 ![](../img/flaticon/open-book.png){fig-align="center" width="150"}
 
 ::: {style="text-align: center;"}
 [knowledge-oriented research]{.t2em}
+:::
+::::
+
+:::: {.column .fragment}
+![](../img/flaticon/sensory.png){fig-align="center" width="150"}
+
+::: {style="text-align: center;"}
+[**practice-intensive** course]{.t2em}
 :::
 ::::
 :::::::
@@ -62,7 +62,42 @@ Read it [here](https://stefanocoretta.github.io/orientation.html).
 [<a href="https://www.flaticon.com/free-icons/intensity" title="intensity icons">Intensity icons created by Freepik - Flaticon</a> <a href="https://www.flaticon.com/free-icons/knowledge" title="knowledge icons">Knowledge icons created by Freepik - Flaticon</a>]{style="font-size: 8pt;"}
 :::
 
-## Course website
+## What will you learn?
+
+![](../img/data-quant.png){fig-align="center"}
+
+## How will we do statistics?
+
+<br>
+
+::::::: columns
+:::: column
+![](../img/R_logo.svg.png){fig-align="center" height="180"}
+
+::: {style="text-align: center;"}
+[programming language]{.t2em}
+:::
+::::
+
+:::: column
+![](../img/RStudio_logo_flat.svg.png){fig-align="center" height="180"}
+
+::: {style="text-align: center;"}
+[IDE]{.t2em}
+:::
+::::
+:::::::
+
+## The journey
+
+| Week | Topic                                 |
+|------|---------------------------------------|
+| 2-3  | R/RStudio Basics + Data summaries     |
+| 4    | Plotting data                         |
+| 5    | Introduction to statistical modelling |
+| 6-10 | Regression modelling                  |
+
+## Where to find everything
 
 <br><br>
 
@@ -76,7 +111,7 @@ See the [Content](https://uoelel.github.io/qml/content.html) page for a week-by-
 
 Also see Learn.
 
-## Classes
+## How the course works
 
 <br>
 
@@ -108,7 +143,7 @@ Week 2-10
 [<a href="https://www.flaticon.com/free-icons/conference" title="conference icons">Conference icons created by Magnific - Flaticon</a> <a href="https://www.flaticon.com/free-icons/group" title="group icons">Group icons created by Magnific - Flaticon</a>]{style="font-size: 8pt;"}
 :::
 
-## Assessment
+## How you will be assessed
 
 ::::::::::::::::::::: columns
 ::::::::::: column
@@ -178,10 +213,10 @@ Detailed information on assessment can be found here: <https://uoelel.github.io/
 :::
 ::::
 
-## Changes
+## What has changed this year?
 
 :::: callout-note
-## Last year's feedback
+### Last year's feedback
 
 ::: incremental
 - Pace of the course: too slow AND too fast
@@ -193,7 +228,7 @@ Detailed information on assessment can be found here: <https://uoelel.github.io/
 :::
 ::::
 
-## Finding help
+## Where to find help
 
 <br>
 
