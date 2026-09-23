@@ -339,15 +339,15 @@
     "objectID": "lectures/week-01.html#who-am-i",
     "href": "lectures/week-01.html#who-am-i",
     "title": "QML - Week 1",
-    "section": "Who am I?",
-    "text": "Who am I?\n\n\n\n\n\n\n\n\n\n\n\n\nDr Stefano [ˈsteˑfano] Coretta\nLecturer (= Assistant Professor) in LEL.\nMethodological theory and statistics in linguistics.\n\n\n\n\n\n\n\n\nMy researcher orientation\n\n\nRead it here."
+    "section": "2 Who am I?",
+    "text": "2 Who am I?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDr Stefano [ˈsteˑfano] Coretta\nLecturer (= Assistant Professor) in LEL.\nMethodological theory and statistics in linguistics.\n\n\n\n\n\n\n\n\n\n\nTipMy researcher orientation\n\n\n\nRead it here."
   },
   {
     "objectID": "lectures/week-01.html#who-are-you",
     "href": "lectures/week-01.html#who-are-you",
     "title": "QML - Week 1",
-    "section": "Who are you?",
-    "text": "Who are you?"
+    "section": "3 Who are you?",
+    "text": "3 Who are you?"
   },
   {
     "objectID": "lectures/week-01.html#overview",
@@ -395,8 +395,8 @@
     "objectID": "lectures/week-01.html#group-activity",
     "href": "lectures/week-01.html#group-activity",
     "title": "QML - Week 1",
-    "section": "Group activity",
-    "text": "Group activity"
+    "section": "14 Group activity",
+    "text": "14 Group activity"
   },
   {
     "objectID": "index.html",
@@ -431,7 +431,7 @@
     "href": "index.html#contacts",
     "title": "Quantitative Methods for LEL",
     "section": "4 Contacts",
-    "text": "4 Contacts\n\n\n\n\n\n\nYou can reach me (Stefano) at s.coretta@ed.ac.uk or on Teams.\nIf you want to book office hours with me, you can do so here: https://bit.ly/33BH84L. I have in-person and online slots Tue and Wed 2.30-5pm. In-person meetings are in my office, DSB 6.05. Online meetings are on Teams.\nNote that I also offer individual consultations for dissertation statistics during my office hours (you can use the same link above to book an appointment). More information: https://uoelel.github.io/support.html.\nHere’s the list of the course tutors:\n\nPia Pratscher\nYutong Wang"
+    "text": "4 Contacts\n\n\n\n\n\n\nYou can reach me (Stefano) at s.coretta@ed.ac.uk or on Teams.\nIf you want to book office hours with me, you can do so here: https://bit.ly/33BH84L. I have in-person and online slots Mon and Wed 2.30-5pm. In-person meetings are in my office, DSB 6.05. Online meetings are on Teams.\nNote that I also offer individual consultations for dissertation statistics during my office hours (you can use the same link above to book an appointment). More information: https://uoelel.github.io/support.html.\nHere’s the list of the course tutors:\n\nPia Pratscher\nYutong Wang"
   },
   {
     "objectID": "assessments.html",
@@ -1116,63 +1116,70 @@
     "objectID": "lectures/week-01.html#the-approach-of-the-course",
     "href": "lectures/week-01.html#the-approach-of-the-course",
     "title": "QML - Week 1",
-    "section": "The approach of the course",
-    "text": "The approach of the course\n\n\n\n\n\n\n\n\n\nknowledge-oriented research\n\n\n\n\n\n\n\n\npractice-intensive course\n\n\n\n\nIntensity icons created by Freepik - Flaticon Knowledge icons created by Freepik - Flaticon"
+    "section": "4 The approach of the course",
+    "text": "4 The approach of the course\n\n\n\n\n\n\n\n\n\nknowledge-oriented research\n\n\n\n\n\n\n\n\npractice-intensive course\n\n\n\n\n\nIntensity icons created by Freepik - Flaticon Knowledge icons created by Freepik - Flaticon"
   },
   {
     "objectID": "lectures/week-01.html#what-will-you-learn",
     "href": "lectures/week-01.html#what-will-you-learn",
     "title": "QML - Week 1",
-    "section": "What will you learn?",
-    "text": "What will you learn?"
+    "section": "5 What will you learn?",
+    "text": "5 What will you learn?"
   },
   {
     "objectID": "lectures/week-01.html#where-to-find-everything",
     "href": "lectures/week-01.html#where-to-find-everything",
     "title": "QML - Week 1",
-    "section": "Where to find everything",
-    "text": "Where to find everything\n\nuoelel.github.io/qml/\n\nSee the Content page for a week-by-week breakdown.\n\n\nAlso see Learn."
+    "section": "8 Where to find everything",
+    "text": "8 Where to find everything\n\nuoelel.github.io/qml/\n. . .\nSee the Content page for a week-by-week breakdown.\n. . .\nAlso see Learn."
   },
   {
     "objectID": "lectures/week-01.html#the-journey",
     "href": "lectures/week-01.html#the-journey",
     "title": "QML - Week 1",
-    "section": "The journey",
-    "text": "The journey\n\n\n\nWeek\nTopic\n\n\n\n\n2-3\nR/RStudio Basics + Data summaries\n\n\n4\nPlotting data\n\n\n5\nIntroduction to statistical modelling\n\n\n6-10\nRegression modelling"
+    "section": "7 The journey",
+    "text": "7 The journey\n\n\n\nWeek\nTopic\n\n\n\n\n2-3\nR/RStudio Basics + Data summaries\n\n\n4\nPlotting data\n\n\n5\nIntroduction to statistical modelling\n\n\n6-10\nRegression modelling"
   },
   {
     "objectID": "lectures/week-01.html#how-the-course-works",
     "href": "lectures/week-01.html#how-the-course-works",
     "title": "QML - Week 1",
-    "section": "How the course works",
-    "text": "How the course works\n\n\n\n\n\n\n\n\n\nLECTURES\nWeek 1-10\nWeek’s readings due!\n\n\n\n\n\n\n\n\nWORKSHOPS\nWeek 2-10\n\n\n\n\nConference icons created by Magnific - Flaticon Group icons created by Magnific - Flaticon"
+    "section": "9 How the course works",
+    "text": "9 How the course works\n\n\n\n\n\n\n\n\n\nLECTURES\nWeek 1-10\nWeek’s readings due!\n\n\n\n\n\n\n\n\nWORKSHOPS\nWeek 2-10\n\n\n\n\n\nConference icons created by Magnific - Flaticon Group icons created by Magnific - Flaticon"
   },
   {
     "objectID": "lectures/week-01.html#how-you-will-be-assessed",
     "href": "lectures/week-01.html#how-you-will-be-assessed",
     "title": "QML - Week 1",
-    "section": "How you will be assessed",
-    "text": "How you will be assessed\n\n\n\n\n\nFormative assessments\n\n\n\n\n\n\n\n\n\n\n\n 4 Self-reflections\n\n\n\n\n\n\n\n\n\n 2 Quizzes\n\n\n\n\n\n\n\n\n\nSummative assessments\n\n\n\n\n\n\n\n\n\n\n\n Final Self-reflection\n\n\n\n\n\n\n\n\n\n Group Project\n\n\n\n\n\n\n\nDetailed information on assessment can be found here: https://uoelel.github.io/qml/assessments.html\n\n\n\n\nSelf esteem icons created by Freepik - Flaticon Analysis icons created by HAJICON - Flaticon"
+    "section": "10 How you will be assessed",
+    "text": "10 How you will be assessed\n\n\n\n\n\n\n\n\nTipFormative assessments\n\n\n\n\n\n\n\n\n\n\n\n\n 4 Self-reflections\n\n\n\n\n\n\n\n\n\n\n 2 Quizzes\n\n\n\n\n\n\n\n\n\n\n\n\nNoteSummative assessments\n\n\n\n\n\n\n\n\n\n\n\n\n Final Self-reflection\n\n\n\n\n\n\n\n\n\n\n Group Project\n\n\n\n\n\n\n\n. . .\nDetailed information on assessment can be found here: https://uoelel.github.io/qml/assessments.html\n\n\n\nSelf esteem icons created by Freepik - Flaticon Analysis icons created by HAJICON - Flaticon"
   },
   {
     "objectID": "lectures/week-01.html#what-has-changed-this-year",
     "href": "lectures/week-01.html#what-has-changed-this-year",
     "title": "QML - Week 1",
-    "section": "What has changed this year?",
-    "text": "What has changed this year?\n\n\n\nLast year’s feedback\n\n\n\nPace of the course: too slow AND too fast\n\nNo real solution… BUT change of pace between Week 4 and 5.\n\nLecture content is variable\n\nNow readings must be completed before each lecture.\n\nGroup project: too many formats\n\nData analysis is the only format."
+    "section": "11 What has changed this year?",
+    "text": "11 What has changed this year?\n\n\n\n\n\n\nNoteLast year’s feedback\n\n\n\n\n\nPace of the course: too slow AND too fast\n\nNo real solution… BUT change of pace between Week 4 and 5.\n\nLecture content is variable\n\nNow readings must be completed before each lecture.\n\nGroup project: too many formats\n\nData analysis is the only format."
   },
   {
     "objectID": "lectures/week-01.html#where-to-find-help",
     "href": "lectures/week-01.html#where-to-find-help",
     "title": "QML - Week 1",
-    "section": "Where to find help",
-    "text": "Where to find help\n\n\n\n\n\n\n\n\n\nbook office hours\n[link also on the course homepage]\n\n\n\n\n\n\n\n\nPiazza Q&A forum\n[access via Learn]\n\n\n\n\nClock icons created by Freepik - Flaticon Forum icons created by Freepik - Flaticon"
+    "section": "12 Where to find help",
+    "text": "12 Where to find help\n\n\n\n\n\n\n\n\n\nbook office hours\n[link also on the course homepage]\n\n\n\n\n\n\n\n\nPiazza Q&A forum\n[access via Learn]\n\n\n\n\n\nClock icons created by Freepik - Flaticon Forum icons created by Freepik - Flaticon"
   },
   {
     "objectID": "lectures/week-01.html#how-will-we-do-statistics",
     "href": "lectures/week-01.html#how-will-we-do-statistics",
     "title": "QML - Week 1",
-    "section": "How will we do statistics?",
-    "text": "How will we do statistics?\n\n\n\n\n\n\n\n\n\nprogramming language\n\n\n\n\n\n\n\n\nIDE"
+    "section": "6 How will we do statistics?",
+    "text": "6 How will we do statistics?\n\n\n\n\n\n\n\n\n\nprogramming language\n\n\n\n\n\n\n\n\nIDE"
+  },
+  {
+    "objectID": "lectures/week-01.html#section",
+    "href": "lectures/week-01.html#section",
+    "title": "QML - Week 1",
+    "section": "13 ",
+    "text": "13"
   }
 ]
