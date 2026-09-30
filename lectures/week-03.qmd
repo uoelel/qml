@@ -6,6 +6,10 @@ format: revealjs
 bibliography: references.bib
 ---
 
+## Attendance
+
+![](/img/qrcode-week-3.png){fig-align="center"}
+
 ## Inference
 
 ![](/img/inference.png){fig-align="center"}
