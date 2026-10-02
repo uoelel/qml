@@ -22,7 +22,7 @@ format: html
 ::: callout-tip
 ## Feedback
 
-For feedback on the worksop tasks throughout the course, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
+For feedback on the workshop tasks throughout the course, ask us in class and/or send your work to Stefano and/or come to Stefano's office hours (you can also come in groups).
 
 **We will not provide you with model answers**, so make sure you make the most of us in person.
 :::
@@ -52,6 +52,7 @@ For feedback on the worksop tasks throughout the course, ask us in class and/or 
 ![](/img/rstudio-project-dropdown.png){fig-align="center" width="200"}
 
 8.  Try the `Open Project...`, `Open Project in New Session...`, `Close Project` menu items and switch projects from within the project list. What do each of these do?
+9.  Switch back to the QML project (you can delete the test project now, it was just for practice!).
 :::
 
 ::: callout-note
@@ -100,7 +101,13 @@ Read the following data in R.
 - `brentari2024/verb_org.csv`
 
 - Go to <https://datashare.ed.ac.uk/handle/10283/4006>, download the file `conflict_data_.xlsx`, and save it in `data/` in its own sub-folder.
-  Read both sheets (“conflict_data2” and “demographics”).
-  Any issues?
-  (I suggest looking at the spreadsheet in Excel).
+  Read both sheets (“conflict_data2” and “demographics”), separately (i.e. with two separate calls to `read_excel()`).
+  Check the data in the Viewer after reading it.
+  Any issues with either tibble?
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+Which columns does sheet 2 have?
 :::
