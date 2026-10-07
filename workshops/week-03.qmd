@@ -40,8 +40,18 @@ format: html
 - Install the package (this is done in two steps: first install devtools and then install ritwals with devtools, see linked package documentation).
   Then attach it and load the data with `data("WALS")`.
 
-- Get the number of languages by value (`value`) for features you are interested in (these are specified in the columns `feature_ID` and `feature`).
+- Get the number of languages by value (`value`) of each feature (these are specified in the columns `feature_ID` and `feature`).
+  Then focus on the features you are interested in.
   For information on the features see [here](https://wals.info/feature).
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint
+
+We haven't covered yet functions to filter the data so that it contains only rows for specific features so you should get counts for all features and assign the output to a variable.
+You will then be able to view the output summary data as with any other data in the Viewer.
+
+The Viewer has a "Filter" button.
 :::
 
 ::: callout-note
@@ -51,8 +61,9 @@ format: html
 
 - Read the `tucker2019/mald_1_1.rds` data in R.
 
-- Summarise the following with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, `IsWord`), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.
+- Summarise the following with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, `IsWord`), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status (just get number of observations by accuracy and lexical status; you won't be able to get proportions in R just yet).
 
 - What can the summaries tell you about reaction times and accuracy based on lexical status?
-  What about individual variation?
+  What about individual (by-participant) variation?
 :::
+

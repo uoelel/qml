@@ -198,8 +198,25 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p>The data from <a href="https://wals.info">WALS</a> are available through the R package <a href="https://hkauhanen.fi/ritwals/index.html">ritwals</a>.</p></li>
 <li><p>Install the package (this is done in two steps: first install devtools and then install ritwals with devtools, see linked package documentation). Then attach it and load the data with <code>data("WALS")</code>.</p></li>
-<li><p>Get the number of languages by value (<code>value</code>) for features you are interested in (these are specified in the columns <code>feature_ID</code> and <code>feature</code>). For information on the features see <a href="https://wals.info/feature">here</a>.</p></li>
+<li><p>Get the number of languages by value (<code>value</code>) of each feature (these are specified in the columns <code>feature_ID</code> and <code>feature</code>). Then focus on the features you are interested in. For information on the features see <a href="https://wals.info/feature">here</a>.</p></li>
 </ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We haven’t covered yet functions to filter the data so that it contains only rows for specific features so you should get counts for all features and assign the output to a variable. You will then be able to view the output summary data as with any other data in the Viewer.</p>
+<p>The Viewer has a “Filter” button.</p>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -215,8 +232,8 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><a href="https://uoelel.github.io/qml-data/data/tucker2019/mald_1_1.html">Data docs</a>.</p></li>
 <li><p>Read the <code>tucker2019/mald_1_1.rds</code> data in R.</p></li>
-<li><p>Summarise the following with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, <code>IsWord</code>), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status.</p></li>
-<li><p>What can the summaries tell you about reaction times and accuracy based on lexical status? What about individual variation?</p></li>
+<li><p>Summarise the following with appropriate summary functions: number of participants, number of words, number of words by lexical status (real vs nonce word, <code>IsWord</code>), reaction times by lexical status, reaction times by lexical status and accuracy, accuracy by lexical status (just get number of observations by accuracy and lexical status; you won’t be able to get proportions in R just yet).</p></li>
+<li><p>What can the summaries tell you about reaction times and accuracy based on lexical status? What about individual (by-participant) variation?</p></li>
 </ul>
 </div>
 </div>
