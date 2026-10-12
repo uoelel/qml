@@ -6,6 +6,18 @@ format: revealjs
 bibliography: references.bib
 ---
 
+## Philosophical stance: aren't data enough?
+
+::: callout-note
+### Discussion
+
+1.  Does reality exist independently of how we perceive, describe, or understand it?
+
+2.  How can we know whether our beliefs about reality are true?
+
+3.  If two people or communities produce different but well-supported accounts of the same phenomenon, can both be true?
+:::
+
 ## The Research Cycle
 
 ![](../img/res-process-cycle.png){fig-align="center" width="700"}
