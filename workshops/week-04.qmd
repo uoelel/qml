@@ -26,6 +26,7 @@ format: html
 
 - Create a new column that specifies the voicing of the consonant (voiced or voiceless) based on the value in `label`.
   `ifelse()` or `case_when()` are useful.
+  It will help to check which consonants are in the data, using R code, before you try to create the new column.
 
 - Get summary measures of VOT for voiceless and voiced consonants.
   Can the VOT differentiate between the two voicing categories?
