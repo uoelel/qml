@@ -115,7 +115,7 @@ I've asked questions that push me beyond surface understanding.
 For example, I asked about how incentives affect or not the use of questionable research practices.
 My self-study this week was more structured than before, using a mix of readings and practice exercises.
 Learning about different summary measures was new to me, and I tackled the workshop task by first reviewing the theory, then applying it to the dataset.
-Although I initially misunderstood how to filter data, seeking clarification from the tutor helped.
+Although I initially thought that `filter()` changed the data itself, the tutor explained that I should reassign the output to the data.
 This reinforced my belief that statistical tools are most powerful when used critically.
 I've grown in my ability to connect concepts across topics, and I'm proud of myself and my group of having completed the workshop task, which was very difficult for me.
 Next week, I aim to experiment with visualising results more effectively.
