@@ -350,7 +350,7 @@ p +
 - For each unit increase of log-frequency, the mean RTs decrease by 43-48 ms, at 95% confidence.
 :::
 
-## Correlation in NOT causation
+## Correlation is NOT causation
 
 ::: callout-important
 ### Be careful!
@@ -384,4 +384,3 @@ p +
 - Learn about it in McElreath's textbook *Statistical Rethinking*.
   Also check [STeW](https://uoelel.github.io/stew.html).
 :::
-

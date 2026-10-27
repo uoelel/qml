@@ -1209,5 +1209,12 @@
     "title": "QML - Week 6",
     "section": "Mid-term feedback",
     "text": "Mid-term feedback"
+  },
+  {
+    "objectID": "lectures/week-06.html#correlation-is-not-causation",
+    "href": "lectures/week-06.html#correlation-is-not-causation",
+    "title": "QML - Week 6",
+    "section": "Correlation is NOT causation",
+    "text": "Correlation is NOT causation\n\n\n\nBe careful!\n\n\n\nCorrelation between two variables: they co-vary, i.e. they show a systematic association (their values tend to vary together in a consistent pattern).\nSpurious correlations: two variables can be correlated because of bias from another variable.\n\n\n\n\n\n\n\n\n\nNumber of plant names in a language vs. biodiversity of the region\n\nLanguages in biodiverse regions have more words for plants.\nMediator: cultural reliance on plants.\n\nLanguage endangerment vs. economic development\n\nHigher economic development is associated with greater language endangerment.\nConfounder: colonial history.\n\nLanguage prestige vs government policy\n\nHigh prestige languages and officially supported languages each attract learners.\nCollider: If you only look at languages with many learners, prestige and policy might appear related even if they’re not causally connected."
   }
 ]
