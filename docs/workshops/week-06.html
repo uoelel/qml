@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-ff1ede2e53361e141007abf863bf5fe9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -188,9 +188,10 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><a href="https://uoelel.github.io/qml-data/data/tucker2019/mald_1_1.html">Data docs</a>.</p></li>
 <li><p>Data: <code>tucker2019/mald_1_1.rds</code>.</p></li>
-<li><p>Filter the data to include only real words.</p></li>
-<li><p>What is the relationship between reaction times (<code>RT</code>) and lexical frequency (<code>FreqSUBTLEX</code>)?</p></li>
-<li><p>Why does <code>FreqSUBTLEX</code> have the effect it has on reaction times?</p></li>
+<li><p>Filter the data to include only real words with frequency greater than 0.</p></li>
+<li><p>Create a new column with logged frequency (use the <code>log()</code> function to log <code>FreqSUBTLEX)</code>.</p></li>
+<li><p>What is the relationship between reaction times (<code>RT</code>) and logged lexical frequency?</p></li>
+<li><p>Why does logged <code>FreqSUBTLEX</code> have the effect it has on reaction times?</p></li>
 </ul>
 </div>
 </div>
@@ -209,6 +210,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Data: <code>winter2012/polite.csv</code>.</p></li>
 <li><p>Filter the data to include only female participants.</p></li>
 <li><p>Fit a regression model of mean f0 (<code>f0mn</code>) and mean harmonic-to-noise ratio (<code>HNRmn</code>, the higher the HNR, the more modal the voice is). What is the relationship between mean f0 and mean HNR in female Korean speakers?</p></li>
+<li><p>What does this relationship mean?</p></li>
 </ul>
 </div>
 </div>
@@ -226,6 +228,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><a href="https://uoelel.github.io/qml-data/data/berzak2025/fix-dur.html">Data docs</a>.</p></li>
 <li><p>Data: <code>berzak2025/fix-dur.csv</code>.</p></li>
 <li><p>What is the relationship between the current fixation duration and the length of the word being fixated?</p></li>
+<li><p>What does this relationship mean?</p></li>
 </ul>
 </div>
 </div>

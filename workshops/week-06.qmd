@@ -35,11 +35,13 @@ format: html
 
 - Data: `tucker2019/mald_1_1.rds`.
 
-- Filter the data to include only real words.
+- Filter the data to include only real words with frequency greater than 0.
 
-- What is the relationship between reaction times (`RT`) and lexical frequency (`FreqSUBTLEX`)?
+- Create a new column with logged frequency (use the `log()` function to log `FreqSUBTLEX)`.
 
-- Why does `FreqSUBTLEX` have the effect it has on reaction times?
+- What is the relationship between reaction times (`RT`) and logged lexical frequency?
+
+- Why does logged `FreqSUBTLEX` have the effect it has on reaction times?
 :::
 
 ::: callout-note
@@ -53,6 +55,8 @@ format: html
 
 - Fit a regression model of mean f0 (`f0mn`) and mean harmonic-to-noise ratio (`HNRmn`, the higher the HNR, the more modal the voice is).
   What is the relationship between mean f0 and mean HNR in female Korean speakers?
+
+- What does this relationship mean?
 :::
 
 ::: callout-note
@@ -63,4 +67,7 @@ format: html
 - Data: `berzak2025/fix-dur.csv`.
 
 - What is the relationship between the current fixation duration and the length of the word being fixated?
+
+- What does this relationship mean?
 :::
+
