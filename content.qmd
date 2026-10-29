@@ -34,17 +34,17 @@ The emojis next to the lectures from Week 2 on indicate whether the lecture cont
 Note that all lectures will have a standard lecture component at varying rates to accompany the activities.
 
 | Week | Lecture | Workshop | Assessment |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | 1 | [Onboarding](lectures/week-01.qmd) |  |  |
 | 2 | 🎮 [Research methods](lectures/week-02.qmd) | [R basics](workshops/week-02.qmd) |  |
 | 3 | 🎮 [Inference, uncertainty and variability](lectures/week-03.qmd) | [Summarise, count and group data](workshops/week-03.qmd) |  |
 | 4 | 🎮 [Questionable Research Practices](lectures/week-04.qmd) | [Plot basics](workshops/week-04.qmd) | Self-reflection |
 | 5 | 👨‍🏫 [Intro to statistical modelling](lectures/week-05.qmd) | [Gaussian models with brms](workshops/week-05.qmd) |  |
 | 6 | 👨‍🏫 [Regression basics with brms](lectures/week-06.qmd) | [Regression basics and posteriors draws](workshops/week-06.qmd) | Quiz 1 |
-| 7 | 🎮 [Null Ritual](lectures/week-07.qmd) | [Categorical predictors in regression](workshops/week-07.qmd) | Self-reflection |
+| 7 | 🎮 [Null Ritual](lectures/week-07.qmd) | [Categorical predictors in regression](workshops/week-07.qmd) |  |
 | 8 | 👨‍🏫 [Bernoulli regression](lectures/week-08.qmd) | [Bernoulli and log-normal regression](workshops/week-08.qmd) | Group project proposal |
-| 9 | 🎮 [Open research](lectures/week-09.qmd) | [Multiple predictors and interactions](workshops/week-09.qmd) |  |
-| 10 | 👨‍🏫 [Case study](lectures/week-10.qmd) | Group project | Self-reflection |
+| 9 | 🎮 [Open research](lectures/week-09.qmd) | [Multiple predictors and interactions](workshops/week-09.qmd) | Self-reflection |
+| 10 | 👨‍🏫 [Case study](lectures/week-10.qmd) | Group project |  |
 | 11 |  | (Optional) Group project | Quiz 2 |
 | 12 |  |  |  |
 | 13 |  |  | Final reflection and Group project |
@@ -54,7 +54,7 @@ Note that all lectures will have a standard lecture component at varying rates t
 In the following table, you can find a more detailed overview of the topics for each week, divided into research methods, statistics and R specific topics.
 
 | Week | Research | Statistics | R |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | 1 |  |  |  |
 | 2 | Research methods | Quantitative data analysis | RStudio, R basics, R packages and reading data |
 | 3 | Inference | Data summaries | R scripts and summarise data |
@@ -160,7 +160,7 @@ When using data for the first time, you should read the related entry, abstract 
 ::: {.callout-tip collapse="false"}
 #### Self-reflection
 
-**Due Thursday at noon**
+**Due Thursday at noon (no extensions)**
 
 Submit your self-reflection, covering Weeks 2-3.
 :::
@@ -221,7 +221,7 @@ Submit your self-reflection, covering Weeks 2-3.
 ::: {.callout-tip collapse="false"}
 #### Quiz 1
 
-**Due Thursday at noon**
+**Due Thursday at noon (no extensions)**
 
 Complete Quiz 1 this week, to check your learning before moving on onto the second part of the course.
 
@@ -255,14 +255,6 @@ The link to the quiz is available on the Learn site of the course.
 ### Week 7: Categorical predictors and frequentist statistics
 
 ::: {.callout-tip collapse="false"}
-#### Self-reflection
-
-**Due Thursday at noon**
-
-Submit your self-reflection, covering Weeks 4-6.
-:::
-
-::: {.callout-important collapse="false"}
 #### Learning Objectives
 
 **Questions**
@@ -314,6 +306,14 @@ Submit your self-reflection, covering Weeks 4-6.
 
 ### Week 9: Open Research and regression model interactions
 
+::: {.callout-tip collapse="false"}
+#### Self-reflection
+
+**Due Thursday at noon (no extensions)**
+
+Submit your self-reflection, covering Weeks 4-8.
+:::
+
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
 
@@ -340,14 +340,6 @@ Submit your self-reflection, covering Weeks 4-6.
 
 ### Week 10: What's next?
 
-::: {.callout-tip collapse="false"}
-#### Self-reflection
-
-**Due Thursday at noon**
-
-Submit your self-reflection, covering Weeks 7-9.
-:::
-
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
 
@@ -370,6 +362,8 @@ Submit your self-reflection, covering Weeks 7-9.
 
 ::: {.callout-tip collapse="false"}
 #### Quiz 2
+
+**Due Thursday at noon (no extensions)**
 
 Complete Quiz 2 this week, to check your learning across a variety of topics covered in the course.
 
