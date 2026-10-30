@@ -77,9 +77,8 @@ If you see somebody close to you struggling, please let them know about the avai
 You can reach me (Stefano) at [s.coretta\@ed.ac.uk](mailto:s.coretta@ed.ac.uk){.email} or on Teams.
 
 If you want to book **office hours** with me, you can do so here: <https://bit.ly/33BH84L>.
-I have in-person and online slots Mon and Wed 2.30-5pm.
-In-person meetings are in my office, DSB 6.05.
-Online meetings are on Teams.
+I have in-person slots Mon and Wed 2.30-5pm, in my office, DSB 6.05.
+**If you have to cancel the meeting, please use the link provided in the confirmation email** (simply removing the event from your calendar won't cancel the meeting and I won't get notified).
 
 Note that I also offer **individual consultations for dissertation statistics** during my office hours (you can use the same link above to book an appointment).
 More information: <https://uoelel.github.io/support.html>.
@@ -88,6 +87,7 @@ Here's the list of the course tutors:
 
 - Pia Pratscher
 - Yutong Wang
+- Odysseas Myresiotis Alivertis
 :::
 
 ### References {.unnumbered}
