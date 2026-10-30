@@ -280,6 +280,15 @@ The link to the quiz is available on the Learn site of the course.
 
 ### Week 8: Binomial/Bernoulli and log-normal regression models
 
+::: {.callout-tip collapse="false"}
+#### Group project proposal
+
+**Due Thursday at noon (no extensions)**
+
+1.  Fill in the group project sheet with the **exam numbers** of your group members (link on Learn).
+2.  Submit your group project proposal on Learn (only one person in the group should submit).
+:::
+
 ::: {.callout-important collapse="false"}
 #### Learning Objectives
 
