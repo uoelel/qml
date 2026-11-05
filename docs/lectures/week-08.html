@@ -10119,8 +10119,8 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <h2>Posterior distributions</h2>
 
 <img data-src="week-08_files/figure-revealjs/dat-bm-dens-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
-<section id="odd-ratio-of-the-effect-of-length" class="slide level2">
-<h2>Odd ratio of the effect of length</h2>
+<section id="odds-ratio-of-the-effect-of-length" class="slide level2">
+<h2>Odds ratio of the effect of length</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>dat_bm_draws <span class="ot">&lt;-</span> <span class="fu">as_draws_df</span>(dat_bm) <span class="sc">|&gt;</span> </span>
@@ -10131,7 +10131,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <span id="cb6-6"><a aria-label="6"></a>dat_bm_draws <span class="sc">|&gt;</span> </span>
 <span id="cb6-7"><a aria-label="7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Length_OR)) <span class="sc">+</span></span>
 <span id="cb6-8"><a aria-label="8"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"aquamarine4"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb6-9"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Odd ratio of the effect of recipient length"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-9"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Odds ratio of the effect of recipient length"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">

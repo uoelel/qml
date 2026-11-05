@@ -136,7 +136,7 @@ summary(dat_bm)
 mcmc_plot(dat_bm, type = "dens")
 ```
 
-## Odd ratio of the effect of length
+## Odds ratio of the effect of length
 
 ```{r}
 #| label: dat-bm-draws
@@ -151,7 +151,7 @@ dat_bm_draws <- as_draws_df(dat_bm) |>
 dat_bm_draws |> 
   ggplot(aes(Length_OR)) +
   geom_density(fill = "aquamarine4", alpha = 0.5) +
-  labs(x = "Odd ratio of the effect of recipient length")
+  labs(x = "Odds ratio of the effect of recipient length")
 ```
 
 . . .

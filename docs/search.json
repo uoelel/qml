@@ -1153,5 +1153,12 @@
     "title": "QML - Week 6",
     "section": "11 ",
     "text": "11"
+  },
+  {
+    "objectID": "lectures/week-08.html#odds-ratio-of-the-effect-of-length",
+    "href": "lectures/week-08.html#odds-ratio-of-the-effect-of-length",
+    "title": "QML - Week 8",
+    "section": "Odds ratio of the effect of length",
+    "text": "Odds ratio of the effect of length\n\n\ndat_bm_draws &lt;- as_draws_df(dat_bm) |&gt; \n  mutate(\n    Length_OR = exp(b_LengthOfRecipient)\n  )\n\ndat_bm_draws |&gt; \n  ggplot(aes(Length_OR)) +\n  geom_density(fill = \"aquamarine4\", alpha = 0.5) +\n  labs(x = \"Odds ratio of the effect of recipient length\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n90%\n80%\n70%\n60%\n40%\n\n\n\n\n[1.9, 2.15]\n[1.92, 2.12]\n[1.94, 2.1]\n[1.95, 2.09]\n[1.98, 2.06]"
   }
 ]
