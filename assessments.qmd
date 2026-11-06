@@ -292,7 +292,7 @@ The Group Project has the following further requisites.
 
   - So for example the following project is fine: "Do participant respond faster when listening to synthetic vs human speech?" But the **following projects will not be appropriate** for the Group Project: "We want to write a speech-to-text algorithm in R" or "We will develop a natural language virtual assistant for online shopping" or "I will train a forced-aligner model for a new language".
 
-- **The project must require a statistical analysis and you must use R.** Other programming languages for the statistical analysis are not allowed.
+- **The project must require a statistical analysis using Bayesian regression modelling and you must use R.** Other programming languages for the statistical analysis are not allowed.
 
 - **You cannot use data used in the textbook nor workshops**, nor data from the [QML Data](https://uoelel.github.io/qml-data/) website.
   You can re-use existing data, collect new data or simulate data.
@@ -399,9 +399,9 @@ Special attention should be given to reporting and interpreting the analysis.
 
 **Project proposal**
 
-> We want to replicate the study by @keogh2024.
-> The study use an artificial language learning paradigm to test the relationship between working memory and regularisation.
-> We will run the exact same experiment with 5 participants and conduct the same analysis they did.
+> We want to replicate the study by @casillas2023. The study examines how L2 Spanish proficiency and individual empathy levels relate to the perception and processing of intonation in questions and statements.
+> It involved 225 adult English-speaking learners of Spanish from the northeastern United States, who completed a two-alternative forced-choice (2AFC) task categorising four types of utterances as questions or statements.
+> We will replicate the study with 5 participants and the data will be analysed using the same Bayesian multilevel regression and drift-diffusion modelling of the original paper.
 
 **How to complete it**
 
@@ -409,6 +409,8 @@ This is a **replication** project.
 You will need to understand the original study design, make sure you have the same materials and protocols and you will have to recruit 5 participants (these can be students from the QML course, including yourselves).
 After data collection, you should analyse the data as in the original study and write a report focussing on the analysis approach and results.
 Specifically, you should discuss how the new results compare with the ones from the original study.
+Note that since you are required to run a Bayesian model analysis for this group project, if you decide to do a replication, the original study must use Bayesian statistics.
+If not, your study could rather be a generalisability assessment of the original study.
 :::
 
 ::: {.callout-note collapse="true"}
