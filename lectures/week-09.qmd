@@ -34,12 +34,6 @@ bibliography: references.bib
 [Photo by <a href="https://unsplash.com/@uxindo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">UX Indonesia</a> on <a href="https://unsplash.com/photos/person-writing-on-white-paper-qC2n6RQU4Vw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>]{style="font-size: 8px;"}
 :::
 
-##  {background-image="../img/unsplash/alex-shute-bGOemOApXo4-unsplash.jpg"}
-
-::: aside
-[Photo by <a href="https://unsplash.com/@faithgiant?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alex Shute</a> on <a href="https://unsplash.com/photos/a-wooden-block-that-says-trust-surrounded-by-blue-flowers-bGOemOApXo4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>]{style="font-size: 8px;"}
-:::
-
 ## 
 
 :::::::: columns
@@ -49,7 +43,7 @@ bibliography: references.bib
 
 :::::: {.column width="60%"}
 ::: r-fit-text
-"A crisis of **confidence**?" @pashler2012
+"A crisis of **confidence**?" [@pashler2012]
 :::
 
 <br><br><br><br>
@@ -59,7 +53,7 @@ bibliography: references.bib
 :::
 
 ::: {.fragment .r-fit-text}
-Part of the **polycrisis** @morin1999[, @tooze2023]{.citation}
+Part of the **polycrisis** [@morin1999; @tooze2023]
 :::
 ::::::
 ::::::::
@@ -78,11 +72,11 @@ Part of the **polycrisis** @morin1999[, @tooze2023]{.citation}
 
 ## Reproducibility: shareability
 
-![From @miske2026](/img/miske2026-fig1.png){fig-align="center"}
+![@miske2026](/img/miske2026-fig1.png){fig-align="center"}
 
 ## Reproducibility: computational
 
-![From @miske2026](/img/miske2026-fig5.png){fig-align="center"}
+![@miske2026](/img/miske2026-fig5.png){fig-align="center"}
 
 ## Reproducibility: procedural
 
@@ -95,7 +89,7 @@ Part of the **polycrisis** @morin1999[, @tooze2023]{.citation}
 ::: {.column width="60%"}
 [96%]{style="font-size: 50px;"}
 
-of researchers have **never** shared data @dubois2024
+of researchers have **never** shared data [@dubois2024]
 :::
 :::::
 
@@ -105,7 +99,7 @@ of researchers have **never** shared data @dubois2024
 :::
 
 ::: {.column width="60%"}
-Claiming data collector is the only legitimate knowledge gatekeeper is at odds with epistemic plurality @lamb2024
+Claiming data collector is the only legitimate knowledge gatekeeper is at odds with epistemic plurality [@lamb2024]
 :::
 :::::
 
@@ -115,7 +109,7 @@ Claiming data collector is the only legitimate knowledge gatekeeper is at odds w
 :::
 
 ::: {.column width="60%"}
-Data are not epistemically exhausted by first analysis @heaton2008
+Data are not epistemically exhausted by first analysis [@heaton2008]
 :::
 :::::
 ::::::::::::
@@ -126,7 +120,7 @@ Data are not epistemically exhausted by first analysis @heaton2008
 
 ## Replicability
 
-![From @opensciencecollaboration2015](/img/opensciencecollaboration2015-fig1.png){fig-align="center"}
+![@opensciencecollaboration2015](/img/opensciencecollaboration2015-fig1.png){fig-align="center"}
 
 ## Robustness
 
@@ -140,7 +134,7 @@ Data are not epistemically exhausted by first analysis @heaton2008
 
 in 69% of studies.
 
-[Economy and political science. @brodeur2026]{.citation}
+[Economy and political science]{.citation} [@brodeur2026]
 :::
 
 ::: {.column .fragment width="50%"}
@@ -150,7 +144,7 @@ in 69% of studies.
 
 Not invariance across all methods, but insensitivity within a justified class of models.
 
-@auspurg2025
+[@auspurg2025]
 :::
 :::::
 
@@ -160,28 +154,38 @@ Not invariance across all methods, but insensitivity within a justified class of
 
 ## Generalisability
 
-::: {.callout-note appearance="simple"}
-- **Uninterpretability** of conceptual models @meehl1990
-
-- "We are not even wrong" @scheel2022
-
-- Lack of meaningful **connection** between verbal generalisations and evidence.
-  @yarkoni2022
-
-- Replicable results do not imply correct conditional inference and non-replicable results do not imply incorrect conditional inference.
-  @devezer2019
+::::: columns
+::: {.column width="30%"}
+![](/img/flaticon/mind-mapping.png){width="100" fig-align="center"}
 :::
 
-##  {background-image="../img/unsplash/dusan-veverkolog-mX2mdxhc0UM-unsplash.jpg"}
-
-<br><br>
-
-::: {.r-fit-text style="color: white;"}
-**SOUND**
+::: {.column width="70%"}
+**Uninterpretability** of conceptual models [@meehl1990]
 :::
+:::::
+
+::::: {.columns .fragment}
+::: {.column width="30%"}
+![](/img/flaticon/link.png){width="100" fig-align="center"}
+:::
+
+::: {.column width="70%"}
+Lack of meaningful **connection** between verbal generalisations and evidence [@scheel2022; @yarkoni2022]
+:::
+:::::
+
+::::: {.columns .fragment}
+::: {.column width="30%"}
+![](/img/flaticon/identical.png){fig-align="center" width="100"}
+:::
+
+::: {.column width="70%"}
+Replicable results do not imply correct conditional inference and non-replicable results do not imply incorrect conditional inference [@devezer2019]
+:::
+:::::
 
 ::: aside
-[Photo by <a href="https://unsplash.com/@veverkolog?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dušan veverkolog</a> on <a href="https://unsplash.com/photos/gray-stacked-stones-photo-mX2mdxhc0UM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>]{style="font-size: 8px;"}
+[<a href="https://www.flaticon.com/free-icons/mind-map" title="mind map icons">Mind map icons created by Magnific - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/broken-link" title="broken link icons">Broken link icons created by Mehwish - Flaticon</a>. <a href="https://www.flaticon.com/free-icons/equivalence" title="equivalence icons">Equivalence icons created by Rakib Hassan Rahim - Flaticon</a>]{.citation}
 :::
 
 ## Open Research in practice
