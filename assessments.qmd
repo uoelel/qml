@@ -221,7 +221,7 @@ No extensions of any kind are possible.
 - Final Reflection: 500 words maximum. Group Project: no word limit (since it doesn't make sense for a data analysis report).
 :::
 
-### Final self-reflection (500 words maximum, 20%)
+### Final self-reflection (500 words maximum, 20% of the mark)
 
 For the Final Self-reflection, you should write a maximum of 500 words.
 In the Final Reflection, you should reflect on your learning experience throughout the course.
@@ -251,7 +251,7 @@ We recommend that you structure your reflection using the headings of the questi
   What am I particularly proud of?
 :::
 
-### Group Project: data analysis report (no word limit, 80%)
+### Group Project: data analysis report (no word limit, 80% of the mark)
 
 As part of the assessment you will have to work on a **Group Project**.
 The group project must be a **data analysis report**, but you can choose the topic as long as it is in linguistics (see below for details).
@@ -357,17 +357,24 @@ The Group Project has the following further requisites.
 #### Deadline
 
 - You must submit a Project Proposal to Turnitin by **Thursday 12th November at noon** (Week 8) on Learn \> Assessment.
+- You should also fill in the "Group project sheet" linked on Learn with the exam numbers of the members of the group.
 :::
 
-- You will have to **submit a very short project proposal for approval by Thursday 5th November** to Turnitin on Learn, but the earlier you submit the earlier you can start working on it! We will be checking submissions as they arrive and ask to get in touch if there are any issues.
+- You will have to **submit a very short project proposal for approval by Thursday 12th November** to Turnitin on Learn, but the earlier you submit the earlier you can start working on it! We will be checking submissions as they arrive and ask to get in touch if there are any issues.
 - **Only one person per group should submit the proposal** (there is no need for everyone in the group to submit the project proposal and you should just add all the exam numbers of the group members).
 - A few sentences explaining the project will be sufficient. Note that this deadline is an informal deadline and there is no possibility of getting an extension.
 - **The submission will be marked as such**: a "1" means you can go ahead with the project. A "0" means you should book office hours with Stefano to discuss alternatives or adjustments. You might also find some textual feedback attached to the submission.
+- You should also fill in the "Group project sheet" with your exam numbers of the members of the group. The sheet is linked on Learn.
 
 ::: callout-important
-If your project requires you to collect data from participants who are not students in this course, you will need to abide to a **generic ethics approval** sought by Stefano for this course.
+### Ethics
+
+If your project requires you to collect data from participants who are not students in this course, you will need to abide to the **generic ethics approval** sought by Stefano for this course.
 This means there will be limitations on which participants you can gather data from and which data you can collect from them.
-More information TBA.
+More specifically, you will only be able to collect data from adults and populations that are not considered at risk.
+
+You must use the provided consent forms to obtain consent from participants.
+These can be found on Learn \> Group project proposal \> Consent forms.
 :::
 
 The following boxes give you some examples of possible projects and project proposals.
@@ -459,7 +466,7 @@ Analysis plans also require an estimation of the necessary sample size.
 ::: callout-important
 #### Deadline
 
-- You must submit your Final Reflection and your Group Project (separately) to Turnitin by **Thursday 10th December at noon** (Week 12) on Learn \> Assessment.
+- You must submit your Final Reflection and your Group Project (separately) to Turnitin by **Thursday 10th December at noon** (Week 12) on Learn \> Group project proposal.
 - Normal extensions and learning adjustments extensions are not possible on the Group Project, so carefully plan your time accordingly.
 :::
 
