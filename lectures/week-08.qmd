@@ -16,11 +16,45 @@ library(brms)
 library(posterior)
 ```
 
-## 
+## Recap
 
-```{=html}
-<iframe allowfullscreen frameborder="0" height="80%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/RRYQTLH/questions/6a54dcb51a6fa95d6c99d177" width="100%"></iframe>
-```
+::: callout-note
+## The Gaussian model
+
+$$
+y \sim Gaussian(\mu, \sigma)
+$$
+:::
+
+. . .
+
+::: callout-note
+## The Gaussian regression model
+
+$$
+\begin{aligned}
+y & \sim Gaussian(\mu, \sigma)\\
+\mu & = \beta_0 + \beta_1 \cdot x
+\end{aligned}
+$$
+
+$x$ is a numeric or categorical predictor.
+:::
+
+. . .
+
+::: callout-note
+## The Bernoulli regression model
+
+$$
+\begin{aligned}
+y & \sim Bernoulli(p)\\
+logit(p) & = \beta_0 + \beta_1 \cdot x
+\end{aligned}
+$$
+
+$logit()$ is the logit link function.
+:::
 
 ## The English dative alternation
 
@@ -226,4 +260,19 @@ dat_bm_epred |>
   (But it is still below 50%, so an NP is still more likely).
 
 - Above 10 words, an PP is virtually certain.
+:::
+
+## Log-normal models
+
+::: callout-note
+## The log-normal regression model
+
+$$
+\begin{aligned}
+y & \sim LogNormal(\mu, \sigma)\\
+\mu & = \beta_0 + \beta_1 \cdot x
+\end{aligned}
+$$
+
+The model parameters are on the log scale (i.e. assuming $log(y)$).
 :::

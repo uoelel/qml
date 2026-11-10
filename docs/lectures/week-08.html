@@ -211,9 +211,56 @@ Stefano Coretta
 </div>
 
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-<iframe allowfullscreen="" frameborder="0" height="80%" mozallowfullscreen="" style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/RRYQTLH/questions/6a54dcb51a6fa95d6c99d177" width="100%"></iframe>
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>The Gaussian model</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+y \sim Gaussian(\mu, \sigma)
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>The Gaussian regression model</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{aligned}
+y &amp; \sim Gaussian(\mu, \sigma)\\
+\mu &amp; = \beta_0 + \beta_1 \cdot x
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(x\)</span> is a numeric or categorical predictor.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>The Bernoulli regression model</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{aligned}
+y &amp; \sim Bernoulli(p)\\
+logit(p) &amp; = \beta_0 + \beta_1 \cdot x
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(logit()\)</span> is the logit link function.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="the-english-dative-alternation" class="slide level2">
 <h2>The English dative alternation</h2>
@@ -10242,6 +10289,25 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <li><p>The probability of a PP increases by 11-13 percentage points from 1 to 2 words, at 90% probability. (But it is still below 50%, so an NP is still more likely).</p></li>
 <li><p>Above 10 words, an PP is virtually certain.</p></li>
 </ul>
+</div>
+</div>
+</div>
+</section>
+<section id="log-normal-models" class="slide level2">
+<h2>Log-normal models</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>The log-normal regression model</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{aligned}
+y &amp; \sim LogNormal(\mu, \sigma)\\
+\mu &amp; = \beta_0 + \beta_1 \cdot x
+\end{aligned}
+\]</span></p>
+<p>The model parameters are on the log scale (i.e.&nbsp;assuming <span class="math inline">\(log(y)\)</span>).</p>
 </div>
 </div>
 </div>
