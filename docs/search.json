@@ -1033,7 +1033,7 @@
     "href": "lectures/week-08.html#results",
     "title": "QML - Week 8",
     "section": "Results",
-    "text": "Results\n\n\n\n\nAt 90% confidence, the probability of the recipient being realised as PP increases by a factor of 1.9 to 2.15 for each extra word in the recipient.\nThe probability of a PP increases by 11-13 percentage points from 1 to 2 words, at 90% probability. (But it is still below 50%, so an NP is still more likely).\nAbove 10 words, an PP is virtually certain."
+    "text": "Results\n\n\n\n\nAt 90% confidence, the log odds of the recipient being realised as PP increases by a factor of 1.9 to 2.15 for each extra word in the recipient.\nThe probability of a PP increases by 11-13 percentage points from 1 to 2 words, at 90% probability. (But it is still below 50%, so an NP is still more likely).\nAbove 10 words, an PP is virtually certain."
   },
   {
     "objectID": "lectures/week-08.html#log-normal-models",

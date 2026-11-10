@@ -254,7 +254,7 @@ dat_bm_epred |>
 ## Results
 
 ::: {.callout-note appearance="simple"}
-- At 90% confidence, the probability of the recipient being realised as PP increases by a factor of 1.9 to 2.15 for each extra word in the recipient.
+- At 90% confidence, the log odds of the recipient being realised as PP increases by a factor of 1.9 to 2.15 for each extra word in the recipient.
 
 - The probability of a PP increases by 11-13 percentage points from 1 to 2 words, at 90% probability.
   (But it is still below 50%, so an NP is still more likely).
