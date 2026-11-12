@@ -8,6 +8,10 @@ bibliography: references.bib
 
 ## Attendance
 
+![](/img/qrcode-week-9.png){fig-align="center" width="500"}
+
+![]()
+
 ## Built-in control {background-color="var(--dark-purple)"}
 
 <br><br><br>
