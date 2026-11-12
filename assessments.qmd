@@ -308,8 +308,11 @@ The Group Project has the following further requisites.
   I recommend groups of 3-5 people, but you can work in pairs (solo projects will be allowed only if part of learning adjustments).
 :::
 
+Things to keep in mind:
+
 - **Background**.
-  This should be brief (2-3 paragraphs) but should discuss relevant literature in enough detail to justify the research questions/hypotheses.
+  This should be brief (1-2 paragraphs) but should discuss relevant literature in enough detail to justify the research questions/hypotheses.
+  If you are re-analysing data from a published study, you can simply summarise the literature review of the paper (you are not expected to do a literature review from scratch).
 
 - **Research Questions/Hypotheses**.
   The research questions should be defined precisely and it should be clear how they follow from previous work discussed in the Background.
@@ -399,7 +402,8 @@ Special attention should be given to reporting and interpreting the analysis.
 
 **Project proposal**
 
-> We want to replicate the study by @casillas2023. The study examines how L2 Spanish proficiency and individual empathy levels relate to the perception and processing of intonation in questions and statements.
+> We want to replicate the study by @casillas2023.
+> The study examines how L2 Spanish proficiency and individual empathy levels relate to the perception and processing of intonation in questions and statements.
 > It involved 225 adult English-speaking learners of Spanish from the northeastern United States, who completed a two-alternative forced-choice (2AFC) task categorising four types of utterances as questions or statements.
 > We will replicate the study with 5 participants and the data will be analysed using the same Bayesian multilevel regression and drift-diffusion modelling of the original paper.
 
