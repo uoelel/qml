@@ -1043,130 +1043,18 @@
     "text": "Log-normal models\n\n\n\nThe log-normal regression model\n\n\n\\[\n\\begin{aligned}\ny & \\sim LogNormal(\\mu, \\sigma)\\\\\n\\mu & = \\beta_0 + \\beta_1 \\cdot x\n\\end{aligned}\n\\]\nThe model parameters are on the log scale (i.e. assuming \\(log(y)\\))."
   },
   {
-    "objectID": "lectures/week-10.html#whats-next",
-    "href": "lectures/week-10.html#whats-next",
-    "title": "QML - Week 9",
-    "section": "What’s next?",
-    "text": "What’s next?\n\n\n\nCase studies:\n\nRecently published paper: Amoruso et al. (2025).\nPlanned study: Intrinsic Vowel Duration in English."
+    "objectID": "lectures/week-10.html#live-demo",
+    "href": "lectures/week-10.html#live-demo",
+    "title": "QML - Week 10",
+    "section": "LIVE DEMO",
+    "text": "LIVE DEMO\nLanguage and ethnobiological skills decline precipitously in Papua New Guinea, the world’s most linguistically diverse nation\nhttps://doi.org/10.1073/pnas.2100096118"
   },
   {
-    "objectID": "lectures/week-10.html#case-study-1-amoruso2025",
-    "href": "lectures/week-10.html#case-study-1-amoruso2025",
-    "title": "QML - Week 9",
-    "section": "Case study 1: Amoruso et al. (2025)",
-    "text": "Case study 1: Amoruso et al. (2025)\n\n\n\n\nAmoruso et al. (2025) published in Nature in November: “Multilingualism protects against accelerated ageing”\nThey argue that being multilingual reduces the effects of ageing.\n\n\nSpecifically, speaking one foreign language were 1.3 times less likely (OR = 0.77, 95% CI: 0.71–0.83), two foreign languages 1.96 times less likely (OR = 0.51, 95% CI: 0.47–0.55), and three or more foreign languages 1.56 times less likely (OR = 0.64, 95% CI: 0.59–0.69). These findings underscore the protective effect of multilingualism on aging trajectories."
-  },
-  {
-    "objectID": "lectures/week-10.html#causal-narrative-but-no-causal-inference",
-    "href": "lectures/week-10.html#causal-narrative-but-no-causal-inference",
-    "title": "QML - Week 9",
-    "section": "Causal narrative but no causal inference",
-    "text": "Causal narrative but no causal inference\n\n\n\n\nWhile this approach provides evidence of temporal precedence, it does not establish causality. Proper causal inference would require experimental, quasi-experimental or intervention-based designs.\n\n\n\n\n\n\n\n\nProblematic for two reasons:\n\n“protects” is causal.\nCausal Inference can be achieved with observational studies when using causal inference approaches, like Directed Acyclic Graphs."
-  },
-  {
-    "objectID": "lectures/week-10.html#reactions-on-social-media",
-    "href": "lectures/week-10.html#reactions-on-social-media",
-    "title": "QML - Week 9",
-    "section": "Reactions on social media",
-    "text": "Reactions on social media\nDoing non-causal inference (and being explicit about it), yet using a causal word as second word in the title. \n\nIf you pay Nature € 10.690, they will publish this in Nature Ageing.\n\nI can tell you what I think of that for free.\n\nwww.nature.com/articles/s43...[image or embed]— Casper Albers 🟥 (@casperalbers.nl) 11 November 2025 at 07:58"
-  },
-  {
-    "objectID": "lectures/week-10.html#reactions-on-social-media-1",
-    "href": "lectures/week-10.html#reactions-on-social-media-1",
-    "title": "QML - Week 9",
-    "section": "Reactions on social media",
-    "text": "Reactions on social media\nThis slide unfortunately generalizes well 🥲[image or embed]— Julia M. Rohrer (@dingdingpeng.the100.ci) 11 November 2025 at 09:25"
-  },
-  {
-    "objectID": "lectures/week-10.html#reactions-on-social-media-2",
-    "href": "lectures/week-10.html#reactions-on-social-media-2",
-    "title": "QML - Week 9",
-    "section": "Reactions on social media",
-    "text": "Reactions on social media\nI personally think this is a \"harder problem\" than we care to admit.\n\nSo, are you a (social) scientist struggling with this situation? A break between what you _want_ to study (a causal process) and what you feel you _can_ credibly study (a correlation)?\n\nHere are some readings that might help. 👇[image or embed]— Dan de Kadt  (@dandekadt.bsky.social) 11 November 2025 at 11:24"
-  },
-  {
-    "objectID": "lectures/week-10.html#missing-variables",
-    "href": "lectures/week-10.html#missing-variables",
-    "title": "QML - Week 9",
-    "section": "Missing variables",
-    "text": "Missing variables\n\n\n\n\nChildhood socio-economic background (parental education, early-life deprivation)\nLifetime SES (income, wealth, occupational class)\nIndividual migration history (country of birth, age at migration, duration of residence)\nDetailed multilingualism measures (age of acquisition, proficiency, frequency of use, context of use)\nGenetic predispositions (e.g., APOE, family history of dementia)\nEarly-life health factors (childhood illnesses, nutrition, developmental conditions)\nAdditional health behaviours (smoking, diet, exercise, alcohol misuse, social networks)\nSurvey/measurement-related factors (selection bias, attrition, exposure misclassification)\nTime-varying confounders (changes in SES, language use, and health over the life course)"
-  },
-  {
-    "objectID": "lectures/week-10.html#case-study-2-intrinsic-vowel-duration",
-    "href": "lectures/week-10.html#case-study-2-intrinsic-vowel-duration",
-    "title": "QML - Week 9",
-    "section": "Case study 2: intrinsic vowel duration",
-    "text": "Case study 2: intrinsic vowel duration\n\n\n\n\nIntrinsic vowel duration: high vowels are shorter and low vowels are longer (Lieberman and Kubaska 1979).\nThree explanatory models:\n\nDuration as articulatory distance (Turk et al. 1994).\nDuration as a vowel-specific target (Toivonen et al. 2015; Bermúdez-Otero 2010).\nBoth articulatory distance and vowel-specific target (Coretta 2025)."
-  },
-  {
-    "objectID": "lectures/week-10.html#coretta2025b-directed-acyclic-graphs",
-    "href": "lectures/week-10.html#coretta2025b-directed-acyclic-graphs",
-    "title": "QML - Week 9",
-    "section": "Coretta (2025): Directed Acyclic Graphs",
-    "text": "Coretta (2025): Directed Acyclic Graphs\n\n\nFigure 1: DAGs representing three explanatory models of intrinsic vowel duration.\n\n\n\n\n\nCoretta (2025) suggests C: articulatory distance + (possibly) vowel-specific target."
-  },
-  {
-    "objectID": "lectures/week-10.html#limitations",
-    "href": "lectures/week-10.html#limitations",
-    "title": "QML - Week 9",
-    "section": "Limitations",
-    "text": "Limitations\n\n\n\n\nF1 is only a proxy for articulation: it conflates articulatory distance and peak velocity.\nThere might be other explanations than “vowel-specific category”. For example, optimisation process in the XT/3C model (Turk and Shattuck-Hufnagel 2020a, 2020b; Elie et al. 2023; Elie, Šimko, et al. 2024; Elie, Simko, et al. 2024)."
-  },
-  {
-    "objectID": "lectures/week-10.html#future-study",
-    "href": "lectures/week-10.html#future-study",
-    "title": "QML - Week 9",
-    "section": "Future study",
-    "text": "Future study\n\n\n\n\nDirect articulatory data.\nRevised Directed Acyclic Graphs.\nFraming in light of alternative explanations."
-  },
-  {
-    "objectID": "lectures/week-10.html#explanatory-models",
-    "href": "lectures/week-10.html#explanatory-models",
-    "title": "QML - Week 9",
-    "section": "Explanatory models",
-    "text": "Explanatory models\n\n\n\n\nDuration as articulatory distance.\nDuration as other than articulatory distance (different possible processes: categorical specification or optimisation process).\nBoth articulatory distance and other than articulatory distance (different possible processes: categorical specification or optimisation process).\n\n\n\n\n\n\n\n\n\nDifferentiate between categorical specification and optimisation."
-  },
-  {
-    "objectID": "lectures/week-10.html#revised-dag",
-    "href": "lectures/week-10.html#revised-dag",
-    "title": "QML - Week 9",
-    "section": "Revised DAG",
-    "text": "Revised DAG\n\nDAGitty demo."
-  },
-  {
-    "objectID": "lectures/week-10.html#adjustment-sets",
-    "href": "lectures/week-10.html#adjustment-sets",
-    "title": "QML - Week 9",
-    "section": "Adjustment sets",
-    "text": "Adjustment sets\n\n\n\nTo estimate the direct causal effect of vowel and speech rate on distance:\n\nNo adjustment needed.\n\nTo estimate the direct causal effect of distance on peak velocity:\n\nvowel, speech rate.\n\nTo estimate the direct causal effect of distance on duration:\n\nvowel, speech rate, peak velocity."
-  },
-  {
-    "objectID": "lectures/week-10.html#power-law-and-log-log-form",
-    "href": "lectures/week-10.html#power-law-and-log-log-form",
-    "title": "QML - Week 9",
-    "section": "Power law and log-log form",
-    "text": "Power law and log-log form\n\\[\n\\begin{aligned}\nV_p & = k \\cdot D^\\alpha\\\\\nln(V_p) & = ln(k) + \\alpha \\cdot ln(D)\n\\end{aligned}\n\\]\n\n\n\n\nPeak velocity \\(V_p\\) is equal to the product of a constant \\(k\\) and distance \\(D\\) raised to the power of \\(\\alpha\\).\nEquivalently, logged peak velocity is equal to logged \\(k\\) plus the product of \\(\\alpha\\) and logged distance.\n\n\n\n\n\n\\[\ny = \\beta_0 + \\beta_1 \\cdot x\n\\]\n\n\n\nIn R: log(dur) ~ 1 + log(dist)"
-  },
-  {
-    "objectID": "lectures/week-10.html#multivariate-regression-model",
-    "href": "lectures/week-10.html#multivariate-regression-model",
-    "title": "QML - Week 9",
-    "section": "Multivariate regression model",
-    "text": "Multivariate regression model\nivd_bf &lt;- bf(\n  dist_log ~ vowel + speech_rate_log + (vowel | speaker),\n  \n  pvel_log ~ dist_log * vowel + speech_rate_log + (dist_log * vowel | speaker),\n  \n  dur_log ~ dist_log * vowel + pvel_log * vowel + speech_rate_log +\n    (dist_log * vowel + pvel_log * vowel | speaker)\n)\n\nThen\nivd_bm &lt;- brm(\n  ivd_bf,\n  family = gaussian,\n  data = ...\n)"
-  },
-  {
-    "objectID": "lectures/week-10.html#good-luck",
-    "href": "lectures/week-10.html#good-luck",
-    "title": "QML - Week 9",
-    "section": "Good luck!",
-    "text": "Good luck!\n\n\n\nYou learned a lot, but there is a lot more to learn!"
-  },
-  {
-    "objectID": "lectures/week-10.html#references",
-    "href": "lectures/week-10.html#references",
-    "title": "QML - Week 9",
-    "section": "References",
-    "text": "References\n\n\n\n\nAmoruso, Lucia, Hernan Hernandez, Hernando Santamaria-Garcia, et al. 2025. “Multilingualism Protects Against Accelerated Aging in Cross-Sectional and Longitudinal Analyses of 27 European Countries.” Nature Aging 5 (11): 2340–54. https://doi.org/10.1038/s43587-025-01000-2.\n\n\nBermúdez-Otero, Ricardo. 2010. “Morphologically Conditioned Phonetics? Not Proven.” On Linguistic Interfaces II, Belfast 2.\n\n\nCoretta, Stefano. 2025. “Is \"Intrinsic Vowel Duration\" Bio-Mechanical or More? Preliminary Results from Northwestern Italian.” Language and Speech.\n\n\nElie, Benjamin, David N. Lee, and Alice Turk. 2023. “Modeling Trajectories of Human Speech Articulators Using General Tau Theory.” Speech Communication 151: 2438. https://doi.org/10.1016/j.specom.2023.04.004.\n\n\nElie, Benjamin, Juraj Simko, and Alice Turk. 2024. “Interspeech 2024.” September 1, 3610–14. https://doi.org/10.21437/Interspeech.2024-822.\n\n\nElie, Benjamin, Juraj Šimko, and Alice Turk. 2024. “Optimization-Based Planning of Speech Articulation Using General Tau Theory.” Speech Communication 160: 103083. https://doi.org/10.1016/j.specom.2024.103083.\n\n\nLieberman, Philip, and Cathy Kubaska. 1979. “Intrinsic Vowel Duration and Formant Frequencies: Data from Speech Acquisition.” The Journal of the Acoustical Society of America 65 (S1): S34S34. https://doi.org/10.1121/1.2017216.\n\n\nToivonen, Ida, Lev Blumenfeld, Andrea Gormley, et al. 2015. “Vowel Height and Duration.” Edited by Ulrike Steindl, Thomas Borer, Huilin Fang, et al. Vol. 32. Somerville, MA: Cascadilla Proceedings Project.\n\n\nTurk, Alice, Melanie Matthies, Joseph Perkell, and Mario Svirsky. 1994. “On Explaining Intrinsic Vowel Duration Differences: An Electromagnetic Midsagittal Articulometer (EMMA) Study.” The Journal of the Acoustical Society of America 96: 33263326. https://doi.org/10.1121/1.410723.\n\n\nTurk, Alice, and Stefanie Shattuck-Hufnagel. 2020a. Speech Timing: Implications for Theories of Phonology, Phonetics, and Speech Motor Control. Oxford Studies in Phonology and Phonetics. Oxford: Oxford University Press.\n\n\nTurk, Alice, and Stefanie Shattuck-Hufnagel. 2020b. “Timing Evidence for Symbolic Phonological Representations and Phonology-Extrinsic Timing in Speech Production.” Frontiers in Psychology 10 (January): 2952. https://doi.org/10.3389/fpsyg.2019.02952."
+    "objectID": "lectures/week-10.html#you-learned-a-lot-but-there-is-a-lot-more-to-learn",
+    "href": "lectures/week-10.html#you-learned-a-lot-but-there-is-a-lot-more-to-learn",
+    "title": "QML - Week 10",
+    "section": "You learned a lot, but there is a lot more to learn!",
+    "text": "You learned a lot, but there is a lot more to learn!"
   },
   {
     "objectID": "workshops/week-02.html",
