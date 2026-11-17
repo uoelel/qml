@@ -133,6 +133,13 @@
     "text": "Open Research in practice\n\n\n\n\n\nQuarto projects and documents.\n\n\n\n\n\n\n\nVersion control with git and GitHub/GitLab.\n\n\n\n\n\n\n\n\n\nSharing research compendia on Zenodo.\n\n\n\n\n\n\n\nSharing manuscripts on preprint servers.\n\n\n\n\n\n\n\n\n\nLicense your work for reuse."
   },
   {
+    "objectID": "lectures/week-09.html#a-bad-example",
+    "href": "lectures/week-09.html#a-bad-example",
+    "title": "QML - Week 9",
+    "section": "A (bad) example",
+    "text": "A (bad) example\n\nhttps://doi.org/10.1080/10255842.2026.2751469, Computer Methods in Biomechanics and Biomedical Engineering"
+  },
+  {
     "objectID": "lectures/week-09.html#references",
     "href": "lectures/week-09.html#references",
     "title": "QML - Week 9",
@@ -578,7 +585,7 @@
     "href": "content.html#schedule-overview",
     "title": "Course content",
     "section": "2 Schedule overview",
-    "text": "2 Schedule overview\n\n\n\n\n\n\n\nPDF version of the slides\nThe lecture slides linked below are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF.\n\n\n\n\nThe following table is a schedule overview of the course, with links to lecture slides and workshop instructions. Due dates for assessments are also included. See Assessments for more info. The emojis next to the lectures from Week 2 on indicate whether the lecture contains group activities 🎮 or whether it is a standard frontal lecture 👨‍🏫. Note that all lectures will have a standard lecture component at varying rates to accompany the activities.\n\n\n\nWeek\nLecture\nWorkshop\nAssessment\n\n\n\n\n1\nOnboarding\n\n\n\n\n2\n🎮 Research methods\nR basics\n\n\n\n3\n🎮 Inference, uncertainty and variability\nSummarise, count and group data\n\n\n\n4\n🎮 Questionable Research Practices\nPlot basics\nSelf-reflection\n\n\n5\n👨‍🏫 Intro to statistical modelling\nGaussian models with brms\n\n\n\n6\n👨‍🏫 Regression basics with brms\nRegression basics and posteriors draws\nQuiz 1\n\n\n7\n🎮 Null Ritual\nCategorical predictors in regression\n\n\n\n8\n👨‍🏫 Bernoulli regression\nBernoulli and log-normal regression\nGroup project proposal\n\n\n9\n👨‍🏫 Open research\nMultiple predictors and interactions\nSelf-reflection\n\n\n10\n👨‍🏫 Case study\nGroup project\nQuiz 2\n\n\n11\n\n(Optional) Group project\n\n\n\n12\n\n\nFinal reflection and Group project"
+    "text": "2 Schedule overview\n\n\n\n\n\n\n\nPDF version of the slides\nThe lecture slides linked below are HTML documents that are rendered in your browser. If you wish to download a PDF version of them, click on the hamburger menu (bottom-left corner), click on the cog “Tools” and select “PDF export mode”. Then, use the method for your specific browser to print the page to PDF.\n\n\n\n\nThe following table is a schedule overview of the course, with links to lecture slides and workshop instructions. Due dates for assessments are also included. See Assessments for more info. The emojis next to the lectures from Week 2 on indicate whether the lecture contains group activities 🎮 or whether it is a standard frontal lecture 👨‍🏫. Note that all lectures will have a standard lecture component at varying rates to accompany the activities.\n\n\n\nWeek\nLecture\nWorkshop\nAssessment\n\n\n\n\n1\nOnboarding\n\n\n\n\n2\n🎮 Research methods\nR basics\n\n\n\n3\n🎮 Inference, uncertainty and variability\nSummarise, count and group data\n\n\n\n4\n🎮 Questionable Research Practices\nPlot basics\nSelf-reflection\n\n\n5\n👨‍🏫 Intro to statistical modelling\nGaussian models with brms\n\n\n\n6\n👨‍🏫 Regression basics with brms\nRegression basics and posteriors draws\nQuiz 1\n\n\n7\n🎮 Null Ritual\nCategorical predictors in regression\n\n\n\n8\n👨‍🏫 Bernoulli regression\nBernoulli and log-normal regression\nGroup project proposal\n\n\n9\n👨‍🏫 Open research\nMultiple predictors and interactions\nSelf-reflection\n\n\n10\n👨‍🏫 Live demo\nGroup project\nQuiz 2\n\n\n11\n\n(Optional) Group project\n\n\n\n12\n\n\nFinal reflection and Group project"
   },
   {
     "objectID": "content.html#topics-overview",
@@ -1097,12 +1104,5 @@
     "title": "Workshop: Week 8",
     "section": "2 Log-normal model",
     "text": "2 Log-normal model\n\n\n\n\n\n\nNoteTask D: Vowel duration\n\n\n\n\nData docs.\nData: coretta2018a/ita_egg.rda.\nHow does vowel duration (v1_duration) differ by vowel type (vowel)?\nDiscuss the results with your group (no need to write the discussion)."
-  },
-  {
-    "objectID": "lectures/week-09.html#a-bad-example",
-    "href": "lectures/week-09.html#a-bad-example",
-    "title": "QML - Week 9",
-    "section": "A (bad) example",
-    "text": "A (bad) example\n\nhttps://doi.org/10.1080/10255842.2026.2751469, Computer Methods in Biomechanics and Biomedical Engineering"
   }
 ]

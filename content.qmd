@@ -44,7 +44,7 @@ Note that all lectures will have a standard lecture component at varying rates t
 | 7 | 🎮 [Null Ritual](lectures/week-07.qmd) | [Categorical predictors in regression](workshops/week-07.qmd) |  |
 | 8 | 👨‍🏫 [Bernoulli regression](lectures/week-08.qmd) | [Bernoulli and log-normal regression](workshops/week-08.qmd) | Group project proposal |
 | 9 | 👨‍🏫 [Open research](lectures/week-09.qmd) | [Multiple predictors and interactions](workshops/week-09.qmd) | Self-reflection |
-| 10 | 👨‍🏫 [Case study](lectures/week-10.qmd) | Group project | Quiz 2 |
+| 10 | 👨‍🏫 [Live demo](lectures/week-10.qmd) | Group project | Quiz 2 |
 | 11 |  | (Optional) Group project |  |
 | 12 |  |  | Final reflection and Group project |
 

@@ -1,6 +1,6 @@
 ---
 title: "QML - Week 10"
-subtitle: "What's next?"
+subtitle: "Live demo"
 author: "Stefano Coretta"
 format: revealjs
 bibliography: references.bib
