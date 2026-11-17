@@ -194,16 +194,49 @@ Replicable results do not imply correct conditional inference and non-replicable
 
 ## Open Research in practice
 
+::::::: columns
+:::: {.column width="50%"}
 ::: {.callout-note appearance="simple"}
-- [Quarto](https://quarto.org) projects and documents.
-
-- Version control with [git](https://git-scm.com) and [GitHub](https://github.com)/[GitLab](https://about.gitlab.com).
-
-- Sharing research compendia on [Zenodo](https://zenodo.org).
-
-- Sharing manuscripts on [preprint servers](https://spi-hub.app.vumc.org/pp-service/browse).
-
-- License your work for reuse.
+[Quarto](https://quarto.org) projects and documents.
 :::
+::::
+
+:::: {.column .fragment width="50%"}
+::: {.callout-note appearance="simple"}
+Version control with [git](https://git-scm.com) and [GitHub](https://github.com)/[GitLab](https://about.gitlab.com).
+:::
+::::
+:::::::
+
+::::::: columns
+:::: {.column .fragment width="50%"}
+::: {.callout-note appearance="simple"}
+Sharing research compendia on [Zenodo](https://zenodo.org).
+:::
+::::
+
+:::: {.column .fragment width="50%"}
+::: {.callout-note appearance="simple"}
+Sharing manuscripts on [preprint servers](https://spi-hub.app.vumc.org/pp-service/browse).
+:::
+::::
+:::::::
+
+:::::: columns
+:::: {.column .fragment width="50%"}
+::: {.callout-note appearance="simple"}
+License your work for reuse.
+:::
+::::
+
+::: {.column width="50%"}
+:::
+::::::
+
+## A (bad) example
+
+![](/img/on-request.png)
+
+<https://doi.org/10.1080/10255842.2026.2751469>, Computer Methods in Biomechanics and Biomedical Engineering
 
 ## References

@@ -130,7 +130,7 @@
     "href": "lectures/week-09.html#open-research-in-practice",
     "title": "QML - Week 9",
     "section": "Open Research in practice",
-    "text": "Open Research in practice\n\n\n\n\nQuarto projects and documents.\nVersion control with git and GitHub/GitLab.\nSharing research compendia on Zenodo.\nSharing manuscripts on preprint servers.\nLicense your work for reuse."
+    "text": "Open Research in practice\n\n\n\n\n\nQuarto projects and documents.\n\n\n\n\n\n\n\nVersion control with git and GitHub/GitLab.\n\n\n\n\n\n\n\n\n\nSharing research compendia on Zenodo.\n\n\n\n\n\n\n\nSharing manuscripts on preprint servers.\n\n\n\n\n\n\n\n\n\nLicense your work for reuse."
   },
   {
     "objectID": "lectures/week-09.html#references",
@@ -1097,5 +1097,12 @@
     "title": "Workshop: Week 8",
     "section": "2 Log-normal model",
     "text": "2 Log-normal model\n\n\n\n\n\n\nNoteTask D: Vowel duration\n\n\n\n\nData docs.\nData: coretta2018a/ita_egg.rda.\nHow does vowel duration (v1_duration) differ by vowel type (vowel)?\nDiscuss the results with your group (no need to write the discussion)."
+  },
+  {
+    "objectID": "lectures/week-09.html#a-bad-example",
+    "href": "lectures/week-09.html#a-bad-example",
+    "title": "QML - Week 9",
+    "section": "A (bad) example",
+    "text": "A (bad) example\n\nhttps://doi.org/10.1080/10255842.2026.2751469, Computer Methods in Biomechanics and Biomedical Engineering"
   }
 ]
