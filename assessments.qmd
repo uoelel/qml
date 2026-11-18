@@ -308,6 +308,13 @@ The Group Project has the following further requisites.
   I recommend groups of 3-5 people, but you can work in pairs (solo projects will be allowed only if part of learning adjustments).
 :::
 
+::: callout-tip
+### Example report
+
+You can find an example report at <https://github.com/uoelel/qml-report>.
+This report would obtain a 75.
+:::
+
 Things to keep in mind:
 
 - **Background**.
