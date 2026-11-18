@@ -42,3 +42,15 @@ format: html
 
 - Discuss the results with your group (no need to write the discussion).
 :::
+
+::: callout-note
+## Task C: Vowel duration
+
+- [Data docs](https://uoelel.github.io/qml-data/data/coretta2018a/ita_egg.html).
+
+- Data: `coretta2018a/ita_egg.rda`.
+
+- Does the effect of speech rate (`speech_rate`) on vowel duration (`v1_duration`) differ by vowel type (`vowel`)?
+
+- Discuss the results with your group (no need to write the discussion).
+:::
