@@ -19,8 +19,11 @@ format: html
 ::: callout-note
 ## Task A: Shallow Structure Hypothesis
 
-- Read the `song2020/shallow.csv` data.
-  Filter the data so it contains only critical trials.
+- [Data docs](https://uoelel.github.io/qml-data/data/song2020/shallow.html).
+
+- Data: `song2020/shallow.csv`.
+
+- Filter the data so it contains only critical trials.
 
 - Fit a regression model to answer the following question: how does the effect of relation type of prime-target on accuracy differ in L1 vs L2 participants?
 
@@ -33,7 +36,9 @@ format: html
 ::: callout-note
 ## Task B: Pupil width
 
-- Read the `mclaughlin2023/pupil-width.csv` data.
+- [Data docs](https://uoelel.github.io/qml-data/data/mclaughlin2023/pupil-width.html).
+
+- Data: `mclaughlin2023/pupil-width.csv`.
 
 - Fit a regression model to answer the following question: does the density of the neighbourhood affect maximum pupil size in old vs young adults differently?
 
